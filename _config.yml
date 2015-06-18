@@ -1,14 +1,13 @@
 # Site settings
-title: Where we merge xlsx files into TFS feature branches
-email: your-email@domain.com
+title: Western Devs
+email: info@westerndevs.com
 description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  We're but a humble group of amazing developers with a 
+  common trait: we're all west of somewhere else.
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://yourdomain.com" # the base hostname & protocol for your site
-twitter_username: jekyllrb
-github_username:  jekyll
+url: "http://www.westerndevs.com" # the base hostname & protocol for your site
+twitter_username: westerndevs
+github_username:  westerndevs
 
 # Build settings
 markdown: kramdown
