@@ -20,5 +20,6 @@ The current active roster is:
 * Dave Paquette
 * Simon Timms
 * Dylan Smith
+* Dave Wesst
 * Dave White
 * Dave Woods
