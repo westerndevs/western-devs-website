@@ -1,25 +1,18 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
+title:  "We're all west of someplace"
 date:   2015-06-17 20:09:05
-categories: jekyll update
+author: Kyle Baley
+categories:
 ---
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
-To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+Western Devs is live!
 
-Jekyll also offers powerful support for code snippets:
+Some years ago, a...unique...group of developers would gather at conferences and talk. They'd talk about software practices, interesting tools, and smoked meat. Whatever the topic, it was always lively and, on occasion, productive.
 
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
+Eventually, a young visionary by the name of Dave Woods formed an ad hoc mailing list for these developers to continue the conversation between conferences. Members came and went and the list eventually moved to Slack. But over the years, the underlying conversations remained the same, low on ego, high on either technical content or entertainment value, often both.
 
-Check out the [Jekyll docs][jekyll] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll’s dedicated Help repository][jekyll-help].
+WesternDevs.com is our attempt to bring that value to the masses. In these pages, you'll delve into the hearts, the minds, indeed the very *souls* of the people behind WesternDevs. And you'll come out the richer for it.
 
-[jekyll]:      http://jekyllrb.com
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-help]: https://github.com/jekyll/jekyll-help
+So welcome to our little cabana. Look around and join the conversation.
+

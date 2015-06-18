@@ -1,11 +1,24 @@
 ---
 layout: page
-title: About
-permalink: /about/
+title: Who We Are
+permalink: /whoweare/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+Founded by Dave Woods, Western Devs is a passionary group that grew out of a small mailing list of developers who would cross paths during conferences. Over the years, the group has proved to be of tremendous value to its members through its balance of technical content and camaraderie. Western Devs is our attempt to share that content without diluting its value.
 
-You can find the source code for the Jekyll new theme at: [github.com/jglovier/jekyll-new](https://github.com/jglovier/jekyll-new)
+In these pages, you'll find posts, publications, and upcoming talks by our members. You'll find posts summarizing some of our technical discussions and, if you follow us on [Twitter](https://twitter.com/{{ site.twitter_username }}), a summary of our not-so-technical discussions.
 
-You can find the source code for Jekyll at [github.com/jekyll/jekyll](https://github.com/jekyll/jekyll)
+The current active roster is:
+
+* Kyle Baley
+* Amir Barylko
+* Donald Belcham
+* James Chambers
+* Shane Courtrille
+* D'Arcy Lussier
+* Tom Opgenorth
+* Dave Paquette
+* Simon Timms
+* Dylan Smith
+* Dave White
+* Dave Woods
