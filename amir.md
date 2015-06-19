@@ -1,4 +1,11 @@
-Bio: Amir Barylko started his career in 1994 working for IBM as a senior developer while he was finishing his Masters degree in computer science. Since then he worked as team leader and architect for the past 15 years.
+---
+layout: bio
+title: Amir Barylko
+permalink: /amirbarylko/
+exclude_from_nav: true
+---
+
+Amir started his career in 1994 working for IBM as a senior developer while he was finishing his Masters degree in computer science. Since then he worked as team leader and architect for the past 15 years.
 
 Having started with languages like C++ and Java he spent many years coding in C# and training other developers in topics such domain modelling, abstractions, patterns, automation, dependency injection, testing, etc.
 

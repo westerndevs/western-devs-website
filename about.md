@@ -11,7 +11,7 @@ In these pages, you'll find posts, publications, and upcoming talks by our membe
 The current active roster is:
 
 * Kyle Baley
-* Amir Barylko
+* [Amir Barylko](/amirbarylko)
 * Donald Belcham
 * James Chambers
 * Shane Courtrille
