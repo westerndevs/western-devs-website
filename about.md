@@ -15,6 +15,7 @@ The current active roster is:
 * Donald Belcham
 * James Chambers
 * Shane Courtrille
+* Yair Alan Griver
 * D'Arcy Lussier
 * Tom Opgenorth
 * Dave Paquette
@@ -23,3 +24,4 @@ The current active roster is:
 * Dave Wesst
 * Dave White
 * Dave Woods
+
