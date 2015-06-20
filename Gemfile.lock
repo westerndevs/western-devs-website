@@ -135,6 +135,4 @@ PLATFORMS
 DEPENDENCIES
   github-pages (= 37)
   jekyll-slim
-
-BUNDLED WITH
-   1.10.4
+  json
