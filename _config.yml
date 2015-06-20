@@ -1,0 +1,13 @@
+# Site settings
+title: Western Devs
+email: info@westerndevs.com
+description: > # this means to ignore newlines until "baseurl:"
+  We're but a humble group of amazing developers with a 
+  common trait: we're all west of somewhere else.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://www.westerndevs.com" # the base hostname & protocol for your site
+twitter_username: westerndevs
+github_username:  westerndevs
+
+# Build settings
+markdown: kramdown
