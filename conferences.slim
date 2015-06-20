@@ -1,0 +1,21 @@
+p Western Devs are active speakers. Take a look and see if we'll be in your area.
+
+ul.events
+  {% assign today = 'today' | date: "%Y-%m-%d" %}
+  {% assign items = site.data.conferences  | sort: 'date' %}
+  {% for event in items %}
+  {% assign ed = event.date | date: "%Y-%m-%d" %}
+  {% if ed >= today %}
+  li.event
+    .date
+      .month {{event.date | date: '%b'}}
+      .year  {{event.date | date: '%Y'}}
+    .info
+      .link
+        span {{event.speaker}} @ 
+        a href="{{event.link}}" {{event.event}}
+      .topic {{event.topic}} 
+      .location {{event.location}}
+  {% endif %}
+  {% endfor %}
+

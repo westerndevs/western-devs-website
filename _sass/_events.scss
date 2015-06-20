@@ -1,0 +1,36 @@
+.events {
+  list-style-type: none;
+  margin-left:0;
+  
+  .event {
+    min-height: 100px;
+    vertical-align: top;
+    .date {
+      display: inline-block;
+      text-align: center;
+      vertical-align: top;
+      margin-right: 10px;
+      .month {
+        border: 1px solid $grey-color;
+        border-radius: 5px 5px 0 0;
+        padding: 5px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+      .year {
+        border-radius: 0 0 5px 5px;
+        padding: 5px 10px;
+        background: $grey-color;
+        color: #fff;
+      }
+    }
+    .info {
+      display:inline-block;
+      
+      .topic { 
+        font-weight: bold;
+        font-style:italic;
+      }
+    }
+  }
+}
