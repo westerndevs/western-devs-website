@@ -1,0 +1,14 @@
+- title: Bootstrapping MVC
+  url: https://leanpub.com/bootstrappingmvc
+  image: BootstrappingMVC.jpg
+  author: James Chambers
+
+- title: Evolving ASP.net Applications
+  url: https://leanpub.com/evolvinglegacyaspnetapplications
+  image: EvolvingAspNet.png
+  author: Simon Timms and David Paquette
+
+- title: Brownfield Application Development in .NET
+  url: http://www.amazon.com/Brownfield-Application-Development-Donald-Belcham/dp/1933988711
+  image: BrownfieldAppDevCover.jpg
+  author: Donald Belcham and Kyle Baley
