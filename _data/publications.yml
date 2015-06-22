@@ -8,6 +8,16 @@
   image: EvolvingAspNet.png
   author: Simon Timms and David Paquette
 
+- title: Mastering JavaScript Design Patterns
+  url: https://www.packtpub.com/application-development/mastering-javascript-design-patterns
+  image: MasteringJavaScriptDesignPatterns.jpg
+  author: Simon Timms
+
+- title: Social Data Visualization with HTML5 and JavaScript
+  url: https://www.packtpub.com/big-data-and-business-intelligence/social-data-visualization-html5-and-javascript
+  image: SocialDataVisualization.jpg
+  author: Simon Timms
+
 - title: Brownfield Application Development in .NET
   url: http://www.amazon.com/Brownfield-Application-Development-Donald-Belcham/dp/1933988711
   image: BrownfieldAppDevCover.jpg
