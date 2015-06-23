@@ -2,9 +2,10 @@
 layout: post
 title:  "Conference recap extravaganza!"
 date:   2015-06-11 20:09:05
-author: Dave Wesst
+author: dave_wesst
 originalurl: http://www.davidwesst.com/conference-recap-extravaganza/
 categories:
+comments: true
 ---
 
 I've been head down preparing and delivering presentations all over the place for the past few weeks, and wanted to share the latest happenings, along with where you can get your hands on the material if you weren't able to attend.

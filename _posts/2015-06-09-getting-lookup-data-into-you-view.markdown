@@ -2,9 +2,10 @@
 layout: post
 title:  "Getting lookup data into your view ASP.net MVC 6 version"
 date:   2015-06-09 20:09:05
-author: Simon Timms
+author: simon_timms
 originalurl: http://blog.simontimms.com/2015/06/09/getting-lookup-data-into-you-view
 categories:
+comments: true
 ---
 
 This is a super common problem I encounter when building ASP.net MVC applications. I have a form that has a drop down box. Not only do I need to select the correct item from the edit model to pick from the drop down but I need to populate the drop down with the possible values.

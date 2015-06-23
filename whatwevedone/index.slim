@@ -1,7 +1,12 @@
 ---
 layout: page
 title: What We've Done
-permalink: /whatwevedone/
+modified: 2015-06-22
+excerpt: "Books, software, an articles created by Western Devs."
+image:
+  feature: 
+  credit: 
+  creditlink: 
 ---
 
 p Western Devs isn't all talk. Some of us have written books, built apps, created code, and otherwise done stuff to make our mothers proud.
@@ -9,9 +14,12 @@ p Western Devs isn't all talk. Some of us have written books, built apps, create
 {% for pub in site.data.publications %}
 .publication
     .image
-        img src="/images/{{pub.image}}"
+        a href="{{pub.url}}" target="_blank"
+        	img src="/images/{{pub.image}}"
     .content
         h4: a href="{{pub.url}}" target="_blank" {{pub.title}}
         span By: {{pub.author}}
 
 {% endfor %}
+
+div style="clear: both;"
