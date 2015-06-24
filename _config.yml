@@ -1,13 +1,60 @@
-# Site settings
-title: Western Devs
-email: info@westerndevs.com
-description: > # this means to ignore newlines until "baseurl:"
-  We're but a humble group of amazing developers with a 
-  common trait: we're all west of somewhere else.
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://www.westerndevs.com" # the base hostname & protocol for your site
-twitter_username: westerndevs
-github_username:  westerndevs
+# Site wide configuration
 
-# Build settings
-markdown: kramdown
+title:            Western Devs
+locale:           en_US
+url:              
+
+
+# Jekyll configuration
+
+permalink:   /:categories/:title/
+markdown:    kramdown
+highlighter: pygments
+sass:
+  sass_dir: _sass
+  style: compressed
+gems:
+  - jekyll-sitemap
+
+kramdown:
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  use_coderay: false
+
+
+# Site owner
+owner:
+  name: Western Devs
+  avatar: luchador.png
+  bio: "We're but a humble group of amazing developers with a common trait: we're all west of somewhere else."
+  email: 
+  disqus-shortname: westerndevs
+  twitter: westerndevs
+  facebook: #username
+  google:
+    plus: #username
+    analytics: 
+    verify: 
+    ad-client: 
+    ad-slot: 
+  bing-verify: 
+  github: westerndevs
+  stackoverflow: #http://stackoverflow.com/users/123456/username
+  linkedin: #username
+  xing: #username
+  instagram: #username
+  lastfm: #username
+  tumblr: #username
+  pinterest: #username
+  foursquare: #username
+  steam: #username
+  dribbble: #username
+  youtube: #username
+  soundcloud: #username
+  weibo: #username
+  flickr: #username
+
+include: [".htaccess"]
+exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules", "Gemfile", "Gemfile.lock", "LICENSE", "README.md"]

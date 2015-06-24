@@ -11,7 +11,7 @@
       vertical-align: top;
       margin-right: 10px;
       .month {
-        border: 1px solid $grey-color;
+        border: 1px solid $grey;
         border-radius: 5px 5px 0 0;
         padding: 5px;
         text-transform: uppercase;
@@ -20,7 +20,7 @@
       .year {
         border-radius: 0 0 5px 5px;
         padding: 5px 10px;
-        background: $grey-color;
+        background: $grey;
         color: #fff;
       }
     }

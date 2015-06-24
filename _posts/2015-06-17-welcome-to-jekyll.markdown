@@ -2,8 +2,8 @@
 layout: post
 title:  "We're all west of someplace"
 date:   2015-06-17 20:09:05
-author: Kyle Baley
 categories:
+comments: true
 ---
 
 Western Devs is live!

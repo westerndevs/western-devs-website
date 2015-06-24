@@ -8,11 +8,11 @@
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   float: left;
   margin: 0 15px 25px;
-  min-height: 520px;
+  min-height: 480px;
 
   .image {
     position: relative;
-    height: 400px;
+    height: 380px;
 
     img {
       border-radius: 5px 5px 0 0;
@@ -21,7 +21,7 @@
   }
 
   .content {
-    padding: 20px;
+    padding: 15px 20px;
 
     h4 {
       font-size: 16px;

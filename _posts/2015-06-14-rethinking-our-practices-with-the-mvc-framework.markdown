@@ -2,9 +2,10 @@
 layout: post
 title:  "Rethinking our practices with the MVC framework"
 date:   2015-06-14 20:09:05
-author: James Chambers
+author: james_chambers
 originalurl: http://jameschambers.com/2015/06/rethinking-our-practices-with-the-mvc-framework/
 categories:
+comments: true
 ---
 
 We get set in our ways, don't we? It's funny how the sharper and more confident we get with our frameworks and the tooling we employ to work with them, we also get a little more attached to our way of doing things. And then along comes a major version change, ripe with breaking changes and new bits to twiddle and we're left saying, "But, that's not how we've always done it!".

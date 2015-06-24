@@ -2,9 +2,10 @@
 layout: post
 title:  "Creating custom MVC 6 Tag Helpers"
 date:   2015-06-22 20:09:05
-author: Dave Paquette
+author: dave_paquette
 originalurl: http://www.davepaquette.com/archive/2015/06/22/creating-custom-mvc-6-tag-helpers.aspx
 categories:
+comments: true
 ---
 In the last few blog posts, I have spent some time covering the tag helpers that are built in to MVC 6. While the built in tag helpers cover a lot of functionality needed for many basic scenarios, you might also find it beneficial to create your tag helpers from time to time.
 
