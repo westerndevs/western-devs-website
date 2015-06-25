@@ -743,3 +743,8 @@ $button-size: 1.5rem;
 .original-url a {
 	color: #2a7ae2;
 }
+
+.nav a, .headline-wrap a, .site-name a, #index h3 a {
+	color: $basecolor;
+}
+
