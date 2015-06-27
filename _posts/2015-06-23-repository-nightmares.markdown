@@ -5,6 +5,7 @@ date: 2015-06-23 21:17:24 -0500
 author: amir_barylko
 originalurl: http://orthocoders.com/blog/2015/06/23/repository-nightmares
 categories: [.NET, ALM, Patterns, Database, Testing]
+comments: true
 ---
 
 The ```Repository``` pattern is a famous (or infamous?) pattern that we can find in Martin Fowler's _[Patterns of Enterprise Application Architecture](http://martinfowler.com/eaaCatalog/repository.html)_.
@@ -26,9 +27,9 @@ Have you ever felt that the ``Repositories`` in your code replicate at night? Yo
 I remember starting with something like this:
 
 {% highlight csharp %}
-  public interface ICustomerRepository {
-      IEnumerable<Customer> GetCustomers();
-  }
+public interface ICustomerRepository {
+  IEnumerable<Customer> GetCustomers();
+}
 {% endhighlight %}
 
 And then I needed to add queries such as find by ```Address```, find by ```Id``` and find which customers have pending invoices:
