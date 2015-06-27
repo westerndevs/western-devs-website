@@ -1,24 +1,30 @@
+- title: Brownfield Application Development in .NET
+  url: http://www.amazon.com/Brownfield-Application-Development-Donald-Belcham/dp/1933988711
+  image: BrownfieldAppDevCover.jpg
+  author: Donald Belcham and Kyle Baley
+  date: 2010-04-28
+
 - title: Bootstrapping MVC
   url: https://leanpub.com/bootstrappingmvc
   image: BootstrappingMVC.jpg
   author: James Chambers
+  date: 2014-08-25
 
 - title: Evolving ASP.net Applications
   url: https://leanpub.com/evolvinglegacyaspnetapplications
   image: EvolvingAspNet.png
   author: Simon Timms and David Paquette
+  date: 2015-05-20
 
 - title: Mastering JavaScript Design Patterns
   url: https://www.packtpub.com/application-development/mastering-javascript-design-patterns
   image: MasteringJavaScriptDesignPatterns.jpg
   author: Simon Timms
+  date: 2014-11-01
 
 - title: Social Data Visualization with HTML5 and JavaScript
   url: https://www.packtpub.com/big-data-and-business-intelligence/social-data-visualization-html5-and-javascript
   image: SocialDataVisualization.jpg
   author: Simon Timms
+  date: 2013-09-01
 
-- title: Brownfield Application Development in .NET
-  url: http://www.amazon.com/Brownfield-Application-Development-Donald-Belcham/dp/1933988711
-  image: BrownfieldAppDevCover.jpg
-  author: Donald Belcham and Kyle Baley
