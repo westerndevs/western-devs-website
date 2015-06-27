@@ -4,6 +4,8 @@ title:            Western Devs
 locale:           en_US
 url:              http://www.westerndevs.com
 
+excerpt_separator: <!--more-->
+
 
 # Jekyll configuration
 
