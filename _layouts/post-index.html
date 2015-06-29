@@ -45,10 +45,23 @@
         {% endif %}
       {% endunless %}
       <article>
+        {% assign author = site.data.authors[post.author] %}
+        
         {% if post.link %}
-          <h2 class="link-post"><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> <a href="{{ post.link }}" target="_blank" title="{{ post.title }}"><i class="fa fa-link"></i></a></h2>
+          <h2 class="link-post">
+            <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a> <a href="{{ post.link }}" target="_blank" title="{{ post.title }}"><i class="fa fa-link"></i></a>
+          </h2>
         {% else %}
-          <h2><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h2>
+          <h2>
+            <div><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></div>
+          </h2>
+          <div class='post-info'>
+            <span class='date'>{{ post.date | date: '%b %d' }}</span>
+            {% if author %}
+            by
+            <span class='author'><a href='{{ site.url }}/bios/{{post.author}}'>{{ author.name }}</a></span>
+            {% endif %}
+          </div>
           <p>{{ post.excerpt | strip_html | truncate: 160 }}</p>
         {% endif %}
       </article>

@@ -748,3 +748,13 @@ $button-size: 1.5rem;
 	color: $basecolor;
 }
 
+
+.post-index {
+  article {
+    .post-info {
+      font-style: italic;
+      margin-bottom: 5px;
+      margin-top: 5px;
+    }
+  }
+}
