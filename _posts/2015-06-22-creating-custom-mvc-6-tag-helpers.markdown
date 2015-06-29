@@ -11,6 +11,8 @@ In the last few blog posts, I have spent some time covering the tag helpers that
 
 In this post, I will show how you can easily create a simple tag helper to generate a Bootstrap progress bar. _NOTE: Thank you to [James Chambers][1] for giving me the idea to look at bootstrap components for ideas for custom tag helpers._
 
+<!--more-->
+
 Based on the documentation for the bootstrap [progress bar component][2], we need to write the following HTML to render a simple progress bar:
 
 {% highlight html %}
