@@ -13,12 +13,13 @@ dave_paquette:
 amir_barylko:
   name: Amir Barylko
   web: http://www.orthocoders.com/
-  email: 
+  email: amir@barylko.com
   bio: 
-  avatar: luchador.png
-  twitter: 
+  avatar: amir_barylko_320x325.jpg
+  twitter: abarylko
   google:
     plus: 
+  github: amirci
 
 kyle_baley:
   name: Kyle Baley
