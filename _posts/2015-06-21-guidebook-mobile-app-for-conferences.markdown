@@ -10,6 +10,8 @@ comments: true
 
 For Prairie Dev Con Regina I decided to use [Guidebook][1] – a service that provides a mobile application for conferences and events along with online administration/content-management tools. If you're running any sort of conference/event, you should definitely check it out! Overall I was really happy with it, only a few minor gripes. Here's my review.
 
+<!--more-->
+
 ![Image result for guidebook logo][2]
 
 The way Guidebook works is that you create your "Guidebook" on their website. Then your attendees download the Guidebook app and access your specific guidebook. There's different pricing tiers which grants different features, but for the free tier (which is capped at 200 downloads comes with almost all the key features. For PrDC Regina I used the following:

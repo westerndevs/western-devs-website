@@ -10,6 +10,8 @@ categories:
 
 In this post in my series exploring the ASP.NET 5 MVC 6 tag helpers, I will dig into the Cache Tag Helper. The Cache Tag Helper is a little different than most of the other tag helpers we talked about because it doesn't target a standard HTML tag. Instead, it wraps arbitrary content and allows those contents to be cached in memory based on the parameters you specify.
 
+<!--more-->
+
 ## How it works?
 
 Simply wrap the contents you want cached with a __ tag and the contents of the tag will be cached in memory. Before processing the contents of the cache tag, the tag helper will check to see if the contents have been stored in the MemoryCache. If the contents are found in the cache, then the cached contents are sent to Razor. If the contents are not found, then Razor will process the contents and the tag helper will store it in the memory cache for next time. By default, the cache tag helper is able to generate a unique ID based on the context of the cache tag helper.
