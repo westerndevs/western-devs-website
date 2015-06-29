@@ -4,7 +4,7 @@ title: "Repository nightmares"
 date: 2015-06-23 21:17:24 -0500
 author: amir_barylko
 originalurl: http://orthocoders.com/blog/2015/06/23/repository-nightmares
-categories: [NET, ALM, Patterns, Database, Testing]
+categories: [.NET, ALM, Patterns, Database, Testing]
 comments: true
 ---
 
