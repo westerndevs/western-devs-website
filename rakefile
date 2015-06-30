@@ -8,6 +8,7 @@ require "jekyll"
 # Change your GitHub reponame
 GITHUB_REPONAME = "westerndevs/western-devs-website"
 
+task :default => :serve
 
 namespace :site do
   desc "Generate blog files"
@@ -37,4 +38,18 @@ namespace :site do
       Dir.chdir pwd
     end
   end
+
+end
+
+# rake serve
+# rake serve["drafts"]
+desc "Serve and watch the site (with optional drafts)"
+task :serve, :option do |t, args|
+  option = args[:option]
+  if option == "drafts"
+    system "jekyll serve --config _config.yml,_config-dev.yml --drafts"
+  else
+    system "jekyll serve --config _config.yml,_config-dev.yml"
+  end
+  system "open http://localhost:4000"
 end
