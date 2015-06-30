@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "On UI Testing"
-date:   2015-06-29 20:09:05
+date:   2015-06-30 20:09:05
 author: kyle_baley 
-originalurl: 
+originalurl: http://kyle.baley.org/2015/06/on-ui-testing/
 categories:
 excerpt: What happens when 12 people gather to talk about UI testing?
 ---
@@ -30,6 +30,8 @@ One counter-argument was whether you could just have a comprehensive suite of in
 6) Verifies that you got an email
 
 This kind of integration test is hard to do, especially when you want to verify all the little UI things in between, like whether a success message showed up or whether the number of items in the shopping cart incremented by 1.
+
+We also had the opposite debate: If you have a comprehensive suite of UI tests and are practicing BDD, do you still need TDD and unit tests? That was an interesting side discussion that warrants a separate post.
 
 ### Maintenance
 
@@ -71,7 +73,9 @@ Of course, there's Selenium both the IDE and the driver. We mentioned it mostly 
 
 Some version of Visual Studio also provided support for UI tests, both recorded and coded. The CodedUI tests are supposed to have a pretty nice fluent interface and we generally agreed that coded tests are the way to go instead of recorded ones (as if that were ever in doubt).
 
-Also: [jasmine](http://jasmine.github.io/) and [PhantomJS](http://phantomjs.org/)
+Ed. note: Shout out to [Protractor](https://angular.github.io/protractor/#/) as well. We didn’t discuss it directly but as [Dave Paquette](http://www.westerndevs.com/bios/dave_paquette/) pointed out later, it helps avoid random Sleep calls in your tests because it knows how to wait until binding is done. Downside is that it’s specific to Angular.
+
+Also: [jasmine](http://jasmine.github.io/) and [PhantomJS](http://phantomjs.org/) got passing mentions, both favorable.
 
 ### Continuous Integration
 
