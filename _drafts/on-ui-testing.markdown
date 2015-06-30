@@ -39,6 +39,8 @@ You'll add `sleep` calls out of frustration and check in with only a vague hope 
 
 This doesn't really jibe with the "probably worth it" statement earlier. It depends on how often you have to revisit them and how much effort goes into it. From my experience, early on the answer to that is often and a lot. As you learn the tricks, it dwindles significantly.
 
+One of those tricks is the [PageObject pattern](http://martinfowler.com/bliki/PageObject.html). There was universal agreement that it is required when dealing with UI tests. I'll admit I hadn't heard of the pattern before the discussion but at the risk of sounding condescending, it sounds more like common sense than an actual pattern. It's something that, even if you don't implement it right away, you'll move toward naturally as you work with your UI tests.
+
 ### Data setup
 
 ...is hard, too. At least in the .NET world. Tools like [Tarantino](https://github.com/HeadspringLabs/Tarantino) can help by creating scripts to prime and tear down a database. You can also create an endpoint (on a web app) that will clear and reset your database with known data.
@@ -63,7 +65,7 @@ That said, you might get some quick bang for your buck going this route. I've ta
 
 I ain't gonna lie. I like Cucumber and [Capybara](https://github.com/jnicklas/capybara). I've tried [SpecFlow](http://www.specflow.org/) and it's probably as good as you can get in C#, which is decent enough. But it's hard to beat `fill_in 'Email', :with => 'hill@billy.edu'` for conciseness and readability. That said, do **not** underestimate the effort it takes to introduce Ruby to a .NET shop. There is a certain discipline required to maintain your tests and if everyone is scared to dive into your rakefile, you're already mixing stripes with plaid.
 
-We also discussed [Canopy](http://lefthandedgoat.github.io/canopy/) and while none of us has tried it, there was a general appreciation for how it looks. Seems to balance the readability of Capybara with the "it's still .NET" aspect of companies that fear anything non-Microsoft.
+We also discussed [Canopy](http://lefthandedgoat.github.io/canopy/) and there was a general appreciation for how it looks though [Amir](/bios/amir_barylko) is the only one who has actually used it. Seems to balance the readability of Capybara with the "it's still .NET" aspect of companies that fear anything non-Microsoft.
 
 Of course, there's Selenium both the IDE and the driver. We mentioned it mostly because you're supposed to.
 
