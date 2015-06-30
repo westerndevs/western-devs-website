@@ -1,15 +1,5 @@
 # Authors
 
-dave_paquette:
-  name: Dave Paquette
-  web: http://www.davepaquette.com/
-  email: contactme@davepaquette.com
-  bio: 
-  avatar: DavePaquette_300x241.jpg
-  twitter: Dave_Paquette
-  google:
-    plus: 
-
 amir_barylko:
   name: Amir Barylko
   web: http://www.orthocoders.com/
@@ -20,6 +10,60 @@ amir_barylko:
   google:
     plus: 
   github: amirci
+
+darcy_lussier:
+  name: D'Arcy Lussier
+  web:
+  email: 
+  bio: 
+  avatar: luchador.png
+  twitter: 
+  google:
+    plus: 
+  github: 
+
+dave_paquette:
+  name: Dave Paquette
+  web: http://www.davepaquette.com/
+  email: contactme@davepaquette.com
+  bio: 
+  avatar: DavePaquette_300x241.jpg
+  twitter: Dave_Paquette
+  google:
+    plus: 
+
+dave_wesst:
+  name: Dave Wesst
+  web:
+  email: 
+  bio: 
+  avatar: luchador.png
+  twitter: 
+  google:
+    plus: 
+  github: 
+
+dylan_smith:
+  name: Dylan Smith
+  web: http://www.geekswithblogs.net/optikal
+  email: optikal@shaw.ca
+  bio: 
+  avatar: dylan_300x366.jpg
+  twitter: dylan_smith
+  google:
+    plus: 
+  github: 
+
+james_chambers:
+  name: James Chambers
+  web:
+  email: 
+  bio: 
+  avatar: luchador.png
+  twitter: 
+  google:
+    plus: 
+  github: 
 
 kyle_baley:
   name: Kyle Baley
@@ -39,50 +83,6 @@ simon_timms:
   bio: 
   avatar: luchador.png
   twitter: 
-  google:
-    plus: 
-  github: 
-
-james_chambers:
-  name: James Chambers
-  web:
-  email: 
-  bio: 
-  avatar: luchador.png
-  twitter: 
-  google:
-    plus: 
-  github: 
-
-dave_wesst:
-  name: Dave Wesst
-  web:
-  email: 
-  bio: 
-  avatar: luchador.png
-  twitter: 
-  google:
-    plus: 
-  github: 
-
-darcy_lussier:
-  name: D'Arcy Lussier
-  web:
-  email: 
-  bio: 
-  avatar: luchador.png
-  twitter: 
-  google:
-    plus: 
-  github: 
-
-dylan_smith:
-  name: Dylan Smith
-  web: http://www.geekswithblogs.net/optikal
-  email: optikal@shaw.ca
-  bio: 
-  avatar: dylan_300x366.jpg
-  twitter: dylan_smith
   google:
     plus: 
   github: 
