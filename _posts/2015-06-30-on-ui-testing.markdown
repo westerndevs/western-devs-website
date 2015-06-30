@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "On UI Testing"
-date:   2015-06-30 20:09:05
+date: 2015-06-30 20:09:05
 author: kyle_baley 
 originalurl: http://kyle.baley.org/2015/06/on-ui-testing/
 categories:
