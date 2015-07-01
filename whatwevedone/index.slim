@@ -38,13 +38,17 @@ section.apps
     a.back-to-top href='#the-top' (back to top)
   {% assign pubs = site.data.publications.apps | sort: 'date' | reverse %}
   {% for pub in pubs %}
+  {% assign author = site.data.authors[pub.author] %}
   article
-      .image
-          a href="{{pub.url}}" target="_blank": img src="/images/{{pub.image}}"
-      .content
-          .title: a href="{{pub.url}}" target="_blank" {{pub.title}}
-          span {{pub.description}}
-
+    .image
+      a href="{{pub.url}}" target="_blank": img src="/images/{{pub.image}}"
+    .content
+      .title
+        a href="{{pub.url}}" target="_blank" {{pub.title}}
+        .author 
+          a href='{{site.url}}/bios/{{pub.author}}' {{author.name}}
+      .description {{pub.description}}
+          
   {% endfor %}
 
 section.code-libs
@@ -54,9 +58,13 @@ section.code-libs
     a.back-to-top href='#the-top' (back to top)
   {% assign pubs = site.data.publications.code | sort: 'date' | reverse %}
   {% for pub in pubs %}
+  {% assign author = site.data.authors[pub.author] %}
   article
-      .content
-          .title: a href="{{pub.url}}" target="_blank" {{pub.title}}
-          span {{pub.description}}
+    .content
+      .title
+        a href="{{pub.url}}" target="_blank" {{pub.title}}
+        .author 
+          a href='{{site.url}}/bios/{{pub.author}}' {{author.name}}
+      .description {{pub.description}}
 
   {% endfor %}
