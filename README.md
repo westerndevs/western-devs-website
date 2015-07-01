@@ -2,6 +2,10 @@
 
 The website for [WesternDevs](http://www.westerndevs.com)
 
+Installing [Jekyll](http://jekyllrb.com/docs/installation/)
+
+Instructions for running [Jekyll on Windows](http://jekyll-windows.juthilo.com/)
+
 Run `bundle install` to start off.
 
 Useful commands:
@@ -11,3 +15,7 @@ Useful commands:
 * `octopress new draft "Draft Title"`: Creates a new draft based on the specified title. You'll need to set the author and original URL.
 * `octopress new post "Post Title"`: Same as the previous command except it creates a post
 * `octopress publish moo`: Moves the post titled "moo" from _drafts to _posts. If there is more than one draft with "moo" in the title, it will give you a list to choose from.
+
+Installing [Jekyll](http://jekyllrb.com/docs/installation/)
+
+Instructions for running [Jekyll on Windows](http://jekyll-windows.juthilo.com/)
