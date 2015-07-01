@@ -3,12 +3,20 @@ code:
     url: http://maventhought.github.io/schmancy/
     description: Schmancy is a library dedicated to help developers write tests against APIs without the need of setting up a server or using a real endpoint.
     date: 2015-05-01
+    author: amir_barylko
+
+  - title: GenFu
+    url: https://github.com/MisterJames/GenFu
+    description: GenFu is a library you can use to generate realistic test data.
+    date: 2014-08-20
+    author: james_chambers
+  
   
 apps:
   - title: SmartView
     url: http://smartview.io
     image: smartview.png
-    description: SmartView is a lean agile project management tool that combines the intuitive approach of user story maps with the productivity of kanban boards and cumulative user metrics to help your team work more effectively and efficiently
+    description: SmartView is a lean agile project management tool that combines the intuitive approach of user story maps with the productivity of kanban boards and cumulative user metrics to help your team work more effectively and efficiently.
     date: 2015-07-01
   
 books:
