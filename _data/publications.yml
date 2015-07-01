@@ -1,4 +1,11 @@
 code:
+  
+  - title: EntityFramework Seeder
+    url: https://github.com/dpaquette/EntityFramework.Seeder
+    description: A collection of helper methods to help seed entity framework databases.
+    date: 2015-06-27
+    author: dave_paquette
+
   - title: Schmancy
     url: http://maventhought.github.io/schmancy/
     description: Schmancy is a library dedicated to help developers write tests against APIs without the need of setting up a server or using a real endpoint.
