@@ -32,16 +32,16 @@ dave_paquette:
   google:
     plus: 
 
-dave_wesst:
-  name: Dave Wesst
-  web:
-  email: 
+david_wesst:
+  name: David Wesst
+  web: http://www.davidwesst.com
+  email: questions@davidwesst.com
   bio: 
-  avatar: luchador.png
-  twitter: 
-  google:
-    plus: 
-  github: 
+  avatar: davidwesst_400x400.jpg
+  twitter: davidwesst
+  google: 
+    plus: davidwesst
+  github: davidwesst
 
 dylan_smith:
   name: Dylan Smith
