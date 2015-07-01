@@ -2,7 +2,7 @@ code:
   
   - title: EntityFramework Seeder
     url: https://github.com/dpaquette/EntityFramework.Seeder
-    description: A collection of helper methods to help seed entity framework databases.
+    description: A collection of helper methods to help seed entity framework databases from CSV files.
     date: 2015-06-27
     author: dave_paquette
 
