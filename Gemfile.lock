@@ -97,3 +97,6 @@ DEPENDENCIES
   jekyll-slim
   json
   octopress
+
+BUNDLED WITH
+   1.10.4
