@@ -18,6 +18,7 @@ apps:
     image: smartview.png
     description: SmartView is a lean agile project management tool that combines the intuitive approach of user story maps with the productivity of kanban boards and cumulative user metrics to help your team work more effectively and efficiently.
     date: 2015-07-01
+    author: amir_barylko
   
 books:
   - title: Brownfield Application Development in .NET

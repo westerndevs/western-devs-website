@@ -52,12 +52,26 @@
     .image {
       text-align: center;
     }
+
+    .author {
+      display: inline-block;
+      margin-left: 10px;
+      font-size: 1rem;
+      font-weight: normal;
+    }
   
   }
 }
 
 .apps {
   @extend .things-weve-done;
+  
+  article {
+    .image {
+      margin-bottom: 10px;
+    }
+    
+  }
 }
 
 .code-libs {
@@ -88,6 +102,8 @@
     
     .author {
       font-size: .7rem;
+      display: block;
+      margin: 0;
     }
   }
 }
