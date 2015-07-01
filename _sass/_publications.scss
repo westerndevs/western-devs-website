@@ -1,3 +1,112 @@
+
+.pills {
+  margin-bottom: 20px;
+  text-align: center;
+  
+  .pill {
+    display: inline-block;
+    width: 100px;
+    border-radius: 5px;
+    background: #314D9C;
+    color:white;
+    margin-right: 20px;
+    text-align:center;
+    padding:5px;
+    
+    a {
+      color: white;
+      
+      &:hover {
+        color: #E5E5E5;
+      }
+    }
+  }
+}
+
+.things-weve-done {
+  clear: both;
+
+  margin-top: 30px;
+  .back-to-top {
+    font-size: 1rem;
+  }
+
+  article {
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    margin: 0 15px 25px;
+    display: inline-block;
+    padding: 20px;
+    width: 100%;
+
+    .title {
+      font-size: 1.5rem;
+      line-height: 1.4444;
+      margin-bottom: .8rem;
+      font-family: "PT Sans Narrow",sans-serif;
+      font-weight:bold;
+    }
+
+    .image {
+      text-align: center;
+    }
+
+    .author {
+      display: inline-block;
+      margin-left: 10px;
+      font-size: 1rem;
+      font-weight: normal;
+    }
+  
+  }
+}
+
+.apps {
+  @extend .things-weve-done;
+  
+  article {
+    .image {
+      margin-bottom: 10px;
+    }
+    
+  }
+}
+
+.code-libs {
+  @extend .things-weve-done;
+}
+
+.books {
+  @extend .things-weve-done;
+  
+  article {
+    height: 350px;
+    vertical-align:top;
+    display: inline-block;
+    width: 210px;
+    .image {
+      height: 80%;
+      text-align: center;
+      margin-bottom: 10px;
+      img {
+        height: 100%;
+      }
+    }
+    
+    .title {
+      font-size: 1rem;
+      margin-bottom: 0px;
+    }
+    
+    .author {
+      font-size: .7rem;
+      display: block;
+      margin: 0;
+    }
+  }
+}
 .publication {
   position: relative;
   overflow: hidden;
@@ -23,7 +132,7 @@
   .content {
     padding: 15px 20px;
 
-    h4 {
+    .title {
       font-size: 16px;
       margin: 0;
     }
