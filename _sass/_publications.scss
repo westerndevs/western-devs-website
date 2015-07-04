@@ -5,7 +5,7 @@
   
   .pill {
     display: inline-block;
-    width: 100px;
+    width: 25%;
     border-radius: 5px;
     background: #314D9C;
     color:white;
@@ -33,10 +33,11 @@
 
   article {
     background-color: #fff;
+    box-sizing: border-box;
     border-radius: 5px;
     border: 1px solid #ccc;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-    margin: 0 15px 25px;
+    margin: 0 0 25px 15px;
     display: inline-block;
     padding: 20px;
     width: 100%;
@@ -80,21 +81,25 @@
 
 .books {
   @extend .things-weve-done;
-  
+
+  div.columns {
+    margin-left: 15px;
+  }
+
   article {
-    height: 350px;
+    height: 323px;
     vertical-align:top;
     display: inline-block;
-    width: 210px;
+    padding: 15px;
+    margin: 0 10px 25px 0;
+    width: 31%;
+    min-width: 160px;
     .image {
-      height: 80%;
+      max-height: 218px;
       text-align: center;
       margin-bottom: 10px;
-      img {
-        height: 100%;
-      }
     }
-    
+
     .title {
       font-size: 1rem;
       margin-bottom: 0px;
