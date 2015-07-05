@@ -3,12 +3,38 @@ require "tmpdir"
 
 require "bundler/setup"
 require "jekyll"
+require "rake"
+require "yaml"
+require "date"
 
 
 # Change your GitHub reponame
 GITHUB_REPONAME = "westerndevs/western-devs-website"
 
+
 task :default => :serve
+
+CONFIG = YAML.load(File.read('_config.yml'))
+USERNAME = CONFIG["username"] || ENV['GIT_NAME']
+REPO = CONFIG["repo"] || "#{USERNAME}.github.io"
+
+# Determine source and destination branch
+# User or organization: source -> master
+# Project: source -> gh-pages
+# Name of source branch for user/organization defaults to "source"
+if REPO == "#{USERNAME}.github.io"
+  SOURCE_BRANCH = CONFIG['branch'] || "source"
+  DESTINATION_BRANCH = "master"
+else
+  SOURCE_BRANCH = "source"
+  DESTINATION_BRANCH = "gh-pages"
+end
+
+def check_destination
+  unless Dir.exist? CONFIG["destination"]
+    sh "git clone https://#{ENV['GIT_NAME']}:#{ENV['GH_TOKEN']}@github.com/#{USERNAME}/#{REPO}.git #{CONFIG["destination"]}"
+  end
+end
 
 namespace :site do
   desc "Generate blog files"
@@ -23,12 +49,7 @@ namespace :site do
   desc "Generate and publish blog to gh-pages"
   task :publish => [:generate] do
     Dir.mktmpdir do |tmp|
-      # Detect pull request
-      if ENV['TRAVIS_PULL_REQUEST'].to_s.to_i > 0
-        puts 'Pull request detected. Not proceeding with deploy.'
-        exit
-      end
-
+      
       cp_r "_site/.", tmp
 
       pwd = Dir.pwd
@@ -43,8 +64,41 @@ namespace :site do
 
       Dir.chdir pwd
     end
+
   end
 
+  task :publish_ci do
+    # Detect pull request
+    if ENV['TRAVIS_PULL_REQUEST'].to_s.to_i > 0
+      puts 'Pull request detected. Not proceeding with deploy.'
+      exit
+    end
+
+    # Configure git if this is run in Travis CI
+    if ENV["TRAVIS"]
+      sh "git config --global user.name '#{ENV['GIT_NAME']}'"
+      sh "git config --global user.email '#{ENV['GIT_EMAIL']}'"
+      sh "git config --global push.default simple"
+    end
+
+    # Make sure destination folder exists as git repo
+    check_destination
+
+    sh "git checkout #{SOURCE_BRANCH}"
+    Dir.chdir(CONFIG["destination"]) { sh "git checkout #{DESTINATION_BRANCH}" }
+
+    # Generate the site
+    sh "bundle exec jekyll build"
+
+    # Commit and push to github
+    sha = `git log`.match(/[a-z0-9]{40}/)[0]
+    Dir.chdir(CONFIG["destination"]) do
+      sh "git add --all ."
+      sh "git commit -m 'Updating to #{USERNAME}/#{REPO}@#{sha}.'"
+      sh "git push --quiet origin #{DESTINATION_BRANCH}"
+      puts "Pushed updated branch #{DESTINATION_BRANCH} to GitHub Pages"
+    end
+  end
 end
 
 # rake serve

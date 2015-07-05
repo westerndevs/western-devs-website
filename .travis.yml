@@ -1,17 +1,18 @@
 language: ruby
 rvm:
 - 2.1
-# Assume bundler is being used, install step will run `bundle install`.
 install:
-  - bundle install
-script: 
-  - bundle exec rake site:publish
-
-# branch whitelist
+- bundle install
+script:
+- bundle exec rake site:publish_ci
 branches:
   only:
   - source
-
 env:
   global:
-  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true # speeds up installation of html-proofer
+  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+  - secure: TLmlgssWEc/TweO7GvTbjfwXQdqzslsQOtutb4fKVpAzG28vV75iXKuI/oe5Hfw9eV0IwxJjyDzUVegSsF71UuK4opMfExCBOxHzfu2t1Nhqt8kyWmMAsEJgHRP2yKhuKDITWL8Nex3Wli9U5dyY53Nn/cP44TUzwWnsqh5eRBfLJ0z1C/TXVJtk4Ko376+mBqiB3SwrIw/0ptX6bO7uBh8fXx+9WeK3AU8wuWZ0/goABSP/r/jllNyOvLA1M2yscKAxHjc/TMSl4oa5ynHIb024uPD6oCWIqk0Cr85HOdD3Mvee6Cdam90A0pEk06qwhZt1JuVrF+E07kktbdrzRLQ6WnyOqL0UoghdhfKbt79KuUP0+az0foP5V/Wn+Al7aU+CTQvJUokFQujd1uaZkSJBbcz8fKgysVfX6atMBk+kq15dhoFtgrhvdD9dIeTTMRdT91MgqJyplVR+fH0j/zhGObxSOL92FTiVzHpfcE0bc5eWbjUWLqiWl2I3tMNXisN7NbkPe29JCbCzty24yFiUFILMWJhO1Q2L/QAD9zoI4NM0ZAyvvqY2VzOExaJ4kwArGquNsB4hTqJnOHBp4M9gFtIzchClraErlny5S/2vg1g6zRnRZehbhRLh5VxpfFDpLZLwlZTZtaBtrig/M0SBi2Ii+rFEylHBHw4KiHc=
+
+notifications:
+  slack:
+    secure: KPtOOi2bYD0GCDvbLWUk9pDK35mB/QUroMW6LDQpABu3Z1/7RxHkkemxJgMqSrOxTbGqatDQ/MJ8Vh5dLfG5t3oa56K11nB7EzeJKbgqOyj3hdSB2kbNF/W7+qaalydwJExK1/ZJ9jr+UbaPeJFAHDT1wM4OBCWhdqhMiPoQ1cK3TSKAuSOpxqtWTWOmWHNt4fWgiJEA4PDmFfxhg/vGQkbjI2NU9pFWGNE+uKmvIqJ6Ejrf4KFqO2xtfjuSYnwAs2G/E21/NsKo+G3F9prKpD6aUad5xk/nic+sajeoo8WJ4z6S7aVb44Avxmmw0tPCv6nJnobjD8zIcQYWjURVveqiH4oCiRjiEEPPAjY8Z+6hhps2k2U1pfFGulM8p2IZr6I4dDB3r0F8jXMFzX2yQDF+gbjlDm7fbhLRGD+BlnQXydhRqch95r6ueCSgSSOEE5Y1fezoO5Vn0uVtx/GdfD7JTmUc/LEwI3CXZCIhtF1xsJi+2Y+8I9a2dQwUF55pnxOruXTKjG2MWx3yK0xXts/fLoDecoDTnsgTAbae0Cu3cn2XaIyPi+fTm2RuUcq1Y1EKE/wT97KXM1vyXgW4T5Uubr41yCAIj0JF/M31oUMEXuDgXwbXfxnwgivlrX/64ILSaBjzL/Is92vAbUYBgAtFWblQT2U6FZS+XEAzfUc=
