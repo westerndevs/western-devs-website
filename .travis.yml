@@ -3,7 +3,8 @@ rvm:
 - 2.1
 # Assume bundler is being used, install step will run `bundle install`.
 install: gem install jekyll
-script: jekyll build
+script: 
+- bundle exec jekyll build
 
 # branch whitelist
 branches:
