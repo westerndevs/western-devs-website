@@ -22,18 +22,19 @@ section.code-libs
   h2 
     ' Code
     / a.back-to-top href='#the-top' (back to top)
-  {% assign pubs = site.data.publications.code | sort: 'date' | reverse %}
-  {% for pub in pubs %}
-  {% assign author = site.data.authors[pub.author] %}
-  article
-    .content
-      .title
-        a href="{{pub.url}}" target="_blank" {{pub.title}}
-        .author 
-          a href='{{site.url}}/bios/{{pub.author}}' {{author.name}}
-      .description {{pub.description}}
+  div.articles
+    {% assign pubs = site.data.publications.code | sort: 'date' | reverse %}
+    {% for pub in pubs %}
+    {% assign author = site.data.authors[pub.author] %}
+    article
+      .content
+        .title
+          a href="{{pub.url}}" target="_blank" {{pub.title}}
+          .author 
+            a href='{{site.url}}/bios/{{pub.author}}' {{author.name}}
+        .description {{pub.description}}
 
-  {% endfor %}
+    {% endfor %}
 
 section.apps
   a name='apps'
