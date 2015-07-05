@@ -5,7 +5,7 @@ rvm:
 install:
   - bundle install
 script: 
-  - bundle exec jekyll build
+  - bundle exec rake site:publish
 
 # branch whitelist
 branches:
