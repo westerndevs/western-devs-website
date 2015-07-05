@@ -40,27 +40,28 @@ section.apps
   h2 
     'Applications
     a.back-to-top href='#the-top' (back to top)
-  {% assign pubs = site.data.publications.apps | sort: 'date' | reverse %}
-  {% for pub in pubs %}
-  {% assign author = site.data.authors[pub.author] %}
-  article
-    .image
-      a href="{{pub.url}}" target="_blank": img src="/images/{{pub.image}}"
-    .content
-      .title
-        a href="{{pub.url}}" target="_blank" {{pub.title}}
-        .author 
-          a href='{{site.url}}/bios/{{pub.author}}' {{author.name}}
-      .description {{pub.description}}
-          
-  {% endfor %}
+  div.articles
+    {% assign pubs = site.data.publications.apps | sort: 'date' | reverse %}
+    {% for pub in pubs %}
+    {% assign author = site.data.authors[pub.author] %}
+    article
+      .image
+        a href="{{pub.url}}" target="_blank": img src="/images/{{pub.image}}"
+      .content
+        .title
+          a href="{{pub.url}}" target="_blank" {{pub.title}}
+          .author 
+            a href='{{site.url}}/bios/{{pub.author}}' {{author.name}}
+        .description {{pub.description}}
+            
+    {% endfor %}
 
 section.books
   a name='books'
   h2 
     ' Books
     a.back-to-top href='#the-top' (back to top)
-  div.columns
+  div.articles
     {% assign pubs = site.data.publications.books | sort: 'date' | reverse %}
     {% for pub in pubs %}
     article
