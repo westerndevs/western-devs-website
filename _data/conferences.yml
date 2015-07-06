@@ -32,3 +32,10 @@
   speaker: David Wesst
   location: Winnipeg, MB
   topic: How to make "Great Developers"
+  
+- date: 2015-11-30
+  event: Minnesota Developers Conference
+  link: https://mdc.ilmservice.com/
+  speaker: Dylan Smith
+  location: Minneapolis, MN
+  topic: Using Azure for Dev/Test Environments
