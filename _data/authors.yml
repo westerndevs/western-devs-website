@@ -29,71 +29,59 @@ dave_paquette:
   bio: 
   avatar: DavePaquette_300x241.jpg
   twitter: Dave_Paquette
-  google:
-    plus: 
+  linkedin: 
 
 david_wesst:
   name: David Wesst
   web: http://www.davidwesst.com
   email: questions@davidwesst.com
-  bio: 
   avatar: davidwesst_400x400.jpg
   twitter: davidwesst
   google: 
     plus: davidwesst
   github: davidwesst
-
-dylan_smith:
-  name: Dylan Smith
-  web: http://www.geekswithblogs.net/optikal
-  email: optikal@shaw.ca
-  bio: 
-  avatar: dylan_300x366.jpg
-  twitter: dylan_smith
-  google:
-    plus: 
-  github: 
-
-james_chambers:
-  name: James Chambers
-  web: http://jameschambers.com/
-  email: 
-  bio: 
-  avatar: luchador.png
-  twitter: 
-  google:
-    plus: 
-  github: 
-
-kyle_baley:
-  name: Kyle Baley
-  web: http://kyle.baley.org
-  email: kyle@baley.org
-  bio: 
-  avatar: Hillbilly-300x300.jpg
-  twitter: kyle_baley
-  google:
-    plus: 
-  github: kbaley
-
-simon_timms:
-  name: Simon Timms
-  web:
-  email: 
-  bio: 
-  avatar: luchador.png
-  twitter: 
-  google:
-    plus: 
-  github: 
+  linkedin: davidwesst
 
 donald_belcham:
   name: Donald Belcham
   web: http://www.igloocoder.com
   email: donald.belcham@igloocoder.com
-  bio: 
   avatar: donald_belcham_320x240.jpg
   twitter: dbelcham
-  google:
-    plus: 
   github: dbelcham
+  linkedin: donaldbelcham
+  
+dylan_smith:
+  name: Dylan Smith
+  web: http://www.geekswithblogs.net/optikal
+  email: optikal@shaw.ca
+  avatar: dylan_300x366.jpg
+  twitter: dylan_smith
+  github: 
+
+james_chambers:
+  name: James Chambers
+  web: http://jameschambers.com/
+  email: james@jameschambers.com
+  avatar: luchador.png
+  twitter: canadianjames 
+  github: 
+  linkedin: canadianjames
+
+kyle_baley:
+  name: Kyle Baley
+  web: http://kyle.baley.org
+  email: kyle@baley.org
+  avatar: Hillbilly-300x300.jpg
+  twitter: kyle_baley
+  github: kbaley
+  linkedin: kylebaley
+
+simon_timms:
+  name: Simon Timms
+  web: http://blog.simontimms.com/
+  email: stimms@gmail.com
+  bio: 
+  avatar: luchador.png
+  twitter: stimms
+  github: stimms

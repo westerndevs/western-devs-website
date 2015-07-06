@@ -3,7 +3,6 @@ layout: bio
 permalink: /bios/amir_barylko/
 date: 2015-06-22 20:09:05
 author: amir_barylko
-comments: true
 ---
 
 Amir started his career in 1994 working for IBM as a senior developer while he was finishing his Masters degree in computer science. Since then he worked as team leader and architect for the past 15 years.

@@ -3,7 +3,6 @@ layout: bio
 permalink: /bios/donald_belcham/
 date: 2015-06-22 20:09:05
 author: donald_belcham
-comments: true
 ---
 
 Donald Belcham is an independent contractor in Edmonton, Alberta Canada who specializes in software development with the .NET platform.  With more than a decade of experience delivering Web and Smart Client applications to clients around the world, he has experience and knowledge in the entire software development life cycle.  Combining that experience with his passion for agile development practices, AOP and solid OO fundamentals, Donald works to provide the client with software that works for their business.  
