@@ -9,4 +9,4 @@ An active member in the ASP.NET development community, James speaks at conferenc
 
 From a professional perspective his background includes projects in  energy companies, telecommunications, sports entertainment and transportation as well as others. He has lead development teams in web & cloud-enabled applications as well as mobile and stand-alone desktop apps. 
 
-You can find James hammering away at his blog at [www.jameschambers.com](http://www.jameschambers.com), in articles on MSDN and occasionally appearing on Microsoft Virtual Academy as a presenter or community SME.
+You can find James hammering away at his blog at [www.jameschambers.com](http://www.jameschambers.com), digging in the secret tunnels of the Canadian Prairies, in articles on MSDN and occasionally appearing on Microsoft Virtual Academy as a presenter or community SME.
