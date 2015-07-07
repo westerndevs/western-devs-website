@@ -6,17 +6,17 @@ amir_barylko:
   email: amir@barylko.com
   twitter: abarylko
   google:
-    plus: 
+    plus:
   github: amirci
 
 darcy_lussier:
   name: D'Arcy Lussier
   web: http://geekswithblogs.net/dlussier/Default.aspx
-  email: 
+  email:
   twitter: darcy_lussier
   google:
-    plus: 
-  github: 
+    plus:
+  github:
   linkedin:
 
 dave_paquette:
@@ -26,7 +26,7 @@ dave_paquette:
   avatar: DavePaquette_300x241.jpg
   twitter: Dave_Paquette
   github: dpaquette
-  linkedin: 
+  linkedin:
 
 david_wesst:
   name: David Wesst
@@ -34,7 +34,7 @@ david_wesst:
   email: questions@davidwesst.com
   avatar: davidwesst_400x400.jpg
   twitter: davidwesst
-  google: 
+  google:
     plus: davidwesst
   github: davidwesst
   linkedin: davidwesst
@@ -47,20 +47,20 @@ donald_belcham:
   twitter: dbelcham
   github: dbelcham
   linkedin: donaldbelcham
-  
+
 dylan_smith:
   name: Dylan Smith
   web: http://www.geekswithblogs.net/optikal
   email: optikal@shaw.ca
   avatar: dylan_300x366.jpg
   twitter: dylan_smith
-  github: 
+  github:
 
 james_chambers:
   name: James Chambers
   web: http://jameschambers.com/
   email: james@jameschambers.com
-  twitter: canadianjames 
+  twitter: canadianjames
   github: MisterJames
   linkedin: canadianjames
 
@@ -76,5 +76,6 @@ simon_timms:
   name: Simon Timms
   web: http://blog.simontimms.com/
   email: stimms@gmail.com
+  avatar: simon.jpg
   twitter: stimms
   github: stimms
