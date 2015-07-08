@@ -44,6 +44,9 @@
       {% if page.originalurl %}
       <div class="original-url">Originally posted to: <a href="{{page.originalurl}}">{{page.originalurl}}</a></div>
       {% endif %}
+      {% if page.podcast %}
+        {% include _podcast.html %}         
+      {% endif %}
       {{ content }}
       <hr />
       <footer role="contentinfo">

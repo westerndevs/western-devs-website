@@ -4,7 +4,6 @@ amir_barylko:
   name: Amir Barylko
   web: http://www.orthocoders.com/
   email: amir@barylko.com
-  bio: 
   avatar: amir_barylko_320x325.jpg
   twitter: abarylko
   google:
@@ -15,7 +14,6 @@ darcy_lussier:
   name: D'Arcy Lussier
   web: http://geekswithblogs.net/dlussier/Default.aspx
   email: 
-  bio: 
   avatar: luchador.png
   twitter: 
   google:
@@ -26,7 +24,6 @@ dave_paquette:
   name: Dave Paquette
   web: http://www.davepaquette.com/
   email: contactme@davepaquette.com
-  bio: 
   avatar: DavePaquette_300x241.jpg
   twitter: Dave_Paquette
   linkedin: 
@@ -81,7 +78,6 @@ simon_timms:
   name: Simon Timms
   web: http://blog.simontimms.com/
   email: stimms@gmail.com
-  bio: 
   avatar: luchador.png
   twitter: stimms
   github: stimms
