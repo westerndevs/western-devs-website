@@ -1,28 +1,5 @@
 ---
-layout: page
-title: What We've Said
-permalink: /whatwevesaid/
+layout: podcast-index
+title: All Podcasts
+excerpt: "A List of Podcasts"
 ---
-
-p The members of Western Devs are a close-knit group, hanging out at conferences, chatting on Slack, and just generally being neighbourly despite timezone challenges. On occasion, we coalesce and talk about something. Here is the output from the times where we've rememembered to click "record"
-
-.social-share style="width:120px"
-  a.rss href="http://westerndevs.libsyn.com/rss" title="Subscribe"
-    i class="fa fa-rss"
-    span Subscribe
-
-ul.events
-  {% assign today = 'today' | date: "%Y-%m-%d" %}
-  {% assign items = site.data.podcasts  | sort: 'date' %}
-  {% for event in items %}
-  {% assign ed = event.date | date: "%Y-%m-%d" %}
-  li.event
-    .date
-      .month {{event.date | date: '%b'}}
-      .year  {{event.date | date: '%Y'}}
-    .info
-      .link
-        a href="{{event.link}}" {{event.title}}
-      iframe style="border: none" src="//html5-player.libsyn.com/embed/episode/id/3655023/height/40/width/640/theme/standard-mini/direction/no/autoplay/no/autonext/no/thumbnail/no/preload/no/no_addthis/no/" height="40" width="440" scrolling="no"  allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen
-  {% endfor %}
-

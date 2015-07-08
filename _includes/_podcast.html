@@ -1,0 +1,17 @@
+<p>{{ page.excerpt }}</p>
+<audio controls="">
+<source src="https://westerndevs.blob.core.windows.net/podcasts/{{page.podcast}}" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+<h4>Participants</h4>
+<ul>
+{% assign sorted = page.participants | sort %}
+{% for participant in sorted %}
+  {% assign author = site.data.authors[participant] %}
+  	{% if author %}
+	<li><a href="/bios/{{participant}}">{{author.name}}</a></li>
+	{% else %}
+	<li>{{participant | replace:"_"," " | capitalize_all }}</li>
+	{% endif %}
+{% endfor %}
+</ul>
