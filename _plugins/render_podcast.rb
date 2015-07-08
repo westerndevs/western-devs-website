@@ -10,7 +10,7 @@ module Jekyll
       podcast = Liquid::Template.parse(@podcast).render context
       "
  <audio controls>
-	<source src='https://westerndevs.blob.core.windows.net/podcasts/#{podcast}' type='audio/mpeg'>
+	<source src='http://cdn.westerndevs.com/podcasts/#{podcast}' type='audio/mpeg'>
     Your browser does not support the audio element.
 </audio>"
     end

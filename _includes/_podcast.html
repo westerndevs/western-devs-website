@@ -1,8 +1,8 @@
 <p>{{ page.excerpt }}</p>
 <audio controls="">
-<source src="https://westerndevs.blob.core.windows.net/podcasts/{{page.podcast}}" type="audio/mpeg">
-Your browser does not support the audio element.
+<source src="http://cdn.westerndevs.com/podcasts/{{page.podcast}}" type="audio/mpeg">
 </audio>
+<a class="btn btn-info" href="http://cdn.westerndevs.com/podcasts/Microservices.mp3" role="button">Download MP3</a>
 <h4>Participants</h4>
 <ul>
 {% assign sorted = page.participants | sort %}
