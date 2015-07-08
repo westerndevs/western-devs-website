@@ -1,5 +1,7 @@
 # Western Devs Website
 
+[![Build Status](https://travis-ci.org/westerndevs/western-devs-website.png)](https://travis-ci.org/westerndevs/western-devs-website)
+
 The website for [WesternDevs](http://www.westerndevs.com)
 
 Installing [Jekyll](http://jekyllrb.com/docs/installation/)
@@ -19,3 +21,4 @@ Useful commands:
 Installing [Jekyll](http://jekyllrb.com/docs/installation/)
 
 Instructions for running [Jekyll on Windows](http://jekyll-windows.juthilo.com/)
+

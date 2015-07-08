@@ -4,21 +4,20 @@ amir_barylko:
   name: Amir Barylko
   web: http://www.orthocoders.com/
   email: amir@barylko.com
-  avatar: amir_barylko_320x325.jpg
   twitter: abarylko
   google:
-    plus: 
+    plus:
   github: amirci
 
 darcy_lussier:
   name: D'Arcy Lussier
   web: http://geekswithblogs.net/dlussier/Default.aspx
-  email: 
-  avatar: luchador.png
-  twitter: 
+  email:
+  twitter: darcy_lussier
   google:
-    plus: 
-  github: 
+    plus:
+  github:
+  linkedin:
 
 dave_paquette:
   name: Dave Paquette
@@ -26,7 +25,8 @@ dave_paquette:
   email: contactme@davepaquette.com
   avatar: DavePaquette_300x241.jpg
   twitter: Dave_Paquette
-  linkedin: 
+  github: dpaquette
+  linkedin:
 
 david_wesst:
   name: David Wesst
@@ -34,7 +34,7 @@ david_wesst:
   email: questions@davidwesst.com
   avatar: davidwesst_400x400.jpg
   twitter: davidwesst
-  google: 
+  google:
     plus: davidwesst
   github: davidwesst
   linkedin: davidwesst
@@ -47,29 +47,27 @@ donald_belcham:
   twitter: dbelcham
   github: dbelcham
   linkedin: donaldbelcham
-  
+
 dylan_smith:
   name: Dylan Smith
   web: http://www.geekswithblogs.net/optikal
   email: optikal@shaw.ca
   avatar: dylan_300x366.jpg
   twitter: dylan_smith
-  github: 
+  github:
 
 james_chambers:
   name: James Chambers
   web: http://jameschambers.com/
   email: james@jameschambers.com
-  avatar: luchador.png
-  twitter: canadianjames 
-  github: 
+  twitter: canadianjames
+  github: MisterJames
   linkedin: canadianjames
 
 kyle_baley:
   name: Kyle Baley
   web: http://kyle.baley.org
   email: kyle@baley.org
-  avatar: Hillbilly-300x300.jpg
   twitter: kyle_baley
   github: kbaley
   linkedin: kylebaley
@@ -78,6 +76,6 @@ simon_timms:
   name: Simon Timms
   web: http://blog.simontimms.com/
   email: stimms@gmail.com
-  avatar: luchador.png
+  avatar: simon.jpg
   twitter: stimms
   github: stimms
