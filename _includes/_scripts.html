@@ -9,6 +9,7 @@
  '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
   _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
   _gaq.push(['_setAccount', '{{ site.owner.google.analytics }}']);
+  _gaq.push(['_setPageGroup', 1, '{{ page.author }}']);
   _gaq.push(['_trackPageview']);
 
   (function() {
