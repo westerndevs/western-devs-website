@@ -9,4 +9,4 @@ Donald Belcham is an independent contractor in Edmonton, Alberta Canada who spec
 
 Recognized by Microsoft for his technical skill and community contribution with the Microsoft MVP award in C#, Donald is a notable leader in the developer community.  He is also a Sharpcrafters MVP and a Jetbrains Partner.  Donald regularly speaks for .NET User Groups, Code Camps and conferences around the world on topics ranging from development practices to the intricacies of different technologies.  
 
-His thoughts on software development can be found on his blog at www.igloocoder.com
+His thoughts on software development can be found on his blog at [www.igloocoder.com](http://www.igloocoder.com)
