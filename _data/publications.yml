@@ -1,5 +1,12 @@
 code:
+
   
+  - title: Epoch
+    url: https://github.com/MavenThought/Epoch
+    description: Utilities to create dates in a fluent style and manipulate date ranges
+    date: 2014-11-20
+    author: amir_barylko
+
   - title: EntityFramework Seeder
     url: https://github.com/dpaquette/EntityFramework.Seeder
     description: A collection of helper methods to help seed entity framework databases from CSV files.
