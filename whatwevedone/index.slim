@@ -70,7 +70,8 @@ section.books
             a href="{{pub.url}}" target="_blank": img src="/images/{{pub.image}}"
         .content
             .title: a href="{{pub.url}}" target="_blank" {{pub.title}}
-            span.author By: {{pub.author}}
+            span.author 
+              |  By: {{ pub.author | to_author_list }}
 
     {% endfor %}
 
