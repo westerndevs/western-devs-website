@@ -17,22 +17,17 @@ a name='the-top'
   .pill: a href='#apps'  Apps
   .pill: a href='#code'  Code
   
-section.code-libs
-  a name='code'
+section.books
+  a name='books'
   h2 
-    ' Code
-    / a.back-to-top href='#the-top' (back to top)
+    ' Books
+    a.back-to-top href='#the-top' (back to top)
   div.articles
-    {% assign pubs = site.data.publications.code | sort: 'date' | reverse %}
+    {% assign pubs = site.data.publications.books | sort_random %}
     {% for pub in pubs %}
-    {% assign author = site.data.authors[pub.author] %}
     article
-      .content
-        .title
-          a href="{{pub.url}}" target="_blank" {{pub.title}}
-          .author 
-            a href='{{site.url}}/bios/{{pub.author}}' {{author.name}}
-        .description {{pub.description}}
+        .image
+            a href="{{pub.url}}" target="_blank": img src="/images/{{pub.image}}"
 
     {% endfor %}
 
@@ -57,22 +52,22 @@ section.apps
             
     {% endfor %}
 
-section.books
-  a name='books'
+section.code-libs
+  a name='code'
   h2 
-    ' Books
-    a.back-to-top href='#the-top' (back to top)
+    ' Code
+    / a.back-to-top href='#the-top' (back to top)
   div.articles
-    {% assign pubs = site.data.publications.books | sort: 'date' | reverse %}
+    {% assign pubs = site.data.publications.code | sort: 'date' | reverse %}
     {% for pub in pubs %}
+    {% assign author = site.data.authors[pub.author] %}
     article
-        .image
-            a href="{{pub.url}}" target="_blank": img src="/images/{{pub.image}}"
-        .content
-            .title: a href="{{pub.url}}" target="_blank" {{pub.title}}
-            span.author 
-              |  By: {{ pub.author | to_author_list }}
+      .content
+        .title
+          a href="{{pub.url}}" target="_blank" {{pub.title}}
+          .author 
+            a href='{{site.url}}/bios/{{pub.author}}' {{author.name}}
+        .description {{pub.description}}
 
     {% endfor %}
-
 

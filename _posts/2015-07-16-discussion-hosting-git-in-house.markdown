@@ -1,9 +1,10 @@
 ---
 layout: post
-title:  Discussion: Hosting git in-house
+title:  "Discussion: Hosting git in-house"
 date: 2015-07-16T08:46:11-04:00
-categories: slack,discussion
+categories: 
 comments: true
+slack: true
 ---
 
 We had a good discussion on Slack recently on getting a client up and running with Git. For many, the decision boils down to: GitHub or BitBucket. In this case, the repositories need to be stored in-house. Thus sparking the first debate.
