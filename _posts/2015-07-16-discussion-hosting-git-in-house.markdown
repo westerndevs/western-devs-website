@@ -32,4 +32,4 @@ That leaves [BitBucket's Stash](https://www.atlassian.com/software/stash/). It r
 
 ### The "winner"
 
-In the end, given the constraints, we settled (begrudgingly) in TFS as the best solution. It runs on Windows and hosts git. TFS comes with its own issues, not least of which is the cost. Whether or not that cost offsets the perceived "benefit" of hosting in-house remains to be seen. But that is now a business decision rather than a technical one.
+In the end, given the constraints, we settled (begrudgingly) on TFS as the best solution. It runs on Windows and hosts git. TFS comes with its own issues, not least of which is the cost. Whether or not that cost offsets the perceived "benefit" of hosting in-house remains to be seen. But that is now a business decision rather than a technical one.
