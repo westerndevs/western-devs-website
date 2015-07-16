@@ -9,7 +9,7 @@ excerpt_separator: <!--more-->
 
 # Jekyll configuration
 
-permalink:   /:categories/:title/
+permalink:   /:title/
 markdown:    kramdown
 highlighter: pygments
 sass:
