@@ -26,7 +26,7 @@ Problem is: there aren't many other options once you remove Linux from the equat
 
 At one point, we gave serious consideration to running a git server on Docker on Windows. Until someone pointed out the obvious: for the time being, at least, it's still a Linux VM behind the scenes.
 
-GitHub for Enterprise will [install on Windows](https://help.github.com/enterprise/2.2/admin/guides/installation/installing-github-enterprise-on-hyper-v/). But only on Hyper-V. And they don't make it clear but this strongly suggests that it's on a VM, almost certainly Linux.
+GitHub for Enterprise will [install on Windows](https://help.github.com/enterprise/2.2/admin/guides/installation/installing-github-enterprise-on-hyper-v/). But only on Hyper-V. And they don't make it clear but this strongly suggests that it's on a VM, almost certainly Linux. They also provide an image for VMWare.
 
 That leaves [BitBucket's Stash](https://www.atlassian.com/software/stash/). It requires a JVM and TomCat but looks very much like it meets the "Windows only" server criteria. That said, we also have anecdotal evidence that it is a considerable drain on resources.
 
