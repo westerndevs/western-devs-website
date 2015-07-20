@@ -66,7 +66,7 @@ Both MVC and Web API will recognize the cancelled request and signal a cancellat
 {% highlight c# %}
 public async Task MyReallySlowReport(CancellationToken cancellationToken)
 {
-    List items;
+    List<ReportItem> items;
     using (ApplicationDbContext context = new ApplicationDbContext())
     {
         items = await context.ReportItems.ToListAsync(cancellationToken);
@@ -86,7 +86,7 @@ Okay, so it's easy to cancel the SQL server request, but what if we were doing s
 {% highlight c# %}
 public async Task MyReallySlowReport(CancellationToken cancellationToken)
 {
-    List items;
+    List<ReportItem> items;
     using (ApplicationDbContext context = new ApplicationDbContext())
     {
         items = await context.ReportItems.ToListAsync(cancellationToken);
