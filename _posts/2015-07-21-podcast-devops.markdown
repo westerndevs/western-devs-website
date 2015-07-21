@@ -9,14 +9,11 @@ podcast: "DevOps.mp3"
 participants: 
     - dave_paquette
     - amir_barylko
-    - craig_anderson
-    - donald_belcham
     - kyle_baley
-    - tom_opgenorth
     - dave_white
     - james_chambers
-    - shane_courtrille
     - simon_timms
+    - dylan_smith
 ---
 
 ####Synopsis
