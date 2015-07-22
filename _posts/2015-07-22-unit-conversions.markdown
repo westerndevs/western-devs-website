@@ -16,7 +16,7 @@ Moving the logic a layer away from the database puts it in the data retrieval lo
 
 It would likely end up looking something like this:
 
-```
+{% highlight c# %}
 public IEnumerable<Pipes> GetPipesForWell(int wellId, UnitSystem unitSystem)
 {
     using(var connection = GetConnection()){
@@ -24,7 +24,7 @@ public IEnumerable<Pipes> GetPipesForWell(int wellId, UnitSystem unitSystem)
         return NormalizeForUnits(result, unitSystem);
     }
 }
-```
+{% endhighlight %}
 
 I've abstracted away some of the complexity with a magic function that accounts for the units and it is still a complex mess. 
 
@@ -33,7 +33,7 @@ I believe that unit conversion should be treated as a view level concern. This m
 
 If you want to feel extra confident then stop treating your numbers as primitives and treat them as a value and a unit.  Just by having the name of the type contain the unit system you'll make future developers, including yourself, think twice about what unit system they're using.
 
-```
+{% highlight c# %}
 public class TemperatureInCentigrade{
 	private readonly double _value;
 	public TemperatureInCentigrade(double value){
@@ -45,7 +45,7 @@ public class TemperatureInCentigrade{
     	return new TemperatureInCentigrade(_value + toAdd.AsNumeric());
     }
 }
-```
+{% endhighlight %}
 
 You'll also notice in this class that I've made the value immutable. By doing so we save ourselves from a whole bunch of potential bugs. This is the same approach that functional programming languages take. 
 
@@ -69,6 +69,6 @@ If you're not doing a lot of your rendering in JavaScript then there are librari
 - [Gu.Units](https://github.com/JohanLarsson/Gu.Units)
 - [Unit Class Library](https://bitbucket.org/Clearspan/unit-class-library/wiki/Home)
 
-Otherwise this might be a fine time to try out F# which supports units of measure [natively](https://msdn.microsoft.com/en-us/library/dd233243.aspx) 
+Otherwise this might be a fine time to try out F# which supports units of measure [natively](https://msdn.microsoft.com/en-us/library/dd233243.aspx).
 
 The long and short of it is that we're trying to remove unit system confusion from our application and to do that we want to expose as little of the application to divergent units as possible. Catch the units as they are entered, normalize them and then pass them on to the rest of your code. You'll save yourself a lot of headaches by taking this approach, trust a person who has done it wrong many times.
