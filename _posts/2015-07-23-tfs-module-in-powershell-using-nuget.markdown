@@ -1,4 +1,3 @@
-
 ---
 layout: post
 title:  Building a TFS 2015 PowerShell Module using Nuget
