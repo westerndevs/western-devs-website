@@ -101,15 +101,17 @@ namespace :site do
   end
 end
 
+def running_docker?
+  File.exists? '/proc/1/cgroup'
+end
+
 # rake serve
 # rake serve["drafts"]
 desc "Serve and watch the site (with optional drafts)"
 task :serve, :option do |t, args|
-  option = args[:option]
-  if option == "drafts"
-    system "jekyll serve --config _config.yml,_config-dev.yml --drafts"
-  else
-    system "jekyll serve --config _config.yml,_config-dev.yml"
-  end
-  system "open http://localhost:4000"
+  params = "--config _config.yml,_config-dev.yml"
+  params += " --drafts"                        if args[:option] == "drafts"
+  params += " --host 0.0.0.0 --force_polling"  if running_docker?
+  system "jekyll serve #{params}"
+  system "open http://localhost:4000" unless running_docker?
 end
