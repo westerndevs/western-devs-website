@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  sing IE Automation in PowerShell to Simplify Browser Based Tasks
+title:  Using IE Automation in PowerShell to Simplify Browser Based Tasks
 date: 2015-07-24T17:30:00-06:00
 categories:
 comments: true
@@ -58,22 +58,22 @@ The 4th line of this script fragment is interesting. We need to wait for IE to a
 After IE has loaded up the DOM, we can now find our elements, give them values, and click the Submit button.
 
 {% highlight powershell %}
-    $doc = $ie.Document
-    $doc.getElementsByTagName("input") | % {
-        if ($_.id -ne $null){
-            if ($_.id.Contains($buttonIdFragment)) { $btn = $_ }
-            if ($_.id.Contains($acceptTermsInputFragment)) { $at = $_ }
-            if ($_.id.Contains($passwordIdFragment)) { $pwd = $_ }
-            if ($_.id.Contains($userIdFragment)) { $user = $_ }
-        }
+$doc = $ie.Document
+$doc.getElementsByTagName("input") | % {
+    if ($_.id -ne $null){
+        if ($_.id.Contains($buttonIdFragment)) { $btn = $_ }
+        if ($_.id.Contains($acceptTermsInputFragment)) { $at = $_ }
+        if ($_.id.Contains($passwordIdFragment)) { $pwd = $_ }
+        if ($_.id.Contains($userIdFragment)) { $user = $_ }
     }
+}
 
-    $user.value = "<user name="" here="">"
-    $pwd.value = "<password here="">"
-    $at.checked = "checked"
-    $btn.disabled = $false
-    $btn.click()
-    Write-Verbose "Login Complete"
+$user.value = "<user name="" here="">"
+$pwd.value = "<password here="">"
+$at.checked = "checked"
+$btn.disabled = $false
+$btn.click()
+Write-Verbose "Login Complete"
 {% endhighlight %}
 
 One interesting thing about IE automation is that any JavaScript or page behaviours that we would expect to execute don't seem to run, so we need to explicitly enable the submit button in the event that it was not enabled until all of the fields were entered and the accept terms of use checkbox was clicked.
