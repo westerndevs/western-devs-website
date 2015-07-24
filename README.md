@@ -39,7 +39,7 @@ We have created a Docker image to facilitate running on Windows (or other OSes) 
 
 **Note**: If you have trouble running the docker image, there may be permission issues. Clone the repository into your C:\Users\<yourusername> folder and try again.
 
-### Tips for Creating Posts
+### Tips for Creating Posts Manually using Markdown
 
 #### Creating a Post
 Posts are generated from simple markdown files that are located in the _post folder. Once the file has been added/updated, a Travic CI build will kick off, transform the .markdown and then add it to the site. The build can fail if your .markdown file contains any errors.
@@ -71,7 +71,7 @@ originalurl: http://agileramblings.com/2015/07/23/building-a-tfs-2015-powershell
 ```
 #### Code Syntax Highlighting
 
-Syntax highlighting is done by the build. In order to get syntax highlighting in a section, it needs to be wrapped as follows.
+Syntax highlighting is done by Jekyll using [Pygments](http://pygments.org). In order to get syntax highlighting in a section, it needs to be wrapped as follows.
 ```
 
 {% highlight powershell %}
@@ -81,3 +81,5 @@ Syntax highlighting is done by the build. In order to get syntax highlighting in
 {% endhighlight %}
 
 ```
+
+Over 100 languages are supported. You can see the [list of supported languages here](http://pygments.org/languages/).
