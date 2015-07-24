@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Building a TFS 2015 PowerShell Module using Nuget
+title:  Building a TFS 2015 PowerShell Module using Nuget « Agile Ramblings
 date: 2015-07-23T17:30:00-06:00
 categories:
 comments: true
@@ -8,13 +8,11 @@ author: dave_white
 originalurl: http://agileramblings.com/2015/07/23/building-a-tfs-2015-powershell-module-using-nuget/
 ---
 
-[Source](http://agileramblings.com/2015/07/23/building-a-tfs-2015-powershell-module-using-nuget/ "Permalink to Building a TFS 2015 PowerShell Module using Nuget « Agile Ramblings")
-
 # Building a TFS 2015 PowerShell Module using Nuget « Agile Ramblings
 
 With the release of [Visual Studio 2015][1] on July 20, 2015,&nbsp;we can talk about and explore a lot of really cool things that are happening with Visual Studio (VS) and Team Foundation Server (TFS). One of the things that has been a bit of a pain when managing a TFS&nbsp;on-premises installation has been the necessity of installing Visual Studio to get the TFS client object model on your administrative workstation. With the explosive use of PowerShell to manage all things Microsoft, this has been a bit of&nbsp;a drag on using PowerShell for TFS work. There are PowerShell modules for TFS in the TFS Power Tools, but sometimes you need the power that comes with using the TFS Object Model. Which meant that you had to install Visual Studio. I'm really glad to say that is no longer the case. With the release of TFS 2015, the TFS Object Model is now available on [Nuget][2]! With our trusty nuget.exe, we can now get the TFS object model from a trusted source, without violating any license terms, to use in our own TFS PowerShell modules.
 
-I'm not going to profess to be a PowerShell wizard so I hope I'm not breaking any community best practices too badly. I'm more than happy to adapt my implementation if I get feedback on better ways of doing things! It should also be noted that I'm using PowerShell 4. This is located in the Windows Managment Framework 4 download (<http: www.microsoft.com="" en-ca="" download="" details.aspx?id="40855">), a free download from Microsoft. I don't **_think&nbsp;_**you'll have any problems upgrading from previous versions of PowerShell but I'm not going to any assurances.
+I'm not going to profess to be a PowerShell wizard so I hope I'm not breaking any community best practices too badly. I'm more than happy to adapt my implementation if I get feedback on better ways of doing things! It should also be noted that I'm using PowerShell 4. This is located in the Windows Managment Framework 4 download (http://www.microsoft.com/en-ca/download/details.aspx?id=40855), a free download from Microsoft. I don't **_think&nbsp;_**you'll have any problems upgrading from previous versions of PowerShell but I'm not going to any assurances.
 
 Let's start walking through building a TFS PowerShell module!
 
@@ -22,7 +20,7 @@ Let's start walking through building a TFS PowerShell module!
 
 I'm not going to go into a lot of details, but the basic steps to creating your PowerShell module are:
 
-1. Navigate to %USERPROFILE%My DocumentsWindowsPowerShellModules
+1. Navigate to %USERPROFILE%\My Documents\WindowsPowerShell\Modules
 2. Create a folder called MyTfsModule
 3. In the MyTfsFolder, create a file called MyTfsModule.psm1
 
@@ -123,7 +121,7 @@ The first thing we need to do is get the Nuget.exe from the web. This is very ea
 {% endhighlight %}
 Ok! When this function is invoked, we should now see a&nbsp;nuget.exe appear at:
 
-&gt; %USERPROFILE%My DocumentsWindowsPowerShellModulesMyTfsModuleNugetNuget.exe
+>%USERPROFILE%My DocumentsWindowsPowerShellModulesMyTfsModuleNugetNuget.exe
 
 ## Using Nuget to get TFS Client Object Model
 
@@ -369,7 +367,7 @@ We are using a 3rd party tool that subscribes to build events and we needed to k
        }
        end{}
     }
-{% endhighlight %}
+
 ## All Done
 
 We are now all done creating our initial MyTfsModule implementation! We should be able to load it up now and give it a spin!
@@ -377,12 +375,12 @@ We are now all done creating our initial MyTfsModule implementation! We should b
 ![MyTfsModule_In_Action][3]
 
 I've obscured the name of my running module and TFS server, but in those spots, just use the name of your module and TFS server.
-```powershell
+{% highlight powershell %}
     Import-Module MyTfsModule
     $configServer = Get-TfsConfigServer http://<name of your TFS server>:8080/tfs
     $allEventsOnServer = Get-TfsEventSubscriptions $configServer
     $allEventsOnServer.Length
-```
+{% endhighlight %}
 ## Final Thoughts
 
 The key takeaway from this post was that it is great that we can now get the TFS Object Model from Nuget. Still a bit of a pain to sort and move the downloaded assemblies&nbsp;around, but this is because we I am using PowerShell and not building some sort of C#-based project in Visual Studio which would handle the nuget packages much more elegantly.
