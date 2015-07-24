@@ -119,7 +119,7 @@ function Get-Nuget(){
 {% endhighlight %}
 Ok! When this function is invoked, we should now see a&nbsp;nuget.exe appear at:
 
->%USERPROFILE%My DocumentsWindowsPowerShellModulesMyTfsModuleNugetNuget.exe
+>%USERPROFILE%\My Documents\WindowsPowerShell\Modules\MyTfsModule\Nuget\Nuget.exe
 
 ## Using Nuget to get TFS Client Object Model
 
