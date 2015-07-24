@@ -48,7 +48,7 @@ while($ie.Busy) { Start-Sleep -Milliseconds 100 }
 
 The first two lines indicate how IE is supposed to behave in two ways and the first one is commented out.
 
-1. Show the instance of IE. This this line commented out, we get a "headless" browsing experience with no visible window or rendering.  [Visible Property - MSDN][3]
+1. Show the instance of IE. With this line commented out, we get a "headless" browsing experience with no visible window or rendering.  [Visible Property - MSDN][3]
 2. Do not show any dialogs that may pop up. [Silent Property - MSDN][5]
 
 The next instruction tells IE to navigate to the Url provided.
