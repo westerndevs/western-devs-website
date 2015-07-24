@@ -367,7 +367,7 @@ We are using a 3rd party tool that subscribes to build events and we needed to k
        }
        end{}
     }
-
+{% endhighlight %}
 ## All Done
 
 We are now all done creating our initial MyTfsModule implementation! We should be able to load it up now and give it a spin!
