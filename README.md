@@ -38,3 +38,46 @@ We have created a Docker image to facilitate running on Windows (or other OSes) 
 10. Run: `docker run -t -p 4000:4000 -v //c/path/to/code:/root/jekyll abarylko/western-devs:v1 rake serve`
 
 **Note**: If you have trouble running the docker image, there may be permission issues. Clone the repository into your C:\Users\<yourusername> folder and try again.
+
+### Tips for Creating Posts
+
+#### Creating a Post
+Posts are generated from simple markdown files that are located in the _post folder. Once the file has been added/updated, a Travic CI build will kick off, transform the .markdown and then add it to the site. The build can fail if your .markdown file contains any errors.
+
+Quick steps for creating a post are:  
+1. Create a .markdown file while follow the naming convention of the files that are in the _post folder
+2. Push the .markdown file into _posts directory in the source branch
+3. Ensure the CI build completes successfully
+
+More complete documentation can be found here: [Jekyll Docs](http://jekyllrb.com/docs/posts/)
+
+#### Post Header
+You need to put the following section, filled out appropriate, for all of the post styling to be applied.
+
+1. There must be no space/lines above the header section's top ---
+2. The --- at the top and bottom must be included
+
+```
+---
+layout: post
+title:  Building a TFS 2015 PowerShell Module using Nuget
+date: 2015-07-23T17:30:00-06:00
+categories:
+comments: true
+author: dave_white
+originalurl: http://agileramblings.com/2015/07/23/building-a-tfs-2015-powershell-module-using-nuget/
+---
+
+```
+#### Code Syntax Highlighting
+
+Syntax highlighting is done by the build. In order to get syntax highlighting in a section, it needs to be wrapped as follows.
+```
+
+{% highlight powershell %}
+
+... code goes here ...
+
+{% endhighlight %}
+
+```
