@@ -41,14 +41,13 @@ david_wesst:
 
 dave_white:
   name: Dave White
-  web: 
-  email: 
-  avatar: 
-  twitter: 
+  web: http://agileramblings.com/
+  email: dmhwhite@gmail.com
+  twitter: AgileRamblings
   google:
     plus: 
-  github: 
-  linkedin: 
+  github: agileramblings 
+  linkedin: dave-white
 
 donald_belcham:
   name: Donald Belcham

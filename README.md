@@ -37,12 +37,13 @@ We have created a Docker image to facilitate running on Windows (or other OSes) 
 9. Launch Boot2Docker on Windows
 10. Run: `docker run -t -p 4000:4000 -v //c/path/to/code:/root/jekyll abarylko/western-devs:v1 rake serve`
 
-**Note**: If you have trouble running the docker image, there may be permission issues. Clone the repository into your C:\Users\<yourusername> folder and try again.
+If you have trouble running the docker image, there may be permission issues. Clone the repository into your C:\Users\<yourusername> folder and try again.
 
-### Tips for Creating Posts Manually using Markdown
+Once the docker container is running `rake serve`, you can run the site locally in Windows at http://localhost:4000. You can make changes to posts and pages and after a delay of about 15 seconds, you can refresh your browser and see the changes.
 
-#### Creating a Post
-Posts are generated from simple markdown files that are located in the _post folder. Once the file has been added/updated, a Travic CI build will kick off, transform the .markdown and then add it to the site. The build can fail if your .markdown file contains any errors.
+### Creating Posts Manually using Markdown
+
+Posts are generated from simple markdown files that are located in the _posts folder. Once the file has been committed to the `source` branch, a [Travis CI build](https://travis-ci.org/westerndevs/western-devs-website/) will kick off, transform the .markdown and then add it to the site. The build can fail if your .markdown file contains any errors.
 
 Quick steps for creating a post are:  
 1. Create a .markdown file while follow the naming convention of the files that are in the _post folder
@@ -67,19 +68,23 @@ comments: true
 author: dave_white
 originalurl: http://agileramblings.com/2015/07/23/building-a-tfs-2015-powershell-module-using-nuget/
 ---
-
 ```
+
+**Note:** Avoid categories except in exceptional circumstances. Categories are used to build up URLs (e.g. http://westerndevs.com/c-sharp/repositories/nuget/tfs/my-post-about-nuget-and-tfs). We would like to avoid this but still use categories for other purposes (e.g. podcasts).
+
+
 #### Code Syntax Highlighting
 
 Syntax highlighting is done by Jekyll using [Pygments](http://pygments.org). In order to get syntax highlighting in a section, it needs to be wrapped as follows.
-```
 
+```
 {% highlight powershell %}
 
 ... code goes here ...
 
 {% endhighlight %}
-
 ```
 
 Over 100 languages are supported. You can see the [list of supported languages here](http://pygments.org/languages/).
+
+**Note:** You do not need to (and in fact, should not) indent The first line of your code snippets. The {% highlight %} tag is enough to signify a code snippet.
