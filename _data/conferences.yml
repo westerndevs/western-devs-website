@@ -12,6 +12,13 @@
   location: Calgary, AB
   topic: ASP.net MVC 6
 
+- date: 2015-09-11
+  event: Heartland Developers Conference
+  link: http://www.heartlanddc.com/
+  speaker: Dylan Smith
+  location: La Vista, NE
+  topic: Using Azure for Dev/Test Environments
+
 - date: 2015-11-02
   event: SDE Conference
   link: http://www.sdeconf.com/
@@ -25,6 +32,13 @@
   speaker: Donald Belcham
   location: Montevideo, Uruguay
   topic: 
+  
+- date: 2015-09-30
+  event: Minnesota Developers Conference
+  link: https://mdc.ilmservice.com/
+  speaker: Dylan Smith
+  location: Minneapolis, MN
+  topic: Using Azure for Dev/Test Environments
 
 - date: 2015-11-02
   event: SDE Conference
@@ -32,10 +46,3 @@
   speaker: David Wesst
   location: Winnipeg, MB
   topic: How to make "Great Developers"
-  
-- date: 2015-11-30
-  event: Minnesota Developers Conference
-  link: https://mdc.ilmservice.com/
-  speaker: Dylan Smith
-  location: Minneapolis, MN
-  topic: Using Azure for Dev/Test Environments
