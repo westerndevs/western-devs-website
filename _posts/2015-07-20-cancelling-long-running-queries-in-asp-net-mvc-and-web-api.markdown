@@ -121,6 +121,29 @@ xhr.abort();
 
 You will of course need to tie in to the page/component lifecycle of whatever framework you are using. This varies a lot from framework to framework so I won't specifically cover it here.
 
+## UPDATE: Making this work in MVC 5
+
+A huge thank you to [Muhammad Rehan Saeed](https://disqus.com/by/RehanSaeedUK/) for pointing out that in MVC 5, the cancellation token is not actually being signaled when the browser cancels the request. Everything works as expected in both MVC 6 and in Web API, but for some reason, MVC 5 only supports cancellation if you use the AsyncTimeout attribute. I was able to reproduce this and even cloned to MVC 5 / Web API and MVC 6 repositories to confirm that the implementation are in fact different.
+
+I did find a workaround that should achieve desired results. It involves grabbing the ClientDisconnectedToken from the Response property and creating a linked token source.
+
+{% highlight c# %}
+public async Task<ActionResult> MyReallySlowReport(CancellationToken cancellationToken)
+{
+     CancellationToken disconnectedToken = Response.ClientDisconnectedToken;            
+     var source = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken, disconnectedToken);
+
+    List<ReportItem> items;
+    using (ApplicationDbContext context = new ApplicationDbContext())
+    { 
+        items = await context.ReportItems.ToListAsync(source.Token);
+    }
+    return View(items);
+}
+{% endhighlight %}
+
+Using this workaround, the linked token will be signaled when the browser cancels the request and also if a timeout has expired if you choose to use the AsyncTimeout attribute.
+
 ## Conclusion
 
 If you are using MVC 5, Web API or MVC 6 in combination with any modern data access layer, it should be extremely easy to pass your cancellation token and cancel long running queries when a request from the client is aborted. This is a simple approach that can help to avoid situations where a small number of users can accidentally overload your web server and database server.
