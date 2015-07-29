@@ -46,3 +46,17 @@
   speaker: David Wesst
   location: Winnipeg, MB
   topic: How to make "Great Developers"
+
+- date: 2015-09-26
+  event: MeasureUP
+  link: http://measureup.io
+  speaker: James Chambers
+  location: Austin, TX
+  topic: "MVC6 – What You Need to Know When Moving to vNext"
+
+- date: 2015-09-26
+  event: MeasureUP
+  link: http://measureup.io
+  speaker: Kyle Baley
+  location: Austin, TX
+  topic: "Docker for People Who Have Heard of Docker But Think It’s Weird"
