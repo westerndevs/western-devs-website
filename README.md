@@ -46,6 +46,7 @@ Once the docker container is running `rake serve`, you can run the site locally 
 Posts are generated from simple markdown files that are located in the _posts folder. Once the file has been committed to the `source` branch, a [Travis CI build](https://travis-ci.org/westerndevs/western-devs-website/) will kick off, transform the .markdown and then add it to the site. The build can fail if your .markdown file contains any errors.
 
 Quick steps for creating a post are:  
+
 1. Create a .markdown file while follow the naming convention of the files that are in the _post folder
 2. Push the .markdown file into _posts directory in the source branch
 3. Ensure the CI build completes successfully
