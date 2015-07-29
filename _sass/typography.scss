@@ -101,6 +101,7 @@ figcaption {
 	background-color: $body-color;
 	border: 1px solid darken($body-color,20);
 	@include rounded(3px);
+	background-color: #efefef;
 }
 
 /* 
