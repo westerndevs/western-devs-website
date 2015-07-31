@@ -200,7 +200,7 @@ The next part seems a bit verbose, but I'm leaving it that way as an example of 
 1. Find all .dll files in the directory structure, recursively
 2. Exclude .dll files that have "portable" in their path
 3. Exclude .dll files that have "resource" in their path
-4. Include only .dll files that have "net45″ in their path
+4. Include only .dll files that have "net45″, "native", or "Microsoft.ServiceBus" in their path
 
 After I've narrowed it down to that list of .dll files, I copy them all to the TFSOMbin folder where they will be referenced from. This also allows them to satisfy their dependencies on each other as required when loaded.
 
