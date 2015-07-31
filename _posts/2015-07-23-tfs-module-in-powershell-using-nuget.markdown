@@ -58,22 +58,22 @@ $BuildCommonName = "Microsoft.TeamFoundation.Build.Common"
 
 function New-Folder() {
     <#
-     .SYNOPSIS
-     This function creates new folders
-     .DESCRIPTION
-     This function will create a new folder if required or return a reference to
-     the folder that was requested to be created if it already exists.
-     .EXAMPLE
-     New-Folder "C:TempMyNewFolder"
-     .PARAMETER folderPath
-     String representation of the folder path requested
+    .SYNOPSIS
+    This function creates new folders
+    .DESCRIPTION
+    This function will create a new folder if required or return a reference to
+    the folder that was requested to be created if it already exists.
+    .EXAMPLE
+    New-Folder "C:TempMyNewFolder"
+    .PARAMETER folderPath
+    String representation of the folder path requested
     #>
 
-     [CmdLetBinding()]
-     param(
-         [parameter(Mandatory=$true, ValueFromPipeline=$true)]
-         [string]$folderPath
-     )
+    [CmdLetBinding()]
+    param(
+        [parameter(Mandatory=$true, ValueFromPipeline=$true)]
+        [string]$folderPath
+    )
     begin {}
     process {
         if (!(Test-Path -Path $folderPath)){
