@@ -8,6 +8,19 @@ author: dave_white
 originalurl: http://agileramblings.com/2015/07/23/building-a-tfs-2015-powershell-module-using-nuget/
 ---
 
+
+*Update:* Unwittingly, I hadn’t tested my Nuget approach on a server with no Visual Studio or TFS installations on it and I’ve missed a couple assemblies that are required when loading the TFS Object model. I’ve updated the line of code in my samples, but just in case, here is the new version of the line in question.
+
+{% highlight powershell %}
+$net45Dlls = $allDlls | ? {$_.PSPath.Contains("portable") -ne $true } | ? {$_.PSPath.Contains("resources") -ne $true } | ? { ($_.PSPath.Contains("net45") -eq $true) -or ($_.PSPath.Contains("native") -eq $true) -or ($_.PSPath.Contains("Microsoft.ServiceBus") -eq $true) }
+{% endhighlight %}
+
+The update is the addition of two *-or* statements to the last inclusive where clause.
+
+I’ve also slightly changed the *Import-TfsAssemblies* function to include a try/catch block for better error reporting.
+
+#### Original Start
+
 With the release of [Visual Studio 2015][1] on July 20, 2015,&nbsp;we can talk about and explore a lot of really cool things that are happening with Visual Studio (VS) and Team Foundation Server (TFS). One of the things that has been a bit of a pain when managing a TFS&nbsp;on-premises installation has been the necessity of installing Visual Studio to get the TFS client object model on your administrative workstation. With the explosive use of PowerShell to manage all things Microsoft, this has been a bit of&nbsp;a drag on using PowerShell for TFS work. There are PowerShell modules for TFS in the TFS Power Tools, but sometimes you need the power that comes with using the TFS Object Model. Which meant that you had to install Visual Studio. I'm really glad to say that is no longer the case. With the release of TFS 2015, the TFS Object Model is now available on [Nuget][2]! With our trusty nuget.exe, we can now get the TFS object model from a trusted source, without violating any license terms, to use in our own TFS PowerShell modules.
 
 I'm not going to profess to be a PowerShell wizard so I hope I'm not breaking any community best practices too badly. I'm more than happy to adapt my implementation if I get feedback on better ways of doing things! It should also be noted that I'm using PowerShell 4. This is located in the Windows Managment Framework 4 download (http://www.microsoft.com/en-ca/download/details.aspx?id=40855), a free download from Microsoft. I don't **_think&nbsp;_**you'll have any problems upgrading from previous versions of PowerShell but I'm not going to any assurances.
@@ -151,12 +164,20 @@ function Get-TfsAssembliesFromNuget(){
         nuget install "Microsoft.VisualStudio.Services.Client" -OutputDirectory $targetOMFolder -ExcludeVersion -NonInteractive
         nuget install "Microsoft.VisualStudio.Services.InteractiveClient" -OutputDirectory $targetOMFolder -ExcludeVersion -NonInteractive
 
-        #move all of the net45 assemblies to a bin folder so we can reference them
-        #and they are co-located so that they can find each other as necessary
-        $allDlls = Get-ChildItem -Path $("$ModuleRootTFSOM") -Recurse -File -Filter "*.dll"
-        $net45Dlls = $allDlls | ? {$_.PSPath.Contains("portable") -ne $true } | ? {$_.PSPath.Contains("resources") -ne $true } | ? {$_.PSPath.Contains("net45") -eq $true }
-        $net45Dlls | % { Copy-Item -Path $_.Fullname -Destination $targetOMBinFolder}
-
+        #Copy all of the required .dlls out of the nuget folder structure 
+        #to a bin folder so we can reference them easily and they are co-located
+        #so that they can find each other as necessary when loading
+        $allDlls = Get-ChildItem -Path $("$ModuleRoot\TFSOM\") -Recurse -File -Filter "*.dll"
+ 
+        # Create list of all the required .dlls
+        #exclude portable dlls
+        $requiredDlls = $allDlls | ? {$_.PSPath.Contains("portable") -ne $true } 
+        #exclude resource dlls
+        $requiredDlls = $requiredDlls | ? {$_.PSPath.Contains("resources") -ne $true } 
+        #include net45, native, and Microsoft.ServiceBus.dll
+        $requiredDlls = $requiredDlls | ? { ($_.PSPath.Contains("net45") -eq $true) -or ($_.PSPath.Contains("native") -eq $true) -or ($_.PSPath.Contains("Microsoft.ServiceBus") -eq $true) }
+        #copy them all to a bin folder
+        $requiredDlls | % { Copy-Item -Path $_.Fullname -Destination $targetOMBinFolder}
     }
     end{}
 }
@@ -205,13 +226,18 @@ function Import-TFSAssemblies() {
         $omBinFolder = $("$ModuleRootTFSOMbin");
         $targetOMbinFolder = New-Folder $omBinFolder;
 
-        Add-Type -LiteralPath $($targetOMbinFolder.PSPath + $vsCommon + ".dll")
-        Add-Type -LiteralPath $($targetOMbinFolder.PSPath + $commonName + ".dll")
-        Add-Type -LiteralPath $($targetOMbinFolder.PSPath + $clientName + ".dll")
-        Add-Type -LiteralPath $($targetOMbinFolder.PSPath + $VCClientName + ".dll")
-        Add-Type -LiteralPath $($targetOMbinFolder.PSPath + $WITClientName + ".dll")
-        Add-Type -LiteralPath $($targetOMbinFolder.PSPath + $BuildClientName + ".dll")
-        Add-Type -LiteralPath $($targetOMbinFolder.PSPath + $BuildCommonName + ".dll")
+        try {
+            Add-Type -LiteralPath $($targetOMbinFolder.PSPath + $vsCommon + ".dll")
+            Add-Type -LiteralPath $($targetOMbinFolder.PSPath + $commonName + ".dll")
+            Add-Type -LiteralPath $($targetOMbinFolder.PSPath + $clientName + ".dll")
+            Add-Type -LiteralPath $($targetOMbinFolder.PSPath + $VCClientName + ".dll")
+            Add-Type -LiteralPath $($targetOMbinFolder.PSPath + $WITClientName + ".dll")
+            Add-Type -LiteralPath $($targetOMbinFolder.PSPath + $BuildClientName + ".dll")
+            Add-Type -LiteralPath $($targetOMbinFolder.PSPath + $BuildCommonName + ".dll")
+        } 
+        catch {
+            $_.Exception.LoaderExceptions | $ { $_.Message }
+        }
      }
      end{}
 }
