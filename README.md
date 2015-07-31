@@ -35,7 +35,7 @@ We have created a Docker image to facilitate running on Windows (or other OSes) 
 7. Add a new port forwarding rule that maps port 4000 in the guest to port 4000 in the host
 8. Close the Virtual Box Manager
 9. Launch Boot2Docker on Windows
-10. Run: `docker run -t -p 4000:4000 -v //c/path/to/code:/root/jekyll abarylko/western-devs:v1 rake serve`
+10. Run: `docker run -t -p 4000:4000 -v //c/path/to/code:/root/jekyll abarylko/western-devs:v1 sh -c 'bundle install && rake serve'`
 
 If you have trouble running the docker image, there may be permission issues. Clone the repository into your C:\Users\<yourusername> folder and try again.
 
