@@ -57,12 +57,13 @@ More complete documentation can be found here: [Jekyll Docs](http://jekyllrb.com
 You need to put the following section, filled out appropriate, for all of the post styling to be applied.
 
 1. There must be no space/lines above the header section's top ---
-2. The --- at the top and bottom must be included
+2. Make sure the title is included in "double quotes" to avoid conflicts with special characters (e.g. colons)
+3. The --- at the top and bottom must be included
 
 ```
 ---
 layout: post
-title:  Building a TFS 2015 PowerShell Module using Nuget
+title:  "Building a TFS 2015 PowerShell Module using Nuget"
 date: 2015-07-23T17:30:00-06:00
 categories:
 comments: true
