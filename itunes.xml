@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
 <channel>
-	<title>Western Devs</title>
-	<link>http://www.westerndevs.com/whatwevesaid</link>
+	<title>Western Devs :: Panel discussions on .NET, software practices, and smoked meat</title>
+	<link>http://www.westerndevs.com/podcasts/</link>
 	<language>en-us</language>
 	<copyright>&#x2117; &amp; &#xA9; 2015 Western Devs</copyright>
 	<itunes:subtitle>Semi-regular technical discussions on various topics</itunes:subtitle>
@@ -105,7 +105,7 @@ Music:
 Doctor Man, by <a href="https://www.youtube.com/user/jwcchristie">Johnnie Christie and the Boats</a>!]]></itunes:summary>
 		<itunes:image href="http://www.westerndevs.com/images/luchador.png" />
 		<enclosure url="http://cdn.westerndevs.com/podcasts/Internet of Things.mp3" length="55153989" type="audio/mpeg" />
-		<pubDate>Mon, 13 Jul 2014 19:00:00 GMT</pubDate>
+		<pubDate>Mon, 13 Jul 2015 19:00:00 GMT</pubDate>
 		<itunes:duration>45:57</itunes:duration>
 	</item>
 	<item>
@@ -153,8 +153,50 @@ Music:
 Doctor Man, by <a href="https://www.youtube.com/user/jwcchristie">Johnnie Christie and the Boats</a>!]]></itunes:summary>
 		<itunes:image href="http://www.westerndevs.com/images/luchador.png" />
 		<enclosure url="http://cdn.westerndevs.com/podcasts/DevOps.mp3" length="62319361" type="audio/mpeg" />
-		<pubDate>Tue, 21 Jul 2014 19:00:00 GMT</pubDate>
+		<pubDate>Tue, 21 Jul 2015 19:00:00 GMT</pubDate>
 		<itunes:duration>51:55</itunes:duration>
+	</item>
+	<item>
+		<title>The Repository Pattern</title>
+		<itunes:author>Western Devs</itunes:author>
+		<itunes:subtitle>"Do we really need all these repositories?"</itunes:subtitle>
+		<itunes:summary><![CDATA[Participants:
+<a href="/bios/amir_barylko">Amir Barylko</a>
+<a href="/bios/dave_paquette">Dave Paquette</a>
+<a href="/bios/donald_belcham">Donald Belcham</a>
+<a href="/bios/dylan_smith">Dylan Smith</a>
+<a href="/bios/simon_timms">Simon Timms</a>
+
+	
+Synopsis
+
+What is the Repository Pattern?
+Where should the business logic go?
+Explosion of methods on repositories and the Interface Segregation Principle
+Testing repositories: integration vs. unit
+Transactions: Are they a database or business concern?
+Eager vs. lazy loading: The N+1 problem
+Extension methods and query objects as an alternative
+The misuse of reuse: “Hey, this looks like it does what I need it to do”
+The Double Dispatch Pattern
+Managing transactions and eventual consistency in distributed systems
+Eventual inconsistency in the real world
+
+Links:
+
+<a href="http://www.westerndevs.com/repository-nightmares/">Repository nightmares</a>
+<a href="http://martinfowler.com/eaaCatalog/repository.html">Repository pattern</a>
+<a href="https://en.wikipedia.org/wiki/Double_dispatch">Double dispatch</a>
+<a href="https://en.wikipedia.org/wiki/Interface_segregation_principle">Interface Segregation Principle</a>
+<a href="http://martinfowler.com/bliki/DDD_Aggregate.html">Domain Driven Design Aggregate</a>
+<a href="http://stackoverflow.com/questions/97197/what-is-the-n1-selects-issue">The N+1 problem</a>
+
+Music:
+Doctor Man, by <a href="https://www.youtube.com/user/jwcchristie">Johnnie Christie and the Boats</a>!]]></itunes:summary>
+		<itunes:image href="http://www.westerndevs.com/images/luchador.png" />
+		<enclosure url="http://cdn.westerndevs.com/podcasts/Repository Pattern.mp3" length="57742198" type="audio/mpeg" />
+		<pubDate>Tue, 04 Aug 2015 19:00:00 GMT</pubDate>
+		<itunes:duration>48:07</itunes:duration>
 	</item>
 </channel>
 </rss>
