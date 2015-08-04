@@ -6,6 +6,8 @@ categories: podcasts
 excerpt: "Do we really need all these repositories?"
 comments: true
 podcast: "Repository Pattern.mp3"
+podcast-running-time: "48:07"
+podcast-filesize: 57742198
 participants: 
     - dave_paquette
     - amir_barylko
