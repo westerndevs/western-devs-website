@@ -6,7 +6,7 @@ categories: podcasts
 excerpt: "The Western Devs delve into the mire that is the Internet of Things"
 comments: true
 redirect_from: "/whatwevesaid/podcast-the-internet-of-things/"
-podcast: "Internet of Things.mp3"
+podcast: "InternetOfThings.mp3"
 participants: 
     - dave_paquette
     - amir_barylko
