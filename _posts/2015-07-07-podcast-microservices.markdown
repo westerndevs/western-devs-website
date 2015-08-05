@@ -7,6 +7,8 @@ excerpt: "In our inaugural podcast, the Western Devs tackle what is either the n
 comments: true
 redirect_from: "/whatwevesaid/podcast-microservices/"
 podcast: Microservices.mp3
+podcast-running-time: "53:58"
+podcast-filesize: 51810324
 participants: 
     - dave_paquette
     - amir_barylko

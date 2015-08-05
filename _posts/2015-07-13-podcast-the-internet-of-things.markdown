@@ -7,6 +7,8 @@ excerpt: "The Western Devs delve into the mire that is the Internet of Things"
 comments: true
 redirect_from: "/whatwevesaid/podcast-the-internet-of-things/"
 podcast: "InternetOfThings.mp3"
+podcast-running-time: "45:57"
+podcast-filesize: 55153989
 participants: 
     - dave_paquette
     - amir_barylko

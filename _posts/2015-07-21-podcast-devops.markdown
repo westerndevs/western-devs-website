@@ -6,6 +6,8 @@ categories: podcasts
 excerpt: "Continuing the theme of making grandiose claims about vaguely defined terms, the Western Devs take on the Rise of DevOps"
 comments: true
 podcast: "DevOps.mp3"
+podcast-running-time: "51:55"
+podcast-filesize: 62319361
 redirect_from: "/whatwevesaid/podcast-devops/"
 participants: 
     - dave_paquette

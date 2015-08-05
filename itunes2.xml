@@ -1,0 +1,40 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+	<channel>
+		<title>Western Devs :: Panel discussions on .NET, software practices, and smoked meat</title>
+		<link>{{site.url}}</link>
+		<language>en-us</language>
+		<copyright>&#x2117; &amp; &#xA9; 2015 Western Devs</copyright>
+		<itunes:subtitle>Semi-regular technical discussions on various topics</itunes:subtitle>
+		<itunes:author>Western Devs</itunes:author>
+		<itunes:summary>A group of software developers, mostly from western Canada, mostly in the Microsoft .NET space, and all west of someplace else get together to discuss topics that tickle their fancy.</itunes:summary>
+		<description>A group of software developers, mostly from western Canada, mostly in the Microsoft .NET space, and all west of someplace else get together to discuss topics that tickle their fancy.</description>
+		<itunes:owner>
+			<itunes:name>Dylan Smith</itunes:name>
+			<itunes:email>dylanfromwinnipeg@gmail.com</itunes:email>
+		</itunes:owner>
+		<itunes:image href="http://www.westerndevs.com/images/luchador.png" />
+		<itunes:category text="Technology" />
+		<pubDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S" }}</pubDate>
+		<lastBuildDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S" }}</lastBuildDate>
+		<generator>Jekyll</generator>
+		<managingEditor>dylanfromwinnipeg@gmail.com (Dylan Smith)</managingEditor>
+		{% for post in site.categories.podcasts %}
+			<item>
+				<title>{{ post.title }}</title>
+				<link>{{site.url}}{{ post.url }}</link>
+				<pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S" }}</pubDate>
+				<guid>{{site.url}}{{ post.url }}</guid>
+				<description><![CDATA[{{ post.content }}!]]></description>
+				<itunes:author>Western Devs</itunes:author>
+				<itunes:subtitle>{{ post.excerpt }}</itunes:subtitle>
+				<itunes:summary><![CDATA[{{ post.content }}!]]></itunes:summary>
+				<enclosure url="http://cdn.westerndevs.com/podcasts/{{post.podcast}}" length="{{post.podcast-filesize}}" type="audio/mpeg" />
+				<itunes:duration>{{post.podcast-running-time}}</itunes:duration>
+			</item>
+		{% endfor %}
+	</channel> 
+</rss>
