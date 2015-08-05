@@ -47,7 +47,7 @@ If you don't want to go through the process of installing and configuring docker
 
 1. Install Azure Powershell if you don't already have it (the installer is in the _azure folder)
 2. Run deploy.ps1 from the _azure folder (you'll be prompted for a few things including your branch name to deploy, and your azure credentials) - this takes about 10 mins
-3. You can keep the Azure environment around to use for development/testing, or you can destroy it by deleting the Resource Group that is created via the Azure Portal (http://portal.azure.com)
+3. When you're done testing you can keep the Azure environment around to use for development/testing, or you can destroy it by deleting the Resource Group that is created via the Azure Portal (http://portal.azure.com)
 
 ### Creating Posts Manually using Markdown
 
