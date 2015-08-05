@@ -5,10 +5,9 @@ date: 2015-08-04T11:55:26-04:00
 categories: podcasts
 excerpt: "Do we really need all these repositories?"
 comments: true
-podcast: "Repository Pattern.mp3"
+podcast: "RepositoryPattern.mp3"
 podcast-running-time: "48:07"
-podcast-filesize: 57742198
-participants: 
+podcast-filesize: 57742198participants: 
     - dave_paquette
     - amir_barylko
     - simon_timms
