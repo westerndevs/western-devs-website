@@ -1,4 +1,7 @@
-﻿$EnvName = Read-Host "Name for Azure Resource Group (must be globally unique and all lowercase)?"
+﻿Set-StrictMode -Version 3
+Import-Module Azure -ErrorAction SilentlyContinue
+
+$EnvName = Read-Host "Name for Azure Resource Group (must be globally unique and all lowercase)?"
 $BranchName = Read-Host "Name of branch in git?"
 
 $RemoteScriptPath = Join-Path $PSScriptRoot "putty.sh"
