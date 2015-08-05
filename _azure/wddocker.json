@@ -1,6 +1,12 @@
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
+  "parameters": {
+    "branchName": {
+      "type": "string",
+	  "defaultValue": "source"
+    }
+  },
   "variables": {
 	"newStorageAccountName": "[resourceGroup().name]",
 	"location": "[resourceGroup().location]",
@@ -196,7 +202,19 @@
         "publisher": "Microsoft.Azure.Extensions",
         "type": "DockerExtension",
         "typeHandlerVersion": "1.0",
-        "autoUpgradeMinorVersion": true
+        "autoUpgradeMinorVersion": true,
+		"settings": {
+          "compose": {
+            "wddocker": {
+              "image": "abarylko/western-devs:v1",
+              "ports": [
+                "4000:4000"
+              ],
+			  "stdin_open": true,
+			  "command": "[concat('bash -c \"git clone https://github.com/westerndevs/western-devs-website.git && cd western-devs-website && git checkout ', parameters('branchName'), ' && sed -i s/www.westerndevs.com/', variables('dnsNameForPublicIP'), '.westus.cloudapp.azure.com:4000/g _config.yml && bundle install && jekyll serve --host 0.0.0.0 --force_polling\"')]"
+            }
+          }
+		}
       }
     }
   ]
