@@ -33,3 +33,4 @@ Write-Host "Running: $PlinkPath $PlinkArgs"
 Start-Process $PlinkPath -ArgumentList $PlinkArgs
 
 Write-Host "Once the plink command window says Server Running you can browse to your site at http://$EnvName.westus.cloudapp.azure.com:4000"
+Read-Host "Press enter to close this window..."
