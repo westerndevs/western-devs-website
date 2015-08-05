@@ -26,11 +26,13 @@ $PlinkPath = Join-Path $PSScriptRoot "plink.exe"
 $PlinkArgs = "-ssh $EnvName.westus.cloudapp.azure.com -l WesternDevs -pw P2ssw0rd -m $UpdatedRemoteScriptPath"
 
 # This will suppress the prompt that the server is untrusted for all future plink commands
-Write-Host "Note: The below error is expected - I just haven't figured out how to suppress the scary red text yet"
+Write-Host "Note: The below error is expected - I just haven't figured out how to suppress the scary error text yet"
 Invoke-Expression "echo y | $PlinkPath -ssh WesternDevs@$EnvName.westus.cloudapp.azure.com 'exit'" -ErrorAction SilentlyContinue | Out-Null
+Write-Host "======================"
 
 Write-Host "Running: $PlinkPath $PlinkArgs"
 Start-Process $PlinkPath -ArgumentList $PlinkArgs
+Write-Host "======================"
 
 Write-Host "Once the plink command window says Server Running you can browse to your site at http://$EnvName.westus.cloudapp.azure.com:4000"
 Read-Host "Press enter to close this window..."
