@@ -1,202 +1,40 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
-<channel>
-	<title>Western Devs :: Panel discussions on .NET, software practices, and smoked meat</title>
-	<link>http://www.westerndevs.com/podcasts/</link>
-	<language>en-us</language>
-	<copyright>&#x2117; &amp; &#xA9; 2015 Western Devs</copyright>
-	<itunes:subtitle>Semi-regular technical discussions on various topics</itunes:subtitle>
-	<itunes:author>Western Devs</itunes:author>
-	<itunes:summary><![CDATA[Western Devs started as a secret underground society that rivaled the Masons in scope, Mensa in influence, and the Stonecutters in effectiveness. For years, we lurked in the shadows, subtly influencing world opinion on topics such as UI testing, software patterns, bronies, and smoked meat.
-
-The group, nay, the LEGEND, formed years ago when Dave Woods started a humble mailing list as a means of continuing the conversations with developers he met at conferences and user groups. It was a means to expand our knowledge on the state of the industry and a solid go-to place for technical questions.
-
-Over the years, the group grew slowly but steadily. Members came and went and the conversations continued as the landscape of .NET morphed. We learned TDD, compared IoC containers, extolled (and later, took refuge from) alt.net, and, above all else, had fun doing it. We don’t always agree but religious debates are entertaining.
-
-Eventually, we graduated from a mailing list to Slack and it turbo-charged the entire venture. The conversations now flow much more freely and members that were passing acquaintances before have turned into respected colleagues and friends. The signal-to-noise ratio is high and the egos are low. Everyone is willing to listen and the varied experience, while still rooted in .NET, is essentially what we've always wanted in the general .NET community.!]]></itunes:summary>
-	<description><![CDATA[Western Devs started as a secret underground society that rivaled the Masons in scope, Mensa in influence, and the Stonecutters in effectiveness. For years, we lurked in the shadows, subtly influencing world opinion on topics such as UI testing, software patterns, bronies, and smoked meat.
-
-The group, nay, the LEGEND, formed years ago when Dave Woods started a humble mailing list as a means of continuing the conversations with developers he met at conferences and user groups. It was a means to expand our knowledge on the state of the industry and a solid go-to place for technical questions.
-
-Over the years, the group grew slowly but steadily. Members came and went and the conversations continued as the landscape of .NET morphed. We learned TDD, compared IoC containers, extolled (and later, took refuge from) alt.net, and, above all else, had fun doing it. We don’t always agree but religious debates are entertaining.
-
-Eventually, we graduated from a mailing list to Slack and it turbo-charged the entire venture. The conversations now flow much more freely and members that were passing acquaintances before have turned into respected colleagues and friends. The signal-to-noise ratio is high and the egos are low. Everyone is willing to listen and the varied experience, while still rooted in .NET, is essentially what we've always wanted in the general .NET community.!]]></description>
-	<itunes:owner>
-		<itunes:name>Dylan Smith</itunes:name>
-		<itunes:email>dylanfromwinnipeg@gmail.com</itunes:email>
-	</itunes:owner>
-	<itunes:image href="http://www.westerndevs.com/images/luchador.png" />
-	<itunes:category text="Technology" />
-	<item>
-		<title>Microservices</title>
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+	<channel>
+		<title>Western Devs :: Panel discussions on .NET, software practices, and smoked meat</title>
+		<link>{{site.url}}</link>
+		<language>en-us</language>
+		<copyright>&#x2117; &amp; &#xA9; 2015 Western Devs</copyright>
+		<itunes:subtitle>Semi-regular technical discussions on various topics</itunes:subtitle>
 		<itunes:author>Western Devs</itunes:author>
-		<itunes:subtitle>In our inaugural podcast, the Western Devs tackle what is either the new hotness, retro SOA, or a flash in the pan: microservices.</itunes:subtitle>
-		<itunes:summary><![CDATA[In our inaugural podcast, the Western Devs tackle what is either the new hotness, retro SOA, or a flash in the pan: microservices.
-
-Participants: 
-<a href="http://westerndevs.com/bios/amir_barylko">Amir Barylko</a>
-<a href="http://westerndevs.com/bios/dave_paquette">Dave Paquette</a>
-<a href="http://westerndevs.com/bios/dave_white">Dave White</a>
-<a href="http://westerndevs.com/bios/david_wesst">David Wesst</a>
-<a href="http://westerndevs.com/bios/donald_belcham">Donald Belcham</a>
-<a href="http://westerndevs.com/bios/dylan_smith">Dylan Smith</a>
-Jason Row
-<a href="http://westerndevs.com/bios/kyle_baley">Kyle Baley</a>
-Tom Opgenorth
-
-Links from the show:
-<a href="http://geekswithblogs.net/Optikal/archive/2013/05/19/152956.aspx">SOA with a dash of PubSub by Dylan Smith</a>
-<a href="https://vimeo.com/132194544">Microservices, cutting through the Gordian Knot by Ian Cooper (NDC 2015)</a>
-<a href="https://plus.google.com/+RipRowan/posts/eVeouesvaVX">Steve Yegge’s post on Amazon’s switch to services</a>
-<a href="https://vimeo.com/131632250">Principles of Microservices presentation by Sam Newman (NDC 2015)</a>
-<a href="http://www.martinfowler.com/bliki/StranglerApplication.html">Strangler Application</a>
-<a href="http://martinfowler.com/articles/microservices.html">Martin Fowler on Microservices</a>
-<a href="https://www.docker.com/">Docker</a>
-<a href="https://registry.hub.docker.com/u/microsoft/aspnet/">Docker images for asp.net v5</a>
-<a href="http://www.splunk.com/">Splunk</a>
-<a href="https://labs.spotify.com/2014/03/27/spotify-engineering-culture-part-1/">Spotify culture</a> (part 1 of 2)
-<a href="http://damianm.com/articles/human-benefits-of-a-microservice-architecture/">Human benefits of a microservice architecture</a>
-
-Music:
-Doctor Man, by <a href="https://www.youtube.com/user/jwcchristie">Johnnie Christie and the Boats</a>!]]></itunes:summary>
+		<itunes:summary>A group of software developers, mostly from western Canada, mostly in the Microsoft .NET space, and all west of someplace else get together to discuss topics that tickle their fancy.</itunes:summary>
+		<description>A group of software developers, mostly from western Canada, mostly in the Microsoft .NET space, and all west of someplace else get together to discuss topics that tickle their fancy.</description>
+		<itunes:owner>
+			<itunes:name>Dylan Smith</itunes:name>
+			<itunes:email>dylanfromwinnipeg@gmail.com</itunes:email>
+		</itunes:owner>
 		<itunes:image href="http://www.westerndevs.com/images/luchador.png" />
-		<enclosure url="http://cdn.westerndevs.com/podcasts/Microservices.mp3" length="51810324" type="audio/mpeg" />
-		<pubDate>Tue, 07 Jul 2015 19:00:00 GMT</pubDate>
-		<itunes:duration>53:58</itunes:duration>
-	</item>
-	<item>
-		<title>The Internet of Things</title>
-		<itunes:author>Western Devs</itunes:author>
-		<itunes:subtitle>The Western Devs delve into the mire that is the Internet of Things</itunes:subtitle>
-		<itunes:summary><![CDATA[Participants:
-<a href="http://westerndevs.com/bios/amir_barylko">Amir Barylko</a>
-Craig Anderson
-<a href="http://westerndevs.com/bios/dave_paquette">Dave Paquette</a>
-<a href="http://westerndevs.com/bios/dave_white">Dave White</a>
-<a href="http://westerndevs.com/bios/donald_belcham">Donald Belcham</a>
-<a href="http://westerndevs.com/bios/james_chambers">James Chambers</a>
-<a href="http://westerndevs.com/bios/kyle_baley">Kyle Baley</a>
-Shane Courtrille
-<a href="http://westerndevs.com/bios/simon_timms">Simon Timms</a>
-Tom Opgenorth
-
-Synopsis:
-Is Internet of Things SCADA without the pomp and circumstance?
-Security (and lack there of) in internet-enabled devices
-Connecting devices together and the short-sightedness of proprietary access
-Off-the-shelf vs. build-your-own
-Encouraging good behaviour and learning through internet-enabled devices
-Advantages (and risks) in the health industry
-“See a need, fill a need”: Sump pumps and coffeepots
-Does the light really go out when you close the fridge?
-Accessibility of hardware to software people and vice versa
-
-Links:
-<a href="https://en.wikipedia.org/wiki/SCADA">SCADA</a>
-<a href="http://www.wink.com/products/wink-hub/">Wink HUB</a>
-<a href="http://www.netduino.com/">Netduino</a>
-<a href="https://www.arduino.cc/">Arduino</a>
-<a href="https://www.raspberrypi.org/">Raspberry Pi</a>
-<a href="https://nest.com/">Nest</a>
-<a href="http://www.newark.com/">Newark</a>
-<a href="https://lostechies.com/derickbailey/2013/04/10/a-first-look-at-my-arduino-bbq-thermometer/">BBQduino</a>
-
-Music:
-Doctor Man, by <a href="https://www.youtube.com/user/jwcchristie">Johnnie Christie and the Boats</a>!]]></itunes:summary>
-		<itunes:image href="http://www.westerndevs.com/images/luchador.png" />
-		<enclosure url="http://cdn.westerndevs.com/podcasts/InternetOfThings.mp3" length="55153989" type="audio/mpeg" />
-		<pubDate>Mon, 13 Jul 2015 19:00:00 GMT</pubDate>
-		<itunes:duration>45:57</itunes:duration>
-	</item>
-	<item>
-		<title>DevOps</title>
-		<itunes:author>Western Devs</itunes:author>
-		<itunes:subtitle>Continuing the theme of making grandiose claims about vaguely defined terms, the Western Devs take on the Rise of DevOps</itunes:subtitle>
-		<itunes:summary><![CDATA[Participants:
-<a href="http://westerndevs.com/bios/amir_barylko">Amir Barylko</a>
-<a href="http://westerndevs.com/bios/dave_paquette">Dave Paquette</a>
-<a href="http://westerndevs.com/bios/dave_white">Dave White</a>
-<a href="http://westerndevs.com/bios/dylan_smith">Dylan Smith</a>
-<a href="http://westerndevs.com/bios/james_chambers">James Chambers</a>
-<a href="http://westerndevs.com/bios/kyle_baley">Kyle Baley</a>
-<a href="http://westerndevs.com/bios/simon_timms">Simon Timms</a>
-	
-Synopsis:
-DevOps: Person, role, culture, methodology, or movement?
-The importance of collaboration and communication
-Automation, continuous delivery/continuous deployment: are they required for DevOps?
-What happens to your code after you commit?
-Attitude defines your culture, not the other way around
-DevOps is not< a developer that does operational tasks
-Is the backlash coming? Lessons from Agile
-An incremental approach to implementing DevOps practices in an organization
-Security benefits of being able to release often
-Metrics, logging, statistics, monitoring: what happens after you release?
-Is quality dead? If so, can DevOps fix it?
-Does DevOps change how you code? No-downtime deployments, A/B testing and feature toggles
-Enabling smaller deployments that use external services
-How DevOps practices make CQRS, eventing, and microservices easier
-
-Links:
-<a href="https://en.wikipedia.org/wiki/DevOps">DevOps on Wikipedia</a>
-<a href="http://theagileadmin.com/what-is-devops/">What is DevOps</a>
-<a href="https://jeffknupp.com/blog/2014/04/15/how-devops-is-killing-the-developer/">How DevOps is killing the developer</a>
-<a href="https://azure.microsoft.com/en-us/documentation/articles/app-insights-get-started/">AppInsights</a>
-<a href="http://newrelic.com/">NewRelic</a>
-<a href="https://github.com/etsy/statsd">statsd</a>
-<a href="https://logentries.com/">LogEntries</a>
-<a href="https://mixpanel.com/">MixPanel</a>
-<a href="https://octopusdeploy.com/">Octopus</a>
-<a href="https://www.docker.com/">Docker</a>
-
-Music:
-Doctor Man, by <a href="https://www.youtube.com/user/jwcchristie">Johnnie Christie and the Boats</a>!]]></itunes:summary>
-		<itunes:image href="http://www.westerndevs.com/images/luchador.png" />
-		<enclosure url="http://cdn.westerndevs.com/podcasts/DevOps.mp3" length="62319361" type="audio/mpeg" />
-		<pubDate>Tue, 21 Jul 2015 19:00:00 GMT</pubDate>
-		<itunes:duration>51:55</itunes:duration>
-	</item>
-	<item>
-		<title>The Repository Pattern</title>
-		<itunes:author>Western Devs</itunes:author>
-		<itunes:subtitle>"Do we really need all these repositories?"</itunes:subtitle>
-		<itunes:summary><![CDATA[Participants:
-<a href="/bios/amir_barylko">Amir Barylko</a>
-<a href="/bios/dave_paquette">Dave Paquette</a>
-<a href="/bios/donald_belcham">Donald Belcham</a>
-<a href="/bios/dylan_smith">Dylan Smith</a>
-<a href="/bios/simon_timms">Simon Timms</a>
-
-	
-Synopsis
-
-What is the Repository Pattern?
-Where should the business logic go?
-Explosion of methods on repositories and the Interface Segregation Principle
-Testing repositories: integration vs. unit
-Transactions: Are they a database or business concern?
-Eager vs. lazy loading: The N+1 problem
-Extension methods and query objects as an alternative
-The misuse of reuse: “Hey, this looks like it does what I need it to do”
-The Double Dispatch Pattern
-Managing transactions and eventual consistency in distributed systems
-Eventual inconsistency in the real world
-
-Links:
-
-<a href="http://www.westerndevs.com/repository-nightmares/">Repository nightmares</a>
-<a href="http://martinfowler.com/eaaCatalog/repository.html">Repository pattern</a>
-<a href="https://en.wikipedia.org/wiki/Double_dispatch">Double dispatch</a>
-<a href="https://en.wikipedia.org/wiki/Interface_segregation_principle">Interface Segregation Principle</a>
-<a href="http://martinfowler.com/bliki/DDD_Aggregate.html">Domain Driven Design Aggregate</a>
-<a href="http://stackoverflow.com/questions/97197/what-is-the-n1-selects-issue">The N+1 problem</a>
-
-Music:
-Doctor Man, by <a href="https://www.youtube.com/user/jwcchristie">Johnnie Christie and the Boats</a>!]]></itunes:summary>
-		<itunes:image href="http://www.westerndevs.com/images/luchador.png" />
-		<enclosure url="http://cdn.westerndevs.com/podcasts/RepositoryPattern.mp3" length="57742198" type="audio/mpeg" />
-		<pubDate>Tue, 04 Aug 2015 19:00:00 GMT</pubDate>
-		<itunes:duration>48:07</itunes:duration>
-	</item>
-</channel>
+		<itunes:category text="Technology" />
+		<pubDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S" }}</pubDate>
+		<lastBuildDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S" }}</lastBuildDate>
+		<generator>Jekyll</generator>
+		<managingEditor>dylanfromwinnipeg@gmail.com (Dylan Smith)</managingEditor>
+		{% for post in site.categories.podcasts %}
+			<item>
+				<title>{{ post.title }}</title>
+				<link>{{site.url}}{{ post.url }}</link>
+				<pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S" }}</pubDate>
+				<guid>{{site.url}}{{ post.url }}</guid>
+				<description><![CDATA[{{ post.content }}!]]></description>
+				<itunes:author>Western Devs</itunes:author>
+				<itunes:subtitle>{{ post.excerpt }}</itunes:subtitle>
+				<itunes:summary><![CDATA[{{ post.content }}!]]></itunes:summary>
+				<enclosure url="http://cdn.westerndevs.com/podcasts/{{post.podcast}}" length="{{post.podcast-filesize}}" type="audio/mpeg" />
+				<itunes:duration>{{post.podcast-running-time}}</itunes:duration>
+			</item>
+		{% endfor %}
+	</channel> 
 </rss>
