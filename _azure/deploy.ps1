@@ -28,6 +28,7 @@ $PlinkArgs = "-ssh $EnvName.westus.cloudapp.azure.com -l WesternDevs -pw P2ssw0r
 # This will suppress the prompt that the server is untrusted for all future plink commands
 Write-Host "Note: The below error is expected - I just haven't figured out how to suppress the scary error text yet"
 Invoke-Expression "echo y | $PlinkPath -ssh WesternDevs@$EnvName.westus.cloudapp.azure.com 'exit'" -ErrorAction SilentlyContinue | Out-Null
+Write-Host ""
 Write-Host "======================"
 
 Write-Host "Running: $PlinkPath $PlinkArgs"
