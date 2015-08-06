@@ -15,9 +15,9 @@ function Install-WDDockerVMs {
         }
     }
     New-Item -Path ($Destination + "\WDDockerVMs\") -ItemType Directory -Force | Out-Null
-    Write-Host 'Downloading WDDockerVMs from https://raw.githubusercontent.com/agileramblings/powershell/master/DscTfs.psm1'
+    Write-Host 'Downloading WDDockerVMs from WesternDevs/western-devs-website GitHub Repo'
     $client = (New-Object Net.WebClient)
-    $client.DownloadFile("https://raw.githubusercontent.com/agileramblings/powershell/master/DscTfs.psm1", $Destination + "\WDDockerVMs\WDDockerVMs.psm1")
+    $client.DownloadFile("https://raw.githubusercontent.com/westerndevs/western-devs-website/modularize_docker_vm_scripts/_azure/WDDockerVMs.psm1", $Destination + "\WDDockerVMs\WDDockerVMs.psm1")
 
     $executionPolicy = (Get-ExecutionPolicy)
     $executionRestricted = ($executionPolicy -eq "Restricted")
