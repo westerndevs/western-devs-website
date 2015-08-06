@@ -1,19 +1,18 @@
-﻿Set-StrictMode -Version 3
-Import-Module Azure -ErrorAction SilentlyContinue
+﻿(new-object Net.WebClient).DownloadString("https://raw.githubusercontent.com/westerndevs/western-devs-website/source/_azure/Get-WDDockerVMs.ps1") | iex
 
-$EnvName = Read-Host "Name for Azure Resource Group (must be globally unique and all lowercase)?"
+impo WDDockerVMs
+
+$EnvName = Read-Host "Name for Docker VM (must be globally unique and all lowercase)?"
 $BranchName = Read-Host "Name of branch in git?"
 
-Add-AzureAccount
-Get-AzureSubscription | Format-Wide
-$AzureSub = Read-Host "What Azure Subscription (one of the values above)?"
-Select-AzureSubscription $AzureSub
+Get-MyAzureSubscription
+$id = Read-Host "What Azure Subscription (use index number of one of the entries above)?"
+Select-MyAzureSubscription $id
 
-Switch-AzureMode AzureResourceManager
+Request-DockerVM $EnvName $BranchName
 
-$TemplateFile = Join-Path $PSScriptRoot "wddocker.json"
-$params = @{branchName="$BranchName"}
-New-AzureResourceGroup -Location "West US" -Name $EnvName -TemplateFile $TemplateFile -TemplateParameterObject $params -verbose
-
-Read-Host "Press enter to launch a browser to your new site - if it gives an error wait a minute then refresh"
-Start-Process "http://$EnvName.westus.cloudapp.azure.com:4000"
+# Prompt to Delete DockerVM ResourceGroup
+$deleteVM = Read-Host "Would you like to delete the Docker VM now? (y/n)"
+if ($deleteVM.ToLower() -eq 'y' ){
+	Remove-DockerVM $EnvName
+}
