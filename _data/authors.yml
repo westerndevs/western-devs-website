@@ -9,13 +9,14 @@ amir_barylko:
     plus:
   github: amirci
 
- bil_simser:
-	name: Bil Simser
-	web: http://weblogs.asp.net/bsimser
-	twitter: bsimser
-	google:
-	plus:
-	github:
+bil_simser:
+  name: Bil Simser
+  web: http://weblogs.asp.net/bsimser
+  twitter: bsimser
+  google:
+  plus:
+  github: bsimser
+  linkedin: bsimser
   
 darcy_lussier:
   name: D'Arcy Lussier
