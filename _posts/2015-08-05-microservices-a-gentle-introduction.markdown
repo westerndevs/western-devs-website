@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Microservices A Gentle Introduction
+title:  "Microservices: A Gentle Introduction"
 date: 2015-08-05T16:40:50+02:00
 categories:
 comments: true
