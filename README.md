@@ -41,6 +41,14 @@ If you have trouble running the docker image, there may be permission issues. Cl
 
 Once the docker container is running `rake serve`, you can run the site locally in Windows at http://localhost:4000. You can make changes to posts and pages and after a delay of about 15 seconds, you can refresh your browser and see the changes.
 
+### Setting up an Azure Testing Environment
+
+If you don't want to go through the process of installing and configuring docker (above), there's a powershell script that will do all the work for you of setting up an Azure environment with Linux and docker installed, and deploy your branch so you can test it.
+
+1. Install Azure Powershell if you don't already have it (the installer is in the _azure folder)
+2. Run deploy.ps1 from the _azure folder (you'll be prompted for a few things including your branch name to deploy, and your azure credentials) - this takes about 10 mins
+3. When you're done testing you can keep the Azure environment around to use for development/testing, or you can destroy it by deleting the Resource Group that is created via the Azure Portal (http://portal.azure.com)
+
 ### Creating Posts Manually using Markdown
 
 Posts are generated from simple markdown files that are located in the _posts folder. Once the file has been committed to the `source` branch, a [Travis CI build](https://travis-ci.org/westerndevs/western-devs-website/) will kick off, transform the .markdown and then add it to the site. The build can fail if your .markdown file contains any errors.
