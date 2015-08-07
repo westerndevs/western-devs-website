@@ -102,28 +102,34 @@ Over 100 languages are supported. You can see the [list of supported languages h
 ### Common Git Steps for Posting
 
 #### First update from remote
+```
 git fetch origin
 git checkout source
 git rebase origin/source
-
+```
 #### Create a new branch
-git checkout -b my_new_branch
+`git checkout -b my_new_branch`
 #### type type type type type
+```
 git add --all
 git ci -m "Mensaje del commit"
+```
 
 #### Here may happen that you need to get new changes
 #### so repeat fetch / rebase
 #### then bring the changes to your branch
+```
 git checkout my_new_branch
 git rebase source
 
 git push origin my_new_branch
+```
 
 #### do PR if you wish
 #### if not don't push and just to
-
+```
 git checkout source
 git merge my_new_branch --no-ff
 
 git push origin source
+```
