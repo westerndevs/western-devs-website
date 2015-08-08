@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Change Management for the Evolving World
-date: 2015-08-07T18:51:52-06:00
+date: 2015-08-06T18:51:52-06:00
 categories:
 comments: true
 author: simon_timms
