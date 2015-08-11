@@ -55,7 +55,11 @@
           <span class='author'><a href='{{ site.url }}/bios/{{post.author}}'>{{ author.name }}</a></span>
           {% endif %}
         </div>
-        <p>{{ post.excerpt | strip_html | truncate: 160 }}</p>
+        {% if post.content contains '<!--more-->' %}
+            {{ post.content | split:'<!--more-->' | first }}
+        {% else %}
+          <p>{{ post.excerpt | strip_html | truncate: 160 }}</p>
+        {% endif %}
       {% endif %}
     </article>
     {% endfor %}
