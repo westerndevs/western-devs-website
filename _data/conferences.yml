@@ -60,3 +60,10 @@
   speaker: Kyle Baley
   location: Austin, TX
   topic: "Docker for People Who Have Heard of Docker But Think It’s Weird"
+
+ - date: 2015-08-20
+  event: NETMeetupUY
+  link: http://www.meetup.com/NETMeetupUY/events/224546593/
+  speaker: Donald Belcham
+  location: Montevideo Uruguay
+  topic: "The Mighty Microservice"
