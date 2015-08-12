@@ -7,7 +7,7 @@ author: donald_belcham
 originalurl: http://www.igloocoder.com/2881/microservices-and-isolation
 ---
 
-In my [first post](http://www.westerndevs.com/microservices-a-gentle-introduction/ "") I made reference to the idea of microservice isolation a number of times. I figured that this is as good of a topic as any to start with. The concept of isolation and boundaries is core to how you build your microservices. Let's leave boundaries for another post because it's a complicated and deep concept by itself.
+In my [first post][8] I made reference to the idea of microservice isolation a number of times. I figured that this is as good of a topic as any to start with. The concept of isolation and boundaries is core to how you build your microservices. Let's leave boundaries for another post because it's a complicated and deep concept by itself.
 
 It doesn't matter who you listen to or read, microservice isolation is going to be in the content. Why are they consistently bringing it up? Isolation is at the heart of microservices. A microservice is meant to be architected, created, deployed, maintained and retired without affecting any other microservice. You can't do any, let alone all, of that without good isolation.
 
@@ -17,7 +17,7 @@ Probably the most common point made when talking about isolation is database sha
 
 To be able to release a microservice without affecting any other microservice we need to eliminate any integration that occurs at the database level. If you isolate the database so that only one microservice has access to it you've just said that the only thing that will be affected if the database changes is that one microservice. The testing surface area just shrunk for any of those changes. Another benefit is that have fewer pieces of code interacting with the database so you can, in theory, better control how and when that code does its thing. This makes it easier to write code that avoids deadlocks, row locks, and other performance killing or error inducing situations.
 
-![Single Database per Microservice](https://farm1.staticflickr.com/311/20501646971_8ba8beb442_c.jpg "")
+![] (https://farm1.staticflickr.com/311/20501646971_8ba8beb442_c.jpg)
 
 If you listen to enough people talk about microservices for a long enough time you'll hear a common theme; 1 database per microservice. I'm going to disagree with the masses here and tell you something slightly different. You should have a **_minimum_ of 1 data _store_** for each of your microservices. The difference is subtle but it's important in my mind. There are times when you might want to store data in multiple different ways within one microservice. As an example you may be writing a Marketing  Campaign microservice. A RDBMS or noSQL database makes a lot of sense for storing the information about campaigns, content, targets, etc. But if you need to do statistical analysis of the campaign feedback (i.e. email bounces, unsubscribes, click-throughs, etc.) RDBMS and noSQL might not make the most sense. You might be better served with a data cube or some other type of data storage.
 
@@ -41,7 +41,7 @@ At times there will be no way to avoid communication between two microservices. 
 
 To keep microservices isolated we need to pay attention to how they communicate with each other. I'm going to do an entire blog post on this but because there can be so many things that come into play. It's safe to say that you need to pay attention to a couple of different key pieces. First, take the approach of having very strict standards for communication between microservices, and loose standards for the technology implementations within each microservice. If you're going to use REST and JSON (which seems to be the winning standard) for communication. Be strict about how those endpoints are created and exist. Also, don't be afraid to use messaging and pub/sub patterns to notify subscribing microservices about events that happen in publishing microservices.
 
-![Standards](https://farm1.staticflickr.com/261/20307629680_1731d3ea66_c.jpg "")
+![](https://farm1.staticflickr.com/261/20307629680_1731d3ea66_c.jpg)
 
 The second thing that you need to do, which is related to the first, is spend some time up front in deciding what your API versioning story is going to be. API versioning is going to play a big part in maintaining deployment isolation. Your solution will probably require more than simply 'adding a version header' to the communication. You're probably going to need infrastructure to route communications to different deployed versions of the APIs. Remember that each microservice is an isolated deployable so there is no reason that you couldn't have two or more instances (say v1 and v2) up and running at any one time. Consuming microservices can continue to make uninterrupted use of the v1 endpoints and as they have time/need they can migrate to v2.
 
@@ -76,3 +76,4 @@ Isolation is going to save you a lot of headaches. In the case microservices I'd
 [5]: http://www.jetbrains.com/teamcity/
 [6]: http://www.thoughtworks.com/insights/blog/demystifying-conways-law
 [7]: http://martinfowler.com/articles/consumerDrivenContracts.html
+[8]: http://www.westerndevs.com/microservices-a-gentle-introduction
