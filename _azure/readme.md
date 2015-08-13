@@ -1,0 +1,2 @@
+### Copy/Paste this into a PowerShell Window to get WDDockerVMs module
+(new-object Net.WebClient).DownloadString("https://raw.githubusercontent.com/westerndevs/western-devs-website/source/_azure/Get-WDDockerVMs.ps1") | iex
