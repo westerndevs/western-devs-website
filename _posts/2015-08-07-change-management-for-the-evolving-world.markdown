@@ -28,7 +28,7 @@ Day 24.
 
 Deployment day has arrived! Liz runs the deployment and our changes are live. The minor problem has been solved in only 24 days. Of course during that time the user has been hounding the team on a daily basis, getting angrier and angrier. Everybody is pissed off and the business has suffered.
 
-##Change management is a difficult problem.
+## Change management is a difficult problem.
 
 There is a great schism between development and operations. The cause of this is that the teams have seemingly contradictory goals. Development is about changing existing applications to address a bug or a changing business need. For the development team to be successful they must show that they are improving the product. Everything about development is geared towards this. Think of the metrics we might use around development: KLoCs, issues resolved, time to resolve an issue, and so forth. All of these are about improving the rate of change. Developers thrive on rapid change.
 
@@ -42,7 +42,7 @@ The truth of the matter is that figuring out what a change will do is very diffi
 
 Let's dig a bit deeper into the two sides of this issue.
 
-##Why do we even want rapid change?
+## Why do we even want rapid change?
 
 There are a number of really good reasons we'd like to be able to change our applications quickly
 
@@ -59,7 +59,7 @@ Secretly we also have pushing back the fact that the ops team are really busy ke
 
 If we look at the push back there is a clear theme: deployments are not well automated and we don't have good trust that things won't break during a deployment.
 
-##How can we remove the fear?
+## How can we remove the fear?
 
 The fear that ops people have of moving quickly is well founded. It is these brave souls who are up at oh-my-goodness O'clock fixing issues in production. So the fear of deploying needs to be removed from the process. I'm sure there are all sorts of solutions based in hypnosis but to me the real solution is
 
@@ -68,7 +68,7 @@ If something hurts do it more often
 ```
 Instead of deploying once a month or once every two weeks let's deploy every single day, perhaps even more than once a day. After every deploy everybody should sit down and identify one part of the process that was painful. Take that one painful part and fix it for the next deploy. Repeat this process, involving everybody, after each deploy. Eventually you'll pay off the difficult parts and all of a sudden you can deploy more easily and more often. It doesn't take many successes before everybody becomes a believer.
 
-##What do the devs need to do?
+## What do the devs need to do?
 As a developer I find myself falling into the trap of believing that it is the ops people who need to change. This is only half the story. Developers need to become much more involved in the running of the system. This can take many forms:
 
 - adding better instrumentation and providing understanding of what this instrumentation does
