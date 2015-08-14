@@ -8,7 +8,7 @@ author: dave_white
 
 [Director - LeanKanban University KCP Program](http://edu.leankanban.com)
 
-[Principle Consultant - Depth Consulting](http://www.depthconsulting.ca)
+[Principal Consultant - Depth Consulting](http://www.depthconsulting.ca)
 
 Dave White is an IT professional with over 16 years of experience in a variety of roles throughout the IT industry. Originally working as a developer, he's honed, evolved and expanded his technical capabilities in development and architecture and demonstrate these skills at a senior level.
 
