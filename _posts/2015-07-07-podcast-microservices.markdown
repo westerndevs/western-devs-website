@@ -9,7 +9,7 @@ redirect_from: "/whatwevesaid/podcast-microservices/"
 podcast: Microservices.mp3
 podcast-running-time: "53:58"
 podcast-filesize: 51810324
-participants: 
+participants:
     - dave_paquette
     - amir_barylko
     - david_wesst
@@ -21,7 +21,7 @@ participants:
     - tom_opgenorth
 ---
 
-####Links from the show:
+#### Links from the show:
 
 [SOA with a dash of PubSub by Dylan Smith][2]
 
@@ -45,7 +45,7 @@ participants:
 
 [Human benefits of a microservice architecture][12]
 
-####Music
+#### Music
 
 Doctor Man, by [Johnnie Christie and the Boats][13]
 
@@ -61,4 +61,3 @@ Doctor Man, by [Johnnie Christie and the Boats][13]
 [11]: https://labs.spotify.com/2014/03/27/spotify-engineering-culture-part-1/
 [12]: http://damianm.com/articles/human-benefits-of-a-microservice-architecture/
 [13]: https://www.youtube.com/user/jwcchristie
-

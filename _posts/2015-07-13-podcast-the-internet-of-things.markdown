@@ -9,7 +9,7 @@ redirect_from: "/whatwevesaid/podcast-the-internet-of-things/"
 podcast: "InternetOfThings.mp3"
 podcast-running-time: "45:57"
 podcast-filesize: 55153989
-participants: 
+participants:
     - dave_paquette
     - amir_barylko
     - craig_anderson
@@ -22,7 +22,7 @@ participants:
     - simon_timms
 ---
 
-####Synopsis
+#### Synopsis
 
 Is Internet of Things SCADA without the pomp and circumstance?
 
@@ -43,7 +43,7 @@ Does the light _really_ go out when you close the fridge?
 Accessibility of hardware to software people and vice versa
 
 
-####Links
+#### Links
 
 * [SCADA](https://en.wikipedia.org/wiki/SCADA)
 * [Wink HUB](http://www.wink.com/products/wink-hub/)
@@ -53,8 +53,8 @@ Accessibility of hardware to software people and vice versa
 * [Nest](https://nest.com/)
 * [Newark](http://www.newark.com/)
 * [BBQduino](https://lostechies.com/derickbailey/2013/04/10/a-first-look-at-my-arduino-bbq-thermometer/)
-* 
+*
 
-####Music
+#### Music
 
 Doctor Man, by [Johnnie Christie and the Boats](https://www.youtube.com/user/jwcchristie)
