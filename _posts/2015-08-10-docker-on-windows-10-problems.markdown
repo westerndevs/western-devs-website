@@ -8,6 +8,12 @@ author: david_wesst
 originalurl: http://blog.davidwesst.com/2015/08/Docker-on-Windows-10-Problems/
 ---
 
+## UPDATE -- Solution Found
+Another Western Dev that goes by the name of Dave White found a solution and I confirmed that it works. The solution entails using a test build of the new Docker tool suite, so use at your own risk, but it does work!
+
+You can find the solution from Dave White [here](http://www.westerndevs.com/getting-docker-running-on-windows-10/), and learn more about the man himself [here](http://www.westerndevs.com/bios/dave_white/).
+
+---
 ![](http://blog.davidwesst.com/2015/08/Docker-on-Windows-10-Problems/docker-logo.png)
 
 I've hit some issues getting docker running on Windows 10. Turns out it's an issue with VirtualBox and it's being worked on, but I figured I'd share the details here just in case you're having the same issue.
