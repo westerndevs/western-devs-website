@@ -9,7 +9,7 @@ podcast: "DevOps.mp3"
 podcast-running-time: "51:55"
 podcast-filesize: 62319361
 redirect_from: "/whatwevesaid/podcast-devops/"
-participants: 
+participants:
     - dave_paquette
     - amir_barylko
     - kyle_baley
@@ -19,7 +19,7 @@ participants:
     - dylan_smith
 ---
 
-####Synopsis
+#### Synopsis
 
 DevOps: Person, role, culture, methodology, or movement?
 
@@ -49,7 +49,7 @@ Enabling smaller deployments that use external services
 
 How DevOps practices make CQRS, eventing, and microservices easier
 
-####Links
+#### Links
 
 * [DevOps on Wikipedia](https://en.wikipedia.org/wiki/DevOps)
 * [What is DevOps](http://theagileadmin.com/what-is-devops/)
@@ -62,6 +62,6 @@ How DevOps practices make CQRS, eventing, and microservices easier
 * [Octopus](https://octopusdeploy.com/)
 * [Docker](https://www.docker.com/)
 
-####Music
+#### Music
 
 Doctor Man, by [Johnnie Christie and the Boats](https://www.youtube.com/user/jwcchristie)
