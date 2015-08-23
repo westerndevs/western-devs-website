@@ -15,7 +15,7 @@ participants:
     - dylan_smith
     - donald_belcham
 ---
-####Synopsis
+#### Synopsis
 
 What is the Repository Pattern?
 
@@ -39,7 +39,7 @@ Managing transactions and eventual consistency in distributed systems
 
 Eventual inconsistency in the real world
 
-####Links
+#### Links
 
 * [Repository nightmares](http://www.westerndevs.com/repository-nightmares/)
 * [Repository pattern](http://martinfowler.com/eaaCatalog/repository.html)
@@ -48,6 +48,6 @@ Eventual inconsistency in the real world
 * [Domain Driven Design Aggregate](http://martinfowler.com/bliki/DDD_Aggregate.html)
 * [The N+1 problem](http://stackoverflow.com/questions/97197/what-is-the-n1-selects-issue)
 
-####Music
+#### Music
 
 Doctor Man, by [Johnnie Christie and the Boats](https://www.youtube.com/user/jwcchristie)
