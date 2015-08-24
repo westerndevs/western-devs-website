@@ -136,8 +136,8 @@ The rest of the script is just collecting some values from the user, and at the 
 ## Try it for Yourself
 You can easily give this a try yourself.
 
- 1. Download wddocker.json and deploy.ps1 from github: [[link]]
- 2. If you haven’t already you need to install azure powershell. You can get the installer in the github folder linked above, or from MS [link]
+ 1. [Download wddocker.json and deploy.ps1 from github](https://github.com/westerndevs/western-devs-website/tree/source/_azure)
+ 2. If you haven’t already you need to install azure powershell. You can get the installer in the [github folder](https://github.com/westerndevs/western-devs-website/tree/source/_azure), or [from Microsoft](https://azure.microsoft.com/en-us/documentation/articles/powershell-install-configure/)
  3. Run deploy.ps1
  4. When prompted for branch name use: source
  5. ???
