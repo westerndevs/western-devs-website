@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Using Azure ARM to Deploy a Docker Container
-date: 2015-08-23T11:13:00-08:00
+date: 2015-08-24T11:13:00-08:00
 categories:
 comments: true
 author: dylan_smith
@@ -35,6 +35,7 @@ If you’ve never used Azure ARM Templates before, it’s a JSON file that descr
   * VM Extension – DockerExtension
 
 The full JSON file is included at the end of this post.  It can also be [found on GitHub](https://github.com/westerndevs/western-devs-website/tree/source/_azure).  Some of the configuration that is described in the JSON template includes:
+
   * The Network Security Group exposes port 22 for SSH, and port 4000 for HTTP (this is what our Jekyll/Docker is configured to use)
   * The VM is created from an image in the Azure Gallery provided by Canonical that has Ubuntu 15.04 on it.
 
@@ -73,6 +74,7 @@ VM Extensions are additional components that can be applied to your VM as part o
 This tells it to apply the DockerExtension to the VM previously created.  Additionally it uses Docker Compose to allow you to specify one or more Docker containers that it will pull down from DockerHub, deploy into Docker, allow you to specify configuration such as ports to map to the host, and allow you to run command(s) on the docker image.
 
 In the template above we tell it to grab the Docker image abarylko/western-devs:v1 which was created by my friend [Amir Barylko](http://www.westerndevs.com/bios/amir_barylko/) and already has Jekyll installed.  Then we tell it to map port 4000 from the docker container to port 4000 on the host Linux VM.  Lastly we give it a few bash commands to run on the docker container when it starts up:
+
   * git clone https://github.com/westerndevs/western-devs-website.git
   * cd western-devs-website
   * git checkout [branchName]
