@@ -7,7 +7,7 @@ comments: true
 author: dylan_smith
 ---
 
-If you’ve been following the WesternDevs blog you’ll have seen a few posts lately about our adventures with infrastructure for our blog with Jekyll/Docker.
+If youâ€™ve been following the WesternDevs blog youâ€™ll have seen a few posts lately about our adventures with infrastructure for our blog with Jekyll/Docker.
 
   * [Docker on Windows 10 Problems](http://www.westerndevs.com/docker-on-windows-10-problems/)
   * [Getting Docker Running on Windows 10](http://www.westerndevs.com/getting-docker-running-on-windows-10/)
@@ -15,16 +15,16 @@ If you’ve been following the WesternDevs blog you’ll have seen a few posts latel
 
 We decided to use Jekyll to host our blog, which most of us had never used before.  All of us need a way to fire up a Jekyll instance to test our changes (even simple things like how a new post will render).  Jekyll is really made for Linux, and most of us run Windows.  Although [Jekyll can run on windows in theory](http://jekyll-windows.juthilo.com/), we have struggled to get it to work.  Amir came to the rescue, and created a [Docker image that includes Jekyll](https://hub.docker.com/r/abarylko/western-devs/) configured according to our needs.
 
-Now we have a new problem – most of us haven’t used Docker before.  We had some struggles, just getting Docker up and running and configured on Windows took a little bit of work for those of us that hadn’t used it before.  Those of us using Windows 10 discovered there were [additional challenges getting Docker running[(Docker on Windows 10 Problems).  And for me personally, I do all my work in VM’s (either local VM’s, or Azure VM’s) and I didn’t want to install Docker/VirtualBox on my host OS, and I discovered that you can’t install Docker/VBox inside a Hyper-V Windows VM.
+Now we have a new problem â€“ most of us havenâ€™t used Docker before.  We had some struggles, just getting Docker up and running and configured on Windows took a little bit of work for those of us that hadnâ€™t used it before.  Those of us using Windows 10 discovered there were [additional challenges getting Docker running[(Docker on Windows 10 Problems).  And for me personally, I do all my work in VMâ€™s (either local VMâ€™s, or Azure VMâ€™s) and I didnâ€™t want to install Docker/VirtualBox on my host OS, and I discovered that you canâ€™t install Docker/VBox inside a Hyper-V Windows VM.
 
-I decided I was going to get something running in Azure, and I had an additional goal of making what I did repeatable and automated so that my fellow Western Devs could easily do what I did.  I’ve been doing *a lot* of work with Azure ARM Templates lately, so that was the approach I took.  I noticed there is a pre-existing image with Ubuntu available, and there is a Docker VM Extension that you can apply during provisioning that will install/configure Docker, and it can use Docker Compose to spin up one or more containers too.
+I decided I was going to get something running in Azure, and I had an additional goal of making what I did repeatable and automated so that my fellow Western Devs could easily do what I did.  Iâ€™ve been doing *a lot* of work with Azure ARM Templates lately, so that was the approach I took.  I noticed there is a pre-existing image with Ubuntu available, and there is a Docker VM Extension that you can apply during provisioning that will install/configure Docker, and it can use Docker Compose to spin up one or more containers too.
 
-I created the JSON ARM Template, and a simple PowerShell script to deploy it.  Now any of my fellow WesternDevs can simply run a PS1 script, get prompted for a few pieces of info (azure credentials, azure subscription, github branch name, resource group name), and ~10 mins later they will have a new VM in Azure, with Docker installed, our WesternDevs image deployed, and our Jekyll site up and running with the code from their branch.  Then they can bring it up in a web browser and test out their changes before merging with Master.  When they’re done they can delete the Azure resource group if they wish, or keep it around for future testing.
+I created the JSON ARM Template, and a simple PowerShell script to deploy it.  Now any of my fellow WesternDevs can simply run a PS1 script, get prompted for a few pieces of info (azure credentials, azure subscription, github branch name, resource group name), and ~10 mins later they will have a new VM in Azure, with Docker installed, our WesternDevs image deployed, and our Jekyll site up and running with the code from their branch.  Then they can bring it up in a web browser and test out their changes before merging with Master.  When theyâ€™re done they can delete the Azure resource group if they wish, or keep it around for future testing.
 
 
 ## The Gory Details
 
-If you’ve never used Azure ARM Templates before, it’s a JSON file that describes a set of Azure Resources and their configurations.  You can use a PowerShell cmdlet to give the JSON to Azure, and it will spin up a new Resource Group and a bunch of new resources based on what is described in the JSON.  For the WesternDevs template the JSON describes the following resources:
+If youâ€™ve never used Azure ARM Templates before, itâ€™s a JSON file that describes a set of Azure Resources and their configurations.  You can use a PowerShell cmdlet to give the JSON to Azure, and it will spin up a new Resource Group and a bunch of new resources based on what is described in the JSON.  For the WesternDevs template the JSON describes the following resources:
 
   * Storage Account
   * Public IP Address
@@ -32,7 +32,7 @@ If you’ve never used Azure ARM Templates before, it’s a JSON file that describes
   * Network Interface
   * Network Security Group
   * Virtual Machine
-  * VM Extension – DockerExtension
+  * VM Extension â€“ DockerExtension
 
 The full JSON file is included at the end of this post.  It can also be [found on GitHub](https://github.com/westerndevs/western-devs-website/tree/source/_azure).  Some of the configuration that is described in the JSON template includes:
   * The Network Security Group exposes port 22 for SSH, and port 4000 for HTTP (this is what our Jekyll/Docker is configured to use)
@@ -76,13 +76,13 @@ In the template above we tell it to grab the Docker image abarylko/western-devs:
   * git clone https://github.com/westerndevs/western-devs-website.git
   * cd western-devs-website
   * git checkout [branchName]
-  * sed –i s/www.westerndevs.com/[VmDns].westus.cloudapp.azure.com:4000/g _config.yml
+  * sed â€“i s/www.westerndevs.com/[VmDns].westus.cloudapp.azure.com:4000/g _config.yml
   * bundle install
-  * jekyll serve –host 0.0.0.0 –force_polling
+  * jekyll serve â€“host 0.0.0.0 â€“force_polling
 
-This will grab the github repo in to the docker container, checkout our branch that we want to test (the branch name is passed as a parameter into the ARM template as we’ll see below in the Powershell), update the _config.yml file (which is a config file Jekyll uses) to replace the public url with the URL for our Azure VM (so when we test the site, the links all point to the same testing site URL), use bundle to install all our gems, then fire up Jekyll to run our site.
+This will grab the github repo in to the docker container, checkout our branch that we want to test (the branch name is passed as a parameter into the ARM template as weâ€™ll see below in the Powershell), update the _config.yml file (which is a config file Jekyll uses) to replace the public url with the URL for our Azure VM (so when we test the site, the links all point to the same testing site URL), use bundle to install all our gems, then fire up Jekyll to run our site.
 
-Now that we have a JSON file that describes our Azure Resources, we need a way to deploy this.  This is a simple bit of PowerShell.  My goal here was to make this as simple as possible for somebody to use, even if they aren’t comfortable with PowerShell/Azure/Docker/Linux/Jekyll/etc.  It’s as simple as running the PS1, being prompted for 4 things (new resource group name, github branch name, azure login, azure subscription), then waiting ~10 mins for Azure to do it’s thing.
+Now that we have a JSON file that describes our Azure Resources, we need a way to deploy this.  This is a simple bit of PowerShell.  My goal here was to make this as simple as possible for somebody to use, even if they arenâ€™t comfortable with PowerShell/Azure/Docker/Linux/Jekyll/etc.  Itâ€™s as simple as running the PS1, being prompted for 4 things (new resource group name, github branch name, azure login, azure subscription), then waiting ~10 mins for Azure to do itâ€™s thing.
 
 {% highlight powershell %}
 $EnvName = Read-Host "Name for Azure Resource Group (must be globally unique)?"
@@ -135,7 +135,7 @@ The rest of the script is just collecting some values from the user, and at the 
 You can easily give this a try yourself.
 
  1. Download wddocker.json and deploy.ps1 from github: [[link]]
- 2. If you haven’t already you need to install azure powershell. You can get the installer in the github folder linked above, or from MS [link]
+ 2. If you havenâ€™t already you need to install azure powershell. You can get the installer in the github folder linked above, or from MS [link]
  3. Run deploy.ps1
  4. When prompted for branch name use: source
  5. ???
