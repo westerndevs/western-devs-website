@@ -8,11 +8,11 @@
     }
   },
   "variables": {
-	"newStorageAccountName": "[resourceGroup().name]",
+	"newStorageAccountName": "[toLower(resourceGroup().name)]",
 	"location": "[resourceGroup().location]",
 	"adminUsername": "WesternDevs",
 	"adminPassword": "P2ssw0rd",
-	"dnsNameForPublicIP": "[resourceGroup().name]",
+	"dnsNameForPublicIP": "[toLower(resourceGroup().name)]",
     "imagePublisher": "Canonical",
     "imageOffer": "UbuntuServer",
     "ubuntuOSVersion": "15.04",
