@@ -9,7 +9,7 @@ author: simon_timms
 originalurl: http://blog.simontimms.com/2015/08/27/running-process-as-a-different-user-on-windows/
 ---
 
-As part of a build pipeline I'm working on the octopus deploy process needs to talk to the database using roundhouse as a different user from the one running the deployment. This is done because the database uses integrated AD authentication, which I quite like. If this build were running on Linux then it would be as simple as editing the sudoers file and calling the command using sudo. Unfortunatly this is Windows and the command line has long been a secondary concern. 
+As part of a build pipeline I'm working on the octopus deploy process needs to talk to the database using roundhouse as a different user from the one running the deployment. This is done because the database uses integrated AD authentication, which I quite like. If this build were running on Linux then it would be as simple as editing the sudoers file and calling the command using sudo. Unfortunately this is Windows and the command line has long been a secondary concern. 
 
 I started by asking on the [western devs](http://westerndevs.com) slack channel to see if anybody else had done this and how. [Dave Paquette](http://www.westerndevs.com/bios/dave_paquette/) suggested using [psexec](https://technet.microsoft.com/en-us/sysinternals/bb897553.aspx). This is a tool designed for running commands on a remote computer but if you leave the computer name off it will run on the local machine. This sounded perfect. 
 
