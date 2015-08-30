@@ -2,7 +2,7 @@
 layout: post
 title: "Podcast: No Estimates"
 categories: podcasts
-excerpt: "The Western Devs sound off on why your company should share and collaborate on its internal code"
+excerpt: "In this episode, special guest Steve Rogalsky helps the Western Devs understand the #NoEstimates movement"
 comments: true
 podcast: "InternalOpenSource.mp3"
 podcast-running-time: "43:17"
@@ -17,6 +17,7 @@ participants:
     - dave_white
     - tom_opgenorth
 ---
+
 #### Synopsis
 
 Why do we estimate?
