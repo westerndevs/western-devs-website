@@ -1,12 +1,13 @@
 ---
 layout: post
 title: "Podcast: No Estimates"
+date: 2015-09-01T19:42:12-04:00
 categories: podcasts
 excerpt: "In this episode, special guest Steve Rogalsky helps the Western Devs understand the #NoEstimates movement"
 comments: true
-podcast: "InternalOpenSource.mp3"
-podcast-running-time: "43:17"
-podcast-filesize: 51937269
+podcast: "NoEstimates.mp3"
+podcast-running-time: "47:50"
+podcast-filesize: 57405212
 participants: 
     - dave_paquette
     - amir_barylko
