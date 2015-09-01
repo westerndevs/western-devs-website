@@ -1,0 +1,20 @@
+{% assign author_id = author | find_author_id %}
+{% assign posts = site.posts | where: "author", author_id %}
+{% unless posts == empty %}
+<div class="author-posts">
+  <h4>Posts</h4>
+  {% for post in posts %}
+    <div><a href="{{post.url}}">{{post.title}}</a></div>
+  {% endfor %}
+</div>
+{% endunless %}
+
+{% assign podcasts = site.categories.podcasts | where: "participants", author_id%}
+{% unless podcasts == empty %}
+<div class="author-posts">
+	<h4>Podcasts</h4>
+	{% for podcast in podcasts %}
+	<div><a href="{{podcast.url}}">{{podcast.title}}</a></div>
+	{% endfor %}
+</div>
+{% endunless %}
