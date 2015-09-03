@@ -59,7 +59,7 @@ function Get-TfsTeamProjects() {
     }
     end{}
 } #end function Get-TfsTeamProjects 
-{% end highlight %}
+{% endhighlight %}
 
 In this CmdLet, we build on our understanding of the TFS Object Model and, using the WorkItemStore, get a list of all TeamProject in a TPC and return that list from the cmdlet.
 
