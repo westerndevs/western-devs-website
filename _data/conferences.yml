@@ -31,8 +31,8 @@
   link: http://netconf.uy/en/2015/Index
   speaker: Donald Belcham
   location: Montevideo, Uruguay
-  topic: 
-  
+  topic:
+
 - date: 2015-09-30
   event: Minnesota Developers Conference
   link: https://mdc.ilmservice.com/
@@ -40,12 +40,12 @@
   location: Minneapolis, MN
   topic: Using Azure for Dev/Test Environments
 
-- date: 2015-11-02
-  event: SDE Conference
-  link: http://www.sdeconf.com/
+- date: 2015-12-03
+  event: Winnipeg .NET User Group
+  link: http://www.winnipegdotnet.org
   speaker: David Wesst
   location: Winnipeg, MB
-  topic: How to make "Great Developers"
+  topic: "Code - Visual Studio for Everyone"
 
 - date: 2015-09-26
   event: MeasureUP
@@ -67,7 +67,7 @@
   speaker: Donald Belcham
   location: Montevideo Uruguay
   topic: "The Mighty Microservice"
-  
+
 - date: 2015-10-10
   event: Code Camp NYC
   link: http://www.codecampnyc.org/
