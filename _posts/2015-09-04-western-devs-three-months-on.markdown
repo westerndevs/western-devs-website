@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Western Devs: Three Months On"
+date: 2015-09-04T13:32:55-04:00
 comments: true
 ---
 
