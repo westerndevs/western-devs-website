@@ -126,6 +126,9 @@ blockquote {
 		@include font-rem(14);
 	}
 }
+.footnote {
+	@include font-rem(12);
+}
 
 /* 
    Paragraphs
