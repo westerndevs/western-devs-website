@@ -39,9 +39,9 @@ You might notice that authentication flag, this tells powershell the sort of aut
 
 {% highlight powershell %}
     Enable-WSManCredSSP -Role server
-Enable-WSManCredSSP -Role client
+Enable-WSManCredSSP -Role client -DelegateComputer "*"
 {% endhighlight %}	
-From an admin powershell session on the machine. Normall you would run these on different machines but we're remoting to local host so it is both the client and the server. 
+From an admin powershell session on the machine. Normally you would run these on different machines but we're remoting to local host so it is both the client and the server. I've enabled client for all machines but you might want to lock this down a bit more. 
 
 Finally I needed to pass some parameters to roundhouse proper. This can be done by passing them into the script block and then receiving them as parameters inside the block
 
