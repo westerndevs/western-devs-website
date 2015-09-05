@@ -9,7 +9,7 @@
 </div>
 {% endunless %}
 
-{% assign podcasts = site.categories.podcasts | where: "participants", author_id%}
+{% assign podcasts = site.categories.podcasts | filter_by_author: author_id %}
 {% unless podcasts == empty %}
 <div class="author-posts">
 	<h4>Podcasts</h4>
@@ -17,4 +17,16 @@
 	<div><a href="{{podcast.url}}">{{podcast.title}}</a></div>
 	{% endfor %}
 </div>
+{% endunless %}
+
+{% assign publications = site.data.publications | filter_work_by_author: author_id %}
+{% unless publications == empty %}
+<div class="author-posts">
+	<h4>Publication</h4>
+	{% for publication in publications %}
+		<div>{{publication["title"]}}</div>
+	{% endfor %}
+</div>
+
+$ Upcoming conferences
 {% endunless %}
