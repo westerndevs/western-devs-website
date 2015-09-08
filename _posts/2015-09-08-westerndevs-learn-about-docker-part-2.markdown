@@ -16,7 +16,7 @@ As Tom mentioned in his post about [Docker containers for Novices][1] which I'm 
 One of the things that I love about WesternDevs is the fairly voracious appetite that all of us have to understand the various technologies that we use and talk about while also ensuring that the whole group understands. Leave no man behind while we learn I guess you would say.  
 
 ### The seed of the conversation
-"Can AD, DHCP, DNS run in a container?" seems like an innocuous question, but it was the question that started the conversation.
+["Can AD, DHCP, DNS run in a container?" seems like an innocuous question][13], but it was the question that started the conversation.
 
 Several of us started to posit that there are some thing (in a Windows world) that would be fundamentally required for a container to run and that maybe AD (identity) was one of those things. 
 
@@ -31,7 +31,7 @@ The WesternDevs all agreed that Container's are a tool for isolation into consis
 
 A VM does not share a kernel with anything else, it shares physical resources with other VMs via the HyperVisor. 
 
-We agreed that VMs give extra confidence in the level of isolation that is afforded the running applications. VMs do not afford the same level of performance as a container at start-up, and will consume more of the physical resources of the hardware that a comparable solution using VMs.
+We agreed that VMs give extra confidence in the level of isolation that is afforded the running applications. VMs do not afford the same level of performance as a container at start-up, and will consume more of the physical resources of the hardware that a comparable solution using containers.
 
 ### Windows vs. Linux
 One of the things that underlied this conversation was the fundamental difference between the Windows kernel and Linux kernel. As far as we understand. the Windows kernel is big. Really big. And pulling all of the "user" stuff out of the "system" stuff will be very difficult for Microsoft and thus make containers on Windows ([which is coming whether you like it or not][4]) require a two-pronged approach, VMs that think they are containers and just pure containers. 
@@ -71,3 +71,4 @@ In the end as is very often the case, we decided that we were all right, we were
 [10]: https://goldmann.pl/blog/2014/09/11/resource-management-in-docker/
 [11]: http://www.westerndevs.com/bios/tom_opgenorth/
 [12]: https://linuxcontainers.org/lxc/introduction/
+[13]: http://codebetter.com/kylebaley/2015/09/01/windows-server-containers-are-coming-whether-you-like-it-or-not/#comment-2232115672
