@@ -71,7 +71,5 @@ In the end as is very often the case, we decided that we were all right, we were
 [10]: https://goldmann.pl/blog/2014/09/11/resource-management-in-docker/
 [11]: http://www.westerndevs.com/bios/tom_opgenorth/
 [12]: https://linuxcontainers.org/lxc/introduction/
-<<<<<<< HEAD
 [13]: http://codebetter.com/kylebaley/2015/09/01/windows-server-containers-are-coming-whether-you-like-it-or-not/#comment-2232115672
-=======
->>>>>>> origin/docker-conversation-post
+
