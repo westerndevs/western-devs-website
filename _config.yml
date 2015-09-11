@@ -31,7 +31,7 @@ kramdown:
 # Site owner
 owner:
   name: Western Devs
-  avatar: luchador.png
+  avatar: small_logo.png
   bio: "We're but a humble group of amazing developers with a common trait: we're all west of somewhere else."
   email: info@westerndevs.com
   disqus-shortname: westerndevs
@@ -41,10 +41,10 @@ owner:
   google:
     plus: #username
     analytics: UA-37617956-2
-    verify: 
-    ad-client: 
-    ad-slot: 
-  bing-verify: 
+    verify:
+    ad-client:
+    ad-slot:
+  bing-verify:
   github: westerndevs
   stackoverflow: #http://stackoverflow.com/users/123456/username
   linkedin: #username
