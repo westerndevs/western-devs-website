@@ -59,7 +59,7 @@ Once you start making more complicated bindings then you have to remeber to make
 {% endhighlight %}
 
 <div style="margin-left: 40px">
-Dave White called me to the carpet for this complaint. "Why aren't you doing your filtering in the model?" he asked. Quite right, I should be doing it in the model and I, indeed, refactored the code later to do that. The point was that because you're doing the bindings in the html it is easy to fall into the lazy trap of just leaving it. Maybe knockout shouldn't support expressions in the data-bindings. 
+<a href="http://www.westerndevs.com/bios/dave_white/">Dave White</a> called me to the carpet for this complaint. "Why aren't you doing your filtering in the model?" he asked. Quite right, I should be doing it in the model and I, indeed, refactored the code later to do that. The point was that because you're doing the bindings in the html it is easy to fall into the lazy trap of just leaving it. Maybe knockout shouldn't support expressions in the data-bindings. 
 </div>
 <ol start="5">
 <li>
@@ -73,4 +73,4 @@ I honestly don't know. I've tried just setting a timeout and I've also tried hoo
 </p>
 </li>
 </ol>
-Amir asked what I would use instead. React. Maybe Areulia, although I haven't explored it enough yet. 
+<a href="http://www.westerndevs.com/bios/amir_barylko/">Amir</a> asked what I would use instead. <a href="http://facebook.github.io/react/">React</a>. Maybe <a href="http://aurelia.io/">Aurelia</a>, although I haven't explored it enough yet. 
