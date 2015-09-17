@@ -7,7 +7,7 @@ comments: true
 author: donald_belcham
 ---
 
-I spent the better part of this afternoon fighting with this error (and arguing Canadian voting rights with the [Western Devs](http://www.westerndevs.com)). There are a lot of pieces of information on how to solve this on the web. Most solutions revolve around _"Install Visual Studio 2010"_, _"Install the Windows Software Development Kit for Windows X"_, or _"Turn off the generation of serialization assemblies in your projects/solution"_. Some of these are just downright scary solutions…others won’t work in my situation.
+I spent the better part of this afternoon fighting with this error (and arguing Canadian voting rights with the [Western Devs](http://www.westerndevs.com)). I was trying to run our project’s build script which uses nAnt and MSBuild to work all the compilation magic we need. There are a lot of pieces of information on how to solve this on the web. Most solutions revolve around _"Install Visual Studio 2010"_, _"Install the Windows Software Development Kit for Windows X"_, or _"Turn off the generation of serialization assemblies in your projects/solution"_. Some of these are just downright scary solutions…others won’t work in my situation.
 
 I do almost all of my development work in Azure VMs these days. I can spin up a new one with Visual Studio already installed in minutes. This allows me to easily and quickly keep all of my different clients and projects in isolated buckets. So for one of my current projects I created a Windows 2012 R2 + Visual Studio 2015 VM. This is the VM that started throwing the above error. So when I asked the all knowing Google (and its smarter friend StackOverflow) I was perplexed by those three common solutions that I was finding.
 
