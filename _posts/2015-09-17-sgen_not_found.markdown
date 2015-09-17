@@ -17,11 +17,11 @@ I do almost all of my development work in Azure VMs these days. I can spin up a 
 
 This left me to piece together a solution on my own…which is likely why it took all afternoon. After looking through all the information that was buried in comments on answers for issues on StackOverflow, I managed to come up with this:
 
-Open up regedit on your computer. You’re not going to change anything so just calm down. Navigate to **_Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSBuild\ToolsVersions\4.0_**
+Open up regedit on your computer. You’re not going to change anything so just calm down. Navigate to **Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSBuild\ToolsVersions\4.0**
 
 ![Step 1](http://farm6.staticflickr.com/5618/21309498739_f91817e2d6_z.jpg)
 
-Note the **SDK40ToolsPath** entry and the value for it. This value will point to another registry key which you need to go find next. It’s likely going to point at something that starts with **_Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SDKs\Windows\_**
+Note the **SDK40ToolsPath** entry and the value for it. This value will point to another registry key which you need to go find next. It’s likely going to point at something that starts with **Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SDKs\Windows\**
 
 ![Step 2](http://farm6.staticflickr.com/5727/21309498889_112153e5f6_z.jpg)
 
