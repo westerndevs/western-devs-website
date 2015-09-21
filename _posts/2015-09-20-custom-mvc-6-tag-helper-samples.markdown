@@ -16,16 +16,16 @@ So far, we have been focusing on Tag Helpers that make it easier to use various 
 The [alert tag helper](https://github.com/dpaquette/TagHelperSamples/blob/master/TagHelperSamples/src/TagHelperSamples/TagHelpers/AlertTagHelper.cs), contributed by Rick Strahl, makes it easy to display Bootstrap alerts containing Font-Awesome icons.
 
 ```
-<pre class="html"><alert message="Payment has been processed." icon="success">
-</alert></pre>
+<alert message="Payment has been processed." icon="success">
+</alert>
 ```
 
 Will output the following HTML:
 
 ```
-<pre class="html"><div class="alert alert-success" role="alert">
+<div class="alert alert-success" role="alert">
   <i class="fa fa-check"></i> Payment has been processed.
-</div></pre>
+</div>
 ```
 
 ## Progress Bar
@@ -33,17 +33,17 @@ Will output the following HTML:
 Displaying a progress bar in Bootstrap is a rather verbose set of elements and attributes:
 
 ```
-<pre class="html"><div class="progress">
+<div class="progress">
   <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
     <span class="sr-only">60% Complete</span>
   </div>
-</div></pre>
+</div>
 ```
 The [progress bar tag helper](https://github.com/dpaquette/TagHelperSamples/blob/master/TagHelperSamples/src/TagHelperSamples/TagHelpers/ProgressBarTagHelper.cs) provides a much cleaner syntax:
 
 ```
-<pre class="html"><div bs-progress-value="66">
-</div></pre>
+<div bs-progress-value="66">
+</div>
 ```
 
 ## Modal
@@ -51,7 +51,7 @@ The [progress bar tag helper](https://github.com/dpaquette/TagHelperSamples/blob
 Bootstrap modals are also rather convoluted items. The simplest possible modal consists of too many nested divs and in my opinion is hard to read:
 
 ```
-<pre class="html"><div class="modal fade">
+<div class="modal fade">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -67,20 +67,20 @@ Bootstrap modals are also rather convoluted items. The simplest possible modal c
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
-</div><!-- /.modal --></pre>
+</div><!-- /.modal -->
 ```
 
 The same modal using the [modal tag helper](https://github.com/dpaquette/TagHelperSamples/blob/master/TagHelperSamples/src/TagHelperSamples/TagHelpers/ModalTagHelper.cs) is much easier to read and will produce the same output:
 
 ```
-<pre class="html"><modal id="simpleModal" title="Modal Title" >
+<modal id="simpleModal" title="Modal Title" >
     <modal-body>
         <p>One fine body&hellip;</p>
     </modal-body>
     <modal-footer>
         <button type="button" class="btn btn-primary">Save changes</button>
     </modal-footer>
-</modal></pre>
+</modal>
 ```
 
 ## Wrapping it up
