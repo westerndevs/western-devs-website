@@ -2,7 +2,7 @@
 layout: post
 title:  "Podcast: Kanban"
 date: 2015-09-19T15:46:54-04:00
-categories: podcast
+categories: podcasts
 excerpt: "The WesternDevs try their hand at pronouncing, then describing Kanban"
 comments: true
 podcast: "Kanban.mp3"
