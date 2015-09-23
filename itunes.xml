@@ -16,7 +16,7 @@ layout: null
 			<itunes:name>Dylan Smith</itunes:name>
 			<itunes:email>dylanfromwinnipeg@gmail.com</itunes:email>
 		</itunes:owner>
-		<itunes:image href="http://www.westerndevs.com/images/luchador.png" />
+		<itunes:image href="http://www.westerndevs.com/images/Western_Dev_V_rgb.png" />
 		<itunes:category text="Technology" />
 		<pubDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %Z" }}</pubDate>
 		<lastBuildDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %Z" }}</lastBuildDate>
