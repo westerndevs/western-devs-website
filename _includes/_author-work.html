@@ -19,14 +19,3 @@
 </div>
 {% endunless %}
 
-{% assign publications = site.data.publications | filter_work_by_author: author_id %}
-{% unless publications == empty %}
-<div class="author-posts">
-	<h4>Publication</h4>
-	{% for publication in publications %}
-		<div>{{publication["title"]}}</div>
-	{% endfor %}
-</div>
-
-$ Upcoming conferences
-{% endunless %}
