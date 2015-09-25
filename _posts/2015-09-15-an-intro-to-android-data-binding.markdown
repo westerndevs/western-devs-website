@@ -12,14 +12,14 @@ In May, 2015 at Google announced [a data binding library for Android](https://de
 
 _Just a warning - Android data binding is still a beta product, so as such things may or may not work when they should, as they should, and the documentation may or may not be accurate._
 
-There were several steps/phases when I went through while I was learning this. Here's what I did:
-
-The [source code for this sample](https://github.com/topgenorth/drunken-bear) is up on Github.
+There were several steps/phases that I went through while I was learning this. Here's what I did:
 
 1. **Add data binding to Android Studio** &ndash; This is a one time thing, a couple of lines in some Gradle files.
 2. **Create a POJO for the binding** &ndash; You don't necessarily want to bind to a domain object. Arguable it's a cleaner design to have another class with responsiblity of data binding (and maybe some validation too). Model-View-ViewModel is an excellent pattern in this regard.
 3. **Update the layout file** &ndash; We help the data binding library out by adding some meta-data/markup to our layout files.
 4. **Update the activity to declare the data binding** &ndash; This will tell the data binding library how to connect the views to the POJO.
+
+The [source code for this sample](https://github.com/topgenorth/drunken-bear) is up on Github.
 
 # Adding Data Binding to Your Project
 
@@ -101,7 +101,7 @@ public class PhonewordViewModel extends BaseObservable {
 }
 {% endhighlight %}
 
-Here I've encapsulated logic into a view class that subclasses `BaseObservable`. Subclassing isn't mandatory &ndash; a naked POJO will work too. However, `BaseObservable` provides the infrastructure for setting up the data binding; the POJO can notify registered listeners as values change. As well, POJO's should be kept as dumb as possible.
+Here I've encapsulated logic into a view class that subclasses `BaseObservable`. Subclassing isn't mandatory &ndash; a naked POJO will work too. However, `BaseObservable` provides the infrastructure for setting up the data binding; and this custom view class can notify registered listeners as values change. As well, POJO's should be kept as dumb as possible without any intricate knowledge of views. By sticking the data binding logic in a view class like this I, honour the whole "separation of concerns" concept.
 
 Notice that the getters are adorned with the `@Bindable` annotation - this identifies how the listeners should retrieve values from the properties.
 
@@ -128,15 +128,14 @@ We need to declare a variable that the data binding framework can... bind too. I
 
 {% highlight xml %}
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+xmlns:app="http://schemas.android.com/apk/res-auto">
+	<data>
+		<variable
+			name="phonewordVM"
+			type="net.opgenorth.phoneword.PhonewordViewModel" />
+	</data>
 
-		<data>
-        <variable
-            name="phonewordVM"
-            type="net.opgenorth.phoneword.PhonewordViewModel" />
-    </data>
-
-    <!-- my old layout is here, but omitted for clarity -->
+	<!-- my old layout is here, but omitted for clarity -->
 
 </layout>
 {% endhighlight %}
@@ -147,25 +146,25 @@ Notice that the `xmlns:app="http://schemas.android.com/apk/res-auto"` will autom
 
 ### Declare the Bindings in the Layout
 
-Next, I need to set up the binding. In this example, all I want to do is to bind `setName()`/`getName()` in my POJO to an `EditText`. This little XML snippet shows the binding in action:
+Next, I need to set up the binding. In this example, all I want to do is to bind `setPhoneWord()`/`getPhoneWord()` in my custom view class to an `EditText`. This little XML snippet shows the binding in action:
 
 {% highlight xml %}
 <EditText
-		android:id="@+id/phoneword_text"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
-		android:layout_marginLeft="10dp"
-		android:layout_marginRight="10dp"
-		android:hint="@string/phoneword_label_text"
-		android:text="@{phonewordVM.phoneWord}"
-		tools:ignore="TextFields" />
+	android:id="@+id/phoneword_text"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:layout_marginLeft="10dp"
+	android:layout_marginRight="10dp"
+	android:hint="@string/phoneword_label_text"
+	android:text="@{phonewordVM.phoneWord}"
+	tools:ignore="TextFields" />
 {% endhighlight %}
 
-Notice the syntax to declare the binding: `@{phonewordVM.phoneWord}`. This binds the `EditText` to `setPhoneWord`/`getPhoneWord` in `PhonewordViewModel`. With this in place, the last thing to do is to setup the data binding in the activity.
+Notice the syntax to declare the binding: `@{phonewordVM.phoneWord}` &ndash; this is how I setup the binding in the layout file. With this in place, the last thing to do is to setup the data binding in the activity.
 
 # Establish the Data Binding
 
-Finally, setting up the data binding. This is a very minimal amount of code. We no longer have to first get a reference to a view, access properties on the view, and then manually transfer the value of that view to some domain object or variable in our application.
+Finally, setting up the data binding. This is a very minimal amount of code. We no longer have to first get a reference to a view, access properties on the view, and then manually transfer the value of that view to some domain object or variable in our application. Android Data Binding takes are of all that for me.
 
 Below is a snippet from the fragment:
 
