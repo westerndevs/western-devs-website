@@ -101,7 +101,7 @@ public class PhonewordViewModel extends BaseObservable {
 }
 {% endhighlight %}
 
-Here I've encapsulated logic into a view class that subclasses `BaseObservable`. Subclassing isn't mandatory &ndash; a naked POJO will work too. However, `BaseObservable` provides the infrastructure for setting up the data binding; and this custom view class can notify registered listeners as values change. As well, POJO's should be kept as dumb as possible without any intricate knowledge of views. By sticking the data binding logic in a view class like this I, honour the whole "separation of concerns" concept.
+Here I've encapsulated logic into a view class that subclasses `BaseObservable`. Subclassing isn't mandatory &ndash; a naked POJO will work too. However, by making a custom view `BaseObservable` provides the infrastructure for setting up the data binding; and this custom view class can notify registered listeners as values change. As well, POJO's should be kept as dumb as possible without any intricate knowledge of views. By sticking the data binding logic in a view class like this I, honour the whole "separation of concerns" concept.
 
 Notice that the getters are adorned with the `@Bindable` annotation - this identifies how the listeners should retrieve values from the properties.
 
