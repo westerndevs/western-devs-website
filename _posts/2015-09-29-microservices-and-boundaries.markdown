@@ -27,7 +27,7 @@ There were a lot of steps in that process. More than what was needed some might 
 
 ANTEL provides telecom services. I was a consumer (UI if you will) in need of those services so I reached out to their endpoints. From 40,000 feet this is a pretty standard microservice interaction. The first thing that the microservice required is that I authenticate myself (provide a passport). Once I’ve done that they start the process of creating a client record for me and putting in the purchase order for the SIM card. This is a pretty straight forward synchronous operation. In essence this is the code that runs in the controller of your REST WebAPI endpoint.
 
-![Image1](http://farm1.staticflickr.com/584/21817801705_5f577c2843_n.jpg)
+![Image1](http://farm1.staticflickr.com/584/21817801705_5f577c2843_z.jpg)
 
 When the purchase order is successfully created anyone that cares is notified. In this case the cashier is notified by having a print out appear on his printer. I’m also notified that I need to go to a new location to do more ‘stuff’. In technical terms an event was published onto some kind of service bus. The cashier subscribed to that event type and printed a purchase order. The original service that I contacted provided a URI as part of its result to me that I needed to navigate to. That URI pointed me to the cashier service.
 
@@ -39,7 +39,7 @@ After dealing with ANTEL I moved on to Abitab, or the payment services. I called
 
 Behind the scenes the Abitab service sent a message to some ANTEL service that notified ANTEL that the account needed to have credit applied to it and how much that credit should be. This is a service-to-service communication. Abitab knows nothing about the functionality of Antel. All Abitab does is publish a message that an event (payment) occurred. Abitab doesn’t need to know if, when, or how Antel applies the credit to the account so there is no need for a confirmation message so it can use a messaging pattern effectively here.
 
-![Image2](http://farm1.staticflickr.com/641/21817803695_c8444f341e_n.jpg)
+![Image2](http://farm1.staticflickr.com/641/21817803695_c8444f341e_z.jpg)
 
 The separations of concerns in this case was very clear. One microservice (company) was responsible for all things phone related (SIM card, activation, etc) and another microservice was responsible for payments. If you’ve dealt with a system like this (Antel and Abitab) you’ll know that there are some significant benefits from this separation. First, and foremost, you can pay anything imaginable at Abitab. Need to pay your water bill? Go to Abitab. You TV bill? Go to Abitab. All Abitab does is take the payment and send a message to the company concerned tell them that a payment has been received. 
 
