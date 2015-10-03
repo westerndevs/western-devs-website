@@ -24,14 +24,7 @@ module Jekyll
 
   module PostFilter
     def filter_by_author(posts, author)
-      filtered_posts = []
-      for post in posts
-        found_author = post["participants"].find { |v| v == author }
-        if found_author
-          filtered_posts.push(post)
-        end
-      end
-      filtered_posts
+      posts.select { |p| p["participants"].include? author }
     end
   end
 
