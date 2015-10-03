@@ -35,10 +35,22 @@ apps:
     author: amir_barylko
   
 books:
+  - title: "Pro XAML with C#: From Design to Deployment on WPF, Windows Store and Windows Phone"
+    url: http://www.apress.com/9781430267768
+    image: ProXamlWithCSharp.jpg
+    author: lori_lalonde
+    date: 2015-07-15
+
+  - title: "Windows Phone 8 Recipes: A Problem-Solution Approach"
+    url: http://www.apress.com/9781430259022
+    image: WindowsPhone8Recipes.jpg
+    author: lori_lalonde
+    date: 2013-09-10
+
   - title: Brownfield Application Development in .NET
     url: http://www.amazon.com/Brownfield-Application-Development-Donald-Belcham/dp/1933988711
     image: BrownfieldAppDevCover.jpg
-    author: donald_belcham,kyle_baley
+    author: donald_belcham
     date: 2010-04-28
 
   - title: Bootstrapping MVC
@@ -50,7 +62,7 @@ books:
   - title: Evolving ASP.net Applications
     url: https://leanpub.com/evolvinglegacyaspnetapplications
     image: EvolvingAspNet.png
-    author: simon_timms,dave_paquette
+    author: simon_timms
     date: 2015-05-20
 
   - title: Mastering JavaScript Design Patterns
