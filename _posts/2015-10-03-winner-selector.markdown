@@ -15,7 +15,7 @@ Simply paste in a list of people, one per line and hit pick a winner.
 <span id="foundPeople"></span>
 <button id="winnerPicker">Pick a winner from the list</button>
 
-We welcome code audits of this page: simply check out the source to see how it works. 
+We welcome code audits of this page: simply check out the source to see how it works. [Source on github](https://raw.githubusercontent.com/westerndevs/western-devs-website/source/_posts/2015-10-03-winner-selector.markdown)
 
 <script>
 
