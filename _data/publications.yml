@@ -35,6 +35,18 @@ apps:
     author: amir_barylko
   
 books:
+  - title: "Pro XAML with C#: From Design to Deployment on WPF, Windows Store and Windows Phone"
+    url: http://www.apress.com/9781430267768
+    image: ProXamlWithCSharp.jpg
+    author: lori_lalonde
+    date: 2015-07-15
+
+  - title: "Windows Phone 8 Recipes: A Problem-Solution Approach"
+    url: http://www.apress.com/9781430259022
+    image: WindowsPhone8Recipes.jpg
+    author: lori_lalonde
+    date: 2013-09-10
+
   - title: Brownfield Application Development in .NET
     url: http://www.amazon.com/Brownfield-Application-Development-Donald-Belcham/dp/1933988711
     image: BrownfieldAppDevCover.jpg
