@@ -15,20 +15,15 @@ bil:
   web: http://weblogs.asp.net/bsimser
   email: emailme@bilsimser.com
   twitter: bsimser
-  google:
-  plus:
   github: bsimser
   linkedin: bsimser
   
 darcy_lussier:
   name: D'Arcy Lussier
   web: http://geekswithblogs.net/dlussier/Default.aspx
-  email:
+  email: darcy.lussier@gmail.com
   twitter: darcy_lussier
-  google:
-    plus:
-  github:
-  linkedin:
+  avatar: DarcyLussier.jpg
 
 dave_paquette:
   name: Dave Paquette
@@ -75,7 +70,6 @@ dylan_smith:
   email: optikal@shaw.ca
   avatar: dylan_300x366.jpg
   twitter: dylan_smith
-  github:
 
 james_chambers:
   name: James Chambers
