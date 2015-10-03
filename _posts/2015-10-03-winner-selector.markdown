@@ -3,10 +3,9 @@ layout: post
 title:  Winner Selector
 date: 2015-10-03T10:53:29-06:00
 categories:
-excerpt:
+excerpt: A quick tool for picking winners from a list
 comments: true
 author: simon_timms
-originalurl:
 ---
 
 We constantly run into the problem of drawing winners for events. It is silly because it is such an easy problem and yet every time I'm left stumbling for a solution. Here is a really simple one:
