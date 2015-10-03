@@ -38,7 +38,7 @@ books:
   - title: Brownfield Application Development in .NET
     url: http://www.amazon.com/Brownfield-Application-Development-Donald-Belcham/dp/1933988711
     image: BrownfieldAppDevCover.jpg
-    author: donald_belcham,kyle_baley
+    author: donald_belcham
     date: 2010-04-28
 
   - title: Bootstrapping MVC
@@ -50,7 +50,7 @@ books:
   - title: Evolving ASP.net Applications
     url: https://leanpub.com/evolvinglegacyaspnetapplications
     image: EvolvingAspNet.png
-    author: simon_timms,dave_paquette
+    author: simon_timms
     date: 2015-05-20
 
   - title: Mastering JavaScript Design Patterns

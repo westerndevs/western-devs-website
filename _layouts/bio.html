@@ -36,10 +36,8 @@
     <h1>{{ author.name }}</h1>
     <div class="article-wrap">
       {{ content }}
-      {% if page.share != false %}
-        <hr />
-        {% include _social-share.html %}
-      {% endif %}
+      <hr />
+      {% include _author-work.html %}
     </div><!-- /.article-wrap -->
   </article>
 </div><!-- /#index -->
