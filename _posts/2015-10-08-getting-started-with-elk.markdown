@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Getting Started With ELK using Docker
-date: 2015-12-08T21:56:53-06:00
+date: 2015-10-12T21:56:53-06:00
 categories:
 comments: true
 author: simon_timms
