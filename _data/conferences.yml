@@ -94,14 +94,14 @@
   link: http://www.microsoftvirtualacademy.com
   speaker: James Chambers
   location: Seattle, WA
-  topic: Applications on Azure: Putting all the Pieces Together
+  topic: "Applications on Azure: Putting all the Pieces Together"
   
 - date: 2015-11-09
   event: Microsoft Virtual Academy
   link: http://www.microsoftvirtualacademy.com
   speaker: Simon Timms
   location: Seattle, WA
-  topic: Applications on Azure: Putting all the Pieces Together
+  topic: "Applications on Azure: Putting all the Pieces Together"
   
 - date: 2016-02-24
   event: ConFoo
@@ -115,4 +115,4 @@
   link: http://confoo.ca
   speaker: James Chambers
   location: Montreal, QC
-  topic: Success as a Remote Worker: Love your Job, Have a Life
+  topic: Success as a Remote Worker: Love your Job, Have a Life"
