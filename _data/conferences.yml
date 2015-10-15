@@ -113,20 +113,6 @@
 - date: 2016-02-24
   event: ConFoo
   link: http://confoo.ca
-  speaker: Lori Lalonde
-  location: Montreal, QC
-  topic: So You Want To Be a Mobile App Developer
-  
-- date: 2016-02-24
-  event: ConFoo
-  link: http://confoo.ca
-  speaker: James Chambers
-  location: Montreal, QC
-  topic: Now What? Relearning What you Know in ASP.NET 5
-
-- date: 2016-02-24
-  event: ConFoo
-  link: http://confoo.ca
   speaker: James Chambers
   location: Montreal, QC
   topic: Success as a Remote Worker: Love your Job, Have a Life
