@@ -81,3 +81,38 @@
   speaker: Lori Lalonde
   location: Kitchener, ON
   topic: Windows 10 Developer Camp
+
+- date: 2015-10-19
+  event: Winnipeg .NET User Group
+  link: http://www.winnipegdotnet.org
+  speaker: James Chambers
+  location: Winnipeg, MB
+  topic: What to Expect with MVC 6
+  
+- date: 2016-02-24
+  event: ConFoo
+  link: http://confoo.ca
+  speaker: Lori Lalonde
+  location: Montreal, QC
+  topic: Cross Platform Localization Strategies
+
+- date: 2016-02-24
+  event: ConFoo
+  link: http://confoo.ca
+  speaker: Lori Lalonde
+  location: Montreal, QC
+  topic: So You Want To Be a Mobile App Developer
+  
+- date: 2016-02-24
+  event: ConFoo
+  link: http://confoo.ca
+  speaker: James Chambers
+  location: Montreal, QC
+  topic: Now What? Relearning What you Know in ASP.NET 5
+
+- date: 2016-02-24
+  event: ConFoo
+  link: http://confoo.ca
+  speaker: James Chambers
+  location: Montreal, QC
+  topic: Success as a Remote Worker: Love your Job, Have a Life
