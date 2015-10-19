@@ -1,6 +1,5 @@
 code:
 
-  
   - title: Epoch
     url: https://github.com/MavenThought/Epoch
     description: Utilities to create dates in a fluent style and manipulate date ranges
@@ -11,6 +10,12 @@ code:
     url: https://github.com/dpaquette/EntityFramework.Seeder
     description: A collection of helper methods to help seed entity framework databases from CSV files.
     date: 2015-06-27
+    author: dave_paquette
+
+  - title: Tag Helper Samples
+    url: http://taghelpersamples.azurewebsites.net/
+    description: Real-world examples of MVC6 Tag Helpers
+    date: 2015-10-18
     author: dave_paquette
 
   - title: Schmancy
