@@ -101,7 +101,7 @@ The ```tasks.json``` file is an IDE specific configuration file. All it's really
 
 A build script will have all the commands and scripts you need to run, build, test, or do whatever to your project. Plus, it's usable _outside_ of Code, so it's much more useful.
 
-Although totally customizable (which I'll cover in an upcoming post), you can see this action now if you're using [Gulp, Grunt, or Jake](https://code.visualstudio.com/Docs/editor/tasks#_mapping-gulp-grunt-and-jake-output-to-problem-matchers) in your existing projects.
+Although totally customizable (which I'll cover in [an upcoming post](http://westerndevs.com/using-java-build-script-tasks-in-visual-studio-code/)), you can see this action now if you're using [Gulp, Grunt, or Jake](https://code.visualstudio.com/Docs/editor/tasks#_mapping-gulp-grunt-and-jake-output-to-problem-matchers) in your existing projects.
 
 ---
 Thanks for playing. ~ DW
