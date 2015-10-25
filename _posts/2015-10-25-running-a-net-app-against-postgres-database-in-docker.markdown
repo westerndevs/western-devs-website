@@ -62,7 +62,7 @@ You might have noticed that you didn't create any tables yet but the app still w
 
 > Note: recipes rely on having a search provider configured. We won't cover that here but I hope to come back to it in the future.
 
-Next, we'll switching things up so you can run this against Postgres running in a Docker container.
+Next, we'll switch things up so you can run this against Postgres running in a Docker container.
 
 ### Switching to Docker
 
