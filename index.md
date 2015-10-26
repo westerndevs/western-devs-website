@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: new-home
 excerpt: "We're all west of somewhere."
 tags: []
 image:

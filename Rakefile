@@ -115,3 +115,10 @@ task :serve, :option do |t, args|
   system "jekyll serve #{params}"
   system "open http://localhost:4000" unless running_docker?
 end
+
+task :serve_azure, :option do |t, args|
+  params = "--config _config.yml,_config-azure.yml"
+  params += " --drafts"                        if args[:option] == "drafts"
+  params += " --host 0.0.0.0 --force_polling"  if running_docker?
+  system "jekyll serve #{params}"
+end
