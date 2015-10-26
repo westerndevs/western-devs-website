@@ -14,7 +14,7 @@ body {
 
 .navigation-wrapper {
 	@include container;
-	padding: 2em 0 1em;
+	padding: 1.5em 0 1em;
 	font-family: $heading-font;
 	font-weight: 700;
 	text-transform: uppercase;
@@ -23,40 +23,24 @@ body {
 
 /* Site name */
 .site-name {
-	@include grid(12,10);
-	@include prefix(12,1);
-	@include suffix(12,1);
 	margin-bottom: 1em;
-	float: none;
 	display: block;
+	float: left;
 	@include font-rem(24);
 	@media #{$small} {
-		@include grid(12,2);
-		@include prefix(12,0.5);
-		@include suffix(12,0.5);
-		@include font-rem(16);
 	}
 	@media #{$x-large} {
-		@include grid(12,1.5);
-		@include prefix(12,2);
 	}
 }
 
 /* Top navigation links */
 .top-navigation {
-	@include grid(12,10);
-	@include prefix(12,1);
-	@include suffix(12,1);
 	margin-bottom: 1em;
-	float: none;
+	float: right;
 	display: block;
 	@media #{$small} {
-		@include grid(12,9);
-		@include prefix(12,0);
-		@include suffix(12,0);
 	}
 	@media #{$x-large} {
-		@include grid(12,8);
 	}
 	ul {
 		margin: 0;
@@ -757,4 +741,37 @@ $button-size: 1.5rem;
       margin-top: 5px;
     }
   }
+}
+
+section.container-outer {
+	width: 100%;
+}
+section.container-inner {
+	width: 1000px;
+	margin: 0 auto;		
+}
+
+.home-left-section {
+	@include grid(12, 6, left);
+	padding: 10px;
+	background-color: #eff;
+}
+
+.home-right-section {
+	@include grid(12, 6, right);
+	padding: 10px;
+	background-color: #ddc;
+}
+
+.home-tile h4 {
+	margin-bottom: 0;
+}
+
+.home-tile .post-info {
+	font-size: 14px;
+	color: #999;
+}
+
+.home-tile .one-third {
+	@include grid(12, 4);
 }

@@ -1,0 +1,141 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+{% include _head.html %}
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+</head>
+
+<body class="home">
+
+{% include _browser-upgrade.html %}
+
+{% include _navigation.html %}
+
+{% if page.image.feature %}
+  <div class="image-wrap">
+  <img src=
+    {% if page.image.feature contains 'http' %}
+      "{{ page.image.feature }}"
+    {% else %}
+      "{{ site.url }}/images/{{ page.image.feature }}"
+    {% endif %}
+  alt="{{ page.title }} feature image">
+  </div><!-- /.image-wrap -->
+{% endif %}
+
+<section class="container-outer">
+
+  <section class="container-inner">
+    <h1>We are the Western Devs</h1>
+    <div>
+      We are a group of humble, but amazing developers with one thing in common: we're all west of somewhere else. We <a href="/posts">blog</a>, <a href="/podcasts">talk</a>, <a href="/whatwevedone">write</a>, and <a href="/wherewellbe">present</a>.
+
+    </div>
+  </section>
+</section>
+
+<section class="container-outer">
+  <section class="container-inner home-tile">
+    <div class="home-left-section">
+      <h3>Posts</h3>
+      {% for post in site.posts limit: 5 %}
+        <h4>
+          <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+        </h4>
+        {% assign author = site.data.authors[post.author] %}
+        <div class='post-info'>
+          <span class='date'>{{ post.date | date: '%b %d' }}</span>
+          {% if author %}
+          by
+          <span class='author'><a href='{{ site.url }}/bios/{{post.author}}'>{{ author.name }}</a></span>
+          {% endif %}
+        </div>
+        {% if post.content contains '<!--more-->' %}
+            {{ post.content | split:'<!--more-->' | first }}
+        {% else %}
+          <p>{{ post.excerpt | strip_html | truncate: 120 }}</p>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class="home-right-section">
+      <h3>Latest podcast</h3>
+      <h4>
+        <a href="/podcasts">Life Outside .NET</a>
+      </h4>
+      <div class='post-info'>Oct 25</div>
+      <p>The Western Devs discuss working outside your comfort zone</p>
+      <audio controls="">
+              <source src="http://cdn.westerndevs.com/podcasts/LifeOutsideNET.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+      </audio>
+    </div>
+    <div class="home-right-section" style='background-color: #cfd'>
+      <h3>Speaking</h3>
+      <h4>
+        <a href="#">SDE Conference</a>
+      </h4>
+      <div class='post-info'>
+        <span class='data'>Nov 15</span>
+        <span class='author'><a href='#'>Amir Barylko</a></span>
+      </div>
+      <h4>
+        <a href="#">Microsoft Virtual Academy</a>
+      </h4>
+      <div class='post-info'>
+        <span class='data'>Nov 23</span>
+        <span class='author'>James Chambers and Simon Timms</span>
+      </div>
+      <h4>
+        <a href="#">Canada's Technology Triangle .NET User Group</a>
+      </h4>
+      <div class='post-info'>
+        <span class='data'>Nov 30</span>
+        <span class='author'>Lori Lalonde</span>
+      </div>
+      <h4>
+        <a href="#">Winnipeg .NET User Group</a>
+      </h4>
+      <div class='post-info'>
+        <span class='data'>Dec 15</span>
+        <span class='author'>David Wesst</span>
+      </div>
+      <h4>
+        <a href="#">ConFoo</a>
+      </h4>
+      <div class='post-info'>
+        <span class='data'>Feb 14</span>
+        <span class='author'>James Chambers and Lori Lalonde</span>
+      </div>
+    </div>
+    <div style="clear:both;"></div>
+    <div style="padding:10px; background-color: #ede; overflow: auto;">
+      <h4>What We've Done</h4>
+      <p>A random sample of some of the things we've done</p>
+      <div class="one-third">
+        <img src="http://www.westerndevs.com/images/MasteringJavaScriptDesignPatterns.jpg" style="width:200px;"/>
+      </div>
+      <div class="one-third">
+        <img src="http://www.prairiedevcon.com/images/PrDCLogo_Small.png" style="width:250px;"/> <br/><br/>
+        <img src="http://www.westerndevs.com/images/smartview.png" style="width: 200px;" />
+      </div>
+
+      <div class="one-third">
+        <img src="http://www.westerndevs.com/images/EvolvingAspNet.png" style="width:200px;"/>
+      </div>
+    </div>
+  </section>
+</section>
+
+<div class="footer-wrap">
+  <footer>
+    {% include _footer.html %}
+  </footer>
+</div><!-- /.footer-wrap -->
+
+{% include _scripts.html %}
+  
+</body>
+</html>
