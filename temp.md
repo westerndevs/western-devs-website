@@ -1,4 +1,4 @@
 ---
-layout: new-home
+layout: prototype-2
 tags: []
 ---

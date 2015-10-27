@@ -8,11 +8,10 @@
 <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 </head>
 
-<body class="home">
+<body class="home" style="background-color: #ddd;">
 <script>
   alert('This is a prototype. It works on a desktop; likely only in Chrome. Don\'t try it on your phone, your tablet, your LeapPad, or your *%$# Etch-A-Sketch. But if you have a BlackBerry, go nuts.');
 </script>
-
 
 {% include _browser-upgrade.html %}
 
@@ -30,13 +29,7 @@
   </div><!-- /.image-wrap -->
 {% endif %}
 
-<section class="container-outer" style="background:
-radial-gradient(#ededed 15%, transparent 16%) 0 0,
-radial-gradient(#ededed 15%, transparent 16%) 8px 8px,
-radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
-radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
-background-color:#efefef;
-background-size:16px 16px; padding: 10px 0;">
+<section class="container-outer" style="padding: 10px 0;">
 
   <section class="container-inner">
     <img src="/images/Western_Dev_H_rgb.png" style="width:300px;"/>
@@ -49,7 +42,7 @@ background-size:16px 16px; padding: 10px 0;">
 
 <section class="container-outer">
   <section class="container-inner home-tile">
-    <div class="home-left-section">
+    <div class="home-left-section" style="background-color: #fff; width: 56%;">
       <h3>Posts</h3>
       {% for post in site.posts limit: 5 %}
         <h4>
@@ -70,7 +63,7 @@ background-size:16px 16px; padding: 10px 0;">
         {% endif %}
       {% endfor %}
     </div>
-    <div class="home-right-section">
+    <div class="home-right-section" style="background-color: #fff; width: 42%; margin: 0 0 10px;">
       <h3>Latest podcast</h3>
       <h4>
         <a href="/podcasts">Life Outside .NET</a>
@@ -82,7 +75,7 @@ background-size:16px 16px; padding: 10px 0;">
               Your browser does not support the audio element.
       </audio>
     </div>
-    <div class="home-right-section" style='background-color: #dfdfdf; height: 362px; overflow: hidden; position: relative;'>
+    <div class="home-right-section" style='background-color: #fff; height: 333px; overflow: hidden; position: relative; width: 42%;margin: 0 0 10px;'>
       <div class="speaking-section">
       <h3>Speaking</h3>
       <h4>
@@ -123,7 +116,7 @@ background-size:16px 16px; padding: 10px 0;">
     </div>
     </div>
     <div style="clear:both;"></div>
-    <div style="padding:10px; background-color: #ececec; overflow: auto;">
+    <div style="padding:10px; background-color: #fff; overflow: auto;">
       <h4>What We've Done</h4>
       <p>A random sample of some of the things we've done</p>
       <div class="one-third">
