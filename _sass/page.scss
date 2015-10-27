@@ -36,7 +36,7 @@ body {
 /* Top navigation links */
 .top-navigation {
 	margin-bottom: 1em;
-	float: right;
+	float: left;
 	display: block;
 	@media #{$small} {
 	}
@@ -751,16 +751,21 @@ section.container-inner {
 	margin: 0 auto;		
 }
 
+
 .home-left-section {
 	@include grid(12, 7, left);
 	padding: 10px;
-	background-color: #ccc;
+	background-color: #fff; 
+	width: 56%;
 }
 
 .home-right-section {
 	@include grid(12, 5, right);
 	padding: 10px;
-	background-color: #ececec;
+	background-color: #fff; 
+	width: 42%; 
+	margin: 0 0 10px;
+	overflow: hidden;
 }
 
 .home-tile h4 {
@@ -784,4 +789,30 @@ section.container-inner {
   left:0;
   top:0;
   background:linear-gradient(transparent 150px, white);
+}
+@media (max-width: 1000px){
+	section.container-inner{
+		width: 100%;
+	}
+	.home-right-section {
+		width: 100%;
+		margin-top: 10px;
+	}
+	.home-left-section {
+		width: 100%;
+	}
+	.home-tile .one-third{
+		width: 50%;
+	}
+}
+@media (max-width: 500px){
+	.home-tile .one-third{
+		width: 100%;
+	}
+	.intro{
+		display: none;
+	}
+	.navigation-wrapper {
+		padding: 0;
+	}
 }

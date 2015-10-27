@@ -30,7 +30,7 @@
 
   <section class="container-inner">
     <img src="/images/Western_Dev_H_rgb.png" style="width:300px;"/>
-    <div style="font-size: 22px; line-height: 1.5em;">
+    <div class="intro" style="font-size: 22px; line-height: 1.5em;">
       We are a group of humble, but amazing developers with one thing in common: we're all west of somewhere else. Where we differ from similar sites: we talk to each other! Often. At conferences, via email, and on Slack. From Docker to Canadian politics to feature toggles to smoked meat, we're never at a loss for words. We <a href="/posts">blog</a>, <a href="/podcasts">talk</a>, <a href="/whatwevedone">write</a>, and <a href="/wherewellbe">present</a>. Thanks for stopping by.
 
     </div>
@@ -39,7 +39,7 @@
 
 <section class="container-outer">
   <section class="container-inner home-tile">
-    <div class="home-left-section" style="background-color: #fff; width: 56%;">
+    <div class="home-left-section">
       <h3><i class="fa fa-newspaper-o"></i> Posts</h3>
       {% for post in site.posts limit: 5 %}
         <h4>
@@ -60,7 +60,7 @@
         {% endif %}
       {% endfor %}
     </div>
-    <div class="home-right-section" style="background-color: #fff; width: 42%; margin: 0 0 10px;">
+    <div class="home-right-section">
       <h3><i class="fa fa-volume-up"></i> Latest podcast</h3>
       <h4>
         <a href="/podcasts">Life Outside .NET</a>
@@ -72,7 +72,7 @@
               Your browser does not support the audio element.
       </audio>
     </div>
-    <div class="home-right-section" style='background-color: #fff; height: 333px; overflow: hidden; position: relative; width: 42%;margin: 0 0 10px;'>
+    <div class="home-right-section" style="height: 333px;">
       <h3><i class="fa fa-calendar"></i> Speaking</h3>
       <h4>
         <a href="#">SDE Conference</a>
