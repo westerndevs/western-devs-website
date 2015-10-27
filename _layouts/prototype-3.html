@@ -8,7 +8,7 @@
 <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 </head>
 
-<body class="home">
+<body class="home" style="background-color: #fff;">
 
 {% include _browser-upgrade.html %}
 
@@ -26,13 +26,7 @@
   </div><!-- /.image-wrap -->
 {% endif %}
 
-<section class="container-outer" style="background:
-radial-gradient(#ededed 15%, transparent 16%) 0 0,
-radial-gradient(#ededed 15%, transparent 16%) 8px 8px,
-radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
-radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
-background-color:#efefef;
-background-size:16px 16px; padding: 10px 0;">
+<section class="container-outer" style="padding: 10px 0;">
 
   <section class="container-inner">
     <img src="/images/Western_Dev_H_rgb.png" style="width:300px;"/>
@@ -45,7 +39,7 @@ background-size:16px 16px; padding: 10px 0;">
 
 <section class="container-outer">
   <section class="container-inner home-tile">
-    <div class="home-left-section">
+    <div class="home-left-section" style="background-color: #ddd; width: 56%;">
       <h3><i class="fa fa-newspaper-o"></i> Posts</h3>
       {% for post in site.posts limit: 5 %}
         <h4>
@@ -66,7 +60,7 @@ background-size:16px 16px; padding: 10px 0;">
         {% endif %}
       {% endfor %}
     </div>
-    <div class="home-right-section">
+    <div class="home-right-section" style="background-color: #ddd; width: 42%; margin: 0 0 10px;">
       <h3><i class="fa fa-volume-up"></i> Latest podcast</h3>
       <h4>
         <a href="/podcasts">Life Outside .NET</a>
@@ -78,7 +72,7 @@ background-size:16px 16px; padding: 10px 0;">
               Your browser does not support the audio element.
       </audio>
     </div>
-    <div class="home-right-section" style='background-color: #dfdfdf; height: 343px; overflow: hidden; position: relative;'>
+    <div class="home-right-section" style='background-color: #ddd; height: 333px; overflow: hidden; position: relative; width: 42%;margin: 0 0 10px;'>
       <h3><i class="fa fa-calendar"></i> Speaking</h3>
       <h4>
         <a href="#">SDE Conference</a>
@@ -108,9 +102,16 @@ background-size:16px 16px; padding: 10px 0;">
         <span class='data'>Dec 15</span>
         <span class='author'>David Wesst</span>
       </div>
+      <h4>
+        <a href="#">ConFoo</a>
+      </h4>
+      <div class='post-info'>
+        <span class='data'>Feb 14</span>
+        <span class='author'>James Chambers and Lori Lalonde</span>
+      </div>
     </div>
     <div style="clear:both;"></div>
-    <div style="padding:10px; background-color: #ececec; overflow: auto;">
+    <div style="padding:10px; background-color: #ddd; overflow: auto;">
       <h3><i class="fa fa-pencil-square-o"></i> What We've Done</h3>
       <p>A random sample of some of the things we've done</p>
       <div class="one-third">

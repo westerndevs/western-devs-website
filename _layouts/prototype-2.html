@@ -9,9 +9,6 @@
 </head>
 
 <body class="home" style="background-color: #ddd;">
-<script>
-  alert('This is a prototype. It works on a desktop; likely only in Chrome. Don\'t try it on your phone, your tablet, your LeapPad, or your *%$# Etch-A-Sketch. But if you have a BlackBerry, go nuts.');
-</script>
 
 {% include _browser-upgrade.html %}
 
@@ -43,7 +40,7 @@
 <section class="container-outer">
   <section class="container-inner home-tile">
     <div class="home-left-section" style="background-color: #fff; width: 56%;">
-      <h3>Posts</h3>
+      <h3><i class="fa fa-newspaper-o"></i> Posts</h3>
       {% for post in site.posts limit: 5 %}
         <h4>
           <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
@@ -64,7 +61,7 @@
       {% endfor %}
     </div>
     <div class="home-right-section" style="background-color: #fff; width: 42%; margin: 0 0 10px;">
-      <h3>Latest podcast</h3>
+      <h3><i class="fa fa-volume-up"></i> Latest podcast</h3>
       <h4>
         <a href="/podcasts">Life Outside .NET</a>
       </h4>
@@ -76,8 +73,7 @@
       </audio>
     </div>
     <div class="home-right-section" style='background-color: #fff; height: 333px; overflow: hidden; position: relative; width: 42%;margin: 0 0 10px;'>
-      <div class="speaking-section">
-      <h3>Speaking</h3>
+      <h3><i class="fa fa-calendar"></i> Speaking</h3>
       <h4>
         <a href="#">SDE Conference</a>
       </h4>
@@ -114,10 +110,9 @@
         <span class='author'>James Chambers and Lori Lalonde</span>
       </div>
     </div>
-    </div>
     <div style="clear:both;"></div>
     <div style="padding:10px; background-color: #fff; overflow: auto;">
-      <h4>What We've Done</h4>
+      <h3><i class="fa fa-pencil-square-o"></i> What We've Done</h3>
       <p>A random sample of some of the things we've done</p>
       <div class="one-third">
         <img src="http://www.westerndevs.com/images/MasteringJavaScriptDesignPatterns.jpg" style="width:200px;"/>
