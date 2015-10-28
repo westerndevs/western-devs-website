@@ -8,7 +8,7 @@ author: david_wesst
 originalurl: http://blog.davidwesst.com/2015/10/My-Favourite-Online-Dev-Tools/
 ---
 
-I'm talking about online or web-based toolstools, not toolboxes. So entire development suites like Cloud9 or Visual Studio Online are off the table because they are full tool suites. These tools are simple, but continually help me out in a pinch.
+I'm talking about online or web-based tools, not toolboxes. So entire development suites like Cloud9 or Visual Studio Online are off the table because they are full tool suites. These tools are simple, but continually help me out in a pinch.
 
 Make sure to share your favourite tools in the comments below so I can learn and grow from your knowledge. 
 
@@ -46,7 +46,7 @@ I've used Trello in the past, and generally end up ditching the project boards b
 
 They start you off with a free account, which is where I began for a personal kanban for coordinating my side project efforts for myself. I suggest you check it out and get productive.
 
-_**Full Disclosure**:  As mentioned above, Amir is a collegue of mine and I do support his work. That being said, I wouldn't have added it to my list if I didn't use it as much as I do, or if I found it as useful as it really is._ 
+_**Full Disclosure**:  As mentioned above, Amir is a colleague of mine and I do support his work. That being said, I wouldn't have added it to my list if I didn't use it as much as I do, or if I found it as useful as it really is._ 
 
 ## [GitHub Explore](https://github.com/explore) and [GitHub Gists](https://gist.github.com/)
 
