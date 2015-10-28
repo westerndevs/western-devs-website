@@ -36,7 +36,7 @@ There are other HEX to RGB converters out there, I know. I just really like this
 
 I like pretty websites.
 
-## [SmartViewApp](http://smartviewapp.com/)
+## [SmartView](http://smartviewapp.com/)
 
 ![http://blog.davidwesst.com/2015/10/My-Favourite-Online-Dev-Tools/smartviewapp.png](http://blog.davidwesst.com/2015/10/My-Favourite-Online-Dev-Tools/smartviewapp.png)
 
