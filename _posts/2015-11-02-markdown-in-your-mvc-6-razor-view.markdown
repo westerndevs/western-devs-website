@@ -1,13 +1,12 @@
 ---
 layout: post
-title:  "Custom MVC6 Tag Helper Samples"
+title:  "Markdown in your MVC 6 Razor Pages"
 date: 2015-11-02T12:20:00-04:00
 categories:
 comments: true
 author: dave_paquette
 originalurl: http://www.davepaquette.com/archive/2015/11/02/markdown-in-your-mvc-6-razor-pages.aspx
 ---
-# Markdown in your MVC 6 Razor Pages
 
 What? Markdown in your Razor code? Yeah…and it was totally easy to build too.
 
