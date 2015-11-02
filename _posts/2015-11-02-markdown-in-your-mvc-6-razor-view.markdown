@@ -54,7 +54,7 @@ You can grab the code from [GitHub][3] or install the package using [Nuget][6].
 
     Install-Package TagHelperSamples.Markdown
 
-Give it a try and let you know what you think.
+Give it a try and let me know what you think.
 
 [1]: https://twitter.com/ntaylormullen
 [2]: https://www.youtube.com/watch?v=jD4H-CBab9o
