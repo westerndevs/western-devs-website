@@ -1,3 +1,11 @@
+---
+layout: post
+title:  "Doing Snapshots on Azure Virtual Machines"
+date: 2015-11-03T15:32:05-08:00
+comments: true
+author: dylan_smith
+---
+
 I've always been frustrated that I can't do snapshots when I'm using VM's in Azure. Especially when I'm developing some deployment automation, I like to be able to try something out - and when it inevitably screws up - reset the VM to a snapshot and try again. 
 
 We still can't do actual snapshots, but I've written some powershell that achieves the same goal.  It will grab a copy of the VHD file (this acts as the snapshot), then when we want to restore to snapshot we'll just swap out the VHD's.  The trick here is that Azure won't let you swap out the VHD for an existing VM, so we need to actually destroy the VM, swap out the VHD's, then recreate the VM using the existing VHD.
