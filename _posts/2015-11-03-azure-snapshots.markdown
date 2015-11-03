@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Doing Snapshots on Azure Virtual Machines"
-date: 2015-11-03T15:32:05-08:00
+date: 2015-11-03T17:30:00-08:00
 comments: true
 author: dylan_smith
 ---
@@ -16,25 +16,25 @@ If you want to try it out, here's a step-by-step to try it out:
 
 First create a VM in Azure, and be sure to select Resource Manager as the deployment model:
 
-![Create ARM VM](http://www.westerndevs.com/images/Posts/2015-11-03-Azure-Snapshots/01-Create%20ARM%20VM.png)
+![Create ARM VM](http://i.imgur.com/waHMXxG.png)
 
-![VM Basics](http://www.westerndevs.com/images/Posts/2015-11-03-Azure-Snapshots/02-VM%20Basics.png)
+![VM Basics](http://i.imgur.com/601dKeE.png)
 
-![Select VM Size](http://www.westerndevs.com/images/Posts/2015-11-03-Azure-Snapshots/03-Select%20VM%20Size.png)
+![Select VM Size](http://i.imgur.com/EjdOOxL.png)
 
-![VM Settings](http://www.westerndevs.com/images/Posts/2015-11-03-Azure-Snapshots/04-VM%20Settings.png)
+![VM Settings](http://i.imgur.com/05cF86c.png)
 
 After it's done processing we'll have a new Resource Group with 6 resources included:
 
-![Resource Group](http://www.westerndevs.com/images/Posts/2015-11-03-Azure-Snapshots/05-Resource%20Group.png)
+![Resource Group](http://i.imgur.com/QKLize8.png)
 
 One thing I like to do - that the wizard doesn't let you specify - is to assign a DNS name to the public IP that I'll use to connect to my VM.  You can set this in the configuration page for the Public IP resource.
 
-![Set DNS](http://www.westerndevs.com/images/Posts/2015-11-03-Azure-Snapshots/06-Set%20DNS.png)
+![Set DNS](http://i.imgur.com/psVa4XE.png)
 
 Lastly, I need to copy the Storage Account Access Key for use in the powershell.
 
-![Retrieve Storage Key](http://www.westerndevs.com/images/Posts/2015-11-03-Azure-Snapshots/07-Retrieve%20Storage%20Key.png)
+![Retrieve Storage Key](http://i.imgur.com/yh9cgcp.png)
 
 Now all we need to do is take the powershell below, and modify the values of the variables at the start to match the names you used when you created the VM/Resource Group.
 
