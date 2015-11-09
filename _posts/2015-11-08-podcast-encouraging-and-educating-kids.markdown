@@ -16,6 +16,7 @@ participants:
     - tom_opgenorth
     - david_wesst
     - james_chambers
+    - dylan_smith
     - wendy_clossen
 ---
 
