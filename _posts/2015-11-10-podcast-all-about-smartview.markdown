@@ -17,7 +17,7 @@ participants:
 In this podcast we talk to Amir Barylko about 
 
 - Kanban
-- The imputus behind SmartView
+- The impetus behind SmartView
 - Being a product owner and not a developer
 - Working with a remote team
 - Dealing with user feedback
