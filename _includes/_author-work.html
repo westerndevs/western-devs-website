@@ -9,6 +9,7 @@
 </div>
 {% endunless %}
 
+{% if site.categories.podcasts %}
 {% assign podcasts = site.categories.podcasts | filter_by_author: author_id %}
 {% unless podcasts == empty %}
 <div class="author-posts">
@@ -18,4 +19,5 @@
 	{% endfor %}
 </div>
 {% endunless %}
+{% endif %}
 
