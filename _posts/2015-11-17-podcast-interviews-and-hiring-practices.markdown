@@ -2,7 +2,7 @@
 layout: post
 title:  "Podcast: Interviews and Hiring Practices"
 date: 2015-11-17T13:56:08-05:00
-categories:
+categories: podcasts
 excerpt: "The definitive answer on how to hire your next dev"
 comments: true
 podcast: "HiringPractices.mp3"

@@ -48,6 +48,14 @@ And I have 30 products
 You can probably see the major drawback already. This can become _very_ verbose. But on the other hand, you have the advantage of seeing exactly what data is included which is helpful when debugging. If your test data is wrong, you don't need to go mucking about in your source code to fix it. Just update the test and you're done.
 
 ---
-Loading up your data with a granular API isn't realistic which is why I like the hybrid solution. By default, you can pre-load your database with some common data, like lookup tables with lists of countries, currencies, product categories, etc. Stuff that needs to be in place for the majority of your tests.
+Loading up your data with a granular API isn't realistic which is why I like the hybrid solution. By default, you pre-load your database with _some_ common data, like lookup tables with lists of countries, currencies, product categories, etc. Stuff that needs to be in place for the majority of your tests.
 
 After that, your API doesn't need to be that granular. You can use something like `Given I have a basic company` which will create the company, add an owner and maybe some products and use that to test the process for creating an order. Under the hood, it will probably use the specific steps.
+
+This will understandably lead to a whole bunch of different methods for creating data of various sizes and coarseness. And for that you'll need to...
+
+### Maintain test data
+
+Regardless of your method, maintaining your test data will require constant vigilance. In my experience, there is a tremendous urge to take shortcuts when it comes to test data. You'll re-use a test company that doesn't quite fit your scenario. You'll alter your test to fit the data rather than the other way around. You'll duplicate a data setup step because your API isn't discoverable.
+
+Make no mistake, maintaining test data is work. It should be treated with the same respect and care as the rest of your code. Shortcuts and bad practices should _not_ be tolerated and let go because "it's just test data".
