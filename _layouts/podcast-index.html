@@ -67,12 +67,6 @@
           {% else %}
             <p>{{ post.excerpt | strip_html | truncate: 160 }}</p>
           {% endif %}
-          {% if post.podcast %}
-            <audio controls="">
-              <source src="http://cdn.westerndevs.com/podcasts/{{post.podcast}}" type="audio/mpeg">
-              Your browser does not support the audio element.
-            </audio>
-          {% endif %}
         {% endif %}
       </article>
     {% endfor %}
