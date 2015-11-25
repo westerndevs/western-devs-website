@@ -32,7 +32,11 @@ layout: null
 				<itunes:author>Western Devs</itunes:author>
 				<itunes:subtitle>{{ post.excerpt }}</itunes:subtitle>
 				<itunes:summary><![CDATA[{{ post.content }}!]]></itunes:summary>
+				{% if post.libsyn %}
+				<enclosure url="http://traffic.libsyn.com/westerndevspodcast/{{post.podcast}}" length="{{post.podcast-filesize}}" type="audio/mpeg" />
+				{% else %}
 				<enclosure url="http://cdn.westerndevs.com/podcasts/{{post.podcast}}" length="{{post.podcast-filesize}}" type="audio/mpeg" />
+				{% endif %}
 				<itunes:duration>{{post.podcast-running-time}}</itunes:duration>
 			</item>
 		{% endfor %}
