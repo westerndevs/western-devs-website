@@ -5,6 +5,7 @@ date: 2015-11-08T19:12:19-05:00
 categories: podcasts
 excerpt: "Ways to encouraging and educate kids in the dark art of coding. With special guest Wendy Closson"
 comments: true
+libsyn: 3982707
 podcast: "TeachingKids.mp3"
 podcast-running-time: "45:43"
 podcast-filesize: 43892503

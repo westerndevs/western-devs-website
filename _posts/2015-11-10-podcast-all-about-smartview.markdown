@@ -5,6 +5,7 @@ date: 2015-11-10T15:13:26-07:00
 categories: podcasts
 excerpt: "An Interview with SmartView founder Amir Barylko"
 comments: true
+libsyn: 3982695
 podcast: "SmartView.mp3"
 podcast-running-time: "31:53"
 podcast-filesize: 43892503
