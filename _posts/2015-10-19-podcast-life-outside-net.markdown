@@ -5,7 +5,7 @@ date: 2015-10-19T15:48:10-04:00
 categories: podcasts
 excerpt: "The Western Devs discuss working outside your comfort zone"
 comments: true
-libsyn: 3982712
+libsyn: 3982713
 podcast: "LifeOutsideNET.mp3"
 podcast-running-time: "41:07"
 podcast-filesize: 39477170
