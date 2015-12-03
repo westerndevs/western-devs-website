@@ -18,9 +18,9 @@ widgets:
 - recent_posts
 
 # Miscellaneous
-google_analytics:
+google_analytics: UA-37617956-2
 favicon: /favicon.png
-twitter:
+twitter: westerndevs
 google_plus:
 fb_admins:
 fb_app_id:

@@ -1,28 +1,20 @@
-<!DOCTYPE html>
-<html>
   <head>
-  <%
-  var title = page.title;
-
-  if (is_archive()){
-    title = 'Archives';
-
-    if (is_month()){
-      title += ': ' + page.year + '/' + page.month;
-    } else if (is_year()){
-      title += ': ' + page.year;
-    }
-  } else if (is_category()){
-    title = 'Category: ' + page.category;
-  } else if (is_tag()){
-    title = 'Tag: ' + page.tag;
-  }
+  <% 
+  var title = page.title; 
   %>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title><% if (title){ %><%= title %> | <% } %><%= config.title %></title>
+    <title><% if (title){ %><%= title %> | <% } %><%= config.title%></title>
+  <%-
+    open_graph({
+      twitter_id: theme.twitter, 
+      google_plus: theme.google_plus, 
+      fb_admins: theme.fb_admins, 
+      fb_app_id: theme.fb_app_id})
+  %>
+
     <meta name="title" content="WesternDevs">   
-    <meta name="keywords" content="">
-    <meta name="description" content="">
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
     <meta name="copyright" content="WesternDevs">
     <meta name="revisit-after" content="15 days">
     <meta name="robots" content="all">
@@ -31,17 +23,11 @@
     <link rel="alternative" href="<%- theme.rss %>" title="<%= config.title %>" type="application/atom+xml">
   <% } %>
   <%- css('css/style') %>
-    <link rel="stylesheet" href="style.css" type="text/css">  
       
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <%- partial('google-analytics') %>
   
 
   </head>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <%- open_graph({twitter_id: theme.twitter, google_plus: theme.google_plus, fb_admins: theme.fb_admins, fb_app_id: theme.fb_app_id}) %>
-  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  <%- partial('google-analytics') %>
-</head>
