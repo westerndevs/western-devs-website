@@ -1,0 +1,9 @@
+language: node_js
+branches:
+  only:
+  - redesign
+before_install:
+- npm install -g hexo
+- npm install
+install:
+- hexo generate
