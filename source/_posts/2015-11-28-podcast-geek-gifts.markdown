@@ -38,7 +38,7 @@ participants:
 * [Philips Hue](http://www.meethue.com/)
 * [Flic](https://flic.io)
 
-Fun Stuff:
+#### Fun Stuff:
 
 * [Bebop Drone](http://www.parrot.com/ca/products/bebop-drone/)
 * [Phantom3 Drone](http://www.dji.com/product/phantom-3-standard)

@@ -14,7 +14,7 @@ timezone: Canada/Eastern
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://www.westerndevs.com
 root: /
-permalink: /:categories/:title/
+permalink: /:category/:title/
 permalink_defaults:
 	categories: "moo"
 
@@ -22,7 +22,7 @@ permalink_defaults:
 source_dir: source
 public_dir: public
 tag_dir: tags
-archive_dir: archives
+podcasts_dir: podcasts
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
@@ -45,7 +45,7 @@ highlight:
   tab_replace:
 
 # Category & Tag
-default_category: "moo"
+default_category: uncategorized
 category_map:
 tag_map:
 
@@ -69,4 +69,6 @@ theme: westerndevs
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: ftpsync
+  host: waws-prod-bay-043.ftp.azurewebsites.windows.net
+  remote: /site/wwwroot
