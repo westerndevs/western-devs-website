@@ -3,7 +3,7 @@ layout: post
 title: "Microservices and Isolation"
 date: 2015-08-11 21:09:40 -0600
 comments: true
-author: donald_belcham
+authorId: donald_belcham
 originalurl: http://www.igloocoder.com/2881/microservices-and-isolation
 ---
 

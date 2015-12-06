@@ -4,7 +4,7 @@ title:  An Intro to Android Data Binding
 date: 2015-09-15T20:32:12-06:00
 categories:
 comments: true
-author: tom_opgenorth
+authorId: tom_opgenorth
 originalurl: http://www.opgenorth.net/blog/2015/06/21/android-data-binding-intro/
 ---
 

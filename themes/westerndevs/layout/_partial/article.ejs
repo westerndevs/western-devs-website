@@ -23,6 +23,41 @@
 	</div>
 <!--MAIN CONTENT ENDS-->
 
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			<% if (!post.author) {
+				post.author = { "name": "", "avatar": theme.avatar, "email": theme.email, "github": theme.github, "twitter": theme.twitter };
+			} %>
+			<% 
+			var avatar;
+			if (!post.author.avatar) {
+				avatar = gravatar(post.author.email);
+			} else {
+				avatar = '/images/avatars/' + post.author.avatar;
+			}%>
+			<div class="ProfileImg">
+				<img src='<%= avatar%>' />
+			</div>
+			<BR clear="all">
+			<h2><a href=""><%= post.author.name %></a></h2>
+			<% if (post.author.email) { %>
+			<a href="mailto:<%=post.author.email%>"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			<% } %>
+			<% if (post.author.web) { %>
+			<a href="<%=post.author.web%>" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			<% } %>
+			<% if (post.author.twitter) { %>
+			<a href="http://twitter.com/<%=post.author.twitter%>" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			<% } %>
+			<% if (post.author.github) { %>
+			<a href="https://github.com/<%=post.author.github%>" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a>
+			<% } %>
+			
+		
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->	
 </div>
 </center>
 <!--PAGE CONTENT ENDS-->

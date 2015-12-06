@@ -2,7 +2,7 @@
 layout: post
 title:  "MVC 6 cache tag helper"
 date:   2015-06-03 20:09:05
-author: dave_paquette
+authorId: dave_paquette
 originalurl: http://www.davepaquette.com/archive/2015/06/03/mvc-6-cache-tag-helper.aspx
 comments: true
 categories:

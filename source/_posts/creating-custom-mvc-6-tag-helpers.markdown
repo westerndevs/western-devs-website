@@ -2,7 +2,7 @@
 layout: post
 title:  "Creating custom MVC 6 Tag Helpers"
 date:   2015-06-22 20:09:05
-author: dave_paquette
+authorId: dave_paquette
 originalurl: http://www.davepaquette.com/archive/2015/06/22/creating-custom-mvc-6-tag-helpers.aspx
 categories:
 comments: true

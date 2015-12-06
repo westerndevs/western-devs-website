@@ -4,7 +4,7 @@ title:  "Workaround: NuGet Packages Failing to Download in Visual Studio 2015 RT
 date: 2015-07-23T10:05:26-04:00
 categories:
 comments: true
-author: james_chambers
+authorId: james_chambers
 originalurl: http://jameschambers.com/2015/07/workaround-nuget-packages-failing-to-download-in-visual-studio-2015-rtm/
 ---
 

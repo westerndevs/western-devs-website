@@ -4,7 +4,7 @@ title:  MVC 6 Image Tag Helper
 date: 2015-07-02T09:39:40-04:00
 categories:
 comments: true
-author: dave_paquette
+authorId: dave_paquette
 originalurl: http://www.davepaquette.com/archive/2015/07/01/mvc-6-image-tag-helper.aspx
 ---
 

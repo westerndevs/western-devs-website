@@ -4,7 +4,7 @@ title:  "Upgrading Projects to .NET 4.6"
 date: 2015-07-29T13:59:39+02:00
 categories:
 comments: true
-author: james_chambers
+authorId: james_chambers
 originalurl: http://jameschambers.com/2015/07/upgrading-projects-to-net-4-6/
 ---
 

@@ -4,7 +4,7 @@ title:  "Getting Your Build Server Ready for VS 2015"
 date: 2015-07-24T10:22:30-04:00
 categories:
 comments: true
-author: james_chambers
+authorId: james_chambers
 originalurl: http://jameschambers.com/2015/07/getting-your-build-server-ready-for-vs-2015/
 ---
 

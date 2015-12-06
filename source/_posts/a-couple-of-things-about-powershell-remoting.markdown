@@ -4,7 +4,7 @@ title:  A Couple of Things About Powershell Remoting
 date: 2015-09-03T08:18:46-06:00
 categories:
 comments: true
-author: simon_timms
+authorId: simon_timms
 ---
 
 I couldn't find the answers to these questions readily anywhere on the internet so I thought I would write them down here for the good of mankind.

@@ -4,7 +4,7 @@ title:  Upgrading a Real-World MVC 5 Application to MVC 6
 date: 2015-07-23T12:08:42-04:00
 categories:
 comments: true
-author: james_chambers
+authorId: james_chambers
 originalurl: http://jameschambers.com/2015/07/upgrading-a-real-world-mvc-5-application-to-mvc-6/
 ---
 

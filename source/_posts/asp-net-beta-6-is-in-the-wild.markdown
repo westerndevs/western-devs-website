@@ -4,7 +4,7 @@ title:  "ASP.NET Beta 6 Is in the Wild"
 date: 2015-07-29T14:17:59+02:00
 categories:
 comments: true
-author: james_chambers
+authorId: james_chambers
 originalurl: http://jameschambers.com/2015/07/asp-net-5-beta-6-is-in-the-wild/
 ---
 The Beta 6 release of ASP.NET 5 is now available. Run the following command to upgrade from a previous version:

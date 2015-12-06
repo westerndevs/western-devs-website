@@ -5,7 +5,7 @@ date: 2015-07-05T11:33:21-04:00
 categories:
 description: Thoughts on how to run a one-day, multi-track code camp
 comments: true
-author: darcy_lussier
+authorId: darcy_lussier
 originalurl: http://geekswithblogs.net/dlussier/archive/2015/07/01/165460.aspx
 ---
 

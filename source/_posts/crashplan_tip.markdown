@@ -4,7 +4,7 @@ title:  CrashPlan Tip - Move the cache directory
 date: 2015-09-15T10:19:12-06:00
 categories:
 comments: true
-author: simon_timms
+authorId: simon_timms
 ---
 
 I use CrashPlan to back up my collection of computers. It is a great tool and has saved me on a number of occasions. Most memorably was the time that I forgot the password for my comically well-encrypted drive. Restoring from crash plan got me back all the important things. 

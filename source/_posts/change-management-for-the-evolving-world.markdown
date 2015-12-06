@@ -4,7 +4,7 @@ title:  Change Management for the Evolving World
 date: 2015-08-06T18:51:52-06:00
 categories:
 comments: true
-author: simon_timms
+authorId: simon_timms
 originalurl: http://blog.simontimms.com/2015/08/07/change_mangement_evolving/
 ---
 

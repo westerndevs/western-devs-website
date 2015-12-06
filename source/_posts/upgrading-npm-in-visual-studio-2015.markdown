@@ -4,7 +4,7 @@ title:  "Upgrading NPM in Visual Studio 2015"
 date: 2015-09-02T18:31:14-04:00
 categories:
 comments: true
-author: james_chambers
+authorId: james_chambers
 originalurl: http://jameschambers.com/2015/09/upgrading-npm-in-visual-studio-2015/
 ---
 

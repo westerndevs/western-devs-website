@@ -4,7 +4,7 @@ title:  "Running a .NET app against a Postgres database in Docker"
 date: 2015-10-25T13:24:14-04:00
 categories:
 comments: true
-author: kyle_baley
+authorId: kyle_baley
 ---
 
 Some days/weeks/time ago, I did a presentation at MeasureUP called "Docker For People Who Think Docker Is This Weird Linux Thing That Doesn't Impact Me". The slides for that presentation can be found [here](http://www.slideshare.net/KyleBaley/docker-for-people-who-have-heard-of-docker-but-think-its-just-this-weird-linux-thing-that-doesnt-impact-me) and the sample application [here](https://github.com/stimms/AzureCodeCamp).

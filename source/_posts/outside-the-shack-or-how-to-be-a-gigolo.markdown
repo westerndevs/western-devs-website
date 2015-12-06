@@ -5,7 +5,7 @@ date: 2015-07-05T21:11:15-04:00
 categories:
 description: The world outside is just awesome.
 comments: true
-author: kyle_baley
+authorId: kyle_baley
 originalurl: http://kyle.baley.org/2015/07/outside-the-shack-or-how-to-be-a-gigolo/
 ---
 

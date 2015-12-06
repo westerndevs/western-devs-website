@@ -4,7 +4,7 @@ title:  Unit Conversions Done (Mostly) Right
 date: 2015-07-22T14:30:30-06:00
 categories:
 comments: true
-author: simon_timms
+authorId: simon_timms
 originalurl: http://blog.simontimms.com/2015/07/22/unit_convesions/
 ---
 

@@ -4,7 +4,7 @@ title:  Using Azure ARM to Deploy a Docker Container
 date: 2015-08-24T11:13:00-08:00
 categories:
 comments: true
-author: dylan_smith
+authorId: dylan_smith
 ---
 
 If you’ve been following the WesternDevs blog you’ll have seen a few posts lately about our adventures with infrastructure for our blog with Jekyll/Docker.

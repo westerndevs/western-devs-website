@@ -4,7 +4,7 @@ title:  Yet Another Docker Intro on OSX
 date: 2015-10-04T23:32:11-06:00
 categories: docker
 comments: true
-author: simon_timms
+authorId: simon_timms
 originalurl: http://blog.simontimms.com/2015/10/04/yet-another-docker-intro/
 ---
 

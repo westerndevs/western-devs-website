@@ -2,7 +2,7 @@
 layout: post
 title:  "On UI Testing"
 date: 2015-06-30 08:09:05
-author: kyle_baley 
+authorId: kyle_baley 
 originalurl: http://kyle.baley.org/2015/06/on-ui-testing/
 categories:
 description: What happens when 12 people gather to talk about UI testing?

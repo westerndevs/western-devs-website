@@ -5,7 +5,7 @@ date: 2015-08-27T14:26:10-06:00
 categories:
 description: Running commands as another user on Windows can be a bit tricky, but this is a method that worked for me. 
 comments: true
-author: simon_timms
+authorId: simon_timms
 originalurl: http://blog.simontimms.com/2015/08/27/running-process-as-a-different-user-on-windows/
 ---
 

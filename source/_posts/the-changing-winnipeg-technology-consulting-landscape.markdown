@@ -4,7 +4,7 @@ title:  The Changing Winnipeg Technology Consulting Landscape
 date: 2015-07-12T15:26:59-04:00
 categories:
 comments: true
-author: darcy_lussier
+authorId: darcy_lussier
 originalurl: http://geekswithblogs.net/dlussier/archive/2015/07/12/165614.aspx
 ---
 

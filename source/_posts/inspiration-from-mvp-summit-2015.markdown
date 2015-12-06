@@ -4,7 +4,7 @@ title:  Inspiration From MVP Summit 2015
 date: 2015-11-20T09:09:44-05:00
 categories:
 comments: true
-author: david_wesst
+authorId: david_wesst
 originalurl: http://blog.davidwesst.com/2015/11/Inspiration-from-MVP-Summit-2015/
 ---
 

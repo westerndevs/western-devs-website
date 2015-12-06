@@ -4,7 +4,7 @@ title:  "Docker Is Coming Whether You Like It or Not"
 date: 2015-08-04T08:31:10-04:00
 categories:
 comments: true
-author: kyle_baley
+authorId: kyle_baley
 ---
 
 I'm excited about Docker. Unnaturally excited, one might say. So much so that I'll be talking about it at [MeasureUp](http://measureup.io/) this September.

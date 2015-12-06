@@ -5,7 +5,7 @@ date: 2015-09-10T09:00:53-05:00
 categories:
 description:
 comments: true
-author: james_chambers
+authorId: james_chambers
 originalurl: http://jameschambers.com/2015/09/supporting-options-and-arguments-in-your-dnx-commands/
 ---
 

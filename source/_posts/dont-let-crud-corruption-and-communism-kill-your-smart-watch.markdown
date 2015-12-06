@@ -3,7 +3,7 @@ layout: post
 title:  Don't Let Crud, Corruption, and Communism Kill Your Smart Watch
 date: 2015-09-25T14:56:05-06:00
 comments: true
-author: tom_opgenorth
+authorId: tom_opgenorth
 originalurl: http://www.opgenorth.net/blog/2015/09/25/dont-let-crud-corruption-and-communism-kill-your-smartwatch/
 ---
 

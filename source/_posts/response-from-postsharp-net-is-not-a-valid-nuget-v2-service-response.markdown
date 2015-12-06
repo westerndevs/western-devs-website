@@ -4,7 +4,7 @@ title:  Response From Postsharp.net Is Not a Valid Nuget V2 Service Response
 date: 2015-07-22T14:16:30-04:00
 categories:
 comments: true
-author: james_chambers
+authorId: james_chambers
 originalurl: http://jameschambers.com/2015/07/response-from-postsharp-net-is-not-a-valid-nuget-v2-service-response/
 ---
 

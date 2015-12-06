@@ -3,7 +3,7 @@ layout: post
 title:  "ApiController in ASP.NET 5? Nopesauce"
 date: 2015-11-02T19:44:15-05:00
 comments: true
-author: james_chambers
+authorId: james_chambers
 originalurl: http://jameschambers.com/2015/11/apicontroller-in-asp-net-5-nopesauce/
 ---
 

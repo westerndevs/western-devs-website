@@ -4,7 +4,7 @@ title:  "Writing Custom Commands for DNX With ASP.NET 5.0"
 date: 2015-08-13T23:50:41+02:00
 categories:
 comments: true
-author: james_chambers
+authorId: james_chambers
 originalurl: http://jameschambers.com/2015/08/writing-custom-commands-for-dnx-with-asp-net-5-0/
 ---
 

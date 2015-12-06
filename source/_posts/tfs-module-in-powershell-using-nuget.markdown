@@ -4,7 +4,7 @@ title:  Building a TFS 2015 PowerShell Module using Nuget
 date: 2015-07-23T17:30:00-06:00
 categories:
 comments: true
-author: dave_white
+authorId: dave_white
 originalurl: http://agileramblings.com/2015/07/23/building-a-tfs-2015-powershell-module-using-nuget/
 ---
 

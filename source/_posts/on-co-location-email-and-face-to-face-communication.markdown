@@ -4,7 +4,7 @@ title:  On Co-Location, Email, and Face-to-Face Communication
 date: 2015-11-20T09:13:24-05:00
 categories:
 comments: true
-author: darcy_lussier
+authorId: darcy_lussier
 originalurl: http://geekswithblogs.net/dlussier/archive/2015/11/20/168972.aspx
 ---
 

@@ -4,7 +4,7 @@ title:  "PSA: Setting Up Containers in a VM in Windows Server 2016 Tech Preview 
 date: 2015-08-19T16:38:59-04:00
 categories:
 comments: true
-author: kyle_baley
+authorId: kyle_baley
 ---
 
 [Windows Server 2016 Tech Preview 3](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-technical-preview) has just been released and it has container support! There's [documentation](https://msdn.microsoft.com/virtualization/windowscontainers/quick_start/manage_docker) on it already to do basic stuff and it's easy to follow. So I'm going to <s>repeat it verbatim</s> quickly mention the one and only major issue I ran into.

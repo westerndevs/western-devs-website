@@ -4,7 +4,7 @@ title:  Microsoft's Clear Message for Canadian Partners
 date: 2015-07-12T15:34:10-04:00
 categories:
 comments: true
-author: darcy_lussier
+authorId: darcy_lussier
 originalurl: http://geekswithblogs.net/dlussier/archive/2015/07/12/165620.aspx
 ---
 

@@ -3,7 +3,7 @@ layout: post
 title: "Self generating data"
 date: 2015-10-11 23:39:34 -0500
 comments: true
-author: amir_barylko
+authorId: amir_barylko
 originalurl: http://orthocoders.com/blog/2015/10/08/property-testing
 ---
 Every week I meet for [Code and Coffee](http://www.meetup.com/wpgcoffeecode) with other devs to chat about all kind of topics (often related to software) and lately we have been doing Katas from [CodeWars](http://codewars.com) under the _WpgDotNet_ clan.

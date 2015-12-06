@@ -4,7 +4,7 @@ title:  "Adventures in Windows IoT Core for Raspberry Pi 2"
 date: 2015-09-22T10:50:22-04:00
 categories:
 comments: true
-author: darcy_lussier
+authorId: darcy_lussier
 originalurl: http://geekswithblogs.net/dlussier/archive/2015/09/20/166942.aspx
 ---
 

@@ -4,7 +4,7 @@ title: "Considerations When Migrating Your Blog"
 date: 2015-08-01 16:15:22
 categories:
 comments: true
-author: david_wesst
+authorId: david_wesst
 originalurl: http://blog.davidwesst.com/2015/07/Considerations-When-Migrating-Your-Blog/
 ---
 

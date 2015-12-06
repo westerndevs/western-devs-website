@@ -4,7 +4,7 @@ title:  "Launching an ASP.NET 5 Application From Visual Studio 2015"
 date: 2015-07-31T14:21:46+02:00
 categories:
 comments: true
-author: james_chambers
+authorId: james_chambers
 originalurl: http://jameschambers.com/2015/07/launching-an-asp-net-5-application-from-visual-studio-2015/
 ---
 

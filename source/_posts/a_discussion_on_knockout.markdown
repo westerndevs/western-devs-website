@@ -4,7 +4,7 @@ title:  A discussion on knockout
 date: 2015-09-10T22:26:34-06:00
 categories:
 comments: true
-author: simon_timms
+authorId: simon_timms
 ---
 
 It is rare that a day passes on the Western Devs' slack channel that we don't have some lively discussion. Today was my day to rant about knockout.js. 

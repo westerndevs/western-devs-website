@@ -2,7 +2,7 @@
 layout: post
 title: "Repository nightmares"
 date: 2015-06-23 21:17:24 -0500
-author: amir_barylko
+authorId: amir_barylko
 originalurl: http://orthocoders.com/blog/2015/06/23/repository-nightmares
 categories: 
 comments: true

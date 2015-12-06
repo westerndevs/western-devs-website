@@ -3,7 +3,7 @@ layout: post
 title:  "Mobile App Testing on 114 Devices in 20 Minutes"
 date: 2015-11-02T16:52:05-05:00
 comments: true
-author: lori_lalonde
+authorId: lori_lalonde
 originalurl: http://solola.ca/mobile-app-testing-xamarin-test-cloud/
 ---
 

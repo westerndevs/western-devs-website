@@ -4,7 +4,7 @@ title:  "Converting .NET 4.6 Projects to the VS 2015 Project System"
 date: 2015-08-13T23:22:51+02:00
 categories:
 comments: true
-author: james_chambers
+authorId: james_chambers
 originalurl: http://jameschambers.com/2015/08/converting-net-4-6-projects-to-the-vs-2015-project-system/
 ---
 

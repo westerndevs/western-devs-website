@@ -2,7 +2,7 @@
 layout: post
 title:  "Getting lookup data into your view ASP.net MVC 6 version"
 date:   2015-06-09 20:09:05
-author: simon_timms
+authorId: simon_timms
 originalurl: http://blog.simontimms.com/2015/06/09/getting-lookup-data-into-you-view
 categories:
 comments: true

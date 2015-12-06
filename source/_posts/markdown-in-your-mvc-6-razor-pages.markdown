@@ -3,7 +3,7 @@ layout: post
 title:  Markdown in Your MVC 6 Razor Pages
 date: 2015-11-02T17:02:42-05:00
 comments: true
-author: dave_paquette
+authorId: dave_paquette
 originalurl: http://www.davepaquette.com/archive/2015/11/02/markdown-in-your-mvc-6-razor-pages.aspx
 ---
 

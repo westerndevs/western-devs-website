@@ -4,7 +4,7 @@ title:  Task could not find sgen.exe using SdkToolPath
 date: 2015-09-17T16:20:00-06:00
 categories:
 comments: true
-author: donald_belcham
+authorId: donald_belcham
 ---
 
 I spent the better part of this afternoon fighting with this error (and arguing Canadian voting rights with the [Western Devs](http://www.westerndevs.com)). I was trying to run our project’s build script which uses nAnt and MSBuild to work all the compilation magic we need. There are a lot of pieces of information on how to solve this on the web. Most solutions revolve around _"Install Visual Studio 2010"_, _"Install the Windows Software Development Kit for Windows X"_, or _"Turn off the generation of serialization assemblies in your projects/solution"_. Some of these are just downright scary solutions…others won’t work in my situation.

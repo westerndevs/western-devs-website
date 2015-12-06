@@ -2,7 +2,7 @@
 layout: post
 title:  "Thoughts on building, making, being positive, fearing failure, and smoking meat"
 date:   2015-06-14 20:09:05
-author: darcy_lussier
+authorId: darcy_lussier
 originalurl: http://geekswithblogs.net/dlussier/archive/2015/06/14/165100.aspx
 categories:
 comments: true

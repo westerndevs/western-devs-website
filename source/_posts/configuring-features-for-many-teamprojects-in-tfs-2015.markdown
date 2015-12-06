@@ -2,7 +2,7 @@
 layout: post
 title: "Configuring Features for Many TeamProjects in TFS 2015"
 date: 2015-09-03 1:30:00
-author: dave_white
+authorId: dave_white
 originalurl: 
 comments: true
 ---

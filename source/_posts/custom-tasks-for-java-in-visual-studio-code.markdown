@@ -4,7 +4,7 @@ title:  Custom Tasks for Java in Visual Studio Code
 date: 2015-10-14 08:25:50
 categories:
 comments: true
-author: david_wesst
+authorId: david_wesst
 originalurl: http://blog.davidwesst.com/2015/10/Custom-Tasks-for-Java-in-Visual-Studio-Code/
 ---
 

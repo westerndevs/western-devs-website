@@ -4,7 +4,7 @@ title:  Stop OSX deleting /tmp so frequently
 date: 2015-10-04T23:32:11-06:00
 categories: docker
 comments: true
-author: simon_timms
+authorId: simon_timms
 date: 2015-11-06T19:19:27-07:00
 ---
 

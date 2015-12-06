@@ -2,7 +2,7 @@
 layout: post
 title:  "Review - Guidebook, mobile app for conferences/events"
 date:   2015-06-21 20:09:05
-author: darcy_lussier
+authorId: darcy_lussier
 originalurl: http://geekswithblogs.net/dlussier/archive/2015/06/21/165250.aspx
 categories:
 comments: true

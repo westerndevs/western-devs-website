@@ -5,7 +5,7 @@ date: 2015-08-13T19:11:45-06:00
 categories:
 description: Azure SQL Point In Time restores are so slow as to be near useless.
 comments: true
-author: simon_timms
+authorId: simon_timms
 originalurl: http://blog.simontimms.com/2015/08/14/azure-point-in-time-restore-is-useless/
 ---
 

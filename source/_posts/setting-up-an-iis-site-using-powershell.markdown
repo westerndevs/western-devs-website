@@ -4,7 +4,7 @@ title:  Setting Up an IIS Site Using PowerShell
 date: 2015-08-12T11:29:25-06:00
 categories:
 comments: true
-author: simon_timms
+authorId: simon_timms
 originalurl: http://blog.simontimms.com/2015/08/12/setting-up-an-iis-site-using-powershell/
 ---
 

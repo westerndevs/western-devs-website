@@ -2,7 +2,7 @@
 layout: post
 title: "WesternDevs learn about Docker - Part 2"
 date: 2015-09-08 1:30:00
-author: dave_white
+authorId: dave_white
 originalurl: 
 comments: true
 ---

@@ -4,7 +4,7 @@ title:  Extracting a Service to Interact With Azure Table Storage
 date: 2015-07-20T12:06:03-04:00
 categories:
 comments: true
-author: james_chambers
+authorId: james_chambers
 originalurl: http://jameschambers.com/2015/07/day-3-extracting-a-service-to-interact-with-azure-table-storage/
 ---
 

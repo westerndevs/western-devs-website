@@ -2,7 +2,7 @@
 layout: post
 title:  "Conference recap extravaganza!"
 date:   2015-06-11 20:09:05
-author: david_wesst
+authorId: david_wesst
 originalurl: http://www.davidwesst.com/conference-recap-extravaganza/
 categories:
 comments: true

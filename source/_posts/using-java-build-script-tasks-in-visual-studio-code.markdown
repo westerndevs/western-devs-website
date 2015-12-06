@@ -4,7 +4,7 @@ title: Using Java Build Script Tasks in Visual Studio Code
 date: 2015-10-21 08:18:19
 categories:
 comments: true
-author: david_wesst
+authorId: david_wesst
 originalurl: http://blog.davidwesst.com/2015/10/Using-Java-Build-Script-Tasks-in-Visual-Studio-Code/
 ---
 

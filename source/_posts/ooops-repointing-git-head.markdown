@@ -4,7 +4,7 @@ title:  "Ooops, Repointing Git Head"
 date: 2015-08-31T09:01:05-04:00
 categories:
 comments: true
-author: simon_timms
+authorId: simon_timms
 originalurl: http://blog.simontimms.com/2015/08/28/ooops-repointing-git-head/
 ---
 

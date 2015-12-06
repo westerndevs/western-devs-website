@@ -4,7 +4,7 @@ title:  The Humanitarian Toolbox AllReady Code-a-Thon
 date: 2015-11-18T09:31:50-05:00
 categories:
 comments: true
-author: james_chambers
+authorId: james_chambers
 originalurl: http://jameschambers.com/2015/11/the-humanitarian-toolbox-allready-code-a-thon/
 ---
 

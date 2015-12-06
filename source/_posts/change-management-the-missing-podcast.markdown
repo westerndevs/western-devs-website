@@ -4,7 +4,7 @@ title:  Change Management - the Missing Podcast
 date: 2015-08-15T10:29:50-06:00
 categories:
 comments: true
-author: simon_timms
+authorId: simon_timms
 ---
 
 Some people are really good at computers. I am, apparently, not one of those people. This last Friday we had a fantastic podcast with

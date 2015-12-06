@@ -4,7 +4,7 @@ title:  Microservices, or "How to spread the love"
 date: 2015-07-14T21:01:19-04:00
 categories:
 comments: true
-author: kyle_baley
+authorId: kyle_baley
 originalurl:
 ---
 

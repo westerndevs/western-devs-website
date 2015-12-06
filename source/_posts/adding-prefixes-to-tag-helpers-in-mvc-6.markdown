@@ -4,7 +4,7 @@ title:  "Adding Prefixes to Tag Helpers in MVC 6"
 date: 2015-09-03T17:24:56-04:00
 categories:
 comments: true
-author: dave_paquette
+authorId: dave_paquette
 originalurl: http://www.davepaquette.com/archive/2015/09/03/adding-prefixes-to-tag-helpers-in-mvc-6.aspx
 ---
 

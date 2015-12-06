@@ -4,7 +4,7 @@ title:  SaaS and Commodities
 date: 2015-07-28T16:40:50+02:00
 categories:
 comments: true
-author: donald_belcham
+authorId: donald_belcham
 originalurl: http://www.igloocoder.com/2817/saas-and-commodities
 ---
 

@@ -4,7 +4,7 @@ title:  Three Types of Relationships You Need to Survive as a Remote Worker
 date: 2015-07-14T22:44:35-04:00
 categories:
 comments: true
-author: james_chambers
+authorId: james_chambers
 originalurl: http://jameschambers.com/2015/07/three-types-of-relationships-you-need-to-survive-as-a-remote-worker/
 ---
 

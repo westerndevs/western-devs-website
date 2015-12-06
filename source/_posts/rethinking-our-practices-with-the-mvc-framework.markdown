@@ -2,7 +2,7 @@
 layout: post
 title:  "Rethinking our practices with the MVC framework"
 date:   2015-06-14 20:09:05
-author: james_chambers
+authorId: james_chambers
 originalurl: http://jameschambers.com/2015/06/rethinking-our-practices-with-the-mvc-framework/
 categories:
 comments: true

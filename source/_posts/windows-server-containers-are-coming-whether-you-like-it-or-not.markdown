@@ -4,7 +4,7 @@ title:  "Windows Server Containers Are Coming Whether You Like It or Not"
 date: 2015-08-31T11:01:20-04:00
 categories:
 comments: true
-author: kyle_baley
+authorId: kyle_baley
 ---
 
 After posting giddily on [Docker in the Windows world](http://www.westerndevs.com/docker-is-coming-whether-you-like-it-or-not/) recently, Microsoft released Windows Server 2016 Technical Preview 3 with container support. I've had a chance to play with it a little so let's see where this goes...
