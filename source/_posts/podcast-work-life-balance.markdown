@@ -3,7 +3,7 @@ layout: post
 title:  "Podcast: Work/Life Balance"
 date: 2015-09-09T00:03:30-05:00
 categories: podcasts
-excerpt: "Wherein the Western Devs try to balance work and not work"
+description: "Wherein the Western Devs try to balance work and not work"
 comments: true
 podcast: "WorkLifeBalance.mp3"
 podcast-running-time: "43:16"

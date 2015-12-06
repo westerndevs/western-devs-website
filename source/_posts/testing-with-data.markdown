@@ -9,6 +9,8 @@ author: kyle_baley
 
 It's not a coincidence that this is coming off the heels of Dave Paquette's [post on GenFu](http://www.westerndevs.com/realistic-sample-data-with-genfu/) and Simon Timms' [post on source control for databases](http://www.westerndevs.com/source-control-for-sql-databases/) in the same way it was probably not a coincidence that Hollywood released three body-swapping movies in the 1987-1988 period (four if you include Big).
 
+<!-- more -->
+
 I was asked recently for some advice on generating data for use with integration and UI tests. I already have some ideas but asked the rest of the Western Devs for some elucidation. My tl;dr version is the same as what I mentioned in our [discussion on UI testing](http://www.westerndevs.com/on-ui-testing/): it's hard. But manageable. Probably.
 
 The solution needs to balance a few factors:

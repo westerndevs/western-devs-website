@@ -3,7 +3,7 @@ layout: post
 title:  "Podcast: Going Independent"
 date: 2015-09-30T19:07:37-04:00
 categories: podcasts
-excerpt: "In honour of Botswanan Independence Day, the Western Devs discuss going independent with special guest, Wendy Closson"
+description: "In honour of Botswanan Independence Day, the Western Devs discuss going independent with special guest, Wendy Closson"
 comments: true
 podcast: "GoingIndependent.mp3"
 podcast-running-time: "48:05"

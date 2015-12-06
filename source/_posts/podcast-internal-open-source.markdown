@@ -3,7 +3,7 @@ layout: post
 title:  "Podcast: Internal Open Source"
 date: 2015-08-23T18:00:37-04:00
 categories: podcasts
-excerpt: "The Western Devs sound off on why your company should share and collaborate on its internal code"
+description: "The Western Devs sound off on why your company should share and collaborate on its internal code"
 comments: true
 podcast: "InternalOpenSource.mp3"
 podcast-running-time: "43:17"

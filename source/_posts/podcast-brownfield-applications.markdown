@@ -3,7 +3,7 @@ layout: post
 title: "Podcast: Refactor vs. Rewrite"
 date: 2015-10-14T20:54:55-04:00
 categories: podcasts
-excerpt: "The Western Devs tackle the eternal debate: do we refactor or rewrite?"
+description: "The Western Devs tackle the eternal debate: do we refactor or rewrite?"
 comments: true
 podcast: "RefactorRewrite.mp3"
 podcast-running-time: "42:40"

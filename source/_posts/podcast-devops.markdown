@@ -3,7 +3,7 @@ layout: post
 title:  "Podcast: DevOps"
 date: 2015-07-21T11:55:26-04:00
 categories: podcasts
-excerpt: "Continuing the theme of making grandiose claims about vaguely defined terms, the Western Devs take on the Rise of DevOps"
+description: "Continuing the theme of making grandiose claims about vaguely defined terms, the Western Devs take on the Rise of DevOps"
 comments: true
 podcast: "DevOps.mp3"
 podcast-running-time: "51:55"

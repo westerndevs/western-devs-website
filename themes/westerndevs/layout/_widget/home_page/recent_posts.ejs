@@ -6,17 +6,23 @@
       <% site.posts.sort('date', -1).limit(5).each(function(post){ %>
       <div class="ListLrgHomeBG">
         <div class="ListLrgDateBG">
-          <font class="ListLrgDateMonth">OCT</font><BR>
-          <font class="ListLrgDateDay">25</font>        
+          <font class="ListLrgDateMonth"><%= moment(post.date).format('MMM').toUpperCase() %></font><BR>
+          <font class="ListLrgDateDay"><%= moment(post.date).format('D') %></font>        
         </div>
         <div class="ListLrgTxt">
           <a class="posts" href="<%- url_for(post.path) %>"><%= post.title || '(no title)' %></a>
           <% if (post.author && post.author.name ) { %>
           <B><%= post.author.name %></B><BR>
           <% } else {%>
-          <B><%= post.author %></B><BR>
+          <B><%= post.author %></B>
           <% } %>
-          Some days/weeks/time ago, I did a presentation at MeasureUP called "Docker For People Who Think Docker Is This Weird...
+          <div class="ellipsis">
+          <% if (post.description) { %>
+            <%= strip_html(post.description) %>
+          <% } else if (post.excerpt) { %>
+            <%= trim(strip_html(post.excerpt)) %>
+          <% } %>
+          </div>
         </div>
       </div>      
       <% }) %>

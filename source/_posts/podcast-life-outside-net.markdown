@@ -3,7 +3,7 @@ layout: post
 title: "Podcast: Life Outside .NET"
 date: 2015-10-19T15:48:10-04:00
 categories: podcasts
-excerpt: "The Western Devs discuss working outside your comfort zone"
+description: "The Western Devs discuss working outside your comfort zone"
 comments: true
 libsyn: 3982713
 podcast: "LifeOutsideNET.mp3"

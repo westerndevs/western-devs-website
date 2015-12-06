@@ -3,7 +3,7 @@ layout: post
 title: "Podcast: Geek Gifts"
 date: 2015-11-28T11:13:38-05:00
 categories: podcasts
-excerpt: "Learn what the Western Devs might have got this year for Christmas if any of them were nice"
+description: "Learn what the Western Devs might have got this year for Christmas if any of them were nice"
 comments: true
 libsyn: 3981310
 podcast: "GeekGifts.mp3"

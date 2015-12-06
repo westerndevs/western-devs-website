@@ -3,7 +3,7 @@ layout: post
 title:  "Podcast: Microservices"
 date: 2015-07-07T16:54:52-04:00
 categories: podcasts
-excerpt: "In our inaugural podcast, the Western Devs tackle what is either the new hotness, retro SOA, or a flash in the pan: microservices."
+description: "In our inaugural podcast, the Western Devs tackle what is either the new hotness, retro SOA, or a flash in the pan: microservices."
 comments: true
 redirect_from: "/whatwevesaid/podcast-microservices/"
 podcast: Microservices.mp3

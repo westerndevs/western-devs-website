@@ -3,7 +3,7 @@ layout: post
 title:  "Podcast: Zencastr"
 date: 2015-11-24T22:47:07-05:00
 categories: podcasts
-excerpt: "A chat with Josh Nielsen, creator of Zencastr"
+description: "A chat with Josh Nielsen, creator of Zencastr"
 comments: true
 libsyn: 3974740
 podcast: "Zencastr.mp3"
