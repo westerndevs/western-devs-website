@@ -61,9 +61,6 @@ time_format: HH:mm:ss
 per_page: 0
 pagination_dir: page
 
-# Extensions
-## Plugins: http://hexo.io/plugins/
-## Themes: http://hexo.io/themes/
 theme: westerndevs
 
 # Deployment

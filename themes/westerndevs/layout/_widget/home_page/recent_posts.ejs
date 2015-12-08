@@ -10,11 +10,9 @@
           <font class="ListLrgDateDay"><%= moment(post.date).format('D') %></font>        
         </div>
         <div class="ListLrgTxt">
-          <a class="posts" href="<%- url_for(post.path) %>"><%= post.title || '(no title)' %></a>
+          <a class="posts" href="<%- url_for(post.path) %>"><%= post.title || '(no title)' %></a><br/>
           <% if (post.author && post.author.name ) { %>
           <B><%= post.author.name %></B><BR>
-          <% } else {%>
-          <br>
           <% } %>
           <div class="ellipsis">
           <% if (post.description) { %>

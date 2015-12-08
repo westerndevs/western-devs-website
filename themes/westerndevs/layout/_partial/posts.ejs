@@ -1,0 +1,53 @@
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POSTS" title="POSTS" border="0"> POSTS</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->	
+
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+	
+<!--MAIN CONTENT STARTS-->	
+	<div class="SubpageBoxFull">
+		<div class="SubpageBoxFullContent">
+			<h2><img class="icon" src="/images/icon_circle_arrow.png" alt=">" title=">" border="0"> 2015 POSTS</h2>
+			
+
+			<% site.posts.sort('date', -1).each(function(post){ %>
+			<div class="ListLrgSubBG">
+			<div class="ListLrgDateBG">
+			  <font class="ListLrgDateMonth"><%= moment(post.date).format('MMM').toUpperCase() %></font><BR>
+			  <font class="ListLrgDateDay"><%= moment(post.date).format('D') %></font>        
+			</div>
+			<div class="ListLrgTxtSub">
+			  <a class="posts" href="<%- url_for(post.path) %>"><%= post.title || '(no title)' %></a><br/>
+			  <% if (post.author && post.author.name ) { %>
+			  <B><%= post.author.name %></B><BR>
+			  <% } %>
+			  <div class="ellipsis">
+			  <% if (post.description) { %>
+			    <%= strip_html(post.description) %>
+			  <% } else if (post.excerpt) { %>
+			    <%= trim(strip_html(post.excerpt)) %>
+			  <% } %>
+			  </div>
+			</div>
+			</div>      
+			<% }) %>
+			
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
