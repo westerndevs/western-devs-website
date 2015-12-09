@@ -17,17 +17,12 @@
 <!--MAIN CONTENT STARTS-->	
 	<div class="SubpageBoxFull">
 		<div class="SubpageBoxFullContent">
-	        <% var last; %>
+			<h2><img class="icon" src="/images/icon_circle_arrow.png" alt=">" title=">" border="0"> 2015 PODCASTS</h2>
+			
 			<%
 				var cat = site.categories.findOne({"name": "podcasts"});
 			%>
-			
 			<% cat.posts.sort('date', -1).each(function(post){ %>
-		    <% var year = post.date.year(); %>
-		    <% if (last != year){ %>
-		      <% last = year; %>
-		      <h2 class="category-heading"><img class="icon" src="/images/icon_circle_arrow.png" alt=">" title=">" border="0"> <%= year %> PODCASTS</h2>
-		    <% } %>
 			<div class="ListLrgSubBG">
 			<div class="ListLrgDateBG">
 			  <font class="ListLrgDateMonth"><%= moment(post.date).format('MMM').toUpperCase() %></font><BR>
