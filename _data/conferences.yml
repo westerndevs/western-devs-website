@@ -109,3 +109,17 @@
   speaker: James Chambers
   location: Montreal, QC
   topic: "Success as a Remote Worker: Love Your Job, Have a Life"
+
+- date: 2015-12-16
+  event: Mississauga .NET User Group
+  link: http://www.meetup.com/MississaugaNETUG/events/227259613/
+  speaker: Lori Lalonde
+  location: Mississauga, ON
+  topic: "Cross Platform Localization Strategies"
+
+- date: 2016-01-13
+  event: "Canada's Technology Triangle .NETA User Group"
+  link: http://www.meetup.com/CTTDNUG/events/226686828/
+  speaker: Lori Lalonde
+  location: Kitchener, ON
+  topic: "Xamarin 4! Everything You Need to Build Great Mobile Apps"
