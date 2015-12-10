@@ -1,0 +1,61 @@
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_feature.png" alt="ABOUT US" title="ABOUT US" border="0"> ABOUT US</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->	
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->	
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+			
+	        <h2><img class="icon" src="/images/icon_circle_arrow.png" alt=">" title=">" border="0"> <%=page.author.name%></h2>
+	        <%- page.content %>
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+
+			<% if (!page.author) {
+				page.author = { "name": "", "avatar": theme.avatar, "email": theme.email, "github": theme.github, "twitter": theme.twitter };
+			} %>
+			<% 
+			var avatar;
+			if (!page.author.avatar) {
+				avatar = gravatar(page.author.email);
+			} else {
+				avatar = '/images/avatars/' + page.author.avatar;
+			}%>
+			<div class="ProfileImg">
+				<img src='<%= avatar%>' />
+			</div>
+			<BR clear="all">
+			<h2><a href=""><%= page.author.name %></a></h2>
+			<% if (page.author.email) { %>
+			<a href="mailto:<%=page.author.email%>"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			<% } %>
+			<% if (page.author.web) { %>
+			<a href="<%=page.author.web%>" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			<% } %>
+			<% if (page.author.twitter) { %>
+			<a href="http://twitter.com/<%=page.author.twitter%>" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			<% } %>
+			<% if (page.author.github) { %>
+			<a href="https://github.com/<%=page.author.github%>" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a>
+			<% } %>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->	
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
