@@ -15,7 +15,7 @@
 <!--MAIN CONTENT STARTS-->	
 	<div class="SubpageBoxSubLrg">
 		<div class="SubpageBoxSubLrgContent">
-		    <%- partial('post/title') %>
+		    <%- partial('post/title', { title: post.title }) %>
 		    <%- partial('post/original_url') %>
 			
 	        <%- post.content %>

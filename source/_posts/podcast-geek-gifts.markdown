@@ -1,14 +1,15 @@
 ---
-layout: post
-title: "Podcast: Geek Gifts"
+layout: podcast
+title: "Geek Gifts"
 date: 2015-11-28T11:13:38-05:00
 categories: podcasts
 description: "Learn what the Western Devs might have got this year for Christmas if any of them were nice"
 comments: true
-libsyn: 3981310
-podcast: "GeekGifts.mp3"
-podcast-running-time: "1:04:35"
-podcast-filesize: 61995490
+podcast: 
+    filename: "GeekGifts.mp3"
+    length: "1:04:35"
+    filesize: 61995490
+    libsynId: 3981310
 participants: 
     - kyle_baley
     - donald_belcham
@@ -18,18 +19,23 @@ participants:
     - dave_white
     - james_chambers
     - peter_ritchie
+music:
+    - title: Guitalelujah
+      artist: Josh and Dave's Metal Xmas
+      url: http://www.metalxmas.com
+    - title: Santa Lane
+      artist: Josh and Dave's Metal Xmas
+      url: http://www.metalxmas.com
 ---
 
-### Gifts
-
-#### Health/Ergonomics:
+### Health/Ergonomics:
 
 * [Ergodox DIY ergonomic mechanical keyboard](https://www.indiegogo.com/projects/ergodox-ez-an-incredible-mechanical-keyboard#/)
 * [Emperor 1510 Workstation](http://www.mwelab.com/index.php/en/products/emperor-1510)
 * [Microsoft Band 2](http://www.microsoftstore.com/store/msusa/en_US/pdp/Microsoft-Band-2/productID.324438600)
 * [Garmin vívoactive](http://sites.garmin.com/en-GB/vivo/vivoactive/)
 
-#### Home Automation/Household:
+### Home Automation/Household:
 
 * [Sonos](http://www.sonos.com)
 * [August](http://august.com)
@@ -38,7 +44,7 @@ participants:
 * [Philips Hue](http://www.meethue.com/)
 * [Flic](https://flic.io)
 
-#### Fun Stuff:
+### Fun Stuff:
 
 * [Bebop Drone](http://www.parrot.com/ca/products/bebop-drone/)
 * [Phantom3 Drone](http://www.dji.com/product/phantom-3-standard)
@@ -50,13 +56,7 @@ participants:
 * [Loot Crate Gift Box](https://www.lootcrate.com)
 * [Scotch Advent Calendar](http://www.scotchwhiskyadvent.com/)
 
-Other:
+### Other:
 
 * [Laptop bags, cables, and chargers](http://www.ianker.com/)
 * [ThingCharger](http://thingcharger.com)
-
-### Music
-
-Intro: Santa Lane, from [Josh and Dave's Metal Xmas](http://www.metalxmas.com/)
-
-Outro: Guitalelujah, from [Josh and Dave's Metal Xmas](http://www.metalxmas.com/)
