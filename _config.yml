@@ -61,6 +61,9 @@ time_format: HH:mm:ss
 per_page: 0
 pagination_dir: page
 
+# Disqus
+disqus_shortname: westerndevs
+
 theme: westerndevs
 
 # Deployment
