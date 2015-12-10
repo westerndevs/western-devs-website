@@ -1,5 +1,6 @@
 layout: about
 title: About
+permalink: /whoweare/
 date: 2015-12-09 20:19:11
 ---
 

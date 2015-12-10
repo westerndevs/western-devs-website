@@ -1,0 +1,111 @@
+- date: 2015-07-07
+  event: Calgary .NET User Group
+  link: http://www.meetup.com/Calgary-net-User-Group/events/223029742
+  speaker: Dylan Smith
+  location: Calgary, AB
+  topic: Using Azure for Dev/Test Environments
+
+- date: 2015-08-14
+  event: Calgary .NET User Group
+  link: http://www.meetup.com/Calgary-net-User-Group/events/223029751
+  speaker: David Paquette
+  location: Calgary, AB
+  topic: ASP.net MVC 6
+
+- date: 2015-09-11
+  event: Heartland Developers Conference
+  link: http://www.heartlanddc.com/
+  speaker: Dylan Smith
+  location: La Vista, NE
+  topic: Using Azure for Dev/Test Environments
+
+- date: 2015-11-02
+  event: SDE Conference
+  link: http://www.sdeconf.com/
+  speaker: Amir Barylko
+  location: Winnipeg, MB
+  topic: Functional awesomeness
+
+- date: 2015-09-30
+  event: .NET Conf Uruguay
+  link: http://netconf.uy/en/2015/Index
+  speaker: Donald Belcham
+  location: Montevideo, Uruguay
+  topic:
+
+- date: 2015-09-30
+  event: Minnesota Developers Conference
+  link: https://mdc.ilmservice.com/
+  speaker: Dylan Smith
+  location: Minneapolis, MN
+  topic: Using Azure for Dev/Test Environments
+
+- date: 2015-12-03
+  event: Winnipeg .NET User Group
+  link: http://www.winnipegdotnet.org
+  speaker: David Wesst
+  location: Winnipeg, MB
+  topic: "Code - Visual Studio for Everyone"
+
+- date: 2015-09-26
+  event: MeasureUP
+  link: http://measureup.io
+  speaker: James Chambers
+  location: Austin, TX
+  topic: "MVC6 – What You Need to Know When Moving to vNext"
+
+- date: 2015-09-26
+  event: MeasureUP
+  link: http://measureup.io
+  speaker: Kyle Baley
+  location: Austin, TX
+  topic: "Docker for People Who Have Heard of Docker But Think It’s Weird"
+
+- date: 2015-08-20
+  event: NETMeetupUY
+  link: http://www.meetup.com/NETMeetupUY/events/224546593/
+  speaker: Donald Belcham
+  location: Montevideo Uruguay
+  topic: "The Mighty Microservice"
+
+- date: 2015-10-10
+  event: Code Camp NYC
+  link: http://www.codecampnyc.org/
+  speaker: David Paquette
+  location: New York City, NY
+  topic: The new building blocks of MVC 6 applications
+
+- date: 2015-11-14
+  event: Canada's Technology Triangle .NET User Group
+  link: http://www.meetup.com/CTTDNUG/events/225630596/
+  speaker: Lori Lalonde
+  location: Kitchener, ON
+  topic: Windows 10 Developer Camp
+
+- date: 2015-10-19
+  event: Winnipeg .NET User Group
+  link: http://www.winnipegdotnet.org
+  speaker: James Chambers
+  location: Winnipeg, MB
+  topic: What to Expect with MVC 6
+
+- date: 2015-11-09
+  event: Microsoft Virtual Academy
+  link: http://www.microsoftvirtualacademy.com
+  speaker: Chambers and Timms
+  location: Seattle, WA
+  topic: "Applications on Azure: Putting All the Pieces Together"
+  
+- date: 2016-02-24
+  event: ConFoo
+  link: http://confoo.ca
+  speaker: Lori Lalonde
+  location: Montreal, QC
+  topic: Cross Platform Localization Strategies
+
+- date: 2016-02-24
+  event: ConFoo
+  link: http://confoo.ca
+  speaker: James Chambers
+  location: Montreal, QC
+  topic: "Success as a Remote Worker: Love Your Job, Have a Life"

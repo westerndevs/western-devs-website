@@ -1,0 +1,53 @@
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_speaking.png" alt="SPEAKING" title="SPEAKING" border="0"> SPEAKING</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->	
+
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+	
+<!--MAIN CONTENT STARTS-->	
+	<div class="SubpageBoxFull">
+		<div class="SubpageBoxFullContent">
+	      <% var last %>
+	      <% var engagements = _.filter(site.data.speaking, function(n) {
+	      	return n.date > _.now();
+	      }).sort('date', -1); %>
+    	  <% _.forEach(engagements, function(engagement, key){ %>
+		      <% var year = engagement.date.getFullYear(); %>
+		      <% if (last != year){ %>
+		        <% last = year; %>
+		        <h2 class="category-heading"><img class="icon" src="/images/icon_circle_arrow.png" alt=">" title=">" border="0"> <%= year %></h2>
+		      <% } %>
+		      <div class="ListLrgSubBG">
+		      <div class="ListLrgDateBG">
+		        <font class="ListLrgDateMonth"><%= moment(engagement.date).format('MMM').toUpperCase() %></font><BR>
+		        <font class="ListLrgDateDay"><%= moment(engagement.date).format('D') %></font>        
+		      </div>
+		      <div class="ListLrgTxtSub">
+		        <a class="posts" href="<%= engagement.url %>"><%= engagement.event %></a> - <%= engagement.location %><br/>
+		        <B><%= engagement.speaker %></B><BR>
+		        <div class="ellipsis">
+		        	<%= engagement.topic %>
+		        </div>
+		      </div>
+		      </div>      
+    	  <%})%>
+			
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
