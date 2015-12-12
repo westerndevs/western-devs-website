@@ -9,4 +9,5 @@ install:
 - hexo generate
 deploy:
 - provider: azure_web_apps
-
+  on:
+    branch: redesign	
