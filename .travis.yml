@@ -7,7 +7,3 @@ before_install:
 - npm install
 install:
 - hexo generate
-deploy:
-- provider: azure_web_apps
-  verbose: true
-  on: redesign
