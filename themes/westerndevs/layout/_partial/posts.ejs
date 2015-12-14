@@ -32,9 +32,7 @@
 			  <B><%= post.author.name %></B><BR>
 			  <% } %>
 			  <div class="ellipsis">
-			  <% if (post.description) { %>
-			    <%= strip_html(post.description) %>
-			  <% } else if (post.excerpt) { %>
+			  <% if (post.excerpt) { %>
 			    <%= trim(strip_html(post.excerpt)) %>
 			  <% } %>
 			  </div>

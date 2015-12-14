@@ -3,7 +3,7 @@ layout: podcast
 title:  "All About SmartView"
 date: 2015-11-10T15:13:26-07:00
 categories: podcasts
-description: "An Interview with SmartView founder Amir Barylko"
+excerpt: "An Interview with SmartView founder Amir Barylko"
 comments: true
 podcast: 
     filename: "SmartView.mp3"

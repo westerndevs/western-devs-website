@@ -3,7 +3,7 @@ layout: post
 title:  Winner Selector
 date: 2015-10-03T10:53:29-06:00
 categories:
-description: A quick tool for picking winners from a list
+excerpt: A quick tool for picking winners from a list
 comments: true
 authorId: simon_timms
 ---

@@ -3,7 +3,7 @@ layout: podcast
 title:  "Zencastr"
 date: 2015-11-24T22:47:07-05:00
 categories: podcasts
-description: "A chat with Josh Nielsen, creator of Zencastr"
+excerpt: "A chat with Josh Nielsen, creator of Zencastr"
 comments: true
 podcast:
     filename: "Zencastr.mp3"

@@ -3,7 +3,7 @@ layout: podcast
 title:  "Encouraging and Educating Kids"
 date: 2015-11-08T19:12:19-05:00
 categories: podcasts
-description: "Ways to encouraging and educate kids in the dark art of coding. With special guest Wendy Closson"
+excerpt: "Ways to encouraging and educate kids in the dark art of coding. With special guest Wendy Closson"
 comments: true
 podcast: 
     filename: "TeachingKids.mp3"

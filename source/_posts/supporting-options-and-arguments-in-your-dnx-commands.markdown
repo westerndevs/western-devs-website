@@ -3,7 +3,7 @@ layout: post
 title:  "Supporting Options and Arguments in Your dnx Commands"
 date: 2015-09-10T09:00:53-05:00
 categories:
-description:
+excerpt:
 comments: true
 authorId: james_chambers
 originalurl: http://jameschambers.com/2015/09/supporting-options-and-arguments-in-your-dnx-commands/
