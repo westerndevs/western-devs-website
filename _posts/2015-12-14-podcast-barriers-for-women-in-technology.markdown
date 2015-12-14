@@ -5,10 +5,10 @@ date: 2015-12-14T13:12:40-05:00
 categories: podcasts
 excerpt: "Special guest Rachel Thomas and the Western Devs discuss the barriers facing women when they enter and when they stay in technology"
 comments: true
-libsyn: 4001183
+libsyn: 4016335
 podcast: "BarriersForWomenInTechnology.mp3"
-podcast-running-time: "50:01"
-podcast-filesize: 48022352
+podcast-running-time: "46:38"
+podcast-filesize: 44773146
 participants: 
     - kyle_baley
     - dylan_smith
