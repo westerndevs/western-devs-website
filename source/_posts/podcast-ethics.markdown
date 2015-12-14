@@ -3,7 +3,7 @@ layout: podcast
 title:  "Ethics"
 date: 2015-10-10T15:32:22-04:00
 categories: podcasts
-description: "The Western Devs welcome Lori Lalonde and D'Arcy Lussier to the podcast and discuss ethics in software"
+excerpt: "The Western Devs welcome Lori Lalonde and D'Arcy Lussier to the podcast and discuss ethics in software"
 comments: true
 podcast: 
     filename: "Ethics.mp3"

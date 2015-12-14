@@ -3,7 +3,7 @@ layout: podcast
 title:  "Interviews and Hiring Practices"
 date: 2015-11-17T13:56:08-05:00
 categories: podcasts
-description: "The definitive answer on how to hire your next dev"
+excerpt: "The definitive answer on how to hire your next dev"
 comments: true
 libsyn: 3982686
 podcast: 
