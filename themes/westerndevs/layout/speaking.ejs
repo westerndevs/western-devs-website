@@ -19,10 +19,14 @@
 		<div class="SubpageBoxFullContent">
 	      <% var last %>
 	      <% var engagements = _.filter(site.data.speaking, function(n) {
-	      	return n.date > _.now();
-	      }).sort('date', -1); %>
+	      	return moment(n.date) > moment(_.now());
+	      }); 
+	      engagements = _.sortBy(engagements, function(engagement) {
+	      	return moment(engagement.date);
+	      });	
+	      %>
     	  <% _.forEach(engagements, function(engagement, key){ %>
-		      <% var year = engagement.date.getFullYear(); %>
+		      <% var year = moment(engagement.date).year(); %>
 		      <% if (last != year){ %>
 		        <% last = year; %>
 		        <h2 class="category-heading"><img class="icon" src="/images/icon_circle_arrow.png" alt=">" title=">" border="0"> <%= year %></h2>
