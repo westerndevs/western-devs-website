@@ -3,7 +3,7 @@ layout: podcast
 title: "No Estimates"
 date: 2015-09-01T19:42:12-04:00
 categories: podcasts
-description: "In this episode, special guest Steve Rogalsky helps the Western Devs understand the #NoEstimates movement"
+excerpt: "In this episode, special guest Steve Rogalsky helps the Western Devs understand the #NoEstimates movement"
 comments: true
 podcast: 
     filename: "NoEstimates.mp3"

@@ -62,14 +62,18 @@ time_format: HH:mm:ss
 per_page: 0
 pagination_dir: page
 
+# Disqus
+disqus_shortname: westerndevs
+
 theme: westerndevs
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
-  type: ftpsync
-  host: waws-prod-bay-043.ftp.azurewebsites.windows.net
-  remote: /site/wwwroot
+  type: git
+  repo: https://western-devs-redesign.scm.azurewebsites.net:443/western-devs-redesign.git
+  branch: master
+  message: Site updated {{ now("YYYY-MM-DD HH:mm:ss") }}
 
 markdown:
   render:

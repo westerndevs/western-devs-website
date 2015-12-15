@@ -3,7 +3,7 @@ layout: podcast
 title:  "The Repository Pattern"
 date: 2015-08-04T11:55:26-04:00
 categories: podcasts
-description: "Do we really need all these repositories?"
+excerpt: "Do we really need all these repositories?"
 comments: true
 podcast: 
     filename: "RepositoryPattern.mp3"

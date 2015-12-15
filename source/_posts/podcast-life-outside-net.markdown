@@ -3,7 +3,7 @@ layout: podcast
 title: "Life Outside .NET"
 date: 2015-10-19T15:48:10-04:00
 categories: podcasts
-description: "The Western Devs discuss working outside your comfort zone"
+excerpt: "The Western Devs discuss working outside your comfort zone"
 comments: true
 podcast: 
     filename: "LifeOutsideNET.mp3"

@@ -4,7 +4,7 @@ title:  Source Control for SQL Databases
 date: 2015-11-18T20:40:31-07:00
 comments: true
 authorId: simon_timms
-description: "There are a bunch of options for migrating database schema, how can you be sure you've picked the right one?"
+excerpt: "There are a bunch of options for migrating database schema, how can you be sure you've picked the right one?"
 originalurl:
 ---
 
