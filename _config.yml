@@ -80,7 +80,6 @@ markdown:
 feed:
   type: atom
   path: feed.xml
-  altpath: feed/index.html
   itunespath: itunes.xml
   limit: 20
   hub: 
