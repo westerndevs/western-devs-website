@@ -9,6 +9,7 @@ description: "We're but a humble group of amazing developers with a common trait
 author: Western Devs
 language:
 timezone: Canada/Eastern
+email: info@westerndevs.com
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -77,3 +78,12 @@ deploy:
 markdown:
   render:
     html: true
+
+# RSS
+## https://github.com/westerndevs/hexo-generator-feed
+feed:
+  type: atom
+  path: feed.xml
+  itunespath: itunes.xml
+  limit: 20
+  hub: 
