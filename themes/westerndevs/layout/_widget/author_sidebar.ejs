@@ -7,7 +7,7 @@
 			<% 
 			var avatar;
 			if (!author.avatar) {
-				avatar = gravatar(author.email);
+				avatar = gravatar(author.email, 200);
 			} else {
 				avatar = '/images/avatars/' + author.avatar;
 			}%>
