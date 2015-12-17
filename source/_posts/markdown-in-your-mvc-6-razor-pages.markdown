@@ -11,6 +11,8 @@ What? Markdown in your Razor code? Yeah...and it was totally easy to build too.
 
 [Taylor Mullen][1] demoed the idea of a [Markdown Tag Helper][2] idea at Orchard Harvest and I thought it would be nice to include this in my [Tag Helper Samples project][3].
 
+<!--more-->
+  
 ## How to use it
 
 This tag helper allows you to write Markdown directly in Razor and have that automatically converted to HTML at runtime. There are 2 options for how to use this tag helper. The first option is to use a `<markdown>` element.

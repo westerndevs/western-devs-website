@@ -10,6 +10,8 @@ originalurl: http://www.davepaquette.com/archive/2015/09/03/adding-prefixes-to-t
 
 Some people have said that they would prefer all Tag Helper elements in MVC 6 to be prefixed. I honestly don't see myself doing this but it is easy to turn on if you prefer tag helper elements to be prefixed with some special text.
 
+<!--more-->
+
 Simply add the @tagHelperPrefix directive to the _ViewImports.cshtml file in your project:
 
     @tagHelperPrefix "th:"

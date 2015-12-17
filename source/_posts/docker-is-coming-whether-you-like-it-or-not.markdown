@@ -11,6 +11,8 @@ I'm excited about Docker. Unnaturally excited, one might say. So much so that I'
 
 In the meantime, I have to temper my enthusiasm for the time being because Docker is still a Linux-only concern. Yes, you can run Docker containers on Windows but only Linux-based ones. So no SQL Server and no IIS.
 
+<!--more-->
+
 But you can't stop a hillbilly from dreaming of a world of containers. So with a grand assumption that you know what Docker is roughly all about, here's what this coder of the earth meditates on, Docker-wise, before going to sleep.
 
 ### Microservices

@@ -9,6 +9,8 @@ authorId: kyle_baley
 
 Some days/weeks/time ago, I did a presentation at MeasureUP called "Docker For People Who Think Docker Is This Weird Linux Thing That Doesn't Impact Me". The slides for that presentation can be found [here](http://www.slideshare.net/KyleBaley/docker-for-people-who-have-heard-of-docker-but-think-its-just-this-weird-linux-thing-that-doesnt-impact-me) and the sample application [here](https://github.com/stimms/AzureCodeCamp).
 
+<!--more-->
+  
 ### Using the sample app with PostgreSQL
 
 The sample application is just a plain ol' .NET application. It is meant to showcase different ways of doing things. One of those things is data access. You can configure the app to access the data from SQL storage, Azure table storage, or in-memory. By default, it uses the in-memory option so you can clone the app and launch it immediately just to see how it works.

@@ -10,6 +10,8 @@ originalurl: http://blog.simontimms.com/2015/10/04/yet-another-docker-intro/
 
 You would think that there were enough introductions to Docker out there already to convince me that the topic is well covered and unnecessary. Unfortunately the sickening mix of hubris and stubbornness that endears me so to rodents also makes me believe I can contribute. 
 
+<!--more-->
+  
 In my case I want to play a bit with the ELK stack: that's Elasticsearch, Logstash and Kibana. I could install these all directly on the macbook that is my primary machine but I actually already have a copy of Elasticsearch installed and I don't want to polute my existing environment. Thus the very 2015 solution that is docker. If you've missed hearing the noise about docker over the last year then you're in for a treat. 
 
 The story of docker is the story of isolating your software so that one piece of software doesn't break another. This isn't a new concept and one could argue that really that's what kernel controlled processes do. Each process has its own memory space and, as far as the process is concerned, the memory space is the same as the computer's memory space. However the kernel is lying to the process and is really remapping the memory addresses the program is using into the real memory space. If you consider the speed of processors today and the ubiquity of systems capable of running more than one process at a time then, as a civilization, we are lying at a rate several orders of magnitude greater than any other point in human history. 

@@ -10,6 +10,8 @@ originalurl: http://jameschambers.com/2015/07/upgrading-projects-to-net-4-6/
 
 The updates in the .NET Framework provide many improvements, including support for new language features in c#, garbage collection, enhancements in cryptography support, feature toggles, new classes in the BCL and others. The RyuJIT compiler adds significant performance gains for 64bit applications, even those not originally targeting the 4.6, improves startup times and can reduce the memory footprint of your application.
 
+<!--more-->
+
 {: .notice}
 _In this series we're working through the conversion of an MVC 5-based application and migrating it to MVC 6. You can track the entire series of posts from the [intro page][1]._
 

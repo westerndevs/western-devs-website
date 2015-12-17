@@ -10,6 +10,8 @@ originalurl: http://jameschambers.com/2015/09/upgrading-npm-in-visual-studio-201
 
 Visual Studio 2015 ([_download here_][1]) ships with it's own version of several external tools, such as grunt, node and npm.&nbsp; If you are wanting to take advantage of newer versions of these tools, you have three options:
 
+<!--more-->
+
 1. Wait for VS 2015 to upgrade the tooling and ship an update.
 2. Hack the tooling proxies used by Visual Studio.
 3. Use the built-in external tool path editor to slip your updated versions in.

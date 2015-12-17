@@ -11,6 +11,8 @@ I couldn't find the answers to these questions readily anywhere on the internet 
 
 **When using remoting as a different user does the target account or my account need to be an admin?**
 
+<!--more-->
+
 The target account is the key one here. If you're logging in with a different user account you don't need to have any sort of admin rights yourself but the account specifed in the credentials you pass in will.
 
 **Do you really need to be an administrator to use remoting?**

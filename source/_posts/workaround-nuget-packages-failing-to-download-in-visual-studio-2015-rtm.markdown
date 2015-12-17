@@ -10,6 +10,8 @@ originalurl: http://jameschambers.com/2015/07/workaround-nuget-packages-failing-
 
 I haven't figured out a common theme yet, but certain packages are failing to restore when you attempt to install them from the NuGet primary feed via the project.json file in Visual Studio 2015. Thanks to [Brock Allen][1] for confirming I wasn't going insane.
 
+<!--more-->
+
 A couple of things I've discovered:
 
 * This seems to be more common for prerelease packages

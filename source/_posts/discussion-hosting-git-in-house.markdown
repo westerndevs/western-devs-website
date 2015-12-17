@@ -9,6 +9,8 @@ slack: true
 
 We had a good discussion on Slack recently on getting a client up and running with Git. For many, the decision boils down to: GitHub or BitBucket. In this case, the repositories need to be stored in-house. Thus sparking the first debate.
 
+<!--more-->
+
 ### In-house vs. hosted
 
 Despite the strong cultural shift, some companies are still wary about having assets stored in frozen droplets of water floating in the atmosphere. Hosting in-house feels safer. What if GitHub goes down? What if VSO gets hacked? WHERE IN THE &*%$# IS MY DATA?!?

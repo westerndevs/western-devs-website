@@ -10,6 +10,8 @@ originalurl: http://jameschambers.com/2015/07/upgrading-a-real-world-mvc-5-appli
 
 These are exciting times for web development on the Microsoft stack, but perhaps a little confusing as well. For many years the cycle of moving from one solution and project system to the next hasn't been overly complex. Sure, there have been breaking changes, I've felt those pains myself, but provided the framework you were using continued to live on, there was a reasonable migration path.
 
+<!--more-->
+
 Moving to MVC 6 is going to be a big shift for a lot of development teams, but that doesn't mean it needs to be scary, complicated or introduce instability into your project.
 
 It does, however, mean that you're going to need an attitude of learning, that you'll pick up some new tooling, you'll have to brush up on your JavaScript and work with some new concepts.

@@ -9,6 +9,8 @@ authorId: simon_timms
 
 It is rare that a day passes on the Western Devs' slack channel that we don't have some lively discussion. Today was my day to rant about knockout.js. 
 
+<!--more-->
+  
 If you haven't used knockout.js it is a JavaScript library used for bi-directional model binding. It was the first library of its type that I encountered, being deeply involved in the Microsoft web mentality at that point. 
 
 My current project uses knockout.js and although we've been successful with it there has been a great deal of pain. In fact it has been so irritating that I no longer recommend using knockout to anybody working on a serious project. This may seem crazy because there are a lot of sites out there, big sites, that make use of knockout. The new Azure portal is, perhaps, the most famous of these sites.

@@ -9,6 +9,8 @@ authorId: simon_timms
 
 Some people are really good at computers. I am, apparently, not one of those people. This last Friday we had a fantastic podcast with
 
+<!--more-->
+
 - [Dylan Smith](http://www.westerndevs.com/bios/dylan_smith/)
 - [Dave White](http://www.westerndevs.com/bios/dave_white/)
 - [Simon Timms](http://www.westerndevs.com/bios/simon_timms/)

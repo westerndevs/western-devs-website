@@ -10,6 +10,8 @@ originalurl: http://blog.simontimms.com/2015/08/28/ooops-repointing-git-head/
 
 I screwed up. I force pushed a branch but I forgot to tell git which branch to push so it clobbered another branch.
 
+<!--more-->
+
     C:\code\project [feature/feature27]> git push -f
     Password for 'http://simon@remote.server.com:7990':
     Counting objects: 63, done.

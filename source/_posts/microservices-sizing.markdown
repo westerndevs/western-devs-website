@@ -8,6 +8,8 @@ authorId: donald_belcham
 
 As I mentioned in my last blog post ([Microservices and Boundaries](http://www.westerndevs.com/microservices-and-boundaries/)), I regularly see the question "How big should my microservice be?" The fast answer, albeit not the easy one, is that they should be the 'right' size. In that last blog post I talked about getting the right functionality into the right places (Antel for phone related functionality, Abitab for payment related functionality). There are a lot of people giving a lot of advise about scoping microservices, and I disagree with the majority of it. Here are some of the suggestions I've seen.
 
+<!--more-->
+  
 ## One Week's Work
 This scoping idea follows the premise that any microservice that you make should only take one week to write. There's no discussion about the difficulty of the task at hand, the proper encapsulation, what the bounded context is or what the velocity of your development team is. Without fail, every one of your microservices should fit into a work week.
 

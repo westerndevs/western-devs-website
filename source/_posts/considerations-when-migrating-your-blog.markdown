@@ -12,6 +12,8 @@ I'm talking about small-scale, personal blogs or projects.
 
 The word "enterprise" isn't used once to describe any part of the project, yet there are plenty of things I had to consider (or decide along the way) before I completed the migration. Eventually, I ended moving my [Ghost](http://ghost.org) blog to a [Hexo](http://hexo.io)-based static blog, that is hosted on [Github Pages](https://pages.github.com) under a new subdomain.
 
+<!--more-->
+
 Before I actually did any of the work, I answered a handful of questions which helped guide me through the migration and ultimately feel much more comfortable with the result.
 
 Think of this post as a checklist with a sample reflection on answering each question. Hopefully it helps guide you as it did me.

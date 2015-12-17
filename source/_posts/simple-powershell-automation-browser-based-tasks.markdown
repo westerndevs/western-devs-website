@@ -10,6 +10,8 @@ originalurl: http://agileramblings.com/2015/07/22/using-ie-automation-in-powersh
 
 As a consultant, one of the things that I need to do regularly is log into my client's WiFi networks. Sometimes this is a once per month task, sometimes it is a daily task. It was a daily version of this task that made me look into doing this a bit quicker. Opening Internet Explorer (or any browser) and then navigating to the page, typing in all of my credentials, and then submitting the request is a fairly monotonous task, and it isn't very quick.
 
+<!--more-->
+
 Now a days, I almost always have a PowerShell window open, and because of another little experiment I did with PowerShell and IE, I thought it should be easy to automate my WiFi network login. So I that is what I set out to do.
 
 The way that I'm currently working in PowerShell is to create a .ps1 file to do my development in. That way I can version control the file, and keep it separate from other things that are working or in progress. So in this case, I made a PowerShell script file called Login-GuestWifi.ps1. In this file, I just started typing lines of PowerShell script and eventually I would move it into a CmdLet or a function somewhere else.

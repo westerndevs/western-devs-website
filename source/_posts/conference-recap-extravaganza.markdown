@@ -10,6 +10,8 @@ comments: true
 
 I've been head down preparing and delivering presentations all over the place for the past few weeks, and wanted to share the latest happenings, along with where you can get your hands on the material if you weren't able to attend.
 
+<!--more-->
+
 If you're not interested in the retrospective, then you can head over to my [talks page][1] to get the skinny and the resources.
 
 ### Computer Science Career Awesomeness

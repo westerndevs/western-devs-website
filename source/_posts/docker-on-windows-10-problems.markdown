@@ -13,6 +13,8 @@ Another Western Dev that goes by the name of Dave White found a solution and I c
 
 You can find the solution from Dave White [here](http://www.westerndevs.com/getting-docker-running-on-windows-10/), and learn more about the man himself [here](http://www.westerndevs.com/bios/dave_white/).
 
+<!--more-->
+
 ---
 ![](http://blog.davidwesst.com/2015/08/Docker-on-Windows-10-Problems/docker-logo.png)
 

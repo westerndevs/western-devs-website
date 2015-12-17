@@ -10,6 +10,8 @@ originalurl: http://www.opgenorth.net/blog/2015/06/21/android-data-binding-intro
 
 In May, 2015 at Google announced [a data binding library for Android](https://developer.android.com/tools/data-binding/guide.html). It's long overdue &ndash; developers no longer have to come up with their own schemes for displaying or retrieving data from their views. With two-way data binding, it's possible to remove a lot of redundant boilerplate code from the activities and fragments that make up an application.
 
+<!--more-->
+  
 _Just a warning - Android data binding is still a beta product, so as such things may or may not work when they should, as they should, and the documentation may or may not be accurate._
 
 There were several steps/phases that I went through while I was learning this. Here's what I did:

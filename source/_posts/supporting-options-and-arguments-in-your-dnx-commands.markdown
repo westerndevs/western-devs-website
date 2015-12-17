@@ -3,13 +3,14 @@ layout: post
 title:  "Supporting Options and Arguments in Your dnx Commands"
 date: 2015-09-10T09:00:53-05:00
 categories:
-excerpt:
 comments: true
 authorId: james_chambers
 originalurl: http://jameschambers.com/2015/09/supporting-options-and-arguments-in-your-dnx-commands/
 ---
 
 Grab yourself your copy of [Visual Studio 2015][1] and buckle up! Today we're going to create our own dnx command with support for options and arguments.
+
+<!--more-->
 
 In my [previous post][2] on dnx commands I showed how you could create your own command as part of your project that could be invoked via the .Net Execution Environment, a.k.a., dnx. While this works fine in simple scenarios, chances are you might need to have more than one "command" embedded in your tooling. Right away you have concerns for parsing the arguments and options that are passed in, which will quickly lead to a more complex application than you were originally intending.
 

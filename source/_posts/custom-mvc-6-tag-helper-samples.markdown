@@ -9,6 +9,8 @@ originalurl: http://www.davepaquette.com/archive/2015/09/20/custom-mvc-6-tag-hel
 ---
 A group of us who have been exploring MVC 6 Tag Helpers have created a repository of [Tag Helper Samples](https://github.com/dpaquette/TagHelperSamples). The repository contains a set of real world samples that can help you understand how to build your own custom tag helpers.
 
+<!--more-->
+  
 So far, we have been focusing on Tag Helpers that make it easier to use various Bootstrap components. We chose Bootstrap because Bootstrap components are often verbose and it can be easy to miss a particular class or a specific attribute. I find that this is especially when you consider all the accessibility _aria-*_ attributes. So far, we have implemented tag helpers for Bootstrap [Alerts](http://getbootstrap.com/components/#alerts), [Progress Bars](http://getbootstrap.com/components/#progress) and most recently [Modals](http://getbootstrap.com/javascript/#modals).
 
 ## Alert

@@ -10,6 +10,8 @@ originalurl: http://blog.simontimms.com/2015/08/12/setting-up-an-iis-site-using-
 
 The cloud has been such an omnipresent force in my development life that I'd kind of forgotten that IIS even existed. There are, however, some companies that either aren't ready for the cloud or have legitimate legal limitations that make using the cloud difficult.
 
+<!--more-->
+
 This doesn't mean that we should abandon some of the niceties of deploying to the cloud such as being able to promote easily between environments. As part of being able to deploy automatically to new environments I wanted to be able to move to a machine that had nothing but IIS installed and run a script to do the deployment.
 
 I was originally thinking about looking into PowerShell Desired State Configuration but noted brain-box [Dylan Smith](http://www.westerndevs.com/bios/dylan_smith/) told me not to bother. He feeling was that it was a great idea whose time had come but the technology wasn't there yet. Instead he suggested just using PowerShell proper.

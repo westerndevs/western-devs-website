@@ -9,6 +9,8 @@ originalurl: http://blog.davidwesst.com/2015/10/Capturing-HTTPS-Traffic-in-Java-
 ---
 I've been struggling with a JSON parsing error where my application is using the [Spring](https://spring.io/guides/gs/consuming-rest/) to send and receive messages from a RESTful Web Service. It's pretty straight forward: I've annotated my object properties to match up with the appropriate JSON keys, Spring takes my POJO and turns it into a JSON string sends the request along with the JSON as the body to the HTTPS endpoint, et voilà!  
 
+<!--more-->
+  
 ## The Problem
 
 The problem comes in when something goes wrong with the request/response. Because the Spring obfuscates the actual request/response content, debugging it means you need to take a look at the traffic being sent over the wire. Since we're using a good RESTful service, the connection is done through HTTPS, meaning it's encrypted with a certificate that we don't have.

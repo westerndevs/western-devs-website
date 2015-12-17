@@ -10,6 +10,7 @@ comments: true
 
 I was recently gifted a smoker from my awesome Prairie Dev Con speakers – an electric Bradley 4 rack smoker! Upon reading the instructions, I realized that due to the "electronic" nature of the device, it can't just be left outside to the elements like a BBQ can. So I started looking around at custom enclosures people were building and got some ideas. Now, I'm *not* what you would call a handy-man type of guy. I didn't grow up doing carpentry projects or working on cars or anything like that, but regardless yesterday I built it. Here's what it looks like (still needs stain and one more piece of plywood for the back)…
 
+<!--more-->
 ![SmokerEnclosure][1]
 
 The experience was fantastic – I had my daughters help me with most of the construction, so we were able to make this a quality-time project building something together. I also got to use some tools I received as an office Christmas gift from years back that I hadn't before. And I learned a lot – even though I know there are things I would have done differently in retrospect, and things I know I'd like to tweak with it even after its "finished", it was a fantastic learning experience.

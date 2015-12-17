@@ -7,6 +7,8 @@ comments: true
 
 Yesterday was the three month anniversary of our [first post][1] and while our *official* first post was on June 17, we're celebrating anyway. 
 
+<!--more-->
+  
 Since that time, we have generated [60 posts](http://www.westerndevs.com/posts/) by 10 different people, as well as [6 podcasts](http://www.westerndevs.com/podcasts/)<sup>*</sup>. We've spoken at three events and are scheduled at [eight more][4] in the next few months. A sampling of some of the topics we've covered:
 
 * [Running Docker on Windows 10](http://www.westerndevs.com/getting-docker-running-on-windows-10/)

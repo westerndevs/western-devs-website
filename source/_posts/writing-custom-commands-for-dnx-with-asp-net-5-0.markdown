@@ -10,6 +10,8 @@ originalurl: http://jameschambers.com/2015/08/writing-custom-commands-for-dnx-wi
 
 If you are a developer on the .NET stack, you've now got access to a great new extension to your development environment. DNX, or the .NET Execution Environment, is a powerful new extensibility point that you can leverage to build project extensions, cross-platform utilities, build-time extensions and support for automation. In this article I'll walk you through the process of building your own custom DNX command on top of ASP.NET 5.0.
 
+<!--more-->
+
 ## Where You've Seen It
 
 DNX has the ability to scan a project.json and look for commands that you install as packages or that you create yourself. If you've started following the examples of the MVC Framework or perhaps with Entity Framework, you may have seen things like this in your project.json:

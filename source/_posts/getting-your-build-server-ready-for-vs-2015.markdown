@@ -10,6 +10,8 @@ originalurl: http://jameschambers.com/2015/07/getting-your-build-server-ready-fo
 
 If you're modernizing your project, one of the things you'll surely want to do is to make sure that your build server is upgraded to support VS 2015. Regardless of what CI engine you're using, there will be at least a little bit of effort required to get your project building again.
 
+<!--more-->
+
 >In this series we're working through the conversion of an MVC 5-based application and migrating it to MVC 6. You can track the entire series of posts from the [_intro page_][1].
 
 For the purpose of this exercise, we're using TeamCity to run our builds based on a VSC checkin. We'll get TeamCity prepped to run our build and then update our repository so that we show our build status indicator on the readme home page.

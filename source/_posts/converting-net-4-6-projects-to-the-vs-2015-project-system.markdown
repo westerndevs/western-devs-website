@@ -10,6 +10,8 @@ originalurl: http://jameschambers.com/2015/08/converting-net-4-6-projects-to-the
 
 To take advantage of multi-targeted outputs from our project – allowing our assemblies to be used from multiple frameworks across the organization – we want to upgrade our projects to use the new project system in Visual Studio 2015. Previously, we would have needed a base project and then a separate project for each framework target (PCL, 4.5, 3.5, 4.5.2, etc), but in today's solutions we can have a single project output all of the assets we wish to support.
 
+<!--more-->
+
 >_In this series we're working through the conversion of [Clear Measure's][1] [Bootcamp MVC][2] 5-based application and migrating it to MVC 6. You can track the entire series of posts from the [intro page][3]._
 
 ## Recreating the Solution and Projects

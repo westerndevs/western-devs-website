@@ -10,6 +10,8 @@ comments: true
 
 This is a super common problem I encounter when building ASP.net MVC applications. I have a form that has a drop down box. Not only do I need to select the correct item from the edit model to pick from the drop down but I need to populate the drop down with the possible values.
 
+<!--more-->
+
 Over the years I've used two approaches to doing this. The first is to push into the ViewBag a list of values in the controller action. That looks like
 
     public ActionResult Edit(int id){

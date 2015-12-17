@@ -20,6 +20,8 @@ I've been noticing a few things lately here in Winnipeg:
 
 * The commoditization of software developers with broad skills
 
+<!--more-->
+
 The cloud is removing the need for organizations to manage and maintain their own infrastructure. Software as a Service provides a model where organizations can rent lower-priority applications/services while focusing their own development staff on higher priority initiatives. Consultants with specialized skills in mobile, integration, security, and platforms (SharePoint, SAP, etc.) still demand higher rates, but organizations are no longer willing to pay a premium for .NET or Java developers.
 
 Consulting firms who sell professional services need to become aware of these trends and pivot on what they offer to their marketplace. Consider the items below, all of which should have initiatives in flight or be on the radar for any professional services company.

@@ -10,6 +10,8 @@ originalurl: http://jameschambers.com/2015/07/three-types-of-relationships-you-n
 
 Getting through your work day on your own is easy enough.  Over the long run, though,  you're going to need to have some solid relationships in your life to help get you through the rough patches and pick you up from the falls, but more importantly, to be there when it's time to celebrate the wins.
 
+<!--more-->
+
 While these are going to seem obvious at first, I want to make the point that they're by no means effortless. In fact, some of the closest connections in your life can be the most affected by your choice to have your home serve also as your place of work.
 
 ## Your Co-Workers
