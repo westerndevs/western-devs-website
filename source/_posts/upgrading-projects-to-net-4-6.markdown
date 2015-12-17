@@ -12,17 +12,22 @@ The updates in the .NET Framework provide many improvements, including support f
 
 <!--more-->
 
-{: .notice}
+<div class="notice">
+
 _In this series we're working through the conversion of an MVC 5-based application and migrating it to MVC 6. You can track the entire series of posts from the [intro page][1]._
+
+</div>
 
 While the explicit modification of your projects may not be required to gain some of the 4.6 benefits, there may be other organizational factors that lead you down that path. We'll work through the mechanics of the upgrade to 4.6 in this post.
 
-## <i class="fa fa-warning" /> A Word of Caution
+<h2><i class="fa fa-warning"></i> A Word of Caution</h2>
 
 UPDATE: July 28, 2015 There is a known issue with certain 64bit applications running on .NET 4.6, under certain circumstances, with certain parameter types and sizes. You can read more [about the bug finding here][2] and the issue is being [tracked on GitHub][3], followed by Microsoft's [response and recommendation][4].
 
-{: .notice}
+<div class="notice">
+    
 For this reason **I am not recommending an upgrade to 4.6** unless you understand the implications and how to properly vet the scenarios described in your environment.
+</div>
 
 ## Getting Your Projects Up-to-date
 

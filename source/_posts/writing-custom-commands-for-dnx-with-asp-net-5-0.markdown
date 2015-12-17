@@ -23,8 +23,7 @@ DNX has the ability to scan a project.json and look for commands that you instal
 }
 {% endcodeblock %}
 
-{: .pull-right}
-![image][1]
+{% img pull-right "http://jameschambers.com/wp-content/uploads/2015/08/image_thumb2.png" %}
 
 These entries are here so that DNX understands the alias you assign (such as "web" or "ef") and how it maps to an assembly that you've created or taken on as a dependency.&nbsp; The EF reference is quite straightforward above, simply saying that any call to "ef" via DNX will go into the entry point in EntityFramework.Commands.&nbsp; You would invoke that as follows from the directory of your _project_:
 
@@ -165,7 +164,6 @@ To get some inspiration, check out my [sample project on GitHub][3], the DNX com
 
 Happy coding! ![Smile][6]
 
-[1]: http://jameschambers.com/wp-content/uploads/2015/08/image_thumb2.png "image"
 [2]: https://github.com/aspnet/Announcements/issues/52
 [3]: https://github.com/MisterJames/DnxCommands/
 [4]: https://github.com/aspnet/EntityFramework/tree/dev/src/EntityFramework.Commands

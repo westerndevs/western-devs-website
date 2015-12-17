@@ -93,21 +93,22 @@ Now we're ready to launch the container:
 Breaking this down:
 
 <style>
-    .docker-breakdown td {
+    .docker-table+table td {
         padding: 8px;   
         border: 1px solid #ccc;
     }
-    .docker-breakdown code {
-        font-size: 14px;
-    }
-    .docker-breakdown td:nth-child(1) {
+    .docker-table+table td:nth-child(1) {
         width:220px;
     }
-    .docker-breakdown tr:nth-child(even) td {
+    .docker-table+table tr:nth-child(even) td {
         background-color: #eee;
     }
 </style>
-{: .docker-breakdown }
+
+<div class="docker-table"></div>
+
+|   |   |
+|---|---|
 | `docker run` | Runs a docker container from an image |
 | `--name my-postgres` | The name we give the container to make it easier for us to work with. If you leave this off, Docker will assign a relatively easy-to-remember name like "floral-academy" or "crazy-einstein". You also get a less easy-to-remember identifier which works just as well but is...less...easy-to-remember |
 | `-e POSTGRES_PASSWORD=moo` | The `-e` flag passes an environment variable to the container. In this case, we're setting the password of the default postgres user |

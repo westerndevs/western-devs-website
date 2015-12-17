@@ -28,8 +28,9 @@ Underlying all of this is an extremely active Slack channel populated by a group
 
 Will the momentum continue? It's hard to say. Although the online presence started only recently, this has been boiling under the surface for [many years now](http://www.westerndevs.com/whoweare/) so chances are good. We're still finding our feet in some areas but for now, we're still talking.
 
-{: .footnote}
-*For reference, in that same time, [Los Techies][2] has had 26 posts and [CodeBetter][3] nine. Just sayin' <span class="fa fa-smile-o"></span>
+<p class="footnote">
+*For reference, in that same time, <a href="http://lostechies.com">Los Techies</a> has had 26 posts and <a href="http://codebetter.com">CodeBetter</a> nine. Just sayin' <span class="fa fa-smile-o"></span>
+</p>
 
 [1]: http://www.westerndevs.com/mvc-6-cache-tag-helper/
 [2]: http://lostechies.com

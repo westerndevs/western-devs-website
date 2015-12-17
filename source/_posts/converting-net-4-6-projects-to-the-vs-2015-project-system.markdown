@@ -32,8 +32,7 @@ I would like to note that there are still improvements to be made here – for i
 
 ## Step 1 – Core
 
-{: .pull-right}
-![image][4]
+{% img pull-right "http://jameschambers.com/wp-content/uploads/2015/08/image_thumb.png" %}
 
 Our Core project was a breeze to port because it's at the heart of the system in an [Onion Architecture][5] and takes on very few dependencies. I started the conversion by going through the motions of creating a new Core project, using the DLL project from the "Web Templates" part of the dialog.&nbsp; The first project also creates the solution, and the convention for the way the solutions are laid out on disk has changed.
 
@@ -44,8 +43,7 @@ Thankfully, this was easy to resolve with just a couple of quick fixes, but you'
 * First, update your paths to point at the correct location on disk
 * Second, comment out all the build steps that have to come later, like running unit or integration tests
 
-{: .pull-right}
-![image][6]
+{% img pull-right "http://jameschambers.com/wp-content/uploads/2015/08/image_thumb1.png" %}
 
 We can't run unit tests quite yet (we need to convert those projects as well), but we can make sure that the project is building correctly.
 
@@ -73,8 +71,11 @@ Other projects will have similar hits on moved packages. It is likely safe to us
 
 The other notable piece was in how we reference other projects in our own solution; today they look a lot like referencing other packages. Whether you go through the Add Reference dialog or if you prefer to edit the project file by hand, you're going to also need to introduce a dependency on Core, which is done simply by adding the following line to the dependencies:
 
-{: .notice}
+<div class="notice">
+
     "Core": "1.0.0-*"
+
+</div>
 
 Excellent! Almost ready to build!
 

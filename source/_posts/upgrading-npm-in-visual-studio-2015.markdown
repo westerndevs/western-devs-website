@@ -20,8 +20,7 @@ Waiting for updates is no fun. Let's hack a little.
 
 ## Wait a minute! Why are we doing this?
 
-{: .pull-right}
-![image][2]
+{% img pull-right "http://jameschambers.com/wp-content/uploads/2015/09/image_thumb.png" %}
 
 For me the primary motivator was the path length limitations in Windows. Nested node_modules folders buried 19 levels deep is no fun when you hit the max path length. For me, I was trying to share the files on OneDrive and hit 255 characters pretty quickly.
 
@@ -75,7 +74,6 @@ Make sure you grab your [_copy of VS 2015_][1] and start diving into the next ph
 Happy coding! ![Smile][5]
 
 [1]: https://www.visualstudio.com/?Wt.mc_id=DX_MVP4038205
-[2]: http://jameschambers.com/wp-content/uploads/2015/09/image_thumb.png "image"
 [3]: https://www.npmjs.com/package/npm-windows-upgrade
 [4]: http://jameschambers.com/wp-content/uploads/2015/09/image_thumb1.png "image"
 [5]: http://jameschambers.com/wp-content/uploads/2015/09/wlEmoticon-smile.png
