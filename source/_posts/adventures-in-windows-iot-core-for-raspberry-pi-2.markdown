@@ -6,6 +6,7 @@ categories:
 comments: true
 authorId: darcy_lussier
 originalurl: http://geekswithblogs.net/dlussier/archive/2015/09/20/166942.aspx
+alias: /adventures-in-windows-iot-core-for-raspberry-pi-2/
 ---
 
 Ever since I won a Raspberry Pi 2 at Microsoft Ignite I've been trying to figure out what to do with it. This week I decided to look at the Windows 10 IoT Core for Raspberry Pi 2 and see what I could do to get something up and running.

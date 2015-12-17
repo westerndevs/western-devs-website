@@ -5,6 +5,7 @@ date: 2015-08-11 02:09:40 -0500
 comments: true
 authorId: amir_barylko
 originalurl: http://orthocoders.com/blog/2015/08/12/bdd-vs-tdd/
+alias: /bdd-vs-tdd/
 ---
 
 Testing is a very important part of software development, but should we do black box testing or test every line of code? 

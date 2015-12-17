@@ -6,6 +6,7 @@ categories:
 comments: true
 authorId: simon_timms
 originalurl: http://blog.simontimms.com/2015/08/12/setting-up-an-iis-site-using-powershell/
+alias: /setting-up-an-iis-site-using-powershell/
 ---
 
 The cloud has been such an omnipresent force in my development life that I'd kind of forgotten that IIS even existed. There are, however, some companies that either aren't ready for the cloud or have legitimate legal limitations that make using the cloud difficult.

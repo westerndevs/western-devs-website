@@ -6,6 +6,7 @@ categories:
 comments: true
 authorId: james_chambers
 originalurl: http://jameschambers.com/2015/07/response-from-postsharp-net-is-not-a-valid-nuget-v2-service-response/
+alias: /response-from-postsharp-net-is-not-a-valid-nuget-v2-service-response/
 ---
 
 After installing PostSharp.net on my machine for a project (I did the MSI install) I started getting errors during the package restore that ended up blocking my builds. They looked a lot like this:

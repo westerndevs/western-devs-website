@@ -6,6 +6,7 @@ categories:
 comments: true
 authorId: james_chambers
 originalurl: http://jameschambers.com/2015/07/workaround-nuget-packages-failing-to-download-in-visual-studio-2015-rtm/
+alias: /workaround-nuget-packages-failing-to-download-in-visual-studio-2015-rtm/
 ---
 
 I haven't figured out a common theme yet, but certain packages are failing to restore when you attempt to install them from the NuGet primary feed via the project.json file in Visual Studio 2015. Thanks to [Brock Allen][1] for confirming I wasn't going insane.

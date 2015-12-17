@@ -6,6 +6,7 @@ categories:
 comments: true
 authorId: dave_white
 originalurl: http://agileramblings.com/2015/07/22/using-ie-automation-in-powershell-to-simplify-tasks/
+alias: /simple-powershell-automation-browser-based-tasks/
 ---
 
 As a consultant, one of the things that I need to do regularly is log into my client's WiFi networks. Sometimes this is a once per month task, sometimes it is a daily task. It was a daily version of this task that made me look into doing this a bit quicker. Opening Internet Explorer (or any browser) and then navigating to the page, typing in all of my credentials, and then submitting the request is a fairly monotonous task, and it isn't very quick.

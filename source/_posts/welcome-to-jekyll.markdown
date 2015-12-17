@@ -4,6 +4,7 @@ title:  "We're all west of someplace"
 date:   2015-06-17 20:09:05
 categories:
 comments: true
+alias: /welcome-to-jekyll/
 ---
 
 Western Devs is live!

@@ -5,7 +5,6 @@ date: 2015-07-07T16:54:52-04:00
 categories: podcasts
 excerpt: "In our inaugural podcast, the Western Devs tackle what is either the new hotness, retro SOA, or a flash in the pan: microservices."
 comments: true
-redirect_from: "/whatwevesaid/podcast-microservices/"
 podcast: 
     filename: Microservices.mp3
     length: "53:58"
@@ -37,5 +36,6 @@ music:
         title: Doctor Man
         artist: Johnnie Christie and the Boats
         url: https://www.youtube.com/user/jwcchristie
+alias: /whatwevesaid/podcast-microservices/
 ---
 

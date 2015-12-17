@@ -7,6 +7,7 @@ excerpt:
 comments: true
 authorId: james_chambers
 originalurl: http://jameschambers.com/2015/09/supporting-options-and-arguments-in-your-dnx-commands/
+alias: /supporting-options-and-arguments-in-your-dnx-commands/
 ---
 
 Grab yourself your copy of [Visual Studio 2015][1] and buckle up! Today we're going to create our own dnx command with support for options and arguments.

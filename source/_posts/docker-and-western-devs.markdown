@@ -5,6 +5,7 @@ date: 2015-08-23T16:38:59-04:00
 categories:
 comments: true
 authorId: kyle_baley
+alias: /docker-and-western-devs/
 ---
 
 In a month, I'll be attempting to hound my share of glory at [MeasureUP](http://measureup.io) with a talk on using Docker for people who may not think it impacts them. In it, I'll demonstrate some uses of Docker today in a .NET application. As I prepare for this talk, there's one thing we [Western Devs](http://www.westerndevs.com) have forgotten to talk about. Namely, some of us are already using Docker regularly just to post on the site.

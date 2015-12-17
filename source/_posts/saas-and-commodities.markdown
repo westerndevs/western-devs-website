@@ -6,6 +6,7 @@ categories:
 comments: true
 authorId: donald_belcham
 originalurl: http://www.igloocoder.com/2817/saas-and-commodities
+alias: /saas-and-commodities/
 ---
 
 I'm doing some work right now that requires us to send SMS messages. The organization I'm working with has never had this capability before so we are starting at ground level when it comes to looking at options. As part of our process we evaluated a number of different criteria on about four different SaaS options; [twilio][1], [plivo][2], [nexmo][3] and [sendinblue][4]. For reasons not relevant to this post, plivo was the initial choice of the client. We moved from analysis to writing a proof of concept.

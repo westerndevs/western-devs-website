@@ -6,6 +6,7 @@ categories:
 comments: true
 authorId: james_chambers
 originalurl: http://jameschambers.com/2015/07/launching-an-asp-net-5-application-from-visual-studio-2015/
+alias: /launching-an-asp-net-5-application-from-visual-studio-2015/
 ---
 
 If you are trying to use any DNX (DotNet Execution) runtime other than dnx451 (i.e. dnx452, dnx46) you will run into the following error when running the application from Visual Studio 2015, when used with the initial release of the Beta 6 tooling:

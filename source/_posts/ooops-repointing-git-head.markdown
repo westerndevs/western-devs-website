@@ -6,6 +6,7 @@ categories:
 comments: true
 authorId: simon_timms
 originalurl: http://blog.simontimms.com/2015/08/28/ooops-repointing-git-head/
+alias: /ooops-repointing-git-head/
 ---
 
 I screwed up. I force pushed a branch but I forgot to tell git which branch to push so it clobbered another branch.

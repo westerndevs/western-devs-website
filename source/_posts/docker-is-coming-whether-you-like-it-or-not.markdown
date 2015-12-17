@@ -5,6 +5,7 @@ date: 2015-08-04T08:31:10-04:00
 categories:
 comments: true
 authorId: kyle_baley
+alias: /docker-is-coming-whether-you-like-it-or-not/
 ---
 
 I'm excited about Docker. Unnaturally excited, one might say. So much so that I'll be talking about it at [MeasureUp](http://measureup.io/) this September.

@@ -6,6 +6,7 @@ categories:
 comments: true
 authorId: james_chambers
 originalurl: http://jameschambers.com/2015/11/the-humanitarian-toolbox-allready-code-a-thon/
+alias: /the-humanitarian-toolbox-allready-code-a-thon/
 ---
 
 I was recently in Seattle for the MVP Summit, one of the best ways to connect to product teams and really smart people from around the world. Every year I get to meet more of the team that builds the tools I use daily, reconnect with peers and catch up with friends. And I eat at Magiano's.

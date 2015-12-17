@@ -5,7 +5,6 @@ date: 2015-07-13T14:47:49-04:00
 categories: podcasts
 excerpt: "The Western Devs delve into the mire that is the Internet of Things"
 comments: true
-redirect_from: "/whatwevesaid/podcast-the-internet-of-things/"
 podcast: 
     filename: "InternetOfThings.mp3"
     length: "45:57"
@@ -34,7 +33,7 @@ music:
         title: Doctor Man
         artist: Johnnie Christie and the Boats
         url: https://www.youtube.com/user/jwcchristie
-
+alias: /whatwevesaid/podcast-the-internet-of-things/
 ---
 
 ### Synopsis

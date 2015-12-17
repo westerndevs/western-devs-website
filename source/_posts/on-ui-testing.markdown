@@ -7,6 +7,7 @@ originalurl: http://kyle.baley.org/2015/06/on-ui-testing/
 categories:
 excerpt: What happens when 12 people gather to talk about UI testing?
 comments: true
+alias: /on-ui-testing/
 ---
 
 A short while ago, a group of [Devs of the Western variety](http://www.westerndevs.com) had a chat. It was the latest in a series, depending on how you define "series", where we gather together to discuss some topic, be it JavaScript frameworks, OO practices, or smoked meat. On this particular day, it was UI testing.
