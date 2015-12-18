@@ -5,7 +5,6 @@ date: 2015-09-03 1:30:00
 authorId: dave_white
 originalurl: 
 comments: true
-alias: /configuring-features-for-many-teamprojects-in-tfs-2015/
 ---
 One of the problems that comes with having multiple Team Project Collections and multiple Team Projects (in TFS) is the administrative burden required to upgrade or manage all of these projects. 
 Security permissions, WIT modifications, configuration are all a 0..n problem so the more Team Projects you have, the more work it is, out of the box, to manage your TFS implementation.

@@ -4,7 +4,6 @@ title: "Microservice Sizing"
 date: 2015-10-12 10:01:34 -0600
 comments: true
 authorId: donald_belcham
-alias: /microservices-sizing/
 ---
 
 As I mentioned in my last blog post ([Microservices and Boundaries](http://www.westerndevs.com/microservices-and-boundaries/)), I regularly see the question "How big should my microservice be?" The fast answer, albeit not the easy one, is that they should be the 'right' size. In that last blog post I talked about getting the right functionality into the right places (Antel for phone related functionality, Abitab for payment related functionality). There are a lot of people giving a lot of advise about scoping microservices, and I disagree with the majority of it. Here are some of the suggestions I've seen.

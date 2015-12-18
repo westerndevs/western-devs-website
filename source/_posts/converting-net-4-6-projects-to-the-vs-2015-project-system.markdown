@@ -6,7 +6,6 @@ categories:
 comments: true
 authorId: james_chambers
 originalurl: http://jameschambers.com/2015/08/converting-net-4-6-projects-to-the-vs-2015-project-system/
-alias: /converting-net-4-6-projects-to-the-vs-2015-project-system/
 ---
 
 To take advantage of multi-targeted outputs from our project – allowing our assemblies to be used from multiple frameworks across the organization – we want to upgrade our projects to use the new project system in Visual Studio 2015. Previously, we would have needed a base project and then a separate project for each framework target (PCL, 4.5, 3.5, 4.5.2, etc), but in today's solutions we can have a single project output all of the assets we wish to support.

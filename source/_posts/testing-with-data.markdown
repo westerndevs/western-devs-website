@@ -5,7 +5,6 @@ date: 2015-11-19T14:02:10-05:00
 categories:
 comments: true
 authorId: kyle_baley
-alias: /testing-with-data/
 ---
 
 It's not a coincidence that this is coming off the heels of Dave Paquette's [post on GenFu](http://www.westerndevs.com/realistic-sample-data-with-genfu/) and Simon Timms' [post on source control for databases](http://www.westerndevs.com/source-control-for-sql-databases/) in the same way it was probably not a coincidence that Hollywood released three body-swapping movies in the 1987-1988 period (four if you include Big).

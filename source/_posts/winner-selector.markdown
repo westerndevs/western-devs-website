@@ -6,7 +6,6 @@ categories:
 excerpt: A quick tool for picking winners from a list
 comments: true
 authorId: simon_timms
-alias: /winner-selector/
 ---
 
 We constantly run into the problem of drawing winners for events. It is silly because it is such an easy problem and yet every time I'm left stumbling for a solution. Here is a really simple one:

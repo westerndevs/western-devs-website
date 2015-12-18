@@ -5,7 +5,6 @@ date: 2015-09-25T14:56:05-06:00
 comments: true
 authorId: tom_opgenorth
 originalurl: http://www.opgenorth.net/blog/2015/09/25/dont-let-crud-corruption-and-communism-kill-your-smartwatch/
-alias: /dont-let-crud-corruption-and-communism-kill-your-smart-watch/
 ---
 
 I have a [Samsung Gear Live](http://www.samsung.com/global/microsite/gear/gearlive_design.html). One day, all of sudden, it wouldn't turn on after I had it charging in it's little charging dock. I thought the problem was with the watch, and Google the symptoms led me to one of two conclusions:

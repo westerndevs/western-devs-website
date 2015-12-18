@@ -4,7 +4,6 @@ title:  "Copy Azure Blobs"
 date: 2015-12-03T23:01:28-07:00
 comments: true
 authorId: simon_timms
-alias: /copy-azure-blobs/
 ---
 
 Ever wanted to copy blobs from one Azure blob container to another? Me neither, until now. I had a bunch of files I wanted to use as part of a demo in a storage container and they needed to be moved over to a new container in a new resource group. It was 10 at night and I just wanted it solved so I briefly looked for a tool to do the copying for me. I failed to find anything. Ugh, time to write some 10pm style code, that is to say terrible code. Now you too can benefit from this. I put in some comments for fun.

@@ -17,7 +17,7 @@ url: http://www.westerndevs.com
 root: /
 permalink: /:category/:title/
 permalink_defaults:
-	categories: "moo"
+	categories: "uncategorized"
 
 # Directory
 source_dir: source
@@ -46,7 +46,7 @@ highlight:
   tab_replace:
 
 # Category & Tag
-default_category: uncategorized
+default_category: ''
 category_map:
 tag_map:
 

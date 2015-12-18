@@ -6,7 +6,6 @@ categories:
 comments: true
 authorId: david_wesst
 originalurl: http://blog.davidwesst.com/2015/09/Downgrading-Windows-Phone-10-Technical-Preview-The-Lowlights/
-alias: /downgrading-windows-phone-10-technical-preview-the-lowlights/
 ---
 
 {% img pull-left "http://blog.davidwesst.com/2015/09/Downgrading-Windows-Phone-10-Technical-Preview-The-Lowlights/windows-10-device-screen.jpg" %}

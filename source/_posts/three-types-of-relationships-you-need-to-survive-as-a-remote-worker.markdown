@@ -6,7 +6,6 @@ categories:
 comments: true
 authorId: james_chambers
 originalurl: http://jameschambers.com/2015/07/three-types-of-relationships-you-need-to-survive-as-a-remote-worker/
-alias: /three-types-of-relationships-you-need-to-survive-as-a-remote-worker/
 ---
 
 Getting through your work day on your own is easy enough.  Over the long run, though,  you're going to need to have some solid relationships in your life to help get you through the rough patches and pick you up from the falls, but more importantly, to be there when it's time to celebrate the wins.

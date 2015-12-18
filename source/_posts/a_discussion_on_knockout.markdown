@@ -5,7 +5,6 @@ date: 2015-09-10T22:26:34-06:00
 categories:
 comments: true
 authorId: simon_timms
-alias: /a_discussion_on_knockout/
 ---
 
 It is rare that a day passes on the Western Devs' slack channel that we don't have some lively discussion. Today was my day to rant about knockout.js. 

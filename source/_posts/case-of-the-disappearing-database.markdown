@@ -5,7 +5,6 @@ date: 2015-12-03 16:29:09
 comments: true
 authorId: dave_paquette
 originalurl: http://www.davepaquette.com/archive/2015/12/03/the-case-of-the-disappearing-database.aspx
-alias: /case-of-the-disappearing-database
 ---
 
 Something scary happened last week. The database backing my blog disappeared from my Azure account.

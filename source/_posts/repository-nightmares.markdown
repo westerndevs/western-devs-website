@@ -6,7 +6,6 @@ authorId: amir_barylko
 originalurl: http://orthocoders.com/blog/2015/06/23/repository-nightmares
 categories: 
 comments: true
-alias: /repository-nightmares/
 ---
 
 The ```Repository``` pattern is a famous (or infamous?) pattern that we can find in Martin Fowler's _[Patterns of Enterprise Application Architecture](http://martinfowler.com/eaaCatalog/repository.html)_.

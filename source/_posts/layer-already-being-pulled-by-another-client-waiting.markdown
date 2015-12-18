@@ -6,7 +6,6 @@ categories:
 comments: true
 authorId: simon_timms
 originalurl:
-alias: /layer-already-being-pulled-by-another-client-waiting/
 ---
 
 I've been seeing a lot of this frustrating error when working with docker today. It turns out that pressing ^C when docker is downloading layers is not a good thing. In my case I changed hotspots which broke the download so I hit ^C. There are a couple of issues on github, [here](https://github.com/docker/docker/issues/15603) and [here](https://github.com/docker/docker/issues/3115) but basically nobody cares that the docker experience in this scenario is crummy. If you encounter this error it seems the only way to solve it is to restart the machine on which docker is running. If you're running docker against a VM then restarting the machine seems to fix it. 

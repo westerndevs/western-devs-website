@@ -6,7 +6,6 @@ authorId: darcy_lussier
 originalurl: http://geekswithblogs.net/dlussier/archive/2015/06/21/165250.aspx
 categories:
 comments: true
-alias: /guidebook-mobile-app-for-conferences/
 ---
 
 For Prairie Dev Con Regina I decided to use [Guidebook][1] – a service that provides a mobile application for conferences and events along with online administration/content-management tools. If you're running any sort of conference/event, you should definitely check it out! Overall I was really happy with it, only a few minor gripes. Here's my review.

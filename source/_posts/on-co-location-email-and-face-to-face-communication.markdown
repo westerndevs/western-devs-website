@@ -6,7 +6,6 @@ categories:
 comments: true
 authorId: darcy_lussier
 originalurl: http://geekswithblogs.net/dlussier/archive/2015/11/20/168972.aspx
-alias: /on-co-location-email-and-face-to-face-communication/
 ---
 
 

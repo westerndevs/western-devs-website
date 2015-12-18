@@ -5,7 +5,6 @@ date: 2015-08-14 1:30:00
 authorId: dave_white
 originalurl: http://agileramblings.com/2015/08/14/getting-docker-running-on-windows-10/
 comments: true
-alias: /getting-docker-running-on-windows-10/
 ---
 Just a quick post about a couple things I've learned yesterday and today.
 

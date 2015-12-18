@@ -6,7 +6,6 @@ categories:
 comments: true
 authorId: james_chambers
 originalurl: http://jameschambers.com/2015/07/upgrading-a-real-world-mvc-5-application-to-mvc-6/
-alias: /upgrading-a-real-world-mvc-5-application-to-mvc-6/
 ---
 
 These are exciting times for web development on the Microsoft stack, but perhaps a little confusing as well. For many years the cycle of moving from one solution and project system to the next hasn't been overly complex. Sure, there have been breaking changes, I've felt those pains myself, but provided the framework you were using continued to live on, there was a reasonable migration path.

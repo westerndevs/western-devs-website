@@ -6,7 +6,6 @@ categories:
 comments: true
 authorId: james_chambers
 originalurl: http://jameschambers.com/2015/07/day-3-extracting-a-service-to-interact-with-azure-table-storage/
-alias: /extracting-a-service-to-interact-with-azure-table-storage/
 ---
 
 _In [this series][1] we are looking at the basic mechanics of interacting with cloud-based Table Storage from an MVC 5 Application, using the Visual Studio 2013 IDE and Microsoft Azure infrastructure._

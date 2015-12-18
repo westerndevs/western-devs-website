@@ -5,7 +5,6 @@ date: 2015-11-02T16:52:05-05:00
 comments: true
 authorId: lori_lalonde
 originalurl: http://solola.ca/mobile-app-testing-xamarin-test-cloud/
-alias: /mobile-app-testing-on-114-devices-in-20-minutes/
 ---
 
 My day started off just like any other at the office. I plugged in my machine, launched Visual Studio and opened up the latest Xamarin.Android project I had been working on for the client. On this particular day, I had to make a layout change to ensure that the weighting of two different layouts were updated based on a set of conditions. Sounds easy enough, right?

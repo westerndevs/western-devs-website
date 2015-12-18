@@ -6,7 +6,6 @@ categories:
 comments: true
 authorId: simon_timms
 originalurl: http://blog.simontimms.com/2015/07/30/casting-in-telerik-reports/
-alias: /casting-in-telerik-reports/
 ---
 
 Short post as I couldn't find this documented anywhere. But if you need to cast a value inside the expression editor inside a Telerik Report then you can use the conversion functions

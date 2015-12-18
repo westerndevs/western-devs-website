@@ -6,7 +6,6 @@ categories:
 comments: true
 authorId: david_wesst
 originalurl: http://blog.davidwesst.com/2015/11/Inspiration-from-MVP-Summit-2015/
-alias: /inspiration-from-mvp-summit-2015/
 ---
 
 ![me-mvp2015.jpg][1]

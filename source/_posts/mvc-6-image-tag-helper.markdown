@@ -6,7 +6,6 @@ categories:
 comments: true
 authorId: dave_paquette
 originalurl: http://www.davepaquette.com/archive/2015/07/01/mvc-6-image-tag-helper.aspx
-alias: /mvc-6-image-tag-helper/
 ---
 
 [ASP.NET 5 Beta 5](http://blogs.msdn.com/b/webdev/archive/2015/06/30/asp-net-5-beta5-now-available.aspx) shipped yesterday and it includes a new tag helper: the [Image tag helper](https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNet.Mvc.TagHelpers/ImageTagHelper.cs). While this is a very simple tag helper, it has special meaning for me. Implementing this tag helper was [my first pull request](https://github.com/aspnet/Mvc/pull/2516) submitted to the aspnet/mvc repo.

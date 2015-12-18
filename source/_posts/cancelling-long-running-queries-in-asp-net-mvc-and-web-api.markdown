@@ -6,7 +6,6 @@ categories:
 comments: true
 authorId: dave_paquette
 originalurl: http://www.davepaquette.com/archive/2015/07/19/cancelling-long-running-queries-in-asp-net-mvc-and-web-api.aspx
-alias: /cancelling-long-running-queries-in-asp-net-mvc-and-web-api/
 ---
 
 

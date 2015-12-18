@@ -5,7 +5,6 @@ date: 2015-12-16T19:06:57-07:00
 comments: true
 authorId: simon_timms
 originalurl: http://blog.simontimms.com/2015/12/17/sql-server-alias/
-alias: /sql-server-aliases/
 ---
 
 Ever run into that problem where everybody on your team is using a different database instance name and every time you check out you have to update the config file with your instance name?

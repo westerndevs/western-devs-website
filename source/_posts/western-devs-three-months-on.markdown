@@ -3,7 +3,6 @@ layout: post
 title: "Western Devs: Three Months On"
 date: 2015-09-04T13:32:55-04:00
 comments: true
-alias: /western-devs-three-months-on/
 ---
 
 Yesterday was the three month anniversary of our [first post][1] and while our *official* first post was on June 17, we're celebrating anyway. 

@@ -6,7 +6,6 @@ categories:
 comments: true
 authorId: james_chambers
 originalurl: http://jameschambers.com/2015/08/writing-custom-commands-for-dnx-with-asp-net-5-0/
-alias: /writing-custom-commands-for-dnx-with-asp-net-5-0/
 ---
 
 If you are a developer on the .NET stack, you've now got access to a great new extension to your development environment. DNX, or the .NET Execution Environment, is a powerful new extensibility point that you can leverage to build project extensions, cross-platform utilities, build-time extensions and support for automation. In this article I'll walk you through the process of building your own custom DNX command on top of ASP.NET 5.0.

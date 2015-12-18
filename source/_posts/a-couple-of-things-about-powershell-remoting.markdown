@@ -5,7 +5,6 @@ date: 2015-09-03T08:18:46-06:00
 categories:
 comments: true
 authorId: simon_timms
-alias: /a-couple-of-things-about-powershell-remoting/
 ---
 
 I couldn't find the answers to these questions readily anywhere on the internet so I thought I would write them down here for the good of mankind.

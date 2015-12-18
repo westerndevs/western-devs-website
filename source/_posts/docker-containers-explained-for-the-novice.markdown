@@ -5,7 +5,6 @@ date: 2015-09-04T08:19:31-06:00
 comments: true
 authorId: tom_opgenorth
 originalurl: http://www.opgenorth.net/blog/2015/09/02/docker-containers-explained-for-the-novice/
-alias: /docker-containers-explained-for-the-novice/
 ---
 Over at the [WesternDev](http://www.westerndevs.com/) "consortium" a random discussion broke out about _containers_: what are they, how are they different from virtual machines, and how do they work. While no means a "container expert", I have dabbled a bit and sought to add some clarity to the discussion. It seems that I made enough sense and so thought I would summarize the dicussion here.
 

@@ -6,7 +6,6 @@ categories:
 comments: true
 authorId: james_chambers
 originalurl: http://jameschambers.com/2015/07/getting-your-build-server-ready-for-vs-2015/
-alias: /getting-your-build-server-ready-for-vs-2015/
 ---
 
 If you're modernizing your project, one of the things you'll surely want to do is to make sure that your build server is upgraded to support VS 2015. Regardless of what CI engine you're using, there will be at least a little bit of effort required to get your project building again.

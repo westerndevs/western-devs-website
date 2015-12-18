@@ -6,7 +6,6 @@ comments: true
 authorId: simon_timms
 excerpt: "There are a bunch of options for migrating database schema, how can you be sure you've picked the right one?"
 originalurl:
-alias: /source-control-for-sql-databases/
 ---
 
 Discussion on the Western Devs slack channel today turned to how to manage the lifecycle of databases. This is something we've discussed in the past and today's rehash was brought to us by [D'Arcy](http://www.westerndevs.com/bios/darcy_lussier/) asking an innocent question about Entity Framework. As seems to happen on slack instead of helping five people immediately told him how wrong he was to be using EF in that way in the first place (we helped him later).  Database migrations are a hot topic and there are a lot of options in the space so I thought I'd put together a little flow chart to help people decide which option is the best for their scenario. 

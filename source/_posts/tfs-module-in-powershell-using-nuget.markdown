@@ -6,7 +6,6 @@ categories:
 comments: true
 authorId: dave_white
 originalurl: http://agileramblings.com/2015/07/23/building-a-tfs-2015-powershell-module-using-nuget/
-alias: /tfs-module-in-powershell-using-nuget/
 ---
 
 
