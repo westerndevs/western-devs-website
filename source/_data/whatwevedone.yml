@@ -76,7 +76,7 @@ code:
   
 apps:
   - title: SmartView
-    url: http://smartview.io
+    url: "http://smartview.io"
     image: smartview.png
     description: SmartView is a lean agile project management tool that combines the intuitive approach of user story maps with the productivity of kanban boards and cumulative user metrics to help your team work more effectively and efficiently.
     date: 2015-07-01

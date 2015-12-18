@@ -9,7 +9,7 @@
           <font class="ListLrgDateMonth"><%= moment(post.date).format('MMM').toUpperCase() %></font><BR>
           <font class="ListLrgDateDay"><%= moment(post.date).format('D') %></font>        
         </div>
-        <div class="ListLrgTxt">
+        <div class="ListLrgTxt recentPosts">
           <% var cat = post.categories.findOne({name: 'podcasts'}) %>
           <% var prefix = (cat ? "Podcast: " : "") %>
           <a class="posts" href="<%- url_for(post.path) %>">

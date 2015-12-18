@@ -1,12 +1,12 @@
 <!--FEATURE STARTS-->
 <div class="HomeBox4">
   <div class="HomeBox4Txt">
-    <div class="HomeFeatureImg"><img id="authorAvatar" style="height: 145px;" /></div>
-    <H3 id="authorName"></H3>
+    <div class="HomeFeatureImg"><a id="authorAvatarUrl" href="#"><img id="authorAvatar" style="height: 145px;" /></a></div>
+    <H3 id="authorName"><a href="#" id="authorNameUrl"></a></H3>
     <div id="authorBio">
     </div>
     <BR>
-    <a id="authorUrl" href="/bios">> LEARN MORE</a>
+    <a id="authorUrl" href="/whoweare">> LEARN MORE</a>
 
   </div>
   <a href="/whoweare"><img class="HomeBoxFeatureImg" src="images/bg_home_feature.png" alt="Feature" title="Feature" border="0"></a>   
@@ -21,15 +21,14 @@
 			var authorIndex = Math.floor((Math.random() * data.length));
 			var author = data[authorIndex];
 			if (author) {
-				$("#authorName").text(author.name);
-			console.log("Author: " + author.avatar);
+				$("#authorNameUrl").attr("href", "/bios/" + author.authorId).text(author.name);
 				if (author.avatar) {
 					$("#authorAvatar").attr("src", "/images/avatars/" + author.avatar);
 				} else if (author.gravatar) {
 					$("#authorAvatar").attr("src", "http://www.gravatar.com/avatar/" + author.gravatar + "?s=150");
 				}
 				$("#authorBio").html(author.bio);
-				$("#authorUrl").attr("href", "/whoweare");
+				$("#authorAvatarUrl").attr("href", "/bios/" + author.authorId);
 			}
 		});
 	});
