@@ -5,6 +5,7 @@ date: 2015-08-15T10:29:50-06:00
 categories:
 comments: true
 authorId: simon_timms
+alias: /change-management-the-missing-podcast/
 ---
 
 Some people are really good at computers. I am, apparently, not one of those people. This last Friday we had a fantastic podcast with

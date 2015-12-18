@@ -6,6 +6,7 @@ categories:
 comments: true
 authorId: darcy_lussier
 originalurl: http://geekswithblogs.net/dlussier/archive/2015/07/12/165614.aspx
+alias: /the-changing-winnipeg-technology-consulting-landscape/
 ---
 
 I've been noticing a few things lately here in Winnipeg:

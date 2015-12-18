@@ -7,6 +7,7 @@ excerpt: The world outside is just awesome.
 comments: true
 authorId: kyle_baley
 originalurl: http://kyle.baley.org/2015/07/outside-the-shack-or-how-to-be-a-gigolo/
+alais: /outside-the-shack-or-how-to-be-a-gigolo/
 ---
 
 Almost [four years ago](http://kyle.baley.org/2011/11/staying-home-for-the-night/), I waxed hillbilly on how nice it was to stick with what you knew, at least for side projects. At the time, my main project was Java and my side projects were .NET. Now, my main project is .NET and for whatever reason, I thought it would be nice to take on a side project.

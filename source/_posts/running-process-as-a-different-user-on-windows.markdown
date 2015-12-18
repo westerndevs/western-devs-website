@@ -7,6 +7,7 @@ excerpt: Running commands as another user on Windows can be a bit tricky, but th
 comments: true
 authorId: simon_timms
 originalurl: http://blog.simontimms.com/2015/08/27/running-process-as-a-different-user-on-windows/
+alias: /running-process-as-a-different-user-on-windows/
 ---
 
 As part of a build pipeline I'm working on the octopus deploy process needs to talk to the database using roundhouse as a different user from the one running the deployment. This is done because the database uses integrated AD authentication, which I quite like. If this build were running on Linux then it would be as simple as editing the sudoers file and calling the command using sudo. Unfortunately this is Windows and the command line has long been a secondary concern. 

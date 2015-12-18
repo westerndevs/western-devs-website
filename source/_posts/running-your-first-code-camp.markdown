@@ -7,6 +7,7 @@ excerpt: Thoughts on how to run a one-day, multi-track code camp
 comments: true
 authorId: darcy_lussier
 originalurl: http://geekswithblogs.net/dlussier/archive/2015/07/01/165460.aspx
+alias: /running-your-first-code-camp/
 ---
 
 Every now and then I get people asking me about how to run a conference. One thing I encourage is that people start small and build from there. I ran the Winnipeg Code Camp for a number of years before evolving it into Prairie Dev Con, and the foundation of the code camp is the base that Prairie Dev Con grew out of.

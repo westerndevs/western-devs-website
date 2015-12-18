@@ -6,6 +6,7 @@ categories:
 comments: true
 authorId: simon_timms
 originalurl:
+alias: /getting-started-with-elk/
 ---
 
 In my last post I talked about how I was setting up docker to experiment with [Elastic Search, Logstash and Kibana](https://deviantony.wordpress.com/2014/05/19/centralized-logging-with-an-elk-stack-elasticsearch-logback-kibana/). One of the challenges with microservices is that we have a lot of different processes all over the network. It would not be uncommon to have 30 or 40 services on many different machines. The services could be deployed within virtual machines or even docker containers. The same isolation of services that makes developing and evolving microservices easy makes logging very difficult. Being able to trace calls through services can be difficult and logs on VMs or in containers may disappear as these abstractions are recycled. We need to find some way to gather and aggregate these disparate logs. 

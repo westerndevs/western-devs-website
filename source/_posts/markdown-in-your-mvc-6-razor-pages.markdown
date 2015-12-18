@@ -5,6 +5,7 @@ date: 2015-11-02T17:02:42-05:00
 comments: true
 authorId: dave_paquette
 originalurl: http://www.davepaquette.com/archive/2015/11/02/markdown-in-your-mvc-6-razor-pages.aspx
+alias: /markdown-in-your-mvc-6-razor-pages/
 ---
 
 What? Markdown in your Razor code? Yeah...and it was totally easy to build too.

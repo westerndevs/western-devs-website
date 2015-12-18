@@ -6,6 +6,7 @@ categories:
 comments: true
 authorId: david_wesst
 originalurl: http://blog.davidwesst.com/2015/10/Custom-Tasks-for-Java-in-Visual-Studio-Code/
+alias: /custom-tasks-for-java-in-visual-studio-code/
 ---
 
 Now that I'm a Java Developer, I no longer worry about the bloating feeling I get when I need to open up the original Visual Studio. Now I worry about opening another instance of Eclipse. Don't get me wrong, Visual Studio and Eclipse are both great tools, but there are plenty of times where I don't need to bring a forklift just to move a single box.

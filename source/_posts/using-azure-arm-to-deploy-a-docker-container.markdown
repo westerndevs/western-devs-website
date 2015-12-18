@@ -5,6 +5,7 @@ date: 2015-08-24T11:13:00-08:00
 categories:
 comments: true
 authorId: dylan_smith
+alias: /using-azure-arm-to-deploy-a-docker-container/
 ---
 
 If you’ve been following the WesternDevs blog you’ll have seen a few posts lately about our adventures with infrastructure for our blog with Jekyll/Docker.

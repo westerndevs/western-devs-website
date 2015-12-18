@@ -6,6 +6,7 @@ categories:
 comments: true
 authorId: dave_paquette
 originalurl: http://www.davepaquette.com/archive/2015/11/15/realistic-sample-data-with-genfu.aspx
+alias: /realistic-sample-data-with-genfu/
 ---
 
 Last week, I had the opportunity to spend some time hacking with my good friend [James Chambers][1]. One of the projects we worked on is his brainchild: [GenFu][2]

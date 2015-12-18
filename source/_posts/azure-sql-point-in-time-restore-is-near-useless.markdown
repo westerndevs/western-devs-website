@@ -7,6 +7,7 @@ excerpt: Azure SQL Point In Time restores are so slow as to be near useless.
 comments: true
 authorId: simon_timms
 originalurl: http://blog.simontimms.com/2015/08/14/azure-point-in-time-restore-is-useless/
+alias: /azure-sql-point-in-time-restore-is-near-useless/
 ---
 
 About a year ago Microsoft rolled out Azure [point in time restore](http://azure.microsoft.com/blog/2014/10/01/azure-sql-database-point-in-time-restore/) on their SQL databases. The idea is that you can restore your database to any point in time from the last little while (how long ago you can restore from is a function of the database scale). This means that if something weird happened to your data 8 hours ago you can restore back to that point. It even support restoring databases that have recently been deleted.

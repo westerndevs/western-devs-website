@@ -6,6 +6,7 @@ categories:
 comments: true
 authorId: dave_paquette
 originalurl: http://www.davepaquette.com/archive/2015/09/20/custom-mvc-6-tag-helper-samples.aspx
+alias: /custom-mvc-6-tag-helper-samples/
 ---
 A group of us who have been exploring MVC 6 Tag Helpers have created a repository of [Tag Helper Samples](https://github.com/dpaquette/TagHelperSamples). The repository contains a set of real world samples that can help you understand how to build your own custom tag helpers.
 

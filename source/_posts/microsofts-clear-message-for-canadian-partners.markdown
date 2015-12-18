@@ -6,6 +6,7 @@ categories:
 comments: true
 authorId: darcy_lussier
 originalurl: http://geekswithblogs.net/dlussier/archive/2015/07/12/165620.aspx
+alias: /microsofts-clear-message-for-canadian-partners/
 ---
 
 I attended the Microsoft Worldwide Partner Conference in 2011 and 2012. Even 3-4 years ago we were hearing about the changing focus at Microsoft. While 2000-2008 was all about winning the platform war (.NET vs Java), 2008 had ushered in the cloud era in the Microsoft world. While Azure's platform as a service seemed front and center, WPC started beating the Office 365 drums. The message from Microsoft was starting to take shape – partners needed to get on board with where Microsoft was going with Azure and Office 365. Those that did would keep the attention and support of Microsoft.

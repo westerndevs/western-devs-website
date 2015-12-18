@@ -4,6 +4,7 @@ title:  "Doing Snapshots on Azure Virtual Machines"
 date: 2015-11-03T17:30:00-08:00
 comments: true
 authorId: dylan_smith
+alias: /azure-snapshots/
 ---
 
 I've always been frustrated that I can't do snapshots when I'm using VM's in Azure. Especially when I'm developing some deployment automation, I like to be able to try something out - and when it inevitably screws up - reset the VM to a snapshot and try again. 

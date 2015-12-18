@@ -6,6 +6,7 @@ categories:
 comments: true
 authorId: david_wesst
 originalurl: http://blog.davidwesst.com/2015/10/Using-Java-Build-Script-Tasks-in-Visual-Studio-Code/
+alias: /using-java-build-script-tasks-in-visual-studio-code/
 ---
 
 I [previously shared](http://www.westerndevs.com/custom-tasks-for-java-in-visual-studio-code/) how I setup a custom problem matching in Visual Studio Code for compiling Java  and displaying the errors inline with a custom problem matcher.

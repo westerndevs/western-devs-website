@@ -6,6 +6,7 @@ categories:
 comments: true
 authorId: dave_paquette
 originalurl: http://www.davepaquette.com/archive/2015/09/01/why-gulp.aspx
+alias: /why-gulp/
 ---
 
 I recently made some updates to my blog post on [How to Use Gulp in Visual Studio][1]. I don't usually go back and update old blog posts, but this one receives a fair amount of daily traffic. There was a minor mistake in the way I had setup my gulp watch and I wanted to fix that to avoid confusion. I also get a lot of questions about why using a task runner like Gulp is a 'better approach' than the way things are done in ASP.NET 4.x. I have addressed some of those questions in the original post but I will go into more detail here.

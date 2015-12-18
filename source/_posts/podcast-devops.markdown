@@ -34,7 +34,7 @@ music:
         title: Doctor Man
         artist: Johnnie Christie and the Boats
         url: https://www.youtube.com/user/jwcchristie
-
+alias: /whatwevesaid/podcast-devops/
 ---
 
 ### Synopsis

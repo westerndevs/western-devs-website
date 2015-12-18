@@ -6,6 +6,7 @@ authorId: dave_paquette
 originalurl: http://www.davepaquette.com/archive/2015/06/03/mvc-6-cache-tag-helper.aspx
 comments: true
 categories:
+alias: /mvc-6-cache-tag-helper/
 ---
 
 In this post in my series exploring the ASP.NET 5 MVC 6 tag helpers, I will dig into the Cache Tag Helper. The Cache Tag Helper is a little different than most of the other tag helpers we talked about because it doesn't target a standard HTML tag. Instead, it wraps arbitrary content and allows those contents to be cached in memory based on the parameters you specify.

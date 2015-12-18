@@ -6,6 +6,7 @@ categories:
 comments: true
 authorId: donald_belcham
 originalurl: http://www.igloocoder.com/2849/microservices-a-gentle-introduction
+alias: /microservices-a-gentle-introduction/
 ---
 
 This past winter I started working on a project that was being architected with a mind towards using microservices. Prior to this I'd only seen the term 'microservices' floating around in the ether and really hadn't paid much attention to it. I wanted to share what we did and what I learned through the process and my subsequent research. That experience and research has led me to one belief: the microservice topic is massive. This post is going to be a kick-off to a series that will cover that material. With that, let's dig in.

@@ -6,6 +6,7 @@ authorId: darcy_lussier
 originalurl: http://geekswithblogs.net/dlussier/archive/2015/06/14/165100.aspx
 categories:
 comments: true
+alias: /thoughts-on-building-making/
 ---
 
 I was recently gifted a smoker from my awesome Prairie Dev Con speakers – an electric Bradley 4 rack smoker! Upon reading the instructions, I realized that due to the "electronic" nature of the device, it can't just be left outside to the elements like a BBQ can. So I started looking around at custom enclosures people were building and got some ideas. Now, I'm *not* what you would call a handy-man type of guy. I didn't grow up doing carpentry projects or working on cars or anything like that, but regardless yesterday I built it. Here's what it looks like (still needs stain and one more piece of plywood for the back)…

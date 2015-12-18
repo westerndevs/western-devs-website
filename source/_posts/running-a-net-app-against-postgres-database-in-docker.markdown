@@ -5,6 +5,7 @@ date: 2015-10-25T13:24:14-04:00
 categories:
 comments: true
 authorId: kyle_baley
+alias: /running-a-net-app-against-postgres-database-in-docker/
 ---
 
 Some days/weeks/time ago, I did a presentation at MeasureUP called "Docker For People Who Think Docker Is This Weird Linux Thing That Doesn't Impact Me". The slides for that presentation can be found [here](http://www.slideshare.net/KyleBaley/docker-for-people-who-have-heard-of-docker-but-think-its-just-this-weird-linux-thing-that-doesnt-impact-me) and the sample application [here](https://github.com/stimms/AzureCodeCamp).

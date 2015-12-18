@@ -6,6 +6,7 @@ categories:
 comments: true
 authorId: dave_white
 originalurl: http://agileramblings.com/2015/07/26/using-powershell-to-set-your-azure-sql-firewall-rule/
+alias: /using-powershell-to-set-your-azure-sql-firewall-rule/
 ---
 
 If you've read a couple of my recent blog posts, you'll see that I've been working in PowerShell a lot lately. I've also been working with Azure a lot lately as well and I'm getting opportunities to put those two things together.

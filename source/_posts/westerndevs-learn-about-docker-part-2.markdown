@@ -5,6 +5,7 @@ date: 2015-09-08 1:30:00
 authorId: dave_white
 originalurl: 
 comments: true
+alias: /westerndevs-learn-about-docker-part-2/
 ---
 
 ##### Dislaimer

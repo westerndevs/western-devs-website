@@ -5,6 +5,7 @@ date: 2015-08-11 21:09:40 -0600
 comments: true
 authorId: donald_belcham
 originalurl: http://www.igloocoder.com/2881/microservices-and-isolation
+alias: /Microservices-and-isolation/
 ---
 
 In my [first post][8] I made reference to the idea of microservice isolation a number of times. I figured that this is as good of a topic as any to start with. The concept of isolation and boundaries is core to how you build your microservices. Let's leave boundaries for another post because it's a complicated and deep concept by itself.
