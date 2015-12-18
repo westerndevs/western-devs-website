@@ -11,6 +11,8 @@ alias: /rethinking-our-practices-with-the-mvc-framework/
 
 We get set in our ways, don't we? It's funny how the sharper and more confident we get with our frameworks and the tooling we employ to work with them, we also get a little more attached to our way of doing things. And then along comes a major version change, ripe with breaking changes and new bits to twiddle and we're left saying, "But, that's not how we've always done it!".
 
+<!--more-->
+
 Case in point: **service injection into views**. In ASP.NET's MVC Framework 6 we get this new concept which, if we're going to accept, requires that we relax on our thinking of how we've always done things.
 
 > My friends [Dave Paquette][1], [Simon Timms][2] and [myself][3] have been ruffling through a few of these types of changes, and Simon did a great job of illustrating how we used to get data into our views, and how we might do it in [tomorrow's MVC][4].  For a walkthrough of service injection I highly recommend his article on it.

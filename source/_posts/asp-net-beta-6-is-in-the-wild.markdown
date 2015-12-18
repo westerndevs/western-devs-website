@@ -14,6 +14,8 @@ The Beta 6 release of ASP.NET 5 is now available. Run the following command to u
 
 After that, a "dnvm list" command will give you the following:
 
+<!--more-->
+
 ![image][1]
 
 You can also upgrade dnvm itself with the following command:

@@ -12,6 +12,8 @@ If you didn't already know, [Docker](https://www.docker.com) is pretty cool. Not
 
 This post is an example of Docker being fantastic and should be considered a warm-up to Docker.
 
+<!--more-->
+
 Although I'm talking Tomcat and Eclipse, this idea can be used with pretty much any combination of technologies available through Docker and your development environment of choice.
 
 ## Context

@@ -11,6 +11,8 @@ alias: /my-favourite-online-dev-tools/
 
 I'm talking about online or web-based tools, not toolboxes. So entire development suites like Cloud9 or Visual Studio Online are off the table because they are full tool suites. These tools are simple, but continually help me out in a pinch.
 
+<!--more-->
+  
 Make sure to share your favourite tools in the comments below so I can learn and grow from your knowledge. 
 
 ## [JSONLint](http://jsonlint.com)

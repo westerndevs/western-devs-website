@@ -1,4 +1,6 @@
 @import 'nib'
+@import '_partial/syntax'
+@import 'font-awesome/index'
 
 @font-face
   font-family 'open_sansbold'
@@ -268,6 +270,14 @@ A.subposts:LINK, A.subposts:ACTIVE, A.subposts:VISITED, A.subposts:HOVER
   background-position center
   background-size cover
   margin 0px 10px 0px 0px
+
+.HomeFeatureImg img
+  height 145px
+  max-width 145px
+  -webkit-border-radius 8px
+  -moz-border-radius 8px
+  border-radius 8px
+  
 
 .SubpageBoxFull, .SubpageBoxSubLrg, .SubpageBoxSubSm
   float left
@@ -581,4 +591,30 @@ li
 .podcast-content h3:not(:first-child), .podcast-content h4:not(:first-child)
   padding-top 10px
   
- @import '_partial/syntax'
+.pull-left
+  float left
+  padding-right 20px
+
+.pull-right
+  float right
+  padding-left 20px
+
+.clearfix
+  clear both
+
+.footnote
+  font-size: 0.75rem;
+
+.notice
+  margin: 1.5em 0;
+  padding: .5em 1em;
+  text-indent: 0;
+  font-size: 14px;
+  font-size: 0.875rem;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background-color: #efefef;
+
+.notice p
+  margin 0

@@ -11,6 +11,8 @@ alias: /adventures-in-windows-iot-core-for-raspberry-pi-2/
 
 Ever since I won a Raspberry Pi 2 at Microsoft Ignite I've been trying to figure out what to do with it. This week I decided to look at the Windows 10 IoT Core for Raspberry Pi 2 and see what I could do to get something up and running.
 
+<!--more-->
+  
 I'm not going to re-hash how to set up the device or how to configure your development environment; there's already some great articles that cover this which I link to further below. But I will share some first impressions which may prep you for working with the platform.
 
 Windows IoT Core (WIoTC) is, as their own website states, a work in progress; a very early work in progress. Compared to Raspian, which has a desktop-like GUI complete with windows, WIoTC seems very primitive. You're very limited in what information you can get (I couldn't get the MAC address of the Raspberry Pi 2 from the WIoTC interface) and the suggested way to manage your device seems to be through PowerShell via another PC on the same network.

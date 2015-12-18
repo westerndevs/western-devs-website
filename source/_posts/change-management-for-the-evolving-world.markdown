@@ -11,6 +11,8 @@ alias: /change-management-for-the-evolving-world/
 
 I've had this blog post percolating for a while. When I started it I was working for a large company that has some internal projects I was involved with deploying. I came to the project with a background in evolving projects rapidly. It has been my experience that people are not upset that software doesn't work so much as they are upset that when they discover a bug that it isn't fixed promptly.
 
+<!--more-->
+
 ```
 Velocity is the antidote to toxic bugs
 ```

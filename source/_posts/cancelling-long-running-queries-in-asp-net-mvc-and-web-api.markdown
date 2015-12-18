@@ -12,6 +12,8 @@ alias: /cancelling-long-running-queries-in-asp-net-mvc-and-web-api/
 
 A lot has been written about the importance of using [async controller actions][1] and [async queries][2] in MVC and Web API when dealing with long running queries. If done properly, it can hopefully [improve throughput][3] of your ASP.NET applications. While async won't solve the problem of your database being a bottleneck, it can help to ensure that your web server is still able to process other smaller/shorter requests. It will especially ensure requests that do not require access to that database can be processed in a timely fashion.
 
+<!--more-->
+
 There is one very important aspect that is often missed in the tutorials that talk about async and that is cancellation.
 
 > NOTE: For the purpose of this article, I am referring to long running queries in terms of read queries (those that are returning data but not modifying data). Cancelling queries that have modified data might not be a good choice for your application. Do you really want to cancel a Save because the user navigated to another page in your application? Maybe you do but probably not. Aside from the data issue, this also won't likely help performance because the database server will need to rollback that transaction which could be a costly operation.

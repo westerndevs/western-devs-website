@@ -17,7 +17,7 @@
 		<div class="SubpageBoxSubLrgContent">
 		    <%- partial('_partial/post/title', { title: page.title }) %>
 
-		    <div style='font-weight:bold'><b><%= page.description%></b></div>
+		    <div style='font-weight:bold'><b><%= page.excerpt%></b></div>
 		    <div style="margin-bottom: 8px;">Published on <%=moment(page.date).format('dddd, MMMM D, YYYY')%></div>
 		    <% if (page.podcast.libsynId) { %>
 		    <div>

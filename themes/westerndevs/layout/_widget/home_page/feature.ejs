@@ -1,16 +1,36 @@
 <!--FEATURE STARTS-->
 <div class="HomeBox4">
   <div class="HomeBox4Txt">
-    <div class="HomeFeatureImg" style="background-image: url('images/DarcyLussier.jpg'); ">&nbsp;</div>
-    <H3>D'Arcy Lussier</H3>
-    D’Arcy Lussier is an experienced technology professional with 15 years of experience architecting and developing applications. He is a Microsoft Certified Professional Developer and has been awarded a Microsoft Most Valuable Professional award in ASP.NET from 2008 through 2015...
+    <div class="HomeFeatureImg"><img id="authorAvatar" style="height: 145px;" /></div>
+    <H3 id="authorName"></H3>
+    <div id="authorBio">
+    </div>
     <BR>
-    <a href="">> LEARN MORE</a>
+    <a id="authorUrl" href="/bios">> LEARN MORE</a>
 
   </div>
-  <a href="/whatwevedone"><img class="HomeBoxFeatureImg" src="images/bg_home_feature.png" alt="Feature" title="Feature" border="0"></a>   
+  <a href="/whoweare"><img class="HomeBoxFeatureImg" src="images/bg_home_feature.png" alt="Feature" title="Feature" border="0"></a>   
   
 </div>
 <!--FEATURE ENDS-->
 
-
+<script>
+	$(document).ready(function() {
+		$.getJSON( "/api/authorList.json", function( data ) {
+			var numberOfAuthors = data.length;
+			var authorIndex = Math.floor((Math.random() * data.length));
+			var author = data[authorIndex];
+			if (author) {
+				$("#authorName").text(author.name);
+			console.log("Author: " + author.avatar);
+				if (author.avatar) {
+					$("#authorAvatar").attr("src", "/images/avatars/" + author.avatar);
+				} else if (author.gravatar) {
+					$("#authorAvatar").attr("src", "http://www.gravatar.com/avatar/" + author.gravatar + "?s=150");
+				}
+				$("#authorBio").html(author.bio);
+				$("#authorUrl").attr("href", "/bios/" + author.authorId);
+			}
+		});
+	});
+</script>

@@ -11,6 +11,8 @@ alias: /custom-tasks-for-java-in-visual-studio-code/
 
 Now that I'm a Java Developer, I no longer worry about the bloating feeling I get when I need to open up the original Visual Studio. Now I worry about opening another instance of Eclipse. Don't get me wrong, Visual Studio and Eclipse are both great tools, but there are plenty of times where I don't need to bring a forklift just to move a single box.
 
+<!--more-->
+  
 This is why I love Visual Studio Code.
 
 That being said, we don't have native rich support for Java in Code. We _do_ have syntax and bracket matching for Java, I wanted to see if I could compile and possibly display any errors directly in code.

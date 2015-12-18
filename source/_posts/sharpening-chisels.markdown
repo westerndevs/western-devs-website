@@ -11,6 +11,8 @@ alias: /sharpening-chisels/
 
 I'm working on a cedar garden gate for our back yard. It's all mortise and tenon joinery which means I make a lot of use of my [Narex][1] [bench][2] and [mortise][3] chisels. The more you use chisels the duller they get. Dull chisels cause you two problems; you can't be as precise with them, and you run the very real risk of amputating a finger. As much as I have two of each finger I really do want to keep all eleven of them. Getting tight fitting tenons requires fine tuning of their thicknesses by the thousandth of an inch. Both of those fly directly in the face of what dull chisels are good at…so tonight was all about sharpening them up.
 
+<!--more-->
+
 There are a number of different ways that you can sharpen edged tools (chisels and hand planes). There are machines, you can use water stones, Arkansas stones, diamond stones or, my personal choice, the "[Scary Sharp Technique][4]". For those of you that couldn't be bothered click that link and read through the original usenet posting on the topic in detail (and who can blame you, this is a software blog after all) here's the TL;DR; for Scary Sharp.
 
 * Sharpening is done with wet dry automotive sand paper, not stones

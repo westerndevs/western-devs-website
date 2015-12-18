@@ -10,6 +10,8 @@ alias: /docker-and-western-devs/
 
 In a month, I'll be attempting to hound my share of glory at [MeasureUP](http://measureup.io) with a talk on using Docker for people who may not think it impacts them. In it, I'll demonstrate some uses of Docker today in a .NET application. As I prepare for this talk, there's one thing we [Western Devs](http://www.westerndevs.com) have forgotten to talk about. Namely, some of us are already using Docker regularly just to post on the site.
 
+<!--more-->
+
 Western Devs uses Jekyll. Someone suggested it, I tried it, it worked well, decision was done. Except that it doesn't work well on Windows. It's not officially supported on the platform and while there's a [good guide](http://jekyll-windows.juthilo.com/) on getting it running, we haven't been able to do so ourselves. Some issue with a gem we're using and Nokogiri and lib2xml and some such nonsense.
 
 So in an effort to streamline things, [Amir Barylko](http://www.westerndevs.com/bios/amir_barylko/) create a [Docker image](https://github.com/westerndevs/western-devs-website/blob/source/Dockerfile). It's based on the Ruby base image (version 2.2). After grabbing the base image, it will:

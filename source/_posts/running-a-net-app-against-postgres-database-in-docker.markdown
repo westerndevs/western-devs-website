@@ -10,6 +10,8 @@ alias: /running-a-net-app-against-postgres-database-in-docker/
 
 Some days/weeks/time ago, I did a presentation at MeasureUP called "Docker For People Who Think Docker Is This Weird Linux Thing That Doesn't Impact Me". The slides for that presentation can be found [here](http://www.slideshare.net/KyleBaley/docker-for-people-who-have-heard-of-docker-but-think-its-just-this-weird-linux-thing-that-doesnt-impact-me) and the sample application [here](https://github.com/stimms/AzureCodeCamp).
 
+<!--more-->
+  
 ### Using the sample app with PostgreSQL
 
 The sample application is just a plain ol' .NET application. It is meant to showcase different ways of doing things. One of those things is data access. You can configure the app to access the data from SQL storage, Azure table storage, or in-memory. By default, it uses the in-memory option so you can clone the app and launch it immediately just to see how it works.
@@ -92,21 +94,22 @@ Now we're ready to launch the container:
 Breaking this down:
 
 <style>
-    .docker-breakdown td {
+    .docker-table+table td {
         padding: 8px;   
         border: 1px solid #ccc;
     }
-    .docker-breakdown code {
-        font-size: 14px;
-    }
-    .docker-breakdown td:nth-child(1) {
+    .docker-table+table td:nth-child(1) {
         width:220px;
     }
-    .docker-breakdown tr:nth-child(even) td {
+    .docker-table+table tr:nth-child(even) td {
         background-color: #eee;
     }
 </style>
-{: .docker-breakdown }
+
+<div class="docker-table"></div>
+
+|   |   |
+|---|---|
 | `docker run` | Runs a docker container from an image |
 | `--name my-postgres` | The name we give the container to make it easier for us to work with. If you leave this off, Docker will assign a relatively easy-to-remember name like "floral-academy" or "crazy-einstein". You also get a less easy-to-remember identifier which works just as well but is...less...easy-to-remember |
 | `-e POSTGRES_PASSWORD=moo` | The `-e` flag passes an environment variable to the container. In this case, we're setting the password of the default postgres user |

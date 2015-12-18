@@ -11,6 +11,8 @@ alias: /launching-an-asp-net-5-application-from-visual-studio-2015/
 
 If you are trying to use any DNX (DotNet Execution) runtime other than dnx451 (i.e. dnx452, dnx46) you will run into the following error when running the application from Visual Studio 2015, when used with the initial release of the Beta 6 tooling:
 
+<!--more-->
+
 > **The current runtime target framework is not compatible with 'YourWebApplication'.**
 > 
 > Current runtime Target Framework: 'DNX,Version=v4.5.1 (dnx451)'  

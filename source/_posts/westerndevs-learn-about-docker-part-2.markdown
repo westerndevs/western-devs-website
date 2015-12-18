@@ -11,6 +11,8 @@ alias: /westerndevs-learn-about-docker-part-2/
 ##### Dislaimer
 This blog post serves two purposes: Act as a historical record of a conversation with a bunch of interesting links in context, and to share a bit of an insider look at how conversations happen in the WesternDevs slack channels.
 
+<!--more-->
+  
 ### Introduction
 As Tom mentioned in his post about [Docker containers for Novices][1] which I'm considering Part 1 of this post, the WesternDevs had a conversation about how Docker containers work. A good portion of our group has a lot of experience in the Windows world and not a lot of *nix experience which is where containers seem to have been born from. 
 

@@ -10,6 +10,8 @@ date: 2015-11-06T19:19:27-07:00\
 
 Some time ago I lost a podcast recording because I stored it in /tmp. It is a bad habit but I tend to store things that I'm not going to need in the long run in /tmp. It is a throw back to my real Linux days when storage was expensive and I might not be back on that machine for a while to figure out why all the space was used. 
 
+<!--more-->
+  
 By default OSX deletes the contents of /tmp when it is 3 days old, or rather it hasn't been accessed for 3 days. This is found by using `find -atime +3` (you can read all about that in the man page for find). In order to avoid losing any more important things I decided to change this from 3 days to 90 days. To do this you'll want to edit the /etc/defaults/periodic.conf file and find the variable called `daily_clean_temps_days`. In my file it looks like
 
 {% codeblock lang:bash %}

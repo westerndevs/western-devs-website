@@ -10,6 +10,8 @@ alias: /configuring-features-for-many-teamprojects-in-tfs-2015/
 One of the problems that comes with having multiple Team Project Collections and multiple Team Projects (in TFS) is the administrative burden required to upgrade or manage all of these projects. 
 Security permissions, WIT modifications, configuration are all a 0..n problem so the more Team Projects you have, the more work it is, out of the box, to manage your TFS implementation.
 
+<!--more-->
+
 There are numerous people and projects who have stepped up to help reduce this burden with applications, PowerShell scripts, and techniques for getting more work done with less effort.
 
 One of those projects is [Features4tfs][1], a command line application project that builds on a couple blog posts to make feature configuration easier when dealing with multiple TeamProjects.

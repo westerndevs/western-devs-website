@@ -11,6 +11,8 @@ alias: /casting-in-telerik-reports/
 
 Short post as I couldn't find this documented anywhere. But if you need to cast a value inside the expression editor inside a Telerik Report then you can use the conversion functions
 
+<!--more-->
+
 * CBool
 * CDate
 * CDbl

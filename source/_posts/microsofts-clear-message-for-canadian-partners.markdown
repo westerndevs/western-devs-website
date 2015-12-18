@@ -11,6 +11,8 @@ alias: /microsofts-clear-message-for-canadian-partners/
 
 I attended the Microsoft Worldwide Partner Conference in 2011 and 2012. Even 3-4 years ago we were hearing about the changing focus at Microsoft. While 2000-2008 was all about winning the platform war (.NET vs Java), 2008 had ushered in the cloud era in the Microsoft world. While Azure's platform as a service seemed front and center, WPC started beating the Office 365 drums. The message from Microsoft was starting to take shape – partners needed to get on board with where Microsoft was going with Azure and Office 365. Those that did would keep the attention and support of Microsoft.
 
+<!--more-->
+
 In a discussion with a Microsoft Canada Tele-Managed Partner Manager within the last year, I heard this message refined and pointed – Yes there were sales support dollars available but only for initiatives/opportunities where there was a clear cloud component. Have a large custom .NET app dev opportunity that would be deployed on premise to the client's infrastructure? Great, good luck, but not the marching orders Redmond gave its sales teams.
 
 This year, if there was any doubt where Microsoft has moved its focus, this tweet should put those doubts to rest.

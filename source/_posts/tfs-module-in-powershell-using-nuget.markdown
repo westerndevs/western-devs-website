@@ -12,6 +12,8 @@ alias: /tfs-module-in-powershell-using-nuget/
 
 *Update:* Unwittingly, I hadn’t tested my Nuget approach on a server with no Visual Studio or TFS installations on it and I’ve missed a couple assemblies that are required when loading the TFS Object model. I’ve updated the line of code in my samples, but just in case, here is the new version of the line in question.
 
+<!--more-->
+
 {% codeblock lang:powershell %}
 $net45Dlls = $allDlls | ? {$_.PSPath.Contains("portable") -ne $true } | ? {$_.PSPath.Contains("resources") -ne $true } | ? { ($_.PSPath.Contains("net45") -eq $true) -or ($_.PSPath.Contains("native") -eq $true) -or ($_.PSPath.Contains("Microsoft.ServiceBus") -eq $true) }
 {% endcodeblock %}

@@ -10,6 +10,8 @@ alias: /windows-server-containers-are-coming-whether-you-like-it-or-not/
 
 After posting giddily on [Docker in the Windows world](http://www.westerndevs.com/docker-is-coming-whether-you-like-it-or-not/) recently, Microsoft released Windows Server 2016 Technical Preview 3 with container support. I've had a chance to play with it a little so let's see where this goes...
 
+<!--more-->
+
 ### It's a preview
 
 Like movie previews, this is equal parts exciting and frustrating. Exciting because you get a teaser of things to come. Frustrating because you just want it to work *now*. And extra frustration points for various technical issues I've run into that, I hope, are due to the "technical preview" label.

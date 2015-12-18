@@ -10,6 +10,8 @@ alias: /Microservices-and-isolation/
 
 In my [first post][8] I made reference to the idea of microservice isolation a number of times. I figured that this is as good of a topic as any to start with. The concept of isolation and boundaries is core to how you build your microservices. Let's leave boundaries for another post because it's a complicated and deep concept by itself.
 
+<!--more-->
+
 It doesn't matter who you listen to or read, microservice isolation is going to be in the content. Why are they consistently bringing it up? Isolation is at the heart of microservices. A microservice is meant to be architected, created, deployed, maintained and retired without affecting any other microservice. You can't do any, let alone all, of that without good isolation.
 
 ##  Databases

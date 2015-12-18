@@ -9,11 +9,12 @@ originalurl: http://blog.davidwesst.com/2015/09/Downgrading-Windows-Phone-10-Tec
 alias: /downgrading-windows-phone-10-technical-preview-the-lowlights/
 ---
 
-{: .fa .pull-left}
-![windows-10-device-screen.jpg][1]  
+{% img pull-left "http://blog.davidwesst.com/2015/09/Downgrading-Windows-Phone-10-Technical-Preview-The-Lowlights/windows-10-device-screen.jpg" %}
 
 I have to say that I really did like the Windows Phone 10 technical preview. I think that the new phone OS is heading the right direction, and that if you have a secondary device or want to be _"hardcore"_ , you should install it and check it out.
 
+<!--more-->
+  
 I'll talk about that in a future post, for now I want to share the steps I took to downgrade my Lumia 920 from the Windows 10 Technical Preview back to Windows Phone 8.1.
 
 Not being a phone expert, the idea of downgrading incorrectly was pretty scary proposition as I didn't want to ruin it nor lose any of my data. But, this weekend I managed to find the guidance from [windowscentral.com][2] I needed and it wasn't nearly as scary as I thought it would be.
@@ -44,18 +45,15 @@ For a free service it's great, but man does it burn when something goes wrong.
 
 ## The Point
 
-{: .fa .pull-right}
-![onedrive-scortched.png][3]  
+{% img pull-right "http://blog.davidwesst.com/2015/09/Downgrading-Windows-Phone-10-Technical-Preview-The-Lowlights/onedrive-scortched.png" %}
 
 Outside of the lowlights listed above, I liked the downgrading experience. It was simple, intuitive, and will encourage me to take part in future technical preview programs from Microsoft.
 
 Just make sure you back up everything before you do.
 
-{: .clearfix}
+<div class="clearfix"> </div>
 – 
 Thanks for Playing. ~ DW
 
-[1]: http://blog.davidwesst.com/2015/09/Downgrading-Windows-Phone-10-Technical-Preview-The-Lowlights/windows-10-device-screen.jpg
 [2]: http://www.windowscentral.com/roll-back-windows-phone-81-windows-10-preview
-[3]: http://blog.davidwesst.com/2015/09/Downgrading-Windows-Phone-10-Technical-Preview-The-Lowlights/onedrive-scortched.png
   

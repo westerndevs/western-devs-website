@@ -11,6 +11,8 @@ alias: /mvc-6-image-tag-helper/
 
 [ASP.NET 5 Beta 5](http://blogs.msdn.com/b/webdev/archive/2015/06/30/asp-net-5-beta5-now-available.aspx) shipped yesterday and it includes a new tag helper: the [Image tag helper](https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNet.Mvc.TagHelpers/ImageTagHelper.cs). While this is a very simple tag helper, it has special meaning for me. Implementing this tag helper was [my first pull request](https://github.com/aspnet/Mvc/pull/2516) submitted to the aspnet/mvc repo.
 
+<!--more-->
+
 So, what does this tag helper do? If you add the asp-file-version=”true” attribute to an image tag, the tag helper will automatically append a version tag to the image file path. This allows you to aggressively cache an image without worrying about updated images not being sent to the client.
 
 Using it is simple. Just add asp-file-version=”true” to a standard img tag:

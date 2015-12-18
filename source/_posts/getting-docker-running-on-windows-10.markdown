@@ -11,6 +11,8 @@ Just a quick post about a couple things I've learned yesterday and today.
 
 Docker is now available to run on Windows 10. I'm not going to go into the details as they are better covered in other posts, but I'll share the steps I followed to get Docker running on my Windows 10 laptop.
 
+<!--more-->
+
 ![Docker-Windows-10][1]
 
 ### Visit David Wesst's Blog post (cross-posted to Western Devs)

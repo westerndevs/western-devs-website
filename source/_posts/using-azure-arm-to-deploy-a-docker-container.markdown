@@ -10,6 +10,8 @@ alias: /using-azure-arm-to-deploy-a-docker-container/
 
 If you’ve been following the WesternDevs blog you’ll have seen a few posts lately about our adventures with infrastructure for our blog with Jekyll/Docker.
 
+<!--more-->
+
   * [Docker on Windows 10 Problems](http://www.westerndevs.com/docker-on-windows-10-problems/)
   * [Getting Docker Running on Windows 10](http://www.westerndevs.com/getting-docker-running-on-windows-10/)
   * [Docker and Western Devs](http://www.westerndevs.com/docker-and-western-devs/)

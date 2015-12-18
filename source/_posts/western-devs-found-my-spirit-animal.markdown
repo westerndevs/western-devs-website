@@ -10,6 +10,8 @@ alias: /western-devs-found-my-spirit-animal/
 
 What you're looking at is a lobster, in a ditch, drinking scotch, whose mouth is on fire. That is my spirit animal that was created on the [Twitter-verse](https://twitter.com/CyrenaFriesen/status/627209542816829440) through the power of the [Western Devs](http://www.westerndevs.com), which I would not be a part of had I not become an [Microsoft Edge MVP](https://mvp.microsoft.com/en-us/PublicProfile/4032619?fullName=David%20%20Wesst) with Microsoft.
 
+<!--more-->
+
 ![](http://blog.davidwesst.com/2015/08/Western-Devs-Found-My-Spirit-Animal/lobster-fire-mouth.png)
 
 This amazing drawing represents a large number of "hilarious" stories that come from many conferences and adventures that have come through the MVP Program. Although I'm a bit late with the post, after being renewed this past April, I have had the chance to reflect on my five years and appreciate being a part of these communities for so long now.

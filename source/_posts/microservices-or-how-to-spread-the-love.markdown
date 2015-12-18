@@ -11,6 +11,8 @@ alias: /microservices-or-how-to-spread-the-love/
 
 For some time, people have been talking about [microservices](https://www.nginx.com/blog/introduction-to-microservices/). I say "some time" for two reasons: 1) It's a good opening line, and 2) I have no clue how long people have been talking about them. I just heard the term for the first time about four months ago. So if I start talking about them now, while I still know virtually nothing, I can get at least two more future posts on the subject talking about how I was doing it wrong in the beginning.
 
+<!--more-->
+
 In the meantime, I _have_ been talking about them quite a bit recently. We've been using them on a project at [Clear Measure](http://www.clear-measure.com) and I'd like to think it's been successful but it's too soon to tell. I feel good about what we've done which, historically, has always been a good metric for me.
 
 The topic has been covered at a technical and architectural level pretty well by Martin Fowler, so much so that he's even collected his discussions into a nice little [Microservices Resource Guide](http://martinfowler.com/microservices/). In it, he and other ThoughtWorkians define them (to the extent that anything in software containing the word "services" _can_ be defined), point out pros and cons compared to monolithic applications, describe testing strategies, and cover off the major success stories in the space.

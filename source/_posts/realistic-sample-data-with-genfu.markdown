@@ -11,6 +11,8 @@ alias: /realistic-sample-data-with-genfu/
 
 Last week, I had the opportunity to spend some time hacking with my good friend [James Chambers][1]. One of the projects we worked on is his brainchild: [GenFu][2]
 
+<!--more-->
+  
 > GenFu is a test and prototype data generation library for .NET apps. It understands different topics – such as "contact details" or "blog posts" and uses that understanding to populate commonly named properties using reflection and an internal database of values or randomly created data.
 
 As a quick sample, I attempted to replace the Sample Data Generator in the ASP.NET5 Music Store app with GenFu. With the right GenFu configuration, it worked like magic and I was able to remove over 700 lines of code!

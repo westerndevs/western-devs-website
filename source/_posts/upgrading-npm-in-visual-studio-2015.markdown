@@ -11,6 +11,8 @@ alias: /upgrading-npm-in-visual-studio-2015/
 
 Visual Studio 2015 ([_download here_][1]) ships with it's own version of several external tools, such as grunt, node and npm.&nbsp; If you are wanting to take advantage of newer versions of these tools, you have three options:
 
+<!--more-->
+
 1. Wait for VS 2015 to upgrade the tooling and ship an update.
 2. Hack the tooling proxies used by Visual Studio.
 3. Use the built-in external tool path editor to slip your updated versions in.
@@ -19,8 +21,7 @@ Waiting for updates is no fun. Let's hack a little.
 
 ## Wait a minute! Why are we doing this?
 
-{: .pull-right}
-![image][2]
+{% img pull-right "http://jameschambers.com/wp-content/uploads/2015/09/image_thumb.png" %}
 
 For me the primary motivator was the path length limitations in Windows. Nested node_modules folders buried 19 levels deep is no fun when you hit the max path length. For me, I was trying to share the files on OneDrive and hit 255 characters pretty quickly.
 
@@ -74,7 +75,6 @@ Make sure you grab your [_copy of VS 2015_][1] and start diving into the next ph
 Happy coding! ![Smile][5]
 
 [1]: https://www.visualstudio.com/?Wt.mc_id=DX_MVP4038205
-[2]: http://jameschambers.com/wp-content/uploads/2015/09/image_thumb.png "image"
 [3]: https://www.npmjs.com/package/npm-windows-upgrade
 [4]: http://jameschambers.com/wp-content/uploads/2015/09/image_thumb1.png "image"
 [5]: http://jameschambers.com/wp-content/uploads/2015/09/wlEmoticon-smile.png

@@ -13,6 +13,8 @@ After installing PostSharp.net on my machine for a project (I did the MSI instal
 
 > Error: FindPackagesById: EntityFramework.Core Response from https://www.postsharp.net="" nuget="" packages="" findpackagesbyid()?id="EntityFramework.Core" is not a valid NuGet v2 service response.
 
+<!--more-->
+
 ![image][1]
 
 Now, an important note here: I'm on a machine that's seen various updates and changes to VS 2015, and this was a version of PostSharp that wasn't originally built for the RTM version of Visual Studio. So…this may be entirely circumstantial, but it's what I ran into.

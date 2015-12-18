@@ -8,6 +8,8 @@ alias: /western-devs-three-months-on/
 
 Yesterday was the three month anniversary of our [first post][1] and while our *official* first post was on June 17, we're celebrating anyway. 
 
+<!--more-->
+  
 Since that time, we have generated [60 posts](http://www.westerndevs.com/posts/) by 10 different people, as well as [6 podcasts](http://www.westerndevs.com/podcasts/)<sup>*</sup>. We've spoken at three events and are scheduled at [eight more][4] in the next few months. A sampling of some of the topics we've covered:
 
 * [Running Docker on Windows 10](http://www.westerndevs.com/getting-docker-running-on-windows-10/)
@@ -27,8 +29,9 @@ Underlying all of this is an extremely active Slack channel populated by a group
 
 Will the momentum continue? It's hard to say. Although the online presence started only recently, this has been boiling under the surface for [many years now](http://www.westerndevs.com/whoweare/) so chances are good. We're still finding our feet in some areas but for now, we're still talking.
 
-{: .footnote}
-*For reference, in that same time, [Los Techies][2] has had 26 posts and [CodeBetter][3] nine. Just sayin' <span class="fa fa-smile-o"></span>
+<p class="footnote">
+*For reference, in that same time, <a href="http://lostechies.com">Los Techies</a> has had 26 posts and <a href="http://codebetter.com">CodeBetter</a> nine. Just sayin' <span class="fa fa-smile-o"></span>
+</p>
 
 [1]: http://www.westerndevs.com/mvc-6-cache-tag-helper/
 [2]: http://lostechies.com

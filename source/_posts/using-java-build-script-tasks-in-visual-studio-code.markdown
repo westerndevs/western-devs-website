@@ -11,6 +11,8 @@ alias: /using-java-build-script-tasks-in-visual-studio-code/
 
 I [previously shared](http://www.westerndevs.com/custom-tasks-for-java-in-visual-studio-code/) how I setup a custom problem matching in Visual Studio Code for compiling Java  and displaying the errors inline with a custom problem matcher.
 
+<!--more-->
+  
 The shortcoming with [Tasks](https://code.visualstudio.com/docs/editor/tasks) was that you could only define one, which is (in my humble opinion) by design to help developers by forcing them to create a build script rather than setting up tasks, as a build script is not coupled to the IDE and can be used elsewhere.
 
 Code has support for build systems like Grunt, Gulp, and Jake, but what if we want to handle something totally different, like use Gradle on a Java project.

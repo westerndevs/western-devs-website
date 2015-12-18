@@ -11,6 +11,8 @@ alias: /using-powershell-to-set-your-azure-sql-firewall-rule/
 
 If you've read a couple of my recent blog posts, you'll see that I've been working in PowerShell a lot lately. I've also been working with Azure a lot lately as well and I'm getting opportunities to put those two things together.
 
+<!--more-->
+
 Since my laptop is moving around a lot and occasionally my home IP address changes, I do need to update my Azure SQL Firewall rule to allow my computer at my current my IP address to talk to my Azure SQL database server. 
 
 [Azure SQL Database Firewall][1]

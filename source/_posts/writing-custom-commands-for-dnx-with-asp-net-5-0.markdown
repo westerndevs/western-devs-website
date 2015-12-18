@@ -11,6 +11,8 @@ alias: /writing-custom-commands-for-dnx-with-asp-net-5-0/
 
 If you are a developer on the .NET stack, you've now got access to a great new extension to your development environment. DNX, or the .NET Execution Environment, is a powerful new extensibility point that you can leverage to build project extensions, cross-platform utilities, build-time extensions and support for automation. In this article I'll walk you through the process of building your own custom DNX command on top of ASP.NET 5.0.
 
+<!--more-->
+
 ## Where You've Seen It
 
 DNX has the ability to scan a project.json and look for commands that you install as packages or that you create yourself. If you've started following the examples of the MVC Framework or perhaps with Entity Framework, you may have seen things like this in your project.json:
@@ -22,8 +24,7 @@ DNX has the ability to scan a project.json and look for commands that you instal
 }
 {% endcodeblock %}
 
-{: .pull-right}
-![image][1]
+{% img pull-right "http://jameschambers.com/wp-content/uploads/2015/08/image_thumb2.png" %}
 
 These entries are here so that DNX understands the alias you assign (such as "web" or "ef") and how it maps to an assembly that you've created or taken on as a dependency.&nbsp; The EF reference is quite straightforward above, simply saying that any call to "ef" via DNX will go into the entry point in EntityFramework.Commands.&nbsp; You would invoke that as follows from the directory of your _project_:
 
@@ -164,7 +165,6 @@ To get some inspiration, check out my [sample project on GitHub][3], the DNX com
 
 Happy coding! ![Smile][6]
 
-[1]: http://jameschambers.com/wp-content/uploads/2015/08/image_thumb2.png "image"
 [2]: https://github.com/aspnet/Announcements/issues/52
 [3]: https://github.com/MisterJames/DnxCommands/
 [4]: https://github.com/aspnet/EntityFramework/tree/dev/src/EntityFramework.Commands

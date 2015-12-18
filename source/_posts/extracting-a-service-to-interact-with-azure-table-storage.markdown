@@ -11,6 +11,8 @@ alias: /extracting-a-service-to-interact-with-azure-table-storage/
 
 _In [this series][1] we are looking at the basic mechanics of interacting with cloud-based Table Storage from an MVC 5 Application, using the Visual Studio 2013 IDE and Microsoft Azure infrastructure._
 
+<!--more-->
+
 Our controllers are not supposed to be about anything more than getting models together so that our views have something to present. When we start mixing concerns, our application starts to become very difficult to test, controllers start getting quite complex and the difficulty in maintaining our application can skyrocket.
 
 Let's avoid that.
