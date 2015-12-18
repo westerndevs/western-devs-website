@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "hexo": {
-    "version": "3.1.1"
+    "version": "3.2.0-beta.2"
   },
   "dependencies": {
     "font-awesome-stylus": "^4.4.0",
-    "hexo": "^3.1.0",
+    "hexo": "git+https://github.com/westerndevs/hexo.git",
     "hexo-deployer-ftpsync": "^0.1.1",
     "hexo-deployer-git": "0.0.4",
     "hexo-front-matter-excerpt": "0.2.0",
