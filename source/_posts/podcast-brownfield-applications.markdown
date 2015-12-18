@@ -24,10 +24,9 @@ links:
     - The Boy Scout Rule|http://programmer.97things.oreilly.com/wiki/index.php/The_Boy_Scout_Rule
     - Fixing a light bulb|http://www.dailymotion.com/video/x2gp98t
 music:
-    song:
-        title: Doctor Man
-        artist: Johnnie Christie and the Boats
-        url: https://www.youtube.com/user/jwcchristie
+    - title: Doctor Man
+      artist: Johnnie Christie and the Boats
+      url: https://www.youtube.com/user/jwcchristie
 ---
 
 ### Synopsis

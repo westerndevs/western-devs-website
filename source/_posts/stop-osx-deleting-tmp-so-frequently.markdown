@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  Stop OSX deleting /tmp so frequently
-date: 2015-10-04T23:32:11-06:00
-categories: docker
+title:  "Stop OSX deleting /tmp so frequently"
 comments: true
 authorId: simon_timms
-date: 2015-11-06T19:19:27-07:00\
+date: 2015-11-06T19:19:27-07:00
+alias: /docker/stop-osx-deleting-tmp-so-frequently/
+alias: /stop-osx-deleting-tmp-so-frequently/
 ---
 
 Some time ago I lost a podcast recording because I stored it in /tmp. It is a bad habit but I tend to store things that I'm not going to need in the long run in /tmp. It is a throw back to my real Linux days when storage was expensive and I might not be back on that machine for a while to figure out why all the space was used. 
