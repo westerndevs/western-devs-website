@@ -17,7 +17,7 @@ url: http://www.westerndevs.com
 root: /
 permalink: /:category/:title/
 permalink_defaults:
-	categories: "uncategorized"
+	categories: ""
 
 # Directory
 source_dir: source
