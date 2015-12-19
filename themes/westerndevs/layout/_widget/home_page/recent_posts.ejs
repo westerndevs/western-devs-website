@@ -4,13 +4,14 @@
       <h1><img class="icon" src="images/icon_posts.png" alt="RECENT POSTS" title="RECENT POSTS" border="0"> RECENT POSTS</h1>
       
       <% site.posts.sort('date', -1).limit(5).each(function(post){ %>
+      <% var cat = post.categories.findOne({name: 'podcasts'}) %>
       <div class="ListLrgHomeBG">
         <div class="ListLrgDateBG">
           <font class="ListLrgDateMonth"><%= moment(post.date).format('MMM').toUpperCase() %></font><BR>
           <font class="ListLrgDateDay"><%= moment(post.date).format('D') %></font>        
         </div>
         <div class="ListLrgTxt recentPosts">
-          <% var cat = post.categories.findOne({name: 'podcasts'}) %>
+			<div>
           <% var prefix = (cat ? "Podcast: " : "") %>
           <a class="posts" href="<%- url_for(post.path) %>">
             <%= prefix + (post.title || '(no title)') %>
@@ -18,10 +19,14 @@
           <% if (post.author && post.author.name ) { %>
           <B><%= post.author.name %></B><BR>
           <% } %>
-          <div class="ellipsis">
+          <div>
+	  <% if(cat) { %>
+			<div class="pull-right"><img src="images/microphone.png" alt="Podcast" title="Podcast" class="podcast-icon" /></div>
+      <% } %>
           <% if (post.excerpt) { %>
             <%= trim(strip_html(post.excerpt)) %>
           <% } %>
+			</div>
           </div>
         </div>
       </div>      
