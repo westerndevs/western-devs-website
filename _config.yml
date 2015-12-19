@@ -61,6 +61,10 @@ time_format: HH:mm:ss
 stylus:
   compress: true
 
+#Sitemap  
+sitemap:
+    path: sitemap.xml  
+
 # Pagination
 ## Set per_page to 0 to disable pagination
 per_page: 0
