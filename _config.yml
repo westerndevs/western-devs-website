@@ -57,6 +57,10 @@ tag_map:
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss
 
+##CSS
+stylus:
+  compress: true
+
 # Pagination
 ## Set per_page to 0 to disable pagination
 per_page: 0
