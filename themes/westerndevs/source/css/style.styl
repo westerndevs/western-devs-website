@@ -66,7 +66,7 @@ BODY
   background-repeat no-repeat
   background-image URL('/images/bg.jpg')
   background-position top center
-  height 100%
+  margin-top:100px
 
 A:LINK, A:ACTIVE, A:VISITED, A:HOVER
   COLOR #0e76bc
@@ -122,7 +122,9 @@ A.subposts:LINK, A.subposts:ACTIVE, A.subposts:VISITED, A.subposts:HOVER
   text-align left
 
 .WrapperHeader
-  position relative
+  position fixed 
+  top 0px
+  z-index 1000
   display block
   width 100%
   min-width 1024px
