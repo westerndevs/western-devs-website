@@ -16,7 +16,7 @@ To preface this, note that I'm new to Node and in fact, this is my first real pr
 
 ## Documentation/Resources
 
-You'll run into this very quickly. Documentation for Hexo is decent but incomplete. And once you start Googling, you'll discover many of the resources on it are in Chinese. I found very quickly that there is `posts` collection and that each post has a `categories` collection. But as to what these objects look like, I couldn't tell. They aren't arrays which you'll find out quickly. And you can't `JSON.stringify` them because they have circular references in them. `util.inspect` works but it's not available everywhere.
+You'll run into this very quickly. Documentation for Hexo is decent but incomplete. And once you start Googling, you'll discover many of the resources are in Chinese. I found very quickly that there is `posts` collection and that each post has a `categories` collection. But as to what these objects look like, I couldn't tell. They aren't arrays. And you can't `JSON.stringify` them because they have circular references in them. `util.inspect` works but it's not available everywhere.
 
 ## Multi-author support
 
@@ -24,4 +24,36 @@ By default, Hexo doesn't support multiple authors. Neither does Jekyll, mind you
 
 ## Customization
 
-If you go with Hexo and choose an existing templates, you won't run into the same issues we did.
+If you go with Hexo and choose an [existing themes](https://hexo.io/themes/), you won't run into the same issues we did. Out of the box, it has good support for posts, categories, pagination, even things like tags and aliases with the [right plugins](https://hexo.io/plugins/).
+
+But we started from a design *and* were migrating from an existing site with existing URLs and had to make it work. I've mentioned the challenge of multiple authors already. Another one: maintaining our URLs. Most of our posts aren't categorized. In Jekyll, that means they show up at the root of the site. In Hexo, that's not possible. At least at the moment and I suspect this is a bug. We eventually had to fork Hexo itself to maintain our existing URLs.
+
+Another challenge: excerpts. In Jekyll, excerpts work like this: Check the front matter for an `excerpt`. If one doesn't exist, take the first few characters from the post. In Hexo, excerpts are empty by default. If you add a `<!--more-->` tag in your post, everything before that is considered an excerpt. If you specify an `excerpt` in your front matter, it's ignored because there is already an `excerpt` property on your posts.
+
+Luckily, there's a [plugin](https://github.com/lalunamel/hexo-front-matter-excerpt) to address the last point. But it still didn't address the issue of all our posts without an excerpt where we relied solely on the contents of the post.
+
+So if you're looking to veer from the scripted path, be prepared. More on this later in the "good parts" section.
+
+## Overall feeling of rawness
+
+This is more a culmination of the previous issues. It just feels like Hexo is a work-in-progress whereas Jekyll feels more like a finished product. There's a strong community behind Jekyll and plenty of help. Hexo still has bugs that suggest it's just not used much in the wild. Like [rendering headers with links in them](https://github.com/hexojs/hexo-renderer-marked/issues/16). It makes the learning process a bit challenging because with Jekyll, if something didn't work, I'd think _I'm obviously doing something wrong_. With Hexo, it's _I might be doing something wrong or there might be a bug_.
+
+## The good parts
+
+I said earlier that the move to Hexo was positive overall and not just because I'm optimistic by nature. There are two key benefits we've gained just in the last two weeks.
+
+### Generation time
+
+Hexo is fast, plain and simple. Our old Jekyll site took six seconds to generate. Doesn't sound like much but when you're working on a feature or tweaking a post, then saving, then refreshing, then rinsing, then repeating, that six seconds adds up fast. In Hexo, a full site generation takes three seconds. But more importantly, it is smart enough to do incremental updates while you're working on it. So if you run `hexo server`, then see a mistake in your post, you can save it, and the change will be reflected almost instantly. To the point where it's usually done by the time I've switched back to the browser.
+
+### Contributors
+
+We had logistical challenges with Jekyll. To the point where we had two methods for Windows users that wanted to contribute (i.e. add a post). One involved a [Docker image](http://www.westerndevs.com/docker-and-western-devs/) and the other [Azure ARM](http://www.westerndevs.com/using-azure-arm-to-deploy-a-docker-container/). Neither was ideal as they took between seconds and minutes to refresh if you made changes. Granted, both methods furthered our collective knowledge in both Docker and Azure but they both kinda sucked for productivity.
+
+That meant that realistically, only the Mac users really contributed to the maintenance of the site. And our Docker/Azure ARM processes were largely ignored as we would generally just test in production. I.e. create a post, check it in, wait for the site to deploy, make necessary changes, etc, etc.
+
+With the switch to Hexo, we've had no fewer than five contributors to the site's maintenance already. Hexo just works on Windows. And on Mac. Best of both worlds.
+
+### Customization
+
+We've had to make some customizations for our site, including [forking Hexo](https://github.com/westerndevs/hexo) itself. And for me personally, once I got past the _why isn't this working the way I want?_ stage, it's been a ton of fun. It's crazy simple to muck around in the node modules to try stuff out. And just as simple to fork something and reference it in your project when the need arises. I mentioned an earlier issue rendering links in headers. No problem, we just swapped out the markdown renderer for [another one](https://github.com/celsomiranda/hexo-renderer-markdown-it). And if that doesn't work, we'll tweak something until it does.
