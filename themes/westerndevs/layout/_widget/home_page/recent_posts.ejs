@@ -6,8 +6,8 @@
       <% site.posts.sort('date', -1).limit(5).each(function(post){ %>
       <div class="ListLrgHomeBG">
         <div class="ListLrgDateBG">
-          <font class="ListLrgDateMonth"><%= moment(post.date).format('MMM').toUpperCase() %></font><BR>
-          <font class="ListLrgDateDay"><%= moment(post.date).format('D') %></font>        
+          <div class="ListLrgDateMonth"><%= moment(post.date).format('MMM').toUpperCase() %></div>
+          <div class="ListLrgDateDay"><%= moment(post.date).format('D') %></div>
         </div>
         <div class="ListLrgTxt recentPosts">
           <% var cat = post.categories.findOne({name: 'podcasts'}) %>
