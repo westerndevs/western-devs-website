@@ -9,6 +9,8 @@ originalurl: http://www.davepaquette.com/archive/2015/12/03/the-case-of-the-disa
 
 Something scary happened last week. The database backing my blog disappeared from my Azure account.
 
+<!--more-->
+
 **Some background**: At the time, my blog was a Wordpress site hosted as an Azure Web Site with a MySQL database hosted by Azure Marketplace provider ClearDB.
 
 ## Series of events
