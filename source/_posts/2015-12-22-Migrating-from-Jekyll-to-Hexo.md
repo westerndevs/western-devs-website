@@ -1,7 +1,10 @@
+---
 layout: post
 title: "Migrating from Jekyll to Hexo"
-date: 2015-12-18 14:00:42
-categories: jekyll,hexo
+date: 2015-12-22 14:00:42
+categories: 
+    - jekyll
+    - hexo
 excerpt: The Western Devs website has a sporty new look and a shiny new technology behind it. In this post, we'll look at the good and bad with migrating from Jekyll to Hexo
 comments: true
 authorId: kyle_baley
