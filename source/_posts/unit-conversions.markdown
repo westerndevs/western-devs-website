@@ -3,12 +3,13 @@ layout: post
 title:  Unit Conversions Done (Mostly) Right
 date: 2015-07-22T14:30:30-06:00
 categories:
+excerpt: Thanks to a certain country which, for the purposes of this blog let's call it Backwardlandia, which uses a different unit system there is frequently a need to use two wildly different units for some value. And they have so many people and so much money that we can't ignore them.
 comments: true
 authorId: simon_timms
 originalurl: http://blog.simontimms.com/2015/07/22/unit_convesions/
 ---
 
-Thanks to a certain country which, for the purposes of this blog let's call it Backwardlandia, which uses a different unit system there is frequently a need to use two wildly different units for some value. Temperature is a classic one, it could be represented in Centigrade, Fahrenheit or Kelvin Rankine (that's the absolute temperature scale, same as Kelvin, but using Fahrenheit). Centigrade is a great, well devised unit that is based on the freezing and boiling points of water at one standard atmosphere. Fahrenheit is a temperature system based on the number of pigs heads you can fit in a copper kettle sold by some bloke on Fleet Street in 1832. Basically it is a disaster. None the less Backwardlandia needs it and they have so many people and so much money that we can't ignore them. 
+Thanks to a certain country which, for the purposes of this blog let's call it Backwardlandia, which uses a different unit system there is frequently a need to use two wildly different units for some value. Temperature is a classic one, it could be represented in Centigrade, Fahrenheit or Kelvin Rankine (that's the absolute temperature scale, same as Kelvin, but using Fahrenheit). Centigrade is a great, well devised unit that is based on the freezing and boiling points of water at one standard atmosphere. Fahrenheit is a temperature system based on the number of pigs heads you can fit in a copper kettle sold by some bloke on Fleet Street in 1832. Basically it is a disaster. Nonetheless Backwardlandia needs it and they have so many people and so much money that we can't ignore them. 
 
 <!--more-->
 

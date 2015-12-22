@@ -3,6 +3,7 @@ layout: post
 title:  "Updating Sub-Collections With SQL Server's Merge"
 date: 2015-12-15T21:52:50-07:00
 comments: true
+excerpt: When you get to be as old as me then you start to see certain problems reappearing over and over again. I think this might be called "experience" but it could also be called "not getting new experiences".
 authorId: simon_timms
 originalurl: http://blog.simontimms.com/2015/12/16/updating-sub-collections-with-sql-servers-merge/
 ---
