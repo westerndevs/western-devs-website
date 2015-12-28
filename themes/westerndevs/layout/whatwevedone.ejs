@@ -17,14 +17,7 @@
 	<div class="SubpageBoxFull">
 		<div class="SubpageBoxFullContent">
 		
-			<P>Western Devs isn't all talk. Some of us have written books, built apps, created code, and otherwise done stuff to make our mothers proud.</P>
-			
-			<P><a href="#BOOKS">BOOKS</a> | <a href="#APPS">APPS</a> | <a href="#CODE">CODE</a></P>
-
-			<hr class="LineFull1">
-			<a name="TOP"></a>
-			<P>
-			<a name="BOOKS"></a><h2><img class="icon" src="/images/icon_circle_arrow.png" alt=">" title=">" border="0"> BOOKS</h2>			
+			<h2><img class="icon" src="/images/icon_circle_arrow.png" alt=">" title=">" border="0"> BOOKS</h2>			
 			<div class="book-list">
 			<% for (bookIndex in site.data.whatwevedone.books) {%>
 				<% var book = site.data.whatwevedone.books[bookIndex] %>
@@ -35,27 +28,23 @@
 				</div>
 			<% } %>
 			</div>
-			</P>
 			
 			<hr class="LineFull1">
 			
-			<P>
-			<div class="BackTop"><a href="#TOP"><img class="icon" src="/images/icon_back_top.png" alt=">" title=">" border="0">  BACK TO TOP</a></div>
-			<a name="APPS"></a><h2 style="padding-bottom:15px;"><img class="icon" src="/images/icon_circle_arrow.png" alt=">" title=">" border="0"> APPLICATIONS</h2>			
+			<h2 style="padding-bottom:15px;"><img class="icon" src="/images/icon_circle_arrow.png" alt=">" title=">" border="0"> APPLICATIONS</h2>			
+			<div class="app-list">
 			<% for (appIndex in site.data.whatwevedone.apps) {%>
 				<% var app = site.data.whatwevedone.apps[appIndex] %>
-				<h3><img class="icon" src="/images/icon_forward_arrow.png" alt=">" title=">" border="0"> <a href="<%=app.url%>"><%=app.title%></a></H3>
 				<a href="<%=app.url%>" target="_blank"><img src="/images/<%=app.image%>" border="0" style="float: right; margin-left: 10px;"></a><B><%=_.get(site.data.authors, app.author).name%></B><BR>
 				<%=app.description%>
 			<%}%>
-			</P>
+			</div>
 			
 			<hr class="LineFull1">
 			
-			<P>
-			<div class="BackTop"><a href="#TOP"><img class="icon" src="/images/icon_back_top.png" alt=">" title=">" border="0">  BACK TO TOP</a></div>
-			<a name="CODE"></a><h2 style="padding-bottom: 15px;"><img class="icon" src="/images/icon_circle_arrow.png" alt=">" title=">" border="0"> CODE</h2>
+			<h2 style="padding-bottom: 15px;"><img class="icon" src="/images/icon_circle_arrow.png" alt=">" title=">" border="0"> CODE</h2>
 			
+			<div class="code-list">
 			<% for (codeIndex in site.data.whatwevedone.code) {%>
 				<% var code = site.data.whatwevedone.code[codeIndex]%>
 				<h3><img class="icon" src="/images/icon_forward_arrow.png" alt=">" title=">" border="0"> <a href="<%=code.url%>"><%=code.title%></a></H3>
@@ -66,8 +55,7 @@
 					<hr class="LineFull2">
 				<%}%>
 			<%}%>			
-
-			</P>
+			</div>
 			
 		</div>
 	</div>

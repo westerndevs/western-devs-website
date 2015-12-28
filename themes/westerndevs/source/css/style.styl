@@ -581,23 +581,20 @@ HR.LineFull1, HR.LineFull2, HR.LineMed1, HR.LineMed2
   clear both
   border 0px
   height 1px
+  width 100%
 
 HR
   &.LineFull1
     background-color #d1d3d4
-    width 984px
     margin 20px 0px 20px 0px
   &.LineFull2
     background-color #e0e3e4
-    width 984px
     margin 10px 0px 15px 0px
   &.LineMed1
     background-color #d1d3d4
-    width 660px
     margin 20px 0px 20px 0px
   &.LineMed2
     background-color #d1d3d4
-    width 660px
     margin 20px 0px 20px 0px
 
 h1
@@ -672,10 +669,15 @@ h4
 
 .book
   display inline-block
-  width 23%
   text-align center
+  @media mq-normal
+    width 23%
+  @media mq-mobile
+    width 45%
 .book img
   height 200px
+  @media mq-mobile
+    height 150px
 
 .podcast-content
   margin-top 20px
