@@ -1,7 +1,7 @@
 <!--RECENT POSTS STARTS-->  
   <div class="HomeBox1">
     <div class="HomeBox1Content">
-      <h1><img class="icon" src="images/icon_posts.png" alt="RECENT POSTS" title="RECENT POSTS" border="0"> RECENT POSTS</h1>
+      <h1><a href="/posts"><img class="icon" src="images/icon_posts.png" alt="RECENT POSTS" title="RECENT POSTS" border="0"> RECENT POSTS</a></h1>
       
       <% site.posts.sort('date', -1).limit(5).each(function(post){ %>
       <% var cat = post.categories.findOne({name: 'podcasts'}) %>

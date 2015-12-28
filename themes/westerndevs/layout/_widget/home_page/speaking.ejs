@@ -1,7 +1,7 @@
 <!--SPEAKING STARTS-->  
   <div class="HomeBox2">
     <div class="HomeBox2Content">
-      <h2><img class="icon" src="images/icon_speaking.png" alt="SPEAKING" title="SPEAKING" border="0"> SPEAKING</h2>
+      <h2><a href="/speaking"><img class="icon" src="images/icon_speaking.png" alt="SPEAKING" title="SPEAKING" border="0"> SPEAKING</a></h2>
       
       <% var engagements = _.filter(site.data.speaking, function(n) {
         return moment(n.date) > moment(_.now());
