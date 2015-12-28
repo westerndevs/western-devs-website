@@ -1,3 +1,4 @@
+---
 title: My Hasty Move to Hexo
 categories:
   - hexo
