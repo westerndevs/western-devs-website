@@ -79,8 +79,8 @@ theme: westerndevs
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://western-devs-redesign.scm.azurewebsites.net:443/western-devs-redesign.git
-  branch: master
+  repo: git@github.com:westerndevs/western-devs-website.git
+  branch: gh-pages
   message: Site updated {{ now("YYYY-MM-DD HH:mm:ss") }}
 
 markdown:

@@ -7,3 +7,12 @@ before_install:
 - npm install
 install:
 - hexo generate
+env:
+  global:
+  - secure: f31TKahv1xJW7BBzUEWDeAoe0AVB8phBOsBrSweFe0/JlLdLyO6yTWZfhbURSsrzmRbYqOObp4xkHoizD+Yu+rnXArRRLTXsUPflu1UZxtC3VzIAZfiq7uyIxRQOypKMi061A4J97cTh/Jka3BqgOVHFZzLlmiDSqRCMWJMb5ZWU6OUkV++uduqEIuDJW/v7QkwkNb7NXBch1pziTfOHA+83k8Ycns4eCEpBWB0OlgVuKwQDG5X2e+qilJYmSxIR5zqSOPeW0FwThCv05MG6JTwWdM6bbxAC4CKTyUSlJ2bNC/uVBK6eJavdJzMfCHD+EzB+Wno6kLkfclEKt57Dhwk2ii1SF2bsFmg4eskgoSLd3+kCGc5DMS+FEb+VsTAlCqCeyA7T4wVyHTtrPBSkMCIUZg4sxcdksPKe/Rq0hKJUX6xLh+5gYNid8sSNdXOO4M4bRCadMoqXxOZ8YwpNlIj8o3tXNWnJYqGxhopYR9q7CFdzpDfclQ8sEQpTc39RQ1ZPS9fLpQe3/1CbZt1XGWGYjsPQO4nx6gioK7pvomQ3rrsrM7o9Sbooq7cNp1Pbk3Kla5gi0pRggZFiF3qE9utzwl2LKuXrVRHgVP0mg2OVqXFOSAtBBejAPf41FgGvsTDYsPrTIkoUoplTxxG2NaVx3JJT3Cc2YyjctxoVXa4=
+before_script:
+- git config --global user.name 'Western Devs via Travis CI'
+- git config --global user.email 'info@westerndevs.com'
+- sed -i'' "s~git@github.com:westerndevs/western-devs-website.git~https://${GH_TOKEN}:x-oauth-basic@github.com/westerndevs/western-devs-website.git~" _config.yml
+script:
+- hexo deploy --silent
