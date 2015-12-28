@@ -18,7 +18,7 @@ That leads us to this: westerndevs.com, currently (and likely eternally) a work 
 
 * [Blog posts](/posts), aggregated and regurgitated from members’ blogs
 * Posts that summarize some of the more interesting technical discussions
-* [Conferences/user groups](/where-well-be) where we’ll be speaking
+* [Conferences/user groups](/speaking) where we’ll be speaking
 * [A list of works](/whatwevedone) we’ve created, including books, software, articles, github repositories, etc.
 * A feed for our [Twitter account](http://www.twitter.com/westerndevs), which will give you a glimpse into our not-so-technical discussions
 * Our [podcast](/podcasts)
