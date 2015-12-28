@@ -214,11 +214,11 @@ A.subposts:LINK, A.subposts:ACTIVE, A.subposts:VISITED, A.subposts:HOVER
   position relative
   display block
   width 100%
-  height 90px
   background-color rgba(0, 93, 160,0.5)
   clear both
   @media mq-normal
     min-width 1024px
+    height 90px
 
 .HomeBox1, .HomeBox2, .HomeBox3, .HomeBox4
   float left
@@ -364,7 +364,8 @@ A.subposts:LINK, A.subposts:ACTIVE, A.subposts:VISITED, A.subposts:HOVER
   margin 20px
 
 .SubpageBoxFullContent
-  width 984px
+  @media mq-normal
+    width 984px
 
 .SubpageBoxSubLrgContent
   @media mq-content
@@ -391,7 +392,8 @@ A.subposts:LINK, A.subposts:ACTIVE, A.subposts:VISITED, A.subposts:HOVER
     width 660px
 
 .ListLrgSubBG
-  width 984px
+  @media mq-normal
+    width 984px
 
 .ListLrgDateBG
   @media mq-normal
@@ -440,7 +442,8 @@ A.subposts:LINK, A.subposts:ACTIVE, A.subposts:VISITED, A.subposts:HOVER
     width 560px
 
 .ListLrgTxtSub
-  width 880px
+  @media mq-normal
+    width 880px
 
 .ListSmHomeBG
   float left
@@ -618,6 +621,8 @@ h1
     text-transform uppercase
     text-shadow 2px 2px 2px rgba(0, 0, 0, 0.5)
     font-weight 100
+    @media mq-mobile
+      padding-top 10px
 
 h2
   font-family 'UbuntuTitlingBold', arial
