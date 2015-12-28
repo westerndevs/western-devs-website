@@ -30,19 +30,17 @@
 		    <% } %>
 			<div class="ListLrgSubBG">
 			<div class="ListLrgDateBG">
-			  <font class="ListLrgDateMonth"><%= moment(post.date).format('MMM').toUpperCase() %></font><BR>
-			  <font class="ListLrgDateDay"><%= moment(post.date).format('D') %></font>        
+			  <div class="ListLrgDateMonth"><%= moment(post.date).format('MMM').toUpperCase() %></div>
+			  <div class="ListLrgDateDay"><%= moment(post.date).format('D') %></div>        
 			</div>
 			<div class="ListLrgTxtSub">
 			  <a class="posts" href="<%- url_for(post.path) %>"><%= post.title || '(no title)' %></a><br/>
 			  <% if (post.author && post.author.name ) { %>
 			  <B><%= post.author.name %></B><BR>
 			  <% } %>
-			  <div class="ellipsis">
 			  <% if (post.excerpt) { %>
 			    <%= trim(strip_html(post.excerpt)) %>
 			  <% } %>
-			  </div>
 			</div>
 			</div>      
 			<% }) %>
