@@ -68,6 +68,8 @@ BODY
   background-image URL('/images/bg.jpg')
   background-position top center
   margin-top:100px
+  @media mq-mobile
+    margin 72px 0 0 0
 
 A:LINK, A:ACTIVE, A:VISITED, A:HOVER
   COLOR #0e76bc
@@ -132,26 +134,35 @@ A.subposts:LINK, A.subposts:ACTIVE, A.subposts:VISITED, A.subposts:HOVER
   z-index 1000
   display block
   width 100%
-  min-width 1024px
-  height 100px
-  background-color #FFFFFF
   clear both
-  -webkit-box-shadow 0px 20px 20px -10px rgba(0,0,0,0.4)
-  -moz-box-shadow 0px 20px 20px -10px rgba(0,0,0,0.4)
-  box-shadow 0px 20px 20px -10px rgba(0,0,0,0.4)
+  background-color #FFFFFF
+  @media mq-normal
+    min-width 1024px
+    text-align center
+    height 100px
+    -webkit-box-shadow 0px 20px 20px -10px rgba(0,0,0,0.4)
+    -moz-box-shadow 0px 20px 20px -10px rgba(0,0,0,0.4)
+    box-shadow 0px 20px 20px -10px rgba(0,0,0,0.4)
+    img
+      margin-top 18px
+  @media mq-mobile
+    position absolute
+    height 72px
+    img
+      margin-top 4px
+      margin-left 5px
 
 .Header
   position relative
   display block
-  width 1024px
-  height 100px
   text-align left
+  @media mq-normal
+    width 1024px
 
 .HeaderLogo
   float left
   display block
   width 206px
-  height 100px
   text-align left
 
 .HeaderLinks
@@ -161,6 +172,8 @@ A.subposts:LINK, A.subposts:ACTIVE, A.subposts:VISITED, A.subposts:HOVER
   margin 20px 0px 0px 0px
   height 50px
   text-align right
+  @media mq-mobile
+    display none
 
 .WrapperSubHeader
   position relative
@@ -221,9 +234,11 @@ A.subposts:LINK, A.subposts:ACTIVE, A.subposts:VISITED, A.subposts:HOVER
   box-shadow 0px 10px 10px -10px rgba(0,0,0,0.3)
 
 .HomeBox1
-  margin 10px 10px 0px 0px
+  @media mq-mobile
+    margin 5px 5px 0
   @media mq-normal
     width 700px
+    margin 10px 10px 0px 0px
 
 .HomeBox2
   width 310px
@@ -494,6 +509,23 @@ IMG
   font-size 12px
   @media mq-normal
     min-width 1024px
+
+.NavFooter
+  @media mq-normal
+    display none
+  @media mq-mobile
+    position fixed
+    bottom 0
+    left 0
+    background-color #eee
+    width 100%
+    padding 5px 0 2px 0
+    text-align center
+    display inline-block
+  A
+    vertical-align middle
+    display inline-block
+    padding 0 10px
 
 .TXTsm
   font-size 11px
