@@ -19,8 +19,8 @@
 		<div class="SubpageBoxFullContent">
 			<h2><img class="icon" src="/images/icon_circle_arrow.png" alt=">" title=">" border="0"> 2015 POSTS</h2>
 			
-
 			<% site.posts.sort('date', -1).each(function(post){ %>
+            <% var cat = post.categories.findOne({name: 'podcasts'}) %>
 			<div class="ListLrgSubBG">
 			<div class="ListLrgDateBG">
 			  <font class="ListLrgDateMonth"><%= moment(post.date).format('MMM').toUpperCase() %></font><BR>
@@ -33,7 +33,10 @@
 			  <% if (post.author && post.author.name ) { %>
 			  <B><%= post.author.name %></B><BR>
 			  <% } %>
-			  <div class="ellipsis">
+			  <div>
+			  <% if(cat) { %>
+					<div class="pull-right podcast-icon"><i class="fa fa-2x fa-volume-up"></i></div>
+		      <% } %>
 			  <% if (post.excerpt) { %>
 			    <%= trim(strip_html(post.excerpt)) %>
 			  <% } %>
