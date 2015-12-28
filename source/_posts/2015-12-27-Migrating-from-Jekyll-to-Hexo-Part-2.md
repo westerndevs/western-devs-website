@@ -6,6 +6,7 @@ categories:
   - hexo
 date: 2015-12-27 19:43:32
 tags:
+authorId: kyle_baley
 excerpt: Specific issues we ran into during the migration from Jekyll to Hexo
 ---
 
@@ -79,7 +80,14 @@ We changed the URL structure for our podcasts early on and to keep any links poi
 Bear in mind that this is a static site. So both of these plugins, the Jekyll and the Hexo one, handle redirects by generating an HTML page at the alias location with a redirect embedded in it:
 
 ```
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>Redirecting...</title><link rel="canonical" href="/podcasts/podcast-the-internet-of-things/"><meta http-equiv="refresh" content="0; url=/podcasts/podcast-the-internet-of-things/"></head></html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Redirecting...</title>
+    <link rel="canonical" href="/podcasts/podcast-the-internet-of-things/"><meta http-equiv="refresh" content="0; url=/podcasts/podcast-the-internet-of-things/">
+  </head>
+</html>
 ```
 
 This isn't quite ideal for SEO purposes but it is the recommended approach if you can't do a server-side redirect.

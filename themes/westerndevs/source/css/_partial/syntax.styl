@@ -1,3 +1,5 @@
+@import "../_variables"
+
 .entry
   .gist
     background #eee
@@ -51,6 +53,13 @@ figure.highlight
     a
       position absolute
       right 15px
+  @media mq-normal
+    max-width 600px
+  @media mq-mobile
+    margin-left 0
+    margin-right 0
+    max-width 306px
+
 
   pre
     border none
