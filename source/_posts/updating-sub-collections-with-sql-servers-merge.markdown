@@ -3,13 +3,12 @@ layout: post
 title:  "Updating Sub-Collections With SQL Server's Merge"
 date: 2015-12-15T21:52:50-07:00
 comments: true
+excerpt: When you get to be as old as me then you start to see certain problems reappearing over and over again. I think this might be called "experience" but it could also be called "not getting new experiences".
 authorId: simon_timms
 originalurl: http://blog.simontimms.com/2015/12/16/updating-sub-collections-with-sql-servers-merge/
 ---
 
 When you get to be as old as me then you start to see certain problems reappearing over and over again. I think this might be called "experience" but it could also be called "not getting new experiences". It might be that instead of 10 years experience I have the same year of experience 10 times. Of course this is only true if you don't experiment and find new ways of doing things. Even if you're doing the same job year in and year out it is how you approach the work that determines how you will grow as a developer.
-
-<!--more--> 
 
 One of those problems I have encountered over the years is the problem of updating a collection of records related to one record. I'm sure you've encountered the same thing where you present the user with a table and let them edit, delete and add records.
 

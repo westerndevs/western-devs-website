@@ -1,6 +1,6 @@
 @import 'nib'
 @import '_partial/syntax'
-@import 'font-awesome/index'
+@import '_font-awesome/index'
 @import "_variables"
 
 @font-face
@@ -95,6 +95,7 @@ A.posts:LINK, A.posts:ACTIVE, A.posts:VISITED, A.posts:HOVER
   font-weight 100
 
 .recentPosts A.posts
+  height 20px
   @media mq-normal
     overflow hidden
     text-overflow ellipsis
@@ -372,7 +373,6 @@ A.subposts:LINK, A.subposts:ACTIVE, A.subposts:VISITED, A.subposts:HOVER
 @media mq-normal
   .ListLrgHomeBG
     width 660px
-    height 95px
 
 .ListLrgSubBG
   width 984px
@@ -613,10 +613,6 @@ h4
 .originalurl
   text-transform uppercase
 
-.ellipsis
-  height: 36px
-  overflow hidden
-
 .SubpageBoxSubLrgContent IMG
   @media mq-normal
     max-width 640px
@@ -639,6 +635,9 @@ h4
 
 .podcast-content
   margin-top 20px
+
+.podcast-icon
+  color #262262
 
 li
   line-height 1.8em
@@ -679,3 +678,7 @@ li
   margin-top: 7px;
   @media mq-normal
     width 620px
+    
+h1 A:LINK, h1 A:HOVER, h1 A:ACTIVE, h1 A:VISITED,
+h2 A:LINK, h2 A:HOVER, h2 A:ACTIVE, h2 A:VISITED
+  COLOR #262262

@@ -3,6 +3,7 @@ layout: post
 title:  "Continuous Integration With Xamarin.iOS, Visual Studio Team Services, and MacinCloud: Part 1"
 date: 2015-12-10T15:38:11-05:00
 comments: true
+excerpt: Recently, Microsoft and MacinCloud announced a partnership in which they have enabled Visual Studio Team Services (VSTS) to support continuous integration (CI) builds for Xamarin.iOS and XCode projects using a Mac build agent in the cloud.
 authorId: lori_lalonde
 originalurl: http://solola.ca/xamarin-macincloud-vsts-part1/
 ---

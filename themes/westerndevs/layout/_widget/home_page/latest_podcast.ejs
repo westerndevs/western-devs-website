@@ -2,7 +2,7 @@
   <div class="HomeBox2">
     <div class="HomeBox2Content">
     <% var latestPodcast = site.posts.find({'layout' : 'podcast'}).sort('date', -1).first(); %>      
-      <h2><img class="icon" src="images/icon_podcasts.png" alt="LATEST PODCASTS" title="LATEST PODCAST" border="0"> LATEST PODCAST</h2>
+      <h2><a href="/podcasts"><img class="icon" src="images/icon_podcasts.png" alt="LATEST PODCASTS" title="LATEST PODCAST" border="0"> LATEST PODCAST</a></h2>
       <a href="<%- url_for(latestPodcast.path) %>" class="subposts"><%= latestPodcast.title %> </a><BR>
       <B> <%= moment(latestPodcast.date).format('MMM').toUpperCase() %> <%= moment(latestPodcast.date).format('D') %> </B> - <%= latestPodcast.excerpt %> <BR><BR>
       <iframe style="border: none" src="//html5-player.libsyn.com/embed/episode/id/<%-latestPodcast.podcast.libsynId%>/height/50/width/640/theme/standard/direction/no/autoplay/no/autonext/no/thumbnail/no/preload/no/no_addthis/no/" height="50" width="270" scrolling="no"  allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>

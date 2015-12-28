@@ -6,7 +6,7 @@ date: 2015-12-09 20:19:11
 
 <h2><img class="icon" src="/images/icon_circle_arrow.png" alt=">" title=">" border="0"> Welcome to our place</h2>          
 
-Western Devs started as a secret underground society that rivaled the Masons in scope, Mensa in influence, and the Stonecutters in effectiveness. For years, we lurked in the shadows, subtly influencing world opinion on topics such as UI testing, software patterns, bronies, and smoked meat.
+Western Devs began as a secret underground society that rivaled the Masons in scope, Mensa in influence, and the Stonecutters in effectiveness. For years, we lurked in the shadows, subtly influencing world opinion on topics such as UI testing, software patterns, bronies, and smoked meat.
 
 The group, nay, the LEGEND, formed years ago when Dave Woods started a humble mailing list as a means of continuing the conversations with developers he met at conferences and user groups. It was a means to expand our knowledge on the state of the industry and a solid go-to place for technical questions.
 
@@ -18,7 +18,7 @@ That leads us to this: westerndevs.com, currently (and likely eternally) a work 
 
 * [Blog posts](/posts), aggregated and regurgitated from members’ blogs
 * Posts that summarize some of the more interesting technical discussions
-* [Conferences/user groups](/where-well-be) where we’ll be speaking
+* [Conferences/user groups](/speaking) where we’ll be speaking
 * [A list of works](/whatwevedone) we’ve created, including books, software, articles, github repositories, etc.
 * A feed for our [Twitter account](http://www.twitter.com/westerndevs), which will give you a glimpse into our not-so-technical discussions
 * Our [podcast](/podcasts)
