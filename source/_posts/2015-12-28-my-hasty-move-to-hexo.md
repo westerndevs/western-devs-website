@@ -9,6 +9,7 @@ tags:
 date: 2015-12-28 17:00:00
 authorId: dave_paquette
 excerpt: I have meant for some time now to move my blog to something a little more stable. Wordpress is a fine platform but really overkill for what I need.
+originalurl: http://www.davepaquette.com/archive/2015/12/28/my-hasty-move-to-hexo.aspx
 ---
 
 As I mentioned in my last post, I had some downtime on my blog after [my database mysteriously disappeared](http://davepaquette.com/archive/2015/12/03/the-case-of-the-disappearing-database.aspx). 

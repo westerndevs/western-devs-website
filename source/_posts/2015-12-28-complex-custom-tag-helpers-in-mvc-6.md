@@ -13,6 +13,7 @@ tags:
   - Tag Helpers
 authorId: dave_paquette
 excerpt: How to build complex tag helper that are made up of multiple parts in MVC 6
+originalurl: http://www.davepaquette.com/archive/2015/12/28/complex-custom-tag-helpers-in-mvc-6.aspx
 ---
 In a previous blog post we talked about how to create [a simple tag helper](http://www.davepaquette.com/archive/2015/06/22/creating-custom-mvc-6-tag-helpers.aspx) in MVC 6. In today's post we take this one step further and create a more complex tag helper that is made up of multiple parts.
 
@@ -177,5 +178,5 @@ $@"<div class='modal-dialog' role='document'>
 ## Conclusion
 Composing complex tag helpers with parent / child relationships is fairly straight forward. In my opinion, the approach here is much easier to understand than the "multiple transclusion" approach used to solve the same problem in Angular 1. It would be easy to unit test and as always, Visual Studio provides error messages directly in the HTML editor to guide anyone who is using your tag helper.
 
-You can check out the full source code on the [Tag Helper Sampels repo](https://github.com/dpaquette/TagHelperSamples).
+You can check out the full source code on the [Tag Helper Samples repo](https://github.com/dpaquette/TagHelperSamples).
  
