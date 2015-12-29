@@ -3,6 +3,7 @@ layout: author
 permalink: /bios/david_wesst/
 date: 2015-06-22 20:09:05
 authorId: david_wesst
+comments: false
 ---
 
 David Wesst, otherwise known as "Wessty" or "DW", is a JavaScript enthusiast, currently working as an Enterprise Java Developer for the University of Manitoba.

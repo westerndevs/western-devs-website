@@ -3,6 +3,7 @@ layout: author
 permalink: /bios/kyle_baley/
 date: 2015-06-22 20:09:05
 authorId: kyle_baley
+comments: false
 ---
 
 Known throughout the land (for certain, fairly restrictive, definitions of “land”) as The Coding Hillbilly, Kyle’s career choices have hinged on a single criterium: to have fun. Luckily, he finds software development fun as opposed to, say, shark taunting. His travels have taken him from the jungles of the financial industry to the high-flying hospitality industry to the bowels of the telecommunications industry (which he refers to as his “goth phase”).

@@ -2,6 +2,7 @@ layout: about
 title: About
 permalink: /whoweare/
 date: 2015-12-09 20:19:11
+comments: false
 ---
 
 Western Devs began as a secret underground society that rivaled the Masons in scope, Mensa in influence, and the Stonecutters in effectiveness. For years, we lurked in the shadows, subtly influencing world opinion on topics such as UI testing, software patterns, bronies, and smoked meat.

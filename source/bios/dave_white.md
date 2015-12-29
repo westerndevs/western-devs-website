@@ -3,6 +3,7 @@ layout: author
 permalink: /bios/dave_white/
 date: 2015-07-16
 authorId: dave_white
+comments: false
 ---
 [Microsoft MVP - Application Lifecycle Management](https://mvp.microsoft.com/en-us/PublicProfile/5000684?fullName=Dave%20White)
 

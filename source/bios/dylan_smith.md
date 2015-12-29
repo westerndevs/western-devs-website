@@ -3,6 +3,7 @@ layout: author
 permalink: /bios/dylan_smith/
 date: 2015-06-29 11:27:05
 authorId: dylan_smith
+comments: false
 ---
 
 Dylan Smith is a Microsoft MVP (ALM), and an ALM (Application Lifecycle Management) consultant for Imaginet where he spends his time helping teams become more successful at delivering software. 

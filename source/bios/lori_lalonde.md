@@ -3,6 +3,7 @@ layout: author
 permalink: /bios/lori_lalonde/
 date: 2015-10-03 20:09:05
 authorId: lori_lalonde
+comments: false
 ---
 
 Lori Lalonde is an Apress author, consultant, blogger, international conference speaker, Xamarin Certified Developer and Microsoft MVP in Windows Platform Development. She began her career in software in 1997 and hasn't looked back since. Her experience spans numerous industries and a variety of technologies, with the past decade focused on the Microsoft .NET platform. 

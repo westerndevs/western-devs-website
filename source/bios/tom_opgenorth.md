@@ -3,6 +3,7 @@ layout: author
 permalink: /bios/tom_opgenorth/
 date: 2015-08-31 20:09:05
 authorId: tom_opgenorth
+comments: false
 ---
 I'm a software developer/programmer/contractor/consultant/nerd/geek who hails from Alberta, Canada. I've worked on a lot of different software projects in the past 20+ years in IT and have worn different hats - developer, QA, team lead, scapegoat, documentation, training and even a bit of project management thrown in.
 

@@ -3,6 +3,7 @@ layout: author
 permalink: /bios/bil_simser/
 date: 2015-06-22 20:09:05
 authorId: bil_simser
+comments: false
 ---
 
 Developer. Designer. Photographer. Artist.

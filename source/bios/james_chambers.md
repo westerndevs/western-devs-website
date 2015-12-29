@@ -3,6 +3,7 @@ layout: author
 permalink: /bios/james_chambers/
 date: 2015-06-22 20:09:05
 authorId: james_chambers
+comments: false
 ---
 
 An active member in the ASP.NET development community, James speaks at conferences, user groups and brown-bag lunches. Now a four-time Microsoft MVP in ASP.NET/IIS, he shares his programming experiences and knowledge with kids aged 9-14 through local school division programmes. 
