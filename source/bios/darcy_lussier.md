@@ -3,6 +3,7 @@ layout: author
 permalink: /bios/darcy_lussier/
 date: 2015-06-22 20:09:05
 authorId: darcy_lussier
+comments: false
 ---
 
 D'Arcy Lussier is an experienced technology professional with 15 years of experience architecting and developing applications. 
