@@ -17,10 +17,15 @@
 <!--MAIN CONTENT STARTS-->	
 	<div class="SubpageBoxFull">
 		<div class="SubpageBoxFullContent">
-			<h2><img class="icon" src="/images/icon_circle_arrow.png" alt=">" title=">" border="0"> 2015 POSTS</h2>
 			
+			<% var previousPostsYear = null %>
 			<% site.posts.sort('date', -1).each(function(post){ %>
             <% var cat = post.categories.findOne({name: 'podcasts'}) %>
+			<!-- <%= previousPostsYear %> -->
+			<% if (!previousPostsYear || previousPostsYear != moment(post.date).format('YYYY') ) { %>
+			  <h2><img class="icon" src="/images/icon_circle_arrow.png" alt=">" title=">" border="0"> <%= moment(post.date).format('YYYY') %> POSTS</h2>
+			<% } %>
+			<% previousPostsYear = moment(post.date).format('YYYY') %>
 			<div class="ListLrgSubBG">
 			<div class="ListLrgDateBG">
 			  <div class="ListLrgDateMonth"><%= moment(post.date).format('MMM').toUpperCase() %></div>
@@ -43,6 +48,7 @@
 			  </div>
 			</div>
 			</div>      
+			
 			<% }) %>
 			
 		</div>
