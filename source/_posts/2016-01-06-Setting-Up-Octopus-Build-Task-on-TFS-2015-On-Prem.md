@@ -6,12 +6,14 @@ categories:
   - octopus
   - continuous delivery
 date: 2016-01-06 13:47:46
-excerpt: "Not yet"
 originalurl: 'http://geekswithblogs.net/dlussier/archive/2016/01/04/170820.aspx'
+excerpt: "A step-by-step guide with screenshots"
 authorId: darcy_lussier
 ---
 
 Last week I worked on getting Octopus Deploy's Build Task installed in TFS 2015. What I found was that there was a lot of great articles that all had&nbsp;parts&nbsp;of the process, but there was nothing that brought all the steps together. So here's my list, complete with links to the various posts/blogs with the details.
+
+<!-- more -->
 
 ### Step 1 - Add OctoPack To Your Project
 
