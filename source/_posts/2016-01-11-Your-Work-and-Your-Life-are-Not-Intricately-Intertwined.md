@@ -2,12 +2,12 @@
 layout: post
 title: "Your Work and Your Life are Not Intricately Intertwined"
 categories:
-  - category1
-  - category2
+  - work-life-balance
 date: 2016-01-11 10:25:47
 tags:
 authorId: james_chambers
 originalurl: http://jameschambers.com/2016/01/work-is-not-life/
+alias: /category1/category2/Your-Work-and-Your-Life-are-Not-Intricately-Intertwined/
 ---
 
 You are **always** setting expectations. When you answer an email at 10pm, you are setting an expectation. When let a call go to voicemail at 6pm, you are setting an expectation.

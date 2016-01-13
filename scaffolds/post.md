@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "{{ title }}"
+title: {{ title }}
 date: {{ date }}
 tags:
 categories:
