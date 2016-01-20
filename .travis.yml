@@ -1,0 +1,22 @@
+language: node_js
+branches:
+  only:
+  - redesign
+before_install:
+- npm install -g hexo
+- npm install
+install:
+- hexo generate
+before_script:
+- git config --global user.name 'Western Devs via Travis CI'
+- git config --global user.email 'info@westerndevs.com'
+- sed -i'' "s~git@github.com:westerndevs/western-devs-website.git~https://${GH_TOKEN}:x-oauth-basic@github.com/westerndevs/western-devs-website.git~"
+  _config.yml
+script:
+- hexo deploy --silent
+env:
+  global:
+    secure: UNdzoDBkVKnVnCD3225LI6YJUFOAL3b9hseJpStIzow8NQWDTOzwqW97yEhfT4stSQ/TpU36B4I9uRusjTX11NR1Vww8uBaVzCN1GUnY/xbvFsmAaZqrITtdBLzvf7NR0x4YPdh/j45Hrjmtsm4UnFy5OPuOgc1c40nzjD4PFPK22FF4VqlyTh5W/PMowhqCTqrgdP5gwYpZ0lwY0LnnpMPiZIZ4jU63QBHfIyQ981VOQTFBQZLEU3Rh3U2d8leDYYNR7RFF4V7E8PHlCiqxDV8lxLprrdabIkOk1B80IZo5dPslNE/GxTsy2It3P2OULNQuvM2HggPw3WBzU0nYVk5QyiduiIAK6LuRDubpq5NK9zLppIdLVERLb8bUdz1boDXSG+FFgGzQUVjN3GsEQ3LAmbOT1reJoM6B8xSyQDOge/+GkuEFtelFYjHWRvnADQvxAlbjgM6BrXy0AEtqncVir1uxHfFjLzS1ay/YDvYzwEPz2QAqQ8oH+oOAsElEDu/hC8asneamm95qxS5XEUEa+GmSUOOU5wib4hOrnPSmmEt2Ex4ZYPYUz3rTgp/FNatDZ076lSrm9VKMU8UWCRQBa8jyPjkV60xVCSeebw/pey/U2H8wQPL7GnpgWSr5Zc+uaMc3kw4sQkXHg42kXs835vE2uAnNyZlgqawEvd4=
+notifications:
+  slack:
+    secure: WWadkpupU0eA0nGVm4yds4Jh8J4HYnktg61kj3tmzlUBR81ppEU2fDdXKoqQk3jAEP3b8bkT4UeVE+nvG8VZYyk4tMirWtwS0HeoIPeaZtUCe6Gg+Ff0xs92PTDCKAy/qS6UfENNVgdwQkOiSt/8IspDahZMBr0JSnTM014rrYSGME4ZMBauzKIBLxrWUNgXJ2Nhn4J7l2/rZGWpjG7OU5evMhSpIs+ikM/yYX0iI9d/4r8HA1Q2BLR0tXFjsLSGlDUeIpxUjatEO3C5+lp/xNnrMNNxNKLV7UoujCXtRPFYzh8e4CUM+cS8o3iDiQR4SxlJeD2lxcWejCNqptAQ8XMTax4VcFBr3H2x6m6Rv/1b2+amOM2nmA3U+XWVMwylUppm0IKyzMtKVxYBuK7O38CRT3nI+MFPFM9IxFYl8VXNYgX5NYmma5xOpBnMIqDmS8r5apxoRinLqUoDSXOSOIY4jiw4SUY9qHc2PHlHERsfL68JlIS2qljOu3hZjFE5mE/4GKaTA9R+2ZS3VZ2/w1QYqWxgmxL/YGTyVCuzCxnA94xIVTAc+D946ELczPkPW5hvEn7v4usKHXe4pfLQLIgFdVG+bjvNviaV6wrpWEEU+qQysuBx3vLu/VVgfeoZmMdE58h9gEf6QqqB2y0kZXS1AIsgnfo2NIOf7sRwqlE=

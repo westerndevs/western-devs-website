@@ -1,0 +1,26 @@
+# Header
+menu:
+  Home: /
+  Archives: /archives
+rss: /feed
+
+# Content
+excerpt_link: Read More
+fancybox: true
+
+# Sidebar
+sidebar: right
+widgets:
+- category
+- tag
+- tagcloud
+- archive
+- recent_posts
+
+# Miscellaneous
+google_analytics: UA-37617956-2
+favicon: /favicon.png
+twitter: westerndevs
+github: westerndevs
+email: info@westerndevs.com
+avatar: small_logo_vertical.png

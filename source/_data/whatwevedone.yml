@@ -1,0 +1,84 @@
+books:
+  - title: "Pro XAML with C#: From Design to Deployment on WPF, Windows Store and Windows Phone"
+    url: http://www.apress.com/9781430267768
+    image: ProXamlWithCSharp.jpg
+    author: lori_lalonde
+    date: 2015-07-15
+
+  - title: "Windows Phone 8 Recipes: A Problem-Solution Approach"
+    url: http://www.apress.com/9781430259022
+    image: WindowsPhone8Recipes.jpg
+    author: lori_lalonde
+    date: 2013-09-10
+
+  - title: Brownfield Application Development in .NET
+    url: http://www.amazon.com/Brownfield-Application-Development-Donald-Belcham/dp/1933988711
+    image: BrownfieldAppDevCover.jpg
+    author: donald_belcham
+    date: 2010-04-28
+
+  - title: Bootstrapping MVC
+    url: https://leanpub.com/bootstrappingmvc
+    image: BootstrappingMVC.jpg
+    author: james_chambers
+    date: 2014-08-25
+
+  - title: Evolving ASP.net Applications
+    url: https://leanpub.com/evolvinglegacyaspnetapplications
+    image: EvolvingAspNet.png
+    author: simon_timms
+    date: 2015-05-20
+
+  - title: Mastering JavaScript Design Patterns
+    url: https://www.packtpub.com/application-development/mastering-javascript-design-patterns
+    image: MasteringJavaScriptDesignPatterns.jpg
+    author: simon_timms
+    date: 2014-11-01
+
+  - title: Social Data Visualization with HTML5 and JavaScript
+    url: https://www.packtpub.com/big-data-and-business-intelligence/social-data-visualization-html5-and-javascript
+    image: SocialDataVisualization.jpg
+    author: simon_timms
+    date: 2013-09-01
+
+code:
+
+  - title: Epoch
+    url: https://github.com/MavenThought/Epoch
+    description: Utilities to create dates in a fluent style and manipulate date ranges
+    date: 2014-11-20
+    author: amir_barylko
+
+  - title: EntityFramework Seeder
+    url: https://github.com/dpaquette/EntityFramework.Seeder
+    description: A collection of helper methods to help seed entity framework databases from CSV files.
+    date: 2015-06-27
+    author: dave_paquette
+
+  - title: Tag Helper Samples
+    url: http://taghelpersamples.azurewebsites.net/
+    description: Real-world examples of MVC6 Tag Helpers
+    date: 2015-10-18
+    author: dave_paquette
+
+  - title: Schmancy
+    url: http://maventhought.github.io/schmancy/
+    description: Schmancy is a library dedicated to help developers write tests against APIs without the need of setting up a server or using a real endpoint.
+    date: 2015-05-01
+    author: amir_barylko
+
+  - title: GenFu
+    url: https://github.com/MisterJames/GenFu
+    description: GenFu is a library you can use to generate realistic test data.
+    date: 2014-08-20
+    author: james_chambers
+  
+  
+apps:
+  - title: SmartView
+    url: "http://smartview.io"
+    image: smartview.png
+    description: SmartView is a lean agile project management tool that combines the intuitive approach of user story maps with the productivity of kanban boards and cumulative user metrics to help your team work more effectively and efficiently.
+    date: 2015-07-01
+    author: amir_barylko
+  

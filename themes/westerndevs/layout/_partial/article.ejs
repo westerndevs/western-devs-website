@@ -1,0 +1,38 @@
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->	
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->	
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <%- partial('post/title', { title: post.title }) %>
+		    <%- partial('post/original_url') %>
+			
+	        <%- post.content %>
+
+            <% if (post.comments && config.disqus_shortname){ %>
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            <% } %>
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<%- partial('_widget/author_sidebar', { author: post.author }) %>
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->

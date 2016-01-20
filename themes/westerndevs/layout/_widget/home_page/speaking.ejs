@@ -1,0 +1,28 @@
+<!--SPEAKING STARTS-->  
+  <div class="HomeBox2">
+    <div class="HomeBox2Content">
+      <h2><a href="/speaking"><img class="icon" src="images/icon_speaking.png" alt="SPEAKING" title="SPEAKING" border="0"> SPEAKING</a></h2>
+      
+      <% var engagements = _.filter(site.data.speaking, function(n) {
+        return moment(n.date) > moment(_.now());
+      }); 
+      engagements = _.sortBy(engagements, function(engagement) {
+        return moment(engagement.date);
+      });
+      %>
+
+      <% _.forEach(_.take(engagements, 4), function(engagement, key){ %>
+      <div class="ListSmHomeBG">
+        <div class="ListSmDateBG">
+          <font class="ListSmDate"><%= moment(engagement.date).format('MMM D').toUpperCase() %></font>    
+        </div>
+        <div class="ListSmTxt">
+          <a href="<%=engagement.url%>" class="subposts"><%=engagement.event%></a><BR>
+          <%=engagement.speaker%>
+        </div>
+      </div>
+      <%})%>
+    </div>
+  </div>
+<!--SPEAKING ENDS-->  
+

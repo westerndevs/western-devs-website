@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+<%- partial('_partial/head') %>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<%- partial('_partial/header') %>
+
+<!--WRAPPER STARTS--> 
+<div class="Wrapper" style="">
+
+<%- body %>
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->  
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->   
+
+<% 
+if (config.disqus_shortname){ %>
+<script>
+  var disqus_shortname = '<%= config.disqus_shortname %>';
+  <% if (page.permalink){ %>
+  var disqus_url = '<%= page.permalink %>'.replace(".com//", ".com/");
+  <% } %>
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/<% if (page.comments) { %>embed.js<% } else { %>count.js<% } %>';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<% } %>
+
+</body>
+  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+  <%- partial('_partial/google-analytics', { author: page.authorId }) %>
+
+</html>

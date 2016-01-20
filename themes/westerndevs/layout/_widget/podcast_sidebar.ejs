@@ -1,0 +1,46 @@
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+		
+			<h3>Participants</h3>
+			<ul>
+			<% _.forEach(page.participants.sort(), function(n, key) {%>
+				<% 
+					var author = site.data.authors[n];
+					var name;
+					if (author) {
+						name = author.name
+					} else {
+						name = _.capitalize(n.split('_')[0]) + " " + _.capitalize(n.split('_')[1]);
+					}
+				%>
+				<% if (author) {%>
+					<li><a href="/bios/<%=n%>"><%=name%></a></li>
+				<%} else {%>
+					<li><%=name%></li>
+				<%}%>
+			<% }) %>
+			</ul>
+			<BR>
+			
+			<% if (page.links) {%>
+				<h3>Links</h3>
+				<ul>
+				<% _.forEach(page.links, function(link, key) {%>
+					<li><a target="_blank" href="<%=link.split('|')[1]%>"><%=link.split('|')[0]%></a></li>
+				<%})%>
+				</ul>
+				<BR>
+			<%}%>
+
+			<% if (page.music) {%>
+			<h3>Music</h3>
+			<ul>
+				<% _.forEach(page.music, function(item, key) {%>
+					<li><%=item.title%>, by <a target="_blank" href="<%=item.url%>"><%=item.artist%></a></li>
+				<%})%>
+			</ul>
+			<%}%>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->	

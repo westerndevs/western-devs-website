@@ -1,0 +1,41 @@
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_feature.png" alt="ABOUT US" title="ABOUT US" border="0"> ABOUT US</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->	
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->	
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+
+			<h2 class="category-heading"><img class="icon" src="/images/icon_circle_arrow.png" alt=">" title=">" border="0"> Welcome to our place</h2>          
+			
+	        <%- page.content %>
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+		
+			<h3>Current roster</h3>
+			<ul>
+			<% _.forEach(site.data.authors, function(author, key) {%>
+				<li style="padding-bottom:5px;"><a href="/bios/<%=key%>"><%=author.name%></a></li>
+			<%}) %>
+			</ul>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->	
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->

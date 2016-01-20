@@ -1,0 +1,35 @@
+<!--FEATURE STARTS-->
+<div class="HomeBox4">
+  <div class="HomeBox4Txt">
+    <div class="HomeFeatureImg"><a id="authorAvatarUrl" href="#"><img id="authorAvatar" style="height: 145px; width: 145px" height="145" width="145" /></a></div>
+    <H3 id="authorName"><a href="#" id="authorNameUrl"></a></H3>
+    <div id="authorBio">
+    </div>
+    <BR>
+    <a id="authorUrl" href="/whoweare">> LEARN MORE</a>
+
+  </div>
+  <a href="/whoweare"><img class="HomeBoxFeatureImg" src="images/bg_home_feature.png" alt="Feature" title="Feature" border="0" style="width: 288px; height: 187px;" width="288" height="187"></a>   
+  
+</div>
+<!--FEATURE ENDS-->
+
+<script>
+	$(document).ready(function() {
+		$.getJSON( "/api/authorList.json", function( data ) {
+			var numberOfAuthors = data.length;
+			var authorIndex = Math.floor((Math.random() * data.length));
+			var author = data[authorIndex];
+			if (author) {
+				$("#authorNameUrl").attr("href", "/bios/" + author.authorId).text(author.name);
+				if (author.avatar) {
+					$("#authorAvatar").attr("src", "/images/avatars/" + author.avatar);
+				} else if (author.gravatar) {
+					$("#authorAvatar").attr("src", "http://www.gravatar.com/avatar/" + author.gravatar + "?s=150");
+				}
+				$("#authorBio").html(author.bio);
+				$("#authorAvatarUrl").attr("href", "/bios/" + author.authorId);
+			}
+		});
+	});
+</script>

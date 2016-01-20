@@ -1,0 +1,29 @@
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_feature.png" alt="ABOUT US" title="ABOUT US" border="0"> ABOUT US</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->	
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->	
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+			
+	        <h2><img class="icon" src="/images/icon_circle_arrow.png" alt=">" title=">" border="0"> <%=page.author.name%></h2>
+	        <%- page.content %>
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<%- partial('_widget/author_sidebar', { author: page.author }) %>
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
