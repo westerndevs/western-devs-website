@@ -6,8 +6,8 @@ tags:
   - ASP.NET Core
 categories:
   - News
-authorId: simon_timms
-excerpt: "What the rename was and why it is just right"
+authorId: darcy_lussier
+excerpt: "What the rename was and why it's the right one."
 ---
 
 You know who I love? Simon Timms, that's who I love. And the thing with love is that you can disagree about something, but that doesn't mean you stop loving.
