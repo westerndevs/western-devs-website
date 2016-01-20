@@ -11,9 +11,9 @@ authorId: david_wesst
 originalurl: http://blog.davidwesst.com/2016/01/Why-ChakraCore-OSS-is-Important/
 ---
 
-Chakra is the new JavaScript engine developed by Microsoft, which was first released as part of the, [no longer supported](https://www.microsoft.com/en-ca/WindowsForBusiness/End-of-IE-support) Internet Explorer 9. This isn't a post about why Microsoft having more open source software (OSS) process is important, or how it "amazing" that they are turning a new leaf.
+Chakra is the new JavaScript engine developed by Microsoft, which was first released as part of the, [no longer supported](https://www.microsoft.com/en-ca/WindowsForBusiness/End-of-IE-support) Internet Explorer 9. This isn't a post about why Microsoft having more open source software (OSS) processes and projects is important, or how it is "amazing" that they are turning a new leaf.
 
-This post answers the question that I don't see people asking.: *why is having a OSS JavaScript engine important to anyone*?
+This post answers the question that I don't see people asking: *why is having a OSS JavaScript engine important to anyone*?
 
 Maybe you already know the answer to this, or maybe you're just too shy to ask, but I'm going to take a moment and try and give you some idea about why ChakraCore being open source is really cool.
 
@@ -23,9 +23,9 @@ Maybe you already know the answer to this, or maybe you're just too shy to ask, 
 
 ![](http://blog.davidwesst.com/2016/01/Why-ChakraCore-OSS-is-Important/nodejs-logo.png)
 
-This might be the most important option for me, as NodeJS is my development platform of choice. But, for the first time in the history of NodeJS, there is any alternative to the V8 JavaScript engine that has been built into NodeJS rom the beginning.
+This might be the most important point for me, as NodeJS is my development platform of choice. For the first time in the history of NodeJS, there is an alternative to the V8 JavaScript engine that has been built into NodeJS from the beginning.
 
-I have no problems with V8. It's done well by me considering without it we likely wouldn't have NodeJS at all. But having an option provides more flexibilty to the developer. Maybe Chakra can is faster at certain things than V8, or provides more JavaScript features that you want to use for your project. Now you _can_ change it, which means all kinds of opportunity for NodeJS developers.
+I have no problems with V8. It's done well by me, considering without it we likely wouldn't have NodeJS at all. But having a different option provides more flexibility to the developer. Maybe Chakra can run faster than V8 when it comes to certain tasks, or maybe it can provide more JavaScript features that you want to use for your project. Now you _can_ change Node's engine, which means all kinds of opportunity for NodeJS developers.
 
 Plus, if you can change NodeJS to use ChakraCore, then why couldn't you sub in another engine like [SpiderMonkey](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey) or something else. It leads to more options, which leads to competition, and that is always healthy in my opinion.
 
@@ -40,7 +40,7 @@ Until now, the only solution would have been to wait for an official release fro
 Now, my browser can sleep comfortably at night.
 
 ### 3. Knowing How the Sausage is Made
-As mentioned in the in YouTube announcement, Microsoft has decided to bet big on JavaScript as a whole which is why building a brand new JavaScript engine made sense for the business. Although it was a huge improvement over Trident, we still didn't know what was going into the engine and what made it work.
+As mentioned in the in [YouTube announcement](https://youtu.be/1bfDB3YPHFI), Microsoft has decided to bet big on JavaScript as a whole which is why building a brand new JavaScript engine made sense for the business. Although it was clearly a huge improvement over Trident, we still didn't know what was going into the engine and what made it work.
 
 Now we can see how the engine actually works. No secret sauce, no magic, just code. This is great for people looking to use a JavaScript on sensitive projects, or in highly secure environments that require knowing all the insides and outs to a system before it can be considered. In those cases you can fork the project, make some changes for your environment, and continue to get support from the original team by merging their changes as they publish them.
 
@@ -55,3 +55,10 @@ In time, I think we'll see more than just NodeJS, but rather Chakra become the h
 Personally, I'm thinking of using it as an on-the-fly scripting engine where a game object has a script that needs to be interpreted during game play, like AI or some sort of behaviour. 
 
 For now I'll probably start with getting it working on my Raspberry Pi. I have one sitting on my desk and I'm itching to get something cool working on it. Either way, I'll probably start with the [Windows 10 IoT](https://dev.windows.com/en-us/iot) page for some ideas, or take a stab at [embedding it into a project](https://github.com/Microsoft/ChakraCore/wiki/Embedding-ChakraCore).
+
+# 20-Jan-2016 UPDATE: Pull Request Submitted
+In case you're interested, [Microsoft has submitted a pull request to the NodeJS project](https://github.com/nodejs/node/pull/4765) to enable NodeJS to run with the ChakraCore engine. As I mentioned before: we can see how things are moving along publically because it's open source. No magic, just code.
+
+----
+##### EDIT
+Thanks to [CaptainIncredible from Reddit](https://www.reddit.com/r/webdev/comments/41q8h2/why_chakracore_oss_is_important/) and the other commenters out there for taking the time to do the proofreading that I so desperately should have done before publishing. Feedback, even about my sloppy spelling, is always appreciated.
