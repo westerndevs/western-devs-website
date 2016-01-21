@@ -5,7 +5,7 @@ tags:
   - "ASP.NET Core"
   - "ASP.NET 5"
 categories:
-  - Code Dive
+  - "ASP.NET Core"
 authorId: james_chambers
 date: 2016-01-20 20:27:23
 originalurl: http://jameschambers.com/2016/01/Configuration-in-ASP-NET-Core-MVC/
