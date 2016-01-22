@@ -49,7 +49,7 @@ As you can see above, the first lines of code on the first bit of code our appli
 
 More importantly, we get a say in how and where the configuration is loaded from. A great example of this is that we can load a JSON file for the default config and then later use environment variables to overload those defaults. 
 
-That code about  is the `Startup` method of the `Startup` class, and we're very certain about when the config is loaded and where from. We even get to test if we're in the development envionment.
+That code above is the `Startup` method of the `Startup` class, and we're very certain about when the config is loaded and where from. We even get to test if we're in the development envionment.
 
 This comes in handy when you're deploying to Azure or would like to test with your own values instead of making changes to the JSON config file that would otherwise be checked in with the project.
 
