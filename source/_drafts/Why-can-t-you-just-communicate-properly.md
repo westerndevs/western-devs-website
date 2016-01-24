@@ -25,13 +25,13 @@ Ultimately, all of these phrases can be summarized as follows:
 
 In my younger years, I could laugh this off amiably and say "Oh this wacky world we live in". But I'm turning 44 in a few days and it's time to start practicing my crotchety, even if it means complaining about people being crotchety.
 
-So to that end: I'm telling, nay, _begging_ you to avoid these and similar phrases. They don't make you sound smart and once you say something like this, it's very unlikely anyone involved will feel better about themselves, let alone engage in any form of meaningful discussion. Even if you have a valid point, who wants to be talked down to like that? Have you completely forgot what it's like to learn?
+So to that end: I'm asking, nay, _begging_ you to avoid these and similar phrases. This is for your benefit as much as the reader's. These phrases don't make you sound smart. Once you use them, it's very unlikely anyone involved will feel better about themselves, let alone engage in any form of meaningful discussion. Even if you have a valid point, who wants to be talked down to like that? Have you completely forgot what it's like to learn?
 
 <div style="border: 1px solid #999; background-color: #efefef; padding: 5px 20px; margin: 5px;">
 "For fuck's sake, Mom, why don't you just type the terms you want to search for in the address bar instead of typing WWW.GOOGLE.COM into Bing?"
 </div>
 
-I know it's hard to fight your innate sense of superiority and the overwhelming desire to make it rain down on the unwashed heathen. So take it in steps. After typing your comment, remove all instances of "just" (except when just means "recently" or "fair", of course). The same probably goes for "simply" as well. It has more of a condescending tone than a dismissive one. "Actually" is borderline. Rule of thumb: Don't start a sentence with it.
+Now I know it's hard to fight your innate sense of superiority and the overwhelming desire to make it rain down on the unwashed heathen. So take it in steps. After typing your comment, remove all instances of "just" (except when just means "recently" or "fair", of course). The same probably goes for "simply". It has more of a condescending tone than a dismissive one. "Actually" is borderline. Rule of thumb: Don't start a sentence with it.
 
 Once you have that under your control, it's time to remove the negatives. Here's a handy replacement guide to get you started:
 
@@ -40,11 +40,9 @@ Once you have that under your control, it's time to remove the negatives. Here's
 | "Can't you" | "Can you" |
 | "Why don't you" | "Can you" |
 | "Sorry but" | _no replacement; delete the phrase_ |
-| "It's amazing that..." | _Delete your entire comment and have a dandelion break_ |
+| "It's amazing that..." | _Delete your entire comment and have a [dandelion break](http://www.gocomics.com/bloomcounty/2008/12/03)_ |
 
 <div style="margin-top:15px;"></div>
-
-{% img "http://assets.amuniversal.com/974a84f05d4d012ee3bd00163e41dd5b" %}
 
 See the difference? Instead of saying _Sweet Zombie Jayzus, you must be the stupidest person on the planet for doing it this way_, you've changed the tone to _Have you considered this alternative_? In both instances, you've made your superior knowledge known but in the second, it's more likely to get acknowledged. More importantly, you're less likely to look like an idiot when the response is: _I did consider that avenue and here is why I decided to go a different route_.
 
