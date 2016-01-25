@@ -5,7 +5,7 @@ categories: podcasts
 comments: true
 podcast:
   filename: western_devs_podcast_2016-01-15.mp3
-  length: '34:23'
+  length: '40:55'
   filesize: 39288276
   libsynId: 4094859
 participants:
