@@ -137,3 +137,59 @@
   speaker: Lori Lalonde
   location: Orlando, FL
   topic: "Extending Views and Adding Custom Attributes in Your Xamarin.Android App"
+
+- date: 2016-04-10
+  event: "Prairie Dev Con"
+  url: http://prairiedevcon.com
+  speaker: Kyle Baley
+  location: Winnipeg, MB
+  topic: "Docker For People Who Think Docker Is This Weird Linux Thing That Doesn't Impact Them"
+
+- date: 2016-04-10
+  event: "Prairie Dev Con"
+  url: http://prairiedevcon.com
+  speaker: Amir Barylko
+  location: Winnipeg, MB
+  topic: "To Estimate or Not Estimate"
+  
+- date: 2016-04-10
+  event: "Prairie Dev Con"
+  url: http://prairiedevcon.com
+  speaker: Donald Belcham
+  location: Winnipeg, MB
+  topic: "A Gentle Introduction to Microservices"
+  
+- date: 2016-04-10
+  event: "Prairie Dev Con"
+  url: http://prairiedevcon.com
+  speaker: James Chambers
+  location: Winnipeg, MB
+  topic: "ASP.NET Core 1.0 Session"
+  
+- date: 2016-04-10
+  event: "Prairie Dev Con"
+  url: http://prairiedevcon.com
+  speaker: Lori Lalonde
+  location: Winnipeg, MB
+  topic: "Continuous Integration with Xamarin.IOS, Visual Studio Team Services, and MacInCloud"
+  
+- date: 2016-04-10
+  event: "Prairie Dev Con"
+  url: http://prairiedevcon.com
+  speaker: Simon Timms
+  location: Winnipeg, MB
+  topic: "CQRS - Fighting Back Against Painful SQL Queries"
+  
+- date: 2016-04-10
+  event: "Prairie Dev Con"
+  url: http://prairiedevcon.com
+  speaker: Dylan Smith
+  location: Winnipeg, MB
+  topic: "Feature Toggles vs Feature Branches"
+
+- date: 2016-04-10
+  event: "Prairie Dev Con"
+  url: http://prairiedevcon.com
+  speaker: Dave Paquette
+  location: Winnipeg, MB
+  topic: "Jumping in to Open Source"
