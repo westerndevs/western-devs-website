@@ -1,11 +1,13 @@
 ---
 layout: post
 title: "Why can't you just communicate properly?"
-categories:
-  - communication
 tags: communication
+categories:
+  - category1
+  - category2
 excerpt: Simply follow a few rules to improve engagement
 authorId: kyle_baley
+date: 2016-01-27 16:09:57
 ---
 
 Online communication bugs me. Actually, _bugs_ isn't accurate. Maybe _saddens and fatigues_. When volleying with people hiding behind their keyboard shield and protected by three timezones, you have to make a conscious effort to remain optimistic. It's part of the reason I haven't taken to [Twitter](http://twitter.com/kyle_baley) as much as I probably should.
@@ -25,7 +27,7 @@ Ultimately, all of these phrases can be summarized as follows:
 
 <div style="font-size: 18px;margin: 15px;">I'm better than you and here's why...</div>
 
-In my younger years, I could laugh this off amiably and say "Oh this wacky world we live in". But I'm turning 44 in a few days and it's time to start practicing my crotchety, even if it means complaining about people being crotchety.
+In my younger years, I could laugh this off amiably and say "Oh this wacky world we live in". But I'm turning 44 in a couple of days and it's time to start practicing my crotchety, even if it means complaining about people being crotchety.
 
 So to that end: I'm asking, nay, _begging_ you to avoid these and similar phrases. This is for your benefit as much as the reader's. These phrases don't make you sound smart. Once you use them, it's very unlikely anyone involved will feel better about themselves, let alone engage in any form of meaningful discussion. Even if you have a valid point, who wants to be talked down to like that? Have you completely forgot what it's like to learn?
 
