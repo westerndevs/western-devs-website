@@ -6,6 +6,7 @@ categories:
   - communication
 excerpt: Simply follow a few rules to improve engagement
 authorId: kyle_baley
+alias: /category1/category2/Why-can-t-you-just/
 date: 2016-01-27 16:09:57
 ---
 
