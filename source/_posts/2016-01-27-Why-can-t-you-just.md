@@ -3,8 +3,7 @@ layout: post
 title: "Why can't you just communicate properly?"
 tags: communication
 categories:
-  - category1
-  - category2
+  - communication
 excerpt: Simply follow a few rules to improve engagement
 authorId: kyle_baley
 date: 2016-01-27 16:09:57
