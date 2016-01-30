@@ -1,6 +1,6 @@
 ---
-title: Octopus Deploy Gotchas: 400 Error and Can't Create File When It Exists
 layout: post
+title: Octopus Deploy Gotchas: 400 Error and Can't Create File When It Exists
 tags:
   - Octopus
   - TFS
@@ -11,10 +11,9 @@ categories:
 authorId: darcy_lussier
 excerpt: "Lessons from setting up a successful Octopus deployment."
 ---
-
 I came across two isues with setting up a deployment with TFS and Octopus that seem pretty common based on my web searches. I wanted to document the root causes and the solutions I used to get around them.
 
-## 400 Error
+### 400 Error
 
 I began seeing 400 - Bad Request error messages when queueing up a build in TFS. The weird thing is that a build done seconds before was fine, but any subsequent build after that would throw the 400.
 
@@ -34,7 +33,7 @@ This is not the ideal way to deal with this; its a stop gap. I shouldn't have to
 
 Also while there is docmentation that says adding "?replace=true" to your OctoPackPublishPackageToHttp MSBuild argument will force a NuGet package to deploy regardless if its the same version, I couldn't get that working. I have an email in to Octopus support and I'll update this post if I get it figured out.
 
-## Cannot Create a File When It Already Exists
+### Cannot Create a File When It Already Exists
 
 Once Octopus does the deployment, you may see this error:
 
@@ -51,10 +50,3 @@ In Octopus select a project, click on Process, then click on the package you hav
 This will bring up a dialogue of Enabled Features. Here you want to ***deselect the "IIS Web Site and Application Pool"*** and instead ***select "IIS6+ Home Directory"***. Now part of your step will have an area to specify a site/virtualdirectory path. You can only have one of the IIS-related features enabled at a time so make sure you uncheck "IIS Web Site and Application Pool" feature if its checked.
 
 On a side note, but hand-in-hand with typical virtual directory deployments, if you need to have your app deployed in a specific spot (read: your virtual directory points to a folder outside of IIS) then also enable the Custom Install Directory option in Configuration Features; this will let you specify which folder the package contents should be deployed to.
-
-
-
-
-
-
-
