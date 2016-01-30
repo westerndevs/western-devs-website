@@ -1,5 +1,5 @@
 ---
-title: "Octopus Deploy Gotchas: 400 Error and Can't Create File When It Exists"
+title: Octopus Deploy Gotchas: 400 Error and Can't Create File When It Exists
 layout: post
 tags:
   - Octopus
@@ -14,7 +14,7 @@ excerpt: "Lessons from setting up a successful Octopus deployment."
 
 I came across two isues with setting up a deployment with TFS and Octopus that seem pretty common based on my web searches. I wanted to document the root causes and the solutions I used to get around them.
 
-##400 Error##
+## 400 Error
 
 I began seeing 400 - Bad Request error messages when queueing up a build in TFS. The weird thing is that a build done seconds before was fine, but any subsequent build after that would throw the 400.
 
@@ -34,7 +34,7 @@ This is not the ideal way to deal with this; its a stop gap. I shouldn't have to
 
 Also while there is docmentation that says adding "?replace=true" to your OctoPackPublishPackageToHttp MSBuild argument will force a NuGet package to deploy regardless if its the same version, I couldn't get that working. I have an email in to Octopus support and I'll update this post if I get it figured out.
 
-##Cannot Create a File When It Already Exists##
+## Cannot Create a File When It Already Exists
 
 Once Octopus does the deployment, you may see this error:
 
