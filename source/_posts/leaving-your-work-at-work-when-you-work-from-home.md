@@ -1,3 +1,4 @@
+---
 title: Leaving Your Work at Work (When You Work From Home)
 layout: post
 tags:
@@ -6,7 +7,7 @@ tags:
 categories:
   - Work Life Balance
 authorId: james_chambers
-originalUrl: 'http://jameschambers.com/2016/01/leaving-your-work-at-work-when-you-work-from-home/'
+originalurl: 'http://jameschambers.com/2016/01/leaving-your-work-at-work-when-you-work-from-home/'
 date: 2016-02-01 6:56:56
 ---
 
