@@ -193,6 +193,13 @@
   speaker: Dave Paquette
   location: Winnipeg, MB
   topic: "Jumping in to Open Source"
+  
+- date: 2016-04-10
+  event: "Prairie Dev Con"
+  url: http://prairiedevcon.com
+  speaker: David Wesst
+  location: Winnipeg, MB
+  topic: "Demystifying HTML5/JavaScript: Hardcore Edition"
 
 - date: 2016-03-22
   event: "Canada's Technology Triangle .NET User Group"
