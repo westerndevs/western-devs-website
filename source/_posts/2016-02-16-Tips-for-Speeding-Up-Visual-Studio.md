@@ -3,7 +3,7 @@ layout: post
 title: "Tips for Speeding Up Visual Studio"
 categories:
   - Development
-date: 2016-02-16 21:17:45
+date: 2016-02-17 12:17:45
 tags:
     - Visual Studio 2015
 authorId: james_chambers
