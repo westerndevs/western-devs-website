@@ -207,3 +207,10 @@
   speaker: James Chambers
   location: Kitchener, ON
   topic: "Getting Your git On: Simple Commands, Powerful Tools"
+
+- date: 2016-07-04
+  event: "DevTeach"
+  url: http://www.devteach.com
+  speaker: Dylan Smith
+  location: Montreal, QC
+  topic: "DevOps in a Microsoft World"
