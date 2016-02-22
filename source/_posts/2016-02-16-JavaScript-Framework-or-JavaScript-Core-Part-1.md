@@ -20,7 +20,7 @@ We were both right.
 
 In this series of posts, I want to explain how each of us answer the question: Should I use a JavaScript Framework or pure JavaScript?
 
-This is part 1 of 2 in the series. In this post, I'll cover why I opted to use a JavaScript framework rather than pure JavaScript. In part 2, I'll cover why Chris opted not to use any frameworks and stick with pure JavaScript.
+This is part 1 of 2 in the series. In this post, I'll cover why I opted to use a JavaScript framework rather than pure JavaScript. In [part 2][7], I'll cover why Chris opted not to use any frameworks and stick with pure JavaScript.
 
 ##### Author's Note
 
@@ -90,10 +90,11 @@ For my needs, a framework allows me to focus on learning the higher level concep
 
 All that being said, there are still great reasons not to use a JavaScript framework. We'll cover that in part 2 of this series.
 
-[1]: http://blog.davidwesst.com/2016/02/JavaScript-Framework-or-Pure-JavaScript-P1/js-framework-or-pure-js.png
+[1]: https://blog.davidwesst.com/2016/02/JavaScript-Framework-or-Pure-JavaScript-P1/js-framework-or-pure-js.png
 [2]: https://github.com/davidwesst/finder-game
 [3]: https://github.com/chrinkus/walk
-[4]: http://blog.davidwesst.com/2016/02/JavaScript-Framework-or-Pure-JavaScript-P1/network.png
-[5]: http://blog.davidwesst.com/2016/02/JavaScript-Framework-or-Pure-JavaScript-P1/dead-framework.png
+[4]: https://blog.davidwesst.com/2016/02/JavaScript-Framework-or-Pure-JavaScript-P1/network.png
+[5]: https://blog.davidwesst.com/2016/02/JavaScript-Framework-or-Pure-JavaScript-P1/dead-framework.png
 [6]: http://love2dev.com/#!article/Large-JavaScript-Frameworks-Are-Like-Fast-Food-Restaurants
+[7]: https://blog.davidwesst.com/2016/02/JavaScript-Framework-or-Pure-JavaScript-P2
   
