@@ -18,12 +18,13 @@ music:
 links:
   - 'In Absentia (Igal''s blog)|http://hmemcpy.com/'
   - 'Igal on Twitter|https://twitter.com/hmemcpy'
-  - 'TypeMock|http://www.typemock.com/'
   - 'OzCode|http://www.oz-code.com/'
-  - 'Roslyn|https://github.com/dotnet/roslyn'
-  - 'ReSharper|https://www.jetbrains.com/resharper/'
-  - 'CodeRush|https://www.devexpress.com/Products/CodeRush/'
-date: 2016-02-20 15:57:40
+  - 'Debugging Tips and Tricks - Visual Studio Blog|https://blogs.msdn.microsoft.com/visualstudio/2015/05/22/debugging-tips-and-tricks'
+  - 'The .NET Compiler Platform (Roslyn)|https://github.com/dotnet/roslyn'
+  - 'Learn Roslyn Now|https://joshvarty.wordpress.com/learn-roslyn-now/'
+  - 'Visual Studio Extensibility samples|https://github.com/Microsoft/VSSDK-Extensibility-Samples'
+  - 'Project Rider - a cross-platform C# IDE by JetBrains|https://blog.jetbrains.com/dotnet/2016/01/13/project-rider-a-csharp-ide/'
+date: 2016-02-29 15:57:40
 excerpt: "We talk with Igal Tabachnik and discuss the finer points of building tools for Visual Studio"
 ---
 
