@@ -18,7 +18,9 @@
 		    <%- partial('post/title', { title: post.title }) %>
 		    <%- partial('post/original_url') %>
 			
+			<div id="mainPostContent">
 	        <%- post.content %>
+	        </div>
 
             <% if (post.comments && config.disqus_shortname){ %>
             <section id="comments">
