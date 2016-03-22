@@ -7,10 +7,9 @@ tags:
   - azure
 categories:
   - Tools
-authorId: dwhite
-date: 2016-03-16 13:56:56 
+authorId: dave_white
+date: 2016-03-22 16:00:00 
 excerpt: "This may have been one of the most exciting things (from a web site owner's perspective) to happen in quite a while..."
-originalurl: http://www.agileramblings.com/url/here
 ---
 
 This may have been one of the most exciting things (from a web site owner's perspective) to happen in quite a while, and something I think the industry
