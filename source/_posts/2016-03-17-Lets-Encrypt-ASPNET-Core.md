@@ -134,9 +134,9 @@ $letsEncrypt
 
 Name                           Value                                                            
 ----                           -----                                                            
-SubscriptionId                 841de3ae-429e-481c-9553-c4542abdd228                             
+SubscriptionId                 11111111-2222-3333-4444-555555555555                             
 ResourceGroupName              Default-WestUs-1                                                 
-Tenant                         ff778d23-bb9d-431d-9ea1-b63f31ae5244                             
+Tenant                         11111111-2222-3333-4444-555555555555                             
 ClientSecret                   P@ssw0rd                                                         
 ClientId                       00000000-0000-0000-0000-000000000000                                                                
 ```
