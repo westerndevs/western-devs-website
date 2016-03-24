@@ -214,3 +214,27 @@
   speaker: Dylan Smith
   location: Montreal, QC
   topic: "DevOps in a Microsoft World"
+
+- date: 2016-03-24T17:30:00.10Z
+  event: "Winnipeg Agile User Group"
+  url: http://meetup.com/agilewpg
+  speaker: Amir Barylko
+  location: Winnipeg, MB
+  topic: "User Stories Deep Dive"
+    
+- date: 2016-03-30T10:30:00.0Z
+  event: "Codepalousa"
+  url: http://www.codepalousa.com
+  speaker: Amir Barylko
+  location: Louisville, KY
+  topic: "To estimate or not (that is the question)"
+    
+- date: 2016-08-13T12:00:00.0Z
+  event: "Code on the beach"
+  url: https://www.codeonthebeach.com
+  speaker: Amir Barylko
+  location: Atlantic Beach, FL
+  topic: "Smooth microservices with Suave.io"
+    
+
+
