@@ -5,9 +5,9 @@ categories: podcasts
 comments: true
 podcast:
   filename: westerndevs-diabetes-technology.mp3
-  length: '50:01'
-  filesize: 48022352
-  libsynId: 4001183
+  length: '39:14'
+  filesize: 37658214
+  libsynId: 4251678
 participants:
   - donald_belcham
   - james_chambers
@@ -17,11 +17,11 @@ music:
     artist: Johnnie Christie and the Boats
     url: 'https://www.youtube.com/user/jwcchristie'
 links:
-  - 'Night scout |http://www.nightscout.info/'
+  - 'Night scout|http://www.nightscout.info/'
   - 'JDRF|http://www.jdrf.ca/'
   - 'Open source diabetes|http://www.opensourcediabetes.org/'
-date: 2016-03-14 17:01:07
-excerpt: Special guest, Jake Belcham, joins the Western Devs as they review the state of diabetes technology today.
+date: 2016-03-27 17:01:07
+excerpt: Special guest, Jake Belcham, joins the Western Devs as they review the state of diabetes technology today and what's coming in the future
 ---
 
 ### Synopsis
