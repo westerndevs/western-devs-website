@@ -6,7 +6,7 @@ tags:
 categories:
   - Development
 authorId: james_chambers
-originalUrl: 'http://jameschambers.com/2016/04/github-authentication-asp-net-core/'
+originalurl: 'http://jameschambers.com/2016/04/github-authentication-asp-net-core/'
 date: 2016-04-26 07:12:54
 ---
 Authentication has changed over the years, and my take on it has surely shifted. No longer is it the scary, intimidating beastie that must be overcome on our projects. Today, we can let external providers provide the authentication mechanisms, giving the user with a streamlined experience that can give them access to our application with previuosly defined credentials.
