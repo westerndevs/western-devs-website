@@ -2,8 +2,7 @@
 layout: post
 title: I regret nothing!
 categories:
-  - category1
-  - category2
+  - career
 date: 2016-05-08 13:46:59
 tags:
 authorId: kyle_baley
@@ -16,6 +15,8 @@ One of the Western Devs posted [an article](http://thecodist.com/article/my-bigg
 In the article, the author describes their [Mr. Destiny](http://www.imdb.com/title/tt0100201/) moment where they wish they had gone into management rather than sticking with being "just" a programmer. Thus perpetuating the myth in our industry that you aren't worth anything unless you *Change The World™*.
 
 To be fair, the author is careful not to be prescriptive. It's very much "these are my regrets and thoughts" and not "you should do this in the same situation". I'm thankful for that and I'll pay the same courtesy. These are my thoughts as they apply to me personally. If you can relate to it in any way, that's not my fault.
+
+{% img pull-right /images/yes-no.jpg 400 %}
 
 Twenty years ago, I suppose I was at my own crossroads though I didn't really recognize it as such until I thought about it just now. Ever since I was in grade 8, I was going to be an actuary. At the time, I was told "you have to be good at math and you'll make a lot of money". What else do you need to hear when you're in grade 8?
 
