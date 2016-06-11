@@ -132,7 +132,7 @@ let doWebRequest countStr =
 
 Another common scenario is to apply a function when we get a result or just do nothing otherwise:
 
-For exmple, the following code will only print the message when `tryParse` returns `Some`:
+For example, the following code will only print the message when `tryParse` returns `Some`:
 
 ``` fsharp
 let doWebRequest param =
