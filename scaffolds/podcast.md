@@ -5,7 +5,7 @@ date: {{ date }}
 categories: podcasts
 comments: true
 podcast:
-  filename: TheFutureOfComputing.mp3
+  filename: westerndevs-name.mp3
   length: '50:01'
   filesize: 48022352
   libsynId: 4001183
