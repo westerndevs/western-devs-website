@@ -31,7 +31,7 @@ links:
   - 'Token-based authentication|https://scotch.io/tutorials/the-ins-and-outs-of-token-based-authentication'
   - 'OAuth2|http://oauth.net/2/'
   - 'Authenticating in TFS with personal access tokens|https://www.visualstudio.com/en-us/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate'
-date: 2016-06-02 09:58:48
+date: 2016-06-13 09:58:48
 excerpt: "The Western Devs discuss the ins and outs of building APIs"
 ---
 
