@@ -208,13 +208,34 @@
   location: Kitchener, ON
   topic: "Getting Your git On: Simple Commands, Powerful Tools"
 
+- date: 2016-06-23
+  event: "Calgary .NET User Group"
+  url: http://www.meetup.com/Calgary-net-User-Group/events/231779811/
+  speaker: Simon Tibbs
+  location: Calgary, AB
+  topic: "Async and Await"
+
 - date: 2016-07-04
   event: "DevTeach"
   url: http://www.devteach.com
   speaker: Dylan Smith
   location: Montreal, QC
   topic: "DevOps in a Microsoft World"
+  
+- date: 2016-07-04
+  event: "DevTeach"
+  url: http://www.devteach.com
+  speaker: Dave Paquette
+  location: Montreal, QC
+  topic: "New UI Building Blocks in ASP.NET Core MVC"
 
+- date: 2016-07-04
+  event: "DevTeach"
+  url: http://www.devteach.com
+  speaker: James Chambers
+  location: Montreal, QC
+  topic: "The Evolution to "Easy" with ASP.NET Configuration"
+  
 - date: 2016-03-24T17:30:00.10Z
   event: "Winnipeg Agile User Group"
   url: http://meetup.com/agilewpg
