@@ -95,7 +95,7 @@
   speaker: Chambers and Timms
   location: Seattle, WA
   topic: "Applications on Azure: Putting All the Pieces Together"
-  
+
 - date: 2016-02-24
   event: ConFoo
   url: http://confoo.ca
@@ -109,14 +109,14 @@
   speaker: James Chambers
   location: Montreal, QC
   topic: "Success as a Remote Worker: Love Your Job, Have a Life"
-  
+
 - date: 2016-01-19
   event: Calgary .net User Group
   url: http://www.meetup.com/Calgary-net-User-Group/events/228071363/
   speaker: Simon Timms
   location: Calgary, AB
   topic: "Version control and branching"
-  
+
 - date: 2015-12-16
   event: Mississauga .NET User Group
   url: http://www.meetup.com/MississaugaNETUG/events/227259613/
@@ -151,35 +151,35 @@
   speaker: Amir Barylko
   location: Winnipeg, MB
   topic: "To Estimate or Not Estimate"
-  
+
 - date: 2016-04-10
   event: "Prairie Dev Con"
   url: http://prairiedevcon.com
   speaker: Donald Belcham
   location: Winnipeg, MB
   topic: "A Gentle Introduction to Microservices"
-  
+
 - date: 2016-04-10
   event: "Prairie Dev Con"
   url: http://prairiedevcon.com
   speaker: James Chambers
   location: Winnipeg, MB
   topic: "ASP.NET Core 1.0 Session"
-  
+
 - date: 2016-04-10
   event: "Prairie Dev Con"
   url: http://prairiedevcon.com
   speaker: Lori Lalonde
   location: Winnipeg, MB
   topic: "Continuous Integration with Xamarin.IOS, Visual Studio Team Services, and MacInCloud"
-  
+
 - date: 2016-04-10
   event: "Prairie Dev Con"
   url: http://prairiedevcon.com
   speaker: Simon Timms
   location: Winnipeg, MB
   topic: "CQRS - Fighting Back Against Painful SQL Queries"
-  
+
 - date: 2016-04-10
   event: "Prairie Dev Con"
   url: http://prairiedevcon.com
@@ -193,7 +193,7 @@
   speaker: Dave Paquette
   location: Winnipeg, MB
   topic: "Jumping in to Open Source"
-  
+
 - date: 2016-04-10
   event: "Prairie Dev Con"
   url: http://prairiedevcon.com
@@ -221,7 +221,7 @@
   speaker: Dylan Smith
   location: Montreal, QC
   topic: "DevOps in a Microsoft World"
-  
+
 - date: 2016-07-04
   event: "DevTeach"
   url: http://www.devteach.com
@@ -235,27 +235,38 @@
   speaker: James Chambers
   location: Montreal, QC
   topic: The Evolution to "Easy" with ASP.NET Configuration
-  
+
 - date: 2016-03-24T17:30:00.10Z
   event: "Winnipeg Agile User Group"
   url: http://meetup.com/agilewpg
   speaker: Amir Barylko
   location: Winnipeg, MB
   topic: "User Stories Deep Dive"
-    
+
 - date: 2016-03-30T10:30:00.0Z
   event: "Codepalousa"
   url: http://www.codepalousa.com
   speaker: Amir Barylko
   location: Louisville, KY
   topic: "To estimate or not (that is the question)"
-    
+
 - date: 2016-08-13T12:00:00.0Z
   event: "Code on the beach"
   url: https://www.codeonthebeach.com
   speaker: Amir Barylko
   location: Atlantic Beach, FL
   topic: "Smooth microservices with Suave.io"
-    
 
+- date: 2016-07-06
+  event: Montreal Mobile .NET Developers
+  url: http://www.meetup.com/MontrealMobileDevelopers/events/231606302/
+  speaker: Lori Lalonde
+  location: Montreal, QC
+  topic: "Cross Platform Localization Strategies"
 
+- date: 2016-07-11
+  event: .NET Fringe
+  url: http://dotnetfringe.org/
+  speaker: Lori Lalonde
+  location: Portland, OR
+  topic: "So You Want To Be A Mobile App Developer"
