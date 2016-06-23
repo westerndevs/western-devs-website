@@ -17,7 +17,7 @@ bil_simser:
   twitter: bsimser
   github: bsimser
   linkedin: bsimser
-  
+
 darcy_lussier:
   name: D'Arcy Lussier
   web: http://geekswithblogs.net/dlussier/Default.aspx
@@ -51,8 +51,8 @@ dave_white:
   email: dmhwhite@gmail.com
   twitter: AgileRamblings
   google:
-    plus: 
-  github: agileramblings 
+    plus:
+  github: agileramblings
   linkedin: dave-white
 
 donald_belcham:
@@ -79,10 +79,18 @@ james_chambers:
   github: MisterJames
   linkedin: canadianjames
 
+justin_self:
+  name: Justin Self
+  web: http://www.justinself.com
+  email: justinself@outlook.com
+  twitter: thejustinself
+  github: justinself
+  linkedin: therealjustinself
+
 kelly_cassidy:
   name: Kelly Cassidy
   twitter: k_cassidy
-  web: http://www.mindfulsanity.com/ 
+  web: http://www.mindfulsanity.com/
   linkedin: kcassidy
   github: kpcassidy
   email: kelly@mindfulsanity.com
@@ -104,7 +112,7 @@ lori_lalonde:
   linkedin: lorilalonde
   github: llalonde
   avatar: Lori_Lalonde.jpg
-  
+
 simon_timms:
   name: Simon Timms
   web: http://blog.simontimms.com/
