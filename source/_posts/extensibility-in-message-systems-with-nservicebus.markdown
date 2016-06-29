@@ -122,7 +122,7 @@ You may have noticed I'm sending a command from this event handler instead of ju
 
 Up to now, all we've really done is changed a command to an event and moved some logic to the event handler, which then delegates to another command handler. So where's the power in that? 
 
-*Queue the Product Owner*
+*Cue the Product Owner*
 
 Now we have some new requirements. Once a payment has been successfully processed, if this is a first time customer then the company wants to send out a special dog treat to the customer to give to their canine companion as a thank you for their business. So let's add that capability.
 
