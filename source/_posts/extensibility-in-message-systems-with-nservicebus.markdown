@@ -9,7 +9,9 @@ originalurl: http://www.justinself.com/extensibility-in-message-based-systems-wi
 ---
 One of my favorite things about message based systems is the natural points of extensibility you can gain. Though, you don't get it for free if you aren't setting yourself up for it.
 
-Let's say you work for a company that sells dog shoes online. Thinking about it, that's a dramatically under served market. 
+<!--more-->
+
+Let's say you work for a company that sells dog shoes online. Thinking about it, that's a dramatically under served market.
 
 Currently, your company's website allows for users to pay with their credit card and then, hopefully within a few days, receive their shoes. So let's take a look at some sample code for the handler that processes the message for payment.
 
@@ -52,8 +54,8 @@ This is a common, albiet naive, approach to the problem. It will work, assuming 
 
 The first problem is now the code that handles processing a payment has a dependency on the process that sends emails. This single line of code may not seem like a dependency problem, but maintaining code and clean architecture is a lot about managing dependencies. Introducing the command here forces the host of this handler to know about the location of the email handler.
 
- There's also a deployment dependency. We now have to keep this handler in sync with the current version of the email handler. 
- 
+ There's also a deployment dependency. We now have to keep this handler in sync with the current version of the email handler.
+
  If the message interface changes because the handler was expanded or for any other of a multitude of reasons, we now have to come back and change code that handles processing a payment because some other code related to an email has changed (admittedly, though, we could effectively manage different versions in messages). Which leads us to the next problem...
 
 
@@ -88,14 +90,14 @@ In this code, we removed the line getting the email address and the code to send
 
 It's pretty clear why the first line was removed. Since we aren't sending the command, we don't need to find the email address.
 
-The second line, however, has some subtleties that could be missed. 
+The second line, however, has some subtleties that could be missed.
 
 ### Publish
-The command was "sent" while the event is "published". Commands can be sent from N number of hosts but they are "sent" to a location because that location is always known. If a service has the contract and the correct queue, it can send any command it wants to. This means, however, that the service is now coupled to the processor of that command; being aware of its very existence is a coupling. 
+The command was "sent" while the event is "published". Commands can be sent from N number of hosts but they are "sent" to a location because that location is always known. If a service has the contract and the correct queue, it can send any command it wants to. This means, however, that the service is now coupled to the processor of that command; being aware of its very existence is a coupling.
 
 However, events are published from one and only one logical host but can be received by N number of hosts. Other services can subscribe to those events without the publishing service being aware of it. This inverts the coupling the other direction. The service that needs to do the action is now coupled to the service that publishes the event. The coupling here makes sense. In our case, the email service wants to know when it needs to send the confirmation email. So, we can allow it to couple to the PaymentProcesssor service.
 
-If you are still not quite groking events vs commands, try this: 
+If you are still not quite groking events vs commands, try this:
 
 * Commands are like email. You know who is going to read it and you know where it is going. You send the email to one person with the expectation that they will read it and act on it.
 
@@ -120,7 +122,7 @@ You may have noticed I'm sending a command from this event handler instead of ju
 
 ## Extensibility
 
-Up to now, all we've really done is changed a command to an event and moved some logic to the event handler, which then delegates to another command handler. So where's the power in that? 
+Up to now, all we've really done is changed a command to an event and moved some logic to the event handler, which then delegates to another command handler. So where's the power in that?
 
 *Cue the Product Owner*
 
@@ -136,7 +138,7 @@ If we didn't have events, we would need to modify the existing code for processi
         }
     }
 
-We just extended the application without modifying any existing code. That's the power of using events. If the company decides they also want to add the customer to a list for someone to call and thank them personally, we could subscribe to the event again. If the company decided they no longer wanted to send dog treats, then we simply unsubscribe to the event. 
+We just extended the application without modifying any existing code. That's the power of using events. If the company decides they also want to add the customer to a list for someone to call and thank them personally, we could subscribe to the event again. If the company decided they no longer wanted to send dog treats, then we simply unsubscribe to the event.
 
 All of this is done without redeploying the current, existing code (PaymentProcessor).
 
