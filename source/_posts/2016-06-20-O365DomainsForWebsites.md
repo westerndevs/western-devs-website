@@ -10,6 +10,8 @@ date: 2016-06-20
 Here's the situation - you've registered a custom domain and you've gone ahead and set it up to work with
 Office 365 so you can have yourname@yourdomain.com for emails. Fantastic!
 
+<!-- more -->
+
 Now you've created a website and you'd like to use that same custom domain for it. That's whre I found myself tonight
 and as you'll read below the process isn't as straightforward as you'd think.
 
@@ -64,5 +66,3 @@ Any questions or clarifications needed, please leave a comment!
 Thanks,
 
 D
-
-
