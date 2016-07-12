@@ -270,3 +270,27 @@
   speaker: Lori Lalonde
   location: Portland, OR
   topic: "So You Want To Be A Mobile App Developer"
+
+- date: 2016-07-23
+  event: Measure Up
+  url: http://www.measureup.io
+  speaker: Justin Self
+  location: Austin, TX
+  topic: "Make the case for the bus"
+
+
+- date: 2016-08-11
+  event: Dallas .NET User Group
+  url: http://www.meetup.com/DallasNETUG/
+  speaker: Justin Self
+  location: Dallas, TX
+  topic: "Going Distributed With NServiceBus"
+
+
+- date: 2016-08-16
+  event: Fort Worth .NET User Group
+  url: http://fwdnug.com/
+  speaker: Justin Self
+  location: Fort Worth, TX
+  topic: "Going Distributed With NServiceBus"
+
