@@ -278,6 +278,12 @@
   location: Austin, TX
   topic: "Make the case for the bus"
 
+- date: 2016-07-23
+  event: Measure Up
+  url: http://www.measureup.io
+  speaker: Simon Timms
+  location: Austin, TX
+  topic: "A sink full of C# - Async"
 
 - date: 2016-08-11
   event: Dallas .NET User Group
