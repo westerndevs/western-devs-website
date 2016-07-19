@@ -292,7 +292,6 @@
   location: Dallas, TX
   topic: "Going Distributed With NServiceBus"
 
-
 - date: 2016-08-16
   event: Fort Worth .NET User Group
   url: http://fwdnug.com/
@@ -300,3 +299,9 @@
   location: Fort Worth, TX
   topic: "Going Distributed With NServiceBus"
 
+- date: 2016-09-30
+  event: .NET Conf UY
+  url: http://netconf.uy/
+  speaker: Kyle Baley
+  location: Montevideo, Uruguay
+  topic: "Workshop: Introduction to Docker"
