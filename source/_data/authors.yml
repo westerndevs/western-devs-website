@@ -115,9 +115,8 @@ lori_lalonde:
 
 peter_ritchie:
   name: Peter Ritchie
-  web:
-  email:
-  avatar: 
+  web: http://blogs.msmvps.com/peterritchie/
+  email: peter.ritchie@outlook.com
   twitter: peterritchie
   github: peteraritchie
   linkedin: peteraritchie
@@ -138,10 +137,3 @@ tom_opgenorth:
   github: topgenorth
   linkedin: tom-opgenorth
 
-peter_ritchie:
-  name: Peter Ritchie
-  web: http://blogs.msmvps.com/peterritchie/
-  email: peter.ritchie@outlook.com
-  twitter: peterritchie
-  github: peteraritchie
-  linkedin: peteraritchie
