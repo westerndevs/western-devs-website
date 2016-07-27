@@ -113,6 +113,14 @@ lori_lalonde:
   github: llalonde
   avatar: Lori_Lalonde.jpg
 
+peter_ritchie:
+  name: Peter Ritchie
+  web: http://blogs.msmvps.com/peterritchie/
+  email: peter.ritchie@outlook.com
+  twitter: peterritchie
+  github: peteraritchie
+  linkedin: peteraritchie
+
 simon_timms:
   name: Simon Timms
   web: http://blog.simontimms.com/
@@ -128,3 +136,4 @@ tom_opgenorth:
   twitter: topgenorth
   github: topgenorth
   linkedin: tom-opgenorth
+
