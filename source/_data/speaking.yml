@@ -305,3 +305,10 @@
   speaker: Kyle Baley
   location: Montevideo, Uruguay
   topic: "Workshop: Introduction to Docker"
+
+- date: 2016-09-23
+  event: Houston Techfest
+  url: http://houstontechfest.org
+  speaker: Justin Self
+  location: Houston, TX
+  topic: "Holy $#!@, the browser can do that?!"
