@@ -1,4 +1,4 @@
-- date: 2015-07-07
+﻿- date: 2015-07-07
   event: Calgary .NET User Group
   url: http://www.meetup.com/Calgary-net-User-Group/events/223029742
   speaker: Dylan Smith
@@ -306,9 +306,38 @@
   location: Montevideo, Uruguay
   topic: "Workshop: Introduction to Docker"
 
+- date: 2016-08-25
+  event: Mississauga .NET User Group
+  url: http://www.meetup.com/MississaugaNETUG/events/232309568/
+  speaker: Lori Lalonde
+  location: Mississauga, ON
+  topic: "Intro to Xamarin"
+
+- date: 2016-09-17
+  event: Xamarin Dev Days - Kitchener
+  url: https://ti.to/xamarin/dev-days-kitchener
+  speaker: Lori Lalonde
+  location: Kitchener, ON
+  topic: "Intro to Xamarin"
+
+- date: 2016-09-22
+  event: Rocky Mountain Celebration of Women in Computing
+  url: http://www.rmcwic.org/
+  speaker: Lori Lalonde
+  location: Salt Lake City, UT
+  topic: "The 30 Second Elevator Speech"
+
+- date: 2016-10-17
+  event: MVP Mix
+  url: http://www.mvpmix.com/session/whats-new-in-xamarin-forms
+  speaker: Lori Lalonde
+  location: Mississauga, ON
+  topic: "What's New in Xamarin.Forms"
+  
 - date: 2016-09-23
   event: Houston Techfest
   url: http://houstontechfest.org
   speaker: Justin Self
   location: Houston, TX
   topic: "Holy $#!@, the browser can do that?!"
+
