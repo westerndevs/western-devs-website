@@ -333,4 +333,11 @@
   speaker: Lori Lalonde
   location: Mississauga, ON
   topic: "What's New in Xamarin.Forms"
+  
+- date: 2016-09-23
+  event: Houston Techfest
+  url: http://houstontechfest.org
+  speaker: Justin Self
+  location: Houston, TX
+  topic: "Holy $#!@, the browser can do that?!"
 
