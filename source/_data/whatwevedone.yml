@@ -35,11 +35,18 @@ books:
     author: simon_timms
     date: 2014-11-01
 
+  - title: Mastering JavaScript Design Patterns Second Edition
+    url: https://www.packtpub.com/web-development/mastering-javascript-design-patterns-second-edition
+    image: MasteringJavaScriptDesignPatterns2nded.jpg
+    author: simon_timms
+    date: 2016-07-01
+
   - title: Social Data Visualization with HTML5 and JavaScript
     url: https://www.packtpub.com/big-data-and-business-intelligence/social-data-visualization-html5-and-javascript
     image: SocialDataVisualization.jpg
     author: simon_timms
     date: 2013-09-01
+
 
 code:
 
