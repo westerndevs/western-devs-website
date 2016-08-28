@@ -7,8 +7,15 @@ categories:
   - Deployment   
 authorId: simon_timms
 date: 2016-08-28 17:36:36
-excerpt: I've been using HttpClient wrong for years and it finally came back to bite me. My site was unstable and my clients furious, with a simple fix performance improved greatly and the instability disapeared. 
 ---
+
+I've been using HttpClient wrong for years and it finally came back to bite me. My site was unstable and my clients furious, with a simple fix performance improved greatly and the instability disapeared. 
+
+![Imgur](http://i.imgur.com/EctiaBj.jpg)
+
+At the same time I actually improved the performance of the application through more efficient socket usage.
+
+<!-- more -->
 
 Microservices can be a bear to deal with. As more services are added and monoliths are broken down there tends to be more communication paths between services. There are many options for communicating, but HTTP is an ever popular option. If the microservies are built in C# or any .NET language then chances are you've made use of `HttpClient`. I know I did. 
 
@@ -28,7 +35,7 @@ And you can't be blamed for wanting to wrap it with the using. First of all, it'
 
 > As a rule, when you use an IDisposable object, you should declare and instantiate it in a using statement. 
 
-Secondly, all code you may have seen since...the inception of `HttpClient` would have told you to use a `using` statement block, including recent docs on the [ASP.NET site itself](http://www.asp.net/web-api/overview/advanced/calling-a-web-api-from-a-net-client). The internet is generally [in agreement as well] (http://stackoverflow.com/questions/212198/what-is-the-c-sharp-using-block-and-why-should-i-use-it).
+Secondly, all code you may have seen since...the inception of `HttpClient` would have told you to use a `using` statement block, including recent docs on the [ASP.NET site itself](http://www.asp.net/web-api/overview/advanced/calling-a-web-api-from-a-net-client). The internet is generally [in agreement as well](http://stackoverflow.com/questions/212198/what-is-the-c-sharp-using-block-and-why-should-i-use-it).
 
 But `HttpClient` is different. Although it implements the `IDisposable` interface it is actually a shared object. This means that under the covers it is [reentrant](https://en.wikipedia.org/wiki/Reentrancy_(computing)) and thread safe. Instead of creating a new instance of `HttpClient` for each execution you should share a single instance of `HttpClient` for the entire lifetime of the application. Let's look at why.
 
@@ -36,6 +43,7 @@ But `HttpClient` is different. Although it implements the `IDisposable` interfac
 Here is a simple program written to demonstrate the use of `HttpClient`:
 
 ```
+
 using System;
 using System.Net.Http;
 
@@ -58,7 +66,8 @@ namespace ConsoleApplication
         }
     }
 }
-``` 
+
+```
 
 This will open up 10 requests to one of the best sites on the internet [http://aspnetmonsters.com](http://aspnetmonsters.com) and do a `GET`. We just print the status code so we know it is working. The output is going to be: 
 
@@ -115,7 +124,7 @@ Huh, that's weird...the application has exited and yet there are still a bunch o
 
 ![Imgur](http://i.imgur.com/rXxnIA8.png)
 
-Windows will hold a connection in this state for 240 seconds (It is set by [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\TcpTimedWaitDelay]). There is a limit to how quickly Windows can open new sockets so if you exhaust the connection pool then you're likely to see error like: 
+Windows will hold a connection in this state for 240 seconds (It is set by `[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\TcpTimedWaitDelay]`). There is a limit to how quickly Windows can open new sockets so if you exhaust the connection pool then you're likely to see error like: 
 
 ```
 Unable to connect to the remote server
