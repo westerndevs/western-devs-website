@@ -8,7 +8,7 @@ tags:
   - responsive
 excerpt: When redesigning my personal website and blog, I started from scratch and attempted to apply a mobile-first design approach. Here are a few tips that I picked up along the way while creating and implementing my new design that might prevent some mistakes on your own sites.
 authorId: david_wesst
-originalUrl: https://blog.davidwesst.com/2016/08/Mobile-First-Design-Tips/
+originalurl: https://blog.davidwesst.com/2016/08/Mobile-First-Design-Tips/
 ---
 
 Last weekend I released an updated version of my blog and website that share a similar design. I decided to go with a mobile-first approach when it came to the design, which is a tried and tested way to create responsive web applications. Along the way, I tripped up and made a few mistakes that cost me some time and rework, but could have been easily corrected had I had these tips beforehand.
