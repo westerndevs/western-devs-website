@@ -24,7 +24,7 @@ My project is starting out simple, with a single module and a couple of differen
 In any case, here's my code:
 
 ```typescript
-> // ModuleOne.ts
+// ModuleOne.ts
 
 export class ModuleOne {
     sayHello() {
@@ -38,7 +38,7 @@ export class ModuleOne {
 ```
 
 ```typescript
-> // ModuleTwo.ts
+// ModuleTwo.ts
 
 export class ModuleOne {
     sayHello() {
@@ -52,7 +52,7 @@ export class ModuleOne {
 ```
 
 ```typescript
-> // App.ts
+// App.ts
 
 import * as Module1 from "./modules/Module1";
 import * as Module2 from "./modules/Module2";
@@ -100,13 +100,13 @@ AMD modules have always needed RequireJS to load properly. That's the purpose fo
 I added this to my HTML file, along with the RequireJS library in my project:
 
 ```html
->&lt;script data-main="main" type="text/javascript" src="lib/require.js"&gt;&lt;/script&gt;
+<script data-main="main" type="text/javascript" src="lib/require.js"></script>
 ```
 
 Then, my `data-main` file goes something like this:
 
 ```javascript
-> // main.js
+// main.js
   
 requirejs.config({
     baseUrl: 'lib',
@@ -135,7 +135,7 @@ I skipped that part on purpose, because I don't use the TSC compiler directly. R
 You're welcome. ;)
 
 ```javascript
->var tsProject = ts.createProject('tsconfig.json');
+var tsProject = ts.createProject('tsconfig.json');
 
 gulp.task('build-ts', ()=> {
     let tsResult = tsProject.src()
@@ -153,7 +153,7 @@ gulp.task('build-ts', ()=> {
 Oh, and here's my `tsconfig.json` file too.
 
 ```javascript
->{
+{
     "compilerOptions": {
         "module": "amd",
         "rootDir": "./src/ts",
