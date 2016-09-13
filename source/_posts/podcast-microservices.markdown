@@ -5,10 +5,11 @@ date: 2015-07-07T16:54:52-04:00
 categories: podcasts
 excerpt: "In our inaugural podcast, the Western Devs tackle what is either the new hotness, retro SOA, or a flash in the pan: microservices."
 comments: true
-podcast: 
+podcast:
     filename: Microservices.mp3
     length: "53:58"
     filesize: 51810324
+    libsynId: 4662899
 participants:
     - dave_paquette
     - amir_barylko
@@ -38,4 +39,3 @@ music:
         url: https://www.youtube.com/user/jwcchristie
 alias: /whatwevesaid/podcast-microservices/
 ---
-
