@@ -47,7 +47,6 @@ gulp.task('build-script', function() {
 						]
 					}))
 				.pipe(concat('dw.js'))
-				.pipe(sourcemaps.write('.'))
 				.pipe(gulp.dest('./dist/script'));
 });
 ```
