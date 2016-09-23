@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Hour of Code Challange
+title: Hour of Code Challenge
 categories:
   - Community 
 date: 2016-09-23 19:55:48
