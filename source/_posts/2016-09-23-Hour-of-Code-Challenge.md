@@ -42,7 +42,7 @@ event a public event inviting kids to attend!
 I'm issuing his challenge because there are logistics and permissions that sometimes need to be arranged and this should give my fellow WD
 more than enough time to get these things sorted out!
 
-I'm also willing to put up a bounty! For every WD member who performs 1 or more sessions, [I will donate $100 CAD to Code.org®] to support
+I'm also willing to put up a bounty! For every WD member who performs 1 or more sessions, [I will donate $100 CAD to Code.org®][4] to support
 this organization! In order to claim the bounty, there will need to be: 
 1) Blog post talking about the event
 2) Picture with the organizer (permissions allowing) 
