@@ -50,7 +50,7 @@ this organization! In order to claim the bounty, there will need to be:
 So there it is! My challenge! I hope this encourages all of the WD (and anyone who follows us) to get involved with this fantastic opportunity to give back to the community and our children.
 I'll look forward to seeing all of your posts in December!
 
-[1]: [https://csedweek.org/]
-[2]: [https://code.org/]
-[3]: [https://hourofcode.com]
-[4]: [https://code.org/help]
+[1]: https://csedweek.org/
+[2]: https://code.org/
+[3]: https://hourofcode.com/
+[4]: https://code.org/help/
