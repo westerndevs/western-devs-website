@@ -341,3 +341,17 @@
   location: Houston, TX
   topic: "Holy $#!@, the browser can do that?!"
 
+- date: 2016-09-28
+  event: Winnipeg .NET User Group
+  url: http://winnipegdotnet.org
+  speaker: David Wesst
+  location: Winnipeg, MB
+  topic: "Windows Not Required: The New Microsoft Development Story" 
+
+- date: 2016-10-12
+  event: PrDC Deliver
+  url: http://prdcdeliver.com
+  speaker: David Wesst
+  location: Winnipeg, MB
+  topic: "How to Make Great Developers" 
+
