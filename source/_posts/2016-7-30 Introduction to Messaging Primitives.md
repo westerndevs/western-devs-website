@@ -9,7 +9,7 @@ tags:
   - Messaging
 excerpt: An introduction to messaging and the Primitives library to make writing message-driven/event-oriented systems easier.
 authorId: peter_ritchie
-originalurl: 
+originalurl: http://pr-blog.azurewebsites.net/2016/09/30/introduction-to-messaging-primitives/
 ---
 #Introduction to messaging primitives
 
