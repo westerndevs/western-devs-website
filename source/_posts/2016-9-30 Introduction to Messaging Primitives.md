@@ -3,7 +3,7 @@ layout: post
 title: Introduction to messaging primitives
 categories:
   - C# 
-date: 2016-09-28 17:00:00
+date: 2016-09-30 17:00:00
 tags:
   - C#
   - Messaging
