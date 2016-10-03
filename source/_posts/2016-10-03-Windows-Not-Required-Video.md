@@ -11,7 +11,7 @@ tags:
   - TypeScript
   - Visual Studio Code
   - Visual Studio Team Services
-excerpt: I delivered a presentation at the Winnipeg .NET User Group last week, where I recorded it and posted it on YouTube. I go over a number of Microsoft development tools and technologies that don't require Windows and present deliver the demos on my Linux machine.
+excerpt: I delivered a presentation at the Winnipeg .NET User Group last week, where I recorded it and posted it on YouTube. I go over a number of Microsoft development tools and technologies that don't require Windows and deliver the demos on my Linux machine.
 authorId: david_wesst
 originalurl: https://blog.davidwesst.com/2016/10/Windows-Not-Required-Video/
 ---
