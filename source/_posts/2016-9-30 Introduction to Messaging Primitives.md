@@ -11,8 +11,6 @@ excerpt: An introduction to messaging and the Primitives library to make writing
 authorId: peter_ritchie
 originalurl: http://pr-blog.azurewebsites.net/2016/09/30/introduction-to-messaging-primitives/
 ---
-#Introduction to messaging primitives
-
 One of the most flexible design/architecture techniques is event-driven/message-oriented design.  It offers unparalleled ability to loosely couple, accomplish Dependency Inversion, facilitates composability, etc.  Message-oriented systems are by nature asynchronous.  This means that a message is sent and the process that sent the message continues on to do other processing without knowing whether the message was received by the other end.  Think of it like sending an email.  You send an email, close your email client, and go on to do something else.  Later, you may return to your email program and notice that the email you sent bounced.  But, you had to return to your email program to see that because you where asynchronously doing something else.
 
 I've been working on an OSS project for a while that provides a framework for simple (once you wrap your head around the degree of loose coupling and asynchronousness) and flexible message-oriented design.  This framework is based on a small set of types that I call primitives.  Before going into what you can do with the framework, this post will first cover the primitives.
@@ -23,7 +21,7 @@ The message primitives source code is on [GitHub](https://github.com/peteraritch
 
 The primitives are based on the most simple messaging building blocks (or patterns, which are well-defined in the book [Enterprise Integration Patterns](http://amazon.com/o/asin/0321200683/ref=nosim/enterpriseint-20) but can also be seen on [enterpriseintegrationpatterns.com/](http://www.enterpriseintegrationpatterns.com/)) and consist of a generic [Message](http://www.enterpriseintegrationpatterns.com/patterns/messaging/Message.html), a generic message Consumer, a generic message Producer, a generic [Pipe](http://www.enterpriseintegrationpatterns.com/patterns/messaging/PipesAndFilters.html), a generic [Command](http://www.enterpriseintegrationpatterns.com/patterns/messaging/CommandMessage.html) message (a specialized Message), a generic [Event](http://www.enterpriseintegrationpatterns.com/patterns/messaging/EventMessage.html) message (a specialized Message), and a [Bus](http://www.enterpriseintegrationpatterns.com/patterns/messaging/ControlBus.html).
 
-##Message
+## Message
 The Message pattern is modeled in the Primitives via the `IMessage` interface, detailed as follows:
 ```csharp
 	public interface IMessage
@@ -32,7 +30,7 @@ The Message pattern is modeled in the Primitives via the `IMessage` interface, d
 	}
 ```
 The idea is that the message you want to send/receive implements this interface and you add the properties you need to contain the data.  The interface contains a property `CorrelationId` to provide a first-class ability to correlate multiple messages together involved in a particular interaction, transaction, or saga.  But, for the most part, you should use either Command or Event instead.
-##Command
+## Command
 As mentioned above, you don't normally implement `IMessage` directly, you derive from one of two types of `IMessage`-derived interfaces.  The first interface I'll talk about is the `ICommand` interface.  This is a marker interface to add compile-time checked semantics that I'll detail in a future post, and detailed as follows:
 ```csharp
 	public interface ICommand : IMessage
@@ -52,7 +50,7 @@ The Command message pattern allows you to encapsulate all the information requir
   }
 ```
 As with marker interfaces, we have the ability to introduce metadata when we're defining our messages.  Just like something can be known as a Command because it implements `ICommand`, we can introduce more depth of intent in our messages.  For example, if a client moves, their address changes, but using a command like CorrectClientAddress does not include that intent.  We could create a new, identical command named "MoveClientCommand" that is effectively identical to `CorrectClientAddressCommand` in content (or even derive from the same base class).  And that way we can include semantic intent with the message.  Why would you want to do that?  In the address change example, when a client corrects their address they may never have received important mailings.  In the case of a correction, the organization can re-send important mailings.  In the MoveClientCommand you may not want to re-send all that information (waste of money, annoys clients, etc.) and instead send a card welcoming them to their new home and taking advantage of an opportunity to impress the clients.
-##Event
+## Event
 The second message type pattern is an Event.  And just like an event we deal with in day-to-day life: it's a moment in time and information about that moment in time.  From the standpoint of messages, we say that an event is moment of time in the *past*, otherwise known as a fact.  It's important to remember that it's a past fact and really should be considered as immutable data.  Typically events model the details about a change in state. We model events in Primitives with the `IEvent` interface, with the following details:
 ```csharp
 	public interface IEvent : IMessage
@@ -75,7 +73,7 @@ Typically, when we talk about what we model with events, or facts about the past
   }
 ```
 Circling back to the CorrelationId concept, the event includes the `CorrelationId` field.  If the event is published due to the processing of another message then we would copy that `CorrelationId` value into the event.  That way, when something receives the event (remember that messaging is asynchronous) it can correlate it back to another message, likely one that *it* sent.
-##Consumer
+## Consumer
 Now that we have a grasp on some basic message types and concepts, lets talk about how we use those messages.
 The thing that performs consumption or handling of a message is a Consumer.  It is modeled in the Primitives via the `IConsumer` interface, detailed as follows:
 ```csharp
@@ -110,7 +108,7 @@ Now, since we're using interfaces, a class can implement more than one handler. 
 ```
 But, as you can tell from the type of the handler class (`CorrectClientAddressCommandHandler`) that it's named very specifically to be a `CorrectClientAddressCommand` handler.  I typically use that convention and have one handler per class, which offers a greater flexibility in terms of loosely coupled and composability.  But, in the end, it's up to you what convention you'd like to use.
 To write code to handle a particular message you simply implement `IConsumer<int T>` for one or more types of messages
-##Producer
+## Producer
 The thing that performs production of a message is called a Producer, and is model in Primitives as `IProducer<out T>`, detailed as follows:
 ```csharp
 	public interface IProducer<out T> where T:IMessage
@@ -156,7 +154,7 @@ You could use this class like this:
   controller.AttachConsumer(new CorrectClientAddressCommandHandler());
 ```
 And then when the `CorrectClientAddress` method is called, the consumer is invoked.
-##Pipe
+## Pipe
 The last Primitive type is the Pipe.  The pipe is a general abstraction to model anything that is both a consumer and producer.  And, in fact, is just an interface that implements `IConsumer` and `IProducer`, detailed as follows:
 ```csharp
 	public interface IPipe<in TIn, out TOut>
@@ -167,7 +165,7 @@ The last Primitive type is the Pipe.  The pipe is a general abstraction to model
 ```
 With `IPipe` the consumer has a different generic type name than the producer, but, a single type could be used for both (`IPipe<MyMessage, MyMessage>`) to model a true pipe.
 Typically though, we use `IPipe` to model various other messaging patterns like [Filters](http://www.enterpriseintegrationpatterns.com/patterns/messaging/Filter.html) (something that would ignore a message based on content) or [Translators](http://www.enterpriseintegrationpatterns.com/patterns/messaging/MessageTranslator.html) (something that converts one message type into another message type).
-##Bus
+## Bus
 The next message pattern is the Bus.  A bus is modeled with the `IBus` type.  This bus model is basically facilitates implementing a Control Bus.  The Control Bus facilitates connecting message producers with message consumers in a more loosely coupled way.
 Remember the `CorrectClientAddressController` `IProducer` example?  The code was tightly coupled to both `CorrectClientAddressController` and `CorrectClientAddressCommandHandler` and we had to new-up both in order to hook them up.  If I'm writing code that produces a message like `CorrectClientAddressCommand`, I don't want it to be directly coupled to one particular handler.  After all, we're looking for loosely coupled and asynchronous.  With tight coupling like that I might as well just do all the work in the `CorrectClientAddress` method and skip all the messaging.
 A bus allows us to build up something at runtime that does that connection.  It will keep track of a variety handlers and invoke the correct handler when it consumes a message.
@@ -207,7 +205,7 @@ The Bus would then handle forwarding the event to both of the event handlers, av
 These are examples of composing in-memory buses. That is, they process messages within the same process (and in a specific order).
 
 There's a couple of important concepts that relate to messaging.  Immutability and Idempotency.
-##Immutability
+## Immutability
 I've already touched on immutability.  But, it's important to remember that due to the asychronous nature of messaging that you should consider the messages you send to be immutable.  That is, you should't change them.  For example, I could write some error-prone code like this:
 ```csharp
   var command = new CorrectClientAddressCommand();
@@ -216,7 +214,7 @@ I've already touched on immutability.  But, it's important to remember that due 
   command.ClientId = 0;
 ```
 In the case of a message that is physically sent to a queue (covered in a future post) that message has been serialized to the queue and has left this process.  Making a change to the `command` object cannot be seen by the consumer of that message.  If we're talking about an in-memory bus, it could be the same situation, but the time `Send` returns the message has already been processed.  If any of the message handlers are multi-threaded then the `command` object may or may not be already handled by the time `Send` returns.  In any case, it's best to view sent messages as immutable to avoid these race conditions.
-##Idempotency
+## Idempotency
 Another concept that often comes up in messaging is [Idempotency](https://en.wikipedia.org/wiki/Idempotence).  Idempotency is the quality of a message consumer to produce the same side-effects with the same parameters, no matter how many times it is invoked.
 What I've detailed so far with in-memory buses is effectively Reliable Messaging.  If `IBus.Send` returns, the message was reliably processed.  When we start to include message queues and accept messages over the wire, running on multiple computers, we have to deal with the possibility that another server or process might fail and might have to re-send a message.  This typically only happens when the reliability settings of the Queue are not set to the highest level (for example "at-least-once delivery", where we trade performance for the potential that a message may be sent more once.  In situations like this you may want to send a message that allows the consumer be an [Idempotent Receiver](http://www.enterpriseintegrationpatterns.com/patterns/messaging/IdempotentReceiver.html).
 In our `CorrectClientAddressCommand` we've effectively facilitated a Idempotent Receiver, no matter how many times I send a `CorrectClientAddressCommand` the resulting client address will be the same.  Other types of messages make it difficult to have an Idempotent Receiver.  For example, if I had an `IncreaseClientAgeCommand`, processing it would always increase an `Age` property of a client.  If at-least-once-delivery was configured for the queue, this could occasionally lead to incorrect ages.  You may want to either have a command like `SetClientAgeCommand` or better yet (avoid pedantry) and have a `CorrectClientBirthDateCommand`.
