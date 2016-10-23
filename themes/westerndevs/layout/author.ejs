@@ -18,6 +18,34 @@
 			
 	        <h2><img class="icon" src="/images/icon_circle_arrow.png" alt=">" title=">" border="0"> <%=page.author.name%></h2>
 	        <%- page.content %>
+		</div>		
+		<div class="SubpageBoxSubLrgContent">
+		
+	        <h2><img class="icon" src="/images/icon_circle_arrow.png" alt=">" title=">" border="0"> Blog posts</h2>
+	              <% site.posts.sort('date', -1).filter(function(post){return post.author && post.author.id == page.author.id;}).each(function(post){ %>
+					<div class="ListLrgHomeBG">
+						<div class="ListLrgDateBG">
+						<div class="ListLrgDateMonth"><%= moment(post.date).format('MMM').toUpperCase() %></div>
+						<div class="ListLrgDateDay"><%= moment(post.date).format('D') %></div>
+						</div>
+						<div class="ListLrgTxt recentPosts">
+							<div>
+						<a class="posts" href="<%- url_for(post.path) %>">
+							<%= (post.title || '(no title)') %>
+						</a><br/>
+						<% if (post.author && post.author.name ) { %>
+						<B><%= post.author.name %></B><BR>
+						<% } %>
+						<div>
+						<% if (post.excerpt) { %>
+							<%= trim(strip_html(post.excerpt)) %>
+						<% } %>
+							</div>
+						</div>
+						</div>
+					</div>      
+					<% }) %>
+
 		</div>
 	</div>
 <!--MAIN CONTENT ENDS-->
