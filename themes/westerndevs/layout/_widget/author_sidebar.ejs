@@ -11,9 +11,13 @@
 			} else {
 				avatar = '/images/avatars/' + author.avatar;
 			}%>
+			
 			<div class="ProfileImg">
-				<img src='<%= avatar%>' />
+				<a href="/bios/<%= author.id %>">
+					<img src='<%= avatar%>' />
+				</a>
 			</div>
+			
 			<BR clear="all">
 
 			<h2><a href="/bios/<%= author.id %>"><%= author.name %></a></h2>
