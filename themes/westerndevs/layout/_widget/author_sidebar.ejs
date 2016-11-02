@@ -15,7 +15,8 @@
 				<img src='<%= avatar%>' />
 			</div>
 			<BR clear="all">
-			<h2><a href=""><%= author.name %></a></h2>
+
+			<h2><a href="/bios/<%= author.id %>"><%= author.name %></a></h2>
 			<% if (author.email) { %>
 			<a href="mailto:<%=author.email%>"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
 			<% } %>
