@@ -11,11 +11,16 @@
 			} else {
 				avatar = '/images/avatars/' + author.avatar;
 			}%>
+			
 			<div class="ProfileImg">
-				<img src='<%= avatar%>' />
+				<a href="/bios/<%= author.id %>">
+					<img src='<%= avatar%>' />
+				</a>
 			</div>
+			
 			<BR clear="all">
-			<h2><a href=""><%= author.name %></a></h2>
+
+			<h2><a href="/bios/<%= author.id %>"><%= author.name %></a></h2>
 			<% if (author.email) { %>
 			<a href="mailto:<%=author.email%>"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
 			<% } %>
