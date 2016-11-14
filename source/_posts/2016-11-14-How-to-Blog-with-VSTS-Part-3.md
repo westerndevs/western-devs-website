@@ -81,12 +81,9 @@ Now that we know what we're writing about, we can start writing posts.
 
 Because we're using a [static site generator](https://www.staticgen.com/) a post is a new markdown file and possibly couple of image files. This is analagous adding a new feature to any other software project, and thus it is treated as such.
 
-For me, I create a new [topic branch](https://git-scm.com/book/en/v2/Git-Branching-Branching-Workflows#Topic-Branches) for the post. Since I host my source code in VSTS, I use the web UI to create a new branch in the work item. On my local machine, I create a new local branch that is mapped to the new remote branch and start create a new draft post with `hexo new draft "My Post Title"`.
+For me, I create a new [topic branch](  ) for the post. Since I host my source code in VSTS, I use the web UI to create a new branch in the work item. On my local machine, I create a new local branch that is mapped to the new remote branch and start create a new draft post with `hexo new draft "My Post Title"`.
 
-<figure class="image">
-  ![Creating a new branch from the work item](http://i.imgur.com/3xZztPR.png)
-  <figcaption>Creating a new branch from the work item</figcaption
-</figure>
+![Creating a new branch from the work item](http://i.imgur.com/3xZztPR.png)
 
 This creates a new post file in the `source\_drafts` folder of the project, and I start writing and going through the tasks. As I complete the tasks I make commits and associate them with the tasks and work items by adding the ID numbers in the messages. For example:
 
