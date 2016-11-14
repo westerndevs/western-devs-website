@@ -18,13 +18,13 @@ _This is part 1 of 5 of my **How to Blog with VSTS** series. Links to the other 
 
 + [Part 1: Setup][1]
 + [Part 2: Code][2]
-+ Part 3: Work
++ [Part 3: Work][3]
 + Part 4: Build
 + Part 5: Release
 
 [1]: https://blog.davidwesst.com/2016/10/How-to-Blog-with-VSTS-Part-1/
 [2]: https://blog.davidwesst.com/2016/11/How-to-Blog-with-VSTS-Part-2/
-[3]: #
+[3]: https://blog.davidwesst.com/2016/11/How-to-Blog-with-VSTS-Part-3/
 [4]: #
 [5]: #
 
