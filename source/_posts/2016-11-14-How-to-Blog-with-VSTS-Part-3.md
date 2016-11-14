@@ -62,7 +62,7 @@ Now that we have iterations, I plan what posts I want to write for the month.
 
 I do this by dragging the posts onto the iteration on the right side, and adding tasks as described by the [VSTS team](https://www.visualstudio.com/en-us/docs/work/scrum/sprint-planning).
 
-![Adding a User Story to an Iteration](http://i.imgur.com/67xoqOK.gifv)
+![Adding a User Story to an Iteration](http://i.imgur.com/67xoqOK.gif)
 
 #### Tasks and Templates
 Although tasks on a blog post work item might sound excessive, my writing process has multiple steps to try and make it easy for me to blog. First I write the initial draft (text-only), followed by proof reading and filling in the images and links that I've left. Sometimes there are other tasks like updating links on old posts, like on this post which is part of a series of posts.
