@@ -7,7 +7,7 @@ tags:
 categories:
   - alm
 date: 2016-11-18 2:14:00
-excerpt: My personal definition of what is DevOps.
+excerpt: My personal definition of DevOps, in the context of lean principles.
 authorId: dylan_smith
 ---
 
@@ -25,20 +25,20 @@ So back to my definition of DevOps:
 
 This bottleneck manifests itself in a number of ways, here's a few common ones:
 
-	1. Provisioning / Managing Infrastructure - Creating environments for dev/test/uat/prod, and managing or making changes to those environments.
-	2. Deployment to Production - Still often done by writing word documents with deployment instructions, scheduling a time for Operations team to do the deployment, then delivering the document and deployment packages to Operations.
-	3. Production Support / Monitoring - Is the application available, are there errors, what is the load on the servers.
+1. Provisioning / Managing Infrastructure - Creating environments for dev/test/uat/prod, and managing or making changes to those environments.
+2. Deployment to Production - Still often done by writing word documents with deployment instructions, scheduling a time for Operations team to do the deployment, then delivering the document and deployment packages to Operations.
+3. Production Support / Monitoring - Is the application available, are there errors, what is the load on the servers.
 
 These are common causes of friction within development organizations.  I could go into details, but I expect just reading the points above you can identify with at least some of these concerns.
 
 When I hear people talk about DevOps, I often hear 3 common approaches:
 
-	1. Closer collaboration between the development and operations team.  Perhaps having an Ops team member actively involved with the dev team throughout the project.
-	2. Increased Dev Team Responsibility - Writing automation scripts to provision / manage environments, deployment automation scripts, etc
-	3. New Role: DevOps Engineer - Introducing a new role specifically to sit between dev and ops to facilitate the automation and collaboration.
+1. Closer collaboration between the development and operations team.  Perhaps having an Ops team member actively involved with the dev team throughout the project.
+2. Increased Dev Team Responsibility - Writing automation scripts to provision / manage environments, deployment automation scripts, etc
+3. New Role: DevOps Engineer - Introducing a new role specifically to sit between dev and ops to facilitate the automation and collaboration.
 
 Although #2 is the approach I see most often, I believe all 3 approaches are perfectly valid ways to attack the problem.
 
-If you want help adopting DevOps practices or technologies, my company Imaginet is always happy to help.  Check out our DevOps offerings here: http://www.imaginet.com/devops-as-a-service/
+If you want help adopting DevOps practices or technologies, my company Imaginet is always happy to help.  Check out our DevOps offerings here: [http://www.imaginet.com/devops-as-a-service/](http://www.imaginet.com/devops-as-a-service/)
 
 
