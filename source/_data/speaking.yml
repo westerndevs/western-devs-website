@@ -355,3 +355,16 @@
   location: Winnipeg, MB
   topic: "How to Make Great Developers" 
 
+- date: 2016-11-19
+  event: "The Lady Hacks"
+  url: http://theladyhacks.com/
+  speaker: Lori Lalonde
+  location: Toronto, ON
+  topic: "Azure IoT Workshop"
+
+- date: 2016-12-07
+  event: "Canada's Technology Triangle .NET User Group"
+  url: https://www.meetup.com/CTTDNUG/events/235305369/
+  speaker: Lori Lalonde
+  location: Kitchener, ON
+  topic: "Workshop: Xamarin.Android Layouts"
