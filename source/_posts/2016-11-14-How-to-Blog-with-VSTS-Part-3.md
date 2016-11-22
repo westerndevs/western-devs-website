@@ -25,7 +25,7 @@ _This is part 3 of 5 of my **How to Blog with VSTS** series. Links to the other 
 [1]: https://blog.davidwesst.com/2016/10/How-to-Blog-with-VSTS-Part-1/
 [2]: https://blog.davidwesst.com/2016/11/How-to-Blog-with-VSTS-Part-2/
 [3]: https://blog.davidwesst.com/2016/11/How-to-Blog-with-VSTS-Part-3/
-[4]: #
+[4]: https://blog.davidwesst.com/2016/11/How-to-Blog-with-VSTS-Part-4/
 [5]: #
 
 ---
