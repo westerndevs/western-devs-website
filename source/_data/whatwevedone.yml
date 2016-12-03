@@ -47,6 +47,12 @@ books:
     author: simon_timms
     date: 2013-09-01
 
+  - title: ASP.NET Core Application Development
+    url: https://aspnetmonsters.com/2016/12/aspnetcorebook/
+    image: ASP.NETCoreApplicationDevelopment.jpg
+    author: dave_paquette
+    date: 2013-09-01 
+
 
 code:
 
