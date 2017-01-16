@@ -50,7 +50,7 @@ Calgary and area is home to some of the most beautiful sights in Canada, with a 
 
 If you're joining us from outside the area, we highly recommend adding on a few days to your trip so that you can explore the area. If you are from outside of Canada, <b>you will need to get a valid International Driver's Permit</b> from your country before you leave if you wish to rent a car when you're here (handy for exploring!).
 
-<b>Can't join us in Calgary?</b> No problem. Just hit the registration page and sign up for our email last to be notified of other upcoming training cities.
+<b>Can't join us in Calgary?</b> No problem. Just hit the registration page and sign up for our email list to be notified of other upcoming training cities.
 
 Happy New Year, and happy coding!
 
