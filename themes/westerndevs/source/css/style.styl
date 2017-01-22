@@ -5,6 +5,17 @@
 @import 'corner-ribbon'
 
 @font-face
+  font-family 'open_sansregular'
+  src url('fonts/opensans-regular-webfont.eot')
+  src url('fonts/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/opensans-regular-webfont.woff2') format('woff2'),
+         url('fonts/opensans-regular-webfont.woff') format('woff'),
+         url('fonts/opensans-regular-webfont.ttf') format('truetype'),
+         url('fonts/opensans-regular-w/ebfont.svg#open_sansregular') format('svg')
+  font-weight normal
+  font-style normal
+
+@font-face
   font-family 'open_sansbold'
   src url('fonts/opensans-bold-webfont.eot')
   src url('fonts/opensans-bold-webfont.eot?#iefix') format('embedded-opentype'),
@@ -12,7 +23,7 @@
          url('fonts/opensans-bold-webfont.woff') format('woff'),
          url('fonts/opensans-bold-webfont.ttf') format('truetype'),
          url('fonts/opensans-bold-webfont.svg#open_sansbold') format('svg')
-  font-weight normal
+  font-weight bold
   font-style normal
 
 @font-face
@@ -23,8 +34,8 @@
          url('fonts/opensans-bolditalic-webfont.woff') format('woff'),
          url('fonts/opensans-bolditalic-webfont.ttf') format('truetype'),
          url('fonts/opensans-bolditalic-webfont.svg#open_sansbold_italic') format('svg')
-  font-weight normal
-  font-style normal
+  font-weight bold
+  font-style italic
 
 @font-face
   font-family 'open_sansitalic'
@@ -35,18 +46,7 @@
          url('fonts/opensans-italic-webfont.ttf') format('truetype'),
          url('fonts/opensans-italic-webfont.svg#open_sansitalic') format('svg')
   font-weight normal
-  font-style normal
-
-@font-face
-  font-family 'open_sansregular'
-  src url('fonts/opensans-regular-webfont.eot')
-  src url('fonts/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/opensans-regular-webfont.woff2') format('woff2'),
-         url('fonts/opensans-regular-webfont.woff') format('woff'),
-         url('fonts/opensans-regular-webfont.ttf') format('truetype'),
-         url('fonts/opensans-regular-w/ebfont.svg#open_sansregular') format('svg')
-  font-weight normal
-  font-style normal
+  font-style italic
 
 @font-face
   font-family 'UbuntuTitlingBold'
@@ -130,7 +130,7 @@ A.subposts:LINK, A.subposts:ACTIVE, A.subposts:VISITED, A.subposts:HOVER
     width 1024px
 
 .WrapperHeader
-  position fixed 
+  position fixed
   top 0px
   z-index 1000
   display block
@@ -326,7 +326,7 @@ A.subposts:LINK, A.subposts:ACTIVE, A.subposts:VISITED, A.subposts:HOVER
   -webkit-border-radius 8px
   -moz-border-radius 8px
   border-radius 8px
-  
+
 
 .SubpageBoxFull, .SubpageBoxSubLrg, .SubpageBoxSubSm
   float left
@@ -561,14 +561,14 @@ IMG
   float right
   text-align right
 
-b
+b, strong
   font-family 'open_sansbold', arial
   font-weight 100
   &.italic
     font-family 'open_sansbold_italic', arial
     font-weight 100
 
-i
+i, em
   font-family 'open_sansitalic', arial
   font-weight 100
 
@@ -694,7 +694,7 @@ li
 
 .podcast-content h3:not(:first-child), .podcast-content h4:not(:first-child)
   padding-top 10px
-  
+
 .pull-left
   float left
   padding-right 20px
@@ -724,17 +724,27 @@ li
   margin 0
 
 .postTitle
+  height: 60px;
+  line-height: 60px;
+  vertical-align: middle;
+
+.postTitle H2
   display inline-block
-  margin-top: 7px;
+  margin-top: 15px;
+  vertical-align: middle;
+  font-size: 28px;
   @media mq-normal
     width 620px
-    
+
+.postTitle img
+  vertical-align: middle;
+
 h1 A:LINK, h1 A:HOVER, h1 A:ACTIVE, h1 A:VISITED,
 h2 A:LINK, h2 A:HOVER, h2 A:ACTIVE, h2 A:VISITED
   COLOR #262262
 
 .mobile-only
-  @media mq-normal 
+  @media mq-normal
     display none
 
 .desktop-only
@@ -742,11 +752,10 @@ h2 A:LINK, h2 A:HOVER, h2 A:ACTIVE, h2 A:VISITED
     display none
 
 #mainPostContent h2
-  margin: 15px 0 10px;
+  margin: 30px 0 10px;
 
 #mainPostContent
   @media mq-mobile
     width 450px
   @media mq-normal
     width 620px
-
