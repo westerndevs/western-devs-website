@@ -403,3 +403,10 @@
   speaker: Dave White
   location: Calgary, AB
   topic: "Visual Studio Team Systems - Actually not terrible now"
+
+- date: 2017-02-22
+  event: "Winnipeg .NET Usergroup"
+  url: http://winnipegdotnet.org/
+  speaker: Kyle Baley
+  location: Winnipeg, MB
+  topic: "How to build a service bus"
