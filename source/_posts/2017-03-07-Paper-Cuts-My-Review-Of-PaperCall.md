@@ -46,7 +46,7 @@ You can't set filters on the data either.
 
 ### Rating Style Doesn't Display
 
-I seleccted the "Simple" rating style (yes, maybe, no) compared to Five Star, but the Five Star is what was displayed in my grid.
+I selected the "Simple" rating style (yes, maybe, no) compared to Five Star, but the Five Star is what was displayed in my grid.
 
 ## Issue 2 - Downloading Submissions
 
