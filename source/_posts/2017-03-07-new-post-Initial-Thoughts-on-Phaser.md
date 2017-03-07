@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Intital Thoughts on Using Phaser
+title: Initial Thoughts on Using Phaser
 categories:
   - javascript
   - typescript
