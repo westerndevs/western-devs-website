@@ -15,14 +15,14 @@ We came up with an idea, what if we could synchronize the GitHub repository to a
 
 First things first, you need to create a VSTS Build that points to your GitHub repo.  That's easy enough, as support is built right into VSTS builds to do this.
 
-	1. Go to Builds and Create a New Definition (Note: I'm using the new build editing experience - which you can turn on for your account if you haven't already).
-	2. Choose the Empty Process option
-	3. Configure the Get Sources task to use GitHub as the source, and give the connection a name
-	4. Click Authorize using Oauth - at this step you may be prompted for your GitHub credentials and to Authorize VSTS to talk to GitHub
-	5. Pick the GitHub repo and branch - I just left this as master, but later we will set it up to synch all branches
-	6. Go to the Triggers tab and turn on Continuous Integration, and change the branch to include to * to trigger a build on commits/pushes to any branch
-	7. Under Options turn on Allow Scripts to Access Oauth token - we'll use this later
-	8. Save and Queue a build to check if it works
+1. Go to Builds and Create a New Definition (Note: I'm using the new build editing experience - which you can turn on for your account if you haven't already).
+2. Choose the Empty Process option
+3. Configure the Get Sources task to use GitHub as the source, and give the connection a name
+4. Click Authorize using Oauth - at this step you may be prompted for your GitHub credentials and to Authorize VSTS to talk to GitHub
+5. Pick the GitHub repo and branch - I just left this as master, but later we will set it up to synch all branches
+6. Go to the Triggers tab and turn on Continuous Integration, and change the branch to include to * to trigger a build on commits/pushes to any branch
+7. Under Options turn on Allow Scripts to Access Oauth token - we'll use this later
+8. Save and Queue a build to check if it works
 	
 ![New Build Definition](http://imgur.com/YzvjdpQ.png)
 
@@ -66,9 +66,10 @@ git branch -r | grep -v '\->' | while read remote; do git -c http.extraheader="A
 {% endcodeblock %}
 
 That script is doing a few things:
-	1. Loop through all branches in origin and create local branches to track them. Note: Because GH was setup as the repo for this build, VSTS has already created the git repo, setup origin to point to GH, and downloaded the repo to the build agent.
-	2. Add the VSTS repo as a new remote called vsts
-	3. Loop through all branches and push each one to VSTS
+
+1. Loop through all branches in origin and create local branches to track them. Note: Because GH was setup as the repo for this build, VSTS has already created the git repo, setup origin to point to GH, and downloaded the repo to the build agent.
+2. Add the VSTS repo as a new remote called vsts
+3. Loop through all branches and push each one to VSTS
 
 The stuff with $SYSTEM_ACCESSTOKEN in line 3 is accessing an environment variable that contains an Oauth token that can be used to communicate with VSTS - in a previous step where we set the option in the VSTS build to make Oauth token available to scripts, is what allows this to work.
 
