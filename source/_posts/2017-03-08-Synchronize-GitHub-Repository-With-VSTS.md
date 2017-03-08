@@ -5,7 +5,7 @@ tags:
   - devops
   - vsts
   - github
-date: 2017-03-08 10:14:00
+date: 2017-03-08 14:00:00
 excerpt: Step by step guide to do a one-way synchronization from a GitHub repository to a VSTS repository.
 authorId: dylan_smith
 ---
@@ -59,7 +59,7 @@ Once I installed that extension into my VSTS account, I can now add it as a task
 ![Configure Shell Task](http://imgur.com/ErwFNbF)
 
 Those 3 lines of bash using the git command-line are all it takes.  The one tricky bit to figure out was how to make sure it synchronized all branches - even newly created branches - in github into VSTS.  The trickery in line 1 and 3 does that.
-{% codeblock lang:bash %}
+{% codeblock lang:shell %}
 git branch -r | grep -v '\->' | while read remote; do git branch --track "${remote#origin/}" "$remote"; done
 git remote add vsts https://pokerleaguemanager.visualstudio.com/DefaultCollection/_git/GitHubSync
 git branch -r | grep -v '\->' | while read remote; do git -c http.extraheader="AUTHORIZATION: bearer $SYSTEM_ACCESSTOKEN" push -u vsts "${remote#origin/}"; done
