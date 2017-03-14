@@ -12,6 +12,7 @@ tags:
   - phaser
 excerpt: As a side project, I started making another JavaScript-based video game and decided to go with Phaser as my framework of choice. Here are my initial thoughts about Phaser after using it on my project for the past two months.
 authorId: david_wesst
+originalurl: https://blog.davidwesst.com/2017/03/Intital-Thoughts-on-Using-Phaser/
 ---
 
 I'm not a game dev, but have always wanted to make a video game. I've started and stopped so many project over the years, that I have seriously lost count.
