@@ -94,14 +94,14 @@ Now I have this fancy bundle, but I need to figure out how to consume it in my H
 Take a look at the `<body>` take of the HTML file:
 
 ```html
-&lt;body&gt;
-    &lt;div id="display"&gt;
-        &lt;!-- script will display content here --&gt;
-    &lt;/div&gt;
+<body>
+    <div id="display">
+        <!-- script will display content here -->
+    </div>
 
-    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.20.9/system.js"&gt;&lt;/script&gt;
-    &lt;script src="bundle.js"&gt;&lt;/script&gt;
-    &lt;script&gt;
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.20.9/system.js"></script>
+    <script src="bundle.js"></script>
+    <script>
         SystemJS.config({
             "paths": {
                 "moment": "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"
@@ -109,15 +109,15 @@ Take a look at the `<body>` take of the HTML file:
         });
 
         SystemJS.import("game")
-            .then((module)=&gt; {
+            .then((module)=> {
                 let g = new module.Game("display");
                 g.start();
             })
-            .catch((error)=&gt; {
+            .catch((error)=> {
                 console.error(error);
             });
-    &lt;/script&gt;
-&lt;/body&gt;
+    </script>
+</body>
 ```
 
 I blame myself for getting stuck considering this sort all documented well in the [SystemJS documentation on GitHub](https://github.com/systemjs/systemjs). Either way, I had issues finding solid resources about using bundles. Hopefull this can help someone else in the future.
