@@ -60,3 +60,66 @@
   speaker: Rob Windsor
   location: London, GBR
   topic: "An Introduction to Development with the SharePoint Framework (SPFx)"
+
+- date: 2017-06-06
+  event: "Prairie Dev Con"
+  url: https://prairiedevcon.com
+  speaker: David Paquette
+  location: Winnipeg, MB
+  topic: "ORMs vs Micro ORMs"
+
+- date: 2017-06-06
+  event: "Prairie Dev Con"
+  url: https://prairiedevcon.com
+  speaker: Amir Barylko
+  location: Winnipeg, MB
+  topic: "Clojure & Clojure(script) - One language to rule them all!"
+
+- date: 2017-06-06
+  event: "Prairie Dev Con"
+  url: https://prairiedevcon.com
+  speaker: Dylan Smith
+  location: Winnipeg, MB
+  topic: "10 Tips to be successful at DevOps. You won’t BELIEVE #6!!"
+
+- date: 2017-06-06
+  event: "Prairie Dev Con"
+  url: https://prairiedevcon.com
+  speaker: Simon Timms
+  location: Winnipeg, MB
+  topic: "Docker in Production"
+
+- date: 2017-06-06
+  event: "Prairie Dev Con"
+  url: https://prairiedevcon.com
+  speaker: Lori Lalonde
+  location: Winnipeg, MB
+  topic: "Bring Artificial Intelligence into your Enterprise Solutions with Microsoft Cognitive Services"
+
+- date: 2017-06-06
+  event: "Prairie Dev Con"
+  url: https://prairiedevcon.com
+  speaker: David Wesst
+  location: Winnipeg, MB
+  topic: "JavaScript Build System Batte Royale!!!"
+
+- date: 2017-06-06
+  event: "Prairie Dev Con"
+  url: https://prairiedevcon.com
+  speaker: Donald Belcham
+  location: Winnipeg, MB
+  topic: "Introduction to Messaging"
+
+- date: 2017-06-06
+  event: "Prairie Dev Con"
+  url: https://prairiedevcon.com
+  speaker: Kyle Baley
+  location: Winnipeg, MB
+  topic: "The Fallacies of Distributed Computing"
+
+- date: 2017-07-03
+  event: "DevTeach"
+  url: http://devteach.com
+  speaker: Dylan SMith
+  location: Montreal, QC
+  topic: "Building Modern Web Apps with Gulp"
