@@ -145,7 +145,7 @@ You can easily give this a try yourself.
  5. ???
  6. Profit!!!
 
-![ARM Deployment](http://www.westerndevs.com/images/Azure%20ARM%20Deploy.png)
+![ARM Deployment](http://i.imgur.com/xfiW4Ta.png)
 
 ## Complete ARM Template JSON
 
