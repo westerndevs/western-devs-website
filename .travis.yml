@@ -3,7 +3,7 @@ branches:
   only:
   - redesign
 before_install:
-- npm install -g hexo
+- npm install -g hexo@3.2.2
 - npm install
 install:
 - hexo generate
