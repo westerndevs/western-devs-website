@@ -9,7 +9,6 @@ tags:
 categories:
   - devblog
 date: 2017-04-03 06:00:00
-updated: 2017-04-03 06:00:00
 originalurl: https://blog.davidwesst.com/2017/04/Conquest-March-2017-Devblog/
 authorId: david_wesst
 excerpt: This is the first of monthly status update posts on my video game project I call Conquest.
@@ -26,7 +25,7 @@ This game is something of a life long conquest for me, but that isn't where the 
 
 In the meantime, you can take a look the [first official screenshots](http://imgur.com/a/x7eGr):
 
-![First screenshot of "conquest"](http://i.imgur.com/dqEGoFf.png)
+![](http://i.imgur.com/dqEGoFf.png)
 
 It's not much to look at, but this is just the beginning.
 
