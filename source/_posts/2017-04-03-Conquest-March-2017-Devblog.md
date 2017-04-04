@@ -1,5 +1,5 @@
 ---
-title: Introducing My Game Project | March 2017 Devblog
+title: "Introducing My Game Project | March 2017 Devblog"
 tags:
   - conquest
   - typescript
