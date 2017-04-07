@@ -431,6 +431,15 @@ A.subposts:LINK, A.subposts:ACTIVE, A.subposts:VISITED, A.subposts:HOVER
     font-size 24px
     line-height 14pt
 
+.ListLrgDateYear
+  @media mq-normal
+    line-height 14pt
+    font-size 12px
+    color #005da0
+    background-color #FFFFFF
+    margin 3px 2px 0 2px
+    border-radius 0 0 6px 6px
+
 .ListLrgTxt, .ListLrgTxtSub
   @media mq-normal
     float left
@@ -744,10 +753,17 @@ li
   vertical-align: middle;
   font-size: 28px;
   @media mq-normal
-    width 620px
+    width 563px
 
 .postTitle img
   vertical-align: middle;
+
+.postTitle .ListLrgDateBG
+  height 68px
+  margin 10px 10px 15px 0
+
+.postTitle .ListLrgDateDay
+  line-height 18pt
 
 h1 A:LINK, h1 A:HOVER, h1 A:ACTIVE, h1 A:VISITED,
 h2 A:LINK, h2 A:HOVER, h2 A:ACTIVE, h2 A:VISITED
@@ -760,6 +776,9 @@ h2 A:LINK, h2 A:HOVER, h2 A:ACTIVE, h2 A:VISITED
 .desktop-only
   @media mq-mobile
     display none
+
+#mainPostContent
+  clear both
 
 #mainPostContent h2
   margin: 30px 0 10px;
