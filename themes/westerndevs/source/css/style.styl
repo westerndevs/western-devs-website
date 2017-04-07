@@ -363,6 +363,8 @@ A.subposts:LINK, A.subposts:ACTIVE, A.subposts:VISITED, A.subposts:HOVER
   display block
   text-align left
   margin 20px
+  @mq-normal
+    margin 5px
 
 .SubpageBoxFullContent
   @media mq-normal
@@ -399,7 +401,7 @@ A.subposts:LINK, A.subposts:ACTIVE, A.subposts:VISITED, A.subposts:HOVER
 .ListLrgDateBG
   @media mq-normal
     display inline-block
-    margin 10px 10px 15px 10px
+    margin 10px 10px 10px 10px
     text-align center
     background-color #005da0
     -webkit-border-radius 8px
@@ -746,6 +748,9 @@ li
   height: 60px;
   line-height: 60px;
   vertical-align: middle;
+  @media mq-mobile
+    height: inherit;
+    line-height: inherit;
 
 .postTitle H2
   display inline-block
@@ -754,6 +759,8 @@ li
   font-size: 28px;
   @media mq-normal
     width 563px
+  @media mq-mobile
+    margin-bottom 10px
 
 .postTitle img
   vertical-align: middle;
@@ -761,6 +768,9 @@ li
 .postTitle .ListLrgDateBG
   height 68px
   margin 10px 10px 15px 0
+  @media mq-mobile
+    height inherit
+    margin 10px 10px 10px 0
 
 .postTitle .ListLrgDateDay
   line-height 18pt
