@@ -1,4 +1,8 @@
 <div class='postTitle'>
-  <img src="/images/icon_circle_arrow.png" alt=">" title=">" border="0">
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth"><%= moment(post.date).format('MMM').toUpperCase() %></div>
+    <div class="ListLrgDateDay"><%= moment(post.date).format('D') %></div>
+    <div class="ListLrgDateYear"><%= moment(post.date).format('YYYY') %></div>
+  </div>
   <h2><%= title %></h2>
 </div>
