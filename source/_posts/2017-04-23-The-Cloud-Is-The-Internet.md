@@ -52,20 +52,20 @@ huge number of large datacenters to operate those services.
 
 What differentiates cloud service platforms from previous cloud computing implementations (like web mail or web app hosting) are certain tenets that cloud service platforms share:
 
-*Reduced Costs - You aren't buying the servers or network components or running the datacenters yourself
+* Reduced Costs - You aren't buying the servers or network components or running the datacenters yourself
 
-*Speed – Able to provision resources in minutes, capacity planning becomes administrative instead of managing physical assets
+* Speed – Able to provision resources in minutes, capacity planning becomes administrative instead of managing physical assets
 
-*Global Scale – Scale elastically and provide the right amount of IT resources when its needed from the right geographical location
+* Global Scale – Scale elastically and provide the right amount of IT resources when its needed from the right geographical location
 
-*Productivity – Removes mundane IT activities, focuses on high value activities
+* Productivity – Removes mundane IT activities, focuses on high value activities
 
-*Performance – Worldwide networks that offer benefits like reduced network latency and greater economies of scale
+* Performance – Worldwide networks that offer benefits like reduced network latency and greater economies of scale
 
-*Reliability – Data backup, disaster recovery, and business continuity easier and less expensive
+* Reliability – Data backup, disaster recovery, and business continuity easier and less expensive
 
 
-###The Cloud Enables our Applications
+### The Cloud Enables our Applications
 
 When we shift our view of cloud away from the physical datacenters and infrastructure powering cloud service providers and to the original meaning of cloud - the internet - then things make a lot more sense.
 Cloud computing has been changing the way we work, play, and connect ever since the internet was invented. We're just now seeing how far the cloud service providers are able to push the envelope.
