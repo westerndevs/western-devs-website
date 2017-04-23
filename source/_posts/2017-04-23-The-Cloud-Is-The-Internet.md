@@ -5,6 +5,8 @@ categories:
   - cloud
   - azure
 date: 2017-04-22 11:30:00
+excerpt: Let's reset our definitions and thinking around what cloud computing and cloud service providers are.
+comments: true
 authorId: darcy_lussier
 ---
 
