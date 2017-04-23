@@ -7,7 +7,6 @@
 </center>
 </div>
 <!--SUBHEAD ENDS-->	
-
 <!--PAGE CONTENT STARTS-->
 <center>
 <div class="WrapperContent">
@@ -16,6 +15,7 @@
 	<div class="SubpageBoxSubLrg">
 		<div class="SubpageBoxSubLrgContent">
 		    <%- partial('post/title', { title: post.title }) %>
+			<%- partial('post/date', { post: post }) %>
 		    <%- partial('post/original_url') %>
 			
 			<div id="mainPostContent">
