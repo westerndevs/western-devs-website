@@ -21,7 +21,7 @@ cloud computing was and how platforms like Azure and AWS fit into this new compu
 
 Microsoft defines the cloud this way:
 
->"Simply put, cloud computing is the delivery of computing services—servers, storage, databases, networking, software, analytics, and more—over the Internet (“the cloud”).">
+>*"Simply put, cloud computing is the delivery of computing services—servers, storage, databases, networking, software, analytics, and more—over the Internet (“the cloud”)."*
 
 Cloud computing is leveraging the internet in new ways. We've been evolving cloud computing since the internet existed.
 
@@ -45,7 +45,7 @@ So all of this is to say: Cloud computing is the evolution of using the internet
 Now that we've defined what cloud is, how does this change our view of what Azure, AWS, and other cloud service providers are? Microsoft provides us with
 a great definition of Azure, which we can apply to the others:
 
->Microsoft Azure is a growing collection of integrated cloud services that developers and IT professionals use to build, deploy, and manage applications through Microsoft’s global network of datacenters.>
+>*Microsoft Azure is a growing collection of integrated cloud services that developers and IT professionals use to build, deploy, and manage applications through Microsoft’s global network of datacenters.*
 
 This is an important distinction. Azure itself is not a cloud; its cloud enabled services (meaning it relies on the internet) and they happen to use a
 huge number of large datacenters to operate those services.
