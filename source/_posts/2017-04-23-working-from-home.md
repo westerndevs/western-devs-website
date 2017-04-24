@@ -16,7 +16,7 @@ participants:
   - donald_belcham
   - simon_timms
   - rob_windsor
-  - Dave Woods
+  - dave_woods
 music:
   - title: Doctor Man
     artist: Johnnie Christie and the Boats
