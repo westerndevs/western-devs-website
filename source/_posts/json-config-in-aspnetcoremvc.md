@@ -1,3 +1,4 @@
+---
 title: JSON Configuration in ASP.NET Core MVC
 layout: post
 tags:
@@ -40,7 +41,7 @@ Our other option, of course, is going the custom object route, but that has alwa
   }
 ````
 
-Now the data that we have related to logging can be grouped into a logical fragment of the configuration file and can grow as required. 
+Now the data that we have related to logging can be grouped into a logical fragment of the configuration file and can grow as required.
 
 ## Exploring a Common Example
 
@@ -70,6 +71,6 @@ In your Azure Web App configuration, you would simply need to add a key named `D
 
 ## Next Up
 
-These key-value pairs are great, but in your application it would be a bother to have to load out each property by hand. In my next post I'm going to show you how to take a configuration section and turn it into a set of typed configuration options that can be used throughout your project. 
+These key-value pairs are great, but in your application it would be a bother to have to load out each property by hand. In my next post I'm going to show you how to take a configuration section and turn it into a set of typed configuration options that can be used throughout your project.
 
 Happy coding!

@@ -1,3 +1,4 @@
+---
 title: 'GitHub Authentication with ASP.NET Core'
 layout: post
 tags:
@@ -21,7 +22,7 @@ Let's have a look at what it takes to allow users to authenticate in our applica
 
 OAuth has been known as a complicated spec to adhere to, and this is further perpetuated by the fact that while much of the mechanics are the same among authentication providers, the implementation of how one retrieves information about the logged in user is different from source-to-source.
 
-The security repo for ASP.NET gives us some pretty good options for the big, wider market plays like Facebook and Twitter, but there is aren't - nor can or should there be - packages for every provider. GitHub is appealing as a source when we target other developers, and while it lacks a package of its own, we can leverage the raw OAuth provider and implement the user profile loading details on our own. 
+The security repo for ASP.NET gives us some pretty good options for the big, wider market plays like Facebook and Twitter, but there is aren't - nor can or should there be - packages for every provider. GitHub is appealing as a source when we target other developers, and while it lacks a package of its own, we can leverage the raw OAuth provider and implement the user profile loading details on our own.
 
 In short, the steps are as follows:
  1. Install the `Microsoft.AspNet.Authentication.OAuth` package
@@ -48,13 +49,13 @@ Pull down the user account menu from your avatar in the top-right corner of GitH
 
 ![Creating an OAuth app in GitHub](https://jcblogimages.blob.core.windows.net:443/img/2016/04/github-app.png)
 
-First, you'll need to note your client ID and secret, or minimally, you'll want to leave the browser window open. 
+First, you'll need to note your client ID and secret, or minimally, you'll want to leave the browser window open.
 
 Second you'll see that I have a authorization callback setup in the app as follows:
 
 `https://localhost:44363/signin-github`
 
-This is important for two reasons: 
+This is important for two reasons:
 
 1. This will only work locally on your machine
 2. The `signin-github` bit will need to be configured in our middleware

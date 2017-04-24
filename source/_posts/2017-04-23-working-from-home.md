@@ -4,6 +4,7 @@ title: Working From Home
 categories:
   - podcasts
 comments: true
+alias: /podcasts/podcast/
 date: 2017-04-23 16:43:26
 recorded: 2016-07-15 12:00:00
 podcast:
