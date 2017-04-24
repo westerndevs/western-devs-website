@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "font-awesome-stylus": "^4.4.0",
-    "hexo": "git+https://github.com/westerndevs/hexo.git",
+    "hexo": "^3.2.0",
     "hexo-deployer-git": "0.0.4",
     "hexo-front-matter-excerpt": "0.2.0",
     "hexo-generator-alias": "git+https://github.com/hexojs/hexo-generator-alias.git",
