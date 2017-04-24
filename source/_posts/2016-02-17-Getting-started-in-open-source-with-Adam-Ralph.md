@@ -25,6 +25,7 @@ links:
   - 'Pushing your project to github|http://adamralph.com/2013/05/18/oss-it-already/'
 
 date: 2016-02-17 18:57:13
+recorded: 2016-01-20
 excerpt: "Open source addict, Adam Ralph sits down with the Western Devs to give us tips on getting started in the wacky world of open source"
 ---
 

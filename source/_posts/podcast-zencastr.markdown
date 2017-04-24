@@ -2,6 +2,7 @@
 layout: podcast
 title:  "Zencastr"
 date: 2015-11-24T22:47:07-05:00
+recorded: 2015-11-20
 categories: podcasts
 excerpt: "A chat with Josh Nielsen, creator of Zencastr"
 comments: true
@@ -11,7 +12,7 @@ podcast:
     filesize: 43997390
     libsynId: 3974740
 
-participants: 
+participants:
     - kyle_baley
     - amir_barylko
     - donald_belcham
@@ -57,4 +58,3 @@ music:
 * Metrics
 * Doing one thing really well
 * Developing for yourself vs. for someone else
-

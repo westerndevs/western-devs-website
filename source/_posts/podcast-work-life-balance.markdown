@@ -2,14 +2,15 @@
 layout: podcast
 title:  "Work/Life Balance"
 date: 2015-09-09T00:03:30-05:00
+recorded: 2015-09-04
 categories: podcasts
 excerpt: "Wherein the Western Devs try to balance work and not work"
 comments: true
-podcast: 
+podcast:
     filename: "WorkLifeBalance.mp3"
     length: "43:16"
     filesize: 41543561
-participants: 
+participants:
     - dylan_smith
     - kyle_baley
     - james_chambers
@@ -44,4 +45,3 @@ music:
 * Technology that helps work/life balance
 * What do you do in your downtime?
 * Know when to make adjustments
-

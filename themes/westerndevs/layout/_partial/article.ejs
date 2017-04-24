@@ -6,18 +6,18 @@
 	</div>
 </center>
 </div>
-<!--SUBHEAD ENDS-->	
+<!--SUBHEAD ENDS-->
 
 <!--PAGE CONTENT STARTS-->
 <center>
 <div class="WrapperContent">
 
-<!--MAIN CONTENT STARTS-->	
+<!--MAIN CONTENT STARTS-->
 	<div class="SubpageBoxSubLrg">
 		<div class="SubpageBoxSubLrgContent">
-		    <%- partial('post/title', { title: post.title }) %>
+		    <%- partial('post/title', { title: post.title, postDate: post.date }) %>
 		    <%- partial('post/original_url') %>
-			
+
 			<div id="mainPostContent">
 	        <%- post.content %>
 	        </div>

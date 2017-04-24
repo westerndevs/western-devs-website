@@ -2,6 +2,7 @@
 layout: podcast
 title:  "Microservices"
 date: 2015-07-07T16:54:52-04:00
+recorded: 2015-07-01
 categories: podcasts
 excerpt: "In our inaugural podcast, the Western Devs tackle what is either the new hotness, retro SOA, or a flash in the pan: microservices."
 comments: true

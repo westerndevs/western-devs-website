@@ -31,16 +31,17 @@ links:
   - 'Hololens|https://www.microsoft.com/microsoft-hololens/en-us'
   - 'Nintendo power glove|http://www.amazon.com/Power-Glove-Nintendo-DS/dp/B001VII7PA'
 date: 2016-02-13 12:35:15
+recorded: 2016-01-29
 excerpt: The Western Devs try to fight off the various aches and pains that come with chatting online all day
 ---
 
 ### Synopsis
 
 * Carpal tunnel symptoms  
-* Hand position for keyboards 
+* Hand position for keyboards
 * Ergonomic keyboards
 * Desk armrests
-* Desks - standing and treadmills 
+* Desks - standing and treadmills
 * MacGyvering a treadmill desk
 * Tracking your numbers
 * Avoiding sitting down
@@ -48,6 +49,6 @@ excerpt: The Western Devs try to fight off the various aches and pains that come
 * Getting chairs on a budget
 * Ball chairs
 * Reclined position
-* Monitors: height, position, quantity 
+* Monitors: height, position, quantity
 * Oculus/Hololens
 * Is the Minority Report workstation practical?

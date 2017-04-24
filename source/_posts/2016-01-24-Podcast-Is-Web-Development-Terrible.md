@@ -22,6 +22,7 @@ links:
   - Sad State of Web Development (article)|https://medium.com/@wob/the-sad-state-of-web-development-1603a861d29f#.gs36fs7zy
   - Sad State of Entitled Web Developers (article)|https://medium.com/swlh/the-sad-state-of-entitled-web-developers-e4f314764dd#.57ww6gwmp
 date: 2016-01-24 10:40:13
+recorded: 2016-01-15
 excerpt: "The Western Devs discuss whether web development really is terrible"
 ---
 

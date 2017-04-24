@@ -2,15 +2,16 @@
 layout: podcast
 title: "Geek Gifts"
 date: 2015-11-28T11:13:38-05:00
+recorded: 2015-11-27
 categories: podcasts
 excerpt: "Learn what the Western Devs might have got this year for Christmas if any of them were nice"
 comments: true
-podcast: 
+podcast:
     filename: "GeekGifts.mp3"
     length: "1:04:35"
     filesize: 61995490
     libsynId: 3981310
-participants: 
+participants:
     - kyle_baley
     - donald_belcham
     - dylan_smith

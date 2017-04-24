@@ -2,14 +2,15 @@
 layout: podcast
 title: "Refactor vs. Rewrite"
 date: 2015-10-14T20:54:55-04:00
+recorded: 2015-10-09
 categories: podcasts
 excerpt: "The Western Devs tackle the eternal debate: do we refactor or rewrite?"
 comments: true
-podcast: 
+podcast:
     filename: "RefactorRewrite.mp3"
     length: "42:40"
     filesize: 40960093
-participants: 
+participants:
     - dylan_smith
     - kyle_baley
     - simon_timms
@@ -35,7 +36,7 @@ music:
 * Dropping into a brownfield application
 * Rewrite vs. refactor
 * Political factors
-* Setting up a safety net 
+* Setting up a safety net
 * What is correct: What the app does or what it should do?
 * The challenge of limiting scope during refactoring
 * The legacy catch-22: You need tests to refactor but you need to refactor before you can write tests
@@ -46,5 +47,4 @@ music:
 * Using metrics to determine where to focus
 * Finding quick wins
 * Strangler pattern to carve off pieces
-* Ensuring the dev team is on board 
-
+* Ensuring the dev team is on board

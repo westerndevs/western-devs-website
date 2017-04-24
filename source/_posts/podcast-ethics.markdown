@@ -2,14 +2,15 @@
 layout: podcast
 title:  "Ethics"
 date: 2015-10-10T15:32:22-04:00
+recorded: 2015-10-02
 categories: podcasts
 excerpt: "The Western Devs welcome Lori Lalonde and D'Arcy Lussier to the podcast and discuss ethics in software"
 comments: true
-podcast: 
+podcast:
     filename: "Ethics.mp3"
     length: "45:10"
     filesize: 43357074
-participants: 
+participants:
     - dylan_smith
     - kyle_baley
     - darcy_lussier
@@ -48,5 +49,3 @@ music:
 * The developer's recourse
 * Is it unethical to release software without automated tests?
 * Should there be a software code of ethics?
-
-

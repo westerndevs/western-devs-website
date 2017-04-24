@@ -2,10 +2,11 @@
 layout: podcast
 title:  "The Internet of Things"
 date: 2015-07-13T14:47:49-04:00
+recorded: 2015-07-10
 categories: podcasts
 excerpt: "The Western Devs delve into the mire that is the Internet of Things"
 comments: true
-podcast: 
+podcast:
     filename: "InternetOfThings.mp3"
     length: "45:57"
     filesize: 55153989

@@ -28,12 +28,13 @@ links:
   - 'Ben Ed (Sweet ES6)|http://benmvp.com'
   - 'David Alpert|http://blog.spinthemoose.com/'
 date: 2016-05-07 13:22:31
+recorded: 2016-04-15
 excerpt: "The Western Devs reminisce on their experience at Prairie Dev Con and offer tips to speakers, conference organizers, and attendees."
 ---
 
 ### Synopsis
 
-* History of Prairie Dev Con 
+* History of Prairie Dev Con
 * Tee shirts, empanadas, and luchadors
 * Speaker tip: Be specific in session titles
 * Conference organizer tip: Treat your speakers well

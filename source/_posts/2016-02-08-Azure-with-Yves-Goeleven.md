@@ -21,6 +21,7 @@ links:
   - 'Azure Marketplace|https://azure.microsoft.com/en-us/marketplace/'
   - 'Reactive Extensions|https://msdn.microsoft.com/en-us/data/gg577609.aspx'
 date: 2016-02-08 17:19:10
+recorded: 2016-01-18
 excerpt: "The devs track down Microsoft MVP Yves Goeleven in a busy Thai restaurant and talk to him about Azure"
 ---
 

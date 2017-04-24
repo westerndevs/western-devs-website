@@ -25,6 +25,7 @@ links:
   - 'Measuring Developer Productivity|https://blog.newrelic.com/2014/09/24/measuring-developer-productivity/'
   - 'The myth of developer productivity|http://www.dev9.com/article/2015/1/the-myth-of-developer-productivity'
 date: 2016-02-23 12:31:27
+recorded: 2016-02-05
 excerpt: "The Western Devs take a break from their collective workdays to discuss developer productivity"
 ---
 

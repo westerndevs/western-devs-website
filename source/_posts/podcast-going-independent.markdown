@@ -2,14 +2,15 @@
 layout: podcast
 title:  "Going Independent"
 date: 2015-09-30T19:07:37-04:00
+recorded: 2015-09-18
 categories: podcasts
 excerpt: "In honour of Botswanan Independence Day, the Western Devs discuss going independent with special guest, Wendy Closson"
 comments: true
-podcast: 
+podcast:
     filename: "GoingIndependent.mp3"
     length: "48:05"
     filesize: 46166206
-participants: 
+participants:
     - dylan_smith
     - kyle_baley
     - david_wesst

@@ -25,6 +25,7 @@ links:
   - 'Visual Studio Extensibility samples|https://github.com/Microsoft/VSSDK-Extensibility-Samples'
   - 'Project Rider - a cross-platform C# IDE by JetBrains|https://blog.jetbrains.com/dotnet/2016/01/13/project-rider-a-csharp-ide/'
 date: 2016-02-29 15:57:40
+recorded: 2016-01-22
 excerpt: "We talk with Igal Tabachnik and discuss the finer points of building tools for Visual Studio"
 ---
 

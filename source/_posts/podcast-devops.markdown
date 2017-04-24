@@ -2,10 +2,11 @@
 layout: podcast
 title:  "DevOps"
 date: 2015-07-21T11:55:26-04:00
+recorded: 2015-07-17
 categories: podcasts
 excerpt: "Continuing the theme of making grandiose claims about vaguely defined terms, the Western Devs take on the Rise of DevOps"
 comments: true
-podcast: 
+podcast:
     filename: "DevOps.mp3"
     length: "51:55"
     filesize: 62319361

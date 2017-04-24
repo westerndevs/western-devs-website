@@ -31,6 +31,7 @@ links:
   - 'Xamarin Evolve|https://evolve.xamarin.com/'
 
 date: 2016-07-02 14:13:23
+recorded: 2016-03-18
 excerpt: The Western Devs discuss the ins and outs of mobile development and Xamarin
 ---
 

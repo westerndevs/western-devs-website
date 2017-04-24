@@ -2,14 +2,15 @@
 layout: podcast
 title:  "Kanban"
 date: 2015-09-19T15:46:54-04:00
+recorded: 2015-09-11
 categories: podcasts
 excerpt: "The WesternDevs try their hand at pronouncing, then describing Kanban"
 comments: true
-podcast: 
+podcast:
     filename: "Kanban.mp3"
     length: "50:38"
     filesize: 48603716
-participants: 
+participants:
     - dylan_smith
     - kyle_baley
     - dave_paquette

@@ -2,15 +2,16 @@
 layout: podcast
 title:  "Encouraging and Educating Kids"
 date: 2015-11-08T19:12:19-05:00
+recorded: 2015-10-30
 categories: podcasts
 excerpt: "Ways to encouraging and educate kids in the dark art of coding. With special guest Wendy Closson"
 comments: true
-podcast: 
+podcast:
     filename: "TeachingKids.mp3"
     length: "45:43"
     filesize: 43892503
     libsynId: 3982707
-participants: 
+participants:
     - kyle_baley
     - amir_barylko
     - donald_belcham

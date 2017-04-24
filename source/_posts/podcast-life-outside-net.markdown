@@ -2,15 +2,16 @@
 layout: podcast
 title: "Life Outside .NET"
 date: 2015-10-19T15:48:10-04:00
+recorded: 2015-10-16
 categories: podcasts
 excerpt: "The Western Devs discuss working outside your comfort zone"
 comments: true
-podcast: 
+podcast:
     filename: "LifeOutsideNET.mp3"
     length: "41:07"
     filesize: 39477170
     libsynId: 3982713
-participants: 
+participants:
     - kyle_baley
     - lori_lalonde
     - dave_white
@@ -63,4 +64,3 @@ music:
 * Experimenting with your build script and test projects
 * Conferences/user groups/code retreats as a tool for learning
 * Microsoft's new direction: chasing a market or listening to the community?
-

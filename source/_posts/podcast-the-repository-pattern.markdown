@@ -2,14 +2,15 @@
 layout: podcast
 title:  "The Repository Pattern"
 date: 2015-08-04T11:55:26-04:00
+recorded: 2015-07-24
 categories: podcasts
 excerpt: "Do we really need all these repositories?"
 comments: true
-podcast: 
+podcast:
     filename: "RepositoryPattern.mp3"
     length: "48:07"
     filesize: 57742198
-participants: 
+participants:
     - dave_paquette
     - amir_barylko
     - simon_timms

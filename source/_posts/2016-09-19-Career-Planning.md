@@ -24,6 +24,7 @@ links:
   - "Career plan for software engineer|http://andriybuday.com/2010/08/career-plan-for-software-engineer.html"
   - "How to develop your IT career plan and why you should do it|http://itmanagersinbox.com/1452/how-to-develop-your-it-career-plan-and-why-you-should-do-it/"
 date: 2016-09-19 17:11:22
+recorded: 2016-06-17
 excerpt: "When it comes to planning your career, the Western Devs have it aaaaaaaall worked out. But when it comes to audio issues...sorry about that, westerners."
 ---
 

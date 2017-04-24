@@ -2,6 +2,7 @@
 layout: podcast
 title:  "The Future of Computing"
 date: 2015-12-07T13:21:04-05:00
+recorded: 2015-12-04
 categories: podcasts
 excerpt: "The Western Devs pontificate on the future of computing"
 comments: true
@@ -10,7 +11,7 @@ podcast:
     length: "50:01"
     filesize: 48022352
     libsynId: 4001183
-participants: 
+participants:
     - kyle_baley
     - dylan_smith
     - lori_lalonde

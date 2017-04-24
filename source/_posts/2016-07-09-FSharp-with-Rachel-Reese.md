@@ -33,6 +33,7 @@ links:
   - 'F# for fun and profit|https://fsharpforfunandprofit.com'
   - 'F# mentoring|http://fsharp.org/mentorship/'
 date: 2016-07-09 18:01:53
+recorded: 2016-04-12
 excerpt: The Western Devs kidnap Rachel Reese at Prairie Dev Con and force her to speak on functional programming and F# in exchange for empanadas
 ---
 

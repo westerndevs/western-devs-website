@@ -2,6 +2,7 @@
 layout: podcast
 title:  "Internal Open Source"
 date: 2015-08-23T18:00:37-04:00
+recorded: 2015-08-07
 categories: podcasts
 excerpt: "The Western Devs sound off on why your company should share and collaborate on its internal code"
 comments: true
@@ -9,7 +10,7 @@ podcast:
     filename: "InternalOpenSource.mp3"
     length: "43:17"
     filesize: 51937269
-participants: 
+participants:
     - dave_paquette
     - amir_barylko
     - simon_timms

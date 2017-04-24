@@ -21,6 +21,7 @@ links:
   - 'JDRF|http://www.jdrf.ca/'
   - 'Open source diabetes|http://www.opensourcediabetes.org/'
 date: 2016-03-27 17:01:07
+recorded: 2016-02-12
 excerpt: Special guest, Jake Belcham, joins the Western Devs as they review the state of diabetes technology today and what's coming in the future
 ---
 

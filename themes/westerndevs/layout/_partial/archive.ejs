@@ -6,14 +6,14 @@
   </div>
 </center>
 </div>
-<!--SUBHEAD ENDS--> 
+<!--SUBHEAD ENDS-->
 
 
 <!--PAGE CONTENT STARTS-->
 <center>
 <div class="WrapperContent">
 
-<!--MAIN CONTENT STARTS-->  
+<!--MAIN CONTENT STARTS-->
   <div class="SubpageBoxFull">
     <div class="SubpageBoxFullContent">
       <% var last; %>
@@ -21,13 +21,13 @@
       <% var year = post.date.year(); %>
       <% if (last != year){ %>
         <% last = year; %>
-        <%- partial('post/title', { title: year + " " + page.category }) %>
+        <%- partial('post/title', { title: year + " " + page.category, postDate: page.date }) %>
       <% } %>
 
       <div class="ListLrgSubBG">
       <div class="ListLrgDateBG">
         <font class="ListLrgDateMonth"><%= moment(post.date).format('MMM').toUpperCase() %></font><BR>
-        <font class="ListLrgDateDay"><%= moment(post.date).format('D') %></font>        
+        <font class="ListLrgDateDay"><%= moment(post.date).format('D') %></font>
       </div>
       <div class="ListLrgTxtSub">
         <a class="posts" href="<%- url_for(post.path) %>"><%= post.title || '(no title)' %></a><br/>
@@ -40,9 +40,9 @@
         <% } %>
         </div>
       </div>
-      </div>      
+      </div>
       <% }) %>
-      
+
     </div>
   </div>
 <!--MAIN CONTENT ENDS-->
@@ -50,4 +50,3 @@
 </div>
 </center>
 <!--PAGE CONTENT ENDS-->
-

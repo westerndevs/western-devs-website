@@ -2,15 +2,16 @@
 layout: podcast
 title:  "All About SmartView"
 date: 2015-11-10T15:13:26-07:00
+recorded: 2015-10-26
 categories: podcasts
 excerpt: "An Interview with SmartView founder Amir Barylko"
 comments: true
-podcast: 
+podcast:
     filename: "SmartView.mp3"
     length: "31:53"
     filesize: 43892503
     libsynId: 3982695
-participants: 
+participants:
     - simon_timms
     - amir_barylko
 links:
@@ -24,7 +25,7 @@ music:
 ---
 
 ### Synopsis
-In this podcast we talk to Amir Barylko about 
+In this podcast we talk to Amir Barylko about
 
 - Kanban
 - The impetus behind SmartView

@@ -6,22 +6,22 @@
 	</div>
 </center>
 </div>
-<!--SUBHEAD ENDS-->	
+<!--SUBHEAD ENDS-->
 
 
 <!--PAGE CONTENT STARTS-->
 <center>
 <div class="WrapperContent">
 
-	
-<!--MAIN CONTENT STARTS-->	
+
+<!--MAIN CONTENT STARTS-->
 	<div class="SubpageBoxFull">
 		<div class="SubpageBoxFullContent">
 	        <% var last; %>
 			<%
 				var cat = site.categories.findOne({"name": "podcasts"});
 			%>
-			
+
 			<% cat.posts.sort('date', -1).each(function(post){ %>
 		    <% var year = post.date.year(); %>
 		    <% if (last != year){ %>
@@ -31,7 +31,7 @@
 			<div class="ListLrgSubBG">
 			<div class="ListLrgDateBG">
 			  <div class="ListLrgDateMonth"><%= moment(post.date).format('MMM').toUpperCase() %></div>
-			  <div class="ListLrgDateDay"><%= moment(post.date).format('D') %></div>        
+			  <div class="ListLrgDateDay"><%= moment(post.date).format('D') %></div>
 			</div>
 			<div class="ListLrgTxtSub">
 			  <a class="posts" href="<%- url_for(post.path) %>"><%= post.title || '(no title)' %></a><br/>
@@ -42,9 +42,9 @@
 			    <%= trim(strip_html(post.excerpt)) %>
 			  <% } %>
 			</div>
-			</div>      
+			</div>
 			<% }) %>
-			
+
 		</div>
 	</div>
 <!--MAIN CONTENT ENDS-->
@@ -53,4 +53,3 @@
 </div>
 </center>
 <!--PAGE CONTENT ENDS-->
-

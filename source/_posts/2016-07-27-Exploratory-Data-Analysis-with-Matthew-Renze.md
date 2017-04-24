@@ -28,6 +28,7 @@ links:
   - 'Exploratory Data Analysis with R (Pluralsight)|https://www.pluralsight.com/courses/r-data-analysis'
   - 'How to get started programming in R|https://www.pluralsight.com/blog/data-professional/how-to-get-started-programming-in-r'
 date: 2016-07-27 10:58:44
+recorded: 2016-04-12
 excerpt: Kyle hijacks Matthew Renze at Prairie Dev Con 2016 to talk about exploratory data analysis and the increasingly popular programming language, R.
 ---
 

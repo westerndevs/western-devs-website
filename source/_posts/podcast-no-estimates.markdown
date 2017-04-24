@@ -2,14 +2,15 @@
 layout: podcast
 title: "No Estimates"
 date: 2015-09-01T19:42:12-04:00
+recorded: 2015-08-27
 categories: podcasts
 excerpt: "In this episode, special guest Steve Rogalsky helps the Western Devs understand the #NoEstimates movement"
 comments: true
-podcast: 
+podcast:
     filename: "NoEstimates.mp3"
     length: "47:50"
     filesize: 57405212
-participants: 
+participants:
     - dave_paquette
     - amir_barylko
     - simon_timms
@@ -51,4 +52,3 @@ music:
 * Setting expectations with clients for "No Estimates"
 * Gaining trust with a client as an alternative to providing estimates
 * Understanding *why* estimates are needed to determine *if* they're needed
-
