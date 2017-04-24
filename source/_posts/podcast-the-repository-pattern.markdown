@@ -10,6 +10,7 @@ podcast:
     filename: "RepositoryPattern.mp3"
     length: "48:07"
     filesize: 57742198
+    libsynId: 5292005
 participants:
     - dave_paquette
     - amir_barylko
