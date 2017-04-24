@@ -10,6 +10,7 @@ podcast:
     filename: "InternetOfThings.mp3"
     length: "45:57"
     filesize: 55153989
+    libsynId: 5291974
 participants:
     - dave_paquette
     - amir_barylko
