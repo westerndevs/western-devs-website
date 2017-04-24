@@ -123,3 +123,17 @@
   speaker: Dylan Smith
   location: Montreal, QC
   topic: "Building Modern Web Apps with Gulp"
+
+- date: 2017-06-03
+  event: "Maritime DevCon"
+  url: https://maritimedevcon.ca
+  speaker: Kyle Baley
+  location: Fredericton, NB
+  topic: "The Fallacies of Distributed Computing"
+
+- date: 2017-06-03
+  event: "Maritime DevCon"
+  url: https://maritimedevcon.ca
+  speaker: Donald Belcham
+  location: Fredericton, NB
+  topic: "Introduction to Messaging"
