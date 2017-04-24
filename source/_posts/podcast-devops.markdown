@@ -10,6 +10,7 @@ podcast:
     filename: "DevOps.mp3"
     length: "51:55"
     filesize: 62319361
+    libsynId: 5291994
 redirect_from: "/whatwevesaid/podcast-devops/"
 participants:
     - dave_paquette
