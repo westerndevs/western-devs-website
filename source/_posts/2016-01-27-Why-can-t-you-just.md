@@ -14,7 +14,7 @@ Online communication bugs me. Actually, _bugs_ isn't accurate. Maybe _saddens an
 
 {% img "pull-left" "https://upload.wikimedia.org/wikipedia/en/7/79/The_Simpsons-Jeff_Albertson.png" %}
 
-I've talked on this subject [before](http://kyle.baley.org/2009/05/and-you-opened-your-mouthwhy-or-how-to-comment-for-the-greater-good/) and it's something I often have in the back of my mind when reading comments. It's come to the forefront recently with some conversations we've had at Western Devs, which led to our most recent [podcast](http://www.westerndevs.com/podcasts/Podcast-Is-Web-Development-Terrible/). I wasn't able to attend so here I am.
+I've talked on this subject [before](http://kyle.baley.org/2009/05/and-you-opened-your-mouthwhy-or-how-to-comment-for-the-greater-good) and it's something I often have in the back of my mind when reading comments. It's come to the forefront recently with some conversations we've had at Western Devs, which led to our most recent [podcast](http://www.westerndevs.com/podcasts/Podcast-Is-Web-Development-Terrible/). I wasn't able to attend so here I am.
 
 There are certain phrases you see in comments that automatically seem to devolve a discussion. They include:
 

@@ -21,16 +21,16 @@ participants:
     - simon_timms
     - dylan_smith
 links:
-    - DevOps on Wikipedia|https://en.wikipedia.org/wiki/DevOps)
-    - What is DevOps|http://theagileadmin.com/what-is-devops/)
-    - How DevOps is killing the developer|https://jeffknupp.com/blog/2014/04/15/how-devops-is-killing-the-developer/)
-    - AppInsights|https://azure.microsoft.com/en-us/documentation/articles/app-insights-get-started/)
-    - NewRelic|http://newrelic.com/)
-    - statsd|https://github.com/etsy/statsd)
-    - LogEntries|https://logentries.com/)
-    - MixPanel|https://mixpanel.com/)
-    - Octopus|https://octopusdeploy.com/)
-    - Docker|https://www.docker.com/)
+    - "DevOps on Wikipedia|https://en.wikipedia.org/wiki/DevOps"
+    - "What is DevOps|http://theagileadmin.com/what-is-devops/"
+    - "How DevOps is killing the developer|https://jeffknupp.com/blog/2014/04/15/how-devops-is-killing-the-developer/"
+    - "AppInsights|https://azure.microsoft.com/en-us/documentation/articles/app-insights-get-started/"
+    - "NewRelic|http://newrelic.com/"
+    - "statsd|https://github.com/etsy/statsd"
+    - "LogEntries|https://logentries.com/"
+    - "MixPanel|https://mixpanel.com/"
+    - "Octopus|https://octopusdeploy.com/"
+    - "Docker|https://www.docker.com/"
 music:
     song:
         title: Doctor Man

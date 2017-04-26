@@ -24,11 +24,11 @@ So I set about my goal and got a degree, a Bachelor of Commerce I believe. I was
 
 At some point in that first six months of interviewing, I clued in to something: programming, which I had been doing for about 10 years by that point as a hobby, was a career choice! Was it a lucrative one? Was it better than being an actuary? Who cares, it was fun and people got paid to do it! So I went back to school. That is, to my ageing memory, the sum total of the thought I put into it. (This will be a recurring theme throughout this post.)
 
-So I did it. I went back to school, got the degree, and started working. My first job was in the corporate world, an oil and gas company. My next, with a startup where I [interviewed badly](http://kyle.baley.org/2008/01/interview-question-tell-me-about-your-mother/) and they hired me anyway. The third was with a consulting company. Since then: contracting, my own startup, and employeehood in some order. Along the way, I've learned, to varying degrees, VB6, classic ASP, .NET, RPG, Livelink, Sharepoint, JavaScript, Ruby, Java, SQL Server, Azure, Google Web Toolkit, Docker, CI, CD, CQRS, CORS, CSS and more acronymed software methodologies and techniques than I care to ~~put thought into remembering~~ admit. I've blogged (clearly), co-written a book, spoken at conferences, and created a user group that was the first of its kind in the country. (It lasted less than a year.)
+So I did it. I went back to school, got the degree, and started working. My first job was in the corporate world, an oil and gas company. My next, with a startup where I [interviewed badly](http://kyle.baley.org/2008/01/interview-question-tell-me-about-your-mother) and they hired me anyway. The third was with a consulting company. Since then: contracting, my own startup, and employeehood in some order. Along the way, I've learned, to varying degrees, VB6, classic ASP, .NET, RPG, Livelink, Sharepoint, JavaScript, Ruby, Java, SQL Server, Azure, Google Web Toolkit, Docker, CI, CD, CQRS, CORS, CSS and more acronymed software methodologies and techniques than I care to ~~put thought into remembering~~ admit. I've blogged (clearly), co-written a book, spoken at conferences, and created a user group that was the first of its kind in the country. (It lasted less than a year.)
 
 While you're free to copy and paste all this into my obituary, there's a reason I list it out. I have never put much thought into my career and I don't have any intrinsic itch I've been meaning to scratch. How did I choose when and where to do all of these things? The opportunities came up and I said yes. Again, not much more thought goes into it than that.
 
-I have no regrets (including [the book](http://kyle.baley.org/2011/04/brownfield-application-development-one-year-later/)). Certainly not on a macro level. Should I have pursued a career as an actuary which, in all likelihood, would have ended up more lucrative financially? Was it a waste of time learning Livelink? Should I have gone into a managerial role?
+I have no regrets (including [the book](http://kyle.baley.org/2011/04/brownfield-application-development-one-year-later)). Certainly not on a macro level. Should I have pursued a career as an actuary which, in all likelihood, would have ended up more lucrative financially? Was it a waste of time learning Livelink? Should I have gone into a managerial role?
 
 Does it matter?
 
@@ -41,10 +41,10 @@ I am, and I can't emphasize this enough, having the time of my life.
 Now to be fair, I've always had the power to see things through a pair of glasses a supernatural shade of rose. But consider the language from the post I mentioned earlier:
 
 > I can only imagine how in demand I could have been.
-> 
+>
 > My sister has 10X the assets I have.
 
-And my favourite one: 
+And my favourite one:
 
 > And today I am still just a programmer. Who’s the weenie now?
 

@@ -4,7 +4,6 @@ title: "Self generating data"
 date: 2015-10-11 23:39:34 -0500
 comments: true
 authorId: amir_barylko
-originalurl: http://orthocoders.com/blog/2015/10/08/property-testing
 ---
 Every week I meet for [Code and Coffee](http://www.meetup.com/wpgcoffeecode) with other devs to chat about all kind of topics (often related to software) and lately we have been doing Katas from [CodeWars](http://codewars.com) under the _WpgDotNet_ clan.
 
@@ -54,7 +53,7 @@ Ruby has a `minmax` method on `Array` but we wanted to do it using a `fold`. So 
 
 {% codeblock lang:ruby %}
 def highest_lowest(str)
-  str.split.map(&:to_i).inject([MIN, MAX]) do |mm, i| 
+  str.split.map(&:to_i).inject([MIN, MAX]) do |mm, i|
     [[mm.first, i].max, [mm.last, i].min]
   end.join ' '
 end                                                
@@ -120,7 +119,7 @@ end
 Thinking of the actual _postcondition_ of the problem, the property could be something like:
 
     Given any non empty collection of integers
-    And exist MIN and MAX that belong to the collection 
+    And exist MIN and MAX that belong to the collection
     Where MAX is the maximum and MIN is the minimum
     Then the result is a string like "{MAX} {MIN}"
 
@@ -136,7 +135,7 @@ it 'returns the max and the min' do
     min, max = [integer, integer].minmax
     arr = array { range min, max } + [max, min]
     [arr.shuffle.join(' '), max, min]
-  }.check(200) do |str, max, min| 
+  }.check(200) do |str, max, min|
     expect(highest_lowest str).to eq "#{max} #{min}"
   end
 end
@@ -149,4 +148,3 @@ I changed the number of cases to _200_ just to illustrate how to override the de
 Properties can be very useful to help identify test cases plus data generation makes much easier to describe a scenario and find a domain for the test.
 
 Having a combination of both _property testing_ and _example testing_ can be a good balance to have tests that are accurate and also descriptive.
-
