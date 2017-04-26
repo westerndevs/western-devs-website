@@ -2,7 +2,7 @@
 layout: post
 title: "Paper Cuts - My Review of PaperCall.io"
 date: 2017-03-07 11:30:00
-categories: 
+categories:
     - conference
     - services
 excerpt: My experience using PaperCall.io, a conference session submission service.
@@ -11,7 +11,7 @@ authorId: darcy_lussier
 ---
 ## Conference Time
 
-My next [Prairie Dev Con](http://www.prairiedevcon.com) is coming up June 6-7 2017, and this year I decided to use a service that's become very popular for speaker submissions called [PaperCall.io](www.papercall.io). For speakers this service is fantastic - for free you can create a profile and add any number of talk abstracts. Then when a call for speakers opens, you can easily with just a few clicks submit any number of talks.
+My next [Prairie Dev Con](http://www.prairiedevcon.com) is coming up June 6-7 2017, and this year I decided to use a service that's become very popular for speaker submissions called [PaperCall.io](http://www.papercall.io). For speakers this service is fantastic - for free you can create a profile and add any number of talk abstracts. Then when a call for speakers opens, you can easily with just a few clicks submit any number of talks.
 
 People can create events and open call-for-papers (CFP's) for free as well. Conferences are then included in their Open CFP list, with certain paid-level events getting "featured" treatment at the top of the list.
 
@@ -72,7 +72,7 @@ As a conference organizer I have no way to search the speaker profiles. They are
 
 ### Accepted/Rejected Communication Confusion
 
-Once you've identified talks as Accepted or Rejected you can then send an email message to the speakers letting them know. There's an issue though - you're accepting or rejecting the talk, not necessarily the speaker. I could have a speaker have 2 talks accepted but 3 rejected. With how the email works, that speaker would get "Unfortunately your talk was not picked. Thanks for applying, and I hope we see you as an attendee (that's a paraphrase to the stock verbiage sent out)." but then they'd get "Congratulations, your talk was picked" as well! That's confusing. I imagine speakers get multiple emails as well, since one seems to be sent for each session submitted. UGH! 
+Once you've identified talks as Accepted or Rejected you can then send an email message to the speakers letting them know. There's an issue though - you're accepting or rejecting the talk, not necessarily the speaker. I could have a speaker have 2 talks accepted but 3 rejected. With how the email works, that speaker would get "Unfortunately your talk was not picked. Thanks for applying, and I hope we see you as an attendee (that's a paraphrase to the stock verbiage sent out)." but then they'd get "Congratulations, your talk was picked" as well! That's confusing. I imagine speakers get multiple emails as well, since one seems to be sent for each session submitted. UGH!
 
 The way I avoided this was to assign rejected sessions for speakers who were actually accepted into the Waitlist group. Definitely a workaround/hack solution.
 
@@ -106,5 +106,3 @@ If the grid had a better interface, I was able to better communicate with speake
 I love the idea of PaperCall. Speakers are on board, and through PaperCall I've had speakers submit that normally wouldn't have even known about my conference. But its definitely in need of some improvements, especially at the price points they've listed. All of my criticisms in this post are meant to share how to make the product better because I *want* PaperCall to be better!
 
 But let's be honest, CFP isn't a complicated business process and there's no reason a competitor could come up with a better process. It's in PaperCall's best interest to listen to their customers, especially those willing to become paying customers if only certain functionality is added. We'll see if any advancement is made come later this Spring when I open up PrDC Deliver CFP.
-
-

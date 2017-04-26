@@ -73,13 +73,13 @@ services.AddSingleton<IDistributedCache>(serviceProvider =>
 
 Of course, the ConnectionString should be stored in a configuration file but for demonstration purposes I have in-lined it here.
 
-You will need to create the database and table manually. Here is a script for creating the table, which I extracted from [here](https://github.com/aspnet/Caching/blob/dev/src/Microsoft.Extensions.Caching.SqlConfig.Tools/SqlQueries.cs):
+You will need to create the database and table manually. Here is a script for creating the table, which I extracted from [here](https://github.com/aspnet/Caching/blob/dev/src/Microsoft.Extensions.Caching.SqlServer/SqlQueries.cs):
 
 {% codeblock lang:sql %}
 CREATE TABLE MyAppCache(            
-	Id nvarchar(449) COLLATE SQL_Latin1_General_CP1_CS_AS NOT NULL, 
+	Id nvarchar(449) COLLATE SQL_Latin1_General_CP1_CS_AS NOT NULL,
 	Value varbinary(MAX) NOT NULL,
-	ExpiresAtTime datetimeoffset NOT NULL, 
+	ExpiresAtTime datetimeoffset NOT NULL,
 	SlidingExpirationInSeconds bigint NULL,
 	AbsoluteExpiration datetimeoffset NULL,
 	CONSTRAINT pk_Id PRIMARY KEY (Id))
@@ -104,7 +104,7 @@ The SQL Server implementation requires us to specify some form of expiry. No pro
     <p>This should be different</p>
     @DateTime.Now.ToString()
 </distributed-cache>
-{% endcodeblock %} 
+{% endcodeblock %}
 
 Now the page renders properly and we can see the contents in SQL Server:
 
@@ -115,21 +115,13 @@ Note that since the key is hashed and the value is stored in binary, the content
 For more details on working with a SQL Server or Redis distrubted cache, see the [official ASP.NET Docs](https://docs.asp.net/en/latest/performance/caching/distributed.html);
 
 ## Even more configuration
- 
+
  In some cases, you might want more control over how values are serialized or even how the distributed cache is used by the tag helper. In those cases, you could implement your own [IDistributedCacheTagHelperFormatter](https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNetCore.Mvc.TagHelpers/Cache/IDistributedCacheTagHelperFormatter.cs) and/or [IDistributedCacheTagHelperStorage](https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNetCore.Mvc.TagHelpers/Cache/IDistributedCacheTagHelperStorage.cs).
- 
+
  In cases where you need complete control, you could implement your own [IDistributedCacheTagHelperService](https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNetCore.Mvc.TagHelpers/Cache/IDistributedCacheTagHelperService.cs).
- 
+
  I suspect that this added level of customization won't be needed by most people.
- 
+
  # Conclusion
- 
- The Distributed Cache Tag Helper provides an easy path to caching HTML fragments in a distributed cache. Out of the box, Redis and SQL Server are supported. Over time, I expect that a number of alternative distributed cache implementations will be provided by the community. 
 
-
-
-
-
-
-
-
+ The Distributed Cache Tag Helper provides an easy path to caching HTML fragments in a distributed cache. Out of the box, Redis and SQL Server are supported. Over time, I expect that a number of alternative distributed cache implementations will be provided by the community.

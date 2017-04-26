@@ -2,7 +2,7 @@
 layout: post
 title:  "On UI Testing"
 date: 2015-06-30 08:09:05
-authorId: kyle_baley 
+authorId: kyle_baley
 originalurl: http://kyle.baley.org/2015/06/on-ui-testing/
 categories:
 excerpt: What happens when 12 people gather to talk about UI testing?
@@ -11,7 +11,7 @@ comments: true
 
 A short while ago, a group of [Devs of the Western variety](http://www.westerndevs.com) had a chat. It was the latest in a series, depending on how you define "series", where we gather together to discuss some topic, be it JavaScript frameworks, OO practices, or smoked meat. On this particular day, it was UI testing.
 
-I don't recall all the participants but it was a good number of the people on [this list](http://www.westerndevs.com/about/). Here, I'm going to attempt to summarize the salient points but given my memory, it'll more likely be a dissertation of my own thoughts. Which is just as well as I recall doing more talking than I should have.
+I don't recall all the participants but it was a good number of the people on [this list](/whoweare). Here, I'm going to attempt to summarize the salient points but given my memory, it'll more likely be a dissertation of my own thoughts. Which is just as well as I recall doing more talking than I should have.
 
 ### Should you UI test?
 

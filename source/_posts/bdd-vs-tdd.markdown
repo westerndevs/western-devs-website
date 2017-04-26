@@ -7,7 +7,7 @@ authorId: amir_barylko
 originalurl: http://orthocoders.com/blog/2015/08/12/bdd-vs-tdd/
 ---
 
-Testing is a very important part of software development, but should we do black box testing or test every line of code? 
+Testing is a very important part of software development, but should we do black box testing or test every line of code?
 
 How can we find balance between writing the right thing (BDD) and writing things right (TDD)?
 
@@ -15,20 +15,20 @@ How can we find balance between writing the right thing (BDD) and writing things
 
 ## A perfect world
 
-_Test Driven Development_ (TDD) makes you think. It’s not only about the _test first approach_ but also about following some [rules](http://butunclebob.com/ArticleS.UncleBob.TheThreeRulesOfTdd). 
+_Test Driven Development_ (TDD) makes you think. It’s not only about the _test first approach_ but also about following some [rules](http://butunclebob.com/ArticleS.UncleBob.TheThreeRulesOfTdd).
 
 TDD, however, is not enough to ensure that you are building the features that address the client’s expectations.
 
-_Behaviour Driven Development_ (BDD) makes you think about the whole feature. Owners/champions participation helps you write the acceptance criteria and drive the implementation until the feature is implemented. 
+_Behaviour Driven Development_ (BDD) makes you think about the whole feature. Owners/champions participation helps you write the acceptance criteria and drive the implementation until the feature is implemented.
 
-When you combine _BDD_ and _TDD_ you get the best of both worlds: you are able to match your clients’ expectations with high quality code and write the minimum amount of code possible. 
+When you combine _BDD_ and _TDD_ you get the best of both worlds: you are able to match your clients’ expectations with high quality code and write the minimum amount of code possible.
 
 ![](http://orthocoders.com/images/bdd_cycle.jpg)
 
 
-Clearly both BDD and TDD are useful, however, is not always easy to implement both. 
+Clearly both BDD and TDD are useful, however, is not always easy to implement both.
 
-Ideally, to find balance you need to make sure you are well versed in both BDD and TDD, so you can be objective and, in the words of a great wizard, choose [between what is easy and what is right](http://www.goodreads.com/quotes/701025-dark-times-lie-ahead-of-us-and-there-will-be). 
+Ideally, to find balance you need to make sure you are well versed in both BDD and TDD, so you can be objective and, in the words of a great wizard, choose [between what is easy and what is right](http://www.goodreads.com/quotes/701025-dark-times-lie-ahead-of-us-and-there-will-be).
 That means we need to overcome two major drawbacks (to start): the __learning curve__ and __poor tooling__.
 
 ### Learning curve
@@ -57,7 +57,7 @@ Most frameworks you may choose to work with will have some kind of _hooks_. Befo
 
 Being able to _tag_ tests and identify which ones are using the database, is another great feature to have.
 
-[RSpec](http://rspec.info/) is a great tool to take a peek at what kind of features could be useful for your current need. Probably there are similar libraries with the language you work with that implement the same or similar ideas. 
+[RSpec](http://rspec.info/) is a great tool to take a peek at what kind of features could be useful for your current need. Probably there are similar libraries with the language you work with that implement the same or similar ideas.
 
 And if not, why not collaborate with the community and build some?
 
@@ -79,7 +79,7 @@ Combining database manipulation with hooks and data generation will give you lot
 
 ## The importance of *NOT* being *brittle*
 
-Let’s imagine we have mastered the _tools_ and _the learning curve_. Now we have a new foe that threatens our Ninja skills and may bring our confidence to the floor: __Brittle tests__. 
+Let’s imagine we have mastered the _tools_ and _the learning curve_. Now we have a new foe that threatens our Ninja skills and may bring our confidence to the floor: __Brittle tests__.
 
 Tests have to be maintained and kept running _green_ all the time, otherwise defeats the purpose.
 
@@ -93,10 +93,10 @@ Any state needed to make the test pass has to be set up before the test runs and
 
 ### Implementation coupling
 
-Tests should be about _inputs_ and _outputs_, not about how they are implemented. Testing a method that queries the database by mocking the way the query is implemented is __dangerous__.  Similarly, testing with a very small set of data may lead you to the wrong conclusion. 
+Tests should be about _inputs_ and _outputs_, not about how they are implemented. Testing a method that queries the database by mocking the way the query is implemented is __dangerous__.  Similarly, testing with a very small set of data may lead you to the wrong conclusion.
 
 You will be better off focusing on [_Properties Testing_](http://fsharpforfunandprofit.com/posts/property-based-testing). Libraries like [FsCheck](https://fscheck.github.io/FsCheck/) and [Rantly](https://github.com/abargnesi/rantly) can help you enforce pre-conditions and post-conditions and inspire you to look for other ways to make your testing robust.
- 
+
 
 ### Mocking the mock
 
@@ -104,8 +104,8 @@ Tests should work for you, not the other way around. If you find yourself creati
 
 Whenever you postpone testing complexity and replace it with a mock remember that the same complexity will have to be tested later.
 
-Creating interfaces to improve reusability is a great idea, however, make sure you need it. 
-For example, abstracting the [repository]({% post_url 2015-06-23-repository-nightmares %}) pattern may not be always a good idea.
+Creating interfaces to improve reusability is a great idea, however, make sure you need it.
+For example, abstracting the [repository](/repository-nightmares/) pattern may not be always a good idea.
 
 ### Tools galore
 
@@ -125,14 +125,12 @@ So what's the right balance? For me it is __confidence__.
 
 Well...it is up to you.
 
-I lean on the __acceptance__ side often to ensure everything works as expected. 
+I lean on the __acceptance__ side often to ensure everything works as expected.
 
-If you have a senior team then perhaps you can relax a bit more and choose which unit tests should be implemented to find a balance between BDD and TDD that you feel comfortable with. 
+If you have a senior team then perhaps you can relax a bit more and choose which unit tests should be implemented to find a balance between BDD and TDD that you feel comfortable with.
 
 If you don't see crystal clear that writing one test will imply that the other part is working, then don't skip anything.
 
 Even for acceptance test if you find features that are really similar to others and strongly believe that implementing test scenarios won’t be necessary because your unit/integration test already covers that, go ahead and skip them.
 
-It is a fine line, but the key is __confidence__. 
-
-
+It is a fine line, but the key is __confidence__.

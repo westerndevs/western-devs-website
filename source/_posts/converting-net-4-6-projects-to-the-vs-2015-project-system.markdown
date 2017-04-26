@@ -113,11 +113,10 @@ Happy coding! ![Smile][11]
 [2]: https://github.com/ClearMeasureLabs/ClearMeasureBootcamp/
 [3]: http://jameschambers.com/2015/07/upgrading-a-real-world-mvc-5-application-to-mvc-6/
 [4]: http://jameschambers.com/wp-content/uploads/2015/08/image_thumb.png "image"
-[5]: jeffreypalermo.com/blog/the-onion-architecture-part-1/
+[5]: http://jeffreypalermo.com/blog/the-onion-architecture-part-1/
 [6]: http://jameschambers.com/wp-content/uploads/2015/08/image_thumb1.png "image"
 [7]: http://jameschambers.com/wp-content/uploads/2015/08/image2.png "image"
 [8]: http://jameschambers.com/wp-content/uploads/2015/08/image3.png "image"
 [9]: http://jameschambers.com/wp-content/uploads/2015/08/image4.png "image"
 [10]: https://github.com/ClearMeasureLabs/ClearMeasureBootcamp/tree/refactor/move-to46-with-multitargetting
 [11]: http://jameschambers.com/wp-content/uploads/2015/08/wlEmoticon-smile.png
-  

@@ -28,7 +28,7 @@ links:
     - WebRTC|http://www.webrtc.org/
     - Lame encoder in JavaScript|https://github.com/zhuker/lamejs
     - ORTC|http://ortc.org/
-    - 37Signals|https:/37signals.com
+    - 37Signals|https:/basecamp.com
 
 music:
     - title: Doctor Man

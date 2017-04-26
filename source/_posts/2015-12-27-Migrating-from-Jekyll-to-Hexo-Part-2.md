@@ -12,7 +12,7 @@ excerpt: Specific issues we ran into during the migration from Jekyll to Hexo
 
 In my [previous post](http://www.westerndevs.com/jekyll/hexo/Migrating-from-Jekyll-to-Hexo/), I gave some general impressions from the recent conversion of WesternDevs from Jekyll to Hexo. Here, I'll outline specific issues we tackled during the process of migrating and converting to our own theme.
 
-### Excerpts 
+### Excerpts
 
 Jekyll and Hexo handle excerpts very differently. In Jekyll, you can specify an excerpt in the front matter. If one isn't provided, it will use the first few characters of the post itself as the excerpt.
 
@@ -22,7 +22,7 @@ In Hexo, the excerpt is set in one and only one way. You need to add `<!--more--
 
 Luckily, [Amir](http://www.westerndevs.com/bios/amir_barylko/) had some foresight and added code to our Jekyll site to support `<!--more-->`. Unluckily, we rarely used it. Some of our posts had excerpts, particularly the podcasts. But mostly, we relied on Jekyll to parse the post for the excerpt.
 
-In the end, we did two things to remedy this. First we added the [https://github.com/lalunamel/hexo-front-matter-excerpt](hexo-front-matter-excerpt) package. This fixed all the posts that already had an `excerpt` in the front matter. For the rest, we went through all the remaining posts and added `<!--more-->` after the first paragraph. Ever the optimists, we also submitted a [pull request](https://github.com/lalunamel/hexo-front-matter-excerpt/pull/2) for the package to make it behave more like Jekyll.
+In the end, we did two things to remedy this. First we added the [https://github.com/lalunamel/hexo-front-matter-excerpt](https://github.com/lalunamel/hexo-front-matter-excerpt) package. This fixed all the posts that already had an `excerpt` in the front matter. For the rest, we went through all the remaining posts and added `<!--more-->` after the first paragraph. Ever the optimists, we also submitted a [pull request](https://github.com/lalunamel/hexo-front-matter-excerpt/pull/2) for the package to make it behave more like Jekyll.
 
 ### Syntax highlighting
 
