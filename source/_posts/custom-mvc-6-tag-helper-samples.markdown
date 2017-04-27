@@ -10,12 +10,12 @@ originalurl: http://www.davepaquette.com/archive/2015/09/20/custom-mvc-6-tag-hel
 A group of us who have been exploring MVC 6 Tag Helpers have created a repository of [Tag Helper Samples](https://github.com/dpaquette/TagHelperSamples). The repository contains a set of real world samples that can help you understand how to build your own custom tag helpers.
 
 <!--more-->
-  
+
 So far, we have been focusing on Tag Helpers that make it easier to use various Bootstrap components. We chose Bootstrap because Bootstrap components are often verbose and it can be easy to miss a particular class or a specific attribute. I find that this is especially when you consider all the accessibility _aria-*_ attributes. So far, we have implemented tag helpers for Bootstrap [Alerts](http://getbootstrap.com/components/#alerts), [Progress Bars](http://getbootstrap.com/components/#progress) and most recently [Modals](http://getbootstrap.com/javascript/#modals).
 
 ## Alert
 
-The [alert tag helper](https://github.com/dpaquette/TagHelperSamples/blob/master/TagHelperSamples/src/TagHelperSamples/TagHelpers/AlertTagHelper.cs), contributed by Rick Strahl, makes it easy to display Bootstrap alerts containing Font-Awesome icons.
+The [alert tag helper](https://github.com/dpaquette/TagHelperSamples/blob/master/TagHelperSamples/src/TagHelperSamples.Bootstrap/AlertTagHelper.cs), contributed by Rick Strahl, makes it easy to display Bootstrap alerts containing Font-Awesome icons.
 
 ```
 <alert message="Payment has been processed." icon="success">
@@ -41,7 +41,7 @@ Displaying a progress bar in Bootstrap is a rather verbose set of elements and a
   </div>
 </div>
 ```
-The [progress bar tag helper](https://github.com/dpaquette/TagHelperSamples/blob/master/TagHelperSamples/src/TagHelperSamples/TagHelpers/ProgressBarTagHelper.cs) provides a much cleaner syntax:
+The [progress bar tag helper](https://github.com/dpaquette/TagHelperSamples/blob/master/TagHelperSamples/src/TagHelperSamples.Bootstrap/ProgressBarTagHelper.cs) provides a much cleaner syntax:
 
 ```
 <div bs-progress-value="66">
@@ -72,7 +72,7 @@ Bootstrap modals are also rather convoluted items. The simplest possible modal c
 </div><!-- /.modal -->
 ```
 
-The same modal using the [modal tag helper](https://github.com/dpaquette/TagHelperSamples/blob/master/TagHelperSamples/src/TagHelperSamples/TagHelpers/ModalTagHelper.cs) is much easier to read and will produce the same output:
+The same modal using the [modal tag helper](https://github.com/dpaquette/TagHelperSamples/blob/master/TagHelperSamples/src/TagHelperSamples.Bootstrap/ModalTagHelper.cs) is much easier to read and will produce the same output:
 
 ```
 <modal id="simpleModal" title="Modal Title" >
@@ -87,6 +87,6 @@ The same modal using the [modal tag helper](https://github.com/dpaquette/TagHelp
 
 ## Wrapping it up
 
-Feel free to browse the [sample code](https://github.com/dpaquette/TagHelperSamples/tree/master/TagHelperSamples/src/TagHelperSamples/TagHelpers) or [view them in action on Azure](http://taghelpersamples.azurewebsites.net/). If you have ideas for other Tag Helpers, feel free to [log an issue](https://github.com/dpaquette/TagHelperSamples/issues) in the repo. Better yet, you could also submit a pull request.
+Feel free to browse the [sample code](https://github.com/dpaquette/TagHelperSamples/tree/master/TagHelperSamples/src) or [view them in action on Azure](http://taghelpersamples.azurewebsites.net/). If you have ideas for other Tag Helpers, feel free to [log an issue](https://github.com/dpaquette/TagHelperSamples/issues) in the repo. Better yet, you could also submit a pull request.
 
 A big thank you to [Rick Anderson](https://twitter.com/RickAndMSFT) for suggesting this and getting us started and to [Rick Strahl](http://weblog.west-wind.com/) for contributing.

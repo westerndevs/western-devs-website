@@ -10,7 +10,7 @@ originalurl: http://solola.ca/mobile-app-testing-xamarin-test-cloud/
 My day started off just like any other at the office. I plugged in my machine, launched Visual Studio and opened up the latest Xamarin.Android project I had been working on for the client. On this particular day, I had to make a layout change to ensure that the weighting of two different layouts were updated based on a set of conditions. Sounds easy enough, right?
 
 <!--more-->
-  
+
 Well making the change was trivial. Next came the part that I dreaded, which I knew would take up the rest of my day. I walked over to the device cabinet, and grabbed a handful of devices varying in screen size, resolution and OS versions.
 
 Seated at my desk, I attempted to power on the first device. Battery drain. I plugged it in, then attempted to power on the next device. Same thing. By the time I was able to get enough charge on a device to power it on, deploy to that device, and run through the necessary tests, 10 – 15 minutes had passed.&nbsp; Note that I have to repeat this process on 4 more devices. If the tests all pass the first time, that's about an hour of testing spent on a small fraction of devices for a single UI change. During my round of testing on the 4th device, I already noticed problems with the layout. This is going to be a really long day.
@@ -67,5 +67,4 @@ Spend a little, save a lot, and keep your mobile product team happy in the proce
 [5]: http://solola.ca/wp-content/uploads/2015/11/XamarinTestCloudDeviceSelection.png
 [6]: http://solola.ca/wp-content/uploads/2015/11/XamarinTestCloudReviewTests.png
 [7]: https://xamarin.com/test-cloud#pricing
-[8]: https://blog.xamarin.com/xamarin-test-cloud-now-available-to-all-xamarin-developers/
-  
+[8]: https://www.xamarin.com/test-cloud  

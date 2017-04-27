@@ -34,7 +34,7 @@ music:
 * [Ergodox DIY ergonomic mechanical keyboard](https://www.indiegogo.com/projects/ergodox-ez-an-incredible-mechanical-keyboard#/)
 * [Emperor 1510 Workstation](http://www.mwelab.com/index.php/en/products/emperor-1510)
 * [Microsoft Band 2](http://www.microsoftstore.com/store/msusa/en_US/pdp/Microsoft-Band-2/productID.324438600)
-* [Garmin vívoactive](http://sites.garmin.com/en-GB/vivo/vivoactive/)
+* [Garmin vívoactive](https://buy.garmin.com/en-CA/CA/p/150767)
 
 ### Home Automation/Household:
 
