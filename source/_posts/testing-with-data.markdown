@@ -21,7 +21,7 @@ The solution needs to balance a few factors:
 
 The two options we discussed both assume the first factor to be immutable. That means you either clean up after yourself when the test is finished or you wipe out the database and start from scratch with each test. Cleaning up after yourself might be faster but has more moving parts. Cleaning up might mean different things depending on which step you're in if the test fails.  
 
-So given that we will likely re-create the database from scratch before each and every test, there are two options. My _current_ favourite solution is a hybrid of the two. 
+So given that we will likely re-create the database from scratch before each and every test, there are two options. My _current_ favourite solution is a hybrid of the two.
 
 ### Maintain a database of known data
 
@@ -47,7 +47,7 @@ And I have a customer
 
 You can probably see the major drawback already. This can become _very_ verbose. But on the other hand, you have the advantage of seeing exactly what data is included which is helpful when debugging. If your test data is wrong, you don't need to go mucking about in your source code to fix it. Just update the test and you're done.
 
-Also note the lack of specifics in the steps. Whenever possible, I like to be very vague when setting up my test data. If you have a [good framework for generating test data](http://genfu.io/), this isn't hard to do. And it helps uncover issues you may not account for using hard-coded data (as anyone named D'Arcy O'Toole can probably tell you).
+Also note the lack of specifics in the steps. Whenever possible, I like to be very vague when setting up my test data. If you have a [good framework for generating test data](https://github.com/MisterJames/GenFu), this isn't hard to do. And it helps uncover issues you may not account for using hard-coded data (as anyone named D'Arcy O'Toole can probably tell you).
 
 ---
 Loading up your data with a granular API isn't realistic which is why I like the hybrid solution. By default, you pre-load your database with _some_ common data, like lookup tables with lists of countries, currencies, product categories, etc. Stuff that needs to be in place for the majority of your tests.

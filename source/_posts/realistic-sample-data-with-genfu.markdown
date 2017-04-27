@@ -11,7 +11,7 @@ originalurl: http://www.davepaquette.com/archive/2015/11/15/realistic-sample-dat
 Last week, I had the opportunity to spend some time hacking with my good friend [James Chambers][1]. One of the projects we worked on is his brainchild: [GenFu][2]
 
 <!--more-->
-  
+
 > GenFu is a test and prototype data generation library for .NET apps. It understands different topics – such as "contact details" or "blog posts" and uses that understanding to populate commonly named properties using reflection and an internal database of values or randomly created data.
 
 As a quick sample, I attempted to replace the Sample Data Generator in the ASP.NET5 Music Store app with GenFu. With the right GenFu configuration, it worked like magic and I was able to remove over 700 lines of code!
@@ -176,7 +176,7 @@ var incidentReports = A.ListOf<IncidentReport>(1000);
 That covers the basics and you are now on your way to becoming a GenFu master. In a future post we will cover how to extend GenFu by writing your own re-usable property fillers. In the mean time, give GenFu a try and let us know what you think.
 
 [1]: http://jameschambers.com/
-[2]: http://genfu.io/
+[2]: https://github.com/MisterJames/GenFu
 [3]: http://nuget.org/packages/GenFu
 [4]: http://www.davepaquette.com/wp-content/uploads/2015/11/image_thumb.png "image"
 [5]: http://www.davepaquette.com/wp-content/uploads/2015/11/image_thumb1.png "image"
