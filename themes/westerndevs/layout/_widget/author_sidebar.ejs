@@ -4,20 +4,24 @@
 			<% if (!author) {
 				author = { "name": "", "avatar": theme.avatar, "email": theme.email, "github": theme.github, "twitter": theme.twitter };
 			} %>
-			<% 
+			<%
 			var avatar;
 			if (!author.avatar) {
 				avatar = gravatar(author.email, 200);
 			} else {
 				avatar = '/images/avatars/' + author.avatar;
 			}%>
-			
+
 			<div class="ProfileImg">
+				<% if (author.id) { %>
 				<a href="/bios/<%= author.id %>">
+				<% } %>
 					<img src='<%= avatar%>' />
+				<% if (author.id) { %>
 				</a>
+				<% } %>
 			</div>
-			
+
 			<BR clear="all">
 
 			<h2><a href="/bios/<%= author.id %>"><%= author.name %></a></h2>
@@ -36,10 +40,10 @@
 			<% if (author.linkedin) { %>
 			<a href="https://www.linkedin.com/in/<%=author.linkedin%>" target="_blank"><img class="ProfileIcon" src="/images/icon_linkedin.png" border="0" alt="LinkedIN" title="LinkedIN"> LinkedIn</a>
 			<% } %>
-			
+
 			<hr />
 			<h4>Looking for someone else?</h4>
 			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
 		</div>
 	</div>
-<!--SIDEBAR CONTENT ENDS-->	
+<!--SIDEBAR CONTENT ENDS-->
