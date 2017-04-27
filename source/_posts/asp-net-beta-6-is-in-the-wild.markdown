@@ -48,10 +48,10 @@ Happy coding! ![Smile][13]
 [1]: https://jcblogimages.blob.core.windows.net/img/2015/07/image22.png "image"
 [2]: https://jcblogimages.blob.core.windows.net/img/2015/07/image_thumb6.png "image"
 [4]: https://twitter.com/DamianEdwards
-[5]: https://github.com/issues?utf8=%E2%9C%93&amp;q=user%3Aaspnet+is%3Aissue+label%3Aenhancement+milestone%3A1.0.0-beta6
-[6]: https://github.com/issues?utf8=%E2%9C%93&amp;q=user%3Aaspnet+is%3Aissue+label%3Aenhancement+milestone%3A6.0.0-beta6
-[7]: https://github.com/issues?utf8=%E2%9C%93&amp;q=user%3Aaspnet+is%3Aissue+label%3Aenhancement+milestone%3A4.0.0-beta6
-[8]: https://github.com/issues?utf8=%E2%9C%93&amp;q=user%3Aaspnet+is%3Aissue+label%3Aenhancement+milestone%3A3.0.0-beta6
+[5]: https://github.com/issues?utf8=%E2%9C%93&q=user%3Aaspnet+is%3Aissue+label%3Aenhancement+milestone%3A1.0.0-beta6
+[6]: https://github.com/issues?utf8=%E2%9C%93&q=user%3Aaspnet+is%3Aissue+label%3Aenhancement+milestone%3A6.0.0-beta6
+[7]: https://github.com/issues?utf8=%E2%9C%93&q=user%3Aaspnet+is%3Aissue+label%3Aenhancement+milestone%3A4.0.0-beta6
+[8]: https://github.com/issues?utf8=%E2%9C%93&q=user%3Aaspnet+is%3Aissue+label%3Aenhancement+milestone%3A3.0.0-beta6
 [9]: https://github.com/aspnet/Announcements/issues/43
 [10]: https://live.asp.net/
 [11]: https://github.com/aspnet/
