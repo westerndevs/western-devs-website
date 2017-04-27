@@ -8,7 +8,7 @@ authorId: dave_paquette
 originalurl: http://www.davepaquette.com/archive/2015/07/01/mvc-6-image-tag-helper.aspx
 ---
 
-[ASP.NET 5 Beta 5](http://blogs.msdn.com/b/webdev/archive/2015/06/30/asp-net-5-beta5-now-available.aspx) shipped yesterday and it includes a new tag helper: the [Image tag helper](https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNet.Mvc.TagHelpers/ImageTagHelper.cs). While this is a very simple tag helper, it has special meaning for me. Implementing this tag helper was [my first pull request](https://github.com/aspnet/Mvc/pull/2516) submitted to the aspnet/mvc repo.
+[ASP.NET 5 Beta 5](http://blogs.msdn.com/b/webdev/archive/2015/06/30/asp-net-5-beta5-now-available.aspx) shipped yesterday and it includes a new tag helper: the [Image tag helper](https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNetCore.Mvc.TagHelpers/ImageTagHelper.cs. While this is a very simple tag helper, it has special meaning for me. Implementing this tag helper was [my first pull request](https://github.com/aspnet/Mvc/pull/2516) submitted to the aspnet/mvc repo.
 
 <!--more-->
 
@@ -17,15 +17,15 @@ So, what does this tag helper do? If you add the asp-file-version=”true” att
 Using it is simple. Just add asp-file-version=”true” to a standard img tag:
 
 {% codeblock lang:html %}
-<img src="~/images/logo.png" 
-     alt="company logo" 
+<img src="~/images/logo.png"
+     alt="company logo"
      asp-file-version="true" />
 {% endcodeblock %}
 
 which will generate something like this:
 
 {% codeblock lang:html %}
-<img src="/images/logo.png?v=W2F5D366_nQ2fQqUk3URdgWy2ZekXjHzHJaY5yaiOOk" 
+<img src="/images/logo.png?v=W2F5D366_nQ2fQqUk3URdgWy2ZekXjHzHJaY5yaiOOk"
      alt="company logo"/>
 {% endcodeblock %}
 

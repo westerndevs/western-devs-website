@@ -30,7 +30,7 @@ Dave's post directed me towards a couple other places. Namely, the Docker issues
 
 This was pretty important because it was where the conversation about getting Docker (more accurately, VirtualBox) running on Windows 10. There is an issue in VirtualBox (current stable build) that does not allow it to work on Windows 10. This issue has been resolved in a Test build. The link to the test build is here.
 
-[https://www.virtualbox.org/wiki/testbuilds](https://www.virtualbox.org/wiki/testbuilds)
+<span style="text-decoration: line-through;">https://www.virtualbox.org/wiki/testbuilds</span> (no longer active)
 
 I didn't actually need to go to the VirtualBox website to get the build because the latest test version of the Docker for Windows installer has the test version of VirtualBox already inside of it. You can find the link to the current test installer here.
 

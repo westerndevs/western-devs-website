@@ -17,7 +17,7 @@ In this post in my series exploring the ASP.NET 5 MVC 6 tag helpers, I will dig 
 Simply wrap the contents you want cached with a __ tag and the contents of the tag will be cached in memory. Before processing the contents of the cache tag, the tag helper will check to see if the contents have been stored in the MemoryCache. If the contents are found in the cache, then the cached contents are sent to Razor. If the contents are not found, then Razor will process the contents and the tag helper will store it in the memory cache for next time. By default, the cache tag helper is able to generate a unique ID based on the context of the cache tag helper.
 
 Here is a simply example that would cache the output of a view component for 10 minutes.
-    
+
     <cache expires-after="@TimeSpan.FromMinutes(10)">    
         @Html.Partial("_WhatsNew")
         *last updated  @DateTime.Now.ToLongTimeString()
@@ -34,7 +34,7 @@ If no specific expiry is specified, the contents will be cached as long as the m
 #### expires-after
 
 Use the _expires-after_ attribute to expire the cache entry after a specific amount of time has passed since it was added to the cache. This attribute expects a TimeSpan value. For example, you expire an item 5 seconds after it was cached:
-    
+
     <cache expires-after="@TimeSpan.FromSeconds(5)">
         <!--View Component or something that gets data from the database-->
         *last updated  @DateTime.Now.ToLongTimeString()
@@ -43,7 +43,7 @@ Use the _expires-after_ attribute to expire the cache entry after a specific amo
 #### expires-on
 
 Use the _expires-on _attribute to expire the cache entry at a specific time. This attribute expects a DateTime value. For example, imagine your system has some backend processing that you know will be updated by the end of each day. You could specify the cache to expire at the end of the day as follows:
-    
+
     <cache expires-on="@DateTime.Today.AddDays(1).AddTicks(-1)">
         <!--View Component or something that gets data from the database-->
         *last updated  @DateTime.Now.ToLongTimeString()
@@ -52,7 +52,7 @@ Use the _expires-on _attribute to expire the cache entry at a specific time. Thi
 #### expires-sliding
 
 Use the _expires-sliding_ attribute to expire the cache entry after it has not been accessed for a specified amount of time. This attribute expects a TimeSpan value.
-    
+
     <cache expires-sliding="@TimeSpan.FromMinutes(5)">
         <!--View Component or something that gets data from the database-->
         *last updated  @DateTime.Now.ToLongTimeString()
@@ -61,10 +61,10 @@ Use the _expires-sliding_ attribute to expire the cache entry after it has not b
 ## Vary-by / Complex Cache Keys
 
 The cache tag helper builds cache keys by generating an id that is unique to the context of the cache tag. This ensures that you can have multiple cache tags on a single page and the contents will not override each other in the cache. You can also tell the tag helper to build more complex cache keys using a combination of the _vary-by_ attributes. Building these complex keys allows the cache tag helper to cache different contents for different requests based on nearly any criteria you can conceive. A very simple example is caching different contents for each user by adding the _vary-by-user_ attribute:
-    
-    <cache vary-by-user="true"> 
-        <!--View Component or something that gets data from the database--> 
-        *last updated @DateTime.Now.ToLongTimeString() 
+
+    <cache vary-by-user="true">
+        <!--View Component or something that gets data from the database-->
+        *last updated @DateTime.Now.ToLongTimeString()
     </cache>
 
 You can specify any combination of _vary-by_ attributes. The cache tag helper will build a key that is a composite of the generated unique id for that tag plus all the values from the _vary-by_ attributes.
@@ -140,8 +140,8 @@ As mentioned earlier, you can specify any number of vary-by parameters and the c
 The contents of a cache tag are stored in an IMemoryCache which is limited by the amount of available memory. If the host process starts to run out of memory, the memory cache might purge items from the cache to release memory. In cases like this, you can tell the memory cache which items are considered a lower priority using the _priority _attribute. For example, the following cache tag is specified as low priority:
 
     @using Microsoft.Framework.Caching.Memory
-    
-    <cache vary-by-user="true" 
+
+    <cache vary-by-user="true"
            priority="@CachePreservationPriority.Low">
         <!--View Component or something that gets data from the database-->
         *last updated  @DateTime.Now.ToLongTimeString()
@@ -157,6 +157,6 @@ The Cache cache tag helper is one of the more unique tag helpers in MVC 6. It pr
 
 _May 4, 2015: Updated with Limitations sections as suggested by Rick Anderson in the comments_
 
-[1]: https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNet.Mvc.TagHelpers/CacheTagHelper.cs
-[2]: https://github.com/aspnet/Caching/blob/dev/src/Microsoft.Framework.Caching.Memory/MemoryCache.cs
+[1]: https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNetCore.Mvc.TagHelpers/CacheTagHelper.cs
+[2]: https://github.com/aspnet/Caching/blob/dev/src/Microsoft.Extensions.Caching.Memory/MemoryCache.cs
 [3]: https://technet.microsoft.com/en-us/library/dd443543(v=ws.10).aspx

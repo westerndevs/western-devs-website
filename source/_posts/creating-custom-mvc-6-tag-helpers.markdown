@@ -34,8 +34,8 @@ At this point, I'm not 100% sure when one is more appropriate than the other. Lo
 So, what I want my markup to look like is this:
 
 {% codeblock lang:html %}
-<div bs-progress-value="@Model.CurrentProgress" 
-     bs-progress-max="100" 
+<div bs-progress-value="@Model.CurrentProgress"
+     bs-progress-max="100"
      bs-progress-min="0">
 </div>
 {% endcodeblock %}
@@ -46,7 +46,7 @@ Now all we need to do is create a tag helper turn this simplified markup into th
 
 Tag helpers are pretty simple constructs. They are classes that inherit from the base TagHelper class. In this class, you need to do a few things.
 
-First, you need to specify a TargetElement attribute: this is what tells Razor which HTML tags / attributes to associate with this tag helper. In our case, we want to target any 
+First, you need to specify a TargetElement attribute: this is what tells Razor which HTML tags / attributes to associate with this tag helper. In our case, we want to target any
  element that has the bs-progress-value element.
 
 {% codeblock lang:csharp %}
@@ -67,16 +67,16 @@ public class ProgressBarTagHelper : TagHelper
     private const string ProgressValueAttributeName = "bs-progress-value";
     private const string ProgressMinAttributeName = "bs-progress-min";
     private const string ProgressMaxAttributeName = "bs-progress-max";
-   
+
     [HtmlAttributeName(ProgressValueAttributeName)]
     public int ProgressValue { get; set; }
- 
+
     [HtmlAttributeName(ProgressMinAttributeName)]
     public int ProgressMin { get; set; } = 0;
- 
+
     [HtmlAttributeName(ProgressMaxAttributeName)]
     public int ProgressMax { get; set; } = 100;
- 
+
     //...
 }
 {% endcodeblock %}
@@ -92,33 +92,33 @@ public class ProgressBarTagHelper : TagHelper
     private const string ProgressValueAttributeName = "bs-progress-value";
     private const string ProgressMinAttributeName = "bs-progress-min";
     private const string ProgressMaxAttributeName = "bs-progress-max";
-    
+
     /// <summary>
     /// An expression to be evaluated against the current model.
     /// </summary>
     [HtmlAttributeName(ProgressValueAttributeName)]
     public int ProgressValue { get; set; }
- 
+
     [HtmlAttributeName(ProgressMinAttributeName)]
     public int ProgressMin { get; set; } = 0;
- 
+
     [HtmlAttributeName(ProgressMaxAttributeName)]
     public int ProgressMax { get; set; } = 100;
- 
+
     public override void Process(TagHelperContext context, TagHelperOutput output)
     {
         var progressTotal = ProgressMax - ProgressMin;
- 
+
         var progressPercentage = Math.Round(((decimal) (ProgressValue - ProgressMin) / (decimal) progressTotal) * 100, 4);
- 
+
         string progressBarContent =
             string.Format(
-@"<div class='progress-bar' role='progressbar' aria-valuenow='{0}' aria-valuemin='{1}' aria-valuemax='{2}' style='width: {3}%;'> 
+@"<div class='progress-bar' role='progressbar' aria-valuenow='{0}' aria-valuemin='{1}' aria-valuemax='{2}' style='width: {3}%;'>
 <span class='sr-only'>{3}% Complete</span>
 </div>", ProgressValue, ProgressMin, ProgressMax, progressPercentage);
- 
+
         output.Content.Append(progressBarContent);
- 
+
         string classValue;
         if (output.Attributes.ContainsKey("class"))
         {
@@ -128,7 +128,7 @@ public class ProgressBarTagHelper : TagHelper
         {
             classValue = "progress";
         }
-        
+
         output.Attributes["class"] = classValue;
     }
 }
@@ -147,42 +147,42 @@ public class ProgressBarTagHelper : TagHelper
     private const string ProgressValueAttributeName = "bs-progress-value";
     private const string ProgressMinAttributeName = "bs-progress-min";
     private const string ProgressMaxAttributeName = "bs-progress-max";
-    
+
     /// <summary>
     /// An expression to be evaluated against the current model.
     /// </summary>
     [HtmlAttributeName(ProgressValueAttributeName)]
     public int ProgressValue { get; set; }
- 
+
     [HtmlAttributeName(ProgressMinAttributeName)]
     public int ProgressMin { get; set; } = 0;
- 
+
     [HtmlAttributeName(ProgressMaxAttributeName)]
     public int ProgressMax { get; set; } = 100;
- 
+
     public override void Process(TagHelperContext context, TagHelperOutput output)
     {
         if (ProgressMin >= ProgressMax)
         {
             throw new ArgumentException(string.Format("{0} must be less than {1}", ProgressMinAttributeName, ProgressMaxAttributeName));
         }
- 
+
         if (ProgressValue > ProgressMax || ProgressValue < ProgressMin)
         {
             throw new ArgumentOutOfRangeException(string.Format("{0} must be within the range of {1} and {2}", ProgressValueAttributeName, ProgressMinAttributeName, ProgressMaxAttributeName));
         }
         var progressTotal = ProgressMax - ProgressMin;
- 
+
         var progressPercentage = Math.Round(((decimal) (ProgressValue - ProgressMin) / (decimal) progressTotal) * 100, 4);
- 
+
         string progressBarContent =
             string.Format(
-@"<div class='progress-bar' role='progressbar' aria-valuenow='{0}' aria-valuemin='{1}' aria-valuemax='{2}' style='width: {3}%;'> 
+@"<div class='progress-bar' role='progressbar' aria-valuenow='{0}' aria-valuemin='{1}' aria-valuemax='{2}' style='width: {3}%;'>
 <span class='sr-only'>{3}% Complete</span>
 </div>", ProgressValue, ProgressMin, ProgressMax, progressPercentage);
- 
+
         output.Content.Append(progressBarContent);
- 
+
         string classValue;
         if (output.Attributes.ContainsKey("class"))
         {
@@ -192,9 +192,9 @@ public class ProgressBarTagHelper : TagHelper
         {
             classValue = "progress";
         }
-        
+
         output.Attributes["class"] = classValue;
-        
+
         base.Process(context, output);
     }
 }
@@ -242,6 +242,5 @@ By creating this simple tag helper, we are able to greatly simplify the Razor co
 [4]: http://www.davepaquette.com/archive/2015/06/03/mvc-6-cache-tag-helper.aspx
 [5]: http://www.davepaquette.com/archive/2015/05/13/mvc6-input-tag-helper-deep-dive.aspx
 [6]: http://www.davepaquette.com/archive/2015/05/14/mvc6-validation-tag-helpers-deep-dive.aspx
-[7]: https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNet.Mvc.Extensions/Rendering/Html/TagBuilder.cs
-[8]: https://github.com/aspnet/Mvc/tree/dev/test/Microsoft.AspNet.Mvc.TagHelpers.Test
-  
+[7]: https://github.com/aspnet/Mvc/blob/master/src/Microsoft.AspNetCore.Mvc.ViewFeatures/Rendering/TagBuilder.cs
+[8]: https://github.com/aspnet/Mvc/tree/dev/test/Microsoft.AspNetCore.Mvc.Test

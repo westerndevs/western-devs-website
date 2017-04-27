@@ -160,13 +160,11 @@ All of this opens the doors for some pretty powerful scenarios. Think about what
 
 What you should do next is to look at the kinds of things you do when you're working on your solution – not in it – and think about how you might be able to simplify those tasks. If there are complex parts of your build scripts that you encounter from one project to the next, perhaps you can abstract some of those bits away into a command and then shift to using simplified build scripts that invoke your commands via DNX.
 
-To get some inspiration, check out my [sample project on GitHub][3], the DNX commands for other libraries (such as [EF][4] or [xUnit][5]) and try writing a few of your own.
+To get some inspiration, check out my [sample project on GitHub][3], the DNX commands for other libraries (such as
+<span style="text-decoration: line-through;">EF</span> or <span style="text-decoration: line-through;">xUnit</span>) and try writing a few of your own.
 
 Happy coding! ![Smile][6]
 
 [2]: https://github.com/aspnet/Announcements/issues/52
 [3]: https://github.com/MisterJames/DnxCommands/
-[4]: https://github.com/aspnet/EntityFramework/tree/dev/src/EntityFramework.Commands
-[5]: https://github.com/xunit/dnx.xunit/
-[6]: http://jameschambers.com/wp-content/uploads/2015/08/wlEmoticon-smile1.png
-  
+[6]: https://jcblogimages.blob.core.windows.net/img/2015/08/wlEmoticon-smile1.png  

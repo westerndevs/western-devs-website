@@ -7,19 +7,21 @@ comments: true
 authorId: kyle_baley
 ---
 
-After posting giddily on [Docker in the Windows world](http://www.westerndevs.com/docker-is-coming-whether-you-like-it-or-not/) recently, Microsoft released Windows Server 2016 Technical Preview 3 with container support. I've had a chance to play with it a little so let's see where this goes...
+**UPDATE: April 27, 2017** Much of the information in this post is out-of-date and the links have been removed since they no longer exist.  For the latest on the state of containers on Windows, check out the [documentation](https://docs.microsoft.com/en-us/virtualization/windowscontainers/about/).
 
 <!--more-->
+
+After posting giddily on [Docker in the Windows world](http://www.westerndevs.com/docker-is-coming-whether-you-like-it-or-not/) recently, Microsoft released Windows Server 2016 Technical Preview 3 with container support. I've had a chance to play with it a little so let's see where this goes...
 
 ### It's a preview
 
 Like movie previews, this is equal parts exciting and frustrating. Exciting because you get a teaser of things to come. Frustrating because you just want it to work *now*. And extra frustration points for various technical issues I've run into that, I hope, are due to the "technical preview" label.
 
-For example, [installing container support](https://msdn.microsoft.com/en-us/virtualization/windowscontainers/quick_start/inplace_setup) into an existing VM is mind-numbingly slow. Kudos to the team for making it easy to install but at the point where you run ContainerSetup.ps1, be prepared to wait for, by my watch, at least 45 minutes without any visual indication that something is happening. The only reason I knew something *was* happening is because I saw the size of the VM go up (slowly) on my host hard drive. This is on a 70Mbps internet connection so I don't think this can be attributed to "island problems" either.
+For example, installing container support into an existing VM is mind-numbingly slow. Kudos to the team for making it easy to install but at the point where you run ContainerSetup.ps1, be prepared to wait for, by my watch, at least 45 minutes without any visual indication that something is happening. The only reason I knew something *was* happening is because I saw the size of the VM go up (slowly) on my host hard drive. This is on a 70Mbps internet connection so I don't think this can be attributed to "island problems" either.
 
-I've heard tell of issues setting up container support in a [Hyper-V VM](https://msdn.microsoft.com/en-us/virtualization/windowscontainers/quick_start/container_setup) as well. That's second-hand info as I'm using Fusion on a Mac rather than Hyper-V. If you run into problems setting it up on Hyper-V, consider switching to the instructions for [setting up containers on non-Hyper-V VMs](https://msdn.microsoft.com/en-us/virtualization/windowscontainers/quick_start/inplace_setup) instead.
+I've heard tell of issues setting up container support in a Hyper-V VM as well. That's second-hand info as I'm using Fusion on a Mac rather than Hyper-V. If you run into problems setting it up on Hyper-V, consider switching to the <span style="text-decoration: line-through;">instructions for setting up containers on non-Hyper-V VMs instead</span> (no longer available).
 
-There's also the Azure option. Microsoft was gracious enough to provide an Azure image for Windows Server 2016 pre-configured with container support. This works well if you're on Azure and I was able to run the [nginx tutorial](https://msdn.microsoft.com/virtualization/windowscontainers/quick_start/manage_docker) on it with no issues. I had less success with the [IIS 10 tutorial](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-server-container-samples/iis-10.0) even locally. I could get it running but was not able to create a new image based on the container I had.
+There's also the Azure option. Microsoft was gracious enough to provide an Azure image for Windows Server 2016 pre-configured with container support. This works well if you're on Azure and I was able to run the nginx tutorial on it with no issues. I had less success with the IIS 10 tutorial even locally. I could get it running but was not able to create a new image based on the container I had.
 
 ### It's also a start
 

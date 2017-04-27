@@ -25,7 +25,7 @@ Which will get you up to the beta 7 version (build 10400) of DNVM.
 
 ![image][2]
 
-You'll also need the updated VS 2015 tooling, which is available here (along with the DNVM update tools if you want them seperately): [Microsoft Visual Studio 2015 Beta 6 Tooling Download][3].
+You'll also need the updated VS 2015 tooling, which is available here (along with the DNVM update tools if you want them seperately): <span style="text-decoration: line-through;">Microsoft Visual Studio 2015 Beta 6 Tooling Download</span> (no longer active).
 
 ## Why This is Important
 
@@ -45,9 +45,8 @@ Be sure to check out the [community standup today][10] and head over to [GitHub]
 
 Happy coding! ![Smile][13]
 
-[1]: http://jameschambers.com/wp-content/uploads/2015/07/image22.png "image"
-[2]: http://jameschambers.com/wp-content/uploads/2015/07/image_thumb6.png "image"
-[3]: http://www.microsoft.com/en-us/download/details.aspx?id=48222
+[1]: https://jcblogimages.blob.core.windows.net/img/2015/07/image22.png "image"
+[2]: https://jcblogimages.blob.core.windows.net/img/2015/07/image_thumb6.png "image"
 [4]: https://twitter.com/DamianEdwards
 [5]: https://github.com/issues?utf8=%E2%9C%93&amp;q=user%3Aaspnet+is%3Aissue+label%3Aenhancement+milestone%3A1.0.0-beta6
 [6]: https://github.com/issues?utf8=%E2%9C%93&amp;q=user%3Aaspnet+is%3Aissue+label%3Aenhancement+milestone%3A6.0.0-beta6
@@ -57,5 +56,4 @@ Happy coding! ![Smile][13]
 [10]: https://live.asp.net/
 [11]: https://github.com/aspnet/
 [12]: https://github.com/aspnet/Announcements/issues
-[13]: http://jameschambers.com/wp-content/uploads/2015/07/wlEmoticon-smile4.png
-  
+[13]: https://jcblogimages.blob.core.windows.net/img/2015/07/wlEmoticon-smile4.png

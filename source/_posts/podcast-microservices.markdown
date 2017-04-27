@@ -32,7 +32,7 @@ links:
     - Docker images for asp.net v5|https://registry.hub.docker.com/u/microsoft/aspnet/
     - Splunk|http://www.splunk.com/
     - Spotify culture|https://labs.spotify.com/2014/03/27/spotify-engineering-culture-part-1/
-    - Human benefits of a microservice architecture|http://damianm.com/articles/human-benefits-of-a-microservice-architecture/
+    - Human benefits of a microservice architecture|http://damianm.com/articles/human-benefits-of-a-microservice-architecture
 music:
     song:
         title: Doctor Man

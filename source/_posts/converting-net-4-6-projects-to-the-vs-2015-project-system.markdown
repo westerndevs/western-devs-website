@@ -105,7 +105,7 @@ For the time being, we are concerned about supporting .NET 4.6 and DNX running o
 
 The main tenets of our application are now alive and kicking in our Visual Studio 2015 solution with the new project system in place. In the next post in this series we'll have a look at getting the tests online and updating the build script to execute our tests.
 
-If you'd like to follow along with the progression as we get this fully converted you can check out [the branch on GitHub][10].
+If you'd like to follow along with the progression as we get this fully converted you can check out <span style="text-decoration: line-through;">the branch on GitHub</span>.
 
 Happy coding! ![Smile][11]
 
@@ -118,5 +118,4 @@ Happy coding! ![Smile][11]
 [7]: http://jameschambers.com/wp-content/uploads/2015/08/image2.png "image"
 [8]: http://jameschambers.com/wp-content/uploads/2015/08/image3.png "image"
 [9]: http://jameschambers.com/wp-content/uploads/2015/08/image4.png "image"
-[10]: https://github.com/ClearMeasureLabs/ClearMeasureBootcamp/tree/refactor/move-to46-with-multitargetting
-[11]: http://jameschambers.com/wp-content/uploads/2015/08/wlEmoticon-smile.png
+[11]: https://jcblogimages.blob.core.windows.net/img/2015/08/wlEmoticon-smile.png

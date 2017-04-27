@@ -47,7 +47,7 @@ music:
 
 ### Fun Stuff:
 
-* [Bebop Drone](http://www.parrot.com/ca/products/bebop-drone/)
+* [Bebop Drone](https://www.parrot.com/ca/drones/parrot-bebop-2)
 * [Phantom3 Drone](http://www.dji.com/product/phantom-3-standard)
 * [FPS1000 - Low Cost High Frame Rate Camera](https://www.kickstarter.com/projects/1623255426/fps1000-the-low-cost-high-frame-rate-camera/posts/1411624)
 * [Exploding Kittens](http://www.explodingkittens.com/)
