@@ -6,18 +6,18 @@
 	</div>
 </center>
 </div>
-<!--SUBHEAD ENDS-->	
+<!--SUBHEAD ENDS-->
 
 
 <!--PAGE CONTENT STARTS-->
 <center>
 <div class="WrapperContent">
 
-<!--MAIN CONTENT STARTS-->	
+<!--MAIN CONTENT STARTS-->
 	<div class="SubpageBoxFull">
 		<div class="SubpageBoxFullContent">
-		
-			<h2><img class="icon" src="/images/icon_circle_arrow.png" alt=">" title=">" border="0"> BOOKS</h2>			
+
+			<h2><img class="icon" src="/images/icon_circle_arrow.png" alt=">" title=">" border="0"> BOOKS</h2>
 			<div class="book-list">
 			<% for (bookIndex in site.data.whatwevedone.books) {%>
 				<% var book = site.data.whatwevedone.books[bookIndex] %>
@@ -28,10 +28,10 @@
 				</div>
 			<% } %>
 			</div>
-			
+
 			<hr class="LineFull1">
-			
-			<h2 style="padding-bottom:15px;"><img class="icon" src="/images/icon_circle_arrow.png" alt=">" title=">" border="0"> APPLICATIONS</h2>			
+
+			<h2 style="padding-bottom:15px;"><img class="icon" src="/images/icon_circle_arrow.png" alt=">" title=">" border="0"> APPLICATIONS</h2>
 			<div class="app-list">
 			<% for (appIndex in site.data.whatwevedone.apps) {%>
 				<% var app = site.data.whatwevedone.apps[appIndex] %>
@@ -39,24 +39,24 @@
 				<%=app.description%>
 			<%}%>
 			</div>
-			
+
 			<hr class="LineFull1">
-			
+
 			<h2 style="padding-bottom: 15px;"><img class="icon" src="/images/icon_circle_arrow.png" alt=">" title=">" border="0"> CODE</h2>
-			
+
 			<div class="code-list">
 			<% for (codeIndex in site.data.whatwevedone.code) {%>
 				<% var code = site.data.whatwevedone.code[codeIndex]%>
-				<h3><img class="icon" src="/images/icon_forward_arrow.png" alt=">" title=">" border="0"> <a href="<%=code.url%>"><%=code.title%></a></H3>
+				<h3><img style="vertical-align: middle;" src="/images/icon_forward_arrow.png" alt=">" title=">" border="0"> <a href="<%=code.url%>"><%=code.title%></a></H3>
 				<B><%=_.get(site.data.authors, code.author).name%></B><BR>
 				<%=code.description%>
 
 				<% if (codeIndex < site.data.whatwevedone.code.length - 1) {%>
 					<hr class="LineFull2">
 				<%}%>
-			<%}%>			
+			<%}%>
 			</div>
-			
+
 		</div>
 	</div>
 <!--MAIN CONTENT ENDS-->
