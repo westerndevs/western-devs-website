@@ -38,7 +38,10 @@
 			<a href="https://github.com/<%=author.github%>" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
 			<% } %>
 			<% if (author.linkedin) { %>
-			<a href="https://www.linkedin.com/in/<%=author.linkedin%>" target="_blank"><img class="ProfileIcon" src="/images/icon_linkedin.png" border="0" alt="LinkedIN" title="LinkedIN"> LinkedIn</a>
+			<a href="https://www.linkedin.com/in/<%=author.linkedin%>" target="_blank"><img class="ProfileIcon" src="/images/icon_linkedin.png" border="0" alt="LinkedIN" title="LinkedIN"> LinkedIn</a><br>
+			<% } %>
+			<% if (author.id) { %>
+ 			<a href="/feeds/<%=author.id%>"><img class="ProfileIcon" src="/images/icon_subscribe.png" />RSS</a>
 			<% } %>
 
 			<hr />

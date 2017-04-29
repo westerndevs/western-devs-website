@@ -10,13 +10,13 @@ amir_barylko:
   github: amirci
   linkedin: amirbarylko
 
-bil_simser:
-  name: Bil Simser
-  web: http://weblogs.asp.net/bsimser
-  email: emailme@bilsimser.com
-  twitter: bsimser
-  github: bsimser
-  linkedin: bsimser
+# bil_simser:
+#   name: Bil Simser
+#   web: http://weblogs.asp.net/bsimser
+#   email: emailme@bilsimser.com
+#   twitter: bsimser
+#   github: bsimser
+#   linkedin: bsimser
 
 darcy_lussier:
   name: D'Arcy Lussier
@@ -87,13 +87,13 @@ justin_self:
   github: justinself
   linkedin: therealjustinself
 
-kelly_cassidy:
-  name: Kelly Cassidy
-  twitter: k_cassidy
-  web: http://www.mindfulsanity.com/
-  linkedin: kcassidy
-  github: kpcassidy
-  email: kelly@mindfulsanity.com
+# kelly_cassidy:
+#   name: Kelly Cassidy
+#   twitter: k_cassidy
+#   web: http://www.mindfulsanity.com/
+#   linkedin: kcassidy
+#   github: kpcassidy
+#   email: kelly@mindfulsanity.com
 
 kyle_baley:
   name: Kyle Baley
@@ -136,4 +136,3 @@ tom_opgenorth:
   twitter: topgenorth
   github: topgenorth
   linkedin: tom-opgenorth
-
