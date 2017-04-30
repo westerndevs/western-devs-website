@@ -31,7 +31,7 @@ books:
 
   - title: Mastering JavaScript Design Patterns
     url: https://www.packtpub.com/application-development/mastering-javascript-design-patterns
-    image: MasteringJavaScriptDesignPatterns.jpg
+  image: MasteringJavaScriptDesignPatterns.jpg
     author: simon_timms
     date: 2014-11-01
 
@@ -51,7 +51,7 @@ books:
     url: https://aspnetmonsters.com/2016/12/aspnetcorebook/
     image: ASP.NETCoreApplicationDevelopment.jpg
     author: dave_paquette
-    date: 2013-09-01 
+    date: 2013-09-01
 
 
 code:
@@ -85,8 +85,8 @@ code:
     description: GenFu is a library you can use to generate realistic test data.
     date: 2014-08-20
     author: james_chambers
-  
-  
+
+
 apps:
   - title: SmartView
     url: "http://smartview.io"
@@ -94,4 +94,3 @@ apps:
     description: SmartView is a lean agile project management tool that combines the intuitive approach of user story maps with the productivity of kanban boards and cumulative user metrics to help your team work more effectively and efficiently.
     date: 2015-07-01
     author: amir_barylko
-  

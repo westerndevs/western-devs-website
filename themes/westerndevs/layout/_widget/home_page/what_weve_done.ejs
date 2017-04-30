@@ -1,21 +1,41 @@
 <!--WHAT WE HAVE DONE STARTS-->
 <div class="HomeBox3">
   <a href="/whatwevedone"><img class="HomeBoxDoneImg" src="images/bg_home_whatwevedone.png" alt="What We've Done" title="What We've Done" border="0" style="width:308px; height: 238px;" width="308" height="238"></a>
-  
+
   <div class="HomeBox3Txt">
-    A random sample of some of the things we've done.<BR><BR>
-    
-    <table cellpadding="0" cellspacing="0" width="100%" border="0">
+    A sample of some of the <a href="/whatwevedone">things we've done</a>.<BR><BR>
+
+    <table cellpadding="0" cellspacing="0" width="100%" border="0" class="whatwevedone">
       <tr valign="top">
-      <td width="34%"><center><a href="/whatwevedone/"><img src="/images/whatwevedone/MasteringJavaScriptDesignPatterns.jpg" style="height: 162px; width: 138px;" height="162" width="138" border="0"></a></center></td>
-      <td width="33%"><center><a href="/whatwevedone/"><img src="/images/FPO_done2.png" border="0" height="176" width="158" style="height:176px;width:158px;"></a></center></td>
-      <td width="33%"><center><a href="/whatwevedone/"><img src="images/FPO_done3.jpg" border="0" height="162" width="123" style="height:162px;width:123px;"></a></center></td>
+      <td width="34%"><center><a id="whatwevedone1" href="/whatwevedone/" target="_blank"><img src="/images/whatwevedone/MasteringJavaScriptDesignPatterns.jpg" ></a></center></td>
+      <td width="33%"><center><a id="whatwevedone2" href="/whatwevedone/" target="_blank"><img src="/images/FPO_done2.png" ></a></center></td>
+      <td width="33%"><center><a id="whatwevedone3" href="/whatwevedone/" target="_blank"><img src="/images/FPO_done3.jpg" ></a></center></td>
       </tr>
     </table>
 
   </div>
-  
+
 </div>
+
+<script>
+	$(document).ready(function() {
+		$.getJSON( "/api/whatwevedone.json", function( data ) {
+      var items = data.filter(function(el) {
+        return el.active;
+      });
+      items = shuffle(items);
+      $("#whatwevedone1 img").attr("src", "/images/whatwevedone/" + items[0].image);
+      $("#whatwevedone2 img").attr("src", "/images/whatwevedone/" + items[1].image);
+      $("#whatwevedone3 img").attr("src", "/images/whatwevedone/" + items[2].image);
+      $("#whatwevedone1").attr("href", items[0].url);
+      $("#whatwevedone2").attr("href", items[1].url);
+      $("#whatwevedone3").attr("href", items[2].url);
+		});
+	});
+
+// Used like so
+var arr = [2, 11, 37, 42];
+arr = shuffle(arr);
+console.log(arr);
+</script>
 <!--WHAT WE HAVE DONE ENDS-->
-
-

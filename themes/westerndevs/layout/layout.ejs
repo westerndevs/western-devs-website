@@ -8,7 +8,7 @@
 <!-- FIXED HEADER BECAUSE SCROLLING -->
 <%- partial('_partial/header') %>
 
-<!--WRAPPER STARTS--> 
+<!--WRAPPER STARTS-->
 <div class="Wrapper" style="">
 
 <%- body %>
@@ -17,7 +17,7 @@
 <center>
   <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
 </center>
-<!--FOOTER ENDS-->  
+<!--FOOTER ENDS-->
 
 <!-- NAV FOOTER STARTS -->
 <div class="NavFooter">
@@ -33,9 +33,9 @@
 
 
 </div>
-<!--WRAPPER ENDS-->   
+<!--WRAPPER ENDS-->
 
-<% 
+<%
 if (config.disqus_shortname){ %>
 <script>
   var disqus_shortname = '<%= config.disqus_shortname %>';
@@ -49,11 +49,31 @@ if (config.disqus_shortname){ %>
     dsq.src = '//' + disqus_shortname + '.disqus.com/<% if (page.comments) { %>embed.js<% } else { %>count.js<% } %>';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
 </script>
 <% } %>
 
 </body>
-  
+
   <%- partial('_partial/google-analytics', { author: page.authorId }) %>
 
 </html>
