@@ -31,7 +31,7 @@ books:
 
   - title: Mastering JavaScript Design Patterns
     url: https://www.packtpub.com/application-development/mastering-javascript-design-patterns
-  image: MasteringJavaScriptDesignPatterns.jpg
+    image: MasteringJavaScriptDesignPatterns.jpg
     author: simon_timms
     date: 2014-11-01
 
