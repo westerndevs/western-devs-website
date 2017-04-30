@@ -6,18 +6,18 @@
 	</div>
 </center>
 </div>
-<!--SUBHEAD ENDS-->	
+<!--SUBHEAD ENDS-->
 
 <!--PAGE CONTENT STARTS-->
 <center>
 <div class="WrapperContent">
 
-<!--MAIN CONTENT STARTS-->	
+<!--MAIN CONTENT STARTS-->
 	<div class="SubpageBoxSubLrg">
 		<div class="SubpageBoxSubLrgContent">
 
-			<h2 class="category-heading"><img class="icon" src="/images/icon_circle_arrow.png" alt=">" title=">" border="0"> Welcome to our place</h2>          
-			
+			<h2 class="category-heading"><img class="icon" src="/images/icon_circle_arrow.png" alt=">" title=">" border="0"> Welcome to our place</h2>
+
 	        <%- page.content %>
 		</div>
 	</div>
@@ -26,16 +26,18 @@
 <!--SIDEBAR CONTENT STARTS-->
 	<div class="SubpageBoxSubSm">
 		<div class="SubpageBoxSubSmContent">
-		
+
 			<h3>Current roster</h3>
 			<ul>
 			<% _.forEach(site.data.authors, function(author, key) {%>
+				<% if (author.active) { %>
 				<li style="padding-bottom:5px;"><a href="/bios/<%=key%>"><%=author.name%></a></li>
+				<% } %>
 			<%}) %>
 			</ul>
 		</div>
 	</div>
-<!--SIDEBAR CONTENT ENDS-->	
+<!--SIDEBAR CONTENT ENDS-->
 </div>
 </center>
 <!--PAGE CONTENT ENDS-->

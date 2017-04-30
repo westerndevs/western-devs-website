@@ -368,3 +368,52 @@
   speaker: Lori Lalonde
   location: Kitchener, ON
   topic: "Workshop: Xamarin.Android Layouts"
+  
+- date: 2017-01-18
+  event: "Azure Austin"
+  url: https://www.meetup.com/azureaustin/events/236804400/
+  speaker: Dylan Smith
+  location: Austin, TX
+  topic: "Using Azure ARM Templates for Dev and Test Environments"
+
+- date: 2017-01-19
+  event: "Louisville .NET Meetup"
+  url: https://www.meetup.com/Louisville-DotNet/events/235440374/
+  speaker: James Chambers
+  location: Louisville, KY
+  topic: "New Year, New You"
+
+- date: 2017-01-28
+  event: "Winnipeg Code Camp"
+  url: http://www.winnipegcodecamp.com/
+  speaker: David Wesst
+  location: Winnipeg, MB
+  topic: "[POWER/BASH/JAVA] SCRIPT ALL OF THE THINGS!"
+
+- date: 2017-01-28
+  event: "Winnipeg Code Camp"
+  url: http://www.winnipegcodecamp.com/
+  speaker: Dylan Smith
+  location: Winnipeg, MB
+  topic: "Exciting New Tech Trends"
+
+- date: 2017-01-19
+  event: "Calgary .NET Usergroup"
+  url: https://www.meetup.com/Calgary-net-User-Group/events/234840207/
+  speaker: Dave White
+  location: Calgary, AB
+  topic: "Visual Studio Team Systems - Actually not terrible now"
+
+- date: 2017-02-22
+  event: "Winnipeg .NET Usergroup"
+  url: http://winnipegdotnet.org/
+  speaker: Kyle Baley
+  location: Winnipeg, MB
+  topic: "How to build a service bus"
+
+- date: 2017-04-17
+  event: "SharePoint Fest DC"
+  url: http://www.sharepointfest.com/DC
+  speaker: Rob Windsor
+  location: Washington, DC
+  topic: "TypeScript for SharePoint Developers"

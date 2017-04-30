@@ -9,14 +9,19 @@ amir_barylko:
     plus:
   github: amirci
   linkedin: amirbarylko
+  gravatar: fadb1de2c18ab0fc42ebc0988327c90f
+  active: true
+  bio: Amir started his career in 1994 working for IBM as a senior developer while he was finishing his Masters degree in computer science. Since then he worked as team leader and architect for the past 15 years.
 
-# bil_simser:
-#   name: Bil Simser
-#   web: http://weblogs.asp.net/bsimser
-#   email: emailme@bilsimser.com
-#   twitter: bsimser
-#   github: bsimser
-#   linkedin: bsimser
+bil_simser:
+  name: Bil Simser
+  web: http://weblogs.asp.net/bsimser
+  email: emailme@bilsimser.com
+  twitter: bsimser
+  github: bsimser
+  linkedin: bsimser
+  active: false
+  bio: Developer. Designer. Photographer. Artist.<br/><br/>Ask me about my Asperger's syndrome or pie or my cat. Developers! Developers! Developers! I draw comics. A dog. Do you like movies? I saw a rock. Let's cook bacon. Hi.
 
 darcy_lussier:
   name: D'Arcy Lussier
@@ -24,6 +29,8 @@ darcy_lussier:
   email: darcy.lussier@gmail.com
   twitter: darcy_lussier
   avatar: DarcyLussier.png
+  active: true
+  bio: D’Arcy Lussier is an experienced technology professional with 15 years of experience architecting and developing applications. He is a Microsoft Certified Professional Developer and has been awarded a Microsoft Most Valuable Professional award in ASP.NET from 2008 through 2015
 
 dave_paquette:
   name: Dave Paquette
@@ -33,6 +40,8 @@ dave_paquette:
   twitter: Dave_Paquette
   github: dpaquette
   linkedin:
+  active: true
+  bio: Dave is a passionate, hands-on software developer who enjoys building quality software that solves real-world problems. Dave has many years of experience in developing software for financial, agricultural and energy companies where he has specialized in .NET and web development. He has led the development of several commercial products and internal systems.
 
 david_wesst:
   name: David Wesst
@@ -44,6 +53,8 @@ david_wesst:
     plus: davidwesst
   github: davidwesst
   linkedin: davidwesst
+  active: true
+  bio: David Wesst, otherwise known as "Wessty" or "DW", is a JavaScript enthusiast, currently working as an Enterprise Java Developer for the University of Manitoba.
 
 dave_white:
   name: Dave White
@@ -54,6 +65,9 @@ dave_white:
     plus:
   github: agileramblings
   linkedin: dave-white
+  gravatar: 4b7708d2ae7f7bb866446e0459e3e156
+  active: true
+  bio: Dave White is an IT professional with over 16 years of experience in a variety of roles throughout the IT industry. Originally working as a developer, he's honed, evolved and expanded his technical capabilities in development and architecture and demonstrate these skills at a senior level.
 
 donald_belcham:
   name: Donald Belcham
@@ -63,6 +77,8 @@ donald_belcham:
   twitter: dbelcham
   github: dbelcham
   linkedin: donaldbelcham
+  active: true
+  bio: Donald Belcham is an independent contractor in Edmonton, Alberta Canada who specializes in software development with the .NET platform.  With more than a decade of experience delivering Web and Smart Client applications to clients around the world, he has experience and knowledge in the entire software development life cycle.
 
 dylan_smith:
   name: Dylan Smith
@@ -70,6 +86,8 @@ dylan_smith:
   email: optikal@shaw.ca
   avatar: dylan_300x300.jpg
   twitter: dylan_smith
+  active: true
+  bio: Dylan Smith is a Microsoft MVP (ALM), and an ALM (Application Lifecycle Management) consultant for Imaginet where he spends his time helping teams become more successful at delivering software.
 
 james_chambers:
   name: James Chambers
@@ -78,6 +96,9 @@ james_chambers:
   twitter: canadianjames
   github: MisterJames
   linkedin: canadianjames
+  gravatar: 1ac8c631c34a86ddcfb6ae67f6a7a551
+  active: true
+  bio: An active member in the ASP.NET development community, James speaks at conferences, user groups and brown-bag lunches. Now a four-time Microsoft MVP in ASP.NET/IIS, he shares his programming experiences and knowledge with kids aged 9-14 through local school division programmes.
 
 justin_self:
   name: Justin Self
@@ -86,14 +107,19 @@ justin_self:
   twitter: thejustinself
   github: justinself
   linkedin: therealjustinself
+  avatar: justin_self.jpg
+  active: true
+  bio: Justin Self is a born and raised Texan. As a software developer, he has built online banking applications, peer to peer lending platforms, Fortune 100 e-commerce platforms and a slew of apps in between. As a Principal Solution Architect for Clear Measure, his focus lately has been on distributed .NET systems.
 
-# kelly_cassidy:
-#   name: Kelly Cassidy
-#   twitter: k_cassidy
-#   web: http://www.mindfulsanity.com/
-#   linkedin: kcassidy
-#   github: kpcassidy
-#   email: kelly@mindfulsanity.com
+kelly_cassidy:
+  name: Kelly Cassidy
+  twitter: k_cassidy
+  web: http://www.mindfulsanity.com/
+  linkedin: kcassidy
+  github: kpcassidy
+  email: kelly@mindfulsanity.com
+  active: false
+  bio: Kelly is the Manager of Technology Advancement at DMT Development Systems Group. What that means, basically, is that he is involved in much of the company's R&D efforts, from product review and technology oversight to product definition and prototyping. Working with both the technical and the business sides of the company, he performs many a translation duty for both sides of that equation.
 
 kyle_baley:
   name: Kyle Baley
@@ -103,6 +129,8 @@ kyle_baley:
   github: kbaley
   linkedin: kylebaley
   avatar: Kyle_300x300.png
+  active: true
+  bio: "Known throughout the land (for certain, fairly restrictive, definitions of “land”) as The Coding Hillbilly, Kyle’s career choices have hinged on a single criterium: to have fun. Luckily, he finds software development fun as opposed to, say, shark taunting."
 
 lori_lalonde:
   name: Lori Lalonde
@@ -112,6 +140,8 @@ lori_lalonde:
   linkedin: lorilalonde
   github: llalonde
   avatar: Lori_Lalonde.jpg
+  active: true
+  bio: Lori Lalonde is an Apress author, consultant, blogger, international conference speaker, Xamarin Certified Developer and Microsoft MVP in Windows Platform Development. She began her career in software in 1997 and hasn't looked back since. Her experience spans numerous industries and a variety of technologies, with the past decade focused on the Microsoft .NET platform.
 
 peter_ritchie:
   name: Peter Ritchie
@@ -120,6 +150,9 @@ peter_ritchie:
   twitter: peterritchie
   github: peteraritchie
   linkedin: peteraritchie
+  gravatar: 9f2f98606c6c7002862ef3be62cfc97c
+  active: true
+  bio: Peter Ritchie has been in the software industry for 25 years.  Before Quicken Loans, Peter operated a software consulting company specializing in distributed applications and agile software development.  Peter is a book author, open-source author, international speaker, blogger, and Microsoft MVP in C#.
 
 simon_timms:
   name: Simon Timms
@@ -128,6 +161,8 @@ simon_timms:
   avatar: simon.jpg
   twitter: stimms
   github: stimms
+  active: true
+  bio: Simon Timms is always interested in improving himself and learning all that he can. He has worked in various oil and gas domains as well as insurance and enterprise search. He began his career working with build systems so is very passionate about proper builds and is excited by the burgeoning DevOps movement. For the most part Simon works in C# mostly on web applications.
 
 tom_opgenorth:
   name: Tom Opgenorth
@@ -136,3 +171,6 @@ tom_opgenorth:
   twitter: topgenorth
   github: topgenorth
   linkedin: tom-opgenorth
+  gravatar: 955323838b1c111c5e9b1936dc44d9fd
+  active: true
+  bio: I'm a software developer/programmer/contractor/consultant/nerd/geek who hails from Alberta, Canada. I've worked on a lot of different software projects in the past 20+ years in IT and have worn different hats - developer, QA, team lead, scapegoat, documentation, training and even a bit of project management thrown in.
