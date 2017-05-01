@@ -10,6 +10,7 @@ podcast:
     filename: "GoingIndependent.mp3"
     length: "48:05"
     filesize: 46166206
+    libsynId: 5316374
 participants:
     - dylan_smith
     - kyle_baley
