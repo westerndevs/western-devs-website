@@ -61,26 +61,12 @@
   location: Winnipeg, MB
   topic: "Introduction to Messaging"
 
-- date: 2017-06-06
-  event: "Prairie Dev Con"
-  url: https://prairiedevcon.com
-  speaker: Kyle Baley
-  location: Winnipeg, MB
-  topic: "The Fallacies of Distributed Computing"
-
 - date: 2017-07-03
   event: "DevTeach"
   url: http://devteach.com
   speaker: Dylan Smith
   location: Montreal, QC
   topic: "Building Modern Web Apps with Gulp"
-
-- date: 2017-06-03
-  event: "Maritime DevCon"
-  url: https://maritimedevcon.ca
-  speaker: Kyle Baley
-  location: Fredericton, NB
-  topic: "The Fallacies of Distributed Computing"
 
 - date: 2017-06-03
   event: "Maritime DevCon"
