@@ -152,7 +152,250 @@ int main(int argc, char** argv)
 }
 ```
 
-To actually call this function we'll need to compile it. For that we need the Android NDK. Instead of getting into how to do that I'll just link to Nick Desaulniers's [excellent post](http://nickdesaulniers.github.io/blog/2016/07/01/android-cli/). The end result is that we have a .so file. This file should be included in the Android application in Visual Studio. A couple of things seem to be important here: first the file should be in a hierarchy which indicates what sort of processor it runs on. If you need to support more than one processor then you'll need to compile a couple of different versions of the library. I knew that this particular 
+To actually call this function we'll need to compile it. For that we need the Android NDK. Instead of getting into how to do that I'll just link to Nick Desaulniers's [excellent post](http://nickdesaulniers.github.io/blog/2016/07/01/android-cli/). I will say that I did the compilation using the Windows Subsystem for Linux which is boss. 
 
+The end result is a libSetBaud.so file, .so being the extension for shared objects. This file should be included in the Android application in Visual Studio. A couple of things seem to be important here: first the file should be in a hierarchy which indicates what sort of processor it runs on. If you need to support more than one processor then you'll need to compile a couple of different versions of the library. I knew that this particular device had an armeabi-v7a so into that folder went the compiled .so file. Second you'll need to set the type on the file to AndroidNativeLibrary.
+
+Next came exposing the function the function for use in Xamarin. To do that we use the Platform Invocation Service (PInvoke). PInvoke allows calling into unmanaged code in an easy way. All that is needed is to 
+
+```csharp
+using System;
+using System.Linq;
+using System.Runtime.InteropServices;
+
+namespace SerialMessaging.Android
+{
+    public class BaudSetter
+    {
+        [DllImport("libSetBaud", ExactSpelling = true)]
+        public static extern int SetUpSerialSocket();
+    }
+}
+```
+
+I'd never had to do this before and it is actually surprisingly easy. Things obviously get way more complex if the function you're calling out to requires more complex types or pointers or file descriptors. I specifically kept the C code to a minimum because I don't trust in my ability to do things with C. If you're more adventurous then you can hook into the Android libraries and make use of things like their logging pipeline instead of `printf`.
+
+With this all in place it was possible to spin up an Android application to see if we can get the message from the Windows side. Building on the idea of just reading from the device I started with 
+
+```csharp
+var readHandle = File.Open("/dev/ttyS3", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+while (true)
+{
+    var readBuffer = new byte[2000];
+
+    if (readHandle.CanRead)
+        readHandle.Read(readBuffer, 0, 2000);
+    Android.Util.Log.Debug("serial", readBuffer);
+}
+```
+
+This was able to retrieve bytes out of the device and print them to the Android debug console. Awesome! The problem was that when they came in they weren't all a contiguous block. If the windows side sent `hello from the C# program1\n` in a loop then we might get the output
+
+```plain
+hel
+lo from the C# 
+program1\nh
+ello from the C# program1
+```
+
+Uh oh. Guess we'll have to use a stop byte to indicate the end of messages. `0x00` won't work because the read buffer contains a bunch of those already. For now we can try using `0x01`. Looking at an ASCII table sending `0x03`, End of Text might be more appropriate. We add that to the send side with a WireFormatSerializer
+
+```csharp
+public class WireFormatSerializer
+{
+    public byte[] Serialize(string toSerialize)
+    {
+        var bytes = System.Text.ASCIIEncoding.ASCII.GetBytes(toSerialize);
+        var bytesWithSpaceForTerminatingCharacter = new byte[bytes.Length + 1];
+        Array.Copy(bytes, bytesWithSpaceForTerminatingCharacter, bytes.Length);
+        bytesWithSpaceForTerminatingCharacter[bytesWithSpaceForTerminatingCharacter.Length - 1] = 0x1;
+        return bytesWithSpaceForTerminatingCharacter;
+    }
+}
+```
+
+On the receiving side we hook up a BufferedMessageReader whose responsibility it is to read bytes and assemble messages. I decided to push the boat out a bit here and implement an IObservable<string> which would rebuild the messages and emit them as events. 
+
+```csharp
+
+public class BufferedMessageReader : IObservable<string>
+{
+    List<IObserver<string>> observers = new List<IObserver<string>>();
+    List<byte> freeBytes = new List<byte>();
+
+    public void AddBytes(byte[] bytes)
+    {
+        foreach(var freeByte in bytes)
+        {
+            if(freeByte == 0x01)
+            {
+                EndOfMessageEncountered();
+            }
+            else
+            {
+                freeBytes.Add(freeByte);
+            }
+        }
+    }
+
+    public IDisposable Subscribe(IObserver<string> observer)
+    {
+        if(!observers.Contains(observer))
+            observers.Add(observer);
+        return new Unsubscriber(observers, observer);
+    }
+
+    void EndOfMessageEncountered()
+    {
+        var deserializer = new WireFormatDeserializer();
+        var message = deserializer.Deserialize(freeBytes.ToArray());
+
+        foreach (var observer in observers)
+            observer.OnNext(message);
+        freeBytes.Clear();
+    }
+
+    private class Unsubscriber: IDisposable
+    {
+        private List<IObserver<string>> _observers;
+        private IObserver<string> _observer;
+
+        public Unsubscriber(List<IObserver<string>> observers, IObserver<string> observer)
+        {
+            this._observers = observers;
+            this._observer = observer;
+        }
+
+        public void Dispose()
+        {
+            if (_observer != null && _observers.Contains(_observer))
+                _observers.Remove(_observer);
+        }
+    }
+}
+```
+
+Most of this class is boilerplate code for wiring up observers. The crux is that we read bytes into a buffer until we encounter the stop bit which we discard and deserialize the buffer before clearing it ready for the next message. This seemed to work pretty well. There could be some additional work done around the message formats for the wire for instance adding more complete checksums and a retry policy. I'd like to get some experimental data on how well the current set up works in the real world before going to that length. 
+
+On the Android side I wrapped this observable with a thing to actually read the file so it ended up looking like 
+
+```csharp
+public class SerialReader
+{
+
+    public string _device { get; set; }
+
+    /// <summary>
+    /// Starts a serial reader on the given device
+    /// </summary>
+    /// <param name="device">The device to start a reader on. Defaults to /dev/ttyS3</param>
+    public SerialReader(string device = "/dev/ttyS3")
+    {
+        if (!device.StartsWith("/dev/"))
+            throw new ArgumentException("Device must be /dev/tty<something>");
+        _device = device;
+    }
+
+    private BufferedMessageReader reader = new BufferedMessageReader();
+
+    public IObservable<string> GetMessageObservable()
+    {
+        return reader;
+    }
+
+    private void ProcessBytes(byte[] bytes)
+    {
+        int i = bytes.Length - 1;
+        while (i >= 0 && bytes[i] == 0)
+            --i;
+        if (i <= 0)
+            return;
+        var trimmedBytes = new byte[i + 1];
+        Array.Copy(bytes, trimmedBytes, i + 1);
+        reader.AddBytes(trimmedBytes);
+    }
+
+    public void Start()
+    {
+        var readThread = new Thread(new ThreadStart(StartThread));
+        readThread.Start();
+    }
+
+    private void StartThread()
+    {
+        var readHandle = File.Open(_device, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+        while (true)
+        {
+            var readBuffer = new byte[2000];
+
+            if (readHandle.CanRead)
+                readHandle.Read(readBuffer, 0, 2000);
+            ProcessBytes(readBuffer);
+        }
+    }
+}
+```
+
+Now listening for messages is as easy as doing 
+
+```csharp
+ BaudSetter.SetupUpSerialSocket(); //sets up the baud rate
+ var reader = new SerialReader(); //create a new serial reader
+ reader.GetMessageObservable().Subscribe((message) => Log(message));//subscribe to new messages
+ reader.Start();//start the listener
+```
+
+One way communication squared away. Now to get messages back from the tablet to the computer. First stop was writing to the file on Android. Again we can make use of the fact that the serial port is just a file
+
+```csharp
+public class SerialWriter
+{
+    public string _device { get; set; }
+    public SerialWriter(string device = "/dev/ttyS3")
+    {
+        if (!device.StartsWith("/dev/"))
+            throw new ArgumentException("Device must be /dev/tty<something>");
+        _device = device;
+    }
+
+    public void Write(string toWrite)
+    {
+        var writeHandle = File.Open(_device, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
+
+        var bytes = new WireFormatSerializer().Serialize(toWrite);
+        if (writeHandle.CanWrite)
+        {
+            writeHandle.Write(bytes, 0, bytes.Length);
+        }
+        writeHandle.Close();
+    }
+}
+```
+
+Really no more than just writing to a file like normal. Closing the file descriptor after each write seemed to make things work better. On the Windows side the serial port already has a data received event built into it so we can just go and add an event handler.
+
+```csharp
+serialPort.DataReceived += DataReceivedHandler;
+```
+
+This can then be hooked up like so 
+
+```csharp
+static BufferedMessageReader reader = new BufferedMessageReader();
+private static void DataReceivedHandler(
+                object sender,
+                SerialDataReceivedEventArgs e)
+{
+    SerialPort sp = (SerialPort)sender;
+
+    var bytesToRead = sp.BytesToRead;//need to create a variable for this because it can change between lines
+    var bytes = new byte[bytesToRead];
+    sp.Read(bytes, 0, bytesToRead);
+
+    reader.AddBytes(bytes);
+}
+```
+
+And that is pretty much that. This code all put together allows sending and receiving messages on a serial port. You can check out the full example at https://github.com/ClearMeasure/AndroidSerialPort where we'll probably add any improvements we find necessary as we make use of the code.
 
  *There is probably some way to grant your user account the ability to do this but I didn't look into it
