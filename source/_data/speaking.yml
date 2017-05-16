@@ -74,3 +74,10 @@
   speaker: Donald Belcham
   location: Fredericton, NB
   topic: "Introduction to Messaging"
+
+- date: 2017-08-03
+  event: "Kansas City Developer Conference"
+  url: http://www.kcdc.info/
+  speaker: Peter Ritchie
+  location: Kansas City, KS
+  topic: "Towards Elastic Scalability"
