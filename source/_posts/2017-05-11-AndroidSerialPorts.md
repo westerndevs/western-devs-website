@@ -33,7 +33,7 @@ A few days back my buddy [Justin Self](/bios/justin_self) found me a pretty good
 And that is a very accurate representation of just what happened. My first step was to get the cables I needed. Back in 1996 I had a serial mouse but that fellow is long since gone and I haven't a single serial cable in my house. So I headed over to a local electronics store and threw myself at the mercy of the clerk and elderly electrical engineering type. He soon had me kitted out with all the hardware I needed
 
  - ATEN USB to Serial converter
- - 6tf straight through serial cable
+ - 6ft straight through serial cable
  - F/F gender changer
  - Null modem adapter
 
