@@ -24,7 +24,7 @@ A few days back my buddy [Justin Self](/bios/justin_self) found me a pretty good
 
 **Justin:** No, over RS-232 serial. And you need to be able to do it in Xamarin's MonoDroid or Mono for Android or whatever non-copyright infringing name they have for it now.
 
-**Simon:** Well Justin, I've never use Xamarin before, nor have I written an Android app, nor have I ever done communication over a serial port before. I actually know nothing about hardware either. 
+**Simon:** Well Justin, I've never used Xamarin before, nor have I written an Android app, nor have I ever done communication over a serial port before. I actually know nothing about hardware either. 
 
 **Justin:** You're almost overqualified for this...
 
