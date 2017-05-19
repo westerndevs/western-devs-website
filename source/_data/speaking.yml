@@ -75,9 +75,30 @@
   location: Fredericton, NB
   topic: "Introduction to Messaging"
 
+- date: 2017-06-03
+  event: "Music City Code 2017"
+  url: https://www.musiccitycode.com
+  speaker: Peter Ritchie
+  location: Nashville, TN
+  topic: "Introduction to Developing with Microsoft Service Fabric"
+
 - date: 2017-08-03
   event: "Kansas City Developer Conference"
   url: http://www.kcdc.info/
   speaker: Peter Ritchie
   location: Kansas City, KS
+  topic: "Towards Elastic Scalability"
+
+- date: 2017-07-12
+  event: "Detroit.Code()"
+  url: https://detroitcode.amegala.com/
+  speaker: Peter Ritchie
+  location: Detroit, MI
+  topic: "Introduction to Developing with Microsoft Service Fabric"
+
+- date: 2017-07-11
+  event: "Detroit.Code()"
+  url: https://detroitcode.amegala.com/
+  speaker: Peter Ritchie
+  location: Detroit, MI
   topic: "Towards Elastic Scalability"
