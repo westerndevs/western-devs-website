@@ -24,21 +24,21 @@ Since it hasn't been approved at the time of me writing this blog post, here it 
 
 >Hey Steve,
 >
->I've been sitting with this tab open for a month, trying to decide what to say. I felt like it was time to close the tab by providing my thoughts. To be clear, I'm speaking about The Kanban Method when I use the word kanban and I believe that is what >this article is talking about when it says Kanban and Scrum are stronger together.
+>I've been sitting with this tab open for a month, trying to decide what to say. I felt like it was time to close the tab by providing my thoughts. To be clear, I'm speaking about The Kanban Method when I use the word kanban and I believe that is what this article is talking about when it says Kanban and Scrum are stronger together.
 >
->Let me start out stating that I believe that teams and organizations need to be better at addressing customer demand. That pressure is what drives organizations and teams to adopt a 'process' that they think will help. We would call those processes >Scrum and Kanban and that is probably the first point of failure. It is unfortunate that these processes are seen as incompatible and I applaud your decision to try and change that thinking. It isn't the practices that are incompatible, but the >religions that sprout up around the organizations that evangelize the processes.
+>Let me start out stating that I believe that teams and organizations need to be better at addressing customer demand. That pressure is what drives organizations and teams to adopt a 'process' that they think will help. We would call those processes Scrum and Kanban and that is probably the first point of failure. It is unfortunate that these processes are seen as incompatible and I applaud your decision to try and change that thinking. It isn't the practices that are incompatible, but the religions that sprout up around the organizations that evangelize the processes.
 >
 >Part of me is disappointed with the misconceptions of what kanban is and how it can be applied as demonstrated by the comments. Going through some of the the comments, I see...
 >
 >**Hiren Pandya** ... the requirements needed to transition to kanban.
 >
->Anyone can begin transitioning to kanban at any time because of the lack of prescription of "the one" kanban approach. Kanban has a natural and specific mindset that accommodates the current state and an evolutionary path to maturity, of which we are >all at different points in our journey. Honestly, transitioning to kanban is as simple as changing the label we use describe our mindset and values.
+>Anyone can begin transitioning to kanban at any time because of the lack of prescription of "the one" kanban approach. Kanban has a natural and specific mindset that accommodates the current state and an evolutionary path to maturity, of which we are all at different points in our journey. Honestly, transitioning to kanban is as simple as changing the label we use describe our mindset and values.
 >
 >**Bruno Baketarić** Create hybrids: Beware! --and-- along with an absence of time-boxes or any other time-bound constraint (the Kanban cadences are not constraints).
 >
->The problem with this statement is that any approach that is open to adding/removing practices as their value to the team changes will create a hybrid solution. Kanban by it's very nature creates hybrid solutions as teams take tactical practices from >anywhere they choose to enhance they way they deliver value to their customers. The kanban value system openly embraces the concept of taking practices from anywhere that might improve your team/organizations ability to deliver value to customers. It >has to accept all practices with respect.
+>The problem with this statement is that any approach that is open to adding/removing practices as their value to the team changes will create a hybrid solution. Kanban by it's very nature creates hybrid solutions as teams take tactical practices from anywhere they choose to enhance they way they deliver value to their customers. The kanban value system openly embraces the concept of taking practices from anywhere that might improve your team/organizations ability to deliver value to customers. It has to accept all practices with respect.
 >
->Regarding cadences not being constraints, I would posit that a Replenishment meeting with a cadence of 2 weeks is exactly the same kind of time-bound constraint as a Sprint Planning meeting that happens every 2 weeks. Practically, they are equivalent >constraints.
+>Regarding cadences not being constraints, I would posit that a Replenishment meeting with a cadence of 2 weeks is exactly the same kind of time-bound constraint as a Sprint Planning meeting that happens every 2 weeks. Practically, they are equivalent constraints.
 >
 >**Mark Chapman** I don't quite get what the point is here, they have different uses for different teams.
 >
@@ -46,9 +46,9 @@ Since it hasn't been approved at the time of me writing this blog post, here it 
 >
 >**Final Thoughts...**
 >
->After reading your article, and the comments, it makes me wonder why people think that a team couldn't implement a fully "Scrum" set of practices and processes and name it Kanban. It is 100% possible to do that. I don't know that the opposite is true, >in that a team would fully implement a kanban system and call it Scrum. Kanban allows for far more variation than the Scrum guide does.
+>After reading your article, and the comments, it makes me wonder why people think that a team couldn't implement a fully "Scrum" set of practices and processes and name it Kanban. It is 100% possible to do that. I don't know that the opposite is true, in that a team would fully implement a kanban system and call it Scrum. Kanban allows for far more variation than the Scrum guide does.
 >
->I guess in the long run, we are trying to foster collaboration and enhance the strength of our professions by bringing these two communities together, which I think is very noble and the right thing to do. What I would like to see though is a properly >educated discussion about where and how they (Kanban and Scrum) are different (or not) so that people can make decisions from how to describe what they are doing.
+>I guess in the long run, we are trying to foster collaboration and enhance the strength of our professions by bringing these two communities together, which I think is very noble and the right thing to do. What I would like to see though is a properly educated discussion about where and how they (Kanban and Scrum) are different (or not) so that people can make decisions from how to describe what they are doing.
 >
 >Thank you and [Dan][4] for stepping forward and taking on this challenge.
 
