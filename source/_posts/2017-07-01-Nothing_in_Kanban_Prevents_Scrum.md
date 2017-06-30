@@ -22,7 +22,9 @@ One of the things that I see very often is a belief that Scrum and Kanban cannot
 
 This should instantly put many change-fearing professionals at ease with regard to The Kanban Method, if not the practitioner helping you with it. But in this conversation, this should put Scrum team members at ease. There is nothing in the method that will disrespect your current practices or experiences.
 
-One thing that a Scrum team would naturally want to do is understand the parallels or mappings between the two processes. Familiarity promotes comfort, so let's build a bit of a map for a _pure_ Scrum team to describe their approach in Kanban terms because generally speaking, Scrum teams are already **doing kanban**.
+[Yuval Yeret][4] has done a great job of giving us a [Primer to Kanban from Scrum Teams][3] but I thought I'd step back from that without introducing too much Kanban and try to diminish this fear that you can't do both by showing that it can be done easily. 
+
+ One thing that a Scrum team would naturally want to do is understand the parallels or mappings between the two processes. Familiarity promotes comfort, so let's build a bit of a map for a _pure_ Scrum team to describe their approach in Kanban terms because generally speaking, Scrum teams are already **doing kanban**.
 
 ## Sprint/Iteration
 
@@ -35,7 +37,7 @@ One of the core tenants of Scrum is the Sprint. This time box is designed to giv
 1. an end date that the delivery team can use as a goal for delivery
 1. an end date that a customer can use as an expectation
 
-Scrum achieves these goals by using particular activities around the time box. As an example, let us say that a Scrum team has a 2 week Sprint, so at the start of a 2 week period, they replenish their sprint backlog in the Spring Planning meeting. They will select how much work to accept as the goal (Sprint goal/forecast) for the 2 week period. They will ~~not accept~~ _strongly discourage_ changes to the contents of the sprint backlog for the 2 week period. They will meet daily to discuss the current state of things and adjust any daily plans as appropriate. They will strive to complete the Sprint goal (all of the forecasted work) by the end of the Sprint, and they will plan to demonstrate their accomplishments to external parties in a Sprint Review. They will also plan reflect on their own activities and try to identify opportunities to improve their own capabilities in a Sprint Retrospective.
+Scrum achieves these goals by using particular activities around and in the time box. As an example, let us say that a Scrum team has a 2 week Sprint, so at the start of a 2 week period, they replenish their sprint backlog in the Spring Planning meeting. They will select how much work to accept as the goal (Sprint goal/forecast) for the 2 week period. They will ~~not accept~~ _strongly discourage_ changes to the contents of the sprint backlog for the 2 week period. They will meet daily to discuss the current state of things and adjust any daily plans as appropriate. They will strive to complete the Sprint goal (all of the forecasted work) by the end of the Sprint, and they will plan to demonstrate their accomplishments to external parties in a Sprint Review. They will also plan reflect on their own activities and try to identify opportunities to improve their own capabilities in a Sprint Retrospective.
 
 So what we've discovered is that:
 
@@ -106,5 +108,7 @@ Those are just some of the opportunities that you have! I'm not suggesting you c
 
 [1]: https://www.scrum.org/user/119
 [2]: https://www.scrum.org/resources/blog/scrum-and-kanban-stronger-together
+[3]: https://www.scrum.org/resources/blog/kanban-primer-scrum-teams
+[4]: https://www.linkedin.com/in/yuvalyeret/
 [5]: https://agileramblings.com/2013/03/10/the-difference-between-the-kanban-method-and-scrum/
 [6]: https://agileramblings.com/2013/04/07/kanban-change-catalyst-with-no-changes-planned/
