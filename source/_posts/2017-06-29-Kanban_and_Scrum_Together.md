@@ -20,6 +20,8 @@ You might find my first comment there if someone at Scrum.org approves it in the
 
 ![Missing Comments??][3]
 
+**Update** The comments have finally been approved. 
+
 Since it hasn't been approved at the time of me writing this blog post, here it is again...
 
 >Hey Steve,
@@ -62,7 +64,7 @@ and
 
 > if you're not limiting WIP, you're not implementing a Kanban system
 
-I responded with this _still considered spam and unapproved_ comment.
+I responded with this ~~still considered spam and unapproved~~ comment. **Update** - The comments have finally been approved. 
 
 >First of all, I spoke of transitioning to The Kanban Method as being very easy. I didn't discuss the implementation of a virtual kanban system as easy, although in truth, most Scrum teams are already using a virtual kanban system.
 >
