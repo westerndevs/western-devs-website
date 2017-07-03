@@ -47,7 +47,7 @@ One of the goals with moving to this new house was for me to spend some more tim
 ### Dreams
 We all have them: plans for our "ideal" network. The platinum plated solution. I'm definitely not immune to this.
 
-One of the things I hate the most about the default ISP provided solution is that all of the TV set-top boxes get their signals via WiFi. Obviously, the farther from the base unit, the more walls, bad weather, invisible temporary Faraday Cage's, days that end in 'Y' and other things will cause instability in the TV signals. I really wanted to get rid of this and go to a wired solution so that I would know that the TVs would all work whenever I needed to binge watch ~Master Chef Junior~ The Expanse. This is _not_ a normal way to configure this provider's TV sytems.
+One of the things I hate the most about the default ISP provided solution is that all of the TV set-top boxes get their signals via WiFi. Obviously, the farther from the base unit, the more walls, bad weather, invisible temporary Faraday Cage's, days that end in 'Y' and other things will cause instability in the TV signals. I really wanted to get rid of this and go to a wired solution so that I would know that the TVs would all work whenever I needed to binge watch ~~Master Chef Junior~~ The Expanse. This is _not_ a normal way to configure this provider's TV sytems.
 
 Another dream was to setup the telephone wiring in a patch panel like I had done at the old house. This might seem like a simple thing to do, but you haven't seen the wiring in the new house. It's a 40+ year old place that has had low voltage wiring cobbled together through its life. Getting all of the different phone jacks routed back to a central location was going to be no small task.
 
