@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Scrum with WIP Limits
+title: Scrum with Kanban WIP Limits
 categories:
   - Kanban
 tags:
@@ -8,8 +8,8 @@ tags:
   - agile
   - scrum
   - myths
-date: 2017-07-01 20:00:00
-excerpt: A natural, easy first step for enhancing Scrum with a Kanban practice is A WIP limit
+date: 2017-07-06 20:00:00
+excerpt: A natural, easy first step for enhancing Scrum with a Kanban practice is a WIP limit
 authorId: dave_white
 ---
 Inspired by [Steve Porter's][1] efforts to bring process practitioners closer together and educate Scrum practitioners, I'm writing a shadow series of posts that will follow the [Kanban and Scrum - Stronger Together][2] series and continue [my own efforts][5] to clear up misconceptions between practitioners of these methods.
@@ -22,21 +22,21 @@ As we described last post, many Scrum teams limit work in progress (WIP) at the 
 
 We're not going to change that at all. Limiting work in any manner is a **GREAT** start!
 
-What we can do though is introduce count-based WIP limits at stages in the virtual kanban system. And that is it! Remember we are doing a minimum viable change to minimize risk, build experience and comfort, and see if this event works.
+What we can do though is introduce count-based WIP limits at stages in the virtual kanban system. And that is it! Remember we are doing a minimum viable change to minimize risk, build experience and comfort, and see if this even works.
 
 ## Scrum is naturally enhanced by Kanban
 
-Kanban practitioners usually strive to enhance the effect of the WIP limit policies on their system, constantly tuning them to get optimal performance. In order to do this, Kanban tends to promote more fine-grained WIP policies at the workflow stage level. This isn't the only place or way that we can use WIP policies, but it is a really great next step for a Scrum to take. 
+Kanban practitioners usually strive to enhance the effect of the WIP limit policies on their system, constantly tuning them to get optimal performance. In order to do this, Kanban tends to promote more fine-grained WIP policies at the workflow stage level. This isn't the only place or way that we can use WIP policies, but it is a really great next step for a Scrum team to take. 
 
 So very simply, the next step for Scrum teams to take is to put a WIP limit policy indicator at the top of a their kanban board!
 
 Let's walk thorough an example and see how simple that would be!
 
-### Scrum CONWIP policy controlled Board
+### Scrum CONWIP policy controlled board
 
 ![Scrum Board with CONWIP policy][7]
 
-We can see here that we are only controlling WIP for the entire system by limiting how much work can be pulled in per sprint. This is a great start to limiting WIP, but we might be able to improve the overall flow of work within the team's workflow. I have seen Scrum teams that start **everything** at the beginning of the sprint instead of starting only as much as they can handle and trying to finish that before starting a new story. This isn't good behaviour or encouraged behaviour in a Scrum team, but it happens without any other policies to guide team members to better behaviour.
+We can see here that we are only controlling WIP for the entire system by limiting how much work can be pulled in per sprint. This is a great start to limiting WIP, but we might be able to improve the overall flow of work within the team's workflow. I have seen Scrum teams that start **everything** at the beginning of the sprint instead of starting only as much as they can handle and trying to finish that before starting a new story. Starting everything at once isn't good behaviour or encouraged behaviour in a Scrum team, but it happens without any other policies to guide team members to better behaviour.
 
 ### Scrum Board with Workflow Stage WIP control policies added
 
@@ -44,7 +44,11 @@ We can see here that we are only controlling WIP for the entire system by limiti
 
 We can see here that we have simply added some indicators of the WIP limit policy on the Kanban board. I just put a few sample numbers in place, but it is now clear what the policy is for the team with regard to pulling the work **through** the sprint and not just pulling work _into_ the sprint.
 
+So what these numbers mean is that we believe that there should only be _n_ # of PBIs in a stage at once. Anything more is going to lead to emotional distress due to overburdening and probably slow delivery due to multi-tasking. Using these policies as an example, we believe we should only have 2 PBIs in analysis at a time and if someone is not busy in Dev and Test, they can help out with work on Analysis of a PBI to help flow work through the system.
+
 It is also very important to understand that in the same way that the sprint capacity is determined during the Sprint Planning meeting and adjusted per sprint, these intra-sprint WIP limit policies should be adjusted when there is new information available about the capabilities of the team.
+
+We also gain and share information about how we believe the team _should_ behave to help deliver PBIs more effectively. We can discuss work and policies instead of discussing people and why they are working a certain way.
 
 And that is it! That is as easy as it is to add the idea of intra-workflow WIP limit policies to a Scrum team's kanban board. We didn't have to change anything about the way that we worked. We just enhanced and communicated our team's understanding of how we want to work.
 
@@ -75,7 +79,6 @@ In our next post, we will discuss how a Scrum team could enhance their practices
 
 [1]: https://www.scrum.org/user/119
 [2]: https://www.scrum.org/resources/blog/scrum-and-kanban-stronger-together
-[3]: https://www.scrum.org/resources/blog/kanban-primer-scrum-teams
 [4]: https://en.wikipedia.org/wiki/CONWIP
 [5]: https://agileramblings.com/2013/03/10/the-difference-between-the-kanban-method-and-scrum/
 [6]: https://agileramblings.com/2013/04/07/kanban-change-catalyst-with-no-changes-planned/
