@@ -32,7 +32,7 @@ This will lead to a new estimate of 5 weeks. She still won't be happy but I'm su
 
 So what happens next? I get myself and the team pumped up all the while hoping my face doesn't betray my confident facade. The familiar anxious feeling sits in the bottom of my stomach as if I had extra servings of stone soup. For the next two weeks, I ignore the signs while confidently thinking that we are going to deliver a miracle (with a few swishes of pepto-bismol added for good measure). The last week rolls around and it looks like we are really going to do it. But then something happens, like it does every time. Something happens in the story that we didn't foresee, production blows up and pulls half of the team away, or the client introduces a "simple" change.
 
-Two or three days before we reach the giant X on the calendar, I realize it's hopeless. I began to think that if I work the next 72 hours, ignoring distractions like sleep, food, or time with my beautiful wife and son, we *might* have a 30% chance of making.
+Two or three days before we reach the giant X on the calendar, I realize it's hopeless. I began to think that if I work the next 72 hours, ignoring distractions like sleep, food, or time with my beautiful wife and kids, we *might* have a 30% chance of making.
 
 Reality quickly sets in and I began customizing my most dreaded email template. You know what it is: the "we need to delay our release" one.
 
