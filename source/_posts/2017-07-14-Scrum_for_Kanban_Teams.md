@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Review: Scrum for Kanban Teams
+title: A review of Scrum for Kanban Teams
 categories:
   - Kanban
 tags:
