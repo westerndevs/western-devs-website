@@ -15,8 +15,8 @@ before_script:
 - git config --global user.email 'info@westerndevs.com'
 - sed -i'' "s~git@github.com:westerndevs/western-devs-website.git~https://${GH_TOKEN}:x-oauth-basic@github.com/westerndevs/western-devs-website.git~"
   _config.yml
-#script:
-#- hexo deploy --silent
+script:
+- hexo deploy --silent
 env:
   global:
     secure: UNdzoDBkVKnVnCD3225LI6YJUFOAL3b9hseJpStIzow8NQWDTOzwqW97yEhfT4stSQ/TpU36B4I9uRusjTX11NR1Vww8uBaVzCN1GUnY/xbvFsmAaZqrITtdBLzvf7NR0x4YPdh/j45Hrjmtsm4UnFy5OPuOgc1c40nzjD4PFPK22FF4VqlyTh5W/PMowhqCTqrgdP5gwYpZ0lwY0LnnpMPiZIZ4jU63QBHfIyQ981VOQTFBQZLEU3Rh3U2d8leDYYNR7RFF4V7E8PHlCiqxDV8lxLprrdabIkOk1B80IZo5dPslNE/GxTsy2It3P2OULNQuvM2HggPw3WBzU0nYVk5QyiduiIAK6LuRDubpq5NK9zLppIdLVERLb8bUdz1boDXSG+FFgGzQUVjN3GsEQ3LAmbOT1reJoM6B8xSyQDOge/+GkuEFtelFYjHWRvnADQvxAlbjgM6BrXy0AEtqncVir1uxHfFjLzS1ay/YDvYzwEPz2QAqQ8oH+oOAsElEDu/hC8asneamm95qxS5XEUEa+GmSUOOU5wib4hOrnPSmmEt2Ex4ZYPYUz3rTgp/FNatDZ076lSrm9VKMU8UWCRQBa8jyPjkV60xVCSeebw/pey/U2H8wQPL7GnpgWSr5Zc+uaMc3kw4sQkXHg42kXs835vE2uAnNyZlgqawEvd4=
