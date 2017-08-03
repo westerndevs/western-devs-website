@@ -102,3 +102,24 @@
   speaker: Peter Ritchie
   location: Detroit, MI
   topic: "Towards Elastic Scalability"
+
+- date: 2017-10-11
+  event: "Prairie Dev Con Presents Deliver"
+  url: http://www.prdcdeliver.com/
+  speaker: David Wesst
+  location: Winnipeg, MB
+  topic: "How to Fix Your Over Budget, Poorly Scoped, Mess of a Project"
+
+- date: 2017-10-11
+  event: "Prairie Dev Con Presents Deliver"
+  url: http://www.prdcdeliver.com/
+  speaker: Amir Barylko
+  location: Winnipeg, MB
+  topic: "Two years working with functional programming (A retrospective)"
+
+- date: 2017-10-11
+  event: "Prairie Dev Con Presents Deliver"
+  url: http://www.prdcdeliver.com/
+  speaker: Amir Barylko
+  location: Winnipeg, MB
+  topic: "The Functional Programming Converter project"
