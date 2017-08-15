@@ -37,7 +37,7 @@ excerpt: The Western Devs aren't getting any younger. We take time out of our ex
 
 * Dealing with "you have to do this for the rest of your  life"
 * Evaluating consumption
-* Cross-fit is ~fun~ a thing
+* Cross-fit is ~~fun~~ a thing
 * Maintaining motivation
 * Creating measurable and appropriate goals
 * Combining exercise with work
