@@ -23,6 +23,15 @@ bil_simser:
   active: false
   bio: Developer. Designer. Photographer. Artist.<br/><br/>Ask me about my Asperger's syndrome or pie or my cat. Developers! Developers! Developers! I draw comics. A dog. Do you like movies? I saw a rock. Let's cook bacon. Hi.
 
+damian_brady:
+  name: Damian Brady
+  web: https://damovisa.me
+  email: blog@damianbrady.com.au
+  twitter: damovisa
+  avatar: DamianBrady.png
+  active: true
+  bio: Damian works for Microsoft as a Cloud Developer Advocate in the League of Extraordinary Cloud DevOps Advocates team. An Australian ex-Microsoft MVP and ex-developer at Octopus Deploy, he currently lives in Toronto. He travels a lot and talks at people, mainly about DevOps.
+  
 darcy_lussier:
   name: D'Arcy Lussier
   web: http://geekswithblogs.net/dlussier/Default.aspx
