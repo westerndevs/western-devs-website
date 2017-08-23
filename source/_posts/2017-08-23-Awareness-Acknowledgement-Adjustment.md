@@ -9,6 +9,7 @@ tags:
 excerpt: "There's a common pattern in IT that frequently leads to new buzzwords: Awareness, Acknowledgement, and Adjustment. Make it work for you!"
 layout: post
 authorId: damian_brady
+originalurl: https://damianbrady.com.au/2017/08/23/awareness-acknowledgement-and-adjustment/
 ---
 
 There's a common pattern in IT. In many cases, it ultimately leads to a new buzzword. It's not complicated. In fact it's fairly obvious. But *understanding what you can do with it* can help immensely when it comes to pushing change in your organisation.
