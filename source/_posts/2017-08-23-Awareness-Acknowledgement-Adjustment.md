@@ -22,7 +22,7 @@ Agile, DevOps, Microservices, Containerization, whatever the next buzzword is - 
 
 > 3. Adjustment
 
-![You need awareness and acknowledgement before things will change](/content/images/2017/08/binoculars.jpg)
+![You need awareness and acknowledgement before things will change](https://damianbrady.com.au/content/images/2017/08/binoculars.jpg)
 
 ## Examples:
 
@@ -45,7 +45,7 @@ Let's look at a couple of examples to solidify what I'm talking about. I'm simpl
 2. *Acknowledgement* that software should be able to help with this - most of what we do is able to be automated!
 3. *Adjustment* by removing the bottlenecks using software and scripts, adding surety through automated testing, and reducing the cycle time from idea to production.
 
-![](/content/images/2017/08/lightbulbs-hanging.jpg)
+![](https://damianbrady.com.au/content/images/2017/08/lightbulbs-hanging.jpg)
 
 ## So what can I do with this?
 
@@ -57,7 +57,7 @@ As a "politically powerless developer" in an organisation, it can be difficult t
 
 **But you can definitely affect *Awareness*. It's easy - start measuring.**
 
-![Make people aware there's a problem](/content/images/2017/08/ruler.jpg)
+![Make people aware there's a problem](https://damianbrady.com.au/content/images/2017/08/ruler.jpg)
 
 Measure how long it takes for a change you commit to make it to production. What happens in that time? Is there a lot of waiting?
 
@@ -67,7 +67,7 @@ Measure the time it takes to write tests, and compare that to the time you take 
 
 Once you have information, you can give it to your boss or pass it up the chain. You've already acknowledged there's a better way, so you'll be ready with solutions once management acknowledges there's a problem!
 
-![Drive change by measuring and passing that information up the chain](/content/images/2017/08/report.jpg)
+![Drive change by measuring and passing that information up the chain](https://damianbrady.com.au/content/images/2017/08/report.jpg)
 
 ## Summary
 
