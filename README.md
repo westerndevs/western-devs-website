@@ -8,6 +8,7 @@ To get started:
 - clone the repo and navigate to the root folder
 - switch to the `redesign` branch
 - run `npm install`
+- run `npm install -g hexo-cli`
 
 You're ready to start. Launch the site locally with:
 
