@@ -1,6 +1,6 @@
 ---
 title: Windows Subsystem for Linux is Cool. No really, it is.
-date: 2017-09-19 12:35:00 -600
+date: 2017-09-20 12:35:00 -600
 categories: 
     - web
 tags:
@@ -10,6 +10,8 @@ tags:
     - windows subsystem for linux
     - wsl
 excerpt: "With the Fall Creators update of Windows 10, you can go to the Windows Store and install Linux. Yeah, that's a thing now and it's pretty cool."
+authorId: david_wesst
+layout: post
 ---
 
 [1]: https://summit.microsoftedge.com/
