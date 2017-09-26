@@ -103,6 +103,13 @@
   location: Detroit, MI
   topic: "Towards Elastic Scalability"
 
+- date: 2017-09-26
+  event: "Winnipeg .NET User Group"
+  url: http://winnipegdotnet.org/
+  speaker: David Wesst
+  location: Winnipeg, MB
+  topic: "The Web Platform for non-Hipsters"
+
 - date: 2017-10-11
   event: "Prairie Dev Con Presents Deliver"
   url: http://www.prdcdeliver.com/
