@@ -130,3 +130,17 @@
   speaker: Amir Barylko
   location: Winnipeg, MB
   topic: "The Functional Programming Converter project"
+  
+- date: 2017-10-11
+  event: "Canada Technology Triangle .Net User Group"
+  url: https://www.meetup.com/CTTDNUG/events/243731431/
+  speaker: Dylan Smith
+  location: Kitchener, ON
+  topic: "Microsoft's DevOps Transformation Story"
+  
+- date: 2017-10-17
+  event: "Winnipeg DevOps Meetup"
+  url: https://www.meetup.com/DevOps-Winnipeg/
+  speaker: Dylan Smith
+  location: Winnipeg, MB
+  topic: "Microsoft's DevOps Transformation Story"
