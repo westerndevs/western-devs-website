@@ -34,7 +34,7 @@ I dressed all the excess cables into what's known as a "service loop". The loop 
 
 Having a service loop is great, but having a messy one is almost as bad as not having one at all. I bundled up all of the cables in the service loop using [velcro straps](https://www.amazon.ca/gp/product/B001E1Y5O6/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1). Not zip ties, velcro straps. You can easily undo them and move cables as needed. With zip ties I'd have to cut them and add new ones every time. It's also possible to over tighten a zip tie and end up cutting into the cabling...not good. Velcro straps were the right choice based on the amount of times that I had to loosen them to move cables.
 
-<img style="float: right;padding-left:10px" src="https://www.igloocoder.com/images/rack-wiring.jpg"/>
+<img style="float: right;padding-left:10px" src="https://www.igloocoder.com/images/rack-loop.jpg"/>
 
 I probably could have bundled the cables better if I'd used a [cable comb](https://www.amazon.ca/ACOM-PIECE-CONTRACTOR-INSTALLATION-YELLOW/dp/B01BTUI1TQ/ref=sr_1_1?ie=UTF8&qid=1501120387&sr=8-1&keywords=cable+comb), but for the amount of cables that I had I didn't think buying one was worth it.
 
