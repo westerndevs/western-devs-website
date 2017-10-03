@@ -95,3 +95,28 @@ feed:
   itunespath: itunes.xml
   limit: 20
   hub:
+
+# JSON
+## https://github.com/alexbruno/hexo-generator-json-content
+jsonContent:
+  meta: true
+  keywords: false # language name option
+  dateFormat: YYYY-MM-DD HH:mm:ssZZ # format string
+  posts:
+    title: true
+    authorId: true
+    slug: true
+    date: true
+    updated: true
+    comments: true
+    path: true
+    link: true
+    permalink: true
+    excerpt: true
+    keywords: true # but only if root keywords option language was set
+    text: false
+    raw: false
+    content: false
+    categories: true
+    tags: true
+  pages: false
