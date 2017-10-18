@@ -115,7 +115,7 @@ jsonContent:
     excerpt: true
     keywords: true # but only if root keywords option language was set
     text: false
-    raw: false
+    raw: true
     content: false
     categories: true
     tags: true
