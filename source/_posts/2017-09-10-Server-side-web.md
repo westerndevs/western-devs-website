@@ -4,7 +4,7 @@ title: Is there still a place for the server-side web?
 categories: podcasts
 comments: true
 podcast:
-  filename: westerndevs-server-side-web.mp3
+  filename: westerndevs-server-side-rendering.mp3
   length: '31:35'
   filesize: 29604629
   libsynId: 5725116

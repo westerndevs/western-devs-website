@@ -4,7 +4,7 @@ title: Developer Health
 categories: podcasts
 comments: true
 podcast:
-  filename: westerndevs-name.mp3
+  filename: westerndevs-developer-health.mp3
   length: '48:40'
   filesize: 45838670
   libsynId: 5646339

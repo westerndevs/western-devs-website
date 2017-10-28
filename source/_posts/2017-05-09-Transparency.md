@@ -4,7 +4,7 @@ title: Transparency
 categories: podcasts
 comments: true
 podcast:
-  filename: westerndevs-name.mp3
+  filename: westerndevs-transparency.mp3
   length: '42:02'
   filesize: 38458238
   libsynId: 5325631
