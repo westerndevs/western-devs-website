@@ -22,6 +22,7 @@ links:
     - Working from home and walking to work|http://jameschambers.com/2015/03/working-from-home-and-walking-to-work-surviving-remote-work/
     - The Sabbath Manifesto|http://www.sabbathmanifesto.org/
     - Work-life balance on Wikipedia|https://en.wikipedia.org/wiki/Work%E2%80%93life_balance
+    - Must know strategies for achieving work-life balance|https://www.cornerstone.edu/blogs/lifelong-learning-matters/post/must-know-strategies-for-achieving-work-life-balance
 music:
     song:
         title: Doctor Man
