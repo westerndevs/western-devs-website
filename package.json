@@ -6,9 +6,10 @@
     "version": "3.4.4"
   },
   "engines": {
-    "node": ">=6.11.2"
+    "node": ">=8.9.4"
   },
   "dependencies": {
+    "ejs": "^2.5.5",
     "font-awesome-stylus": "^4.4.0",
     "hexo": "^3.4.4",
     "hexo-deployer-git": "0.0.4",
@@ -26,6 +27,7 @@
     "hexo-renderer-stylus": "^0.3.0",
     "hexo-server": "^0.1.3",
     "nib": "1.1.0",
+    "uglify-js": "^2.6.0",
     "yaml-front-matter": "^3.0.1"
   },
   "scripts": {
