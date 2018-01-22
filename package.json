@@ -3,14 +3,14 @@
   "version": "0.0.0",
   "private": true,
   "hexo": {
-    "version": "3.3.7"
+    "version": "3.4.4"
   },
   "engines": {
     "node": ">=6.11.2"
   },
   "dependencies": {
     "font-awesome-stylus": "^4.4.0",
-    "hexo": "^3.3.9",
+    "hexo": "^3.4.4",
     "hexo-deployer-git": "0.0.4",
     "hexo-front-matter-excerpt": "0.2.0",
     "hexo-generator-alias": "^0.1.3",
