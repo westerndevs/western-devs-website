@@ -1,10 +1,9 @@
 language: node_js
 node_js:
-  - 6
+  - 8
 branches:
   only:
-  - redesign
-  - build-update
+  - master
 before_install:
 - npm install -g hexo-cli
 - npm install
