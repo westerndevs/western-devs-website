@@ -4,7 +4,6 @@ node_js:
 branches:
   only:
   - master
-  - ft/build-update
 before_install:
 - npm install -g hexo-cli
 - npm install
