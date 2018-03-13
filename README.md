@@ -4,14 +4,13 @@ The home page for www.westerndevs.com
 
 To get started:
 
-- ensure node is installed
+- ensure node v8+ is installed
 - clone the repo and navigate to the root folder
-- switch to the `redesign` branch
+- switch to the `master` branch
 - run `npm install`
-- run `npm install -g hexo-cli`
 
 You're ready to start. Launch the site locally with:
 
-> hexo server
+> npm run server
 
 Then navigate to `http://localhost:4000`.
