@@ -144,3 +144,73 @@
   speaker: Dylan Smith
   location: Winnipeg, MB
   topic: "Microsoft's DevOps Transformation Story"
+
+- date: 2018-06-05 08:00:00
+  event: "Prairie Dev Con"
+  url: "http://prairiedevcon.com/"
+  speaker: Kyle Baley
+  location: Winnipeg, MB
+  topic: "A Developer's Guide to Product Management"
+
+- date: 2018-06-05 08:00:00
+  event: "Prairie Dev Con"
+  url: "http://prairiedevcon.com/"
+  speaker: James Chambers
+  location: Winnipeg, MB
+  topic: "\"Is this thing on?\" Listening to (and interacting with) your customers when you're not around with natural language processing"
+
+- date: 2018-06-05 08:00:00
+  event: "Prairie Dev Con"
+  url: "http://prairiedevcon.com/"
+  speaker: James Chambers
+  location: Winnipeg, MB
+  topic: "How to steal $8.2 million (and other things you should avoid in the cloud)"
+
+- date: 2018-06-05 08:00:00
+  event: "Prairie Dev Con"
+  url: "http://prairiedevcon.com/"
+  speaker: Lori Lalonde
+  location: Winnipeg, MB
+  topic: "Beyond Lift-and-Shift: Which Cloud Services Should I Choose, and Why?"
+
+- date: 2018-06-05 08:00:00
+  event: "Prairie Dev Con"
+  url: "http://prairiedevcon.com/"
+  speaker: Lori Lalonde
+  location: Winnipeg, MB
+  topic: "Cost Saving Measures in the Cloud"
+
+- date: 2018-06-05 08:00:00
+  event: "Prairie Dev Con"
+  url: "http://prairiedevcon.com/"
+  speaker: David Paquette
+  location: Winnipeg, MB
+  topic: "Advanced Data Access with Dapper"
+
+- date: 2018-06-05 08:00:00
+  event: "Prairie Dev Con"
+  url: "http://prairiedevcon.com/"
+  speaker: David Paquette
+  location: Winnipeg, MB
+  topic: "Blazor - Building a SPA using .NET and Web Assembly"
+
+- date: 2018-06-05 08:00:00
+  event: "Prairie Dev Con"
+  url: "http://prairiedevcon.com/"
+  speaker: Simon Timms
+  location: Winnipeg, MB
+  topic: "How to get more compiler errors, on purpose"
+
+- date: 2018-06-05 08:00:00
+  event: "Prairie Dev Con"
+  url: "http://prairiedevcon.com/"
+  speaker: Simon Timms
+  location: Winnipeg, MB
+  topic: "Ride the River of Data"
+
+- date: 2018-06-05 08:00:00
+  event: "Prairie Dev Con"
+  url: "http://prairiedevcon.com/"
+  speaker: David Wesst
+  location: Winnipeg, MB
+  topic: "Web Extensions for Enterprise Applications: A Project Post-Mortem"
