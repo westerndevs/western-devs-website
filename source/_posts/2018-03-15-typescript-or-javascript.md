@@ -10,7 +10,7 @@ authorId: david_wesst
 date: 2018-03-15 11:40:00
 ---
 
-Which one should you pick: TypeScript or JavaScript? They are both great languages, but there is constantly a questions about when you should use each of these languages. This post puts that to rest.
+Which one should you pick: TypeScript or JavaScript? They are both great languages, people always ask me when you should use one or the other. This post puts that to rest.
 
 <!-- more -->
 
