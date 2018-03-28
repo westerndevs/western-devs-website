@@ -7,7 +7,7 @@ tags:
 categories:
   - Development 
 authorId: simon_timms
-date: 2018-03-26 14:38:30 
+date: 2018-03-28 19:38:30 
 ---
 
 I've been noticing a bit of a trend lately around how some tools suggest you package your builds: they build differently for each environment. This is super-inconvenient if you're trying to progress a package through multiple environments. Just don't package configuration in with your build packages. 
