@@ -23,6 +23,7 @@ deploy:
     secure: aHMbg2z/JGQDdGY4T4Hjow6WwKG5dXutx4V0e11Lw8cEHAwSZ8uy8yLNWFA1+pZhh1m/tq0XEtqNnabq+ICalUQqCj3oX4m4+iiuzfVeI54qQ61LThUpBszgo2xOlDtMA5uQyJD+Xhz4iqZLZ4zHrncxn/UqQRQUEDLi5wYY5pDr0JAG71HtSQHEslPgNWOaR4B9/Ejb0MsWRoDFwS2dqUPtDymdPOvwP13MOOCrv716ln2+zNd2NvzVszHAGpWDyrDxfN6aKVJa8xQbwK0GfwSve1g/Pp8cBlSo3orDncYoKgZXZoJT9/A7IZ4d6Zg296bnkxHCFxB7WOqQoGpZjZEBjmR9cyAeKsWy/1klExtBUxAkzq/G0psh/0BpX6F6kzM4C3kPCc4p9+1k8pJ7my9gMgmIgM1jAfk+mUQmzx8hELVeouMw9rsjLiZsae9rNnClAt7pJ+5+Sf2EAIzF6VPHcODFYvuaQJHN75Xwrp+Emn83wXScn/gdCZKfG7SKoRbz0pY/f4U9SBLYk9Q+Jy45yrm0MnvQRbSiBUSVypGwMkLM6AN2mhNNu7kK++J8OlxKN2PORA8w+Gjyp0HkU6KL/v2hSzJ38wyXnhdSQOmUEsQ96iMZR/5hdFTAXXpANnCPYz1L94psigBYi8uT4RtzEEW7OPNwsjdgDjz4YBo=
   bucket: westerndevs.com
   region: ca-central-1
+  acl: public_read
   skip_cleanup: true
   local-dir: public
   on:
