@@ -12,7 +12,7 @@ authorId: david_wesst
 date: 2018-03-28 13:10:00
 ---
 
-The F12 Chooser is a development tool thing that I like. You should know about if you want your web application or web extension to support Microsoft Edge. 
+The F12 Chooser is a development tool thing that I like and you should know about if you want your web application or web extension to support Microsoft Edge. This is a change.
 
 <!-- more -->
 
