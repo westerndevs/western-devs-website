@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Considerations When Migrating Your Blog | Western Devs</title>
+  <meta name="description" content="I&apos;m talking about small-scale, personal blogs or projects. The word &amp;quot;enterprise&amp;quot; isn&apos;t used once to describe any part of the project, yet there are plenty of things I had to consider (or dec">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Considerations When Migrating Your Blog">
+<meta property="og:url" content="http://www.westerndevs.com/considerations-when-migrating-your-blog/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="I&apos;m talking about small-scale, personal blogs or projects. The word &amp;quot;enterprise&amp;quot; isn&apos;t used once to describe any part of the project, yet there are plenty of things I had to consider (or dec">
+<meta property="og:image" content="http://blog.davidwesst.com/2015/07/Considerations-When-Migrating-Your-Blog/ghost-to-hexo.png">
+<meta property="og:image" content="http://blog.davidwesst.com/2015/07/Considerations-When-Migrating-Your-Blog/host-thoughts.png">
+<meta property="og:updated_time" content="2018-04-12T23:57:35.286Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Considerations When Migrating Your Blog">
+<meta name="twitter:description" content="I&apos;m talking about small-scale, personal blogs or projects. The word &amp;quot;enterprise&amp;quot; isn&apos;t used once to describe any part of the project, yet there are plenty of things I had to consider (or dec">
+<meta name="twitter:image" content="http://blog.davidwesst.com/2015/07/Considerations-When-Migrating-Your-Blog/ghost-to-hexo.png">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed" title="Western Devs" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/css/style.css">
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  </head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">AUG</div>
+    <div class="ListLrgDateDay">1</div>
+    <div class="ListLrgDateYear">2015</div>
+  </div>
+  <h2>Considerations When Migrating Your Blog</h2>
+</div>
+
+		    
+
+<p class="TXTsm">ORIGINALLY POSTED TO: <a href="http://blog.davidwesst.com/2015/07/Considerations-When-Migrating-Your-Blog/" class='originalurl'>http://blog.davidwesst.com/2015/07/Considerations-When-Migrating-Your-Blog/</a></p>
+
+
+
+			<div id="mainPostContent">
+	        <p>I'm talking about small-scale, personal blogs or projects.</p>
+<p>The word &quot;enterprise&quot; isn't used once to describe any part of the project, yet there are plenty of things I had to consider (or decide along the way) before I completed the migration. Eventually, I ended moving my <a href="http://ghost.org" target="_blank" rel="noopener">Ghost</a> blog to a <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a>-based static blog, that is hosted on <a href="https://pages.github.com" target="_blank" rel="noopener">Github Pages</a> under a new subdomain.</p>
+<a id="more"></a>
+<p>Before I actually did any of the work, I answered a handful of questions which helped guide me through the migration and ultimately feel much more comfortable with the result.</p>
+<p>Think of this post as a checklist with a sample reflection on answering each question. Hopefully it helps guide you as it did me.</p>
+<p>The questions I asked were:</p>
+<ol>
+<li><a href="#whatisthepoint">What is the Point of your Blog/Site?</a></li>
+<li><a href="#whydoyouwanttomigrate">Why do you want to Migrate?</a></li>
+<li><a href="#whatdoyouneedfromahost">What do you need from a Host?</a></li>
+<li><a href="#existingreaders">How will your existing readers find your migrated content?</a></li>
+<li><a href="#whatisallthecontent">What is &quot;All the Content&quot;?</a></li>
+</ol>
+<p><img src="http://blog.davidwesst.com/2015/07/Considerations-When-Migrating-Your-Blog/ghost-to-hexo.png" alt=""></p>
+<h2>1. What is the Point of your Blog/Site? <a id="whatisthepoint">#</a></h2>
+<p>This question is something you probably asked yourself when you first setup your blog, site, or whatever. Now that you're considering migrating it to a new technology, you should revisit why it even exists.</p>
+<p>The great part about this is that there isn't a wrong answer, as long as there <em>is an answer</em>.</p>
+<p>When I'm thinking about code, tech, and the what-not, I tend to skip the whole requirements gathering part of the work. Considering most of my career has revolved around defining requirements and designing user experiences to not only capture those requirements, but to enhance a user's ability to engage the system, it's pretty lazy of me to skip it.</p>
+<p>Here's the questions I asked myself before getting into the tech:</p>
+<ul>
+<li>Who is the audience for my blog/site?</li>
+<li>What is the definition of &quot;content&quot;? Blog posts, or is it more than that?</li>
+<li>How do I intend on sharing content?</li>
+<li>Outside of authoring it, what else do I want to do with my content?</li>
+<li>Is there anything else outside of publishing content that I want to do with the blog/site?</li>
+</ul>
+<p>I also asked the following questions, which have less to do with technical requirements and more to do with resource availability (for myself):</p>
+<ul>
+<li>How much time do I have to author content?</li>
+<li>How much time do I have to update application and/or server itself?</li>
+<li>Where do I actually spend time authoring content?</li>
+</ul>
+<h3>Result</h3>
+<p>This was probably the hardest part for me. Because I like tinkering with new technology in my off time, I like spending time on that rather than worrying about requirements and the softer parts of my projects. Ultimately, I answered the questions, which really got me thinking about what my goals were for having a personal website and/or blog.</p>
+<p>The purpose of the blog is to publish thoughts and content from me to my audience, and provide the ability for the audience to comment. My website <em>could</em> be the same thing, but I've always had a vision that it would be more than a blog. Given, I'm not sure what that something is, I want to keep that door open for future ideas and thus I have two applications: a blog and a website.</p>
+<h2>2. Why do you want to Migrate? <a id="whydoyouwanttomigrate">#</a></h2>
+<p>It sounds like an obvious question, but I tend to forget to ask this before any personal project. There really isn't a wrong answer considering that you're your own client, but you <em>should</em> be able answer the question. If not, then you should keep on keepin' on with what you have, and decicate your time something more meaningful.</p>
+<p>In my case, I had a few reasons. I wanted to...</p>
+<ul>
+<li>...save my posts as markdown files to make cross posting easier</li>
+<li>...to not have to maintain or upgrade the engine or server hosting the blog ever again</li>
+<li>...move my blog to the <em>blog</em> subdomain</li>
+<li>...<s>setup</s> fix the permalinks so they contain the date in the URL</li>
+<li>...make my blogging experience more &quot;hackable&quot; to keep me practicing and experimenting with new coding tools</li>
+</ul>
+<p>Your reasons will likely differ. That's fine. It's important to know <em>why</em> you're doing all the work.</p>
+<h3>Result</h3>
+<p>Answering this helped guide me on selecting my blogging technology along with my host provider. More specifically, to let go of <a href="https://github.com/felixrieseberg/Ghost-Azure" target="_blank" rel="noopener">Ghost on Azure</a> and move to <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a> to generate the content and host it for on <a href="https://pages.github.com" target="_blank" rel="noopener">Github Pages</a> to start.</p>
+<h2>3. What do you need from a Host? <a id="whatdoyouneedfromahost">#</a></h2>
+<p><img src="http://blog.davidwesst.com/2015/07/Considerations-When-Migrating-Your-Blog/host-thoughts.png" alt=""></p>
+<p>It ties into the first question, but it's more specific to the features you need from a hosting provider. The features of your host will have an impact on what you can accomplish with your site migration and depending on the technologies you want to use, the host may have some specific ways you need to implement them. For example, if you're considering using something like WordPress, the hosting provider may provide you with a &quot;standard install image&quot; rather than having to setup the application from scratch.</p>
+<p>In my case, I only needed the ability to host static files and to use a custom domain. I wanted an easy way to deploy, ideally so I can automate the whole thing at some point, but that was a secondary consideration.</p>
+<h3>Result</h3>
+<p>I like Windows Azure as a hosting provider as it makes me feel safe and in control of my blog.</p>
+<p>That being said, it was overkill for the amount of traffic I'm getting and how much I'm using it. I don't need things like HTTPS or an online blog editor. I just needed a place to put the generated static files. My host selection was <a href="https://pages.github.com" target="_blank" rel="noopener">Github Page</a> for the blog, and continuing to use a cheap Windows Azure site to handle the redirects.</p>
+<p>If I outgrow my Github Pages site and need something with support and more control, then I'll move it back over to Windows Azure or <a href="http://surge.sh" target="_blank" rel="noopener">Surge</a> which <a href="https://youtu.be/DsLu3K65J5w?list=PLbTA1UhK0wKjBJyqzA3aDrxcv9NdD1V8c" target="_blank" rel="noopener">I talked about a while ago on YouTube</a>.</p>
+<h2>4. How will your existing readers find your migrated content? <a id="existingreaders">#</a></h2>
+<p>If you've worked on production web sites or applications, this is something you've likely asked your client. Being my own client, in this case, I have skipped this step a few times. Why? Well, I tell myself that my blog traffic is pretty small, so it's too much work for such a small group of users, or something along those lines.</p>
+<p>This time I realized that not only is that a total cop-out, but it's an ass thing to do to your audience. If people are willing to read, share, or talk about any of your blog content, appreciate them and make sure that if or when they decide to share your content again, your laziness doesn't make them lose street cred because they link they bookmarked on your blog no longer works.</p>
+<h3>Result</h3>
+<p>My blog was hosted at <a href="http://davidwesst.com" target="_blank" rel="noopener">http://davidwesst.com</a> on Windows Azure. This meant I needed to find a way to redirect people to the appropriate post on the new <a href="http://blog.davidwesst.com" target="_blank" rel="noopener">blog.davidwesst.com</a>. After taking stock of all of my blog content, I setup new NodeJS application with a web.config file on Windows Azure that contains all the mappings.</p>
+<p>You can find the file here on my <a href="https://github.com/davidwesst/dw-website/blob/master/web.config" target="_blank" rel="noopener">GitHub Project</a>, and a <a href="http://www.iis.net/learn/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module" target="_blank" rel="noopener">tutorial URL Redirects and Rewrites on IIS.net</a>.</p>
+<h2>5. What is &quot;All the Content&quot;? <a id="whatisallthecontent">#</a></h2>
+<p>Again, sounds like an obvious question, but it can be deceptive.</p>
+<p>A web site, even a personal one, is a bunch of hosted content. Pages, media, and the links between them. If you're using a content management system (CMS) to host your blog, then it has been taking care of all the logistics of linking your pages to your media files. Not only to do you need to figure out where those media files are so you can move them to your new application, you need to figure out how to possibly update references to those images.</p>
+<p>Nothing overly complicated, but depending on how much time you have to spend on migrating and verifying your content, it can get overwhelming very quickly, especially if you have years of content saved up.</p>
+<h3>Result</h3>
+<p>I did a bunch of reseach on tooling that could help make this possible. Being that Ghost is a pretty new blog engine, the migration features are still a bit raw. Hexo, on the otherhand, has plenty of tools and have some pretty flexible <a href="https://hexo.io/docs/migration.html" target="_blank" rel="noopener">migration options</a>. Again, since Ghost is so new, nobody has written a migrator for it yet, although I doubt it would be very difficult.</p>
+<p>Even then, because of my time limitations, I took the more manual route root and used the <a href="https://hexo.io/docs/migration.html#RSS" target="_blank" rel="noopener">rss-migrator</a> along with the <a href="https://github.com/akfish/hexo-migrator-image" target="_blank" rel="noopener">image-migrator</a> to get the content moved into Hexo. Then I updated the URLs with some regular expression magic in <a href="https://code.visualstudio.com" target="_blank" rel="noopener">Visual Studio Code</a>.</p>
+<p>I cheaped out on coding and just manually tested each post, but it worked with my schedule of just getting random late night hours at home to ensure the content moved properly.</p>
+<h1>The Point</h1>
+<p>Whether you call the project <em>small</em>, <em>personal</em>, or <em>internal</em>, it takes some actual thought to make sure you do it right.</p>
+<p>With smaller projects, whether they are for yourself or for your company, it's easy to take shortcuts. The challenge is that for every shortcut you take, you end up living with it in the long run. In my case, I would constantly ignore the permalink redirection, which means I'm resetting my audience every single time.</p>
+<p>On top of that, I wanted my blog to possibly be a portfolio piece for myself. If I take shortcuts and end up ashamed of the quality of work, I'm losing some of the value of my labour.</p>
+<p>Time is valuable, and I hope that this list reminds me and others, that if you're going to take the time to make something better, put your back into it.</p>
+<p>You can see the result of my planning by looking at the two Github repositories, one for the <a href="https://github.com/davidwesst/dw-blog" target="_blank" rel="noopener">blog</a> and one for the <a href="https://github.com/davidwesst/dw-website" target="_blank" rel="noopener">web site</a> that doesn't do anything other than redirect people to the blog.</p>
+<p>--
+Thanks for playing. ~ DW</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/david_wesst">
+				
+					<img src='/images/avatars/davidwesst_400x400.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/david_wesst">David Wesst</a></h2>
+			
+			<a href="mailto:questions@davidwesst.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://www.davidwesst.com" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/davidwesst" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/davidwesst" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			<a href="https://www.linkedin.com/in/davidwesst" target="_blank"><img class="ProfileIcon" src="/images/icon_linkedin.png" border="0" alt="LinkedIN" title="LinkedIN"> LinkedIn</a><br>
+			
+			
+ 			<a href="/feeds/david_wesst"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'http://www.westerndevs.com/considerations-when-migrating-your-blog/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'david_wesst');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>GitHub Authentication with ASP.NET Core | Western Devs</title>
+  <meta name="description" content="Authentication has changed over the years, and my take on it has surely shifted. No longer is it the scary, intimidating beastie that must be overcome on our projects. Today, we can let external provi">
+<meta name="keywords" content="Visual Studio 2015,Authentication">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GitHub Authentication with ASP.NET Core">
+<meta property="og:url" content="http://www.westerndevs.com/Development/github-authentication-asp-net-core/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="Authentication has changed over the years, and my take on it has surely shifted. No longer is it the scary, intimidating beastie that must be overcome on our projects. Today, we can let external provi">
+<meta property="og:image" content="https://jcblogimages.blob.core.windows.net/img/2016/04/github-auth.png">
+<meta property="og:image" content="https://jcblogimages.blob.core.windows.net:443/img/2016/04/github-app.png">
+<meta property="og:updated_time" content="2018-04-12T23:57:35.286Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GitHub Authentication with ASP.NET Core">
+<meta name="twitter:description" content="Authentication has changed over the years, and my take on it has surely shifted. No longer is it the scary, intimidating beastie that must be overcome on our projects. Today, we can let external provi">
+<meta name="twitter:image" content="https://jcblogimages.blob.core.windows.net/img/2016/04/github-auth.png">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed" title="Western Devs" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/css/style.css">
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  </head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">APR</div>
+    <div class="ListLrgDateDay">26</div>
+    <div class="ListLrgDateYear">2016</div>
+  </div>
+  <h2>GitHub Authentication with ASP.NET Core</h2>
+</div>
+
+		    
+
+<p class="TXTsm">ORIGINALLY POSTED TO: <a href="http://jameschambers.com/2016/04/github-authentication-asp-net-core/" class='originalurl'>http://jameschambers.com/2016/04/github-authentication-asp-net-core/</a></p>
+
+
+
+			<div id="mainPostContent">
+	        <p>Authentication has changed over the years, and my take on it has surely shifted. No longer is it the scary, intimidating beastie that must be overcome on our projects. Today, we can let external providers provide the authentication mechanisms, giving the user with a streamlined experience that can give them access to our application with previuosly defined credentials.</p>
+<p><img src="https://jcblogimages.blob.core.windows.net/img/2016/04/github-auth.png" alt="GitHub Authentication in ASP.NET Core"></p>
+<p>Let's have a look at what it takes to allow users to authenticate in our application using GitHub as the login source, and you can check out the Monsters video take of this on <a href="https://channel9.msdn.com/Series/aspnetmonsters/Episode-26-GitHub-Authentication-in-ASPNET-Core" target="_blank" rel="noopener">Channel 9</a>.</p>
+<a id="more"></a>
+<h2>Background and Overview</h2>
+<p>OAuth has been known as a complicated spec to adhere to, and this is further perpetuated by the fact that while much of the mechanics are the same among authentication providers, the implementation of how one retrieves information about the logged in user is different from source-to-source.</p>
+<p>The security repo for ASP.NET gives us some pretty good options for the big, wider market plays like Facebook and Twitter, but there is aren't - nor can or should there be - packages for every provider. GitHub is appealing as a source when we target other developers, and while it lacks a package of its own, we can leverage the raw OAuth provider and implement the user profile loading details on our own.</p>
+<p>In short, the steps are as follows:</p>
+<ol>
+<li>Install the <code>Microsoft.AspNet.Authentication.OAuth</code> package</li>
+<li>Register you application in GitHub</li>
+<li>Configurate the OAuth parameters in your application</li>
+<li>Enable the OAuth middleware</li>
+<li>Retrieve the claims for the user</li>
+</ol>
+<p>Okay, now let's dive into the nitty gritty of it.</p>
+<h2>Install the Package</h2>
+<p>First step is a gimme.  Just head into your <code>project.json</code> and add the package to the list of dependencies in your application.</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"<span class="selector-tag">Microsoft</span><span class="selector-class">.AspNet</span><span class="selector-class">.Authentication</span><span class="selector-class">.OAuth</span>": "1<span class="selector-class">.0</span><span class="selector-class">.0-rc1-final</span>",</span><br></pre></td></tr></table></figure>
+<p>You can see here that I am on RC1, so assume there may still be some changes to the naming and, obviously, the version of the package you'll want to use.</p>
+<h2>Create the App in GitHub</h2>
+<p>Pull down the user account menu from your avatar in the top-right corner of GitHub, then select Settings. Next, go to the OAuth Applications section and create a new application. This is pretty straightforward, but it's worth pointing out a few things.</p>
+<p><img src="https://jcblogimages.blob.core.windows.net:443/img/2016/04/github-app.png" alt="Creating an OAuth app in GitHub"></p>
+<p>First, you'll need to note your client ID and secret, or minimally, you'll want to leave the browser window open.</p>
+<p>Second you'll see that I have a authorization callback setup in the app as follows:</p>
+<p><code>https://localhost:44363/signin-github</code></p>
+<p>This is important for two reasons:</p>
+<ol>
+<li>This will only work locally on your machine</li>
+<li>The <code>signin-github</code> bit will need to be configured in our middleware</li>
+</ol>
+<p>If you want better control over how that is configured in your application, you can incorporate the appropriate settings into your configuration files, but you'll also need to update your GitHub app. This process is still relevant - you'll likely want something to test with locallying without having to deploy to test your application.</p>
+<h2>Configure Your Client ID and Secret</h2>
+<p>For production applications you'll be fine to set environment variables or configure application settings in Azure (which are loaded as env vars), but locally you'll want access to the config as well. You can setup <a href="https://channel9.msdn.com/Series/aspnetmonsters/Episode-23-Working-With-Sensitive-Data-User-Secrets" target="_blank" rel="noopener">user secrets via the command line</a>, or you can just right-click on your project in Visual Studio 2015 and select &quot;Manage User Secrets&quot;. From there, you set it up like so:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"GitHub:ClientId"</span>: <span class="string">"your_id"</span>,</span><br><span class="line">  <span class="attr">"GitHub:ClientSecret"</span>: <span class="string">"your_secret"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2>Enable OAuth Middleware</h2>
+<p>In the above code we also wired up some code to fire during the <code>OnCreatingTicket</code> event, so let's implement that next.  To do this, we'll add the middleare to the <code>Configure</code> method in our startup class, and add a property to the class to expose our desired settings.</p>
+<p>The middleware call is like so:
+<code>app.UseOAuthAuthentication(GitHubOptions);</code></p>
+<p>And we create the property as such:</p>
+<script src="https://gist.github.com/MisterJames/746331337329ca50556cbff19a0ba176.js"></script>
+<p>Remember that callback path that we setup on GitHub, you'll see it again in our settings above. You'll also note that we're retrieving our client ID and secret from our configuration, and that we're setting up a handler when the auth ticket is created so that we can go fetch additional details about the authenticating party.</p>
+<h2>Retrieve the User's Claims</h2>
+<p>We'll have to call back out to GitHub to get the user's details, they don't come back with the base calls for authentication. This is the part that is different for each provider, and thus you'll need to write this part for yourself if you wish to use an alternate source for authentication.</p>
+<p>We will add two parts to this; the first will call out to get the information about the user, the second will parse the result to extract the claims. Both of these can live in your <code>startup.cs</code> class.</p>
+<script src="https://gist.github.com/MisterJames/6a2ee9918afa9019aa3c1891f216102a.js"></script>
+<script src="https://gist.github.com/MisterJames/c818ad44950d1c7312e2d36b93041407.js"></script>
+<p>Unfortunately the base implementation of the OAuth provider does not support allowing us to request additional fields for the user; I'll take a look at that in a future post. All you're going to get are the basics with the above - so none of the account details beyond the email addres, nor ability to work with their repos/issues/PRs.</p>
+<h2>Next Steps</h2>
+<p>There you have it. All the chops you need to start exercising your OAuth muscle, and a basic implementation that you can leverage as a starting point. Trying this out will take you about 15 minutes, start to finish, provided you already have a GitHub account.</p>
+<ol>
+<li><a href="https://get.asp.net/" target="_blank" rel="noopener">Get the latest VS 2015 and ASP.NET Core bits</a></li>
+<li><a href="https://github.com/aspnet/security" target="_blank" rel="noopener">Explore the ASP.NET security repo on GitHub</a></li>
+<li>Run through the samples above.</li>
+</ol>
+<p>Finally, check out the Monsters' video on Channel 9 where I code this live.</p>
+<iframe src="https://channel9.msdn.com/Series/aspnetmonsters/Episode-26-GitHub-Authentication-in-ASPNET-Core/player" width="640" height="360" allowfullscreen frameborder="0"></iframe>
+<p>Happy Coding!</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/james_chambers">
+				
+					<img src='https://www.gravatar.com/avatar/1ac8c631c34a86ddcfb6ae67f6a7a551?s=200' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/james_chambers">James Chambers</a></h2>
+			
+			<a href="mailto:james@jameschambers.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://jameschambers.com/" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/canadianjames" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/MisterJames" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			<a href="https://www.linkedin.com/in/canadianjames" target="_blank"><img class="ProfileIcon" src="/images/icon_linkedin.png" border="0" alt="LinkedIN" title="LinkedIN"> LinkedIn</a><br>
+			
+			
+ 			<a href="/feeds/james_chambers"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'http://www.westerndevs.com/Development/github-authentication-asp-net-core/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'james_chambers');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

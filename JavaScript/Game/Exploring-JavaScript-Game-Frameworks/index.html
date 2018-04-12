@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Exploring JavaScript Game Frameworks | Western Devs</title>
+  <meta name="description" content="David reviews a handful of JavaScript-based game frameworks he went through before selecting one for his new game.">
+<meta name="keywords" content="JavaScript,Game Development">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Exploring JavaScript Game Frameworks">
+<meta property="og:url" content="http://www.westerndevs.com/JavaScript/Game/Exploring-JavaScript-Game-Frameworks/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="David reviews a handful of JavaScript-based game frameworks he went through before selecting one for his new game.">
+<meta property="og:image" content="http://blog.davidwesst.com/2016/02/Exploring-JavaScript-Game-Frameworks/phaser.png">
+<meta property="og:image" content="http://blog.davidwesst.com/2016/02/Exploring-JavaScript-Game-Frameworks/superpowers.png">
+<meta property="og:image" content="http://blog.davidwesst.com/2016/02/Exploring-JavaScript-Game-Frameworks/playcanvas.png">
+<meta property="og:image" content="http://blog.davidwesst.com/2016/02/Exploring-JavaScript-Game-Frameworks/haxe.png">
+<meta property="og:updated_time" content="2018-04-12T23:57:35.274Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Exploring JavaScript Game Frameworks">
+<meta name="twitter:description" content="David reviews a handful of JavaScript-based game frameworks he went through before selecting one for his new game.">
+<meta name="twitter:image" content="http://blog.davidwesst.com/2016/02/Exploring-JavaScript-Game-Frameworks/phaser.png">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed" title="Western Devs" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/css/style.css">
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  </head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">FEB</div>
+    <div class="ListLrgDateDay">8</div>
+    <div class="ListLrgDateYear">2016</div>
+  </div>
+  <h2>Exploring JavaScript Game Frameworks</h2>
+</div>
+
+		    
+
+<p class="TXTsm">ORIGINALLY POSTED TO: <a href="http://www.webnotwar.ca/opensource/exploring-javascript-game-frameworks" class='originalurl'>http://www.webnotwar.ca/opensource/exploring-javascript-game-frameworks</a></p>
+
+
+
+			<div id="mainPostContent">
+	        <p>Last month I explored a number of JavaScript-based game frameworks in an attempt to pick the perfect one for my first game.</p>
+<p>I thought I'd take a moment to share four of them that really stood out to me, along with a few honerable mentions.</p>
+<p><strong>Note</strong> that I've left a bunch off the list, as that is the nature of a &quot;top X&quot; list. If I missed your favourite one, then feel free to let me know in the comments!</p>
+<h3>Phaser</h3>
+<p><img src="http://blog.davidwesst.com/2016/02/Exploring-JavaScript-Game-Frameworks/phaser.png" alt=""></p>
+<p>I'll start with the one I picked for my game. <a href="http://phaser.io/" target="_blank" rel="noopener">Phaser</a>, developed by Richard Davey (a.k.a. <a href="https://twitter.com/photonstorm" target="_blank" rel="noopener">@PhotonStorm</a>) is an open source JavaScript game framework for desktop and mobile games.</p>
+<p>After going through <a href="http://www.gamefromscratch.com/page/Adventures-in-Phaser-with-TypeScript-tutorial-series.aspx" target="_blank" rel="noopener">the Phaser tutorial from GameFromScratch.com</a>, here's what I liked about it:</p>
+<ul>
+<li>It's just a framework, plain and simple. No special IDE or engines needed, just code.</li>
+<li>It's <a href="https://github.com/photonstorm/phaser" target="_blank" rel="noopener">open source</a> and widely used, and has a strong community surrounding it</li>
+<li>It's stable, mature, and actively developed for a JavaScript framework. Currently at vervsion 2.4.4 at the time of writing, with <a href="http://phaser.io/labs" target="_blank" rel="noopener">v3 in the works</a>.</li>
+</ul>
+<p>What really drew me towards Phaser was it's well documented API, and the numerous tutorials and examples from the community. Even though I'm just starting out, every feature that I've looked to implement appears to have been at least partially implemented and documented in a tutorial, making the learning curve much less steep than it could have been.</p>
+<p>You can check it out on <a href="https://github.com/photonstorm/phaser" target="_blank" rel="noopener">GitHub</a>.</p>
+<h3>Superpowers</h3>
+<p><img src="http://blog.davidwesst.com/2016/02/Exploring-JavaScript-Game-Frameworks/superpowers.png" alt=""></p>
+<p>I think <a href="http://superpowers-html5.com/index.en.html" target="_blank" rel="noopener">Superpowers</a> one has a lot of potential. Seeing the <a href="http://sparklinlabs.itch.io/discover-superpowers" target="_blank" rel="noopener">game demo</a> they made really gave me all the proof I needed believe in what they're doing over there at Sparklin Labs.</p>
+<p>Here's the highlights that stood out to me:</p>
+<ul>
+<li>Totally <a href="https://github.com/superpowers/superpowers" target="_blank" rel="noopener">open source</a>, as in the engine and the tooling</li>
+<li>Toolset is a browser-based IDE for game development</li>
+<li>Powered by <a href="http://www.typescriptlang.org/" target="_blank" rel="noopener">TypeScript</a>, giving you the power of JavaScript with some extras</li>
+</ul>
+<p>The only drawback I found was that it was really new when I was shopping for a game framework, which means that it's more on the bleeding edge than the cutting edge IMHO. Still, this is one I'll be watching.</p>
+<p>If you're interested in learning how to leverage Superpowers, I suggest checking out their <a href="http://docs.superpowers-html5.com/en/getting-started/about-superpowers" target="_blank" rel="noopener">documentation site</a> or this <a href="http://www.gamefromscratch.com/post/2016/02/01/Superpowers-Tutorial-Series-Part-One-Getting-Started.aspx" target="_blank" rel="noopener">GameFromScratch.com tutorial series</a>.</p>
+<h3>PlayCanvas</h3>
+<p><img src="http://blog.davidwesst.com/2016/02/Exploring-JavaScript-Game-Frameworks/playcanvas.png" alt=""></p>
+<p>I discovered <a href="https://playcanvas.com/" target="_blank" rel="noopener">PlayCanvas</a> when I bought a Humble Bundle focused around game development tools. PlayCanvas seems to be cut from the same cloth as SuperPowers, but is a bit more mature considering it's been around longer. It focuses more on 3D content, although I'm sure you could do 2D content just fine.</p>
+<p>Here's what made PlayCanvas interesting to me:</p>
+<ul>
+<li>Engine is <a href="https://github.com/playcanvas/engine" target="_blank" rel="noopener">open source</a>, but tooling is not</li>
+<li>Tooling runs in-browser, making it accessible to any development platform</li>
+<li>Tooling was very easy to use, and I was able to start for free</li>
+</ul>
+<p>PlayCanvas really reminded me the <a href="https://unity3d.com/" target="_blank" rel="noopener">Unity3D</a> toolset, which is widely used in the industry. Given, the value is really in the tooling, which isn't open source. Still, it might be worth checking out if you are looking for a toolset to go with your game engine.</p>
+<p>Here's another <a href="http://www.gamefromscratch.com/post/2015/04/19/A-Closer-Look-at-the-PlayCanvas-Game-Engine.aspx" target="_blank" rel="noopener">GameFromScratch tutorial</a> that helped me get things moving.</p>
+<h3>Haxe</h3>
+<p><img src="http://blog.davidwesst.com/2016/02/Exploring-JavaScript-Game-Frameworks/haxe.png" alt=""></p>
+<p>Okay, so <a href="http://haxe.org/" target="_blank" rel="noopener">Haxe</a> really isn't JavaScript, but it's very similar to it and supports web development, so I'm including it. Plus, it really did stand out as a viable option to me when picking my game for a few reasons:</p>
+<ul>
+<li>It's a language/toolkit that focuses on game / rich UI development</li>
+<li>Very mature and has plenty of support around it for whatever games you'd like to develop</li>
+<li>Is the cornerstone of the <a href="http://haxe.org/foundation/" target="_blank" rel="noopener">Haxe Foundation</a></li>
+<li>When targetting JavaScript, you can leverage other JavaScript libraries</li>
+</ul>
+<p>Haxe is something that I keep coming across in my adventures with game development, and one day I'll head back and learn more about it. Just need to find the right project, and feel a bit more comfortable with game development.</p>
+<p>You can checkout the <a href="https://github.com/HaxeFoundation/haxe" target="_blank" rel="noopener">source code here</a> but I'd suggest exploring <a href="http://haxe.org/" target="_blank" rel="noopener">the website</a> for more information.</p>
+<h2>Honorable Mentions</h2>
+<p>To close things out, I wanted to highlight a few other frameworks and toolsets that I thought were pretty cool but wasn't what I was looking for with my project.</p>
+<ul>
+<li><a href="http://babylonjs.com/" target="_blank" rel="noopener">BabylonJS</a></li>
+<li><a href="http://threejs.org/" target="_blank" rel="noopener">ThreeJS</a></li>
+<li><a href="http://www.pixijs.com/" target="_blank" rel="noopener">PixiJS</a></li>
+</ul>
+<p>If I missed your favourite (which I'm sure I did) you should drop it in the comment section and share your favourite library and/or toolset. Extra points for open source repository links on the libraries.</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/david_wesst">
+				
+					<img src='/images/avatars/davidwesst_400x400.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/david_wesst">David Wesst</a></h2>
+			
+			<a href="mailto:questions@davidwesst.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://www.davidwesst.com" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/davidwesst" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/davidwesst" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			<a href="https://www.linkedin.com/in/davidwesst" target="_blank"><img class="ProfileIcon" src="/images/icon_linkedin.png" border="0" alt="LinkedIN" title="LinkedIN"> LinkedIn</a><br>
+			
+			
+ 			<a href="/feeds/david_wesst"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'http://www.westerndevs.com/JavaScript/Game/Exploring-JavaScript-Game-Frameworks/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'david_wesst');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

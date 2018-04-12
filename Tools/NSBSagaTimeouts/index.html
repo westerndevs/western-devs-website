@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>End to end testing for your saga | Western Devs</title>
+  <meta name="description" content="Looking to do end to end testing of your saga? I strugged.">
+<meta name="keywords" content="NserviceBus">
+<meta property="og:type" content="article">
+<meta property="og:title" content="End to end testing for your saga">
+<meta property="og:url" content="http://www.westerndevs.com/Tools/NSBSagaTimeouts/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="Looking to do end to end testing of your saga? I strugged.">
+<meta property="og:updated_time" content="2018-04-12T23:57:35.274Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="End to end testing for your saga">
+<meta name="twitter:description" content="Looking to do end to end testing of your saga? I strugged.">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed" title="Western Devs" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/css/style.css">
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  </head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">JUL</div>
+    <div class="ListLrgDateDay">15</div>
+    <div class="ListLrgDateYear">2016</div>
+  </div>
+  <h2>End to end testing for your saga</h2>
+</div>
+
+		    
+
+			<div id="mainPostContent">
+	        <p><strong>Disclaimer</strong></p>
+<p>In this article I'm going to use the term &quot;saga&quot; because that's what NServiceBus calls it. Don't take this as acceptance of this definition of &quot;saga&quot; in general. What NServiceBus call &quot;saga&quot; would be better called a &quot;workflow&quot; or &quot;process manager&quot;. Kellabyte has a <a href="http://kellabyte.com/tag/saga/" target="_blank" rel="noopener">great article</a> on it.</p>
+<p>I've recently been playing with sagas in NServiceBus. A saga is a tool for coordinating a number of messages across time. Generally there will be one or messages which start a saga and then the saga will listen for new messages to wake up and perform action. A saga is stateful which means that you can put all sorts of useful information in the saga data to allow making decisions later on. A very useful feature of sagas is that you can set a timeout to be fired at some point in the future. So for example you could start a shopping cart saga and schedule a timeout 24 hours in the future. When that timeout is reached the saga is woken up again and you could send a reminder e-mail to the owner of cart to check out. There are countless business processes which have some requirement to do something in the future even if that something is checking to make sure that some action has occured and compensating if not.</p>
+<p>As you can imagine when testing a saga in an end to end test you don't really want to wait 24 hours for something to timeout. The usual advice around this is to make the timeout configurable in some fashion and just set it to a low value. This is difficult to do in an end to end test and still have confidence that you're not hiding some broken functionality. This is why we don't like to have special constructors just for unit testing. In my case I'm using SQL persistance to save timeout information to a database. This means that the database can be hacked to allow the manual execution of timeouts. Let's do it.</p>
+<p>The <code>TimeoutEntity</code> table is the one we want to alter. It contains a column called <code>Time</code> which is the time at which the timeout will occur. In my case I knew an Id from the saga so I joined against the specific saga data table to find the approprate timeout to update. I only schedule one timeout at a time with this saga so I don't have to worry about finding a timeout in a multitude of them for that saga.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> te</span><br><span class="line"><span class="keyword">set</span> <span class="keyword">Time</span>=<span class="keyword">GETUTCDATE</span>()</span><br><span class="line"><span class="keyword">from</span> nservicebus.dbo.TimeoutEntity te <span class="keyword">inner</span> <span class="keyword">join</span> </span><br><span class="line">        nservicebus.dbo.SockFinderSagaData sfsd <span class="keyword">on</span> te.SagaId = sfsd.Id</span><br><span class="line"><span class="keyword">where</span> SockId=@sockId</span><br></pre></td></tr></table></figure>
+<p>You'll note here that I set the time to the current time. It is important that you don't set the date to some time in the past. I initially did that and found timeouts weren't firing. The reason is that the query NServiceBus uses to find the timeout looks for timeout entries since the last polling event to now. This query would miss things scheduled way in the past. Here are the queries the NHibernate persistence uses</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2016</span><span class="number">-07</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">17</span>:<span class="number">29</span>,<span class="number">197</span> DEBUG [<span class="number">15</span>][NT AUTHORITY\SYSTEM] SELECT this_.Id <span class="keyword">as</span> y0_, this_.Time <span class="keyword">as</span> y1_ FROM TimeoutEntity this_ WHERE this_.Endpoint = <span class="meta">@p</span>0 and (this_.Time &gt;= <span class="meta">@p</span>1 and this_.Time &lt;= <span class="meta">@p</span>2) ORDER BY this_.Time asc;<span class="meta">@p</span>0 = <span class="string">'AdverseActions'</span> [<span class="built_in">Type</span>: <span class="built_in">String</span> (<span class="number">4000</span>)], <span class="meta">@p</span>1 = <span class="number">7</span>/<span class="number">15</span>/<span class="number">2016</span> <span class="number">3</span>:<span class="number">47</span>:<span class="number">42</span> PM [<span class="built_in">Type</span>: <span class="built_in">DateTime</span> (<span class="number">0</span>)], <span class="meta">@p</span>2 = <span class="number">7</span>/<span class="number">15</span>/<span class="number">2016</span> <span class="number">4</span>:<span class="number">17</span>:<span class="number">29</span> PM [<span class="built_in">Type</span>: <span class="built_in">DateTime</span> (<span class="number">0</span>)]</span><br><span class="line"><span class="number">2016</span><span class="number">-07</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">17</span>:<span class="number">29</span>,<span class="number">197</span> DEBUG [<span class="number">15</span>][NT AUTHORITY\SYSTEM] SELECT this_.Id <span class="keyword">as</span> Id6_0_, this_.Destination <span class="keyword">as</span> Destinat2_6_0_, this_.SagaId <span class="keyword">as</span> SagaId6_0_, this_.State <span class="keyword">as</span> State6_0_, this_.Time <span class="keyword">as</span> Time6_0_, this_.Headers <span class="keyword">as</span> Headers6_0_, this_.Endpoint <span class="keyword">as</span> Endpoint6_0_ FROM TimeoutEntity this_ WHERE this_.Endpoint = <span class="meta">@p</span>0 and this_.Time &gt; <span class="meta">@p</span>1 ORDER BY this_.Time asc OFFSET <span class="number">0</span> ROWS FETCH FIRST <span class="meta">@p</span>2 ROWS ONLY;<span class="meta">@p</span>0 = <span class="string">'AdverseActions'</span> [<span class="built_in">Type</span>: <span class="built_in">String</span> (<span class="number">4000</span>)], <span class="meta">@p</span>1 = <span class="number">7</span>/<span class="number">15</span>/<span class="number">2016</span> <span class="number">4</span>:<span class="number">17</span>:<span class="number">29</span> PM [<span class="built_in">Type</span>: <span class="built_in">DateTime</span> (<span class="number">0</span>)], <span class="meta">@p</span>2 = <span class="number">1</span> [<span class="built_in">Type</span>: Int32 (<span class="number">0</span>)]</span><br></pre></td></tr></table></figure>
+<p>Polling of the timeout table happens at least once per minute. So this still means that your tests need to wait 60 seconds from hacking the table to checking the result of the timeout. This is still a bit painful but these are integraiton tests and likely you're running a bunch in parallel so the hit isn't horrific. With this code in place I was able to reliably simulate the state of the saga in the future. I'm like a time traveler and you can be too.</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/simon_timms">
+				
+					<img src='/images/avatars/simon.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/simon_timms">Simon Timms</a></h2>
+			
+			<a href="mailto:stimms@gmail.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://blog.simontimms.com/" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/stimms" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/stimms" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			
+ 			<a href="/feeds/simon_timms"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'http://www.westerndevs.com/Tools/NSBSagaTimeouts/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'simon_timms');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

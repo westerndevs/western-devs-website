@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Loading Related Entities with Dapper Many-to-One - Part 2 | Western Devs</title>
+  <meta name="description" content="This is a part of a series of blog posts on data access with Dapper. In today&apos;s post, we look at a second option for loading Many-to-One related entities.">
+<meta name="keywords" content=".NET Core,Dapper,.NET,Micro ORM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Loading Related Entities with Dapper Many-to-One - Part 2">
+<meta property="og:url" content="http://www.westerndevs.com/Dapper/loading-related-entities-many-to-one-part-2/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="This is a part of a series of blog posts on data access with Dapper. In today&apos;s post, we look at a second option for loading Many-to-One related entities.">
+<meta property="og:image" content="https://www.davepaquette.com/images/dapper/flight_to_airport_many_to_one.png">
+<meta property="og:updated_time" content="2018-04-12T23:57:35.282Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Loading Related Entities with Dapper Many-to-One - Part 2">
+<meta name="twitter:description" content="This is a part of a series of blog posts on data access with Dapper. In today&apos;s post, we look at a second option for loading Many-to-One related entities.">
+<meta name="twitter:image" content="https://www.davepaquette.com/images/dapper/flight_to_airport_many_to_one.png">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed" title="Western Devs" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/css/style.css">
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  </head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">APR</div>
+    <div class="ListLrgDateDay">10</div>
+    <div class="ListLrgDateYear">2018</div>
+  </div>
+  <h2>Loading Related Entities with Dapper Many-to-One - Part 2</h2>
+</div>
+
+		    
+
+<p class="TXTsm">ORIGINALLY POSTED TO: <a href="https://www.davepaquette.com/archive/2018/04/10/loading-related-entities-many-to-one-part-2.aspx" class='originalurl'>https://www.davepaquette.com/archive/2018/04/10/loading-related-entities-many-to-one-part-2.aspx</a></p>
+
+
+
+			<div id="mainPostContent">
+	        <p>This is a part of a series of blog posts on data access with Dapper. To see the full list of posts, visit the <a href="https://www.davepaquette.com/archive/2018/01/21/exploring-dapper-series.aspx" target="_blank" rel="noopener">Dapper Series Index Page</a>.</p>
+<p>In today's post, we look at another option for how to load Many-to-One relationships. In the last post, we used a technique called Multi-Mapping to load related Many-to-One entities. In that post, I had a theory that maybe this approach was not the most efficient method for loading related entities because it duplicated a lot of data.</p>
+<p><img src="https://www.davepaquette.com/images/dapper/flight_to_airport_many_to_one.png" alt="Many-to-One"></p>
+<p>To recap, we would like to load a list of <code>ScheduledFlight</code> entities. A <code>ScheduleFlight</code> has a departure <code>Airport</code> and an arrival <code>Airport</code>.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ScheduledFlight</span> </span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> Id &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> FlightNumber &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Airport DepartureAirport &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> DepartureHour &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> DepartureMinute &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Airport ArrivalAirport &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;        </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> ArrivalHour &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> ArrivalMinute &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line"></span><br><span class="line">   <span class="comment">//Other properties omitted for brevity </span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Airport</span> </span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> Id &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> Code &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> City &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> ProvinceState &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> Country &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 
+<h2>Using Multiple Result Sets</h2>
+<p>In the previous post, we loaded the <code>ScheduledFlight</code> entities and all related <code>Airport</code> entities in a single query. In this example we will use 2 separate queries: One for the <code>ScheduledFlight</code> entities, one for the related arrival and departure <code>Airport</code> entities. These 2 queries will all be executed as a single sql command that returns multiple result sets.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> s.Id, s.FlightNumber, s.DepartureHour, s.DepartureMinute, s.ArrivalHour, s.ArrivalMinute, s.IsSundayFlight, s.IsMondayFlight, s.IsTuesdayFlight, s.IsWednesdayFlight, s.IsThursdayFlight, s.IsFridayFlight, s.IsSaturdayFlight,</span><br><span class="line">s.DepartureAirportId, s.ArrivalAirportId</span><br><span class="line"><span class="keyword">FROM</span> ScheduledFlight s</span><br><span class="line">	<span class="keyword">INNER</span> <span class="keyword">JOIN</span> Airport a1</span><br><span class="line">		<span class="keyword">ON</span> s.DepartureAirportId = a1.Id</span><br><span class="line">    <span class="keyword">WHERE</span> a1.Code = @FromCode</span><br><span class="line">    </span><br><span class="line"><span class="keyword">SELECT</span> a1.Id, a1.Code, a1.City, a1.ProvinceState, a1.Country</span><br><span class="line"><span class="keyword">FROM</span> Airport a1</span><br><span class="line">	<span class="keyword">WHERE</span> a1.Code = @FromCode</span><br><span class="line"><span class="keyword">UNION</span>    </span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> a2.Id, a2.Code, a2.City, a2.ProvinceState, a2.Country</span><br><span class="line"><span class="keyword">FROM</span> ScheduledFlight s</span><br><span class="line">	<span class="keyword">INNER</span> <span class="keyword">JOIN</span> Airport a1</span><br><span class="line">		<span class="keyword">ON</span> s.DepartureAirportId = a1.Id</span><br><span class="line">    <span class="keyword">INNER</span> <span class="keyword">JOIN</span> Airport a2</span><br><span class="line">		<span class="keyword">ON</span> s.ArrivalAirportId = a2.Id</span><br><span class="line">    <span class="keyword">WHERE</span> a1.Code = @FromCode</span><br></pre></td></tr></table></figure>  
+<p>Using Dapper's <code>QueryMultipleAsync</code> method, we pass in 2 arguments: the query and the parameters for the query.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">async</span> Task&lt;IEnumerable&lt;ScheduledFlight&gt;&gt; GetAlt(<span class="keyword">string</span> <span class="keyword">from</span>)</span><br><span class="line">&#123;</span><br><span class="line">  IEnumerable&lt;ScheduledFlight&gt; scheduledFlights;</span><br><span class="line">  <span class="keyword">using</span> (<span class="keyword">var</span> connection = <span class="keyword">new</span> SqlConnection(_connectionString))</span><br><span class="line">  &#123;</span><br><span class="line">  <span class="keyword">await</span> connection.OpenAsync();</span><br><span class="line">  <span class="keyword">var</span> query = <span class="string">@"</span></span><br><span class="line"><span class="string">SELECT s.Id, s.FlightNumber, s.DepartureHour, s.DepartureMinute, s.ArrivalHour, s.ArrivalMinute, s.IsSundayFlight, s.IsMondayFlight, s.IsTuesdayFlight, s.IsWednesdayFlight, s.IsThursdayFlight, s.IsFridayFlight, s.IsSaturdayFlight,</span></span><br><span class="line"><span class="string">s.DepartureAirportId, s.ArrivalAirportId</span></span><br><span class="line"><span class="string">FROM ScheduledFlight s</span></span><br><span class="line"><span class="string">	INNER JOIN Airport a1</span></span><br><span class="line"><span class="string">		ON s.DepartureAirportId = a1.Id</span></span><br><span class="line"><span class="string">    WHERE a1.Code = @FromCode</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">SELECT a1.Id, a1.Code, a1.City, a1.ProvinceState, a1.Country</span></span><br><span class="line"><span class="string">FROM Airport a1</span></span><br><span class="line"><span class="string">	WHERE a1.Code = @FromCode</span></span><br><span class="line"><span class="string">UNION    </span></span><br><span class="line"><span class="string">SELECT DISTINCT a2.Id, a2.Code, a2.City, a2.ProvinceState, a2.Country</span></span><br><span class="line"><span class="string">FROM ScheduledFlight s</span></span><br><span class="line"><span class="string">	INNER JOIN Airport a1</span></span><br><span class="line"><span class="string">		ON s.DepartureAirportId = a1.Id</span></span><br><span class="line"><span class="string">    INNER JOIN Airport a2</span></span><br><span class="line"><span class="string">		ON s.ArrivalAirportId = a2.Id</span></span><br><span class="line"><span class="string">    WHERE a1.Code = @FromCode"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">using</span> (<span class="keyword">var</span> multi = <span class="keyword">await</span> connection.QueryMultipleAsync(query, <span class="keyword">new</span>&#123;FromCode = <span class="keyword">from</span>&#125; ))</span><br><span class="line">    &#123;</span><br><span class="line">        scheduledFlights = multi.Read&lt;ScheduledFlight&gt;();</span><br><span class="line">        <span class="keyword">var</span> airports = multi.Read&lt;Airport&gt;().ToDictionary(a =&gt; a.Id);</span><br><span class="line">        <span class="keyword">foreach</span>(<span class="keyword">var</span> flight <span class="keyword">in</span> scheduledFlights)</span><br><span class="line">        &#123;</span><br><span class="line">            flight.ArrivalAirport = airports[flight.ArrivalAirportId];</span><br><span class="line">            flight.DepartureAirport = airports[flight.DepartureAirportId];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> scheduledFlights;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>  
+<p>The <code>QueryMultipleAsync</code> method returns a <code>GridReader</code>. The <code>GridReader</code> makes it very easy to map mutliple result sets to different objects using the <code>Read&lt;T&gt;</code> method. When you call the <code>Read&lt;T&gt;</code> method, it will read all the results from the next result set that was returned by the query. In our case, we call <code>Read&lt;ScheduledFlight&gt;</code> to read the first result set and map the results into a collection of <code>ScheduledFlight</code> entities. Next, we call <code>Read&lt;Airport&gt;</code> to read the second result set. We then call <code>ToDictionary(a =&gt; a.Id)</code> to populate those <code>Airport</code> entities into a dictionary. This is to make it easier to read the results when setting the <code>ArrivalAirport</code> and <code>DepartureAirport</code> properties for each <code>ScheduledFlight</code>.</p>
+<p>Finally, we iterate through the scheduled flights and set the <code>ArrivalAirport</code> and <code>DepartureAirport</code> properties to the correct <code>Airport</code> entity.</p>
+<p>The big difference between this approach and the previous approach is that we no longer have duplicate instances for <code>Airport</code> entities. For example, if the query returned 100 scheduled flights departing from Calgary (YYC), there would be a single instance of the <code>Airport</code> entity representing YYC, whereas the previous approach would have resulted in 100 separate instances of the <code>Airport</code> entity.</p>
+<p>There is also less raw data returned by the query itself since the columns from the <code>Airport</code> table are not repeated in each row from the <code>ScheduleFlight</code> table.</p>
+<h2>Comparing Performance</h2>
+<p>I had a theory that the multi-mapping approach outlined in the previous blog post would be less efficient than the multiple result set approach outlined in this blog post, at least from a memory usage perspective. However, a theory is just theory until it is tested. I was curious and also wanted to make sure I wasn't misleading anyone so I decided to test things out using <a href="http://benchmarkdotnet.org/" target="_blank" rel="noopener">Benchmark.NET</a>. Using Benchmark.NET, I compared both methods using different sizes of data sets.</p>
+<p>I won't get into the details of Benchmark.NET. If you want to dig into it in more detail, visit the <a href="http://benchmarkdotnet.org/" target="_blank" rel="noopener">official site</a> and read through the docs. For the purposes of this blog post, the following legend should suffice:</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Mean      : <span class="type">Arithmetic</span> mean <span class="keyword">of</span> <span class="keyword">all</span> measurements</span><br><span class="line">Error     : <span class="type">Half</span> <span class="keyword">of</span> <span class="number">99.9</span>% confidence interval</span><br><span class="line">StdDev    : <span class="type">Standard</span> deviation <span class="keyword">of</span> <span class="keyword">all</span> measurements</span><br><span class="line">Gen <span class="number">0</span>     : <span class="type">GC</span> Generation <span class="number">0</span> collects per <span class="number">1</span>k Operations</span><br><span class="line">Gen <span class="number">1</span>     : <span class="type">GC</span> Generation <span class="number">1</span> collects per <span class="number">1</span>k Operations</span><br><span class="line">Gen <span class="number">2</span>     : <span class="type">GC</span> Generation <span class="number">2</span> collects per <span class="number">1</span>k Operations</span><br><span class="line">Allocated : <span class="type">Allocated</span> memory per single operation (managed only, inclusive, <span class="number">1</span>KB = <span class="number">1024</span>B)</span><br></pre></td></tr></table></figure>
+<h3>10 ScheduledFlight records</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th style="text-align:right">Mean</th>
+<th style="text-align:right">Error</th>
+<th style="text-align:right">StdDev</th>
+<th style="text-align:right">Gen 0</th>
+<th style="text-align:right">Allocated</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MultiMapping</td>
+<td style="text-align:right">396.9 us</td>
+<td style="text-align:right">7.392 us</td>
+<td style="text-align:right">7.260 us</td>
+<td style="text-align:right">5.8594</td>
+<td style="text-align:right">6.77 KB</td>
+</tr>
+<tr>
+<td>MultipleResultSets</td>
+<td style="text-align:right">467.6 us</td>
+<td style="text-align:right">9.194 us</td>
+<td style="text-align:right">16.811 us</td>
+<td style="text-align:right">4.8828</td>
+<td style="text-align:right">6.69 KB</td>
+</tr>
+</tbody>
+</table>
+<p>As I suspected, the difference is minimal when dealing with small result sets. The results here are in microseconds so in both cases, executing the query and mapping the results takes less 1/2 a millisecond. The mutliple result sets approach takes a little longer, which I kind of expected because of the overhead of creating a dictionary and doing lookups into that dictionary when setting the <code>ArrivalAirport</code> and <code>DepartureAirport</code> properties. The difference is minimal and in a most real world scenarios, this won't be noticable. What is interesting is that even with this small amount of data, we can see that there is ~1 more Gen 0 garbage collection happening per 1,000 operations. I suspect we will see this creep up as the amount of data increases.</p>
+<h3>100 ScheduledFlight records</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th style="text-align:right">Mean</th>
+<th style="text-align:right">Error</th>
+<th style="text-align:right">StdDev</th>
+<th style="text-align:right">Gen 0</th>
+<th style="text-align:right">Gen 1</th>
+<th style="text-align:right">Allocated</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MultiMapping</td>
+<td style="text-align:right">1.013 ms</td>
+<td style="text-align:right">0.0200 ms</td>
+<td style="text-align:right">0.0287 ms</td>
+<td style="text-align:right">25.3906</td>
+<td style="text-align:right">5.8594</td>
+<td style="text-align:right">6.77 KB</td>
+</tr>
+<tr>
+<td>MultipleResultSets</td>
+<td style="text-align:right">1.114 ms</td>
+<td style="text-align:right">0.0220 ms</td>
+<td style="text-align:right">0.0225 ms</td>
+<td style="text-align:right">15.6250</td>
+<td style="text-align:right">-</td>
+<td style="text-align:right">6.69 KB</td>
+</tr>
+</tbody>
+</table>
+<p>Okay, this surprised me a little. I expected to see a bigger different between the two but they are still, essentially the same in terms of time. The multi-mapping approach is still slightly faster. Keep in mind that both are still just a little over 1ms to query and map 100 records. That's crazy fast!</p>
+<h3>1000 ScheduledFlight records</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th style="text-align:right">Mean</th>
+<th style="text-align:right">Error</th>
+<th style="text-align:right">StdDev</th>
+<th style="text-align:right">Gen 0</th>
+<th style="text-align:right">Gen 1</th>
+<th style="text-align:right">Allocated</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MultiMapping</td>
+<td style="text-align:right">5.137 ms</td>
+<td style="text-align:right">0.1006 ms</td>
+<td style="text-align:right">0.1443 ms</td>
+<td style="text-align:right">148.4375</td>
+<td style="text-align:right">70.3125</td>
+<td style="text-align:right">6.77 KB</td>
+</tr>
+<tr>
+<td>MultipleResultSets</td>
+<td style="text-align:right">3.459 ms</td>
+<td style="text-align:right">0.0408 ms</td>
+<td style="text-align:right">0.0341 ms</td>
+<td style="text-align:right">113.2813</td>
+<td style="text-align:right">27.3438</td>
+<td style="text-align:right">6.69 KB</td>
+</tr>
+</tbody>
+</table>
+<p>Here we go. Now the multiple result sets approach finally wins out, and you can see why. There are way more Gen 0 and Gen 1 garbage collections happening per 1,000 operations when using the multi-mapping approach.</p>
+<h3>10,000 ScheduledFlight records</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th style="text-align:right">Mean</th>
+<th style="text-align:right">Error</th>
+<th style="text-align:right">StdDev</th>
+<th style="text-align:right">Gen 0</th>
+<th style="text-align:right">Gen 1</th>
+<th style="text-align:right">Gen 2</th>
+<th style="text-align:right">Allocated</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MultiMapping</td>
+<td style="text-align:right">58.51 ms</td>
+<td style="text-align:right">1.1483 ms</td>
+<td style="text-align:right">1.276 ms</td>
+<td style="text-align:right">1687.5000</td>
+<td style="text-align:right">687.5000</td>
+<td style="text-align:right">187.5000</td>
+<td style="text-align:right">6.78 KB</td>
+</tr>
+<tr>
+<td>MultipleResultSets</td>
+<td style="text-align:right">38.23 ms</td>
+<td style="text-align:right">0.8821 ms</td>
+<td style="text-align:right">1.918 ms</td>
+<td style="text-align:right">812.5000</td>
+<td style="text-align:right">312.5000</td>
+<td style="text-align:right">125.0000</td>
+<td style="text-align:right">6.69 KB</td>
+</tr>
+</tbody>
+</table>
+<p>One last test with 10,000 records shows a more substantial difference. The multiple result sets approach is a full 20ms faster!</p>
+<h2>Wrapping it up</h2>
+<p>I think that in most realistic scenarios, there is no discernable difference between the 2 approaches to loading many-to-one related entities. If you loading larger amounts of records into memory in a single query, then the multiple result sets approach will likely give you better performance. If you are dealing with &lt; 100 records per query, then you likely won't notice a difference. Keep in mind also that your results will vary depending on the specific data you are loading.</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/dave_paquette">
+				
+					<img src='/images/avatars/DavePaquette_241x241.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/dave_paquette">Dave Paquette</a></h2>
+			
+			<a href="mailto:contactme@davepaquette.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://www.davepaquette.com/" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/Dave_Paquette" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/dpaquette" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			
+ 			<a href="/feeds/dave_paquette"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'http://www.westerndevs.com/Dapper/loading-related-entities-many-to-one-part-2/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'dave_paquette');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

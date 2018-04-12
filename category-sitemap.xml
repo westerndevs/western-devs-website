@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>http://www.westerndevs.com</loc>
+        <changefreq>daily</changefreq>
+        <priority>1</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/javascript/typescript/</loc>
+        <lastmod>2017-03-07T11:00:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/devblog/</loc>
+        <lastmod>2017-05-02T12:31:41.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/jekyll/</loc>
+        <lastmod>2018-04-12T23:57:35.270Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/jekyll/hexo/</loc>
+        <lastmod>2018-04-12T23:57:35.270Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/MVC-6/Tag-Helpers/</loc>
+        <lastmod>2018-04-12T23:57:35.270Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/MVC-6/</loc>
+        <lastmod>2018-04-12T23:57:35.274Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/hexo/</loc>
+        <lastmod>2018-04-12T23:57:35.274Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/retrospective/</loc>
+        <lastmod>2018-04-12T23:57:35.274Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/MVC-6/View-Components/</loc>
+        <lastmod>2018-04-12T23:57:35.274Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/tfs/</loc>
+        <lastmod>2018-04-12T23:57:35.274Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/work-life-balance/</loc>
+        <lastmod>2018-04-12T23:57:35.274Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/Code-Dive/</loc>
+        <lastmod>2018-04-12T23:57:35.274Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/News/</loc>
+        <lastmod>2018-04-12T23:57:35.274Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/GitHub/</loc>
+        <lastmod>2018-04-12T23:57:35.274Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/WhatWeveDone/</loc>
+        <lastmod>2018-04-12T23:57:35.274Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/communication/</loc>
+        <lastmod>2018-04-12T23:57:35.274Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/SQL-Server/</loc>
+        <lastmod>2018-04-12T23:57:35.274Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/Tools/</loc>
+        <lastmod>2018-04-12T23:57:35.274Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/tfs/octopus/</loc>
+        <lastmod>2018-04-12T23:57:35.274Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/javascript/nodejs/</loc>
+        <lastmod>2018-04-12T23:57:35.274Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/css/</loc>
+        <lastmod>2018-04-12T23:57:35.274Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/conferences/</loc>
+        <lastmod>2018-04-12T23:57:35.274Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/Design/</loc>
+        <lastmod>2018-04-12T23:57:35.274Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/Monsters-Weekly/</loc>
+        <lastmod>2018-04-12T23:57:35.274Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/fsharp/</loc>
+        <lastmod>2018-04-12T23:57:35.274Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/career/</loc>
+        <lastmod>2018-04-12T23:57:35.274Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/Fsharp/</loc>
+        <lastmod>2018-04-12T23:57:35.274Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/debugging/</loc>
+        <lastmod>2018-04-12T23:57:35.274Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/O365/</loc>
+        <lastmod>2018-04-12T23:57:35.274Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/JavaScript/Game/</loc>
+        <lastmod>2018-04-12T23:57:35.274Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/tfs/octopus/continuous-delivery/</loc>
+        <lastmod>2018-04-12T23:57:35.274Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/javascript/nodejs/chakra/</loc>
+        <lastmod>2018-04-12T23:57:35.274Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/Fsharp/Functional-programming/</loc>
+        <lastmod>2018-04-12T23:57:35.274Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/O365/Azure/</loc>
+        <lastmod>2018-04-12T23:57:35.274Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/ASP-NET-Core/View-Components/</loc>
+        <lastmod>2018-04-12T23:57:35.274Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/JavaScript/</loc>
+        <lastmod>2018-04-12T23:57:35.278Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/Deployment/</loc>
+        <lastmod>2018-04-12T23:57:35.278Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/Community/</loc>
+        <lastmod>2018-04-12T23:57:35.278Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/Video/</loc>
+        <lastmod>2018-04-12T23:57:35.278Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/Azure/</loc>
+        <lastmod>2018-04-12T23:57:35.278Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/alm/</loc>
+        <lastmod>2018-04-12T23:57:35.278Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/C/</loc>
+        <lastmod>2018-04-12T23:57:35.278Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/Training/</loc>
+        <lastmod>2018-04-12T23:57:35.278Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/Testing/</loc>
+        <lastmod>2018-04-12T23:57:35.278Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/conference/</loc>
+        <lastmod>2018-04-12T23:57:35.278Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/messaging/</loc>
+        <lastmod>2018-04-12T23:57:35.278Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/cloud/</loc>
+        <lastmod>2018-04-12T23:57:35.278Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/json/</loc>
+        <lastmod>2018-04-12T23:57:35.278Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/conference/services/</loc>
+        <lastmod>2018-04-12T23:57:35.278Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/cloud/azure/</loc>
+        <lastmod>2018-04-12T23:57:35.278Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/javascript/</loc>
+        <lastmod>2018-04-12T23:57:35.282Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/Networking/</loc>
+        <lastmod>2018-04-12T23:57:35.282Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/development/</loc>
+        <lastmod>2018-04-12T23:57:35.282Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/Kanban/</loc>
+        <lastmod>2018-04-12T23:57:35.282Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/ASP-NET-Core/Tag-Helpers/</loc>
+        <lastmod>2018-04-12T23:57:35.282Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/mistakes/</loc>
+        <lastmod>2018-04-12T23:57:35.282Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/java/</loc>
+        <lastmod>2018-04-12T23:57:35.282Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/devops/</loc>
+        <lastmod>2018-04-12T23:57:35.282Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/web/</loc>
+        <lastmod>2018-04-12T23:57:35.282Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/Dapper/</loc>
+        <lastmod>2018-04-12T23:57:35.282Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/Development/</loc>
+        <lastmod>2018-04-12T23:57:35.286Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/ASP-NET-Core/</loc>
+        <lastmod>2018-04-12T23:57:35.286Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/nservicebus/</loc>
+        <lastmod>2018-04-12T23:57:35.286Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/Work-Life-Balance/</loc>
+        <lastmod>2018-04-12T23:57:35.286Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/podcasts/</loc>
+        <lastmod>2018-04-12T23:57:35.290Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/Ergonomics/</loc>
+        <lastmod>2018-04-12T23:57:35.290Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://www.westerndevs.com/categories/docker/</loc>
+        <lastmod>2018-04-12T23:57:35.294Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+</urlset>
+<!-- XML Sitemap generated by Hexo SEO Friendly Sitemap Generator -->

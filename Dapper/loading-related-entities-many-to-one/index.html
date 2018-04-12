@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Loading Related Entities: Many-to-One | Western Devs</title>
+  <meta name="description" content="This is a part of a series of blog posts on data access with Dapper. In today&apos;s post, we will start our journey into more complex query scenarios by exploring how to load related entities. There are a">
+<meta name="keywords" content=".NET Core,Dapper,.NET,Micro ORM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Loading Related Entities: Many-to-One">
+<meta property="og:url" content="http://www.westerndevs.com/Dapper/loading-related-entities-many-to-one/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="This is a part of a series of blog posts on data access with Dapper. In today&apos;s post, we will start our journey into more complex query scenarios by exploring how to load related entities. There are a">
+<meta property="og:image" content="https://www.davepaquette.com/images/dapper/flight_to_airport_many_to_one.png">
+<meta property="og:image" content="https://www.davepaquette.com/images/dapper/multi_mapping_data_duplication.png">
+<meta property="og:updated_time" content="2018-04-12T23:57:35.282Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Loading Related Entities: Many-to-One">
+<meta name="twitter:description" content="This is a part of a series of blog posts on data access with Dapper. In today&apos;s post, we will start our journey into more complex query scenarios by exploring how to load related entities. There are a">
+<meta name="twitter:image" content="https://www.davepaquette.com/images/dapper/flight_to_airport_many_to_one.png">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed" title="Western Devs" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/css/style.css">
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  </head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">FEB</div>
+    <div class="ListLrgDateDay">7</div>
+    <div class="ListLrgDateYear">2018</div>
+  </div>
+  <h2>Loading Related Entities: Many-to-One</h2>
+</div>
+
+		    
+
+<p class="TXTsm">ORIGINALLY POSTED TO: <a href="https://www.davepaquette.com/archive/2018/02/07/loading-related-entities-many-to-one.aspx" class='originalurl'>https://www.davepaquette.com/archive/2018/02/07/loading-related-entities-many-to-one.aspx</a></p>
+
+
+
+			<div id="mainPostContent">
+	        <p>This is a part of a series of blog posts on data access with Dapper. To see the full list of posts, visit the <a href="https://www.davepaquette.com/archive/2018/01/21/exploring-dapper-series.aspx" target="_blank" rel="noopener">Dapper Series Index Page</a>.</p>
+<p>In today's post, we will start our journey into more complex query scenarios by exploring how to load related entities. There are a few different scenarios to cover here. In this post we will be covering the Many-to-One scenario.</p>
+<p><img src="https://www.davepaquette.com/images/dapper/flight_to_airport_many_to_one.png" alt="Many-to-One"></p>
+<p>Continuing with our sample domain for the ever expanding <em>Air Paquette</em> airline, we will now look at loading a list of <code>ScheduledFlight</code> entities. A <code>ScheduleFlight</code> has a departure <code>Airport</code> and an arrival <code>Airport</code>.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ScheduledFlight</span> </span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> Id &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> FlightNumber &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Airport DepartureAirport &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> DepartureHour &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> DepartureMinute &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Airport ArrivalAirport &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;        </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> ArrivalHour &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> ArrivalMinute &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line"></span><br><span class="line">   <span class="comment">//Other properties omitted for brevity </span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Airport</span> </span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> Id &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> Code &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> City &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> ProvinceState &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> Country &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 
+<p><em>Side Note:</em> Let's ignore my poor representation of the arrival and departure times of the scheduled flights. In a future most we might look using Noda Time to properly represent these values.</p>
+<h2>Loading everything in a single query</h2>
+<p>Using Dapper, we can easily load a list of <code>ScheduledFlight</code> using a single query. First, we need to craft a query that returns all the columns for a <code>ScheduledFlight</code>, the departure <code>Airport</code> and the arrival <code>Airport</code> in a single row.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> s.Id, s.FlightNumber, s.DepartureHour, s.DepartureMinute, s.ArrivalHour, s.ArrivalMinute, s.IsSundayFlight, s.IsMondayFlight, s.IsTuesdayFlight, s.IsWednesdayFlight, s.IsThursdayFlight, s.IsFridayFlight, s.IsSaturdayFlight,</span><br><span class="line">       a1.Id, a1.Code, a1.City, a1.ProvinceState, a1.Country,</span><br><span class="line">	   a2.Id, a2.Code, a2.City, a2.ProvinceState, a2.Country</span><br><span class="line"><span class="keyword">FROM</span> ScheduledFlight s</span><br><span class="line">	<span class="keyword">INNER</span> <span class="keyword">JOIN</span> Airport a1</span><br><span class="line">		<span class="keyword">ON</span> s.DepartureAirportId = a1.Id</span><br><span class="line">	<span class="keyword">INNER</span> <span class="keyword">JOIN</span> Airport a2</span><br><span class="line">		<span class="keyword">ON</span> s.ArrivalAirportId = a2.Id</span><br></pre></td></tr></table></figure>
+<p>We use the <code>QueryAsync</code> method to load a list of <code>ScheduledFlight</code> entities along with their related <code>DepartureAirport</code> and <code>ArrivalAirport</code> entities. The parameters we pass in are a little different from what we saw in our previous posts.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">HttpGet</span>]</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">async</span> Task&lt;IEnumerable&lt;ScheduledFlight&gt;&gt; Get(<span class="keyword">string</span> <span class="keyword">from</span>)</span><br><span class="line">&#123;</span><br><span class="line">    IEnumerable&lt;ScheduledFlight&gt; scheduledFlights;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">using</span> (<span class="keyword">var</span> connection = <span class="keyword">new</span> SqlConnection(_connectionString))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">await</span> connection.OpenAsync();</span><br><span class="line"></span><br><span class="line">            <span class="keyword">var</span> query = <span class="string">@"</span></span><br><span class="line"><span class="string">SELECT s.Id, s.FlightNumber, s.DepartureHour, s.DepartureMinute, s.ArrivalHour, s.ArrivalMinute, s.IsSundayFlight, s.IsMondayFlight, s.IsTuesdayFlight, s.IsWednesdayFlight, s.IsThursdayFlight, s.IsFridayFlight, s.IsSaturdayFlight,</span></span><br><span class="line"><span class="string">     a1.Id, a1.Code, a1.City, a1.ProvinceState, a1.Country,</span></span><br><span class="line"><span class="string">     a2.Id, a2.Code, a2.City, a2.ProvinceState, a2.Country</span></span><br><span class="line"><span class="string">FROM ScheduledFlight s</span></span><br><span class="line"><span class="string">     INNER JOIN Airport a1</span></span><br><span class="line"><span class="string">          ON s.DepartureAirportId = a1.Id</span></span><br><span class="line"><span class="string">    INNER JOIN Airport a2</span></span><br><span class="line"><span class="string">          ON s.ArrivalAirportId = a2.Id</span></span><br><span class="line"><span class="string">WHERE a1.Code = @FromCode"</span>;</span><br><span class="line"></span><br><span class="line">        scheduledFlights = </span><br><span class="line">            <span class="keyword">await</span> connection.QueryAsync&lt;ScheduledFlight, Airport, Airport, ScheduledFlight&gt;(query,</span><br><span class="line">                    (flight, departure, arrival ) =&gt; &#123;</span><br><span class="line">                        flight.DepartureAirport = departure;</span><br><span class="line">                        flight.ArrivalAirport = arrival;</span><br><span class="line">                        <span class="keyword">return</span> flight;</span><br><span class="line">                    &#125;,</span><br><span class="line">                    <span class="keyword">new</span>&#123;FromCode = <span class="keyword">from</span>&#125; );</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> scheduledFlights;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>First, instead of a single type parameter <code>&lt;ScheduledFlight&gt;</code>, we need to provide a series of type parameters: <code>&lt;ScheduledFlight, Airport, Airport, ScheduledFlight&gt;</code>. The first 3 parameters specify the types that are contained in each row that the query returns. In this example, each row contains columns that will be mapped to <code>ScheduledFlight</code> and 2 <code>Airports</code>. The order matters here, and Dapper assumes that when it seems a column named <code>Id</code> then it is looking at columns for the next entity type. In the example below, the columns from <code>Id</code> to <code>IsSaturdayFlight</code> are mapped to a <code>ScheduledFlight</code> entity. The next 5 columns <code>Id, Code, City, ProvinceState, Country</code> are mapped to an <code>Airport</code> entity, and the last 5 columns are mapped to a second <code>Airport</code> entity. If you aren't using <code>Id</code>, you can use the optional <code>splitOn</code> argument to specify the column names that Dapper should use to identity the start of each entity type.</p>
+<p>What's that last type parameter? Why do we need to specify <code>ScheduledFlight</code> again? Well, I'm glad you asked. The thing about Dapper is that it doesn't actually know much about the structure of our entities so we need to tell it how to wire up the 3 entities that it just mapped from a row. That last <code>ScheduledFlight</code> type parameter is telling Dapper that <code>ScheduledFlight</code> is ultimately the entity we want to return from this query. It is important for the second argument that is passed to the <code>QueryAsync</code> method.</p>
+<p>That second argument is a function that takes in the 3 entities that were mapped back from that row and returns and entity of the type that was specified as the last type parameter. In this case, we assign the first <code>Airport</code> to the flight's <code>DepartureAirport</code> property and assign the second <code>Airport</code> to the flight's <code>ArrivalAiport</code> parameter, then we return the flight that was passed in.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(flight, departure, arrival ) =&gt; &#123;</span><br><span class="line">    flight.DepartureAirport = departure;</span><br><span class="line">    flight.ArrivalAirport = arrival;</span><br><span class="line">    <span class="keyword">return</span> flight;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>The first argument argument passed to the <code>QueryAsync</code> method is the SQL query, and the third argument is an anonymous object containing any parameters for that query. Those arguments are really no different than the simple examples we saw in <a href="https://www.davepaquette.com/archive/2018/01/22/loading-an-object-graph-with-dapper.aspx" target="_blank" rel="noopener">previous blog posts</a>.</p>
+<h2>Wrapping it up</h2>
+<p>Dapper refers to this technique as <a href="https://github.com/StackExchange/Dapper#multi-mapping" target="_blank" rel="noopener">Multi Mapping</a>. I think it's called that because we are mapping multiple entities from each row that the query returns. In a fully featured ORM like Entity Framework, we call this feature Eager Loading. It is an optimization technique that avoids the need for multiple queries in order to load an entity and it's associated entities.</p>
+<p>This approach is simple enough to use and it does reduce the number of round trips needed to load a set of entities. It does, however, come at a cost. Specifically, the results of the query end up causing some duplication of data. As you can see below, the data for the Calgary and Vancouver airports is repeated in each row.</p>
+<p><img src="https://www.davepaquette.com/images/dapper/multi_mapping_data_duplication.png" alt="Data Duplication"></p>
+<p>This isn't a huge problem if the result set only contains 3 rows but it can become problematic when dealing with large result sets. In addition to creating somewhat bloated result sets, Dapper will also create new instances of those related entities for each row in the result set. In the example above, we would end up with 3 instances of the <code>Airport</code> class representing YYC - Calgary and 3 instances of the <code>Airport</code> class representing YVR - Vancouver. Again, this isn't necessarily a big problem when we have 3 rows in the result set but with larger result sets it could cause your application to use a lot more memory than necessary.</p>
+<p>It is worth considering the cost associated with this approach. Given the added memory cost, this approach might be better suited to One-to-One associations rather than the Many-to-One example we talked about in this post. In the next post, we will explore an alternate approach that is more memory efficient but probably a little more costly on the CPU for the mapping.</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/dave_paquette">
+				
+					<img src='/images/avatars/DavePaquette_241x241.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/dave_paquette">Dave Paquette</a></h2>
+			
+			<a href="mailto:contactme@davepaquette.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://www.davepaquette.com/" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/Dave_Paquette" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/dpaquette" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			
+ 			<a href="/feeds/dave_paquette"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'http://www.westerndevs.com/Dapper/loading-related-entities-many-to-one/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'dave_paquette');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

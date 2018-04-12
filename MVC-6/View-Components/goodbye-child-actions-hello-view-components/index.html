@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Goodbye Child Actions, Hello View Components | Western Devs</title>
+  <meta name="description" content="In previous versions of MVC, we used Child Actions to build reusable components. Child Actions do not exist in MVC 6. Instead, we are encouraged to use the new View Component feature to support this u">
+<meta name="keywords" content="ASP.NET 5,MVC 6,View Components">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Goodbye Child Actions, Hello View Components">
+<meta property="og:url" content="http://www.westerndevs.com/MVC-6/View-Components/goodbye-child-actions-hello-view-components/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="In previous versions of MVC, we used Child Actions to build reusable components. Child Actions do not exist in MVC 6. Instead, we are encouraged to use the new View Component feature to support this u">
+<meta property="og:image" content="http://www.davepaquette.com/images/whats-new-view-component.png">
+<meta property="og:updated_time" content="2018-04-12T23:57:35.274Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Goodbye Child Actions, Hello View Components">
+<meta name="twitter:description" content="In previous versions of MVC, we used Child Actions to build reusable components. Child Actions do not exist in MVC 6. Instead, we are encouraged to use the new View Component feature to support this u">
+<meta name="twitter:image" content="http://www.davepaquette.com/images/whats-new-view-component.png">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed" title="Western Devs" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/css/style.css">
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  </head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">JAN</div>
+    <div class="ListLrgDateDay">2</div>
+    <div class="ListLrgDateYear">2016</div>
+  </div>
+  <h2>Goodbye Child Actions, Hello View Components</h2>
+</div>
+
+		    
+
+<p class="TXTsm">ORIGINALLY POSTED TO: <a href="http://www.davepaquette.com/archive/2016/01/02/goodbye-child-actions-hello-view-components.aspx" class='originalurl'>http://www.davepaquette.com/archive/2016/01/02/goodbye-child-actions-hello-view-components.aspx</a></p>
+
+
+
+			<div id="mainPostContent">
+	        <p>In previous versions of MVC, we used <a href="http://haacked.com/archive/2009/11/18/aspnetmvc2-render-action.aspx/" target="_blank" rel="noopener">Child Actions</a> to build reusable components / widgets that consisted of both Razor markup and some backend logic. The backend logic was implemented as a controller action and typically marked with a <code>[ChildActionOnly]</code> attribute. Child actions are extremely useful but as some have pointed out, it is easy to <a href="http://www.khalidabuhakmeh.com/obscure-bugs-asp-net-mvc-child-actions" target="_blank" rel="noopener">shoot yourself in the foot</a>.</p>
+<p><strong>Child Actions do not exist in MVC 6</strong>. Instead, we are encouraged to use the new View Component feature to support this use case. Conceptually, view components are a lot like child actions but they are a lighter weight and no longer involve the lifecycle and pipeline related to a controller. Before we get into the differences, let's take a look at a simple example.</p>
+<h1>A simple View Component</h1>
+<p>View components are made up of 2 parts: A view component class and a razor view.</p>
+<p>To implement the view component class, inherit from the base <code>ViewComponent</code> and implement an <code>Invoke</code> or <code>InvokeAsync</code> method. This class can be anywhere in your project. A common convention is to place them in a ViewComponents folder. Here is an example of a simple view component that retrieves a list of articles to display in a <em>What's New</em> section.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">MyWebApplication.ViewComponents</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">WhatsNewViewComponent</span> : <span class="title">ViewComponent</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">readonly</span> IArticleService _articleService;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">WhatsNewViewComponent</span>(<span class="params">IArticleService articleService</span>)</span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            _articleService = articleService;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> IViewComponentResult <span class="title">Invoke</span>(<span class="params"><span class="keyword">int</span> numberOfItems</span>)</span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> articles = _articleService.GetNewArticles(numberOfItems);</span><br><span class="line">            <span class="keyword">return</span> View(articles);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Much like a controller action, the Invoke method of a view component simply returns a view. If no view name is explicitly specified, the default <code>Views\Shared\Components\ViewComponentName\Default.cshtml</code> is used. In this case, <code>Views\Shared\Components\WhatsNew\Default.cshtml</code>. Note there are a ton of conventions used in view components. I will be covering these in a future blog post.</p>
+<figure class="highlight html"><figcaption><span>Views\Shared\Components\WhatsNew\Default.cshtml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@model IEnumerable<span class="tag">&lt;<span class="name">Article</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>What's New<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">@foreach (var article in Model)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">asp-controller</span>=<span class="string">"Article"</span> </span></span><br><span class="line"><span class="tag">           <span class="attr">asp-action</span>=<span class="string">"View"</span> </span></span><br><span class="line"><span class="tag">           <span class="attr">asp-route-id</span>=<span class="string">"@article.Id"</span>&gt;</span>@article.Title<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>To use this view component, simply call <code>@Component.Invoke</code> from any view in your application. For example, I added this to the Home/Index view:</p>
+<figure class="highlight html"><figcaption><span>Views\Home\Index.cshtml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-3"</span>&gt;</span></span><br><span class="line">    @Component.Invoke("WhatsNew", 5)</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>The first parameter to <code>@Component.Invoke</code> is the name of the view component. Any additional parameters will be passed to the <code>Invoke</code> method that has a matching signature. In this case, we specified a single <code>int</code>, which matches the <code>Invoke(int numberOfItems)</code> method of the <code>WhatsNewViewComponent</code> class.</p>
+<p><img src="http://www.davepaquette.com/images/whats-new-view-component.png" alt="What's New View Component"></p>
+<h2>How is this different?</h2>
+<p>So far this doesn't really look any different from what we had with Child Actions. There are however some major differences here.</p>
+<h3>No Model Binding</h3>
+<p>With view components, parameters are passed directly to your view component when you call <code>@Component.Invoke()</code> or <code>@Component.InvokeAsync()</code> in your view. There is no model binding needed here since the parameters are not coming from the HTTP request. You are calling the view component directly using C#. No model binding means you can have overloaded <code>Invoke</code> methods with different parameter types. This is something you can't do in controllers.</p>
+<h3>No Action Filters</h3>
+<p>View components don't take part in the controller lifecycle. This means you can't add action filters to a view component. While this might sound like a limitation, it is actually an area that caused problems for a lot of people. Adding an action filter to a child action would sometimes have unintended consequences when the child action was called from certain locations.</p>
+<h3>Not reachable from HTTP</h3>
+<p>A view component never directly handles an HTTP request so you can't call directly to a view component from the client side. You will need to wrap the view component with a controller if your application requires this behaviour.</p>
+<h2>What is available?</h2>
+<h3>Common Properties</h3>
+<p>When you inherit from the base <code>ViewComponent</code> class, you get access to a few properties that are very similar to controllers:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">ViewComponent</span>]</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title">ViewComponent</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="title">ViewComponent</span>(<span class="params"></span>)</span>;</span><br><span class="line">    <span class="keyword">public</span> HttpContext HttpContext &#123; <span class="keyword">get</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> ModelStateDictionary ModelState &#123; <span class="keyword">get</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> HttpRequest Request &#123; <span class="keyword">get</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> RouteData RouteData &#123; <span class="keyword">get</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> IUrlHelper Url &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> IPrincipal User &#123; <span class="keyword">get</span>; &#125;</span><br><span class="line">    </span><br><span class="line">    [<span class="meta">Dynamic</span>]    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">dynamic</span> ViewBag &#123; <span class="keyword">get</span>; &#125;</span><br><span class="line">    [<span class="meta">ViewComponentContext</span>]</span><br><span class="line">    <span class="keyword">public</span> ViewComponentContext ViewComponentContext &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> ViewContext ViewContext &#123; <span class="keyword">get</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> ViewDataDictionary ViewData &#123; <span class="keyword">get</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> ICompositeViewEngine ViewEngine &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Most notably, you can access information about the current user from the <code>User</code> property and information about the current request from the <code>Request</code> property. Also, route information can be accessed from the <code>RouteData</code> property. You also have the <code>ViewBag</code> and <code>ViewData</code>. Note that the ViewBag / ViewData are shared with the controller. If you set ViewBag property in your controller action, that property will be available in any ViewComponent that is invoked by that controller action's view.</p>
+<h3>Dependency Injection</h3>
+<p>Like controllers, view components also take part in dependency injection so any other information you need can simply be injected to the view component. In the example above, we injected the <code>IArticleService</code> that allowed us to access articles form some remote source. Anything that you could inject into a controller can also be injected into a view component.</p>
+<h1>Wrapping it up</h1>
+<p>View components are a powerful new feature for creating reusable widgets in MVC 6. Consider using View Components any time you have complex rendering logic that also requires some backend logic.</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/dave_paquette">
+				
+					<img src='/images/avatars/DavePaquette_241x241.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/dave_paquette">Dave Paquette</a></h2>
+			
+			<a href="mailto:contactme@davepaquette.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://www.davepaquette.com/" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/Dave_Paquette" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/dpaquette" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			
+ 			<a href="/feeds/dave_paquette"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'http://www.westerndevs.com/MVC-6/View-Components/goodbye-child-actions-hello-view-components/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'dave_paquette');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

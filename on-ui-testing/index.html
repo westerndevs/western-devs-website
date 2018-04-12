@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>On UI Testing | Western Devs</title>
+  <meta name="description" content="What happens when 12 people gather to talk about UI testing?">
+<meta property="og:type" content="article">
+<meta property="og:title" content="On UI Testing">
+<meta property="og:url" content="http://www.westerndevs.com/on-ui-testing/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="What happens when 12 people gather to talk about UI testing?">
+<meta property="og:updated_time" content="2018-04-12T23:57:35.286Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="On UI Testing">
+<meta name="twitter:description" content="What happens when 12 people gather to talk about UI testing?">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed" title="Western Devs" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/css/style.css">
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  </head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">JUN</div>
+    <div class="ListLrgDateDay">30</div>
+    <div class="ListLrgDateYear">2015</div>
+  </div>
+  <h2>On UI Testing</h2>
+</div>
+
+		    
+
+			<div id="mainPostContent">
+	        <p>A short while ago, a group of <a href="http://www.westerndevs.com">Devs of the Western variety</a> had a chat. It was the latest in a series, depending on how you define &quot;series&quot;, where we gather together to discuss some topic, be it JavaScript frameworks, OO practices, or smoked meat. On this particular day, it was UI testing.</p>
+<p>I don't recall all the participants but it was a good number of the people on <a href="/whoweare">this list</a>. Here, I'm going to attempt to summarize the salient points but given my memory, it'll more likely be a dissertation of my own thoughts. Which is just as well as I recall doing more talking than I should have.</p>
+<h3>Should you UI test?</h3>
+<p>This was a common thread throughout. Anyone who has done a significant amount of UI testing has asked a variant of this question. Usually in the form, &quot;Why the &amp;*%$ am I doing this?&quot;</p>
+<p>Let it not be said that UI testing is a &quot;set it and forget it&quot; affair. Computers are finicky things, UI's seemingly more so. Sometimes things can take just that one extra second to render and all of a sudden your test starts acting out a Woody Allen scene: Where's the button? There's supposed to be a button. YOU TOLD ME THERE WOULD BE A BUTTON!!!</p>
+<p>Eventually, we more or less agreed that they are <em>probably</em> worth the pain. From my own experience, working on a small team with no QA department, they saved us on several occasions. Yes, there are the obvious cases where they catch a potential bug. But there was also a time when we had to re-write a large section of functionality with no change to the UI. I felt <em>really</em> good about having the tests then.</p>
+<p>One counter-argument was whether you could just have a comprehensive suite of integration tests. But there's something to be said for having a test that:</p>
+<ol>
+<li>Searches for a product</li>
+<li>Adds it to the shopping cart</li>
+<li>Browses more products</li>
+<li>Checks out</li>
+<li>Goes to PayPal and pays</li>
+<li>Verifies that you got an email</li>
+</ol>
+<p>This kind of integration test is hard to do, especially when you want to verify all the little UI things in between, like whether a success message showed up or whether the number of items in the shopping cart incremented by 1.</p>
+<p>We also had the opposite debate: If you have a comprehensive suite of UI tests and are practicing BDD, do you still need TDD and unit tests? That was an interesting side discussion that warrants a separate post.</p>
+<h3>Maintenance</h3>
+<p>...is ongoing. There's no getting around that. No matter how bullet-proof you make your tests, the real world will always get in the way. Especially if you integrate with third-party services (&lt;cough&gt;PayPal&lt;cough&gt;). If you plan to introduce UI tests, know that your tests will be needy at times. They'll fail for reasons unknown for several consecutive runs, then mysteriously pass again. They'll fail only at certain times of the day, when Daylight Savings Time kicks in, or only on days when Taylor Swift is playing an outdoor venue in the western hemisphere. There will be no rhyme or reason to the failures and you will never, <em>ever</em> be able to reproduce them locally.</p>
+<p>You'll add <code>sleep</code> calls out of frustration and check in with only a vague hope that it will work. Your pull requests will be riddled with variations of &quot;I swear I wouldn't normally do this&quot; and &quot;I HAVE NO IDEA WHAT'S GOING ON&quot;. You'll replace elegant CSS selectors with XPath so grotesque that Alan Turing will rise from his grave only to have his rotting eyeballs burst into flames at the sight of it.</p>
+<p>This doesn't really jibe with the &quot;probably worth it&quot; statement earlier. It depends on how often you have to revisit them and how much effort goes into it. From my experience, early on the answer to that is often and a lot. As you learn the tricks, it dwindles significantly.</p>
+<p>One of those tricks is the <a href="http://martinfowler.com/bliki/PageObject.html" target="_blank" rel="noopener">PageObject pattern</a>. There was universal agreement that it is required when dealing with UI tests. I'll admit I hadn't heard of the pattern before the discussion but at the risk of sounding condescending, it sounds more like common sense than an actual pattern. It's something that, even if you don't implement it right away, you'll move toward naturally as you work with your UI tests.</p>
+<h3>Data setup</h3>
+<p>...is hard, too. At least in the .NET world. Tools like <a href="https://github.com/HeadspringLabs/Tarantino" target="_blank" rel="noopener">Tarantino</a> can help by creating scripts to prime and tear down a database. You can also create an endpoint (on a web app) that will clear and reset your database with known data.</p>
+<p>The issue with these approaches is that the &quot;known&quot; data has to actually <em>be</em> known when you're writing your tests. If you change anything in it, Odin knows what ramifications that will have.</p>
+<p>You can mitigate this a little depending on your technology. If you use SpecFlow, then you may have direct access to the code necessary to prime your database. Otherwise, maybe you can create a utility or API endpoints that allow you to populate your data in a more transparent manner. This is the sort of thing that a ReST endpoint can probably do pretty well.</p>
+<h3>Mobile</h3>
+<p>Consensus for UI testing on mobile devices is that it sucks more than that time after the family dinner when our cousin, Toothless Maggie, cornered---...umm... it's pretty bad...</p>
+<p>We would love to be proven wrong but to our collective knowledge, there are no decent ways to test a mobile UI in an automated fashion. From what I gather, it's no picnic doing it in a manual fashion. Emulators are laughably bad. And there are more than a few different types and versions of mobile device so you have to use these laughably bad options about a dozen different ways.</p>
+<h3>Outsourcing</h3>
+<p>What about companies that will run through all your test scripts on multiple browsers and multiple devices? You could save some development pain that way. But I personally wouldn't feel comfortable unless the test scripts were <em>extremely</em> prescriptive. And if you're going to that length, you could argue that it's not a large effort to take those prescriptive steps and automate them.</p>
+<p>That said, you might get some quick bang for your buck going this route. I've talked to a couple of them and they are always eager to help you. Some of them will even record their test sessions which I would consider a must-have if you decide to use a company for this.</p>
+<h3>Tooling</h3>
+<p>I ain't gonna lie. I like Cucumber and <a href="https://github.com/jnicklas/capybara" target="_blank" rel="noopener">Capybara</a>. I've tried <a href="http://www.specflow.org/" target="_blank" rel="noopener">SpecFlow</a> and it's probably as good as you can get in C#, which is decent enough. But it's hard to beat <code>fill_in 'Email', :with =&gt; 'hill@billy.edu'</code> for conciseness and readability. That said, do <strong>not</strong> underestimate the effort it takes to introduce Ruby to a .NET shop. There is a certain discipline required to maintain your tests and if everyone is scared to dive into your rakefile, you're already mixing stripes with plaid.</p>
+<p>We also discussed <a href="http://lefthandedgoat.github.io/canopy/" target="_blank" rel="noopener">Canopy</a> and there was a general appreciation for how it looks though <a href="/bios/amir_barylko">Amir</a> is the only one who has actually used it. Seems to balance the readability of Capybara with the &quot;it's still .NET&quot; aspect of companies that fear anything non-Microsoft.</p>
+<p>Of course, there's Selenium both the IDE and the driver. We mentioned it mostly because you're supposed to.</p>
+<p>Some version of Visual Studio also provided support for UI tests, both recorded and coded. The CodedUI tests are supposed to have a pretty nice fluent interface and we generally agreed that coded tests are the way to go instead of recorded ones (as if that were ever in doubt).</p>
+<p>Ed. note: Shout out to <a href="https://angular.github.io/protractor/#/" target="_blank" rel="noopener">Protractor</a> as well. We didn’t discuss it directly but as <a href="http://www.westerndevs.com/bios/dave_paquette/">Dave Paquette</a> pointed out later, it helps avoid random Sleep calls in your tests because it knows how to wait until binding is done. Downside is that it’s specific to Angular.</p>
+<p>Also: <a href="http://jasmine.github.io/" target="_blank" rel="noopener">jasmine</a> and <a href="http://phantomjs.org/" target="_blank" rel="noopener">PhantomJS</a> got passing mentions, both favorable.</p>
+<h3>Continuous Integration</h3>
+<p>This is about as close as we got to disagreement. There was a claim that UI tests shouldn't be included in CI due to the length of time it takes to run them. Or if they are included, run them on a schedule (i.e. once a night) rather than on every &quot;check in&quot; (by which we mean, every feature).</p>
+<p>To me, this is a question of money. If you have a single server and a single build agent, this is probably a valid argument. But if you want to get full value from your UI tests, get a second agent (preferably more) and run only the UI tests on it. If it's not interfering with your main build, it can run as often as you like. Yes, you may not get the feedback right away but you get it sooner than if you run the UI tests on a schedule.</p>
+<hr>
+<p>The main takeaway we drew from the discussion, which you may have gleaned from this summary, is: damn, we should have recorded this. That's a mistake we hope to rectify for future discussions.</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/kyle_baley">
+				
+					<img src='/images/avatars/Kyle_300x300.png' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/kyle_baley">Kyle Baley</a></h2>
+			
+			<a href="mailto:kyle@baley.org"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://kyle.baley.org" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/kyle_baley" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/kbaley" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			<a href="https://www.linkedin.com/in/kylebaley" target="_blank"><img class="ProfileIcon" src="/images/icon_linkedin.png" border="0" alt="LinkedIN" title="LinkedIN"> LinkedIn</a><br>
+			
+			
+ 			<a href="/feeds/kyle_baley"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'http://www.westerndevs.com/on-ui-testing/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'kyle_baley');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

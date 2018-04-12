@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Authorize Resource Tag Helper for ASP.NET Core | Western Devs</title>
+  <meta name="description" content="ASP.NET Core has a powerful mechanism for implementing resource-based authorization using the IAuthorizationService and resource-based AuthorizationHandlers. In this blog post, we build a tag helper t">
+<meta name="keywords" content="Tag Helpers,ASP.NET Core,MVC,Authorization">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Authorize Resource Tag Helper for ASP.NET Core">
+<meta property="og:url" content="http://www.westerndevs.com/ASP-NET-Core/Tag-Helpers/authorize-resource-tag-helper/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="ASP.NET Core has a powerful mechanism for implementing resource-based authorization using the IAuthorizationService and resource-based AuthorizationHandlers. In this blog post, we build a tag helper t">
+<meta property="og:updated_time" content="2018-04-12T23:57:35.282Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Authorize Resource Tag Helper for ASP.NET Core">
+<meta name="twitter:description" content="ASP.NET Core has a powerful mechanism for implementing resource-based authorization using the IAuthorizationService and resource-based AuthorizationHandlers. In this blog post, we build a tag helper t">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed" title="Western Devs" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/css/style.css">
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  </head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">NOV</div>
+    <div class="ListLrgDateDay">29</div>
+    <div class="ListLrgDateYear">2017</div>
+  </div>
+  <h2>Authorize Resource Tag Helper for ASP.NET Core</h2>
+</div>
+
+		    
+
+<p class="TXTsm">ORIGINALLY POSTED TO: <a href="https://www.davepaquette.com/archive/2017/11/28/authorize-resource-tag-helper.aspx" class='originalurl'>https://www.davepaquette.com/archive/2017/11/28/authorize-resource-tag-helper.aspx</a></p>
+
+
+
+			<div id="mainPostContent">
+	        <p>In my previous blog post, I wrote an <a href="https://www.davepaquette.com/archive/2017/11/05/authorize-tag-helper.aspx" target="_blank" rel="noopener">Authorize tag helper</a> that made it simple to use role and policy based authorization in Razor Views. In this blog post, we will take this one step further and build a tag helper for resource-based authorization.</p>
+<h1>Resource-Based Authorization</h1>
+<p>Using the <code>IAuthorizationService</code> in ASP.NET Core, it is easy to implement an authorization strategy that depends not only on properties of the User but also depends on the resource being accessed. To learn how resource-based authorization works, take a look at the well written <a href="https://docs.microsoft.com/en-us/aspnet/core/security/authorization/resourcebased?tabs=aspnetcore2x" target="_blank" rel="noopener">offical documentation</a>.</p>
+<p>Once you have defined your authorization handlers and setup any policies in <code>Startup.ConfigureServices</code>, applying resource-based authorization is a matter of calling one of two overloads of the <code>AuthorizeAsync</code> method on the <code>IAuthorizationService</code>.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Task&lt;AuthorizationResult&gt; <span class="title">AuthorizeAsync</span>(<span class="params">ClaimsPrincipal user,</span></span></span><br><span class="line"><span class="function"><span class="params">                          <span class="keyword">object</span> resource,</span></span></span><br><span class="line"><span class="function"><span class="params">                          <span class="keyword">string</span> policyName</span>)</span>;</span><br><span class="line"></span><br><span class="line"><span class="function">Task&lt;AuthorizationResult&gt; <span class="title">AuthorizeAsync</span>(<span class="params">ClaimsPrincipal user,</span></span></span><br><span class="line"><span class="function"><span class="params">                          <span class="keyword">object</span> resource,</span></span></span><br><span class="line"><span class="function"><span class="params">                          IAuthorizationRequirement requirements</span>)</span>;</span><br></pre></td></tr></table></figure>                          
+<p>One method takes in a policy name while the other takes in an <code>IAuthorizationRequirement</code>. The resulting <code>AuthorizationResult</code> has a <code>Succeeded</code> boolean that indicates whether or not the user meets the requirements for the specified policy. Using the <code>IAuthorizationService</code> in a controller is easy enough. Simply inject the service into the controller, call the method you want to call and then check the result.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line">public async Task&lt;IActionResult&gt; Edit(int id)</span><br><span class="line">&#123;</span><br><span class="line">    var document = _documentContext.Find(documentId);</span><br><span class="line"></span><br><span class="line">    var authorizationResult = await _authorizationService.AuthorizeAsync(User, Document, &quot;EditDocument&quot;);</span><br><span class="line"></span><br><span class="line">    if (authorizationResult.Succeeded)</span><br><span class="line">    &#123;</span><br><span class="line">        return View(document);</span><br><span class="line">    &#125;    </span><br><span class="line">    else</span><br><span class="line">    &#123;</span><br><span class="line">        return new ChallengeResult();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Using this approach, we can easily restrict which users can edit specific documents as defined by our EditDocument policy. For example, we might limit editing to only users who originally created the document.</p>
+<p>Where things start to get a little ugly is if we want to render a UI element based on resource-based authorization. For example, we might only want to render the edit button for a document if the current user is actually authorized to edit that document. Out of the box, this would require us to inject the <code>IAuthorizationService</code> in the Razor view and use it like we did in the controller action. The approach works, but the Razor code will get ugly really fast.</p>
+<h1>Authorize Resource Tag Helper</h1>
+<p>Similar to the Authorize Tag Helper from the last blog post, this Authorize Resource Tag Helper will make it easy to show or hide blocks of HTML by evaluating authorization rules.</p>
+<h2>Resource-Based Policy Authorization</h2>
+<p>Let's assume we have a named &quot;EditDocument&quot; that requires a user to be the original author of a <code>Document</code> in order to edit the document. With the authorize resource tag helper, specify the resource instance using the <code>asp-authorize-resource</code> attribute and the policy name using the <code>asp-policy</code> attribute. Here is an example where <code>Model</code> is an instance of a <code>Document</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">asp-authorize-resource</span>=<span class="string">"Model"</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">asp-policy</span>=<span class="string">"EditDocument"</span> <span class="attr">class</span>=<span class="string">"glyphicon glyphicon-pencil"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>If the user meets the requirments for the &quot;EditDocument&quot; policy and the specified resource, then the block of HTML will be sent to the browser. If the requirements are not met, the tag helper will suppress the output of that block of HTML. The tag helper can be applied to any HTML element.</p>
+<h2>Resource-Based Requirement Authorization</h2>
+<p>Instead of specifying a policy name, authorization can be evaluated by specifying an instance of an <code>IAuthorizationRequirement</code>. When using requirements directly instead of policies, specify the requirement using the <code>asp-requirement</code> attribute.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">asp-authorize-resource</span>=<span class="string">"document"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">asp-requirement</span>=<span class="string">"Operations.Delete"</span> </span></span><br><span class="line"><span class="tag">            <span class="attr">class</span>=<span class="string">"glyphicon glyphicon-trash text-danger"</span>&gt;</span>                            </span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>If the user meets <code>Operations.Delete</code> requirement for the specified resource, then the block of HTML will be sent to the browser. If the requirement is not met, the tag helper will suppress the output of that block of HTML. The tag helper can be applied to any HTML element.</p>
+<h2>Implementation Details</h2>
+<p>The authorize resource tag helper itself is fairly simple. The implementation will likely evolve after this blog post so you can check out the latest version <a href="https://github.com/dpaquette/TagHelperSamples/blob/master/TagHelperSamples/src/TagHelperSamples.Authorization/AuthorizeResourceTagHelper.cs" target="_blank" rel="noopener">here</a>.</p>
+<p>The tag helper needs an instance of the <code>IHttpContextAccessor</code> to get access to the current user and an instance of the <code>IAuthorizationService</code>. These are injected into the constructor. In the <code>ProcessAsync</code> method, either the specified <code>Policy</code> or the specified <code>Requirement</code> are passed in to the <code>IAuthorizationService</code> along with the resource.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">HtmlTargetElement(Attributes = <span class="meta-string">"asp-authorize-resource,asp-policy"</span>)</span>]</span><br><span class="line">[<span class="meta">HtmlTargetElement(Attributes = <span class="meta-string">"asp-authorize-resource,asp-requirement"</span>)</span>]</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">AuthorizeResourceTagHelper</span> : <span class="title">TagHelper</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">readonly</span> IAuthorizationService _authorizationService;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">readonly</span> IHttpContextAccessor _httpContextAccessor;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AuthorizeResourceTagHelper</span>(<span class="params">IHttpContextAccessor httpContextAccessor, IAuthorizationService authorizationService</span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        _httpContextAccessor = httpContextAccessor;</span><br><span class="line">        _authorizationService = authorizationService;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> Gets or sets the policy name that determines access to the HTML block.</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    [<span class="meta">HtmlAttributeName(<span class="meta-string">"asp-policy"</span>)</span>]</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> Policy &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> Gets or sets a comma delimited list of roles that are allowed to access the HTML  block.</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    [<span class="meta">HtmlAttributeName(<span class="meta-string">"asp-requirement"</span>)</span>]</span><br><span class="line">    <span class="keyword">public</span> IAuthorizationRequirement Requirement &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> Gets or sets the resource to be authorized against a particular policy</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    [<span class="meta">HtmlAttributeName(<span class="meta-string">"asp-authorize-resource"</span>)</span>]</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">object</span> Resource &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">async</span> Task <span class="title">ProcessAsync</span>(<span class="params">TagHelperContext context, TagHelperOutput output</span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (Resource == <span class="literal">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> ArgumentException(<span class="string">"Resource cannot be null"</span>);                </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">string</span>.IsNullOrWhiteSpace(Policy) &amp;&amp; Requirement == <span class="literal">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> ArgumentException(<span class="string">"Either Policy or Requirement must be specified"</span>);</span><br><span class="line">                </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (!<span class="keyword">string</span>.IsNullOrWhiteSpace(Policy) &amp;&amp; Requirement != <span class="literal">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> ArgumentException(<span class="string">"Policy and Requirement cannot be specified at the same time"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        AuthorizationResult authorizeResult;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!<span class="keyword">string</span>.IsNullOrWhiteSpace(Policy))</span><br><span class="line">        &#123;</span><br><span class="line">            authorizeResult = <span class="keyword">await</span> _authorizationService.AuthorizeAsync(_httpContextAccessor.HttpContext.User, Resource, Policy);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (Requirement != <span class="literal">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            authorizeResult =</span><br><span class="line">                <span class="keyword">await</span> _authorizationService.AuthorizeAsync(_httpContextAccessor.HttpContext.User, Resource,</span><br><span class="line">                    Requirement);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> ArgumentException(<span class="string">"Either Policy or Requirement must be specified"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!authorizeResult.Succeeded)</span><br><span class="line">        &#123;</span><br><span class="line">            output.SuppressOutput();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure> 
+<p>Note that either a policy or a requirement must be specified along with a resource, but you can't specify both a policy AND a requirement. Most of the code in the <code>ProcessAsync</code> method is checking the argument values to make sure a valid combination was used.</p>
+<h1>Try it out</h1>
+<p>You can see the authorize resource tag helper in action on my tag helper samples site <a href="http://taghelpersamples.azurewebsites.net/Samples/Authorize" target="_blank" rel="noopener">here</a>. The sample site contains the examples listed in this blog post and also provides a way to log in as different users to test different scenarios.</p>
+<p>The authorize resource tag helper is also available on <a href="https://www.nuget.org/packages/TagHelperSamples.Authorization/" target="_blank" rel="noopener">NuGet</a> so you can use it in your own ASP.NET Core application.</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dotnet add <span class="keyword">package</span> <span class="title">TagHelperSamples.Authorization</span></span><br></pre></td></tr></table></figure>
+<p>Let me know what you think. Would you like to see this tag helper including in the next release of ASP.NET Core?</p>
+<p><em>NOTE:</em> If you choose to use the authorize resource tag helper in your application, you should remember that hiding a section of HTML is not enough to fully secure your application. You also need to make sure that resource-based authorization is applied to any related controllers and action methods.</p>
+<h1>What's Next?</h1>
+<p>There is one more authorization scenario related to supporting different authorization schemes that I hope to cover. Watch out for that in a future blog post. Also, this tag helper project is all open source so feel free to jump in on <a href="https://github.com/dpaquette/TagHelperSamples" target="_blank" rel="noopener">GitHub</a>.</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/dave_paquette">
+				
+					<img src='/images/avatars/DavePaquette_241x241.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/dave_paquette">Dave Paquette</a></h2>
+			
+			<a href="mailto:contactme@davepaquette.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://www.davepaquette.com/" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/Dave_Paquette" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/dpaquette" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			
+ 			<a href="/feeds/dave_paquette"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'http://www.westerndevs.com/ASP-NET-Core/Tag-Helpers/authorize-resource-tag-helper/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'dave_paquette');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

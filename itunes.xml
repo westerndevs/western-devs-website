@@ -1,0 +1,650 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xml:lang="en-US">
+	<channel>
+		<title>Western Devs :: Panel discussions on .NET, software practices, and smoked meat</title>
+		<link>http://www.westerndevs.com</link>
+		<atom:link href="http://www.westerndevs.com/itunes.xml" rel="self" type="application/rss+xml" />
+		<language>en-us</language>
+		<copyright>&#x2117; &amp; &#xA9; 2015 Western Devs</copyright>
+		<itunes:subtitle>Semi-regular technical discussions on various topics</itunes:subtitle>
+		<itunes:author>Western Devs</itunes:author>
+		<itunes:summary>A group of software developers, mostly from western Canada, mostly in the Microsoft .NET space, and all west of someplace else get together to discuss topics that tickle their fancy.</itunes:summary>
+		<description>A group of software developers, mostly from western Canada, mostly in the Microsoft .NET space, and all west of someplace else get together to discuss topics that tickle their fancy.</description>
+		<itunes:owner>
+			<itunes:name>Dylan Smith</itunes:name>
+			<itunes:email>dylanfromwinnipeg@gmail.com</itunes:email>
+		</itunes:owner>
+		<itunes:image href="http://www.westerndevs.com/images/Western_Dev_V_rgb.png" />
+		<itunes:explicit>No</itunes:explicit>
+		<itunes:category text="Technology" />
+		<pubDate>Thu, 12 Apr 2018 23:58:11 +00:00</pubDate>
+		<lastBuildDate>Thu, 12 Apr 2018 23:58:11 +00:00</lastBuildDate>
+		<generator>Hexo</generator>
+		<managingEditor>dylanfromwinnipeg@gmail.com (Dylan Smith)</managingEditor>
+		
+			<item>
+				<title>Is there still a place for the server-side web?</title>
+				<link>http://www.westerndevs.com</link>
+				<pubDate>Sun, 10 Sep 2017 15:34:08 +00:00</pubDate>
+				<guid>http://www.westerndevs.com/podcasts/Server-side-web</guid>
+				<description><![CDATA[In a leaner half-hour podcast, we discuss whether we should still be rendering web pages on the server]]></description>
+				<itunes:author>Western Devs</itunes:author>
+				<itunes:subtitle></itunes:subtitle>
+				<itunes:summary><![CDATA[In a leaner half-hour podcast, we discuss whether we should still be rendering web pages on the server]]></itunes:summary>
+				
+				<enclosure url="http://traffic.libsyn.com/westerndevspodcast/westerndevs-server-side-rendering.mp3" length="29604629" type="audio/mpeg" />
+				
+				<itunes:duration>31:35</itunes:duration>
+				<itunes:explicit>No</itunes:explicit>
+			</item>
+		
+			<item>
+				<title>Developer Health</title>
+				<link>http://www.westerndevs.com</link>
+				<pubDate>Tue, 15 Aug 2017 21:02:36 +00:00</pubDate>
+				<guid>http://www.westerndevs.com/podcasts/Developer-Health</guid>
+				<description><![CDATA[The Western Devs aren&#39;t getting any younger. We take time out of our exercise routines to talk about keeping healthy]]></description>
+				<itunes:author>Western Devs</itunes:author>
+				<itunes:subtitle></itunes:subtitle>
+				<itunes:summary><![CDATA[The Western Devs aren&#39;t getting any younger. We take time out of our exercise routines to talk about keeping healthy]]></itunes:summary>
+				
+				<enclosure url="http://traffic.libsyn.com/westerndevspodcast/westerndevs-developer-health.mp3" length="45838670" type="audio/mpeg" />
+				
+				<itunes:duration>48:40</itunes:duration>
+				<itunes:explicit>No</itunes:explicit>
+			</item>
+		
+			<item>
+				<title>Transparency</title>
+				<link>http://www.westerndevs.com</link>
+				<pubDate>Tue, 09 May 2017 23:25:00 +00:00</pubDate>
+				<guid>http://www.westerndevs.com/podcasts/Transparency</guid>
+				<description><![CDATA[Wherein the Western Devs determine if, when, and how companies should publish salary and diversity numbers]]></description>
+				<itunes:author>Western Devs</itunes:author>
+				<itunes:subtitle></itunes:subtitle>
+				<itunes:summary><![CDATA[Wherein the Western Devs determine if, when, and how companies should publish salary and diversity numbers]]></itunes:summary>
+				
+				<enclosure url="http://traffic.libsyn.com/westerndevspodcast/westerndevs-transparency.mp3" length="38458238" type="audio/mpeg" />
+				
+				<itunes:duration>42:02</itunes:duration>
+				<itunes:explicit>No</itunes:explicit>
+			</item>
+		
+			<item>
+				<title>Working From Home</title>
+				<link>http://www.westerndevs.com</link>
+				<pubDate>Sun, 23 Apr 2017 20:43:26 +00:00</pubDate>
+				<guid>http://www.westerndevs.com/podcasts/working-from-home</guid>
+				<description><![CDATA[Yeah, so Pokemon Go was still a thing when we originally recorded this. Add procrastination to the list of hazards for working from home.]]></description>
+				<itunes:author>Western Devs</itunes:author>
+				<itunes:subtitle></itunes:subtitle>
+				<itunes:summary><![CDATA[Yeah, so Pokemon Go was still a thing when we originally recorded this. Add procrastination to the list of hazards for working from home.]]></itunes:summary>
+				
+				<enclosure url="http://traffic.libsyn.com/westerndevspodcast/westerndevs-working-from-home.mp3" length="40115726" type="audio/mpeg" />
+				
+				<itunes:duration>42:36</itunes:duration>
+				<itunes:explicit>No</itunes:explicit>
+			</item>
+		
+			<item>
+				<title>Career Planning</title>
+				<link>http://www.westerndevs.com</link>
+				<pubDate>Mon, 19 Sep 2016 21:11:22 +00:00</pubDate>
+				<guid>http://www.westerndevs.com/podcasts/Career-Planning</guid>
+				<description><![CDATA[When it comes to planning your career, the Western Devs have it aaaaaaaall worked out. But when it comes to audio issues...sorry about that, westerners.]]></description>
+				<itunes:author>Western Devs</itunes:author>
+				<itunes:subtitle></itunes:subtitle>
+				<itunes:summary><![CDATA[When it comes to planning your career, the Western Devs have it aaaaaaaall worked out. But when it comes to audio issues...sorry about that, westerners.]]></itunes:summary>
+				
+				<enclosure url="http://traffic.libsyn.com/westerndevspodcast/westerndevs-career-planning.mp3" length="39801087" type="audio/mpeg" />
+				
+				<itunes:duration>41:28</itunes:duration>
+				<itunes:explicit>No</itunes:explicit>
+			</item>
+		
+			<item>
+				<title>Stress</title>
+				<link>http://www.westerndevs.com</link>
+				<pubDate>Fri, 09 Sep 2016 21:11:22 +00:00</pubDate>
+				<guid>http://www.westerndevs.com/podcasts/Stress</guid>
+				<description><![CDATA[Chillax with the Western Devs as they relieve their stress through podcast therapy]]></description>
+				<itunes:author>Western Devs</itunes:author>
+				<itunes:subtitle></itunes:subtitle>
+				<itunes:summary><![CDATA[Chillax with the Western Devs as they relieve their stress through podcast therapy]]></itunes:summary>
+				
+				<enclosure url="http://traffic.libsyn.com/westerndevspodcast/westerndevs-stress.mp3" length="39174558" type="audio/mpeg" />
+				
+				<itunes:duration>40:48</itunes:duration>
+				<itunes:explicit>No</itunes:explicit>
+			</item>
+		
+			<item>
+				<title>Exploratory Data Analysis with Matthew Renze</title>
+				<link>http://www.westerndevs.com</link>
+				<pubDate>Wed, 27 Jul 2016 14:58:44 +00:00</pubDate>
+				<guid>http://www.westerndevs.com/podcasts/Exploratory-Data-Analysis-with-Matthew-Renze</guid>
+				<description><![CDATA[Kyle hijacks Matthew Renze at Prairie Dev Con 2016 to talk about exploratory data analysis and the increasingly popular programming language, R.]]></description>
+				<itunes:author>Western Devs</itunes:author>
+				<itunes:subtitle></itunes:subtitle>
+				<itunes:summary><![CDATA[Kyle hijacks Matthew Renze at Prairie Dev Con 2016 to talk about exploratory data analysis and the increasingly popular programming language, R.]]></itunes:summary>
+				
+				<enclosure url="http://traffic.libsyn.com/westerndevspodcast/westerndevs-data-analysis-matthew-renze.mp3" length="21069439" type="audio/mpeg" />
+				
+				<itunes:duration>21:57</itunes:duration>
+				<itunes:explicit>No</itunes:explicit>
+			</item>
+		
+			<item>
+				<title>Functional Programming and F# with Rachel Reese</title>
+				<link>http://www.westerndevs.com</link>
+				<pubDate>Sat, 09 Jul 2016 22:01:53 +00:00</pubDate>
+				<guid>http://www.westerndevs.com/podcasts/FSharp-with-Rachel-Reese</guid>
+				<description><![CDATA[The Western Devs kidnap Rachel Reese at Prairie Dev Con and force her to speak on functional programming and F# in exchange for empanadas]]></description>
+				<itunes:author>Western Devs</itunes:author>
+				<itunes:subtitle></itunes:subtitle>
+				<itunes:summary><![CDATA[The Western Devs kidnap Rachel Reese at Prairie Dev Con and force her to speak on functional programming and F# in exchange for empanadas]]></itunes:summary>
+				
+				<enclosure url="http://traffic.libsyn.com/westerndevspodcast/westerndevs-functional-programming-rachel-reese.mp3" length="36722849" type="audio/mpeg" />
+				
+				<itunes:duration>38:15</itunes:duration>
+				<itunes:explicit>No</itunes:explicit>
+			</item>
+		
+			<item>
+				<title>Mobile Apps and Xamarin</title>
+				<link>http://www.westerndevs.com</link>
+				<pubDate>Sat, 02 Jul 2016 18:13:23 +00:00</pubDate>
+				<guid>http://www.westerndevs.com/podcasts/Mobile-apps</guid>
+				<description><![CDATA[The Western Devs discuss the ins and outs of mobile development and Xamarin]]></description>
+				<itunes:author>Western Devs</itunes:author>
+				<itunes:subtitle></itunes:subtitle>
+				<itunes:summary><![CDATA[The Western Devs discuss the ins and outs of mobile development and Xamarin]]></itunes:summary>
+				
+				<enclosure url="http://traffic.libsyn.com/westerndevspodcast/westerndevs-mobile-apps-xamarin.mp3" length="40120834" type="audio/mpeg" />
+				
+				<itunes:duration>41:48</itunes:duration>
+				<itunes:explicit>No</itunes:explicit>
+			</item>
+		
+			<item>
+				<title>Building APIs</title>
+				<link>http://www.westerndevs.com</link>
+				<pubDate>Mon, 13 Jun 2016 13:58:48 +00:00</pubDate>
+				<guid>http://www.westerndevs.com/podcasts/Building-APIs</guid>
+				<description><![CDATA[The Western Devs discuss the ins and outs of building APIs]]></description>
+				<itunes:author>Western Devs</itunes:author>
+				<itunes:subtitle></itunes:subtitle>
+				<itunes:summary><![CDATA[The Western Devs discuss the ins and outs of building APIs]]></itunes:summary>
+				
+				<enclosure url="http://traffic.libsyn.com/westerndevspodcast/westerndevs-building-apis.mp3" length="37892683" type="audio/mpeg" />
+				
+				<itunes:duration>39:28</itunes:duration>
+				<itunes:explicit>No</itunes:explicit>
+			</item>
+		
+			<item>
+				<title>Prairie Dev Con Recap</title>
+				<link>http://www.westerndevs.com</link>
+				<pubDate>Sat, 07 May 2016 17:22:31 +00:00</pubDate>
+				<guid>http://www.westerndevs.com/podcasts/Prairie-Dev-Con-Recap</guid>
+				<description><![CDATA[The Western Devs reminisce on their experience at Prairie Dev Con and offer tips to speakers, conference organizers, and attendees.]]></description>
+				<itunes:author>Western Devs</itunes:author>
+				<itunes:subtitle></itunes:subtitle>
+				<itunes:summary><![CDATA[The Western Devs reminisce on their experience at Prairie Dev Con and offer tips to speakers, conference organizers, and attendees.]]></itunes:summary>
+				
+				<enclosure url="http://traffic.libsyn.com/westerndevspodcast/westerndevs-prairie-dev-con-recap.mp3" length="42817504" type="audio/mpeg" />
+				
+				<itunes:duration>44:36</itunes:duration>
+				<itunes:explicit>No</itunes:explicit>
+			</item>
+		
+			<item>
+				<title>Thoughts on Microsoft Build 2016</title>
+				<link>http://www.westerndevs.com</link>
+				<pubDate>Sun, 10 Apr 2016 00:18:38 +00:00</pubDate>
+				<guid>http://www.westerndevs.com/podcasts/MS-Build</guid>
+				<description><![CDATA[The Western Devs pontificate on the latest Microsoft Build announcements]]></description>
+				<itunes:author>Western Devs</itunes:author>
+				<itunes:subtitle></itunes:subtitle>
+				<itunes:summary><![CDATA[The Western Devs pontificate on the latest Microsoft Build announcements]]></itunes:summary>
+				
+				<enclosure url="http://traffic.libsyn.com/westerndevspodcast/westerndevs-ms-build.mp3" length="43063681" type="audio/mpeg" />
+				
+				<itunes:duration>44:51</itunes:duration>
+				<itunes:explicit>No</itunes:explicit>
+			</item>
+		
+			<item>
+				<title>Diabetes technology</title>
+				<link>http://www.westerndevs.com</link>
+				<pubDate>Sun, 27 Mar 2016 21:01:07 +00:00</pubDate>
+				<guid>http://www.westerndevs.com/podcasts/Diabetes-technology</guid>
+				<description><![CDATA[Special guest, Jake Belcham, joins the Western Devs as they review the state of diabetes technology today and what&#39;s coming in the future]]></description>
+				<itunes:author>Western Devs</itunes:author>
+				<itunes:subtitle></itunes:subtitle>
+				<itunes:summary><![CDATA[Special guest, Jake Belcham, joins the Western Devs as they review the state of diabetes technology today and what&#39;s coming in the future]]></itunes:summary>
+				
+				<enclosure url="http://traffic.libsyn.com/westerndevspodcast/westerndevs-diabetes-technology.mp3" length="37658214" type="audio/mpeg" />
+				
+				<itunes:duration>39:14</itunes:duration>
+				<itunes:explicit>No</itunes:explicit>
+			</item>
+		
+			<item>
+				<title>Building developer tools with Igal Tabachnik</title>
+				<link>http://www.westerndevs.com</link>
+				<pubDate>Mon, 29 Feb 2016 20:57:40 +00:00</pubDate>
+				<guid>http://www.westerndevs.com/podcasts/Building-developer-tools-with-Igal-Tabachnik</guid>
+				<description><![CDATA[We talk with Igal Tabachnik and discuss the finer points of building tools for Visual Studio]]></description>
+				<itunes:author>Western Devs</itunes:author>
+				<itunes:subtitle></itunes:subtitle>
+				<itunes:summary><![CDATA[We talk with Igal Tabachnik and discuss the finer points of building tools for Visual Studio]]></itunes:summary>
+				
+				<enclosure url="http://traffic.libsyn.com/westerndevspodcast/westerndevs-developer-tools-with-igal-tabachnik.mp3" length="26712724" type="audio/mpeg" />
+				
+				<itunes:duration>27:50</itunes:duration>
+				<itunes:explicit>No</itunes:explicit>
+			</item>
+		
+			<item>
+				<title>Developer Productivity</title>
+				<link>http://www.westerndevs.com</link>
+				<pubDate>Tue, 23 Feb 2016 17:31:27 +00:00</pubDate>
+				<guid>http://www.westerndevs.com/podcasts/Developer-Productivity</guid>
+				<description><![CDATA[The Western Devs take a break from their collective workdays to discuss developer productivity]]></description>
+				<itunes:author>Western Devs</itunes:author>
+				<itunes:subtitle></itunes:subtitle>
+				<itunes:summary><![CDATA[The Western Devs take a break from their collective workdays to discuss developer productivity]]></itunes:summary>
+				
+				<enclosure url="http://traffic.libsyn.com/westerndevspodcast/westerndevs-developer-productivity.mp3" length="44047559" type="audio/mpeg" />
+				
+				<itunes:duration>45:53</itunes:duration>
+				<itunes:explicit>No</itunes:explicit>
+			</item>
+		
+			<item>
+				<title>Getting Started in Open Source with Adam Ralph</title>
+				<link>http://www.westerndevs.com</link>
+				<pubDate>Wed, 17 Feb 2016 23:57:13 +00:00</pubDate>
+				<guid>http://www.westerndevs.com/podcasts/Getting-started-in-open-source-with-Adam-Ralph</guid>
+				<description><![CDATA[Open source addict, Adam Ralph sits down with the Western Devs to give us tips on getting started in the wacky world of open source]]></description>
+				<itunes:author>Western Devs</itunes:author>
+				<itunes:subtitle></itunes:subtitle>
+				<itunes:summary><![CDATA[Open source addict, Adam Ralph sits down with the Western Devs to give us tips on getting started in the wacky world of open source]]></itunes:summary>
+				
+				<enclosure url="http://traffic.libsyn.com/westerndevspodcast/2016-02-15-westerndevs-open-source-with-adam-ralph.mp3" length="19512125" type="audio/mpeg" />
+				
+				<itunes:duration>20:19</itunes:duration>
+				<itunes:explicit>No</itunes:explicit>
+			</item>
+		
+			<item>
+				<title>Ergonomics</title>
+				<link>http://www.westerndevs.com</link>
+				<pubDate>Sat, 13 Feb 2016 17:35:15 +00:00</pubDate>
+				<guid>http://www.westerndevs.com/podcasts/Ergonomics</guid>
+				<description><![CDATA[The Western Devs try to fight off the various aches and pains that come with chatting online all day]]></description>
+				<itunes:author>Western Devs</itunes:author>
+				<itunes:subtitle></itunes:subtitle>
+				<itunes:summary><![CDATA[The Western Devs try to fight off the various aches and pains that come with chatting online all day]]></itunes:summary>
+				
+				<enclosure url="http://traffic.libsyn.com/westerndevspodcast/2016-02-13-WesternDevs-Ergonomics.mp3" length="39902228" type="audio/mpeg" />
+				
+				<itunes:duration>41:34</itunes:duration>
+				<itunes:explicit>No</itunes:explicit>
+			</item>
+		
+			<item>
+				<title>Azure with Yves Goeleven</title>
+				<link>http://www.westerndevs.com</link>
+				<pubDate>Mon, 08 Feb 2016 22:19:10 +00:00</pubDate>
+				<guid>http://www.westerndevs.com/podcasts/Azure-with-Yves-Goeleven</guid>
+				<description><![CDATA[The devs track down Microsoft MVP Yves Goeleven in a busy Thai restaurant and talk to him about Azure]]></description>
+				<itunes:author>Western Devs</itunes:author>
+				<itunes:subtitle></itunes:subtitle>
+				<itunes:summary><![CDATA[The devs track down Microsoft MVP Yves Goeleven in a busy Thai restaurant and talk to him about Azure]]></itunes:summary>
+				
+				<enclosure url="http://traffic.libsyn.com/westerndevspodcast/YvesGoelevenAzure.mp3" length="21061896" type="audio/mpeg" />
+				
+				<itunes:duration>21:56</itunes:duration>
+				<itunes:explicit>No</itunes:explicit>
+			</item>
+		
+			<item>
+				<title>Is Web Development Terrible</title>
+				<link>http://www.westerndevs.com</link>
+				<pubDate>Sun, 24 Jan 2016 15:40:13 +00:00</pubDate>
+				<guid>http://www.westerndevs.com/podcasts/Podcast-Is-Web-Development-Terrible</guid>
+				<description><![CDATA[The Western Devs discuss whether web development really is terrible]]></description>
+				<itunes:author>Western Devs</itunes:author>
+				<itunes:subtitle></itunes:subtitle>
+				<itunes:summary><![CDATA[The Western Devs discuss whether web development really is terrible]]></itunes:summary>
+				
+				<enclosure url="http://traffic.libsyn.com/westerndevspodcast/western_devs_podcast_2016-01-15.mp3" length="39288276" type="audio/mpeg" />
+				
+				<itunes:duration>40:55</itunes:duration>
+				<itunes:explicit>No</itunes:explicit>
+			</item>
+		
+			<item>
+				<title>2016 Goals</title>
+				<link>http://www.westerndevs.com</link>
+				<pubDate>Wed, 13 Jan 2016 15:40:13 +00:00</pubDate>
+				<guid>http://www.westerndevs.com/podcasts/Podcast-2016-Goals</guid>
+				<description><![CDATA[The Western Devs reminisce on 2015 and look to 2016]]></description>
+				<itunes:author>Western Devs</itunes:author>
+				<itunes:subtitle></itunes:subtitle>
+				<itunes:summary><![CDATA[The Western Devs reminisce on 2015 and look to 2016]]></itunes:summary>
+				
+				<enclosure url="http://traffic.libsyn.com/westerndevspodcast/2016Goals.mp3" length="33003394" type="audio/mpeg" />
+				
+				<itunes:duration>34:23</itunes:duration>
+				<itunes:explicit>No</itunes:explicit>
+			</item>
+		
+			<item>
+				<title>Barriers for Women in Technology</title>
+				<link>http://www.westerndevs.com</link>
+				<pubDate>Mon, 14 Dec 2015 23:12:40 +00:00</pubDate>
+				<guid>http://www.westerndevs.com/podcasts/podcast-barriers-for-women-in-technology</guid>
+				<description><![CDATA[Special guest Rachel Thomas and the Western Devs discuss the barriers facing women when they enter and when they stay in technology]]></description>
+				<itunes:author>Western Devs</itunes:author>
+				<itunes:subtitle></itunes:subtitle>
+				<itunes:summary><![CDATA[Special guest Rachel Thomas and the Western Devs discuss the barriers facing women when they enter and when they stay in technology]]></itunes:summary>
+				
+				<enclosure url="http://traffic.libsyn.com/westerndevspodcast/BarriersForWomenInTechnology.mp3" length="44773146" type="audio/mpeg" />
+				
+				<itunes:duration>46:38</itunes:duration>
+				<itunes:explicit>No</itunes:explicit>
+			</item>
+		
+			<item>
+				<title>The Future of Computing</title>
+				<link>http://www.westerndevs.com</link>
+				<pubDate>Mon, 07 Dec 2015 23:21:04 +00:00</pubDate>
+				<guid>http://www.westerndevs.com/podcasts/podcast-the-future-of-computing</guid>
+				<description><![CDATA[The Western Devs pontificate on the future of computing]]></description>
+				<itunes:author>Western Devs</itunes:author>
+				<itunes:subtitle></itunes:subtitle>
+				<itunes:summary><![CDATA[The Western Devs pontificate on the future of computing]]></itunes:summary>
+				
+				<enclosure url="http://traffic.libsyn.com/westerndevspodcast/TheFutureOfComputing.mp3" length="48022352" type="audio/mpeg" />
+				
+				<itunes:duration>50:01</itunes:duration>
+				<itunes:explicit>No</itunes:explicit>
+			</item>
+		
+			<item>
+				<title>Geek Gifts</title>
+				<link>http://www.westerndevs.com</link>
+				<pubDate>Sat, 28 Nov 2015 21:13:38 +00:00</pubDate>
+				<guid>http://www.westerndevs.com/podcasts/podcast-geek-gifts</guid>
+				<description><![CDATA[Learn what the Western Devs might have got this year for Christmas if any of them were nice]]></description>
+				<itunes:author>Western Devs</itunes:author>
+				<itunes:subtitle></itunes:subtitle>
+				<itunes:summary><![CDATA[Learn what the Western Devs might have got this year for Christmas if any of them were nice]]></itunes:summary>
+				
+				<enclosure url="http://traffic.libsyn.com/westerndevspodcast/GeekGifts.mp3" length="61995490" type="audio/mpeg" />
+				
+				<itunes:duration>1:04:35</itunes:duration>
+				<itunes:explicit>No</itunes:explicit>
+			</item>
+		
+			<item>
+				<title>Zencastr</title>
+				<link>http://www.westerndevs.com</link>
+				<pubDate>Wed, 25 Nov 2015 08:47:07 +00:00</pubDate>
+				<guid>http://www.westerndevs.com/podcasts/podcast-zencastr</guid>
+				<description><![CDATA[A chat with Josh Nielsen, creator of Zencastr]]></description>
+				<itunes:author>Western Devs</itunes:author>
+				<itunes:subtitle></itunes:subtitle>
+				<itunes:summary><![CDATA[A chat with Josh Nielsen, creator of Zencastr]]></itunes:summary>
+				
+				<enclosure url="http://traffic.libsyn.com/westerndevspodcast/Zencastr.mp3" length="43997390" type="audio/mpeg" />
+				
+				<itunes:duration>45:50</itunes:duration>
+				<itunes:explicit>No</itunes:explicit>
+			</item>
+		
+			<item>
+				<title>Interviews and Hiring Practices</title>
+				<link>http://www.westerndevs.com</link>
+				<pubDate>Tue, 17 Nov 2015 23:56:08 +00:00</pubDate>
+				<guid>http://www.westerndevs.com/podcasts/podcast-interviews-and-hiring-practices</guid>
+				<description><![CDATA[The definitive answer on how to hire your next dev]]></description>
+				<itunes:author>Western Devs</itunes:author>
+				<itunes:subtitle></itunes:subtitle>
+				<itunes:summary><![CDATA[The definitive answer on how to hire your next dev]]></itunes:summary>
+				
+				<enclosure url="http://traffic.libsyn.com/westerndevspodcast/HiringPractices.mp3" length="42345205" type="audio/mpeg" />
+				
+				<itunes:duration>44:07</itunes:duration>
+				<itunes:explicit>No</itunes:explicit>
+			</item>
+		
+			<item>
+				<title>All About SmartView</title>
+				<link>http://www.westerndevs.com</link>
+				<pubDate>Wed, 11 Nov 2015 03:13:26 +00:00</pubDate>
+				<guid>http://www.westerndevs.com/podcasts/podcast-all-about-smartview</guid>
+				<description><![CDATA[An Interview with SmartView founder Amir Barylko]]></description>
+				<itunes:author>Western Devs</itunes:author>
+				<itunes:subtitle></itunes:subtitle>
+				<itunes:summary><![CDATA[An Interview with SmartView founder Amir Barylko]]></itunes:summary>
+				
+				<enclosure url="http://traffic.libsyn.com/westerndevspodcast/SmartView.mp3" length="43892503" type="audio/mpeg" />
+				
+				<itunes:duration>31:53</itunes:duration>
+				<itunes:explicit>No</itunes:explicit>
+			</item>
+		
+			<item>
+				<title>Encouraging and Educating Kids</title>
+				<link>http://www.westerndevs.com</link>
+				<pubDate>Mon, 09 Nov 2015 05:12:19 +00:00</pubDate>
+				<guid>http://www.westerndevs.com/podcasts/podcast-encouraging-and-educating-kids</guid>
+				<description><![CDATA[Ways to encouraging and educate kids in the dark art of coding. With special guest Wendy Closson]]></description>
+				<itunes:author>Western Devs</itunes:author>
+				<itunes:subtitle></itunes:subtitle>
+				<itunes:summary><![CDATA[Ways to encouraging and educate kids in the dark art of coding. With special guest Wendy Closson]]></itunes:summary>
+				
+				<enclosure url="http://traffic.libsyn.com/westerndevspodcast/TeachingKids.mp3" length="43892503" type="audio/mpeg" />
+				
+				<itunes:duration>45:43</itunes:duration>
+				<itunes:explicit>No</itunes:explicit>
+			</item>
+		
+			<item>
+				<title>Life Outside .NET</title>
+				<link>http://www.westerndevs.com</link>
+				<pubDate>Mon, 19 Oct 2015 23:48:10 +00:00</pubDate>
+				<guid>http://www.westerndevs.com/podcasts/podcast-life-outside-net</guid>
+				<description><![CDATA[The Western Devs discuss working outside your comfort zone]]></description>
+				<itunes:author>Western Devs</itunes:author>
+				<itunes:subtitle></itunes:subtitle>
+				<itunes:summary><![CDATA[The Western Devs discuss working outside your comfort zone]]></itunes:summary>
+				
+				<enclosure url="http://traffic.libsyn.com/westerndevspodcast/LifeOutsideNET.mp3" length="39477170" type="audio/mpeg" />
+				
+				<itunes:duration>41:07</itunes:duration>
+				<itunes:explicit>No</itunes:explicit>
+			</item>
+		
+			<item>
+				<title>Refactor vs. Rewrite</title>
+				<link>http://www.westerndevs.com</link>
+				<pubDate>Thu, 15 Oct 2015 04:54:55 +00:00</pubDate>
+				<guid>http://www.westerndevs.com/podcasts/podcast-brownfield-applications</guid>
+				<description><![CDATA[The Western Devs tackle the eternal debate: do we refactor or rewrite?]]></description>
+				<itunes:author>Western Devs</itunes:author>
+				<itunes:subtitle></itunes:subtitle>
+				<itunes:summary><![CDATA[The Western Devs tackle the eternal debate: do we refactor or rewrite?]]></itunes:summary>
+				
+				<enclosure url="http://traffic.libsyn.com/westerndevspodcast/RefactorRewrite.mp3" length="40960093" type="audio/mpeg" />
+				
+				<itunes:duration>42:40</itunes:duration>
+				<itunes:explicit>No</itunes:explicit>
+			</item>
+		
+			<item>
+				<title>Ethics</title>
+				<link>http://www.westerndevs.com</link>
+				<pubDate>Sat, 10 Oct 2015 23:32:22 +00:00</pubDate>
+				<guid>http://www.westerndevs.com/podcasts/podcast-ethics</guid>
+				<description><![CDATA[The Western Devs welcome Lori Lalonde and D&#39;Arcy Lussier to the podcast and discuss ethics in software]]></description>
+				<itunes:author>Western Devs</itunes:author>
+				<itunes:subtitle></itunes:subtitle>
+				<itunes:summary><![CDATA[The Western Devs welcome Lori Lalonde and D&#39;Arcy Lussier to the podcast and discuss ethics in software]]></itunes:summary>
+				
+				<enclosure url="http://traffic.libsyn.com/westerndevspodcast/Ethics.mp3" length="43357074" type="audio/mpeg" />
+				
+				<itunes:duration>45:10</itunes:duration>
+				<itunes:explicit>No</itunes:explicit>
+			</item>
+		
+			<item>
+				<title>Going Independent</title>
+				<link>http://www.westerndevs.com</link>
+				<pubDate>Thu, 01 Oct 2015 03:07:37 +00:00</pubDate>
+				<guid>http://www.westerndevs.com/podcasts/podcast-going-independent</guid>
+				<description><![CDATA[In honour of Botswanan Independence Day, the Western Devs discuss going independent with special guest, Wendy Closson]]></description>
+				<itunes:author>Western Devs</itunes:author>
+				<itunes:subtitle></itunes:subtitle>
+				<itunes:summary><![CDATA[In honour of Botswanan Independence Day, the Western Devs discuss going independent with special guest, Wendy Closson]]></itunes:summary>
+				
+				<enclosure url="http://traffic.libsyn.com/westerndevspodcast/GoingIndependent.mp3" length="46166206" type="audio/mpeg" />
+				
+				<itunes:duration>48:05</itunes:duration>
+				<itunes:explicit>No</itunes:explicit>
+			</item>
+		
+			<item>
+				<title>Kanban</title>
+				<link>http://www.westerndevs.com</link>
+				<pubDate>Sat, 19 Sep 2015 23:46:54 +00:00</pubDate>
+				<guid>http://www.westerndevs.com/podcasts/podcast-kanban</guid>
+				<description><![CDATA[The WesternDevs try their hand at pronouncing, then describing Kanban]]></description>
+				<itunes:author>Western Devs</itunes:author>
+				<itunes:subtitle></itunes:subtitle>
+				<itunes:summary><![CDATA[The WesternDevs try their hand at pronouncing, then describing Kanban]]></itunes:summary>
+				
+				<enclosure url="http://traffic.libsyn.com/westerndevspodcast/Kanban.mp3" length="48603716" type="audio/mpeg" />
+				
+				<itunes:duration>50:38</itunes:duration>
+				<itunes:explicit>No</itunes:explicit>
+			</item>
+		
+			<item>
+				<title>Work/Life Balance</title>
+				<link>http://www.westerndevs.com</link>
+				<pubDate>Wed, 09 Sep 2015 09:03:30 +00:00</pubDate>
+				<guid>http://www.westerndevs.com/podcasts/podcast-work-life-balance</guid>
+				<description><![CDATA[Wherein the Western Devs try to balance work and not work]]></description>
+				<itunes:author>Western Devs</itunes:author>
+				<itunes:subtitle></itunes:subtitle>
+				<itunes:summary><![CDATA[Wherein the Western Devs try to balance work and not work]]></itunes:summary>
+				
+				<enclosure url="http://traffic.libsyn.com/westerndevspodcast/WorkLifeBalance.mp3" length="41543561" type="audio/mpeg" />
+				
+				<itunes:duration>43:16</itunes:duration>
+				<itunes:explicit>No</itunes:explicit>
+			</item>
+		
+			<item>
+				<title>No Estimates</title>
+				<link>http://www.westerndevs.com</link>
+				<pubDate>Wed, 02 Sep 2015 03:42:12 +00:00</pubDate>
+				<guid>http://www.westerndevs.com/podcasts/podcast-no-estimates</guid>
+				<description><![CDATA[In this episode, special guest Steve Rogalsky helps the Western Devs understand the #NoEstimates movement]]></description>
+				<itunes:author>Western Devs</itunes:author>
+				<itunes:subtitle></itunes:subtitle>
+				<itunes:summary><![CDATA[In this episode, special guest Steve Rogalsky helps the Western Devs understand the #NoEstimates movement]]></itunes:summary>
+				
+				<enclosure url="http://traffic.libsyn.com/westerndevspodcast/NoEstimates.mp3" length="57405212" type="audio/mpeg" />
+				
+				<itunes:duration>47:50</itunes:duration>
+				<itunes:explicit>No</itunes:explicit>
+			</item>
+		
+			<item>
+				<title>Internal Open Source</title>
+				<link>http://www.westerndevs.com</link>
+				<pubDate>Mon, 24 Aug 2015 02:00:37 +00:00</pubDate>
+				<guid>http://www.westerndevs.com/podcasts/podcast-internal-open-source</guid>
+				<description><![CDATA[The Western Devs sound off on why your company should share and collaborate on its internal code]]></description>
+				<itunes:author>Western Devs</itunes:author>
+				<itunes:subtitle></itunes:subtitle>
+				<itunes:summary><![CDATA[The Western Devs sound off on why your company should share and collaborate on its internal code]]></itunes:summary>
+				
+				<enclosure url="http://traffic.libsyn.com/westerndevspodcast/InternalOpenSource.mp3" length="51937269" type="audio/mpeg" />
+				
+				<itunes:duration>43:17</itunes:duration>
+				<itunes:explicit>No</itunes:explicit>
+			</item>
+		
+			<item>
+				<title>The Repository Pattern</title>
+				<link>http://www.westerndevs.com</link>
+				<pubDate>Tue, 04 Aug 2015 19:55:26 +00:00</pubDate>
+				<guid>http://www.westerndevs.com/podcasts/podcast-the-repository-pattern</guid>
+				<description><![CDATA[Do we really need all these repositories?]]></description>
+				<itunes:author>Western Devs</itunes:author>
+				<itunes:subtitle></itunes:subtitle>
+				<itunes:summary><![CDATA[Do we really need all these repositories?]]></itunes:summary>
+				
+				<enclosure url="http://traffic.libsyn.com/westerndevspodcast/RepositoryPattern.mp3" length="57742198" type="audio/mpeg" />
+				
+				<itunes:duration>48:07</itunes:duration>
+				<itunes:explicit>No</itunes:explicit>
+			</item>
+		
+			<item>
+				<title>DevOps</title>
+				<link>http://www.westerndevs.com</link>
+				<pubDate>Tue, 21 Jul 2015 19:55:26 +00:00</pubDate>
+				<guid>http://www.westerndevs.com/podcasts/podcast-devops</guid>
+				<description><![CDATA[Continuing the theme of making grandiose claims about vaguely defined terms, the Western Devs take on the Rise of DevOps]]></description>
+				<itunes:author>Western Devs</itunes:author>
+				<itunes:subtitle></itunes:subtitle>
+				<itunes:summary><![CDATA[Continuing the theme of making grandiose claims about vaguely defined terms, the Western Devs take on the Rise of DevOps]]></itunes:summary>
+				
+				<enclosure url="http://traffic.libsyn.com/westerndevspodcast/DevOps.mp3" length="62319361" type="audio/mpeg" />
+				
+				<itunes:duration>51:55</itunes:duration>
+				<itunes:explicit>No</itunes:explicit>
+			</item>
+		
+			<item>
+				<title>The Internet of Things</title>
+				<link>http://www.westerndevs.com</link>
+				<pubDate>Mon, 13 Jul 2015 22:47:49 +00:00</pubDate>
+				<guid>http://www.westerndevs.com/podcasts/podcast-the-internet-of-things</guid>
+				<description><![CDATA[The Western Devs delve into the mire that is the Internet of Things]]></description>
+				<itunes:author>Western Devs</itunes:author>
+				<itunes:subtitle></itunes:subtitle>
+				<itunes:summary><![CDATA[The Western Devs delve into the mire that is the Internet of Things]]></itunes:summary>
+				
+				<enclosure url="http://traffic.libsyn.com/westerndevspodcast/InternetOfThings.mp3" length="55153989" type="audio/mpeg" />
+				
+				<itunes:duration>45:57</itunes:duration>
+				<itunes:explicit>No</itunes:explicit>
+			</item>
+		
+			<item>
+				<title>Microservices</title>
+				<link>http://www.westerndevs.com</link>
+				<pubDate>Wed, 08 Jul 2015 00:54:52 +00:00</pubDate>
+				<guid>http://www.westerndevs.com/podcasts/podcast-microservices</guid>
+				<description><![CDATA[In our inaugural podcast, the Western Devs tackle what is either the new hotness, retro SOA, or a flash in the pan: microservices.]]></description>
+				<itunes:author>Western Devs</itunes:author>
+				<itunes:subtitle></itunes:subtitle>
+				<itunes:summary><![CDATA[In our inaugural podcast, the Western Devs tackle what is either the new hotness, retro SOA, or a flash in the pan: microservices.]]></itunes:summary>
+				
+				<enclosure url="http://traffic.libsyn.com/westerndevspodcast/Microservices.mp3" length="51810324" type="audio/mpeg" />
+				
+				<itunes:duration>53:58</itunes:duration>
+				<itunes:explicit>No</itunes:explicit>
+			</item>
+		
+	</channel> 
+</rss>

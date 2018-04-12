@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>How to Blog with VSTS (Part 3) | Western Devs</title>
+  <meta name="description" content="I wanted to understand how to use Visual Studio Team Services (VSTS) for a &quot;real&quot; project. Being a noob, I decided to move my blog to VSTS to understand how _any_ project can benefit from ALM practice">
+<meta name="keywords" content="hexo,visual studio team services,vsts,alm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to Blog with VSTS (Part 3)">
+<meta property="og:url" content="http://www.westerndevs.com/alm/How-to-Blog-with-VSTS-Part-3/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="I wanted to understand how to use Visual Studio Team Services (VSTS) for a &quot;real&quot; project. Being a noob, I decided to move my blog to VSTS to understand how _any_ project can benefit from ALM practice">
+<meta property="og:image" content="http://i.imgur.com/E4GjQDM.png">
+<meta property="og:image" content="http://i.imgur.com/a27TBI4.png">
+<meta property="og:image" content="http://i.imgur.com/67xoqOK.gif">
+<meta property="og:image" content="http://i.imgur.com/3xZztPR.png">
+<meta property="og:image" content="http://i.imgur.com/ZO8nzTM.png">
+<meta property="og:image" content="http://i.imgur.com/xT1tfEf.png">
+<meta property="og:updated_time" content="2016-11-14T12:30:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="How to Blog with VSTS (Part 3)">
+<meta name="twitter:description" content="I wanted to understand how to use Visual Studio Team Services (VSTS) for a &quot;real&quot; project. Being a noob, I decided to move my blog to VSTS to understand how _any_ project can benefit from ALM practice">
+<meta name="twitter:image" content="http://i.imgur.com/E4GjQDM.png">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed" title="Western Devs" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/css/style.css">
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  </head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">NOV</div>
+    <div class="ListLrgDateDay">14</div>
+    <div class="ListLrgDateYear">2016</div>
+  </div>
+  <h2>How to Blog with VSTS (Part 3)</h2>
+</div>
+
+		    
+
+			<div id="mainPostContent">
+	        <p><em>This is part 3 of 5 of my <strong>How to Blog with VSTS</strong> series. Links to the other parts will be added as they are made available.</em></p>
+<ul>
+<li><a href="https://blog.davidwesst.com/2016/10/How-to-Blog-with-VSTS-Part-1/" target="_blank" rel="noopener">Part 1: Setup</a></li>
+<li><a href="https://blog.davidwesst.com/2016/11/How-to-Blog-with-VSTS-Part-2/" target="_blank" rel="noopener">Part 2: Code</a></li>
+<li><a href="https://blog.davidwesst.com/2016/11/How-to-Blog-with-VSTS-Part-3/" target="_blank" rel="noopener">Part 3: Work</a></li>
+<li>Part 4: Build</li>
+<li>Part 5: Release</li>
+</ul>
+<hr>
+<p>I've been tinkering with Visual Studio Team Services off and on since its public release, but never did anything really productive with it. Over the past couple of weeks, I finally bit the bullet and decided to move my most prevelant personal project into VSTS: this blog.</p>
+<p>In this post we are going start blogging in a controlled and coordinated manner by planning and using the <em>Work</em> tab in our VSTS project.</p>
+<h2>What is there to plan?</h2>
+<p>Plenty. Although features and bugs are obvious use for <em>Work</em> tab, my primary use case is post planning. I'll be focusing on using <em>Work</em> for blog posts, but realize that you can use these same practices for adding new enhancements or logging bugs in your blog.</p>
+<h2>Post Ideas in the Backlog</h2>
+<p>I tend to have a lot more ideas for posts than I write. Ideas are quick and easy, but writing them (at least writing them properly) is the time consuming part.</p>
+<p>Rather than trying to write a post for every idea, I use the backlog to save my post ideas as they come up. In an Agile project, I create new user story for every post idea and tag it as a &quot;post&quot; so that I can easy filter them later.</p>
+<p>The user story title is the idea for the post title, and I use the description to outline the post.</p>
+<h5>Blogger Note</h5>
+<p>The title and the outline are only two things I fill out on the work item, but without both I don't even bother saving the item because I won't remember the context without the outline.</p>
+<h2>Planning my Posts</h2>
+<p>Now that we have a post backlog, I start planning what posts I am going to write. In my case, this is just like sprint planning and VSTS makes this easy.</p>
+<h3>Setting up Iterations</h3>
+<p>For starters, I setup my iterations. I like planning about one month at a time, so I go with 4-week iterations and named by the month that consumes most of the iteration. This all happens in the <em>Work</em> configuation section of the site.</p>
+<p><img src="http://i.imgur.com/E4GjQDM.png" alt="Work Configuration Menu"></p>
+<p><img src="http://i.imgur.com/a27TBI4.png" alt="Creating a New Iteration"></p>
+<h3>The <s>Sprint</s> Post Planning</h3>
+<p>Now that we have iterations, I plan what posts I want to write for the month.</p>
+<p>I do this by dragging the posts onto the iteration on the right side, and adding tasks as described by the <a href="https://www.visualstudio.com/en-us/docs/work/scrum/sprint-planning" target="_blank" rel="noopener">VSTS team</a>.</p>
+<p><img src="http://i.imgur.com/67xoqOK.gif" alt="Adding a User Story to an Iteration"></p>
+<h4>Tasks and Templates</h4>
+<p>Although tasks on a blog post work item might sound excessive, my writing process has multiple steps to try and make it easy for me to blog. First I write the initial draft (text-only), followed by proof reading and filling in the images and links that I've left. Sometimes there are other tasks like updating links on old posts, like on this post which is part of a series of posts.</p>
+<p>Since the tasks are so similar, I created a quick template that I apply to a work item that automatically puts in the tags and general tasks.</p>
+<h3>Why do all this Planning?</h3>
+<p>The planning takes me about 15 minutes a month, but it's still a fair question.</p>
+<p>Because my blog is something I do on my own time, I need to stay organized so that I can go from 0 to writing in 5 minutes. Between my day job, side project, family, social committments, and supporting a local user group, my time is limited. When I have 30 minutes, I try and get something done as quickly as possible.</p>
+<p>I found that without planning a lot of my time was spent trying to figure out what I did last time I blogged. Even if it only takes like 20 or 30 minutes to get myself sorted out and blogging, sometimes that is all the time I have to commit. If I spend all my time getting ready to blog, I won't have any time to <em>actually</em> blog.</p>
+<h2>Writing a Post</h2>
+<p>Now that we know what we're writing about, we can start writing posts.</p>
+<p>Because we're using a <a href="https://www.staticgen.com/" target="_blank" rel="noopener">static site generator</a> a post is a new markdown file and possibly couple of image files. This is analagous adding a new feature to any other software project, and thus it is treated as such.</p>
+<p>For me, I create a new <a href="">topic branch</a> for the post. Since I host my source code in VSTS, I use the web UI to create a new branch in the work item. On my local machine, I create a new local branch that is mapped to the new remote branch and start create a new draft post with <code>hexo new draft &quot;My Post Title&quot;</code>.</p>
+<p><img src="http://i.imgur.com/3xZztPR.png" alt="Creating a new branch from the work item"></p>
+<p>This creates a new post file in the <code>source\_drafts</code> folder of the project, and I start writing and going through the tasks. As I complete the tasks I make commits and associate them with the tasks and work items by adding the ID numbers in the messages. For example:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">"wrote initial draft. part of #201 closes task #212"</span></span><br></pre></td></tr></table></figure>
+<p>The <code>#201</code> and <code>#212</code> get picked up by VSTS and associate them with the cooresponding task and user story, just like it does in GitHub. Unlike GitHub, the <code>closes</code> key word doesn't actually close the work item, which I don't mind, but should be noted for those coming from GitHub like I did.</p>
+<p><img src="http://i.imgur.com/ZO8nzTM.png" alt="Related Work in a Work Item"></p>
+<p>Once I complete all my tasks and push all the commits to VSTS, I create a Pull Request and move the work item on the board to the &quot;Committed&quot; column.</p>
+<p><img src="http://i.imgur.com/xT1tfEf.png" alt="A VSTS Pull Request"></p>
+<h3>Why a Pull Request?</h3>
+<p>Again, another good question. You're pretty good at this.</p>
+<p>Some might it's completely unnecessary for a solo project like a blog, I like to use them for a few reasons.</p>
+<p>For starters, VSTS (just like GitHub) gives you a web-based interface for reviewing all the code you're about to merge into your branch. This gives me an opportunity to review my post and to make sure all the pieces are in place. I'm usually about a week ahead of each post, so doing a pull request</p>
+<p>Second, it makes the merge a bit more noticeable in the project. When I have a Pull Request waiting, my Visual Studio Code plugin will highlight it in the status bar, and it will also show up in the web-based UI.</p>
+<p>Lastly, and most importantly, it provides me a way to publish a post without needing to have access source code and a git command line. When I'm ready to share a post, I merge a pull request into the <code>master</code> branch which then triggers a <a href="https://blog.davidwesst.com/2016/11/How-to-Blog-with-VSTS-Part-4/" target="_blank" rel="noopener">build</a> and eventually a <a href="#">release</a>, which we will cover in future posts. All of that can be done from the web UI, which means as long as I have an internet connection on a device, I can login and publish a post.</p>
+<h4>What about Scheduling Posts?</h4>
+<p>There are ways to do that with Hexo and plenty of other static site generators. In my case, I use the <a href="https://blog.davidwesst.com/2016/11/How-to-Blog-with-VSTS-Part-4/" target="_blank" rel="noopener">Build</a> and <a href="#">Release</a> parts of VSTS to manage this for me. To be continued...</p>
+<h2>Ready. Set. Blog!</h2>
+<p>Now we're saving post ideas as user stories, writing posts and committing them to their own topic branches, and triggering a publish workflow through Pull Requests which gives us an opportinity to do proof read prior to publishing.</p>
+<p>Next up, we're going to <a href="https://blog.davidwesst.com/2016/11/How-to-Blog-with-VSTS-Part-4/" target="_blank" rel="noopener">Build</a> our blog.</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/david_wesst">
+				
+					<img src='/images/avatars/davidwesst_400x400.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/david_wesst">David Wesst</a></h2>
+			
+			<a href="mailto:questions@davidwesst.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://www.davidwesst.com" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/davidwesst" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/davidwesst" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			<a href="https://www.linkedin.com/in/davidwesst" target="_blank"><img class="ProfileIcon" src="/images/icon_linkedin.png" border="0" alt="LinkedIN" title="LinkedIN"> LinkedIn</a><br>
+			
+			
+ 			<a href="/feeds/david_wesst"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'http://www.westerndevs.com/alm/How-to-Blog-with-VSTS-Part-3/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'david_wesst');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

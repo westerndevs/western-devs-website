@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Complex Custom Tag Helpers in MVC 6 | Western Devs</title>
+  <meta name="description" content="How to build complex tag helper that are made up of multiple parts in MVC 6">
+<meta name="keywords" content="ASP.NET MVC,ASP.NET 5,MVC 6,VS 2015,Tag Helpers">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Complex Custom Tag Helpers in MVC 6">
+<meta property="og:url" content="http://www.westerndevs.com/MVC-6/Tag-Helpers/complex-custom-tag-helpers-in-mvc-6/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="How to build complex tag helper that are made up of multiple parts in MVC 6">
+<meta property="og:image" content="http://www.davepaquette.com/images/restrict-children-razor-error.png">
+<meta property="og:updated_time" content="2018-04-12T23:57:35.270Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Complex Custom Tag Helpers in MVC 6">
+<meta name="twitter:description" content="How to build complex tag helper that are made up of multiple parts in MVC 6">
+<meta name="twitter:image" content="http://www.davepaquette.com/images/restrict-children-razor-error.png">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed" title="Western Devs" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/css/style.css">
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  </head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">DEC</div>
+    <div class="ListLrgDateDay">28</div>
+    <div class="ListLrgDateYear">2015</div>
+  </div>
+  <h2>Complex Custom Tag Helpers in MVC 6</h2>
+</div>
+
+		    
+
+<p class="TXTsm">ORIGINALLY POSTED TO: <a href="http://www.davepaquette.com/archive/2015/12/28/complex-custom-tag-helpers-in-mvc-6.aspx" class='originalurl'>http://www.davepaquette.com/archive/2015/12/28/complex-custom-tag-helpers-in-mvc-6.aspx</a></p>
+
+
+
+			<div id="mainPostContent">
+	        <p>In a previous blog post we talked about how to create <a href="http://www.davepaquette.com/archive/2015/06/22/creating-custom-mvc-6-tag-helpers.aspx" target="_blank" rel="noopener">a simple tag helper</a> in MVC 6. In today's post we take this one step further and create a more complex tag helper that is made up of multiple parts.</p>
+<h2>A Tag Helper for Bootstrap Modal Dialogs</h2>
+<p>Creating a <a href="http://getbootstrap.com/javascript/#static-example" target="_blank" rel="noopener">modal dialog</a> in bootstrap requires some verbose html.</p>
+<figure class="highlight html"><figcaption><span>Bootstrap Modal</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"modal fade"</span> <span class="attr">tabindex</span>=<span class="string">"-1"</span> <span class="attr">role</span>=<span class="string">"dialog"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"modal-dialog"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"modal-content"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"modal-header"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"close"</span> <span class="attr">data-dismiss</span>=<span class="string">"modal"</span> <span class="attr">aria-label</span>=<span class="string">"Close"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">aria-hidden</span>=<span class="string">"true"</span>&gt;</span>&amp;times;<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h4</span> <span class="attr">class</span>=<span class="string">"modal-title"</span>&gt;</span>Modal title<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"modal-body"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>One fine body&amp;hellip;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"modal-footer"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-default"</span> <span class="attr">data-dismiss</span>=<span class="string">"modal"</span>&gt;</span>Close<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-primary"</span>&gt;</span>Save changes<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="comment">&lt;!-- /.modal-content --&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="comment">&lt;!-- /.modal-dialog --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="comment">&lt;!-- /.modal --&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Using a tag helper here would help simplify the markup but this is a little more complicated than the Progress Bag example. In this case, we have HTML content that we want to add in 2 different places: the <code>&lt;div class=&quot;modal-body&quot;&gt;&lt;/div&gt;</code> element and the <code>&lt;div class=&quot;modal-footer&quot;&gt;&lt;/div&gt;</code> element.</p>
+<p>The solution here wasn't immediately obvious. I had a chance to talk to <a href="https://twitter.com/ntaylormullen" target="_blank" rel="noopener">Taylor Mullen</a> at the MVP Summit ASP.NET Hackathon in November and he pointed me in the right direction. The solution is to use 3 different tag helpers that can communicate with each other through the <code>TagHelperContext</code>.</p>
+<p>Ultimately, we want our tag helper markup to look like this:</p>
+<figure class="highlight html"><figcaption><span>Bootstrap Modal using a Tag Helper</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">modal</span> <span class="attr">title</span>=<span class="string">"Modal title"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modal-body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>One fine body&amp;hellip;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">modal-body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modal-footer</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-default"</span> <span class="attr">data-dismiss</span>=<span class="string">"modal"</span>&gt;</span>Close<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-primary"</span>&gt;</span>Save changes<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">modal-footer</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">modal</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>This solution uses 3 tag helpers: <code>modal</code>, <code>modal-body</code> and <code>modal-footer</code>. The contents of the <code>modal-body</code> tag will be placed inside the <code>&lt;div class=&quot;modal-body&quot;&gt;&lt;/div&gt;</code> while the contents of the <code>&lt;modal-footer&gt;</code> tag will be placed inside the <code>&lt;div class=&quot;modal-footer&quot;&gt;&lt;/div&gt;</code> element. The <code>modal</code> tag helper is the one that will coordinate all this.</p>
+<h2>Restricting Parents and Children</h2>
+<p>First things first, we want to make sure that <code>&lt;modal-body&gt;</code> and <code>&lt;modal-footer&gt;</code> can only be placed inside the <code>&lt;modal&gt;</code> tag and that the <code>&lt;modal&gt;</code> tag can only contain those 2 tags. To do this, we set the <code>RestrictChildren</code> attribute on the modal tag helper and the <code>ParentTag</code> property of the <code>HtmlTargetElement</code> attribute on the modal body and modal footer tag helpers:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">RestrictChildren(<span class="meta-string">"modal-body"</span>, <span class="meta-string">"modal-footer"</span>)</span>]</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ModalTagHelper</span> : <span class="title">TagHelper</span></span><br><span class="line">&#123;</span><br><span class="line">     <span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">[<span class="meta">HtmlTargetElement(<span class="meta-string">"modal-body"</span>, ParentTag = <span class="meta-string">"modal"</span>)</span>]</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ModalBodyTagHelper</span> : <span class="title">TagHelper</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">[<span class="meta">HtmlTargetElement(<span class="meta-string">"modal-footer"</span>, ParentTag = <span class="meta-string">"modal"</span>)</span>]</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ModalFooterTagHelper</span> : <span class="title">TagHelper</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Now if we try to put any other tag in the <code>&lt;modal&gt;</code> tag, Razor will give me a helpful error message.</p>
+<p><img src="http://www.davepaquette.com/images/restrict-children-razor-error.png" alt="Restrict children" title="Restricting child elements in tag helpers"></p>
+<h2>Getting contents from the children</h2>
+<p>The next step is to create a context class that will be used to keep track of the contents of the 2 child tag helpers.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ModalContext</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> IHtmlContent Body &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> IHtmlContent Footer &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>At the beginning of the ProcessAsync method of the Modal tag helper, create a new instance of <code>ModalContext</code> and add it to the current <code>TagHelperContext</code>:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">async</span> Task <span class="title">ProcessAsync</span>(<span class="params">TagHelperContext context, TagHelperOutput output</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> modalContext = <span class="keyword">new</span> ModalContext();</span><br><span class="line">    context.Items.Add(<span class="keyword">typeof</span>(ModalTagHelper), modalContext);</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Now, in the modal body and modal footer tag helpers we will get the instance of that <code>ModalContext</code> via the <code>TagHelperContext</code>. Instead of rendering the output, these child tag helpers will set the the <code>Body</code> and <code>Footer</code> properties of the <code>ModalContext</code>.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">HtmlTargetElement(<span class="meta-string">"modal-body"</span>, ParentTag = <span class="meta-string">"modal"</span>)</span>]</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ModalBodyTagHelper</span> : <span class="title">TagHelper</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">async</span> Task <span class="title">ProcessAsync</span>(<span class="params">TagHelperContext context, TagHelperOutput output</span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> childContent = <span class="keyword">await</span> output.GetChildContentAsync();</span><br><span class="line">        <span class="keyword">var</span> modalContext = (ModalContext)context.Items[<span class="keyword">typeof</span>(ModalTagHelper)];</span><br><span class="line">        modalContext.Body = childContent;</span><br><span class="line">        output.SuppressOutput();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Back in the modal tag helper, we call <code>output.GetChildContentAsync()</code> which will cause the child tag helpers to execute and set the properties on the <code>ModalContext</code>. After that, we just set the output as we normally would in a tag helper, placing the <code>Body</code> and <code>Footer</code> in the appropriate elements.</p>
+<figure class="highlight html"><figcaption><span>Modal tag helper</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)</span><br><span class="line">&#123;</span><br><span class="line">    var modalContext = new ModalContext();</span><br><span class="line">    context.Items.Add(typeof(ModalTagHelper), modalContext);</span><br><span class="line"></span><br><span class="line">    await output.GetChildContentAsync();</span><br><span class="line"></span><br><span class="line">    var template =</span><br><span class="line">$@"<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">'modal-dialog'</span> <span class="attr">role</span>=<span class="string">'document'</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">'modal-content'</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">'modal-header'</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span> = <span class="string">'button'</span> <span class="attr">class</span>=<span class="string">'close'</span> <span class="attr">data-dismiss</span>=<span class="string">'modal'</span> <span class="attr">aria-label</span>=<span class="string">'Close'</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">aria-hidden</span>=<span class="string">'true'</span>&gt;</span>&amp;times;<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h4</span> <span class="attr">class</span>=<span class="string">'modal-title'</span> <span class="attr">id</span>=<span class="string">'&#123;context.UniqueId&#125;Label'</span>&gt;</span>&#123;Title&#125;<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">'modal-body'</span>&gt;</span>";</span><br><span class="line"></span><br><span class="line">    output.TagName = "div";</span><br><span class="line">    output.Attributes["role"] = "dialog";</span><br><span class="line">    output.Attributes["id"] = Id;</span><br><span class="line">    output.Attributes["aria-labelledby"] = $"&#123;context.UniqueId&#125;Label";</span><br><span class="line">    output.Attributes["tabindex"] = "-1";</span><br><span class="line">    var classNames = "modal fade";</span><br><span class="line">    if (output.Attributes.ContainsName("class"))</span><br><span class="line">    &#123;</span><br><span class="line">        classNames = string.Format("&#123;0&#125; &#123;1&#125;", output.Attributes["class"].Value, classNames);</span><br><span class="line">    &#125;</span><br><span class="line">    output.Attributes["class"] = classNames;</span><br><span class="line">    output.Content.AppendHtml(template);</span><br><span class="line">    if (modalContext.Body != null)</span><br><span class="line">    &#123;</span><br><span class="line">        output.Content.Append(modalContext.Body); //Setting the body contents</span><br><span class="line">    &#125;</span><br><span class="line">    output.Content.AppendHtml("<span class="tag">&lt;/<span class="name">div</span>&gt;</span>");</span><br><span class="line">    if (modalContext.Footer != null)</span><br><span class="line">    &#123;</span><br><span class="line">        output.Content.AppendHtml("<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">'modal-footer'</span>&gt;</span>");</span><br><span class="line">        output.Content.Append(modalContext.Footer); //Setting the footer contents</span><br><span class="line">        output.Content.AppendHtml("<span class="tag">&lt;/<span class="name">div</span>&gt;</span>");</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    output.Content.AppendHtml("<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>");</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2>Conclusion</h2>
+<p>Composing complex tag helpers with parent / child relationships is fairly straight forward. In my opinion, the approach here is much easier to understand than the &quot;multiple transclusion&quot; approach used to solve the same problem in Angular 1. It would be easy to unit test and as always, Visual Studio provides error messages directly in the HTML editor to guide anyone who is using your tag helper.</p>
+<p>You can check out the full source code on the <a href="https://github.com/dpaquette/TagHelperSamples" target="_blank" rel="noopener">Tag Helper Samples repo</a>.</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/dave_paquette">
+				
+					<img src='/images/avatars/DavePaquette_241x241.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/dave_paquette">Dave Paquette</a></h2>
+			
+			<a href="mailto:contactme@davepaquette.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://www.davepaquette.com/" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/Dave_Paquette" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/dpaquette" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			
+ 			<a href="/feeds/dave_paquette"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'http://www.westerndevs.com/MVC-6/Tag-Helpers/complex-custom-tag-helpers-in-mvc-6/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'dave_paquette');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

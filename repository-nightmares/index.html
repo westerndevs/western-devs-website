@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Repository nightmares | Western Devs</title>
+  <meta name="description" content="The Repository pattern is a famous (or infamous?) pattern that we can find in Martin Fowler&apos;s Patterns of Enterprise Application Architecture. It was meant to be used as an interface to a collection,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Repository nightmares">
+<meta property="og:url" content="http://www.westerndevs.com/repository-nightmares/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="The Repository pattern is a famous (or infamous?) pattern that we can find in Martin Fowler&apos;s Patterns of Enterprise Application Architecture. It was meant to be used as an interface to a collection,">
+<meta property="og:updated_time" content="2018-04-12T23:57:35.290Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Repository nightmares">
+<meta name="twitter:description" content="The Repository pattern is a famous (or infamous?) pattern that we can find in Martin Fowler&apos;s Patterns of Enterprise Application Architecture. It was meant to be used as an interface to a collection,">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed" title="Western Devs" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/css/style.css">
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  </head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">JUN</div>
+    <div class="ListLrgDateDay">24</div>
+    <div class="ListLrgDateYear">2015</div>
+  </div>
+  <h2>Repository nightmares</h2>
+</div>
+
+		    
+
+<p class="TXTsm">ORIGINALLY POSTED TO: <a href="http://orthocoders.com/blog/2015/06/23/repository-nightmares" class='originalurl'>http://orthocoders.com/blog/2015/06/23/repository-nightmares</a></p>
+
+
+
+			<div id="mainPostContent">
+	        <p>The <code>Repository</code> pattern is a famous (or infamous?) pattern that we can find in Martin Fowler's <em><a href="http://martinfowler.com/eaaCatalog/repository.html" target="_blank" rel="noopener">Patterns of Enterprise Application Architecture</a></em>.</p>
+<p>It was meant to be used as an interface to a collection, but what I have seen more often is that it becomes an abstraction to the data layer or ORM framework.</p>
+<p>Not so long ago I did a presentation on <em><a href="http://www.slideshare.net/amirbarylko/who-killed-object-oriented-design" target="_blank" rel="noopener">Who killed object oriented programming</a></em>, and I mentioned the <code>Repository</code> implementation as one of the culprits.</p>
+<p>So what's so bad about it? What can we do to improve it?</p>
+<p>I have a counter-proposal: What if we don't need it at all?</p>
+<a id="more"></a>
+<h2>Repository overpopulation</h2>
+<p>Have you ever felt that the <code>Repositories</code> in your code replicate at night? You remember that when you started the project you had one or two, but now the number has grown to almost one per data model.</p>
+<p>I remember starting with something like this:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">ICustomerRepository</span> &#123;</span><br><span class="line">  <span class="function">IEnumerable&lt;Customer&gt; <span class="title">GetCustomers</span>(<span class="params"></span>)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>And then I needed to add queries such as find by <code>Address</code>, find by <code>Id</code> and find which customers have pending invoices:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">ICustomerRepository</span> &#123;</span><br><span class="line">  <span class="function">IEnumerable&lt;Customer&gt; <span class="title">FindByAddress</span>(<span class="params">Address address</span>)</span>;</span><br><span class="line">  <span class="function">IEnumerable&lt;Customer&gt; <span class="title">FindById</span>(<span class="params">CustomerId id</span>)</span>;</span><br><span class="line">  <span class="function">IEnumerable&lt;Customer&gt; <span class="title">FindWithPendingInvoices</span>(<span class="params"></span>)</span>;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Once one was completed, I replicated the recipe for each model: <code>Invoice</code>, <code>Car</code>, <code>Chair</code>, etc.</p>
+<h3>Eliminating the repetition</h3>
+<p>Maybe we don't need one per model. What if we could use a generic class?</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public interface IRepository&lt;T&gt; &#123;</span><br><span class="line">  <span class="function">IEnumerable&lt;T&gt; <span class="title">GetAll</span>(<span class="params"></span>)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Now that's slightly better, but what happened to the queries?</p>
+<h3>Extracting custom queries</h3>
+<p>Instead of adding queries following the business rules and modifying the <code>Repository</code> each time, why not use <code>IQueryable</code> instead? That way we can combine the results with further queries.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public interface IRepository&lt;out T&gt; &#123;</span><br><span class="line">  <span class="function">IQueryable&lt;T&gt; <span class="title">GetAll</span>(<span class="params"></span>)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Then we just need to combine the filtering and ordering after:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> customers = ... <span class="comment">// instantiate a concrete IRepository&lt;Customer&gt;</span></span><br><span class="line">  </span><br><span class="line"><span class="keyword">return</span> customers</span><br><span class="line">    .Where(c =&gt; c.Address != <span class="literal">null</span>)</span><br><span class="line">    .OrderBy(c =&gt; c.Name)</span><br><span class="line">    .Take(<span class="number">100</span>);</span><br></pre></td></tr></table></figure>
+<h3>Common queries</h3>
+<p>We can easily put this logic (if it's really commonly used) into an extension method (or another class) to avoid repeating the same query and to capture complexity.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title">CustomerQueries</span> &#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> IQueryable&lt;Customer&gt; <span class="title">WithAddress</span>(<span class="params"><span class="keyword">this</span> IQueryable&lt;Customer&gt; customers</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> customers</span><br><span class="line">        .Where(c =&gt; c.Address != <span class="literal">null</span>)</span><br><span class="line">        .OrderBy(c =&gt; c.Name)</span><br><span class="line">        .Take(<span class="number">100</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>This would allow us to reuse the query when needed:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> customers = ... <span class="comment">// instantiate a concrete IRepository&lt;Customer&gt;</span></span><br><span class="line">  </span><br><span class="line"><span class="keyword">return</span> customers.WithAddress();</span><br></pre></td></tr></table></figure>
+<h2>Abstracted abstraction</h2>
+<p>We’ve done a great job (pat on the back) so far! Now it’s much simpler...so simple that when we look at the implementation, we see we are just using the ORM (NHibernate, Entity Framework, etc.) to return the main collection and nothing else.</p>
+<p>The result in this case is that the <code>Repository</code> pattern is abstracting us from another abstraction! What are we gaining from this?</p>
+<p>Why not just use the ORM? Are we planning on changing ORMs in the middle on the project?</p>
+<p>We should take advantage of all the power that the ORM is giving us. We don't want to have to copy the ability to do joins, sorting, etc.</p>
+<p>Weeping...is cathartic...</p>
+<h2>What about testing?</h2>
+<p>Another reason to introduce the <code>Repository</code> could be testing.</p>
+<p>But what are we going to test? Should we be testing the method <code>GetAll</code>?</p>
+<p>Are we planning to mock <code>IQueryable</code>? Or, even further, mock all the methods that come with the ORM session?</p>
+<p>The logic is mostly in the queries or, for example, in controllers doing queries in a web application.</p>
+<p>Unit tests won't work in this case. We don't want to depend on which methods are used or in which order they’re used, so we need to make sure the inputs are defined and write assertions on the outputs enforcing the pre- and post-condition.</p>
+<p>This case calls for integration tests (small tests setting up the database before and cleaning it up after) to help us ensure it works as expected.</p>
+<h2>Summary</h2>
+<p>Make your life simpler and your work more enjoyable. Abstractions should make the code easier to read. If that is not the case, then it is time to reflect and review.</p>
+<p>Perhaps it is a bit late to change the project we are working on right now, but next time let’s make sure we give quite a bit more thought to using the <code>Repository</code> pattern.</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/amir_barylko">
+				
+					<img src='https://www.gravatar.com/avatar/fadb1de2c18ab0fc42ebc0988327c90f?s=200' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/amir_barylko">Amir Barylko</a></h2>
+			
+			<a href="mailto:amir@barylko.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://www.orthocoders.com/" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/abarylko" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/amirci" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			<a href="https://www.linkedin.com/in/amirbarylko" target="_blank"><img class="ProfileIcon" src="/images/icon_linkedin.png" border="0" alt="LinkedIN" title="LinkedIN"> LinkedIn</a><br>
+			
+			
+ 			<a href="/feeds/amir_barylko"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'http://www.westerndevs.com/repository-nightmares/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'amir_barylko');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

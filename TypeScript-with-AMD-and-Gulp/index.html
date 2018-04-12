@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>How to Compile Typescript into a Single File with AMD Modules with Gulp | Western Devs</title>
+  <meta name="description" content="The lessons I learned and the steps I took to compile TypeScript modules into a single file with AMD modules using Gulp, along with how I consumed those compiled modules in my HTML application.">
+<meta name="keywords" content="gulp,javascript,typescript,amd,requirejs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to Compile Typescript into a Single File with AMD Modules with Gulp">
+<meta property="og:url" content="http://www.westerndevs.com/TypeScript-with-AMD-and-Gulp/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="The lessons I learned and the steps I took to compile TypeScript modules into a single file with AMD modules using Gulp, along with how I consumed those compiled modules in my HTML application.">
+<meta property="og:image" content="http://i.imgur.com/38ngK52.png">
+<meta property="og:updated_time" content="2018-04-12T23:57:35.278Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="How to Compile Typescript into a Single File with AMD Modules with Gulp">
+<meta name="twitter:description" content="The lessons I learned and the steps I took to compile TypeScript modules into a single file with AMD modules using Gulp, along with how I consumed those compiled modules in my HTML application.">
+<meta name="twitter:image" content="http://i.imgur.com/38ngK52.png">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed" title="Western Devs" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/css/style.css">
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  </head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">SEP</div>
+    <div class="ListLrgDateDay">12</div>
+    <div class="ListLrgDateYear">2016</div>
+  </div>
+  <h2>How to Compile Typescript into a Single File with AMD Modules with Gulp</h2>
+</div>
+
+		    
+
+<p class="TXTsm">ORIGINALLY POSTED TO: <a href="https://blog.davidwesst.com/2016/09/How-to-Compile-Typescript-into-a-Single-File-with-AMD-Modules/" class='originalurl'>https://blog.davidwesst.com/2016/09/How-to-Compile-Typescript-into-a-Single-File-with-AMD-Modules/</a></p>
+
+
+
+			<div id="mainPostContent">
+	        <p>I've been tinkering with TypeScript lately and was trying to setup my project to compile all of my modules into a single file, which would then be used in an HTML page. Maybe this is obvious to the more experienced TypeScript developer, but I had made a number of false assumptions while trying to get this to work.</p>
+<p>This post will walk you through what I did to setup my build and get it working in an HTML page.</p>
+<p><strong>You can follow along at home with the source code which I've put up on <a href="https://github.com/davidwesst/ts-project-template" target="_blank" rel="noopener">GitHub</a></strong></p>
+<h2>Modular TypeScript</h2>
+<p>My project is starting out simple, with a single module and a couple of different &quot;Apps&quot; that will use the module. Module in TypeScript is extensively documented in the <a href="">TypeScript Handbook</a>, so if you're not familiar with this I would suggest reading up on it as it's pretty awesome once you start using it.</p>
+<p>In any case, here's my code:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ModuleOne.ts</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> ModuleOne &#123;</span><br><span class="line">    sayHello() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"Hello from Module1!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    sayHelloTo(who: <span class="built_in">string</span>) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"Hello "</span> + who.trim() + <span class="string">". This is Module1"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ModuleTwo.ts</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> ModuleOne &#123;</span><br><span class="line">    sayHello() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"Hello from ModuleTwo!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    sayHelloTo(who: <span class="built_in">string</span>) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"Hello "</span> + who.trim() + <span class="string">". This is ModuleTwo"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// App.ts</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> Module1 <span class="keyword">from</span> <span class="string">"./modules/Module1"</span>;</span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> Module2 <span class="keyword">from</span> <span class="string">"./modules/Module2"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> App &#123;</span><br><span class="line">    start() &#123;</span><br><span class="line">        <span class="keyword">let</span> m1 = <span class="keyword">new</span> Module1.ModuleOne();</span><br><span class="line">        <span class="keyword">let</span> m2 = <span class="keyword">new</span> Module2.ModuleTwo();</span><br><span class="line">        </span><br><span class="line">        m1.sayHelloTo(<span class="string">"David Wesst"</span>);</span><br><span class="line">        m2.sayHelloTo(<span class="string">"David Wesst"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>I have a single application that is using two modules. Plain and simple. Next up, I compile my code into a single file, then reference that in my HTML, and done like dinner.</p>
+<p>...or so I thought.</p>
+<h2>The <code>--outFile</code> Parameter</h2>
+<p>Reading through the doucmentation about TypeScript compilation, I found the <code>--outFile</code> or <code>--out</code> parameter in the <a href="https://www.typescriptlang.org/docs/handbook/compiler-options.html" target="_blank" rel="noopener">documentation</a>. I immediately assumed that I was done, as I would simple choose my ES target, select the type of modules I would like, and presto.</p>
+<p>That wasn't the case.</p>
+<p>Being a person who likes modern JavaScript, I had originally opted to output ES6 compatible code complete with the new modules.</p>
+<p>This is was my first mistake.</p>
+<p>I found was that when I compiled, I would get a single output file but it would be completely blank. No error, but just an empty file. This is expected behaviour, as the <code>--outFile</code> option only supports <em>commonjs</em> and <em>amd</em>. That meant no ES6 or even ES2015 modules for my project, which is probably for the best considering how few web browsers in the wild actually support ES6 modules as of this writing.</p>
+<p>In the end, I decided to go with AMD modules as I had some experience with <a href="http://requirejs.org/" target="_blank" rel="noopener">RequireJS</a>.</p>
+<p>Now, when I try to compile again it works as expected! One big JavaScript file ready to go.</p>
+<p>...sort of.</p>
+<h2>Using My Compiled TypeScript</h2>
+<p>Somewhere along the line, I assumed that whatever JavaScript file I compiled would only need me to add a <code>&lt;script&gt;</code> tag reference to point to it like any other JavaScript file.</p>
+<p>This was my second mistake, albeit a pretty silly one.</p>
+<p>AMD modules have always needed RequireJS to load properly. That's the purpose for RequireJS. Maybe I had assumed the TypeScript compiler would embed this library or something, but whatever my reasoning it was wrong. I needed to include a <code>data-main</code> file, as you do with every RequireJS example.</p>
+<p>I added this to my HTML file, along with the RequireJS library in my project:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">data-main</span>=<span class="string">"main"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"lib/require.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Then, my <code>data-main</code> file goes something like this:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.js</span></span><br><span class="line">  </span><br><span class="line">requirejs.config(&#123;</span><br><span class="line">    baseUrl: <span class="string">'lib'</span>,</span><br><span class="line">    paths: &#123;</span><br><span class="line">        <span class="string">'App'</span>:<span class="string">'../app'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">requirejs([<span class="string">'App'</span>], <span class="function"><span class="keyword">function</span>(<span class="params">MyApp</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'starting application...'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> app = <span class="keyword">new</span> MyApp.App();</span><br><span class="line">    app.start();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>I'm not going to go into the details here, but my <code>paths</code> object in the <code>requirejs.config</code> is pointing <code>App</code> to our outputted file. We use this in our main function and point our compiled modules to the <code>MyApp</code> object. We then call the <code>start()</code> function on our exported class and we are off to the races.</p>
+<p>When we run the application, we see the following in the JavaScript console.</p>
+<p><img src="http://i.imgur.com/38ngK52.png" alt="What the console window should look like"></p>
+<h2>Details on Compilation</h2>
+<p>I skipped that part on purpose, because I don't use the TSC compiler directly. Rather, I use <a href="https://github.com/ivogabe/gulp-typescript" target="_blank" rel="noopener"><code>gulp-typescript</code></a> with a <code>tsconfig</code> file to compile my TypeScript and create sourcemaps for them. All of this is detailed on the <a href="https://www.npmjs.com/package/gulp-typescript" target="_blank" rel="noopener">package page</a>, but I'll include my gulp task to make sure you have all the details in one place.</p>
+<p>You're welcome. ;)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> tsProject = ts.createProject(<span class="string">'tsconfig.json'</span>);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'build-ts'</span>, ()=&gt; &#123;</span><br><span class="line">    <span class="keyword">let</span> tsResult = tsProject.src()</span><br><span class="line">                    .pipe(sourcemaps.init()) <span class="comment">// using gulp-sourcemaps as prescribed by gulp-typescript</span></span><br><span class="line">                    .pipe(ts(tsProject));</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> tsResult</span><br><span class="line">            .js</span><br><span class="line">            .pipe(sourcemaps.write(<span class="string">'./'</span>))</span><br><span class="line">            .pipe(gulp.dest(<span class="string">'./dist'</span>))</span><br><span class="line">            .pipe(connect.reload());  <span class="comment">// I use gulp-connect to watch and reload the page as I develop</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>Oh, and here's my <code>tsconfig.json</code> file too.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"compilerOptions"</span>: &#123;</span><br><span class="line">        <span class="string">"module"</span>: <span class="string">"amd"</span>,</span><br><span class="line">        <span class="string">"rootDir"</span>: <span class="string">"./src/ts"</span>,</span><br><span class="line">        <span class="string">"sourceRoot"</span>: <span class="string">"./src/ts"</span>,</span><br><span class="line">        <span class="string">"outFile"</span>: <span class="string">"app.js"</span>,</span><br><span class="line">        <span class="string">"target"</span>: <span class="string">"es5"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"exclude"</span>: [</span><br><span class="line">        <span class="string">"node_modules"</span>,</span><br><span class="line">        <span class="string">"dist"</span></span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/david_wesst">
+				
+					<img src='/images/avatars/davidwesst_400x400.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/david_wesst">David Wesst</a></h2>
+			
+			<a href="mailto:questions@davidwesst.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://www.davidwesst.com" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/davidwesst" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/davidwesst" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			<a href="https://www.linkedin.com/in/davidwesst" target="_blank"><img class="ProfileIcon" src="/images/icon_linkedin.png" border="0" alt="LinkedIN" title="LinkedIN"> LinkedIn</a><br>
+			
+			
+ 			<a href="/feeds/david_wesst"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'http://www.westerndevs.com/TypeScript-with-AMD-and-Gulp/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'david_wesst');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

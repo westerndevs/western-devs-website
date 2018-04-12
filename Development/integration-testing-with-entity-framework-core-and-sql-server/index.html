@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Integration Testing with Entity Framework Core and SQL Server | Western Devs</title>
+  <meta name="description" content="Entity Framework Core makes it easy to write tests that execute against an in-memory store but sometimes we want to actually run our tests against a real relational database. In this post, we look at">
+<meta name="keywords" content="ASP.NET Core,Entity Framework,Testing">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Integration Testing with Entity Framework Core and SQL Server">
+<meta property="og:url" content="http://www.westerndevs.com/Development/integration-testing-with-entity-framework-core-and-sql-server/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="Entity Framework Core makes it easy to write tests that execute against an in-memory store but sometimes we want to actually run our tests against a real relational database. In this post, we look at">
+<meta property="og:updated_time" content="2018-04-12T23:57:35.278Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Integration Testing with Entity Framework Core and SQL Server">
+<meta name="twitter:description" content="Entity Framework Core makes it easy to write tests that execute against an in-memory store but sometimes we want to actually run our tests against a real relational database. In this post, we look at">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed" title="Western Devs" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/css/style.css">
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  </head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">NOV</div>
+    <div class="ListLrgDateDay">27</div>
+    <div class="ListLrgDateYear">2016</div>
+  </div>
+  <h2>Integration Testing with Entity Framework Core and SQL Server</h2>
+</div>
+
+		    
+
+<p class="TXTsm">ORIGINALLY POSTED TO: <a href="http://www.davepaquette.com/archive/2016/11/27/integration-testing-with-entity-framework-core-and-sql-server.aspx" class='originalurl'>http://www.davepaquette.com/archive/2016/11/27/integration-testing-with-entity-framework-core-and-sql-server.aspx</a></p>
+
+
+
+			<div id="mainPostContent">
+	        <p>Entity Framework Core makes it easy to write tests that execute against an in-memory store. Using an in-memory store is convenient since we don't need to worry about setting up a relational database. It also ensures our unit tests run quickly so we aren't left waiting hours for a large test suite to complete.</p>
+<p>While Entity Framework Core's in-memory store works great for many scenarios, there are some situations where it might be better to run our tests against a real relational database. Some examples include when loading entities using raw SQL or when using SQL Server specific features that can not be tested using the in-memory provider. In this case, the tests would be considered an integration test since we are no longer testing our Entity Framework context in isolation. We are testing how it will work in the real world when connected to SQL Server.</p>
+<h2>The Sample Project</h2>
+<p>For this example, I used the following simple model and DbContext classes.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Monster</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> Id &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> Name &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">bool</span> IsScary &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;        </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> Colour &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MonsterContext</span> : <span class="title">DbContext</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MonsterContext</span>(<span class="params">DbContextOptions&lt;MonsterContext&gt; options</span>)</span></span><br><span class="line"><span class="function">        : <span class="title">base</span>(<span class="params">options</span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> DbSet&lt;Monster&gt; Monsters &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>In an ASP.NET Core application, the context is configured to use SQL Server in the <code>Startup.ConfigureServices</code> method.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">services.AddDbContext&lt;MonsterContext&gt;(options =&gt;</span><br><span class="line">&#123;</span><br><span class="line">    options.UseSqlServer(<span class="string">"DefaultConnection"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>The <code>DefaultConnection</code> is defined in <code>appsettings.json</code> which is loaded at startup.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"ConnectionStrings"</span>: &#123;</span><br><span class="line">        <span class="string">"DefaultConnection"</span>: <span class="string">"Server=(localdb)\\mssqllocaldb;Database=monsters_db;Trusted_Connection=True;MultipleActiveResultSets=true"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>The <code>MonsterContext</code> is also configured to use Migrations which were initialized using the <code>dotnet ef migrations add InitialCreate</code> command. For more on Entity Framework Migrations, see the <a href="https://docs.microsoft.com/en-us/aspnet/core/data/ef-mvc/migrations" target="_blank" rel="noopener">official tutorial</a>.</p>
+<p>As a simple example, I created a query class that loads <em>scary</em> monsters from the database using a SQL query instead of querying the <code>Monsters</code> <code>DbSet</code> directly.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ScaryMonstersQuery</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> MonsterContext _context;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ScaryMonstersQuery</span>(<span class="params">MonsterContext context</span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        _context = context;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> IEnumerable&lt;Monster&gt; <span class="title">Execute</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> _context.Monsters</span><br><span class="line">            .FromSql(<span class="string">"SELECT Id, Name, IsScary, Colour FROM Monsters WHERE IsScary = &#123;0&#125;"</span>, <span class="literal">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line">        </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>To be clear, a better way to write this query is <code>_context.Monster.Where(m =&gt; m.IsScary == true)</code>, but I wanted a simple example. I also wanted to use <code>FromSql</code> because it is inherently difficult to unit test. The <code>FromSql</code> method doesn't work with the in-memory provider since it requires a relational database. It is also an extension method which means we can't simply mock the context using a tool like <code>Moq</code>. We could of course create a wrapper service that calls the <code>FromSql</code> extension method and mock that service but this only shifts the problem. The <em>wrapper</em> approach would allow us to ensure that <code>FromSql</code> is called in the way we expect it to be called but it would not be able to ensure that the query will actually run successfully and return the expected results.</p>
+<p>An integration test is a good option here since it will ensure that the query runs exactly as expected against a real SQL Server database.</p>
+<h2>The Test</h2>
+<p>I used xunit as the test framework in this example. In the constructor, which is the setup method for any tests in the class, I configure an instance of the <code>MonsterContext</code> connecting to a localdb instance using a database name containing a random guid. Using a guid in the database name ensures the database is unique for this test. Uniqueness is important when running tests in parallel because it ensures these tests won't impact any other tests that aer currently running. After creating the context, a call to <code>_context.Database.Migrate()</code> creates a new database and applies any Entity Framework migrations that are defined for the <code>MonsterContext</code>.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">SimpleIntegrationTest</span> : <span class="title">IDisposable</span></span><br><span class="line">&#123;</span><br><span class="line">    MonsterContext _context;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SimpleIntegrationTest</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> serviceProvider = <span class="keyword">new</span> ServiceCollection()</span><br><span class="line">            .AddEntityFrameworkSqlServer()</span><br><span class="line">            .BuildServiceProvider();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> builder = <span class="keyword">new</span> DbContextOptionsBuilder&lt;MonsterContext&gt;();</span><br><span class="line"></span><br><span class="line">        builder.UseSqlServer(<span class="string">$"Server=(localdb)\\mssqllocaldb;Database=monsters_db_<span class="subst">&#123;Guid.NewGuid()&#125;</span>;Trusted_Connection=True;MultipleActiveResultSets=true"</span>)</span><br><span class="line">                .UseInternalServiceProvider(serviceProvider);</span><br><span class="line"></span><br><span class="line">        _context = <span class="keyword">new</span> MonsterContext(builder.Options);</span><br><span class="line">        _context.Database.Migrate();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    [<span class="meta">Fact</span>]</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">QueryMonstersFromSqlTest</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//Add some monsters before querying</span></span><br><span class="line">        _context.Monsters.Add(<span class="keyword">new</span> Monster &#123; Name = <span class="string">"Dave"</span>, Colour = <span class="string">"Orange"</span>, IsScary = <span class="literal">false</span> &#125;);</span><br><span class="line">        _context.Monsters.Add(<span class="keyword">new</span> Monster &#123; Name = <span class="string">"Simon"</span>, Colour = <span class="string">"Blue"</span>, IsScary = <span class="literal">false</span> &#125;);</span><br><span class="line">        _context.Monsters.Add(<span class="keyword">new</span> Monster &#123; Name = <span class="string">"James"</span>, Colour = <span class="string">"Green"</span>, IsScary = <span class="literal">false</span> &#125;);</span><br><span class="line">        _context.Monsters.Add(<span class="keyword">new</span> Monster &#123; Name = <span class="string">"Imposter Monster"</span>, Colour = <span class="string">"Red"</span>, IsScary = <span class="literal">true</span> &#125;);</span><br><span class="line">        _context.SaveChanges();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//Execute the query</span></span><br><span class="line">        ScaryMonstersQuery query = <span class="keyword">new</span> ScaryMonstersQuery(_context);</span><br><span class="line">        <span class="keyword">var</span> scaryMonsters = query.Execute();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//Verify the results</span></span><br><span class="line">        Assert.Equal(<span class="number">1</span>, scaryMonsters.Count());</span><br><span class="line">        <span class="keyword">var</span> scaryMonster = scaryMonsters.First();</span><br><span class="line">        Assert.Equal(<span class="string">"Imposter Monster"</span>, scaryMonster.Name);</span><br><span class="line">        Assert.Equal(<span class="string">"Red"</span>, scaryMonster.Colour);</span><br><span class="line">        Assert.True(scaryMonster.IsScary);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Dispose</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        _context.Database.EnsureDeleted();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>The actual test itself happens in the <code>QueryMonstersFromSqlTest</code> method. I start by adding some sample data to the database. Next, I create and execute the <code>ScaryMonstersQuery</code> using the context that was created in the setup method. Finally, I verify the results, ensuring that the expected data is returned from the query.</p>
+<p>The last step is the <code>Dispose</code> method which in xunit is the teardown for any tests in this class. We don't want all these test databases hanging around forever so this is the place to delete the database that was created in the setup method. The database is deleted by calling <code>_context.Database.EnsureDeleted()</code>.</p>
+<h2>Use with Caution</h2>
+<p>These tests are slow! The very simple example above takes 13 seconds to run on my laptop. My advice here is to use this sparingly and only when it really adds value for your project. If you end up with a large number of these integration tests, I would consider splitting the integration tests into a separate test suite and potentially running them on a different schedule than my unit test suite (e.g. Nightly instead of every commit).</p>
+<h2>The Code</h2>
+<p>You can browse or download the source on <a href="https://github.com/AspNetMonsters/EntityFrameworkCoreIntegrationTest" target="_blank" rel="noopener">GitHub</a>.</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/dave_paquette">
+				
+					<img src='/images/avatars/DavePaquette_241x241.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/dave_paquette">Dave Paquette</a></h2>
+			
+			<a href="mailto:contactme@davepaquette.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://www.davepaquette.com/" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/Dave_Paquette" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/dpaquette" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			
+ 			<a href="/feeds/dave_paquette"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'http://www.westerndevs.com/Development/integration-testing-with-entity-framework-core-and-sql-server/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'dave_paquette');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Running your app on Windows Server Core Containers | Western Devs</title>
+  <meta name="description" content="Getting started with NServiceBus on windows containers">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Running your app on Windows Server Core Containers">
+<meta property="og:url" content="http://www.westerndevs.com/docker/windows-docker/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="Getting started with NServiceBus on windows containers">
+<meta property="og:image" content="http://i.imgur.com/oglJADJ.png">
+<meta property="og:image" content="http://i.imgur.com/jvEsdMU.png">
+<meta property="og:image" content="http://i.imgur.com/3ce2GpA.png">
+<meta property="og:image" content="http://i.imgur.com/Asbigge.png">
+<meta property="og:updated_time" content="2018-04-12T23:57:35.274Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Running your app on Windows Server Core Containers">
+<meta name="twitter:description" content="Getting started with NServiceBus on windows containers">
+<meta name="twitter:image" content="http://i.imgur.com/oglJADJ.png">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed" title="Western Devs" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/css/style.css">
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  </head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">APR</div>
+    <div class="ListLrgDateDay">27</div>
+    <div class="ListLrgDateYear">2016</div>
+  </div>
+  <h2>Running your app on Windows Server Core Containers</h2>
+</div>
+
+		    
+
+			<div id="mainPostContent">
+	        <p>Most of the day I work on an app which makes use of <a href="http://particular.net/" target="_blank" rel="noopener">NServiceBus</a>. If you've ever talked to me about messaging, then you know that I'm all over messaging like a ferret in a sock.
+<img src="http://i.imgur.com/oglJADJ.png" alt="Sock Ferret"></p>
+<p>So I'm, understandibly, a pretty big fan of NServiceBus - for the most part. The thing with architecting your solution to use SOA or Microservices or whatever we're calling it these days is that you end up with a lot of small applications. Figuring out how to deploy these can be a bit of a pain as your system grows. One solution I like is to make use of the exciting upcoming world of containers. I've deployed a few ASP.NET Core applications to a container but NServiceBus doesn't work on dotnet Core so I need to us a Windows container here.</p>
+<p>First up is to download the ISO for Windows Server Core 2016 from Microsoft. You can do that for free <a href="https://www.microsoft.com/en-us/server-cloud/products/windows-server-2016/" target="_blank" rel="noopener">here</a>.  I provisioned a virtual box VM and installed Windows using the downloaded ISO. I chose to use windows server core as opposed to the version of windows which includes a full UI. The command line was good enough for Space Quest II and by gum it is good enough for me.</p>
+<p>Starting up this vm gets you this screen
+<img src="http://i.imgur.com/jvEsdMU.png" alt="Imgur"></p>
+<p>Okay, let's do it. Docker isn't installed by default but there is a great article on how to install it onto an existing machine <a href="https://docs.microsoft.com/en-us/virtualization/windowscontainers/quick-start/quick-start-windows-server" target="_blank" rel="noopener">here</a>. In short I ran</p>
+<p><code>powershell.exe</code></p>
+<p>Which started up powershell for me (weird that powershell isn't the default shell). Then</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget -uri https://aka.ms/tp4/<span class="keyword">Install</span>-ContainerHost -OutFile <span class="keyword">C</span>:\<span class="keyword">Install</span>-ContainerHost.ps1</span><br><span class="line">&amp; <span class="keyword">C</span>:\<span class="keyword">Install</span>-ContainerHost.ps1</span><br></pre></td></tr></table></figure>
+<p>I didn't specify the -HyperV flag as in the linked article because I wanted Docker containers. There are two flavours of containers on Windows at the moment. HyperV containers which are heavier weight and Docker containers which are lighter. I was pretty confident I could get away with Docker containers so I started with that. The installer took a long, long time. It had to download a bunch of stuff and for some reason it decided to use the background downloader which is super slow.</p>
+<p><img src="http://i.imgur.com/3ce2GpA.png" alt="Slowwwww"></p>
+<p>By default, the docker daemon only listens on 127.0.0.1 which means that you can only connect to it from inside the virtual machine. That's not all that useful as all my stuff is outside of the virtual machine. I needed to do a couple of things to get that working.</p>
+<p>The first was to tell docker to listen on all interfaces. Ideally you shouldn't allow docker to bind to external interfaces without the TLS certificates installed. That was kind of a lot of work so I ignored the warning in the logs that it generates</p>
+<figure class="highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/!\\ DONT<span class="comment">' BIND ON ANY IP ADDRESS WITHOUT setting -tlsverify IF YOU DON'T KNOW WHAT YOU'RE DOING /!\\</span></span><br></pre></td></tr></table></figure>
+<p>Yeah that's fine. To do this open up the docker start command and tell it to listen on the 0.0.0.0 interface.</p>
+<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">notepad c:<span class="symbol">\p</span>rogramdata<span class="symbol">\d</span>ocker<span class="symbol">\r</span>unDockerDaemon.cmd</span><br></pre></td></tr></table></figure>
+<p>Now edit the line</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker daemon -D -<span class="selector-tag">b</span> <span class="string">"Virtual Switch"</span></span><br></pre></td></tr></table></figure>
+<p>to read</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">docker</span> <span class="selector-tag">daemon</span> <span class="selector-tag">-D</span> <span class="selector-tag">-b</span> "<span class="selector-tag">Virtual</span> <span class="selector-tag">Switch</span>" <span class="selector-tag">-H</span> 0<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-pseudo">:2376</span></span><br></pre></td></tr></table></figure>
+<p>Now we need to relax the firewall rules or, in my case, turn off the firewall completely.</p>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Set</span>-NetFirewallProfile <span class="comment">-name * -Enabled</span> <span class="comment">"false"</span></span><br></pre></td></tr></table></figure>
+<p>Now restart docker</p>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">net</span> stop docker</span><br><span class="line"><span class="built_in">net</span> <span class="built_in">start</span> docker</span><br></pre></td></tr></table></figure>
+<p>We should now be able to access docker from the host operating system. And indeed I can by specifying the host to connect to when using the docker tools. In my case on port 2376 on 192.168.0.13</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker -H <span class="string">tcp:</span><span class="comment">//192.168.0.13:2376 ps -a</span></span><br><span class="line">CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS   PORTS               NAMES</span><br></pre></td></tr></table></figure>
+<p>Finally, we can actually start using docker.</p>
+<p>I hammered together a quick docker file which sucked in the output of my NSB handler's build directory.</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> windowsservercore</span><br><span class="line"></span><br><span class="line"><span class="keyword">ADD</span><span class="bash"> bin/Debug /funnel</span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash">WORKDIR /funnel</span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash">ENTRYPOINT NServiceBus.Host.exe</span></span><br></pre></td></tr></table></figure>
+<p>This dockerfile is based on the windowservercore image which was loaded onto the virtual machine during the setup script. You can check that using the <code>images</code> command to docker. To get the docker file running I first build the image then ask for it to be run</p>
+<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker -H  <span class="built_in">t</span><span class="symbol">cp:</span>//<span class="number">192.168</span>.<span class="number">0.13</span><span class="symbol">:2376</span> build -<span class="built_in">t</span> funnel1 -f .\Dockerfile .</span><br><span class="line">docker -H  <span class="built_in">t</span><span class="symbol">cp:</span>//<span class="number">192.168</span>.<span class="number">0.13</span><span class="symbol">:2376</span> run -<span class="built_in">t</span> -d funnel1</span><br></pre></td></tr></table></figure>
+<p>The final command spits out a big bunch of letters and numbers which is the Id of the image. I can use that to get access to the command line output from that image</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker -H  <span class="string">tcp:</span><span class="comment">//192.168.0.13:2376 logs fb0d6f23050c9039e65a106bea62a9049d9f79ce6070234472c112fed516634e</span></span><br></pre></td></tr></table></figure>
+<p>Which gets me
+<img src="http://i.imgur.com/Asbigge.png" alt="Output"></p>
+<p>With that I'm most of the way there. I still need to figure out some networking stuff so NSB can find my database and put our license file in there and check that NSB is actually able to talk to MSMQ and maybe find a better way to get at the logs... okay there is actually a lot still to do but this is the first step.</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/simon_timms">
+				
+					<img src='/images/avatars/simon.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/simon_timms">Simon Timms</a></h2>
+			
+			<a href="mailto:stimms@gmail.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://blog.simontimms.com/" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/stimms" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/stimms" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			
+ 			<a href="/feeds/simon_timms"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'http://www.westerndevs.com/docker/windows-docker/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'simon_timms');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>
