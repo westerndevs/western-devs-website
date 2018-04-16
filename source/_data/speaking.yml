@@ -214,3 +214,24 @@
   speaker: David Wesst
   location: Winnipeg, MB
   topic: "Web Extensions for Enterprise Applications: A Project Post-Mortem"
+ 
+- date: 2018-06-05 08:00:00
+  event: "Prairie Dev Con"
+  url: "http://prairiedevcon.com/"
+  speaker: Dylan Smith
+  location: Winnipeg, MB
+  topic: "Securing a Cloud Service used by Millions"
+  
+- date: 2018-06-05 08:00:00
+  event: "Prairie Dev Con"
+  url: "http://prairiedevcon.com/"
+  speaker: Dylan Smith
+  location: Winnipeg, MB
+  topic: "Microsoft's DevOps Transformation Story"
+  
+- date: 2018-06-05 08:00:00
+  event: "Prairie Dev Con"
+  url: "http://prairiedevcon.com/"
+  speaker: Dylan Smith
+  location: Winnipeg, MB
+  topic: "Workshop: DevOps with Containers, VSTS, Kubernetes, and Azure"
