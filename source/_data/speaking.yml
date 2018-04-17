@@ -235,3 +235,10 @@
   speaker: Dylan Smith
   location: Winnipeg, MB
   topic: "Workshop: DevOps with Containers, VSTS, Kubernetes, and Azure"
+
+- date: 2018-04-24 17:30:00
+  event: "Winnipeg .NET User Group"
+  url: https://www.eventbrite.ca/e/ai-in-the-enterprise-a-primer-and-post-mortem-tickets-45222380357
+  speaker: David Wesst
+  location: Winnipeg, MB
+  topic: "AI in the Enterprise: A Primer and Post-Mortem"
