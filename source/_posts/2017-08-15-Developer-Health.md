@@ -30,6 +30,7 @@ links:
   - "Paleo diet|https://en.wikipedia.org/wiki/Paleolithic_diet"
   - "Ketogenic diet|https://en.wikipedia.org/wiki/Ketogenic_diet"
 date: 2017-08-15 17:02:36
+recorded: 2016-09-22
 excerpt: The Western Devs aren't getting any younger. We take time out of our exercise routines to talk about keeping healthy
 ---
 

@@ -25,7 +25,8 @@ links:
   - "Azure issue for SSL| "
   - "Travis CI|https://travis-ci.org/"
   - "Prairie Dev Con|http://prairiedevcon.com"
-date: 2018-04-19 12:57:03
+date: 2018-04-23 12:57:03
+recorded: 2018-04-19
 excerpt: Sleep easy knowing all your interactions with the Western Devs are secure and free from prying eyes
 ---
 

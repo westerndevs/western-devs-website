@@ -25,6 +25,7 @@ links:
   - "Hacker news: Is it ok to use traditional server-side rendering these days?|https://news.ycombinator.com/item?id=13212465"
   - "Why it's not always black and white|https://medium.freecodecamp.org/what-exactly-is-client-side-rendering-and-hows-it-different-from-server-side-rendering-bd5c786b340d"
 date: 2017-09-10 11:34:08
+recorded: 2017-09-08
 excerpt: In a leaner half-hour podcast, we discuss whether we should still be rendering web pages on the server
 ---
 
