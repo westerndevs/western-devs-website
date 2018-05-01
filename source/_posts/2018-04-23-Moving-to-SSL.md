@@ -22,7 +22,6 @@ links:
   - "Does my site need HTTPS?|https://doesmysiteneedhttps.com/"
   - "westerndevs.com SSL report|https://www.ssllabs.com/ssltest/analyze.html?d=westerndevs.com&latest"
   - "Let's Encrypt|https://letsencrypt.org/"
-  - "Azure issue for SSL| "
   - "Travis CI|https://travis-ci.org/"
   - "Prairie Dev Con|http://prairiedevcon.com"
 date: 2018-04-23 12:57:03
