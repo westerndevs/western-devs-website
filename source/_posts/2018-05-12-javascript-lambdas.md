@@ -8,7 +8,7 @@ tags:
   - AppInsights
 categories:
   - Development
-authorId: stimms
+authorId: simon_timms
 date: 2018-05-15 13:10:00
 excerpt: AWS Lambda provides a solid platform for doing serverless coding but when used in conjunction with Application Insights there are some tricks to get the function to return properly.
 ---
