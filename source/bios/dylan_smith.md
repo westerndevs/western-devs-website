@@ -6,8 +6,4 @@ authorId: dylan_smith
 comments: false
 ---
 
-Dylan Smith is a Microsoft MVP (ALM), and an ALM (Application Lifecycle Management) consultant for Imaginet where he spends his time helping teams become more successful at delivering software. 
-
-In addition to over 15 years’ experience designing and architecting mission critical applications, Dylan helps run the .Net User Group in his hometown of Winnipeg. 
-
-In the past 7 years Dylan has focused on agile development techniques and practices. He has led the shift to agile and lean development practices across multiple teams, projects and companies.
+Dylan Smith was a Microsoft MVP (ALM) and DevOps consultant for many years before joining Microsoft to build the DevOps Customer Advisory Team.  Now he works with Microsoft’s largest customers to help them accelerate their DevOps journey.
