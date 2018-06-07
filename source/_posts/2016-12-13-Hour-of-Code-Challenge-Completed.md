@@ -55,10 +55,10 @@ Thank you all for reading. I hope I've encouraged you all to run an #HourOfCode 
 [3]: https://hourofcode.com/
 [4]: https://code.org/help/
 [5]: http://www.westerndevs.com/bios/james_chambers
-[6]: https://dl.dropboxusercontent.com/u/30830337/Hour%20of%20Code%20-%202016%20-%20Kieran%20-%20sm.png "My son Kieran doing Minecraft"
-[7]: https://dl.dropboxusercontent.com/u/30830337/Hour%20of%20Code%20-%202016%20-%20Roberts%20and%20Kids%20-%20sm.png "Mme Roberts and some kids"
-[8]: https://dl.dropboxusercontent.com/u/30830337/Hour%20of%20Code%20-%202016%20-%20Seychelle%20and%20Kids%20-%20sm.png "Mme Seychelle and some kids"
-[9]: https://dl.dropboxusercontent.com/u/30830337/Mme%20Donlevy%20and%20Dave%20-%20sm.png "Mme Donlevy"
-[10]: https://dl.dropboxusercontent.com/u/30830337/Mme%20LaBrecque%20and%20Dave%20-%20sm.png "Mme Lebrecque"
-[11]: https://dl.dropboxusercontent.com/u/30830337/Mme%20Roberts%20and%20Dave%20-%20sm.png "Mme Roberts"
-[12]: https://dl.dropboxusercontent.com/u/30830337/Mme%20Seychelle%20and%20Dave%20-%20sm.png "MMe Seychelle" 
+[6]: https://i.imgur.com/2GF5Ovl.png "My son Kieran doing Minecraft"
+[7]: https://i.imgur.com/NBCFMBM.png "Mme Roberts and some kids"
+[8]: https://i.imgur.com/XYc090T.png "Mme Seychelle and some kids"
+[9]: https://i.imgur.com/hDzW8ox.png "Mme Donlevy"
+[10]:https://i.imgur.com/9tG90nY.png "Mme Lebrecque"
+[11]: https://i.imgur.com/dvxPBLE.png "Mme Roberts"
+[12]: https://i.imgur.com/sHRG91s.png "MMe Seychelle" 

@@ -99,6 +99,6 @@ Please check back soon for my exploration of each comparison that arises as we f
 
 [1]: https://www.scrum.org/user/119
 [2]: https://www.scrum.org/resources/blog/scrum-and-kanban-stronger-together
-[3]: https://dl.dropboxusercontent.com/u/30830337/missing-comments-scrum-org.png "Missing comments on Scrum.org"
+[3]: https://i.imgur.com/DuwmZIf.png "Missing comments on Scrum.org"
 [4]: https://www.actionableagile.com/about-us/
 [5]: https://letsencrypt.org

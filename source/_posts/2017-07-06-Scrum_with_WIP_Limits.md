@@ -82,5 +82,5 @@ In our next post, we will discuss how a Scrum team could enhance their practices
 [4]: https://en.wikipedia.org/wiki/CONWIP
 [5]: https://agileramblings.com/2013/03/10/the-difference-between-the-kanban-method-and-scrum/
 [6]: https://agileramblings.com/2013/04/07/kanban-change-catalyst-with-no-changes-planned/
-[7]: https://dl.dropboxusercontent.com/u/30830337/Basic%20Scrum%20Board%20With%20no%20WIP%20limits.png "Basic Scrum board with CONWIP policy"
-[8]: https://dl.dropboxusercontent.com/u/30830337/Basic%20Scrum%20Board%20With%20Basic%20WIP%20limits.png "Basic Scrum board with WIP limits per phase" 
+[7]: https://i.imgur.com/sWbffZY.png "Basic Scrum board with CONWIP policy"
+[8]: https://i.imgur.com/WVnJClc.png "Basic Scrum board with WIP limits per phase" 

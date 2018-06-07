@@ -103,4 +103,4 @@ In our next post, we will discuss how a Scrum team could enhance their understan
 [3]: http://www.westerndevs.com/Kanban/Scrum_with_WIP_Limits/
 [4]: http://leankanban.com/kmp-i/
 [5]: https://agileramblings.com/2013/03/10/the-difference-between-the-kanban-method-and-scrum/
-[6]: https://dl.dropboxusercontent.com/u/30830337/Basic%20Scrum%20Board%20With%20Expedite%20Lane.png "Basic Scrum board with Expedite Lane"
+[6]: https://i.imgur.com/WUKSbXn.png "Basic Scrum board with Expedite Lane"
