@@ -4,7 +4,7 @@ title: Developer Accountability
 categories: podcasts
 comments: true
 podcast:
-  filename: westerndevs-name.mp3
+  filename: westerndevs-developer-accountability.mp3
   length: '28:47'
   filesize: 21112694
   libsynId: 6680526
