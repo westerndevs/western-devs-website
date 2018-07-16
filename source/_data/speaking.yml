@@ -242,3 +242,31 @@
   speaker: David Wesst
   location: Winnipeg, MB
   topic: "AI in the Enterprise: A Primer and Post-Mortem"
+
+- date: 2018-10-16 17:30:00
+  event: "Prarie Dev Con"
+  url: https://prairiedevcon.com
+  speaker: David Wesst
+  location: Regina, SK
+  topic: "AI in the Enterprise: A Primer and Post-Mortem"
+
+- date: 2018-10-16 17:30:00
+  event: "Prarie Dev Con"
+  url: https://prairiedevcon.com
+  speaker: David Wesst
+  location: Regina, SK
+  topic: "Web Extensions Solve All Enterprise-y Everythings"
+
+- date: 2018-10-29 17:30:00
+  event: "PrDC Deliver"
+  url: https://prdcdeliver.com
+  speaker: David Wesst
+  location: Winnipeg, MB
+  topic: "AI in the Enterprise: A Primer and Post-Mortem"
+
+- date: 2018-10-29 17:30:00
+  event: "PrDC Deliver"
+  url: https://prdcdeliver.com
+  speaker: David Wesst
+  location: Winnipeg, MB
+  topic: "Starting DevOps with 25 Years of Technical Debt"
