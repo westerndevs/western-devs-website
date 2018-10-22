@@ -8,7 +8,7 @@ categories:
   - development fundamentals   
 authorId: simon_timms
 date: 2018-10-21 11:36:36
-
+originalurl: https://blog.simontimms.com/2018/10/21/checking_in_packages/
 ---
 
 If there is one thing that we developers are good at it is holy wars. Vi vs. Emacs, tabs vs. spaces, Python vs. R, the list goes on. I'm usually smart enough to not get involved in such low brow exchanges... haha, who am I kidding? (vi, spaces and R, BTW) Recently I've been tilting at the windmill that is checking in package files. I don't mean the files that tell what version of files to check in but the actual library files. 
