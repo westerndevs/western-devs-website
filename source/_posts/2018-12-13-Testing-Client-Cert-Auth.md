@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Validating Client Certificate Auth
+title:  Validating Client Is Sending Cert For Auth
 date: 2018-13-21T00:00:00-06:00
 categories: certificates azurefunctions
 comments: true
