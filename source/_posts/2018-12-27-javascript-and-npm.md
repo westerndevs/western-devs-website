@@ -42,4 +42,3 @@ excerpt: A discussion on the implications of blindly using NPM
 * The StackOverflow effect
 * When implicit trust is based into the learning path
 * The organization's responsibilities
-* 
