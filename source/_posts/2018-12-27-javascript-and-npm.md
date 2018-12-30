@@ -23,6 +23,7 @@ links:
   - "GitHub vulnerability scanner|https://blog.github.com/2017-11-16-introducing-security-alerts-on-github/"
   - "SonarQube for vulnerability scanning|https://www.sonarqube.org/"
   - "The LeftPad Debacle|https://www.theregister.co.uk/2016/03/23/npm_left_pad_chaos/"
+  - "The Problem of Package Manager Trust|https://haacked.com/archive/2018/11/28/package-manager-trust/"
 date: 2018-12-27 16:35:38
 excerpt: A discussion on the implications of blindly using NPM
 ---
