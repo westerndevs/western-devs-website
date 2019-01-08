@@ -270,3 +270,17 @@
   speaker: David Wesst
   location: Winnipeg, MB
   topic: "Starting DevOps with 25 Years of Technical Debt"
+
+- date: 2019-01-10 17:30:00
+  event: "Microsoft Ignite: The Tour | Toronto"
+  url: https://toronto.myignitetour.microsoft.com
+  speaker: Simon Timms
+  location: Toronto, ON,
+  topic: You're using HTTPClient Wrong
+
+- date: 2019-01-10 17:30:00
+  event: "Microsoft Ignite: The Tour | Toronto"
+  url: https://toronto.myignitetour.microsoft.com
+  speaker: Simon Timms
+  location: Toronto, ON,
+  topic: Durable Functions
