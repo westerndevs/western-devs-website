@@ -183,3 +183,14 @@ tom_opgenorth:
   gravatar: 955323838b1c111c5e9b1936dc44d9fd
   active: true
   bio: I'm a software developer/programmer/contractor/consultant/nerd/geek who hails from Alberta, Canada. I've worked on a lot of different software projects in the past 20+ years in IT and have worn different hats - developer, QA, team lead, scapegoat, documentation, training and even a bit of project management thrown in.
+
+tyler_doerksen:
+  name: Tyler Doerksen
+  web: http://blog.tylerdoerksen.ca
+  email: tylergd@outlook.com
+  twitter: tyler_gd
+  github: tylerd
+  linkedin: tdoerksen
+  gravatar: b7e3ea9b56c49deaf34a3392508ff732
+  active: true
+  bio: Hello I'm Tyler Doerksen, a Cloud Solution Architect for Microsoft Canada. I work with companies in Western Canada to help them understand how Microsoft Azure can provide business value for their organization. I run design sessions or workshops for technical teams and use my Azure solution experience to accelerate time-to-value.
