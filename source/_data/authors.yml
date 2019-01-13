@@ -98,6 +98,16 @@ dylan_smith:
   active: true
   bio: Dylan Smith is a Microsoft MVP (ALM), and an ALM (Application Lifecycle Management) consultant for Imaginet where he spends his time helping teams become more successful at delivering software.
 
+eric_fleming:
+  name: Eric Fleming
+  web: https://ericflemingblog.wordpress.com/
+  email: ericflemingblog@gmail.com
+  twitter: efleming18
+  github: efleming18
+  gravatar: c3692457a5f75902390ae5d6184b1cd8
+  active: true
+  bio: Eric Fleming is a Senior Software Engineer just outside of Atlanta, Georgia. He's worked on various projects from lending platforms, CMS', bearing manufacturing, mobile apps, etc primarily working with C# and .NET. Always looking to improve and learn the next big thing Eric has set his sights on embracing Azure and all it has to offer, especially Azure Functions.
+
 james_chambers:
   name: James Chambers
   web: http://jameschambers.com/
