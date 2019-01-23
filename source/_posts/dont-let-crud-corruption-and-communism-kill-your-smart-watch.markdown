@@ -16,7 +16,7 @@ I have a [Samsung Gear Live](http://www.samsung.com/global/microsite/gear/gearli
 
 I was a bit dismayed that for a device not even a year old that these were my options. I was mulling over the options, and I flipped the watch over to see what tools I would need to take the watch apart (who doesn't like disassembling electronics), when I notice that the contact points on the watch were filthy (as one the NCOs on my infantry course used to say when inspecting rifles &ndash; "crud, corruption, and communism"). You can see the contacts for the charging dock right in the picture below:
 
-![](/images/back-of-samsung-gear-live.png)
+![](/images/back-of-samsung-gear-live.jpg)
 
 I figured cleaning these contact points was easier than taking the watch apart and quicker than sending the watch back, so I grabbed an eraser and gave the contacts a quick scrub.  I plugged the watch back into the charging cradle, and all of a sudden it started charging again.
 

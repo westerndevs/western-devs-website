@@ -49,7 +49,7 @@ PrDC is always super fun! Not only as a presenter but as an attendee is always i
 
 <div style="clear:both;margin-bottom:30px;"></div>
 
-<img style="float: left; margin-right: 20px; height: 100px; border-radius: 8px;" src="/images/avatars/Kyle_300x300.png" />
+<img style="float: left; margin-right: 20px; height: 100px; border-radius: 8px;" src="/images/avatars/Kyle_300x300.jpg" />
 
 ## <a href="/bios/kyle_baley">Kyle Baley</a>
 

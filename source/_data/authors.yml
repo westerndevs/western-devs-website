@@ -28,7 +28,7 @@ damian_brady:
   web: https://damovisa.me
   email: blog@damianbrady.com.au
   twitter: damovisa
-  avatar: DamianBrady.png
+  avatar: DamianBrady.jpg
   active: true
   bio: Damian works for Microsoft as a Cloud Developer Advocate in the League of Extraordinary Cloud DevOps Advocates team. An Australian ex-Microsoft MVP and ex-developer at Octopus Deploy, he currently lives in Toronto. He travels a lot and talks at people, mainly about DevOps.
   
@@ -37,7 +37,7 @@ darcy_lussier:
   web: http://geekswithblogs.net/dlussier/Default.aspx
   email: darcy.lussier@gmail.com
   twitter: darcy_lussier
-  avatar: DarcyLussier.png
+  avatar: DarcyLussier_avatar.jpg
   active: true
   bio: D’Arcy Lussier is an experienced technology professional with 15 years of experience architecting and developing applications. He is a Microsoft Certified Professional Developer and has been awarded a Microsoft Most Valuable Professional award in ASP.NET from 2008 through 2015
 
@@ -147,7 +147,7 @@ kyle_baley:
   twitter: kyle_baley
   github: kbaley
   linkedin: kylebaley
-  avatar: Kyle_300x300.png
+  avatar: Kyle_300x300.jpg
   active: true
   bio: "Known throughout the land (for certain, fairly restrictive, definitions of “land”) as The Coding Hillbilly, Kyle’s career choices have hinged on a single criterium: to have fun. Luckily, he finds software development fun as opposed to, say, shark taunting."
 
