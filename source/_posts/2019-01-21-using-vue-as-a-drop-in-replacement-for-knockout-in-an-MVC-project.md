@@ -20,7 +20,7 @@ So you're working an existing (brown-field) ASP.NET MVC application. The applica
 
 The default MVC project templates already include jQuery, so you might use that. You'll probably end up writing a lot of code if you go down that path. Chances are, you will want to use a JavaScript framework that offers two-way data binding between the elements in the DOM to a your model data. 
 
-I seems that for many people, [Knockout.js](https://knockoutjs.com/) is the default library to use in these scenarios. I won't get into the specifics but I think that Knockout is a little dated and that there are better options these days. If you want to dig into some of the issues with Knockout, you can read [Simon Timms' rant on the subject](https://westerndevs.com/a-discussion-on-knockout/).
+It seems that for many people, [Knockout.js](https://knockoutjs.com/) is the default library to use in these scenarios. I won't get into the specifics but I think that Knockout is a little dated and that there are better options these days. If you want to dig into some of the issues with Knockout, you can read [Simon Timms' rant on the subject](https://westerndevs.com/a-discussion-on-knockout/).
 
 ## Vue.js
 My fellow [ASP.NET Monster](https://aspnetmonsters.com) [James Chambers](http://jameschambers.com) recently strongly recommended I take a look at [Vue.js](https://vuejs.org). I had been meaning to give Vue a try for some time now and I finally had a chance to use it on a recent project. Let me tell you...I love it. 
