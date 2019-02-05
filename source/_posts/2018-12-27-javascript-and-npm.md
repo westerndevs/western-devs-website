@@ -25,6 +25,7 @@ links:
   - "The LeftPad Debacle|https://www.theregister.co.uk/2016/03/23/npm_left_pad_chaos/"
   - "The Problem of Package Manager Trust|https://haacked.com/archive/2018/11/28/package-manager-trust/"
 date: 2018-12-27 16:35:38
+recorded: 2018-11-27 12:00:00
 excerpt: A discussion on the implications of blindly using NPM
 ---
 
