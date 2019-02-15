@@ -54,7 +54,7 @@ A Saga on the other hand is a kind of "policy" object which statefully handles a
 
 The dangers of an all-encompassing durable function could be mitigated somewhat by doing all the real work in normal azure functions which are called from the orchestrator, and having the durable function be very lightweight, but this is a bit of a slippery slope.
 
-Speaking of calling other functions, to do that you use the DurableOrchestrationContext's `CallActivityAsync<TResult>("FunctionName")`. This requires the use of "magic strings" for the function names, definitely not refactoring-friendly. docs.microsoft.com/en-us/azure/az…
+Speaking of calling other functions, to do that you use the DurableOrchestrationContext's `CallActivityAsync<TResult>("FunctionName")`. This requires the use of "magic strings" for the function names, definitely not refactoring-friendly. https://docs.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-sequence
 </div>
 
 This is a limitation I've called out on twitter and in my durable functions talks. There are a few hacks you can use like leaning on `nameof` but they're not satisfactory. I've been working on a Roslyn Analyzer which will detect incorrect names, wrong parameters and broken return types. This is an addon nuget package, though, and not something that comes out of the box (unless I can convince the team to include it in the template). You can find it at https://www.nuget.org/packages/DurableFunctionsAnalyzer and eventually I'll get around to blogging the details.
@@ -63,18 +63,18 @@ This is a limitation I've called out on twitter and in my durable functions talk
 <div style="background: #f3f3f3">
 The capabilities of durable functions are impressive, but with an orchestrator function spanning multiple service boundaries and calling multiple other functions identified by magic strings in a command/control style, it would be VERY easy to end up with a distributed monolith.
 
-Also, chaining functions together is itself a form of coupling, and this raises versioning challenges when changes to a system need to be made. docs.microsoft.com/en-us/azure/az…
+Also, chaining functions together is itself a form of coupling, and this raises versioning challenges when changes to a system need to be made. https://docs.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-versioning
 
 In NServiceBus a Saga is a stateful object with some Handle(message) methods on it where that state is persisted to a database. Even timeouts are represented as messages.
 </div>
 There is some really quite good unit testing advice at 
 https://docs.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-unit-testing for Durable Functions but it certainly isn't as elegant as NSB's implementations. For complex orchestrations I think the tests would be quite hacky. 
 <div style="background: #f3f3f3">
-The messages are strongly-typed classes. No magic strings. Message comes in, stored state is read, make some decisions, message(s) come out. Easy to test, easy to refactor. docs.particular.net/nservicebus/te…
+The messages are strongly-typed classes. No magic strings. Message comes in, stored state is read, make some decisions, message(s) come out. Easy to test, easy to refactor. https://docs.particular.net/nservicebus/testing/#testing-a-saga
 
-And if anything goes wrong, the message rolls back to the queue and automatic retries kick in. This makes it easy for your system to recover from transient outages of databases or 3rd party APIs: docs.particular.net/tutorials/quic…
+And if anything goes wrong, the message rolls back to the queue and automatic retries kick in. This makes it easy for your system to recover from transient outages of databases or 3rd party APIs: https://docs.particular.net/tutorials/quickstart/#transient-failures
 
-Also, when reproducing a bug in your system, having the actual messages which caused the failure in an error queue is a huge help, not to mention being able to "replay" them in production to complete the business process for your customer: docs.particular.net/tutorials/mess…
+Also, when reproducing a bug in your system, having the actual messages which caused the failure in an error queue is a huge help, not to mention being able to "replay" them in production to complete the business process for your customer: https://docs.particular.net/tutorials/message-replay/
 </div>
 
 This I can't argue with. I've reprocessed thousands of messages in NSB and the ability to do so has saved the companies for whom I've worked thousands of dollars and avoided angry customer.
@@ -82,7 +82,7 @@ This I can't argue with. I've reprocessed thousands of messages in NSB and the a
 You can rewind durable orchestrations after correcting the problem. However the lack of an error queue is really tricky. The restful APIs to list orchestrations and their status and potentially rewind them aren't scalable or generally usable. There is a serious lack of tooling here (start up idea, alert!). 
 
 <div style="background: #f3f3f3">
-Of course, this wouldn't be complete without our real-time performance monitoring capabilities. Keep an eye on message processing time, retries, and queues backing up - resolving issues before they hurt the business: particular.net/real-time-moni…
+Of course, this wouldn't be complete without our real-time performance monitoring capabilities. Keep an eye on message processing time, retries, and queues backing up - resolving issues before they hurt the business: https://particular.net/real-time-monitoring
 </div>
 
 I am pretty confident that you could build the equivalent of Service Pulse and Service Control on top of durable functions. If you were building a serious production system on top of Durable Functions I think you'd have to build some tooling in this space. That should be a cost consideration when you do your analysis of technologies to use.
@@ -92,7 +92,7 @@ But it's naïve to think that a system would have to be ALL sagas or ALL durable
 
 Azure Functions can be really great integration glue to bridge from various Azure Services like Blobs, Tables, Event Grid, CosmosDB, etc. to NServiceBus sagas and from there to your core business logic.
 
-Azure functions are also great for small bits of infrastructure - we even recommend using them with NServiceBus to clean up data bus entries: docs.particular.net/samples/azure/…
+Azure functions are also great for small bits of infrastructure - we even recommend using them with NServiceBus to clean up data bus entries: https://docs.particular.net/samples/azure/blob-storage-databus-cleanup-function/
 
 No matter what, remember that Azure Durable Functions are in their infancy. Going "all in" may not be the best bet. Start small.
 </div>
@@ -102,7 +102,7 @@ This is totally accurate. I first used NSB in something like 2008 and even then 
 <div style="background: #f3f3f3">
 Also keep "credit-card-driven development" in mind. Azure Functions billing is all about actual usage. @troyhunt runs the haveibeenpwned API for pennies because the function is ridiculously efficient. You have to design for that, or you might get a bill you didn't expect.
 
-We’re still assessing Azure Functions, so if you are actively using them in production or even thinking about using them some day, we’d love to get your input! Leave your comments here: discuss.particular.net/t/azure-functi…
+We’re still assessing Azure Functions, so if you are actively using them in production or even thinking about using them some day, we’d love to get your input! Leave your comments here: https://discuss.particular.net/t/azure-functions/872
 </div>
 
 # Other Aspects
