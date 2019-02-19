@@ -42,17 +42,17 @@ It produces warnings (for now) when your functions aren't used correctly. Right 
 
 Here are some screenshots of it in action.
 
-![A misnamed function and a suggestion for what it should be called.](/images/roslynanalyzer/poc.png)
+![A misnamed function and a suggestion for what it should be called.](https://blog.simontimms.com/images/roslynanalyzer/poc.png)
 A misnamed function and a suggestion for what it should be called.
 
-![An incorrect argument being detected](/images/roslynanalyzer/poc2.png)
+![An incorrect argument being detected](https://blog.simontimms.com/images/roslynanalyzer/poc2.png)
 An incorrect argument being detected
 
 
-![An incorrect return type being detected](/images/roslynanalyzer/poc3.png)
+![An incorrect return type being detected](https://blog.simontimms.com/images/roslynanalyzer/poc3.png)
 An incorrect return type being detected
 
-![Orchestration trigger on the wrong data type](/images/roslynanalyzer/poc4.png)
+![Orchestration trigger on the wrong data type](https://blog.simontimms.com/images/roslynanalyzer/poc4.png)
 Orchestration trigger on the wrong data type
 
 If you want to try this out on your own project it is as easy as installing a [nuget package](https://www.nuget.org/packages/DurableFunctionsAnalyzer/). 
