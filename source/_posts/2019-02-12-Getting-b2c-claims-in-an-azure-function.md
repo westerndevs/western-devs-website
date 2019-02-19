@@ -1,7 +1,10 @@
+---
 layout: post
 title: Accessing B2C Claims in an Azure Function
 authorId: simon_timms
 date: 2019-02-13 19:00
+categories:
+  - B2C
 originalurl: https://blog.simontimms.com/2019/02/13/2019-02-12-Getting-b2c-claims-in-an-azure-function/
 ---
 

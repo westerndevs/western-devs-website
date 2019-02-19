@@ -1,7 +1,10 @@
-9layout: post
+---
+layout: post
 title: Durable Functions Analyzer
 authorId: simon_timms
 date: 2019-02-17 19:00
+categories:
+  - DurableFunctions
 originalurl: https://blog.simontimms.com/2019/02/17/2019-02-17-durable_functions_analyzer/
 ---
 

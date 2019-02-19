@@ -1,7 +1,10 @@
+---
 layout: post
 title: Durable Azure Functions vs. NServiceBus Sagas
 authorId: simon_timms
 date: 2019-02-14 19:00
+categories:
+  - DurableFunctions
 originalurl: https://blog.simontimms.com/2019/02/14/2019-02-14-durablefunctions_sagas/#more
 ---
 
