@@ -14,29 +14,33 @@ Simple scenario: You talk to another service that uses Azure AD. For development
 
 Some people may use IoC to handle this. Sometimes, that requires config switches. However, what if you want to be 100% sure that code can never be accidentally turned on in production? You may consider using a compiler directive.
 
-    #if DEBUG
-    DoUnsafeThingThatShouldNeverBeInProduction();
-    #elif RELEASE
-    DoItTheSafeWay();
-    #endif
+{% codeblock lang:csharp %}
+#if DEBUG
+DoUnsafeThingThatShouldNeverBeInProduction();
+#elif RELEASE
+DoItTheSafeWay();
+#endif
+{% endcodeblock %}
 
 Depending on the build mode, one of those methods will not be make it to the assembly. This prevents any accidents that could do the unsafe thing. Yes, there are other ways of doing this and typically those ways require process and convention. No, this is not fail safe is technically someone could accidentally change the build mode to DEBUG for a production release (sure, whatever).
 
-    class Program
+{% codeblock lang:csharp %}
+class Program
+{
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            HttpClient client;
-            
-            //weeping and gnashing of teeth
-    #if RELEASE
-            client = ClientFactory.UseClientWithAzureAD();
-    #elif DEBUG
-            client = new HttpClient();
-    #endif
-            
-        }
+        HttpClient client;
+        
+        //weeping and gnashing of teeth
+#if RELEASE
+        client = ClientFactory.UseClientWithAzureAD();
+#elif DEBUG
+        client = new HttpClient();
+#endif
+        
     }
+}
+{% endcodeblock %}
 
 There's are problems, though, that can arise from using these directives. First, if you have your environment set to DEBUG and this is the only spot you use the `DoItTheSafeWay` method, looking for any usages using your IDE will result in ZERO INSTANCES! NONE! You'll spend 45 minutes trying to figure out how this thing is done in production because, like any normal person, you're using the Find References in your tool. 
 
@@ -46,36 +50,41 @@ The other problem is your trusty IDE will tell you that certain using statments 
 
 So, use the following code (or something similar):
 
-    public class RunMode
-    {
+{% codeblock lang:csharp %}
+public class RunMode
+{
 
-    #if !DEBUG
-        private static bool _isRelease = true;
-    #elif DEBUG
-        private static bool _isRelease = false;
-    #endif
+#if !DEBUG
+    private static bool _isRelease = true;
+#elif DEBUG
+    private static bool _isRelease = false;
+#endif
 
-        // ReSharper disable once ConvertToAutoProperty
-        public static bool IsRelease => _isRelease;
-    }
+    // ReSharper disable once ConvertToAutoProperty
+    public static bool IsRelease => _isRelease;
+}
+{% endcodeblock %}
 
 And then use it like this:
 
-    class Program
+{% codeblock lang:csharp %}
+class Program
+{
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            HttpClient client;
+        HttpClient client;
 
-            //Children laughter and happiness
-            if (RunMode.IsRelease)
-            { 
-                client = ClientFactory.UseClientWithAzureAD();
-            }
-            else
-            {
-                client = new HttpClient();
-            }
+        //Children laughter and happiness
+        if (RunMode.IsRelease)
+        { 
+            client = ClientFactory.UseClientWithAzureAD();
+        }
+        else
+        {
+            client = new HttpClient();
         }
     }
+}
+{% endcodeblock %}
+
 Your experiences will vary, but reports of using this code show it has saved marriages, increased gas mileage and prevented the death of at least 2 dozen water fowl.
