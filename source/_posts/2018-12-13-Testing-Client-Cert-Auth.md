@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Validating Client Is Sending Certificate For Auth
+title:  Validating Client Is Sending Cert For Auth In Azure Functions
 date: 2018-12-13 16:35:38
 categories: certificates azurefunctions
 comments: true
@@ -14,7 +14,7 @@ Do you need to validate a client certificate is being passed to a server correct
 [1]: https://imgur.com/ehuVZqx.png
 [2]: https://imgur.com/knx5FJd.png
 
-This can be done two ways.
+Using an Azure function, this can be done two ways.
 
 1 - Check for the X-ARR-ClientCert request header and, if present, base64 decode the value and load it into a X509Certificate2. From there, you can check the thumprint to validate the client is correctly sending the certificate with the request.
 
