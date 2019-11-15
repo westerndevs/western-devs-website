@@ -132,6 +132,6 @@ If you are getting **Correlation failed** errors, the **state** value does not m
 
 The good news is that once you have the B2C auth cookie, the /authorize request will return the **state**, **code**, and **id_token** values in form post HTML.
 
-I hope this helps you run end-to-end web tests on your B2C site!
+I hope this helps you run end-to-end web tests on your B2C site! 
 
 **Mileage may vary:** As you can tell, B2C is a highly configurable solution, this article is based on the .NET Core B2C sample found [here](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp). Your app will likely have a different configuration. Use Fiddler to capture a login flow and use that as a guide.
