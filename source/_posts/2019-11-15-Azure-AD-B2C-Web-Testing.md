@@ -88,7 +88,7 @@ In the message body, set to **x-www-form-urlencoded** and enter the following in
 
 ![Postman screenshot of form body, request_type, loginIdentifier, and password](https://tylerdevblog.blob.core.windows.net/content/2019-11-14-Azure-AD-B2C-Web-Testing/4.png)
 
-Note: The **logonIdentifier** key is configurable in the B2C policy. This may be a different key like "signInName" or "emailAddress" depending on your configuration. Fiddler is your friend.
+Note: The **logonIdentifier** key is configurable in the B2C policy. This may be a different key like "signInName" or "emailAddress" depending on your configuration. Fiddler is your friend here.
 
 Once you execute this request you should receive a **200 OK** with the following response body:
 
@@ -110,7 +110,7 @@ Create a new request with the following URL
 https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/B2C_1_SUSI/api/CombinedSigninAndSignup/confirmed?csrf_token={{csrf}}&tx={{tx}}&p=B2C_1_SUSI
 ```
 
-Note: **CombinedSigninAndSignup** is the name of the configured flow in Azure AD B2C, if you are using a different flow you will need to change this url. Again, try it yourself, Fiddler is your friend.
+Note: **CombinedSigninAndSignup** is the name of the configured flow in Azure AD B2C, if you are using a different flow you will need to change this url. Again, try it yourself, Fiddler is your friend here.
 
 If in Step 2 you used **form_post** as the **response_mode** you should recieve a basic HTML site with a form and hidden fields **state**, **code**, **id_token**, and maybe a few others.
 
