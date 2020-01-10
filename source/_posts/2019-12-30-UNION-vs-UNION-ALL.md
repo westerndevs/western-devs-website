@@ -1,7 +1,9 @@
+---
 layout: post
 title: UNION vs. UNION ALL in SQL Server
 authorId: simon_timms
 date: 2019-12-30 9:00
+originalurl: https://blog.simontimms.com/2019/12/30/2019-12-30-UNION-vs-UNION-ALL/
 
 ---
 
