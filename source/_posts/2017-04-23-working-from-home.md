@@ -29,7 +29,7 @@ links:
   - "Is Daddy on a call?|https://www.hanselman.com/blog/IsDaddyOnACallABusyLightPresenceIndicatorForLyncForMyHomeOffice.aspx"
   - "Why working from home is both awesome and horrible|http://theoatmeal.com/comics/working_home"
 excerpt:
-  - Yeah, so Pokemon Go was still a thing when we originally recorded this. Add procrastination to the list of hazards for working from home.
+  - "Yeah, so Pokemon Go was still a thing when we originally recorded this. Add procrastination to the list of hazards for working from home."
 ---
 
 ### Synopsis
