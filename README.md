@@ -4,7 +4,7 @@ The home page for www.westerndevs.com
 
 To get started:
 
-- ensure node v8+ is installed
+- ensure node v12+ is installed
 - clone the repo and navigate to the root folder
 - switch to the `master` branch
 - run `npm install`
