@@ -8,6 +8,8 @@ originalurl: 'https://blog.simontimms.com/2020/04/01/2020-04-01-flutter-tests-wi
 
 Today I was digging through some unit tests in our flutter project that seemed to be failing on my machine but not necessarily in other places like our build pipeline. The problem was that we had some calls to async methods which were not being awaited properly. I fixed those up and they uncovered a bunch of more serious problems in our tests. We were calling out to validate a phone number with libphonenumber and now we were actually awaiting the call properly we saw this error
 
+<!-- more -->
+
 ```bash
 [master ≡ +0 ~2 -0 !]> flutter test
 00:03 +27 -1: test\unit\providers\create_account_provider_test.dart: Real mobile number - is valid [E]

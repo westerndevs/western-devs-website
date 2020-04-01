@@ -8,7 +8,7 @@ originalUrl: 'https://blog.simontimms.com/2020/03/31/2020-03-31-find-webforms-er
 
 I have a webforms application that I help maintain. Today I made some change and managed to break one of the pages on the site. The error was unbelievably unhelpful.
 
-![Wut? 500 error with no useful details](/images/precompilewebforms/500.png)
+![Wut? 500 error with no useful details](https://blog.simontimms.com/images/precompilewebforms/500.png)
 
 In older versions of ASP.NET it is nearly impossible to diagnose these sorts of errors. Was it something with the web.config? Did I mess up the dependency injection? I messed about a bit and found that if I deleted everything out of the `.aspx` file things worked. So it was the view. But what? 
 
