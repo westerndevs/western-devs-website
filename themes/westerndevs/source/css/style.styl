@@ -123,6 +123,20 @@ A.subposts:LINK, A.subposts:ACTIVE, A.subposts:VISITED, A.subposts:HOVER
   text-decoration none
   font-weight 100
 
+blockquote 
+  position: relative
+  font-family: 'Cascadia Code PL', serif
+  background-color: #f6faff
+  padding-left: 1em
+  border-left: 0.2em solid #005da0
+  font-size: 1.1em
+  line-height: 1em
+  font-weight: 100
+  &:before, &:after {
+      content: '\A'
+      whitespace: pre
+  }
+
 .Wrapper
   position relative
   display block

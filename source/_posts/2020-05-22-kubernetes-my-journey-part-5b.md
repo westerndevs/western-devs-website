@@ -4,7 +4,7 @@ title: Kubernetes - My Journey - Part 5b
 category: kubernetes
 tags: kubernetes, azure, aks, identityserver, docker, containers
 authorId: dave_white
-date: 2020-04-16 10:00
+date: 2020-05-22 07:00
 ---
 <style>
     h1, h2, h3, h4, h5, h6 {
@@ -29,22 +29,6 @@ date: 2020-04-16 10:00
         color: #0033CD;
         padding: 0em 0.4em;
         white-space: nowrap;
-    }
-    blockquote {
-        position: relative;
-        font-family: 'Cascadia Code PL', serif;
-        padding-left: 1em;
-        border-left: 0.2em solid #005da0;
-        font-size: 1.1em;
-        line-height: 1em;
-        font-weight: 100;
-        &:before, &:after {
-            content: '\201C';
-            color: #005da0;
-        }
-        &:after {
-            content: '\201D';
-        }
     }
 </style>
 <link  href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.5.0/viewer.min.css" rel="stylesheet">
@@ -116,7 +100,7 @@ Remember where they are. When we get back to manifest land, we'll need them.
 
 Now that we have a private container registry, we need to build our IdentityServer4 applications and publish those container images to our ACR. If you do not have an Azure DevOps Service instance, you can [create one for free](https://azure.microsoft.com/en-ca/services/devops/).
 
-> I will try to create blog post sometime doing something like this from [GitHub](https://github.com/), using [GitHub Actions](https://github.com/features/actions) with a public [DockerHub](https://hub.docker.com/) Registry sometime.
+> I will try to create blog post sometime doing something like this from [GitHub](https://github.com/), using [GitHub Actions](https://github.com/features/actions) with a public [DockerHub](https://hub.docker.com/) Registry.
 
 ### Assumptions
 

@@ -4,7 +4,7 @@ title: Kubernetes - My Journey - Part 8
 category: kubernetes
 tags: kubernetes, azure, aks, identityserver, docker, containers
 authorId: dave_white
-date: 2020-04-16 10:00
+date: 2020-05-22 03:00
 ---
 <style>
     h1, h2, h3, h4, h5, h6 {
@@ -29,22 +29,6 @@ date: 2020-04-16 10:00
         color: #0033CD;
         padding: 0em 0.4em;
         white-space: nowrap;
-    }
-    blockquote {
-        position: relative;
-        font-family: 'Cascadia Code PL', serif;
-        padding-left: 1em;
-        border-left: 0.2em solid #005da0;
-        font-size: 1.1em;
-        line-height: 1em;
-        font-weight: 100;
-        &:before, &:after {
-            content: '\201C';
-            color: #005da0;
-        }
-        &:after {
-            content: '\201D';
-        }
     }
 </style>
 <link  href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.5.0/viewer.min.css" rel="stylesheet">
