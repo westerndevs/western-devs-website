@@ -414,7 +414,7 @@ spec:
           image: dpage/pgadmin4
           env:
             - name: PGADMIN_DEFAULT_EMAIL
-              value: "admin@mydomain.com"
+              value: "admin@codingwithdave.xyz"
             - name: PGADMIN_DEFAULT_PASSWORD
               value: "P@ssw0rd!"
           ports:
@@ -476,7 +476,7 @@ PS D:\temp\testidentity\MyProject\manifests> minikube service list
 |----------------------|---------------------------|--------------|----------------------------|
 ```
 
-You should be able to log into pgAdmin4 with the credentials we've come to know and love (**user:** admin@mydomain.com **pwd:** P@ssw0rd!). Once in there, you will be able to re-create your server list entry, but this time, the location of the server is the name of the postgres service, as described in the metadata: element of the yaml.
+You should be able to log into pgAdmin4 with the credentials we've come to know and love (**user:** admin@codingwithdave.xyz **pwd:** P@ssw0rd!). Once in there, you will be able to re-create your server list entry, but this time, the location of the server is the name of the postgres service, as described in the metadata: element of the yaml.
 
 ```yaml
 metadata:

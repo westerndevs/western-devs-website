@@ -307,7 +307,7 @@ spec:
           image: dpage/pgadmin4
           env:
             - name: PGADMIN_DEFAULT_EMAIL
-              value: "admin@mydomain.com"
+              value: "admin@codingwithdave.xyz"
             - name: PGADMIN_DEFAULT_PASSWORD
               value: "P@ssw0rd!"
           ports:
@@ -387,7 +387,7 @@ const pgAdminDeployment = new k8s.apps.v1.Deployment(pgAdminDepName, {
                     },
                     ports: [{ containerPort: 80 }],
                     env: [
-                        {name: "PGADMIN_DEFAULT_EMAIL", value: "admin@mydomain.com"},
+                        {name: "PGADMIN_DEFAULT_EMAIL", value: "admin@codingwithdave.xyz"},
                         {name: "PGADMIN_DEFAULT_PASSWORD", value: "P@ssw0rd!"},
                         {name: "POSTGRES_USER", value: "admin"},
                         {name: "POSTGRES_PASSWORD", value: "P@ssw0rd!"},

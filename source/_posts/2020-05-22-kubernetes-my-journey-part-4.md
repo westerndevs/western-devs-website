@@ -146,7 +146,7 @@ After adding in Postgre, we can now add in our pgAdmin4 container instance. pgAd
       - 5050:80
     container_name: pgAdmin4
     environment:
-      - "PGADMIN_DEFAULT_EMAIL=admin@mydomain.com"
+      - "PGADMIN_DEFAULT_EMAIL=admin@codingwithdave.xyz"
       - "PGADMIN_DEFAULT_PASSWORD=P@ssw0rd!"
       - "PGDATA=/mnt/data/pgdata"
     volumes:
@@ -434,7 +434,7 @@ Now we enter our login credentials that we set in the pgAdmin4 section in the do
       - "5050:80"
     container_name: pgAdmin4
     environment:
-      - "PGADMIN_DEFAULT_EMAIL=admin@mydomain.com"
+      - "PGADMIN_DEFAULT_EMAIL=admin@codingwithdave.xyz"
       - "PGADMIN_DEFAULT_PASSWORD=P@ssw0rd!"
       - "PGDATA=/mnt/data/pgdata"
     volumes:
