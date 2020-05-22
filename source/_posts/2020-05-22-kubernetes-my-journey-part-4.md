@@ -522,7 +522,7 @@ We can log into this application using the account that was created for us! We s
       {
         "Username": "admin",
         "Password": "P@ssw0rd!",
-        "Email": "admin@example.com",
+        "Email": "admin@codingwithdave.xyz",
         "Roles": [
           "IdentityAdminRole"
         ],
