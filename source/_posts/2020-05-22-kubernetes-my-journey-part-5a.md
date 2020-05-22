@@ -17,9 +17,9 @@ We're finally getting to the part of the series where we have a group of applica
 
 ## Important Caveat
 
-I'm going to make an assumption that at a minimum, you've reviewed various types of **k8s** resources on [kubernetes.io](https://kubernetes.io) and in a best case scenario, you've watched Nigel Poulton's Pluralsight course [Getting Started with Kubernetes](https://app.pluralsight.com/library/courses/getting-started-kubernetes/table-of-contents). If you haven't, my discuss about these topics may be harder to understand because they do not cover these basics.
+I'm going to make an assumption that at a minimum, you've reviewed various types of **k8s** resources on [kubernetes.io](https://kubernetes.io) and in a best case scenario, you've watched Nigel Poulton's Pluralsight course [Getting Started with Kubernetes](https://app.pluralsight.com/library/courses/getting-started-kubernetes/table-of-contents). If you haven't, my discussions about these topics may be harder to understand because they do not cover these basics.
 
-Also, my understanding of Kubernetes is certainly not as extensive as I'd like. I'm not sure I'd hazzard calling myself an expert. I've got a working cluster and applications in that cluster but I am not going to make the statement that I've done it all right or with the current best practices in place. This is a learning exercise for me (and you) and while I want to get you with a cluster up and running as soon as possible, I expect you to learn/challenge/grow your **k8s** cluster knowledge as well.
+Also, my understanding of Kubernetes is certainly not as extensive as I'd like. I'm not sure I'd hazard calling myself an expert. I've got a working cluster and applications in that cluster but I am not going to make the statement that I've done it all right or with the current best practices in place. This is a learning exercise for me (and you) and while I want to get you with a cluster up and running as soon as possible, I expect you to learn/challenge/grow your **k8s** cluster knowledge as well.
 
 ## Getting started
 
@@ -75,7 +75,7 @@ Hopefully, the tunnel started, a browser window opened and you can see the Kuber
 
 ## Putting your backend into the cluster
 
-Now that **k8s** is running on your local machine, we can start to install our backend services into the cluster. We'll do this first to get used to this and it is relatively easy. Installing our IdentityServer4-based applications will require some additional resources and automation.
+Now that **k8s** is running on your local machine, we can start to install our backend services into the cluster. We'll do this activity first, with easy to configure pods, to get used to working with manifests. Installing our IdentityServer4-based applications will require some additional resources and automation.
 
 In this section, we will start the process of converting our docker-compose.yml into a bunch of **k8s** _manifest_ files. We could do this as a monolithic manifest file, but I prefer smaller manifest files. They are easier to think about and just as easy to use.
 
