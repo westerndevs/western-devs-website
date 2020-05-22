@@ -31,7 +31,7 @@ I still have [ReSharper](https://www.jetbrains.com/resharper/) and I still have 
 
 ## VS Code
 
-[Visual Studio Code](https://code.visualstudio.com/) is a fantastic, light-weight text editor with an incredible extensibility feature that the community has taken full advantage of! Out of the box, it is very good at one thing. Editing text files. With all the extensions being written and placed on the marketplace, it has become some people's full-time IDE. The create thing about VS Code is that it runs on macOS, Linux, and Windows, so you take it wherever you go! And, it's free! It has mostly replaced all my other text editors, with the exception of **Notepad**. Still use that one from time to time.
+[Visual Studio Code](https://code.visualstudio.com/) is a fantastic, light-weight text editor with an incredible extensibility feature that the community has taken full advantage of! Out of the box, it is very good at one thing. Editing text files. With all the extensions being written and placed on the marketplace, it has become some people's full-time IDE. The great thing about VS Code is that it runs on macOS, Linux, and Windows, so you take it wherever you go! And, it's free! It has mostly replaced all my other text editors, with the exception of **Notepad**. Still use that one from time to time.
 
 I use VS Code for editing all my manifests, **Pulumi** Typescript applications, and markdown files for documentation. This blog post was written in Markdown using VS Code! With an integrated terminal window using PS Core, I can do pretty much all my **k8s** deployment and resource work without leaving VS Code.
 
@@ -57,7 +57,7 @@ I've mentioned that while I find manifests a great way to learn **k8s**, I've ad
 
 ## K9s
 
-[K9s](https://k9scli.io/) is a console-based user experience for managing your **k8s** cluster! As with Octant, it uses kubectl and your current context to determine which **k8s** cluster it is managing. I quite like it! I also find it really interesting how I have three different tools for managing the **k8s** cluster and depending on what I'm doing or even my mode, I can pick from any of the three tools.
+[K9s](https://k9scli.io/) is a console-based user experience for managing your **k8s** cluster! As with Octant, it uses kubectl and your current context to determine which **k8s** cluster it is managing. I quite like it! I also find it really interesting how I have three different tools for managing the **k8s** cluster and depending on what I'm doing or even my mood, I can pick from any of the three tools.
 
 ## Honorable Mention - Docker Desktop for Windows
 
@@ -71,7 +71,9 @@ I've mentioned that while I find manifests a great way to learn **k8s**, I've ad
 - [Visual Studio](https://visualstudio.microsoft.com/)
 - [VS Code](https://code.visualstudio.com/)
 - [Pulumi](https://www.pulumi.com/)
-- [Git] (https://git-scm.com/) - [Github](https://www.github.com) - [Git Simulator - Github](http://git-school.github.io/visualizing-git/)
+- [Git](https://git-scm.com/)
+- [Github](https://www.github.com)
+  - [Git Simulator - Github](http://git-school.github.io/visualizing-git/)
 - [Azure DevOps (Server)](https://azure.microsoft.com/en-ca/services/devops/)
 - [Kubernetes Dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)
 - [Octant](https://octant.dev/) - [Github](https://github.com/vmware-tanzu/octant)

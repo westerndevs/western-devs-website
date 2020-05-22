@@ -19,7 +19,7 @@ Some of these decisions were made by me throughout this project. It was importan
 
 ## Pre-defined Assumptions
 
-So, there are a bunch of things that we're decided before me arriving on the scene! These decisions drove all my initial decision making to just get the project started.
+So, there are a bunch of things that we're decided before me arriving on the scene! These decisions governed my initial decision making to just get the project started.
 
 ### We're going to the cloud
 
