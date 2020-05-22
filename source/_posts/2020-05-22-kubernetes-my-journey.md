@@ -6,33 +6,6 @@ category: kubernetes
 tags: kubernetes, azure, aks, identityserver, docker, containers
 date: 2020-05-22 13:00
 ---
-<style>
-    h1, h2, h3, h4, h5, h6 {
-       margin-top: 25px;
-    }
-
-    figure.highlight{
-        background-color: #E8EEFE;
-    }
-    figure.highlight .gutter{
-        color: #0033CD;
-    }
-    figure.highlight pre {
-        font-family: 'Cascadia Code PL', monospace;
-    }
-    code {
-        font-family: 'Cascadia Code PL', sans-serif;
-        border-width: 0.1em;
-        border-color: #E8EEFE;
-        border-style: solid;
-        border-radius: 0.3em;
-        background-color: #E8EEFE;
-        color: #0033CD;
-        padding: 0em 0.4em;
-        white-space: nowrap;
-    }
-</style>
-
 # The Journey
 
 This is a series of articles chronicling my learning journey as I was asked to build an IdentityServer4-based authentication system for one of my clients. This story included details about my adoption of Kubernetes, Azure Kubernetes Service, and all the things that I had to do to stand-up this client's new IdentityServer4 authentication implementation.
@@ -72,3 +45,29 @@ All the code, projects, manifests, etc. are (or will be) in [Github here](https:
 
 **Next up:**
 [Business problems](/kubernetes/kubernetes-my-journey-part-1)
+<style>
+    h1, h2, h3, h4, h5, h6 {
+       margin-top: 25px;
+    }
+
+    figure.highlight{
+        background-color: #E8EEFE;
+    }
+    figure.highlight .gutter{
+        color: #0033CD;
+    }
+    figure.highlight pre {
+        font-family: 'Cascadia Code PL', monospace;
+    }
+    code {
+        font-family: 'Cascadia Code PL', sans-serif;
+        border-width: 0.1em;
+        border-color: #E8EEFE;
+        border-style: solid;
+        border-radius: 0.3em;
+        background-color: #E8EEFE;
+        color: #0033CD;
+        padding: 0em 0.4em;
+        white-space: nowrap;
+    }
+</style>

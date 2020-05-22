@@ -6,32 +6,6 @@ tags: kubernetes, azure, aks, identityserver, docker, containers
 authorId: dave_white
 date: 2020-05-22 10:00
 ---
-<style>
-    h1, h2, h3, h4, h5, h6 {
-       margin-top: 25px;
-    }
-    figure.highlight{
-        background-color: #E8EEFE;
-    }
-    figure.highlight .gutter{
-        color: #0033CD;
-    }
-    figure.highlight pre {
-        font-family: 'Cascadia Code PL', monospace;
-    }
-    code {
-        font-family: 'Cascadia Code PL', sans-serif;
-        border-width: 0.1em;
-        border-color: #E8EEFE;
-        border-style: solid;
-        border-radius: 0.3em;
-        background-color: #E8EEFE;
-        color: #0033CD;
-        padding: 0em 0.4em;
-        white-space: nowrap;
-    }
-</style>
-
 [Series Table of Contents](/kubernetes/kubernetes-my-journey)
 
 **Previously:**
@@ -103,3 +77,29 @@ I've mentioned that while I find manifests a great way to learn **k8s**, I've ad
 - [Octant](https://octant.dev/) - [Github](https://github.com/vmware-tanzu/octant)
 - [K9s](https://k9scli.io/) - [Github](https://github.com/derailed/k9s)
 - [Useful Interactive Terminal And Graphical UI Tools For Kubernetes - Virtually Ghetto](https://www.virtuallyghetto.com/2020/04/useful-interactive-terminal-and-graphical-ui-tools-for-kubernetes.html)
+
+<style>
+    h1, h2, h3, h4, h5, h6 {
+       margin-top: 25px;
+    }
+    figure.highlight{
+        background-color: #E8EEFE;
+    }
+    figure.highlight .gutter{
+        color: #0033CD;
+    }
+    figure.highlight pre {
+        font-family: 'Cascadia Code PL', monospace;
+    }
+    code {
+        font-family: 'Cascadia Code PL', sans-serif;
+        border-width: 0.1em;
+        border-color: #E8EEFE;
+        border-style: solid;
+        border-radius: 0.3em;
+        background-color: #E8EEFE;
+        color: #0033CD;
+        padding: 0em 0.4em;
+        white-space: nowrap;
+    }
+</style>

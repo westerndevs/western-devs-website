@@ -6,34 +6,6 @@ tags: kubernetes, azure, aks, identityserver, docker, containers
 authorId: dave_white
 date: 2020-05-22 02:00
 ---
-<style>
-    h1, h2, h3, h4, h5, h6 {
-       margin-top: 25px;
-    }
-    figure.highlight{
-        background-color: #E8EEFE;
-    }
-    figure.highlight .gutter{
-        color: #0033CD;
-    }
-    figure.highlight pre {
-        font-family: 'Cascadia Code PL', monospace;
-    }
-    code {
-        font-family: 'Cascadia Code PL', sans-serif;
-        border-width: 0.1em;
-        border-color: #E8EEFE;
-        border-style: solid;
-        border-radius: 0.3em;
-        background-color: #E8EEFE;
-        color: #0033CD;
-        padding: 0em 0.4em;
-        white-space: nowrap;
-    }
-</style>
-<link  href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.5.0/viewer.min.css" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.5.0/viewer.min.js"></script>
-
 [Series Table of Contents](/kubernetes/kubernetes-my-journey)
 
 **Previously:**
@@ -186,6 +158,33 @@ Another thing I need to get a handle on is doing ConfigMap declarations in Pulum
 **Next up:**
 [Tuning resource usage](/kubernetes/kubernetes-my-journey-part-10)
 
+<style>
+    h1, h2, h3, h4, h5, h6 {
+       margin-top: 25px;
+    }
+    figure.highlight{
+        background-color: #E8EEFE;
+    }
+    figure.highlight .gutter{
+        color: #0033CD;
+    }
+    figure.highlight pre {
+        font-family: 'Cascadia Code PL', monospace;
+    }
+    code {
+        font-family: 'Cascadia Code PL', sans-serif;
+        border-width: 0.1em;
+        border-color: #E8EEFE;
+        border-style: solid;
+        border-radius: 0.3em;
+        background-color: #E8EEFE;
+        color: #0033CD;
+        padding: 0em 0.4em;
+        white-space: nowrap;
+    }
+</style>
+<link  href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.5.0/viewer.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.5.0/viewer.min.js"></script>
 <script>
 // View an image
 const gallery = new Viewer(document.getElementById('mainPostContent', {
