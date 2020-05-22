@@ -290,9 +290,9 @@ spec:
 
 There is a lot that goes into a Deployment manifest. You can [see more details here](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) in the event that you need a refresher.
 
-We've created this manifest that will stand-up Postgres in the **k8s** cluster. Now we can ust **kubectl** to run this manifest against our cluster.
+We've created this manifest that will stand-up Postgres in the **k8s** cluster. Now we can use **kubectl** to run this manifest against our cluster.
 
-First, lets make sure our kubectl is configured to point at minikube.
+First, let's make sure our kubectl is configured to point at minikube.
 
 `kubectl config current-context` should report **minikube**.
 
@@ -339,7 +339,7 @@ _With Kubernetes you don’t need to modify your application to use an unfamilia
 
 [Services](https://kubernetes.io/docs/concepts/services-networking/service/)
 
-Generally, you want to present as little surface area for security reasons as possible, so I have no desire to expose the database outside of the cluster. We still need a service resource created so that the container gets a DNS name within the cluster, and as contains/pods come and go, the cluster will ensure that the DNS entry always points to the right place.
+Generally, you want to present as little surface area for security reasons as possible, so I have no desire to expose the database outside of the cluster. We still need a service resource created so that the container gets a DNS name within the cluster, and as containers/pods come and go, the cluster will ensure that the DNS entry always points to the right place.
 
 So in this service manifest, we are basically telling **k8s** to map the DNS entry **postgres-svc** to whatever pod spins up with the label **app:postgres**.
 
@@ -443,9 +443,9 @@ spec:
       nodePort: 5050
 ```
 
-Simply speaking, this manifest says to create a NodePort service resource for this pod and expose it on port 5050. Notice that the **spec: selector:** is saying that this service will be applied top pods with the same label of **pgadmin4**. Remember, in **k8s** labels are usually very important. Because of the **type: NodePort** on this service, we will be able to access this pod from outside of the cluster.
+Simply speaking, this manifest says to create a NodePort service resource for this pod and expose it on port 5050. Notice that the **spec: selector:** is saying that this service will be applied to pods with the same label of **pgadmin4**. Remember, in **k8s**, labels are usually very important. And because of the **type: NodePort** on this service, we will be able to access this pod from outside of the cluster.
 
-> If you want to expose your Postgres resource outside of the cluster, you can change that manifest to create a type: NodePort service exposing the postgres pod on port 5432.
+> If you want to expose your Postgres resource outside of the cluster, you can change that manifest to create a **type: NodePort** service exposing the postgres pod on port 5432.
 
 Now we need to use kubectl to create this resource in the cluster.
 
