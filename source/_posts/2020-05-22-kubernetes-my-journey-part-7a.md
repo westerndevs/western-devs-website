@@ -39,7 +39,7 @@ Now that we are moving our activites off of our development machines and into th
 
 In addition to the actual tooling, there is a tremendous amount of documentation and community support. I've generally been happy with the documentation even though I think it is still lacking in a couple places, but the community support has been really good. [Pulumi has a Slack](https://slack.pulumi.com/) that anyone can join; it has logical channels that will generally meet your needs, and the Pulumi team have been very responsive in this slack whenever I encountered a problem.
 
-> I don't know about you, but when I have a programming problem, I skip all of the "conceptual" stuff, dive in, and thrash around a bunch. But, if you inclined to understand the core Pulumi architecture and concepts, you should [start reading here.](https://www.pulumi.com/docs/intro/concepts/)
+> I don't know about you, but when I have a programming problem, I skip all of the "conceptual" stuff, dive in, and thrash around a bunch. But, if you are inclined to understand the core Pulumi architecture and concepts, you should [start reading here.](https://www.pulumi.com/docs/intro/concepts/)
 
 ### Creating an Account
 
