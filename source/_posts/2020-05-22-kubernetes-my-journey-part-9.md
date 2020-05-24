@@ -55,7 +55,7 @@ We now have a properly configured service account to use with our **fluentd** po
 
 In this section, we are going to see code that creates our first [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) set of resources in the cluster. A DaemonSet is similar to a Deployment with the primary difference being that a DaemonSet is used when you want to make sure there is one pod, that is described in the DaemonSet spec, on each node in the cluster. As nodes are added, the DaemonSet will ensure that the pods in its spec are automatically added.
 
-**fluentd** is an application that is running on the node basically scraping log files. All of the log files are stored in the node file system, so in order to get all of the logs, we have to have a **fluentd** instance per now. DaemonSets are how we do that in **k8s**.
+**fluentd** is an application that is running on the node basically scraping log files. All of the log files are stored in the node file system, so in order to get all of the logs, we have to have a **fluentd** instance per node. DaemonSets are how we do that in **k8s**.
 
 ```typescript
 const gldsLabels = { "k8s-app": "fluentd-logging", version: "v1"};
