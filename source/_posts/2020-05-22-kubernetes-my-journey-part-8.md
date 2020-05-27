@@ -74,12 +74,14 @@ const nginxIngress = new k8s.helm.v3.Chart("nginx", {
     namespace: "kube-system",
     repo: "bitnami",
     values: {
+      service: {
         annotations: {
             "service.beta.kubernetes.io/azure-dns-label-name": aksStack.getOutput("k8sDnsName"),
         },
-        resources: { requests : {memory: "150Mi", cpu: "100m"}},
-        serviceType: "LoadBalancer",
-        nodeCount: 1,
+      },
+      resources: { requests : {memory: "150Mi", cpu: "100m"}},
+      serviceType: "LoadBalancer",
+      nodeCount: 1,
     }
 }, {provider: k8sProvider });
 ```
@@ -109,16 +111,18 @@ This are parameters that are for the **kubernetes** resource for what will event
 The next part of these values is where we encounter some of the complicated aspects of IngressControllers. They are a resource in your **k8s** cluster that needs to work with things **outside** of the cluster. In this case, the **nginx IngressController** needs to be able to talk to Azure and create a **LoadBalancer** and **PublicIP** outside of the cluster. The same **nginx IngressController** would need to talk to AWS if this was deployed there. We can give these IngressControllers some information that helps them understand which external provider to work with and what that provider needs. We can add provider-specific values via **annotations** which could be provided in the **values.yaml** file but in our case, we will provide them via the **values:** object in the Pulumi ChartOpts class.
 
 ```typescript
-  annotations: {
-    "service.beta.kubernetes.io/azure-dns-label-name": aksStack.getOutput("k8sDnsName"),
-  },
+  service: {
+    annotations: {
+      "service.beta.kubernetes.io/azure-dns-label-name": aksStack.getOutput("k8sDnsName"),
+    },
+  }
 ```
 
 In this case, we are telling the IngressController to tell Azure that we want to use **k8sDnsName** as the DNS name label on the PublicIP that is created for our load balancer.
 
-> **NOTE** At this time, this annotation is not working. I'll update as soon as I figure out what is going on.
+> **NOTE** ~At this time, this annotation is not working. I'll update as soon as I figure out what is going on.~ I've updated the code snippet as I've figured out how this works now. Another blog post (short) will be written up.
 
-In the meantime, _after_ our IngressController has been provisioned, we can run this PowerShell script against the **azure-cli** command to do this for us.
+Now that the Pulumi script is working, we don't need to use this PowerShell but I will leave it here as an example of using the azure-cli with some PowerShell. _After_ our IngressController has been provisioned, we can run this PowerShell script against the **azure-cli** command to do this for us.
 
 ```powershell
 # get the PublicIP object for our load balancer

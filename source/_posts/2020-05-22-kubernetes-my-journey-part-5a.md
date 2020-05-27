@@ -33,9 +33,9 @@ The way that I've been structuring my source files is:
 
 ```text
 project_root
-          |- infra
-          |- manifests
-          |- src
+      |- infra
+      |- manifests
+      |- src
 ```
 
 The **src** folder is where the ASP.NET Core applications are. You can ignore the **infra** directory for a while, but for this part of the journey, we'll be using the **manifests** folder to store all of our **k8s** declarative manifest files. This is also where I store my **stand-up.ps1** powershell script file!
