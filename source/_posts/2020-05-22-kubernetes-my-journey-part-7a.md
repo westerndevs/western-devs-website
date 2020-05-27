@@ -244,7 +244,7 @@ And here are the Azure resources that were created.
 
 <img src="/images/dwhite/pulumi-first-up-azure-storage-account.png" alt="Azure Storage Account" height="300px">
 
-> Notice that Pulumi has appended a segment of characters on your resource names to try and ensure there are unique within the subscription. I haven't tried to alter that behaviour. You can create a resource directly in Azure and import it into your stack and Pulumi will respect the name it was given.
+> Notice that Pulumi has appended a segment of characters on your resource names to try and ensure they are unique within the subscription. I haven't tried to alter that behaviour. You can create a resource directly in Azure and import it into your stack and Pulumi will respect the name it was given.
 
 That's pretty cool! The only problem is, I don't want a lone storage account in my Azure subscription.
 
@@ -299,7 +299,6 @@ export const k8sDnsName = "identity-auth-dev";
 
 const clientConfig = azure.core.getClientConfig();
 export const subscriptionId = clientConfig.subscriptionId;
-
 ```
 
 #### Pulumi Config Object
@@ -332,7 +331,7 @@ In order to access this secret from the pulumi.Config object, we add this line o
 
 `const password = config.require("password");`
 
-> Do not export this variable. That would save the plaintext version of it back to our cloud infrastructure.
+> You can use config.requireSecret("password") to mark a variable as secret and at that point it's safe to export because it will always be encrypted/masked (in the state as well as CLI and console)
 
 #### SSH Public Key
 
