@@ -21,17 +21,19 @@ Now, on to the articles!
 ## Series Table of Contents
 
   1. [Business problems](/kubernetes/kubernetes-my-journey-part-1)
-  1. [Initial Assumptions, Technologies, Learning resources](/kubernetes/kubernetes-my-journey-part-2)
-  1. [Tools in Use](/kubernetes/kubernetes-my-journey-part-3)
-  1. [Building an ASP.NET Core IdentityServer Implementation](/kubernetes/kubernetes-my-journey-part-4)
-  1. [Getting Started with Kubernetes - Minikube - Part A](/kubernetes/kubernetes-my-journey-part-5a)
-  1. [Getting Started with Kubernetes - Minikube - Part B](/kubernetes/kubernetes-my-journey-part-5b)
-  1. [Pause to reflect](/kubernetes/kubernetes-my-journey-part-6)
-  1. [Moving to Azure Kubernetes Service - Part A](/kubernetes/kubernetes-my-journey-part-7a)
-  1. [Moving to Azure Kubernetes Service - Part B](/kubernetes/kubernetes-my-journey-part-7b)
-  1. [Making Your Kubernetes Cluster Publicly Accessible](/kubernetes/kubernetes-my-journey-part-8)
-  1. [Adding Cluster Logging (fluentd)](/kubernetes/kubernetes-my-journey-part-9)
-  1. [Tuning resource usage](/kubernetes/kubernetes-my-journey-part-10)
+  2. [Initial Assumptions, Technologies, Learning resources](/kubernetes/bernetes-my-journey-part-2)
+  3. [Tools in Use](/kubernetes/kubernetes-my-journey-part-3)
+  4. [Building an ASP.NET Core IdentityServer Implementation](/kubernetes/bernetes-my-journey-part-4)
+  5. Getting Started with Kubernetes - Minikube
+      - [Part A - Getting Started with Kubernetes - Minikube](/kubernetes/bernetes-my-journey-part-5a)
+      - [Part B - Getting Started with Kubernetes - Minikube](/kubernetes/bernetes-my-journey-part-5b)
+  6. [Pause to reflect](/kubernetes/kubernetes-my-journey-part-6)
+  7. Movine to Azure Kubernetes Service
+       - [Part A - Moving to Azure Kubernetes Service](/kubernetes/bernetes-my-journey-part-7a)
+       - [Part B - Moving to Azure Kubernetes Service](/kubernetes/bernetes-my-journey-part-7b)
+  8. [Making Your Kubernetes Cluster Publicly Accessible](/kubernetes/bernetes-my-journey-part-8)
+  9. [Adding Cluster Logging (fluentd)](/kubernetes/kubernetes-my-journey-part-9)
+  10. [Tuning resource usage](/kubernetes/kubernetes-my-journey-part-10)
 
 ## Approach to this series
 
