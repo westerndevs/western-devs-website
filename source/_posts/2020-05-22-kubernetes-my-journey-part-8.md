@@ -120,7 +120,7 @@ The next part of these values is where we encounter some of the complicated aspe
 
 In this case, we are telling the IngressController to tell Azure that we want to use **k8sDnsName** as the DNS name label on the PublicIP that is created for our load balancer.
 
-> **NOTE** ~At this time, this annotation is not working. I'll update as soon as I figure out what is going on.~ I've updated the code snippet as I've figured out how this works now. Another blog post (short) will be written up.
+> **NOTE** ~~At this time, this annotation is not working. I'll update as soon as I figure out what is going on.~~ I've updated the code snippet as I've figured out how this works now. Another blog post (short) will be written up.
 
 Now that the Pulumi script is working, we don't need to use this PowerShell but I will leave it here as an example of using the azure-cli with some PowerShell. _After_ our IngressController has been provisioned, we can run this PowerShell script against the **azure-cli** command to do this for us.
 
