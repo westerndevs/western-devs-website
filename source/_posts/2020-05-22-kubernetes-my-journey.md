@@ -21,9 +21,9 @@ Now, on to the articles!
 ## Series Table of Contents
 
   1. [Business problems](/kubernetes/kubernetes-my-journey-part-1)
-  2. [Initial Assumptions, Technologies, Learning resources](/kubernetes/bernetes-my-journey-part-2)
+  2. [Initial Assumptions, Technologies, Learning resources](/kubernetes/kubernetes-my-journey-part-2)
   3. [Tools in Use](/kubernetes/kubernetes-my-journey-part-3)
-  4. [Building an ASP.NET Core IdentityServer Implementation](/kubernetes/bernetes-my-journey-part-4)
+  4. [Building an ASP.NET Core IdentityServer Implementation](/kubernetes/kubernetes-my-journey-part-4)
   5. Getting Started with Kubernetes - Minikube
       - [Part A - Getting Started with Kubernetes - Minikube](/kubernetes/kubernetes-my-journey-part-5a)
       - [Part B - Getting Started with Kubernetes - Minikube](/kubernetes/kubernetes-my-journey-part-5b)
