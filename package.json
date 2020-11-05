@@ -32,7 +32,9 @@
     "yaml-front-matter": "^3.4.1"
   },
   "scripts": {
-    "generate": "./node_modules/.bin/hexo generate",
-    "server": "./node_modules/.bin/hexo server"
+    "build": "npm run generate",
+    "generate": "hexo generate",
+    "server": "hexo server",
+    "start": "npm run server"
   }
 }
