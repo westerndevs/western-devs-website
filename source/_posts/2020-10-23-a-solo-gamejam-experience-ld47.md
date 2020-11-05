@@ -2,7 +2,16 @@
 layout: post
 title: A Solo Gamejam Experience | A Ludum Dare 47 Story
 authorId: david_wesst
-date: 2020-10-23 09:00
+date: "2020-10-23T09:00"
+categories:
+- devlog
+tags:
+- gamedev
+- game development
+- devlog
+- gamejam
+- ludum dare
+- github gameoff
 originalurl: http://www.davidwesst.com/blog/a-solo-gamejam-experience/
 excerpt: "Wonder what it takes to be a solo amateur game developer in a global gamejam? DW summarizes his Ludum Dare 47 experience in this video."
 ---
