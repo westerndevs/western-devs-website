@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Managing Database Transactions in Dapper | Western Devs</title>
+  <meta name="description" content="This is a part of a series of blog posts on data access with Dapper. In today&#39;s post, we explore a more complex write operation that requires us to manage a database transaction.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Managing Database Transactions in Dapper">
+<meta property="og:url" content="https://westerndevs.com/Dapper/managing-transactions-in-dapper/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="This is a part of a series of blog posts on data access with Dapper. In today&#39;s post, we explore a more complex write operation that requires us to manage a database transaction.">
+<meta property="article:published_time" content="2019-02-06T12:00:00.000Z">
+<meta property="article:modified_time" content="2020-11-06T00:19:55.666Z">
+<meta property="article:author" content="Western Devs">
+<meta property="article:tag" content=".NET Core">
+<meta property="article:tag" content="Dapper">
+<meta property="article:tag" content=".NET">
+<meta property="article:tag" content="Micro ORM">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">FEB</div>
+    <div class="ListLrgDateDay">6</div>
+    <div class="ListLrgDateYear">2019</div>
+  </div>
+  <h2>Managing Database Transactions in Dapper</h2>
+</div>
+
+		    
+
+<p class="TXTsm">ORIGINALLY POSTED TO: <a href="https://www.davepaquette.com/archive/2019/02/06/managing-transactions-in-dapper.aspx" target="_blank" rel="noopener" class='originalurl'>https://www.davepaquette.com/archive/2019/02/06/managing-transactions-in-dapper.aspx</a></p>
+
+
+
+			<div id="mainPostContent">
+	        <p>This is a part of a series of blog posts on data access with Dapper. To see the full list of posts, visit the <a href="https://www.davepaquette.com/archive/2018/01/21/exploring-dapper-series.aspx" target="_blank" rel="noopener">Dapper Series Index Page</a>.</p>
+<p>In today's post, we explore a more complex scenario that involves executing multiple <em>write</em> operations. In order to ensure consistency at the database level, these operations should all succeed / fail together as a single transaction. In this example, we will be inserting a new <code>ScheduledFlight</code> entity along with an associated set of <code>Flight</code> entities.</p>
+<p>As a quick reminder, a <code>Flight</code> represents a particular occurrence of a <code>ScheduledFlight</code> on a particular day. That is, it has a reference to the <code>ScheduledFlight</code> along with some properties indicating the scheduled arrival and departure times.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Flight</span> </span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> Id &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> ScheduledFlightId &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line">    <span class="keyword">public</span> ScheduledFlight ScheduledFlight &#123; <span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line">    <span class="keyword">public</span> DateTime Day &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line">    <span class="keyword">public</span> DateTime ScheduledDeparture &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line">    <span class="keyword">public</span> DateTime ScheduledArrival &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ScheduledFlight</span> </span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> Id &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> FlightNumber &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> DepartureAirportId &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line">    <span class="keyword">public</span> Airport DepartureAirport &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> DepartureHour &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> DepartureMinute &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> ArrivalAirportId &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line">    <span class="keyword">public</span> Airport ArrivalAirport &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;        </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> ArrivalHour &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> ArrivalMinute &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">bool</span> IsSundayFlight &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">bool</span> IsMondayFlight &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line">    <span class="comment">// Some other properties</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2>Inserting the ScheduledFlight</h2>
+<p>Inserting the <code>ScheduledFlight</code> and retrieving the database generated id is easy enough. We can use the same approach we used in the <a href="https://www.davepaquette.com/archive/2019/02/04/basic-insert-update-delete-with-dapper.aspx" target="_blank" rel="noopener">previous blog post</a>.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// POST api/scheduledflight</span></span><br><span class="line">[<span class="meta">HttpPost()</span>]</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">async</span> Task&lt;IActionResult&gt; <span class="title">Post</span>(<span class="params">[FromBody] ScheduledFlight model</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> newScheduledFlightId;</span><br><span class="line">    <span class="keyword">using</span> (<span class="keyword">var</span> connection = <span class="keyword">new</span> SqlConnection(_connectionString))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">await</span> connection.OpenAsync();</span><br><span class="line">        <span class="keyword">var</span> insertScheduledFlightSql = <span class="string">@"</span></span><br><span class="line"><span class="string">INSERT INTO [dbo].[ScheduledFlight]</span></span><br><span class="line"><span class="string">    ([FlightNumber]</span></span><br><span class="line"><span class="string">    ,[DepartureAirportId]</span></span><br><span class="line"><span class="string">    ,[DepartureHour]</span></span><br><span class="line"><span class="string">    ,[DepartureMinute]</span></span><br><span class="line"><span class="string">    ,[ArrivalAirportId]</span></span><br><span class="line"><span class="string">    ,[ArrivalHour]</span></span><br><span class="line"><span class="string">    ,[ArrivalMinute]</span></span><br><span class="line"><span class="string">    ,[IsSundayFlight]</span></span><br><span class="line"><span class="string">    ,[IsMondayFlight]</span></span><br><span class="line"><span class="string">    ,[IsTuesdayFlight]</span></span><br><span class="line"><span class="string">    ,[IsWednesdayFlight]</span></span><br><span class="line"><span class="string">    ,[IsThursdayFlight]</span></span><br><span class="line"><span class="string">    ,[IsFridayFlight]</span></span><br><span class="line"><span class="string">    ,[IsSaturdayFlight])</span></span><br><span class="line"><span class="string">VALUES</span></span><br><span class="line"><span class="string">    (@FlightNumber</span></span><br><span class="line"><span class="string">    ,@DepartureAirportId</span></span><br><span class="line"><span class="string">    ,@DepartureHour</span></span><br><span class="line"><span class="string">    ,@DepartureMinute</span></span><br><span class="line"><span class="string">    ,@ArrivalAirportId</span></span><br><span class="line"><span class="string">    ,@ArrivalHour</span></span><br><span class="line"><span class="string">    ,@ArrivalMinute</span></span><br><span class="line"><span class="string">    ,@IsSundayFlight</span></span><br><span class="line"><span class="string">    ,@IsMondayFlight</span></span><br><span class="line"><span class="string">    ,@IsTuesdayFlight</span></span><br><span class="line"><span class="string">    ,@IsWednesdayFlight</span></span><br><span class="line"><span class="string">    ,@IsThursdayFlight</span></span><br><span class="line"><span class="string">    ,@IsFridayFlight</span></span><br><span class="line"><span class="string">    ,@IsSaturdayFlight);</span></span><br><span class="line"><span class="string">SELECT CAST(SCOPE_IDENTITY() as int)"</span>;</span><br><span class="line">        newScheduledFlightId = <span class="keyword">await</span> connection.ExecuteScalarAsync&lt;<span class="keyword">int</span>&gt;(insertScheduledFlightSql, model);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> Ok(newScheduledFlightId);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>According to the bosses at Air Paquette, whenever we create a new <code>ScheduledFlight</code> entity, we also want to generate the <code>Flight</code> entities for the next 12 months of that <code>ScheduledFlight</code>. We can add a method to the <code>ScheduledFlight</code> class to generate the flight entities.</p>
+<p><strong>NOTE:</strong> Let's just ignore the obvious bugs related to timezones and to flights that take off and land on a different day.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> IEnumerable&lt;Flight&gt; <span class="title">GenerateFlights</span>(<span class="params">DateTime startDate, DateTime endDate</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> flights = <span class="keyword">new</span> List&lt;Flight&gt;();</span><br><span class="line">    <span class="keyword">var</span> currentDate = startDate;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (currentDate &lt;= endDate)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (IsOnDayOfWeek(currentDate.DayOfWeek))</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">var</span> departureTime = <span class="keyword">new</span> DateTime(currentDate.Year, currentDate.Month, currentDate.Day, DepartureHour, DepartureMinute, <span class="number">0</span>);</span><br><span class="line">            <span class="keyword">var</span> arrivalTime = <span class="keyword">new</span> DateTime(currentDate.Year, currentDate.Month, currentDate.Day, ArrivalHour, ArrivalMinute, <span class="number">0</span>);</span><br><span class="line">            <span class="keyword">var</span> flight = <span class="keyword">new</span> Flight</span><br><span class="line">            &#123;</span><br><span class="line">                ScheduledFlightId = Id,</span><br><span class="line">                ScheduledDeparture = departureTime,</span><br><span class="line">                ScheduledArrival = arrivalTime,</span><br><span class="line">                Day = currentDate.Date</span><br><span class="line">            &#125;;</span><br><span class="line">            flights.Add(flight);</span><br><span class="line">        &#125;</span><br><span class="line">        currentDate = currentDate.AddDays(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> flights;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">bool</span> <span class="title">IsOnDayOfWeek</span>(<span class="params">DayOfWeek dayOfWeek</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span>     (dayOfWeek == DayOfWeek.Sunday &amp;&amp; IsSundayFlight)</span><br><span class="line">            || (dayOfWeek == DayOfWeek.Monday &amp;&amp; IsMondayFlight)</span><br><span class="line">            || (dayOfWeek == DayOfWeek.Tuesday &amp;&amp; IsTuesdayFlight)</span><br><span class="line">            || (dayOfWeek == DayOfWeek.Wednesday &amp;&amp; IsWednesdayFlight)</span><br><span class="line">            || (dayOfWeek == DayOfWeek.Thursday &amp;&amp; IsThursdayFlight)</span><br><span class="line">            || (dayOfWeek == DayOfWeek.Friday &amp;&amp; IsFridayFlight)</span><br><span class="line">            || (dayOfWeek == DayOfWeek.Saturday &amp;&amp; IsSaturdayFlight);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Now in the controller, we can add some logic to call the <code>GenerateFlight</code> method and then insert those <code>Flight</code> entities using Dapper.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// POST api/scheduledflight</span></span><br><span class="line">[<span class="meta">HttpPost()</span>]</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">async</span> Task&lt;IActionResult&gt; <span class="title">Post</span>(<span class="params">[FromBody] ScheduledFlight model</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> newScheduledFlightId;</span><br><span class="line">    <span class="keyword">using</span> (<span class="keyword">var</span> connection = <span class="keyword">new</span> SqlConnection(_connectionString))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">await</span> connection.OpenAsync();</span><br><span class="line">        <span class="keyword">var</span> insertScheduledFlightSql = <span class="string">@"</span></span><br><span class="line"><span class="string">INSERT INTO [dbo].[ScheduledFlight]</span></span><br><span class="line"><span class="string">    ([FlightNumber]</span></span><br><span class="line"><span class="string">    ,[DepartureAirportId]</span></span><br><span class="line"><span class="string">    ,[DepartureHour]</span></span><br><span class="line"><span class="string">    ,[DepartureMinute]</span></span><br><span class="line"><span class="string">    ,[ArrivalAirportId]</span></span><br><span class="line"><span class="string">    ,[ArrivalHour]</span></span><br><span class="line"><span class="string">    ,[ArrivalMinute]</span></span><br><span class="line"><span class="string">    ,[IsSundayFlight]</span></span><br><span class="line"><span class="string">    ,[IsMondayFlight]</span></span><br><span class="line"><span class="string">    ,[IsTuesdayFlight]</span></span><br><span class="line"><span class="string">    ,[IsWednesdayFlight]</span></span><br><span class="line"><span class="string">    ,[IsThursdayFlight]</span></span><br><span class="line"><span class="string">    ,[IsFridayFlight]</span></span><br><span class="line"><span class="string">    ,[IsSaturdayFlight])</span></span><br><span class="line"><span class="string">VALUES</span></span><br><span class="line"><span class="string">    (@FlightNumber</span></span><br><span class="line"><span class="string">    ,@DepartureAirportId</span></span><br><span class="line"><span class="string">    ,@DepartureHour</span></span><br><span class="line"><span class="string">    ,@DepartureMinute</span></span><br><span class="line"><span class="string">    ,@ArrivalAirportId</span></span><br><span class="line"><span class="string">    ,@ArrivalHour</span></span><br><span class="line"><span class="string">    ,@ArrivalMinute</span></span><br><span class="line"><span class="string">    ,@IsSundayFlight</span></span><br><span class="line"><span class="string">    ,@IsMondayFlight</span></span><br><span class="line"><span class="string">    ,@IsTuesdayFlight</span></span><br><span class="line"><span class="string">    ,@IsWednesdayFlight</span></span><br><span class="line"><span class="string">    ,@IsThursdayFlight</span></span><br><span class="line"><span class="string">    ,@IsFridayFlight</span></span><br><span class="line"><span class="string">    ,@IsSaturdayFlight);</span></span><br><span class="line"><span class="string">SELECT CAST(SCOPE_IDENTITY() as int)"</span>;</span><br><span class="line">        newScheduledFlightId = <span class="keyword">await</span> connection.ExecuteScalarAsync&lt;<span class="keyword">int</span>&gt;(insertScheduledFlightSql, model);</span><br><span class="line"></span><br><span class="line">        model.Id = newScheduledFlightId;</span><br><span class="line">        <span class="keyword">var</span> flights = model.GenerateFlights(DateTime.Now, DateTime.Now.AddMonths(<span class="number">12</span>));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> insertFlightsSql = <span class="string">@"INSERT INTO [dbo].[Flight]</span></span><br><span class="line"><span class="string">    ([ScheduledFlightId]</span></span><br><span class="line"><span class="string">    ,[Day]</span></span><br><span class="line"><span class="string">    ,[ScheduledDeparture]</span></span><br><span class="line"><span class="string">    ,[ActualDeparture]</span></span><br><span class="line"><span class="string">    ,[ScheduledArrival]</span></span><br><span class="line"><span class="string">    ,[ActualArrival])</span></span><br><span class="line"><span class="string">VALUES</span></span><br><span class="line"><span class="string">    (@ScheduledFlightId</span></span><br><span class="line"><span class="string">    ,@Day</span></span><br><span class="line"><span class="string">    ,@ScheduledDeparture</span></span><br><span class="line"><span class="string">    ,@ActualDeparture</span></span><br><span class="line"><span class="string">    ,@ScheduledArrival</span></span><br><span class="line"><span class="string">    ,@ActualArrival)"</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">await</span> connection.ExecuteAsync(insertFlightsSql, flights);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> Ok(newScheduledFlightId);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>Note that we passed in an <code>IEnumerable&lt;Flight&gt;</code> as the second argument to the <code>ExecuteAsync</code> method. This is a handy shortcut in Dapper for executing a query multiple times. Instead of writing a loop and calling <code>ExecuteAsync</code> for each flight entity, we can pass in a list of flights and Dapper will execute the query once for each item in the list.</p>
+<h2>Explicitly managing a transaction</h2>
+<p>So far, we have code that first inserts a <code>ScheduledFlight</code>, next generates a set of <code>Flight</code> entities and finally inserting all of those <code>Flight</code> entities. That's the happy path, but what happens if something goes wrong along the way. Typically when we execute a set of related write operations (inserts, updates and deletes), we want those operations to all succeed or fail together. In the database world, we have transactions to help us with this.</p>
+<p>The nice thing about using Dapper is that it uses standard .NET database connections and transactions. There is no need to re-invent the wheel here, we can simply use the transaction patterns that have been around in .NET since for nearly 2 decades now.</p>
+<p>After opening the connection, we call <code>connection.BeginTransaction()</code> to start a new transaction. Whenever we call <code>ExecuteAsync</code> (or any other Dapper extension method), we need to pass in that transaction. At the end of all that work, we call <code>transaction.Commit()</code>. Finally, we wrap the logic in a <code>try / catch</code> block. If any exception is raised, we call <code>transaction.Rollback()</code> to ensure that none of those write operations are committed to the database.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">HttpPost()</span>]</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">async</span> Task&lt;IActionResult&gt; <span class="title">Post</span>(<span class="params">[FromBody] ScheduledFlight model</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span>? newScheduledFlightId = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">using</span> (<span class="keyword">var</span> connection = <span class="keyword">new</span> SqlConnection(_connectionString))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">await</span> connection.OpenAsync();</span><br><span class="line">        <span class="keyword">var</span> transaction = connection.BeginTransaction();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">var</span> insertScheduledFlightSql = <span class="string">@"</span></span><br><span class="line"><span class="string">INSERT INTO [dbo].[ScheduledFlight]</span></span><br><span class="line"><span class="string">    ([FlightNumber]</span></span><br><span class="line"><span class="string">    ,[DepartureAirportId]</span></span><br><span class="line"><span class="string">    ,[DepartureHour]</span></span><br><span class="line"><span class="string">    ,[DepartureMinute]</span></span><br><span class="line"><span class="string">    ,[ArrivalAirportId]</span></span><br><span class="line"><span class="string">    ,[ArrivalHour]</span></span><br><span class="line"><span class="string">    ,[ArrivalMinute]</span></span><br><span class="line"><span class="string">    ,[IsSundayFlight]</span></span><br><span class="line"><span class="string">    ,[IsMondayFlight]</span></span><br><span class="line"><span class="string">    ,[IsTuesdayFlight]</span></span><br><span class="line"><span class="string">    ,[IsWednesdayFlight]</span></span><br><span class="line"><span class="string">    ,[IsThursdayFlight]</span></span><br><span class="line"><span class="string">    ,[IsFridayFlight]</span></span><br><span class="line"><span class="string">    ,[IsSaturdayFlight])</span></span><br><span class="line"><span class="string">VALUES</span></span><br><span class="line"><span class="string">    (@FlightNumber</span></span><br><span class="line"><span class="string">    ,@DepartureAirportId</span></span><br><span class="line"><span class="string">    ,@DepartureHour</span></span><br><span class="line"><span class="string">    ,@DepartureMinute</span></span><br><span class="line"><span class="string">    ,@ArrivalAirportId</span></span><br><span class="line"><span class="string">    ,@ArrivalHour</span></span><br><span class="line"><span class="string">    ,@ArrivalMinute</span></span><br><span class="line"><span class="string">    ,@IsSundayFlight</span></span><br><span class="line"><span class="string">    ,@IsMondayFlight</span></span><br><span class="line"><span class="string">    ,@IsTuesdayFlight</span></span><br><span class="line"><span class="string">    ,@IsWednesdayFlight</span></span><br><span class="line"><span class="string">    ,@IsThursdayFlight</span></span><br><span class="line"><span class="string">    ,@IsFridayFlight</span></span><br><span class="line"><span class="string">    ,@IsSaturdayFlight);</span></span><br><span class="line"><span class="string">SELECT CAST(SCOPE_IDENTITY() as int)"</span>;</span><br><span class="line">            newScheduledFlightId = <span class="keyword">await</span> connection.ExecuteScalarAsync&lt;<span class="keyword">int</span>&gt;(insertScheduledFlightSql, model, transaction);</span><br><span class="line"></span><br><span class="line">            model.Id = newScheduledFlightId.Value;</span><br><span class="line">            <span class="keyword">var</span> flights = model.GenerateFlights(DateTime.Now, DateTime.Now.AddMonths(<span class="number">12</span>));</span><br><span class="line"></span><br><span class="line">            <span class="keyword">var</span> insertFlightsSql = <span class="string">@"INSERT INTO [dbo].[Flight]</span></span><br><span class="line"><span class="string">    ([ScheduledFlightId]</span></span><br><span class="line"><span class="string">    ,[Day]</span></span><br><span class="line"><span class="string">    ,[ScheduledDeparture]</span></span><br><span class="line"><span class="string">    ,[ActualDeparture]</span></span><br><span class="line"><span class="string">    ,[ScheduledArrival]</span></span><br><span class="line"><span class="string">    ,[ActualArrival])</span></span><br><span class="line"><span class="string">VALUES</span></span><br><span class="line"><span class="string">    (@ScheduledFlightId</span></span><br><span class="line"><span class="string">    ,@Day</span></span><br><span class="line"><span class="string">    ,@ScheduledDeparture</span></span><br><span class="line"><span class="string">    ,@ActualDeparture</span></span><br><span class="line"><span class="string">    ,@ScheduledArrival</span></span><br><span class="line"><span class="string">    ,@ActualArrival)"</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">await</span> connection.ExecuteAsync(insertFlightsSql, flights, transaction);</span><br><span class="line">            transaction.Commit();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">catch</span> (Exception ex)</span><br><span class="line">        &#123; </span><br><span class="line">            <span class="comment">//Log the exception (ex)</span></span><br><span class="line">            <span class="keyword">try</span></span><br><span class="line">            &#123;</span><br><span class="line">                transaction.Rollback();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">catch</span> (Exception ex2)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">// Handle any errors that may have occurred</span></span><br><span class="line">                <span class="comment">// on the server that would cause the rollback to fail, such as</span></span><br><span class="line">                <span class="comment">// a closed connection.</span></span><br><span class="line">                <span class="comment">// Log the exception ex2</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> StatusCode(<span class="number">500</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> Ok(newScheduledFlightId);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>Managing database transactions in .NET is a deep but well understood topic. We covered the basic pattern above and showed how Dapper can easily participate in a transaction. To learn more about managing database transactions in .NET, check out these docs:</p>
+<ul>
+<li><a href="https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection.begintransaction" target="_blank" rel="noopener">SqlConnection.BeginTransaction</a></li>
+<li><a href="https://docs.microsoft.com/dotnet/framework/data/adonet/transactions-and-concurrency" target="_blank" rel="noopener">Transactions in ADO.NET</a></li>
+</ul>
+<h2>Wrapping it up</h2>
+<p>Using transactions with Dapper is fairly straight forward process. We just need to tell Dapper what transaction to use when executing queries. Now that we know how to use transactions, we can look at some more advanced scenarios like adding concurrency checks to update operations to ensure users aren't overwriting each other's changes.</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/dave_paquette">
+				
+					<img src='/images/avatars/DavePaquette_241x241.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/dave_paquette">Dave Paquette</a></h2>
+			
+			<a href="mailto:contactme@davepaquette.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://www.davepaquette.com/" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/Dave_Paquette" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/dpaquette" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			
+ 			<a href="/feeds/dave_paquette.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/Dapper/managing-transactions-in-dapper/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'dave_paquette');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

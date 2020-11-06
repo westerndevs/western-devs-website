@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Losing Data with Azure Blob Storage | Western Devs</title>
+  <meta name="description" content="We had a bug that caused us to write 0 byte documents to Azure blob storage. It was there for a while. We tried hard to find it. Eventually, we turned on blob snapshots which, instead of replacing a b">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Losing Data with Azure Blob Storage">
+<meta property="og:url" content="https://westerndevs.com/bugs/another-time-disposing-is-dangerous/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="We had a bug that caused us to write 0 byte documents to Azure blob storage. It was there for a while. We tried hard to find it. Eventually, we turned on blob snapshots which, instead of replacing a b">
+<meta property="article:published_time" content="2019-08-16T08:30:00.000Z">
+<meta property="article:modified_time" content="2020-11-06T00:19:55.674Z">
+<meta property="article:author" content="Western Devs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">AUG</div>
+    <div class="ListLrgDateDay">16</div>
+    <div class="ListLrgDateYear">2019</div>
+  </div>
+  <h2>Losing Data with Azure Blob Storage</h2>
+</div>
+
+		    
+
+			<div id="mainPostContent">
+	        <p>We had a bug that caused us to write 0 byte documents to Azure blob storage. It was there for a while. We tried hard to find it.</p>
+<p>Eventually, we turned on blob snapshots which, instead of replacing a blob with a new blob on every write, makes a copy that you can promote at a later time.</p>
+<p>This week, we had a production issue where a blob had 0 bytes. We hadn't seen it in so long, we secretly hoped the problem was magically fixed by someone else.</p>
+<a id="more"></a>
+<p>After promoting the previous copy, which unblocked the issue, I stared in frustration at the code, not understanding how we were writing to a stream with 0 bytes.</p>
+<p>I probably spent an hour tracing through code and found no place where we were doing anything that would cause this issue. So I decided to take a walk... to the kitchen. There, I sat down with our CTO and described the situation. We started talking through scenarios of how this could happen. Maybe this was a bug in Azure blob or the SDK. Maybe it was our code. Maybe we were somehow purging the stream buffer.</p>
+<p>After 10 minutes of ideas, we went back to my machine and started to take a closer look at the issue. First, we noticed the timestamps. We audit a lot of things in our system and we had an audit that occurred just before the time we wrote the 0 byte document. We knew what time the write occurred because of the timestamp on the document from the Azure Portal.</p>
+<p>Working our way backwards, I filtered the logs looking for errors that may have occurred before the timestamp or just after it. Then I saw a null reference exception in our logs just a little bit before our successful audit. The top of the stacktrace showed the null reference was actually coming from our IOC container attempting to inject a dependency. That was bizarre. We hold on to the containers for the lifetime of the service and that could be days. Even still, that shouldn't have had anything to do with writing a 0 byte document.</p>
+<p>However, in an attempt to squash any leads, we dug a little deeper into the surrounding code where the exception was thrown.</p>
+<p>A few layers above where the IOC call was eventually made, we see that we are attempting to get an instance of a class that helps us manage encryption. It was that class that was receiving the null reference exception and we happened to be doing that just before we write our data to the blob document.</p>
+<p>That shouldn't have mattered because we had code like this:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> (<span class="keyword">var</span> stream = <span class="keyword">await</span> blob.OpenWriteAsync())</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//get factory here which gets stuff from IOC</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">await</span> stream.WriteAsync(data);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>We call <code>OpenWriteAsync</code> which returns a <code>CloudBlobStream</code> which inherits from <code>Stream</code>. We do some encryption stuff and then we write the data to blob. The &quot;do some encryption stuff&quot; is what was failing. Since this was wrapping in a <code>using</code> block, that means the exception was actually thrown in the compiler generated <code>try</code> block and then the <code>finally</code> block calls <code>Dispose</code> on the <code>CloudBlobStream</code> because it ultimately implements <code>IDisposable</code>.</p>
+<p>We dug a little deeper into what <code>Dispose</code> was doing on the <code>CloudBlobStream</code>: it ends up calling <code>Commit</code> which, as you can guess, commits the data in the stream to blob. But, at this point we hadn't written any data. So it was actually committing an empty stream which created a 0 byte blob document.</p>
+<p>But why were we through that exception to begin with? Well, we DO dispose the container when the Cloud Service instance is shutting down. So, that means we have to start shutting down a worker role (which is done via autoscaling or deployments) and begin processing a new message from our queue infrastructure within a very tight window. Then we will attempt to create a new encryption helper instance at just the right time before the role is down and that will lead to the disposed container which causes the exception.</p>
+<p>That, in of itself, shouldn't be a big deal. Our message goes back into the queue because it couldn't finish since the machine shut down. However, and without going too much into detail, we need to read data in the blob in order to know how we need to modify it. That means when we try to reprocess the message, it fails again because we don't have any of the data in the document that we should.</p>
+<p>There are a couple of immediate takeaways from this that we are working through. First, we shouldn't have been doing anything inside of the <code>using</code> block other than what was purely necessary. We didn't need to do the encryption stuff in the using. If we hadn't we wouldn't have had an exception in a place where ultimately a commit would be called.</p>
+<p>Second, we are considering putting the writes to the document in a separate message that isn't dependent on reading the document first. This would have let us replay the message and work the second time around.</p>
+<p>To get around the issue right now (before we break things apart), we removed the <code>using</code> block all together and simply call <code>Dispose</code> ourselves when we are done. We've also removed anything between getting the stream and using the stream.</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/justin_self">
+				
+					<img src='/images/avatars/justin_self.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/justin_self">Justin Self</a></h2>
+			
+			<a href="mailto:justinself@outlook.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://www.justinself.com" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/thejustinself" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/justinself" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			<a href="https://www.linkedin.com/in/therealjustinself" target="_blank"><img class="ProfileIcon" src="/images/icon_linkedin.png" border="0" alt="LinkedIN" title="LinkedIN"> LinkedIn</a><br>
+			
+			
+ 			<a href="/feeds/justin_self.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/bugs/another-time-disposing-is-dangerous/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'justin_self');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

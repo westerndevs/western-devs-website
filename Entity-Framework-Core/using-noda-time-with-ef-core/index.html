@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Using Noda Time with Entity Framework Core | Western Devs</title>
+  <meta name="description" content="Noda Time is a fantastic date&#x2F;time library for .NET. I started using it recently and it really simplified the logic around handling dates. Unfortunately, I ran in to some problems with using Noda Time">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Using Noda Time with Entity Framework Core">
+<meta property="og:url" content="https://westerndevs.com/Entity-Framework-Core/using-noda-time-with-ef-core/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="Noda Time is a fantastic date&#x2F;time library for .NET. I started using it recently and it really simplified the logic around handling dates. Unfortunately, I ran in to some problems with using Noda Time">
+<meta property="article:published_time" content="2019-03-26T11:00:00.000Z">
+<meta property="article:modified_time" content="2020-11-06T00:19:55.666Z">
+<meta property="article:author" content="Western Devs">
+<meta property="article:tag" content="Entity Framework">
+<meta property="article:tag" content="Noda Time">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">MAR</div>
+    <div class="ListLrgDateDay">26</div>
+    <div class="ListLrgDateYear">2019</div>
+  </div>
+  <h2>Using Noda Time with Entity Framework Core</h2>
+</div>
+
+		    
+
+<p class="TXTsm">ORIGINALLY POSTED TO: <a href="https://www.davepaquette.com/archive/2019/03/26/using-noda-time-with-ef-core.aspx" target="_blank" rel="noopener" class='originalurl'>https://www.davepaquette.com/archive/2019/03/26/using-noda-time-with-ef-core.aspx</a></p>
+
+
+
+			<div id="mainPostContent">
+	        <p>If you have ever dealt dates/times in an environment that crosses time zones, you know who difficult it can be to handle all scenarios properly. This situation isn't made any better by .NET's somewhat limited representation of date and time values through the one <code>DateTime</code> class. For example, how to I represent a date in .NET when I don't care about the time. There is no type that represents a <code>Date</code> on it's own. That's why the <a href="https://nodatime.org/" target="_blank" rel="noopener">Noda Time</a> library was created, billing itself as a better date and time API for .NET.</p>
+<blockquote>
+<p>Noda Time is an alternative date and time API for .NET. It helps you to think about your data more clearly, and express operations on that data more precisely.</p>
+</blockquote>
+<h2>An example using NodaTime</h2>
+<p>In my app, I needed to model an <code>Event</code> that occurs on a particular date. It might be initially tempting to store the date of the event as a DateTime in UTC, but that's not necessarily accurate unless the event happens to be held at the Royal Observatory Greenwich. I don't want to deal with time at all, I'm only interested in the date the event is being held.</p>
+<p>NodaTime provides a <code>LocalDate</code> type that is perfect for this scenario so I declared a <code>LocalDate</code> property named <code>Date</code> on my <code>Event</code> class.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Event</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> Guid Id &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> Name &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> Description &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> LocalDate Date &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2>Using Entity Framework</h2>
+<p>This app was using Entity Framework Core and there was a <code>DbSet</code> for the <code>Event</code> class.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">EventContext</span> : <span class="title">DbContext</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">EventContext</span>(<span class="params">DbContextOptions&lt;EventContext&gt; options</span>) : <span class="title">base</span>(<span class="params">options</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> DbSet&lt;Event&gt; Events &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>This is where I ran into my first problem. Attempting to run the app, I was greeted with a friendly <code>InvalidOperationException</code>:</p>
+<blockquote>
+<p>InvalidOperationException: The property 'Event.Date' could not be mapped, because it is of type 'LocalDate' which is not a supported primitive type or a valid entity type. Either explicitly map this property, or ignore it using the '[NotMapped]' attribute or by using 'EntityTypeBuilder.Ignore' in 'OnModelCreating'.</p>
+</blockquote>
+<p>This first problem was actually easy enough to solve using a <a href="https://docs.microsoft.com/ef/core/modeling/value-conversions" target="_blank" rel="noopener"><code>ValueConverter</code></a>. By adding the following <code>OnModelCreating</code> code to my <code>EventContext</code>, I was able to tell Entity Framework Core to store the <code>Date</code> property as a <code>DateTime</code> with the Kind set to <a href="https://docs.microsoft.com/dotnet/api/system.datetimekind#System_DateTimeKind_Unspecified" target="_blank" rel="noopener"><code>DateTimeKind.Unspecified</code></a>. This has the effect of avoiding any unwanted shifts in the date time based on the local time of the running process.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">EventContext</span> : <span class="title">DbContext</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">EventContext</span>(<span class="params">DbContextOptions&lt;EventContext&gt; options</span>) : <span class="title">base</span>(<span class="params">options</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> DbSet&lt;Event&gt; Events &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">OnModelCreating</span>(<span class="params">ModelBuilder modelBuilder</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">base</span>.OnModelCreating(modelBuilder);</span><br><span class="line">        <span class="keyword">var</span> localDateConverter = </span><br><span class="line">            <span class="keyword">new</span> ValueConverter&lt;LocalDate, DateTime&gt;(v =&gt;  </span><br><span class="line">                v.ToDateTimeUnspecified(), </span><br><span class="line">                v =&gt; LocalDate.FromDateTime(v));</span><br><span class="line"></span><br><span class="line">        modelBuilder.Entity&lt;Event&gt;()</span><br><span class="line">            .Property(e =&gt; e.Date)</span><br><span class="line">            .HasConversion(localDateConverter);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>With that small change, my application now worked as expected. The value conversions all happen behind the scenes so I can just use the <code>Event</code> entity and deal strictly with the <code>LocalDate</code> type.</p>
+<h2>But what about queries</h2>
+<p>I actually had this application running in a test environment for a week before I noticed a serious problem in the log files.</p>
+<p>In my app, I was executing a simple query to retrieve the list of events for a particular date.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> queryDate = <span class="keyword">new</span> LocalDate(<span class="number">2019</span>, <span class="number">3</span>, <span class="number">25</span>);</span><br><span class="line">Events = <span class="keyword">await</span> context.Events.Where(e =&gt; e.Date == queryDate).ToListAsync();</span><br></pre></td></tr></table></figure>
+<p>In the app's log file, I noticed the following warning:</p>
+<blockquote>
+<p>Microsoft.EntityFrameworkCore.Query:Warning: The LINQ expression 'where ([e].Date == __queryDate_0)' could not be translated and will be evaluated locally.</p>
+</blockquote>
+<p>Uh oh, that sounds bad. I did a little more investigation and confirmed that the query was in fact executing SQL without a <code>WHERE</code> clause.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> [e].[<span class="keyword">Id</span>], [e].[<span class="built_in">Date</span>], [e].[Description], [e].[<span class="keyword">Name</span>]</span><br><span class="line"><span class="keyword">FROM</span> [<span class="keyword">Events</span>] <span class="keyword">AS</span> [e]</span><br></pre></td></tr></table></figure>
+<p>So my app was retrieving <strong>EVERY ROW</strong> from <code>Events</code> table, then applying the where filter in the .NET process. That's really not what I intended to do and would most certainly cause me some performance troubles when I get to production.</p>
+<p>So, the first thing I did was modified my EF Core configuration to throw an error when a client side evaluation like this occurs. I don't want this kind of thing accidently creeping in to this app again. Over in <code>Startup.ConfigureServices</code>, I added the following option to <code>ConfigureWarnings</code>.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">services.AddDbContext&lt;EventContext&gt;(options =&gt;</span><br><span class="line">        options.UseSqlServer(myConnectionString)</span><br><span class="line">        .ConfigureWarnings(warnings =&gt; </span><br><span class="line">            warnings.Throw(RelationalEventId.QueryClientEvaluationWarning)));</span><br></pre></td></tr></table></figure>
+<p>Throwing an error by default is the correct behavior here and this is actually something that will be fixed in Entity Framework Core 3.0. The default behavior in EF Core 3 will be to throw an error any time a LINQ expression results in client side evaluation. You will then have the option to allow those client side evaluations.</p>
+<h2>Fixing the query</h2>
+<p>Now that I had the app throwing an error for this query, I needed to find a way for EF Core to properly translate my simple <code>e.Date == queryDate</code> expression to SQL. After carefully re-reading the EF Core documentation related for value converters, I noticed a bullet point under Limitations:</p>
+<blockquote>
+<p>Use of value conversions may impact the ability of EF Core to translate expressions to SQL. A warning will be logged for such cases. Removal of these limitations is being considered for a future release.</p>
+</blockquote>
+<p>Well that just plain sucks. It turns out that when you use a value converter for a property, Entity Framework Core just gives up trying to convert any LINQ expression that references that property. The only solution I found was to query for my entities using SQL.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> queryDate = <span class="keyword">new</span> LocalDate(<span class="number">2019</span>, <span class="number">3</span>, <span class="number">25</span>);</span><br><span class="line">Events = <span class="keyword">await</span> context.Events.</span><br><span class="line">    FromSql(<span class="string">@"SELECT [e].[Id], [e].[Date], [e].[Description], [e].[Name]</span></span><br><span class="line"><span class="string">FROM[Events] AS[e]</span></span><br><span class="line"><span class="string">WHERE [e].[Date] = &#123;0&#125;"</span>, queryDate.ToDateTimeUnspecified()).ToListAsync();</span><br></pre></td></tr></table></figure>
+<h2>Wrapping it up</h2>
+<p>NodaTime is a fantastic date and time library for .NET and you should definitely consider using it in your app. Unfortunately, Entity Framework Core has some serious limitations when it comes to using value converters so you will need to be careful. I almost got myself into some problems with it. While there are work-arounds, writing custom SQL for any query that references a NodaTime type is less than ideal. Hopefully those will be addressed in Entity Framework Core 3.</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/dave_paquette">
+				
+					<img src='/images/avatars/DavePaquette_241x241.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/dave_paquette">Dave Paquette</a></h2>
+			
+			<a href="mailto:contactme@davepaquette.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://www.davepaquette.com/" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/Dave_Paquette" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/dpaquette" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			
+ 			<a href="/feeds/dave_paquette.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/Entity-Framework-Core/using-noda-time-with-ef-core/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'dave_paquette');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

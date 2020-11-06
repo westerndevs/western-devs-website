@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Setting Up Octopus Build Task on TFS 2015 On-Prem | Western Devs</title>
+  <meta name="description" content="A step-by-step guide with screenshots">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Setting Up Octopus Build Task on TFS 2015 On-Prem">
+<meta property="og:url" content="https://westerndevs.com/tfs/octopus/continuous-delivery/Setting-Up-Octopus-Build-Task-on-TFS-2015-On-Prem/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="A step-by-step guide with screenshots">
+<meta property="og:image" content="https://gwb.blob.core.windows.net/dlussier/Setting-Up-Octopus-Build-Task-on-TFS-2015-On-Prem_170820/OctopusDeployStep2_1100442752.png">
+<meta property="og:image" content="https://gwb.blob.core.windows.net/dlussier/Setting-Up-Octopus-Build-Task-on-TFS-2015-On-Prem_170820/OctopusDeployStep4_860833856.png">
+<meta property="og:image" content="https://gwb.blob.core.windows.net/dlussier/Setting-Up-Octopus-Build-Task-on-TFS-2015-On-Prem_170820/OctopusDeployStep8_-2114270080.png">
+<meta property="og:image" content="https://gwb.blob.core.windows.net/dlussier/Setting-Up-Octopus-Build-Task-on-TFS-2015-On-Prem_170820/OctopusDeployStep9_-176892480.png">
+<meta property="og:image" content="https://gwb.blob.core.windows.net/dlussier/Setting-Up-Octopus-Build-Task-on-TFS-2015-On-Prem_170820/OctopusDeployStep9-2_1644126400.png">
+<meta property="og:image" content="https://gwb.blob.core.windows.net/dlussier/Setting-Up-Octopus-Build-Task-on-TFS-2015-On-Prem_170820/OctopusDeployStep9-3_-1831133056.png">
+<meta property="og:image" content="https://gwb.blob.core.windows.net/dlussier/Setting-Up-Octopus-Build-Task-on-TFS-2015-On-Prem_170820/OctopusDeployStep10_1810252032.png">
+<meta property="article:published_time" content="2016-01-06T18:47:46.000Z">
+<meta property="article:modified_time" content="2020-11-06T00:19:55.658Z">
+<meta property="article:author" content="Western Devs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gwb.blob.core.windows.net/dlussier/Setting-Up-Octopus-Build-Task-on-TFS-2015-On-Prem_170820/OctopusDeployStep2_1100442752.png">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">JAN</div>
+    <div class="ListLrgDateDay">6</div>
+    <div class="ListLrgDateYear">2016</div>
+  </div>
+  <h2>Setting Up Octopus Build Task on TFS 2015 On-Prem</h2>
+</div>
+
+		    
+
+<p class="TXTsm">ORIGINALLY POSTED TO: <a href="http://geekswithblogs.net/dlussier/archive/2016/01/04/170820.aspx" target="_blank" rel="noopener" class='originalurl'>http://geekswithblogs.net/dlussier/archive/2016/01/04/170820.aspx</a></p>
+
+
+
+			<div id="mainPostContent">
+	        <p>Last week I worked on getting Octopus Deploy's Build Task installed in TFS 2015. What I found was that there was a lot of great articles that all had parts of the process, but there was nothing that brought all the steps together. So here's my list, complete with links to the various posts/blogs with the details.</p>
+<!-- more -->
+<h3>Step 1 - Add OctoPack To Your Project</h3>
+<p>OctoPack is... &quot;The easiest way to package your applications from your continuous integration/automated build process is to use OctoPack. OctoPack adds a custom MSBuild target that hooks into the build process of your solution. When enabled, OctoPack will package your Windows Service and ASP.NET applications when MSBuild runs.&quot; (from <a href="http://docs.octopusdeploy.com/display/OD/Using+OctoPack" target="_blank" rel="noopener">http://docs.octopusdeploy.com/display/OD/Using+OctoPack</a>).</p>
+<p>OctoPack creates a nice little NuGet package out of your project which gets consumed by Octopus Deploy (which uses its own Nuget server under the hood to facilitate deployments). You can install OctoPack by adding it as a Nuget package in Visual Studio and you should add it <em>to all the projects you'll be deploying.</em> As an example, you'd add it to your web project but not to your unit test project.</p>
+<h3>Step 2 – Create an API Key</h3>
+<p>You'll need this API key for setting the Visual Studio Build step's MSBuild arguments in the next step. To generate this, follow the instructions on this help doc:</p>
+<p><a href="http://docs.octopusdeploy.com/display/OD/How+to+create+an+API+key" target="_blank" rel="noopener">http://docs.octopusdeploy.com/display/OD/How+to+create+an+API+key</a></p>
+<h3>Step 3 - Modify the MSBuild Arguments in your Visual Studio Build Step</h3>
+<p>Over in TFS, you need to add some arguments to the MSBuild Arguments field in your Visual Studio Build step.</p>
+<p> <img src="https://gwb.blob.core.windows.net/dlussier/Setting-Up-Octopus-Build-Task-on-TFS-2015-On-Prem_170820/OctopusDeployStep2_1100442752.png" alt="" title="OctopusDeployStep2_1100442752.png"></p>
+<p>The arguments you need to use are:</p>
+<pre><code>/p:RunOctoPack=true
+/p:OctoPackPublishPackageToHttp=http://&lt;path to octopus&gt;/nuget/packages
+/p:OctoPackPublishApiKey=&lt;api key you generated in step 2&gt;
+</code></pre>
+<h3>Step 4 – Create a Generic Connected Service</h3>
+<p>You need a generic service for the custom task to work. This service and your team project will share the same API key, which lets your build kick off the deployment via the service.</p>
+<p>To create one, go into your team project and click the little gear icon in the top right corner (next to your user name). This will take you to the admin page, where you should see a number of tabs like Overview, Iterations, etc. Services will be the last one, click it.</p>
+<p> </p>
+<p><img src="https://gwb.blob.core.windows.net/dlussier/Setting-Up-Octopus-Build-Task-on-TFS-2015-On-Prem_170820/OctopusDeployStep4_860833856.png" alt="" title="OctopusDeployStep4_860833856.png"></p>
+<p>On the Services page, click &quot;Add New Service Connection&quot; and select General. Fill in the values into the form that appears:</p>
+<p>Connection Name:  Whatever you want to name this service connection.</p>
+<p>Server URL: Where your Octopus server is</p>
+<p>User name: Just put Octopus. Why? <a href="https://marketplace.visualstudio.com/items/octopusdeploy.octopus-deploy-build-release-tasks" target="_blank" rel="noopener">Dunno, that's what this post told me to do</a>.</p>
+<p>Password/Token Key: Past in the API key that you created a few steps ago.</p>
+<h3>Step 5 – Install Node and NPM (for TFX-CLI)</h3>
+<p>Installing the Octo Build Task for Visual Studio Online is super easy, but for on-premise it requires some extra steps. To install the task (or any task for that matter, see the links at the end of this post for more info on that) you need a tool called TFX-CLI (TFS Cross Platform Command Line Interface). This is a tool that lets you do various things with TFS from a console, but it requires Node.JS and NPM.</p>
+<p>Node is a JavaScript runtime and NPM is a package manager (think Nuget, Chocolatey, etc.).</p>
+<p>So before you install TFX-CLI, you need Node and NPM on your system. Note that this doesn't need to be installed on your TFS server. As long as you have the proper permissions, you can install this locally on your machine and just connect to your TFS box.</p>
+<p>To install Node, just head to their website and click on the download links. NPM should install with it by default. <a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a></p>
+<h3>Step 6 – Install TFX-CLI</h3>
+<p>Once you have Node and NPM installed, you can install TFX-CLI using NPM. Just open a command prompt and type in</p>
+<pre><code>npm install –g tfx-cli
+</code></pre>
+<p>You need to have an internet connection for this to work, as its going out and getting the latest copy.</p>
+<h3>Step 7 – Enable Basic Authentication on TFS</h3>
+<p>You can connect using TFX-CLI in two ways – with a personal access token (VSO) or with Basic Authentication. Microsoft NTLM isn't supported for TFX-CLI yet, so while you'll be passing in your domain credentials you'll be doing it over &quot;basic&quot; auth. Note that if you want to secure it (i.e. SSL) then you have to do that yourself manually, you don't get it out of the box.</p>
+<p>Check out this help file from the TFX-CLI project site for a walkthrough on setting up basic authentication. <a href="https://github.com/Microsoft/tfs-cli/blob/master/docs/configureBasicAuth.md" target="_blank" rel="noopener">https://github.com/Microsoft/tfs-cli/blob/master/docs/configureBasicAuth.md</a></p>
+<p>One thing I will call out – make sure you set the basic auth at the <em>web application</em> level and not the <em>web site</em> level, otherwise you'll just get invalid login responses in TFX-CLI.</p>
+<h3>Step 8 – Clone the OctoTFS repo from Github</h3>
+<p>Pull down the OctoTFS project from Github. You'll need Git installed for this to work (<a href="https://git-scm.com/" target="_blank" rel="noopener">https://git-scm.com/</a>).</p>
+<p> <img src="https://gwb.blob.core.windows.net/dlussier/Setting-Up-Octopus-Build-Task-on-TFS-2015-On-Prem_170820/OctopusDeployStep8_-2114270080.png" alt="" title="OctopusDeployStep8_-2114270080.png"></p>
+<p>Here I'm putting the OctoTFS project in a folder called &quot;OctoTFS&quot; in my C: drive.</p>
+<h3>Step 9 – Login to TFS in TFX-CLI and Upload the Octopus Build Task</h3>
+<p>FINALLY we can get the Octopus Build Task installed in TFS!</p>
+<p>First, log in to TFX-CLI. Open a command prompt and type...</p>
+<pre><code>tfx
+</code></pre>
+<p>at the prompt (without the quotes). You should see this when you hit enter:</p>
+<p> </p>
+<p><img src="https://gwb.blob.core.windows.net/dlussier/Setting-Up-Octopus-Build-Task-on-TFS-2015-On-Prem_170820/OctopusDeployStep9_-176892480.png" alt="" title="OctopusDeployStep9_-176892480.png"></p>
+<p>Now you need to log in to your TFS server. Type <code>tfx login –auth-type basic</code>.</p>
+<p>You'll be asked to enter in the Service URL, which is the URL to the TFS collection you want to connect to. For your username and password, enter in your domain credentials or if you have a local account on the TFS server log in with that.</p>
+<p> </p>
+<p><img src="https://gwb.blob.core.windows.net/dlussier/Setting-Up-Octopus-Build-Task-on-TFS-2015-On-Prem_170820/OctopusDeployStep9-2_1644126400.png" alt="" title="OctopusDeployStep9-2_1644126400.png"></p>
+<p>All of this has been leading up to this next moment – installing the build task! In the command line navigate to the OctopusBuildTasks folder. See the image below for the path where I installed mine earlier – if you follow the same steps, it should be there for you as well. Once you're there, type...</p>
+<pre><code>tfx build tasks upload
+</code></pre>
+<p>This will prompt you to put in the task path, which is one level below. Type...</p>
+<pre><code>./CreateOctopusRelease
+</code></pre>
+<p>and hit enter. You should see green text saying that the build task was uploaded successfully!</p>
+<p> </p>
+<p><img src="https://gwb.blob.core.windows.net/dlussier/Setting-Up-Octopus-Build-Task-on-TFS-2015-On-Prem_170820/OctopusDeployStep9-3_-1831133056.png" alt="" title="OctopusDeployStep9-3_-1831133056.png"></p>
+<h3>Step 10 – Verification</h3>
+<p>Head over to your TFS instance and bring up one of the projects within the collection you specified. Edit one of the builds (or create a new one) and add a deployment step. You should now see the Octopus Deploy Build Step as an option!</p>
+<p> </p>
+<p><img src="https://gwb.blob.core.windows.net/dlussier/Setting-Up-Octopus-Build-Task-on-TFS-2015-On-Prem_170820/OctopusDeployStep10_1810252032.png" alt="" title="OctopusDeployStep10_1810252032.png"></p>
+<h3>Conclusion</h3>
+<p>TFS will have to suffer through awkward deployment scenarios like this compared to the ease of installation that Visual Studio Online provides (adding this build task to VSO is automated and requires only a few button clicks to install). While it's great that we have tools like TFX-CLI, better (and updated) documentation would go a long way to help those of us trying to get as much out of our on-prem TFS.</p>
+<p>You may be wondering why this isn't documented anywhere already. There actually is a lot of documentation out there about this process, but none that covered everything start to finish. Hopefully anyone else looking to get this working in their on-prem TFS environment can avoid some of the pain I went through (or even better, the install process for custom build tasks improves and this whole post becomes irrelevant).  </p>
+<p>If you're intrigued at the idea of creating your own custom build tasks now that you know how to install them, Colin Dembovsky has a great series of blog posts that will walk you through that process, definitely check it out at the links below:</p>
+<p><a href="http://colinsalmcorner.com/post/developing-a-custom-build-vnext-task-part-1" target="_blank" rel="noopener">http://colinsalmcorner.com/post/developing-a-custom-build-vnext-task-part-1</a></p>
+<p><a href="http://colinsalmcorner.com/post/developing-a-custom-build-vnext-task-part-2" target="_blank" rel="noopener">http://colinsalmcorner.com/post/developing-a-custom-build-vnext-task-part-2</a></p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/darcy_lussier">
+				
+					<img src='/images/avatars/DarcyLussier_avatar.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/darcy_lussier">D&#39;Arcy Lussier</a></h2>
+			
+			<a href="mailto:darcy.lussier@gmail.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://geekswithblogs.net/dlussier/Default.aspx" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/darcy_lussier" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			
+			
+ 			<a href="/feeds/darcy_lussier.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/tfs/octopus/continuous-delivery/Setting-Up-Octopus-Build-Task-on-TFS-2015-On-Prem/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'darcy_lussier');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

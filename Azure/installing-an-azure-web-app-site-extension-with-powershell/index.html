@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Installing an Azure Web App Site Extension with PowerShell | Western Devs</title>
+  <meta name="description" content="I recently ran into a scenario where I needed to script the installation of a site extension into an existing Azure Web App. The solution was not easy to find but I eventually got to a solution.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Installing an Azure Web App Site Extension with PowerShell">
+<meta property="og:url" content="https://westerndevs.com/Azure/installing-an-azure-web-app-site-extension-with-powershell/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="I recently ran into a scenario where I needed to script the installation of a site extension into an existing Azure Web App. The solution was not easy to find but I eventually got to a solution.">
+<meta property="article:published_time" content="2018-11-14T00:43:50.000Z">
+<meta property="article:modified_time" content="2020-11-06T00:19:55.666Z">
+<meta property="article:author" content="Western Devs">
+<meta property="article:tag" content="Azure">
+<meta property="article:tag" content="App Service">
+<meta property="article:tag" content="Web App">
+<meta property="article:tag" content="Powershell">
+<meta property="article:tag" content="Application Insights">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">NOV</div>
+    <div class="ListLrgDateDay">14</div>
+    <div class="ListLrgDateYear">2018</div>
+  </div>
+  <h2>Installing an Azure Web App Site Extension with PowerShell</h2>
+</div>
+
+		    
+
+<p class="TXTsm">ORIGINALLY POSTED TO: <a href="http://www.davepaquette.com/archive/2018/11/13/installing-an-azure-web-app-site-extension-with-powershell.aspx" target="_blank" rel="noopener" class='originalurl'>http://www.davepaquette.com/archive/2018/11/13/installing-an-azure-web-app-site-extension-with-powershell.aspx</a></p>
+
+
+
+			<div id="mainPostContent">
+	        <p>I recently ran into a scenario where I needed to script the installation of a site extension into an existing Azure Web App. Typically, I would use an <a href="https://github.com/tomasr/webapp-appinsights" target="_blank" rel="noopener">Azure ARM deployment to accomplish this</a> but in this particular situation that wasn't going to work.</p>
+<p>I wanted to install the site extension that enables <a href="https://docs.microsoft.com/en-us/azure/application-insights/app-insights-monitor-performance-live-website-now" target="_blank" rel="noopener">Application Insights Monitoring of a live website</a>. After digging into existing arm templates, I found the name of that extension is <code>Microsoft.ApplicationInsights.AzureWebSites</code>.</p>
+<p>After searching for way too long, I eventually found PowerShell command I needed on a forum somewhere. I can't find it again so I'm posting this here in hopes that it will be easier for others to find in the future.</p>
+<h2>Installing a site extension to an existing App Service Web App</h2>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">New</span>-AzureRmResource -ResourceType "Microsoft.Web/sites/siteextensions" -ResourceGroupName MyResourceGroup -<span class="type">Name</span> "MyWebApp/SiteExtensionName" -ApiVersion "2018-02-01" -Force</span><br></pre></td></tr></table></figure>
+<p>For example, given a resource group named <code>Test</code>, a web app named <code>testsite</code> and a site extension named  <code>Microsoft.ApplicationInsights.AzureWebSites</code>.</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">New</span>-AzureRmResource -ResourceType "Microsoft.Web/sites/siteextensions" -ResourceGroupName "Test" -<span class="type">Name</span> "testsite/Microsoft.ApplicationInsights.AzureWebSites" -ApiVersion "2018-02-01" -Force</span><br></pre></td></tr></table></figure>
+<h2>Installing a site extension to a Web App Deployment Slot</h2>
+<p>The scenario I ran into was actually attempting to add this site extension to a deployment slot. When you create a deployment slot, it doesn't copy over any existing site extensions, which is a problem because when you swap your new slot to production, your new production slot ends up losing the site extensions that were in the old production slot.</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">New</span>-AzureRmResource -ResourceType "Microsoft.Web/sites/slots/siteextensions" -ResourceGroupName MyResourceGroup -<span class="type">Name</span> "MyWebApp/SlotName/SiteExtensionName" -ApiVersion "2018-02-01" -Force</span><br></pre></td></tr></table></figure>
+<p>Using the same example as above and  a slot named <code>Staging</code>:</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">New</span>-AzureRmResource -ResourceType "Microsoft.Web/sites/slots/siteextensions" -ResourceGroupName "Test" -<span class="type">Name</span> "testsite/Staging/Microsoft.ApplicationInsights.AzureWebSites" -ApiVersion "2018-02-01" -Force</span><br></pre></td></tr></table></figure>
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/dave_paquette">
+				
+					<img src='/images/avatars/DavePaquette_241x241.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/dave_paquette">Dave Paquette</a></h2>
+			
+			<a href="mailto:contactme@davepaquette.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://www.davepaquette.com/" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/Dave_Paquette" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/dpaquette" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			
+ 			<a href="/feeds/dave_paquette.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/Azure/installing-an-azure-web-app-site-extension-with-powershell/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'dave_paquette');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

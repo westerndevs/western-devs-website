@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Custom Tasks for Java in Visual Studio Code | Western Devs</title>
+  <meta name="description" content="Now that I&#39;m a Java Developer, I no longer worry about the bloating feeling I get when I need to open up the original Visual Studio. Now I worry about opening another instance of Eclipse. Don&#39;t get me">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Custom Tasks for Java in Visual Studio Code">
+<meta property="og:url" content="https://westerndevs.com/custom-tasks-for-java-in-visual-studio-code/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="Now that I&#39;m a Java Developer, I no longer worry about the bloating feeling I get when I need to open up the original Visual Studio. Now I worry about opening another instance of Eclipse. Don&#39;t get me">
+<meta property="og:image" content="http://blog.davidwesst.com/2015/10/Custom-Tasks-for-Java-in-Visual-Studio-Code/configure-task-runner.png">
+<meta property="og:image" content="http://blog.davidwesst.com/2015/10/Custom-Tasks-for-Java-in-Visual-Studio-Code/new-javac-task.png">
+<meta property="og:image" content="http://blog.davidwesst.com/2015/10/Custom-Tasks-for-Java-in-Visual-Studio-Code/javac-output.png">
+<meta property="og:image" content="http://blog.davidwesst.com/2015/10/Custom-Tasks-for-Java-in-Visual-Studio-Code/error-inline.png">
+<meta property="og:image" content="http://blog.davidwesst.com/2015/10/Custom-Tasks-for-Java-in-Visual-Studio-Code/error-warning.png">
+<meta property="article:published_time" content="2015-10-14T12:25:50.000Z">
+<meta property="article:modified_time" content="2020-11-06T00:19:55.674Z">
+<meta property="article:author" content="Western Devs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.davidwesst.com/2015/10/Custom-Tasks-for-Java-in-Visual-Studio-Code/configure-task-runner.png">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">OCT</div>
+    <div class="ListLrgDateDay">14</div>
+    <div class="ListLrgDateYear">2015</div>
+  </div>
+  <h2>Custom Tasks for Java in Visual Studio Code</h2>
+</div>
+
+		    
+
+<p class="TXTsm">ORIGINALLY POSTED TO: <a href="http://blog.davidwesst.com/2015/10/Custom-Tasks-for-Java-in-Visual-Studio-Code/" target="_blank" rel="noopener" class='originalurl'>http://blog.davidwesst.com/2015/10/Custom-Tasks-for-Java-in-Visual-Studio-Code/</a></p>
+
+
+
+			<div id="mainPostContent">
+	        <p>Now that I'm a Java Developer, I no longer worry about the bloating feeling I get when I need to open up the original Visual Studio. Now I worry about opening another instance of Eclipse. Don't get me wrong, Visual Studio and Eclipse are both great tools, but there are plenty of times where I don't need to bring a forklift just to move a single box.</p>
+<a id="more"></a>
+<p>This is why I love Visual Studio Code.</p>
+<p>That being said, we don't have native rich support for Java in Code. We <em>do</em> have syntax and bracket matching for Java, I wanted to see if I could compile and possibly display any errors directly in code.</p>
+<p>We do that using <a href="https://code.visualstudio.com/docs/editor/tasks" target="_blank" rel="noopener">Tasks</a>, and here's what I did:</p>
+<h3>Configure a Task Runner</h3>
+<p>To start you need a task runner for your project, which is where you will...you guessed it...configure tasks.</p>
+<ol>
+<li>Hit <code>Ctrl + Shift + P</code> to bring up the command palette. Search for &quot;task&quot; and you'll get the <em>Configure Task Runner</em> command.</li>
+<li>Select it and press <code>Enter</code> to generate a tasks.json file.</li>
+</ol>
+<p><img src="http://blog.davidwesst.com/2015/10/Custom-Tasks-for-Java-in-Visual-Studio-Code/configure-task-runner.png" alt="http://blog.davidwesst.com/2015/10/Custom-Tasks-for-Java-in-Visual-Studio-Code/configure-task-runner.png"></p>
+<p>The default <em>tasks.json</em> file has some samples along with some reference variables at the top of the file.</p>
+<p>Next up, we create our task.</p>
+<h3>Configure a Task</h3>
+<p>To see if we have any errors, we want to run our Java compiler on our code to get any error. In the example below, I'm using a simple project with a <code>src</code> and a <code>target</code> directory where the <code>src</code> directory contains all of our Java files.</p>
+<ol>
+<li>First, clear out the other tasks in the file. We only want the one we're going to use which is our javac command.</li>
+<li>Add the task to run the Java compiler</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="string">"version"</span>: <span class="string">"0.1.0"</span>,</span><br><span class="line">	<span class="string">"command"</span>: <span class="string">"javac"</span>,</span><br><span class="line">	<span class="string">"showOutput"</span>: <span class="string">"always"</span>,</span><br><span class="line">	<span class="string">"isShellCommand"</span>: <span class="literal">true</span>,</span><br><span class="line">	<span class="string">"args"</span>: [<span class="string">"-d"</span>,<span class="string">"$&#123;workspaceRoot&#125;\\build\\classes"</span>,<span class="string">"$&#123;workspaceRoot&#125;\\src\\main\\java\\*.java"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>Now, we can run our command by hitting <code>Ctrl + Shift + P</code> and typing <em>Run Task</em> should show us our new Java task.</li>
+</ol>
+<p><img src="http://blog.davidwesst.com/2015/10/Custom-Tasks-for-Java-in-Visual-Studio-Code/new-javac-task.png" alt="http://blog.davidwesst.com/2015/10/Custom-Tasks-for-Java-in-Visual-Studio-Code/new-javac-task.png"></p>
+<ol start="4">
+<li>Select it to run it, and assuming you have an error, it should display something in the output window.</li>
+</ol>
+<p><img src="http://blog.davidwesst.com/2015/10/Custom-Tasks-for-Java-in-Visual-Studio-Code/javac-output.png" alt="http://blog.davidwesst.com/2015/10/Custom-Tasks-for-Java-in-Visual-Studio-Code/javac-output.png"></p>
+<p>We're making progress, but it would be nice to see those errors inline in our code files, wouldn't it? That's where Problem Matchers come in.</p>
+<h3>Add a Problem Matcher to your Task</h3>
+<p>Now that we have a task running, we need to tell Code how to process the output. We do that using configuring a problem matcher that uses a regular expression to parse the output.</p>
+<p>Here's what my task looks like now:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="string">"version"</span>: <span class="string">"0.1.0"</span>,</span><br><span class="line">	<span class="string">"command"</span>: <span class="string">"javac"</span>,</span><br><span class="line">	<span class="string">"showOutput"</span>: <span class="string">"silent"</span>,	<span class="comment">// changed so that the output window doesn't pop up constantly</span></span><br><span class="line">	<span class="string">"isShellCommand"</span>: <span class="literal">true</span>,</span><br><span class="line">	<span class="string">"args"</span>: [<span class="string">"-d"</span>,<span class="string">"$&#123;workspaceRoot&#125;\\target"</span>,<span class="string">"$&#123;workspaceRoot&#125;\\src\\*.java"</span>],</span><br><span class="line">	<span class="string">"problemMatcher"</span>: &#123;</span><br><span class="line">		<span class="string">"owner"</span>: <span class="string">"external"</span>,</span><br><span class="line">		<span class="string">"fileLocation"</span>: [<span class="string">"absolute"</span>],</span><br><span class="line">		<span class="string">"pattern"</span>: [</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="string">"regexp"</span>: <span class="string">"^(.+\\.java):(\\d):(?:\\s+(error)):(?:\\s+(.*))$"</span>,</span><br><span class="line">				<span class="string">"file"</span>: <span class="number">1</span>,</span><br><span class="line">				<span class="string">"location"</span>: <span class="number">2</span>,</span><br><span class="line">				<span class="string">"severity"</span>: <span class="number">3</span>,</span><br><span class="line">				<span class="string">"message"</span>: <span class="number">4</span></span><br><span class="line">			&#125;</span><br><span class="line">		]</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>If you'd like the full scoop on how this works, you can check out the explanation on the Code documentation on <a href="https://code.visualstudio.com/Docs/editor/tasks#_defining-a-problem-matcher" target="_blank" rel="noopener">writing problem matchers</a> but basically each of the variables listed beneath the <code>regexp</code> represent a part of the VS code message that should display.</p>
+<p>Now that I've updated my task. If we run it again by hitting <code>Ctrl + P</code> and typing <em>task javac</em> we should get the following:</p>
+<p><img src="http://blog.davidwesst.com/2015/10/Custom-Tasks-for-Java-in-Visual-Studio-Code/error-inline.png" alt="http://blog.davidwesst.com/2015/10/Custom-Tasks-for-Java-in-Visual-Studio-Code/error-inline.png"></p>
+<p>...and if we bring up our warnings by hitting <code>Ctrl + Shift + M</code> we should see:</p>
+<p><img src="http://blog.davidwesst.com/2015/10/Custom-Tasks-for-Java-in-Visual-Studio-Code/error-warning.png" alt="http://blog.davidwesst.com/2015/10/Custom-Tasks-for-Java-in-Visual-Studio-Code/error-warning.png"></p>
+<p>Click on the warning, should bring you to the file with the error in it.</p>
+<h2>Hey, Why Can't I Add More Tasks to tasks.json?</h2>
+<p>Great question! Although I don't have an official answer, here's my opinion: <strong>It's a bad idea</strong>.</p>
+<p>The <code>tasks.json</code> file is an IDE specific configuration file. All it's really doing to making shortcuts through your IDE to execute different commands from the command line. So rather than setup multiple tasks for each individual command, you should do yourself and your project a favour and setup a build script and use that in your tasks.json file.</p>
+<p>A build script will have all the commands and scripts you need to run, build, test, or do whatever to your project. Plus, it's usable <em>outside</em> of Code, so it's much more useful.</p>
+<p>Although totally customizable (which I'll cover in <a href="http://westerndevs.com/using-java-build-script-tasks-in-visual-studio-code/">an upcoming post</a>), you can see this action now if you're using <a href="https://code.visualstudio.com/Docs/editor/tasks#_mapping-gulp-grunt-and-jake-output-to-problem-matchers" target="_blank" rel="noopener">Gulp, Grunt, or Jake</a> in your existing projects.</p>
+<hr>
+<p>Thanks for playing. ~ DW</p>
+<h5>References</h5>
+<ol>
+<li><a href="https://code.visualstudio.com/Docs/editor/tasks" target="_blank" rel="noopener">Tasks in Visual Studio Code</a></li>
+<li><a href="https://code.visualstudio.com/docs/editor/tasks_appendix" target="_blank" rel="noopener">tasks.json Schema reference</a></li>
+<li><a href="https://code.visualstudio.com/Docs/editor/tasks#_mapping-gulp-grunt-and-jake-output-to-problem-matchers" target="_blank" rel="noopener">Mapping Gulp, Grunt and Jake Output to Problem Matchers</a></li>
+</ol>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/david_wesst">
+				
+					<img src='/images/avatars/davidwesst_400x400.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/david_wesst">David Wesst</a></h2>
+			
+			<a href="mailto:questions@davidwesst.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://www.davidwesst.com" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/davidwesst" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/davidwesst" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			<a href="https://www.linkedin.com/in/davidwesst" target="_blank"><img class="ProfileIcon" src="/images/icon_linkedin.png" border="0" alt="LinkedIN" title="LinkedIN"> LinkedIn</a><br>
+			
+			
+ 			<a href="/feeds/david_wesst.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/custom-tasks-for-java-in-visual-studio-code/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'david_wesst');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

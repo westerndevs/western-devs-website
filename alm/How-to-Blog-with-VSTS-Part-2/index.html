@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>How to Blog with VSTS (Part 2) | Western Devs</title>
+  <meta name="description" content="I wanted to understand how to use Visual Studio Team Services (VSTS) for a &quot;real&quot; project. Being a noob, I decided to move my blog to VSTS to understand how _any_ project can benefit from ALM practice">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to Blog with VSTS (Part 2)">
+<meta property="og:url" content="https://westerndevs.com/alm/How-to-Blog-with-VSTS-Part-2/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="I wanted to understand how to use Visual Studio Team Services (VSTS) for a &quot;real&quot; project. Being a noob, I decided to move my blog to VSTS to understand how _any_ project can benefit from ALM practice">
+<meta property="og:image" content="http://i.imgur.com/LgqbXYyl.png">
+<meta property="og:image" content="http://i.imgur.com/NaI2INbl.png">
+<meta property="og:image" content="http://i.imgur.com/XC8Oqnpl.png">
+<meta property="og:image" content="http://i.imgur.com/ZXtAeaHl.png">
+<meta property="article:published_time" content="2016-11-07T14:00:00.000Z">
+<meta property="article:modified_time" content="2020-11-06T00:19:55.662Z">
+<meta property="article:author" content="Western Devs">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="git">
+<meta property="article:tag" content="visual studio team services">
+<meta property="article:tag" content="vsts">
+<meta property="article:tag" content="alm">
+<meta property="article:tag" content="github">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://i.imgur.com/LgqbXYyl.png">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">NOV</div>
+    <div class="ListLrgDateDay">7</div>
+    <div class="ListLrgDateYear">2016</div>
+  </div>
+  <h2>How to Blog with VSTS (Part 2)</h2>
+</div>
+
+		    
+
+<p class="TXTsm">ORIGINALLY POSTED TO: <a href="https://blog.davidwesst.com/2016/11/How-to-Blog-with-VSTS-Part-2/" target="_blank" rel="noopener" class='originalurl'>https://blog.davidwesst.com/2016/11/How-to-Blog-with-VSTS-Part-2/</a></p>
+
+
+
+			<div id="mainPostContent">
+	        <p><em>This is part 2 of 5 of my <strong>How to Blog with VSTS</strong> series. Links to the other parts will be added as they are made available.</em></p>
+<ul>
+<li><a href="https://blog.davidwesst.com/2016/10/How-to-Blog-with-VSTS-Part-1/" target="_blank" rel="noopener">Part 1: Setup</a></li>
+<li><a href="https://blog.davidwesst.com/2016/11/How-to-Blog-with-VSTS-Part-2/" target="_blank" rel="noopener">Part 2: Code</a></li>
+<li><a href="https://blog.davidwesst.com/2016/11/How-to-Blog-with-VSTS-Part-3/" target="_blank" rel="noopener">Part 3: Work</a></li>
+<li><a href="https://blog.davidwesst.com/2016/11/How-to-Blog-with-VSTS-Part-4/" target="_blank" rel="noopener">Part 4: Build</a></li>
+<li>Part 5: Release</li>
+</ul>
+<hr>
+<p>I've been tinkering with Visual Studio Team Services off and on since its public release, but never did anything really productive with it. Over the past couple of weeks, I finally bit the bullet and decided to move my most prevelant personal project into VSTS: this blog.</p>
+<p>In this post we are going to get our blog setup in source control so we can start add posts.</p>
+<h2>You Don't Need Your Code in VSTS to Use VSTS</h2>
+<p>This is important.</p>
+<p>VSTS is an all-in-one solution for your software project. Source control is a part of that solution, but it should be noted that <em>you don't <strong>need</strong> to use VSTS hosted source control</em> to use VSTS. I had originally setup my project just to mess with builds, releases, and work items. All my <a href="https://github.com/davidwesst/dw-blog" target="_blank" rel="noopener">source code</a> lived exclusively on GitHub, and VSTS still worked just fine.</p>
+<p>The only difference I've found is a few &quot;nice to have&quot; features in the Work tab, which we'll cover <a href="https://blog.davidwesst.com/2016/11/How-to-Blog-with-VSTS-Part-3/" target="_blank" rel="noopener">in the next post</a>. Generally speaking, though, there isn't any significant differences or advantages with using VSTS to host your code except for convienience and those few &quot;nice to have&quot; features I mentioned.</p>
+<h3>But I Want to Stay Open Source!</h3>
+<p>VSTS <em>does not</em> provide you with a public view of your source code. This is my major criticism of the <em>Code</em> features, and for VSTS as a whole.</p>
+<p>That being said, if I want people to be able to view my source code (which I do) then GitHub is a much better platform for that purpose. Consider that GitHub is ubiquitous with open source software development, so much so that even Microsoft uses it to share source code. People are more likely to find my code on GitHub than the focused platform that is VSTS.</p>
+<p>Still, the visibility is a project. To solve this just use both. I use the private repositories of VSTS as my working repos where a have a ton of branches and use that for my builds, feature development and so on. When my work is done, I publish my branches to GitHub where people could make pull requests, review my code, and so on.</p>
+<p>In a sense I use VSTS for internal development and GitHub for external/public development and feedback.</p>
+<h3>But Now My Development Isn't Transparent!</h3>
+<p>You're right, other than my git history, it's not.</p>
+<p>But, as previously mentioned, you don't need to use VSTS to host your source code or your work items (as you'll see in <a href="https://blog.davidwesst.com/2016/11/How-to-Blog-with-VSTS-Part-3/" target="_blank" rel="noopener">part 3</a>). You just need to use the parts you want, and use other tools as you see fit. If you only want to use VSTS for the builds and releases and GitHub for source control and issue tracking, then by all means go ahead and do that.</p>
+<p>In my case, my blog is a one man show that doesn't really get a lot of people reviewing the source code. I don't need the transparency for a project this small, but I still like keeping code visible and I keep tabs on the GitHub repository by using the <a href="https://marketplace.visualstudio.com/items?itemName=YodLabs.yodlabs-githubstats" target="_blank" rel="noopener">GitHub Stats Widget from Yod Labs</a>.</p>
+<p>If you're still interested in using the code tab, then keep calm and carry on. If not, you can jump ahead to the <a href="https://blog.davidwesst.com/2016/11/How-to-Blog-with-VSTS-Part-3/" target="_blank" rel="noopener">Work</a>, <a href="https://blog.davidwesst.com/2016/11/How-to-Blog-with-VSTS-Part-4/" target="_blank" rel="noopener">Builds</a>, or <a href="#">Releases</a> posts.</p>
+<h2>The &quot;Code&quot; Tab</h2>
+<p><img src="http://i.imgur.com/LgqbXYyl.png" alt="Code is front and center in VSTS"></p>
+<p>When you open up your project in VSTS, you'll see the &quot;Code&quot; link in the header. This is where we'll be living for the duration of this post. I am also assuming that did as I did in <a href="https://blog.davidwesst.com/2016/10/How-to-Blog-with-VSTS-Part-1/" target="_blank" rel="noopener">part 1</a> and selected Git as the type of source control you want to use for your project.</p>
+<h3>The Default Project Repository</h3>
+<p>When you setup your project, you're given a default project repository with the same name of the project. In my case, I have a repository called <em>davidwesst.com</em>.</p>
+<p>You could use this to store the source code of your blog, but I tend to use this repository as a project wiki that spans all repositories. When you click on the &quot;Welcome&quot; link on your project home page, you can see a rendered version of the README.md files in each of your repositories. This repository ends up acting as the &quot;root&quot; of all documentation on the project.</p>
+<p>If you delete it and go back to the Welcome page you get this message:</p>
+<p><img src="http://i.imgur.com/NaI2INbl.png" alt="When You Don't Have a Default Repository"></p>
+<p>Since VSTS has a decicated spot for it anyway, I figure it makes sense to use it for cross-repository documentation.</p>
+<h3>Creating Your Blog Repository</h3>
+<p>Click on the repository dropdown menu and select <em>New Repository</em>. Name it and you're ready to push source code up to VSTS. Just follow the your static site generators instructions to setup your blog, and push the code up.</p>
+<p>If you already have your blog published somewhere else like GitHub, you can use the <em>Import Repository</em> feature and clone the source and the history into VSTS.</p>
+<p><img src="http://i.imgur.com/XC8Oqnpl.png" alt="Repo Dropdown Menu"></p>
+<h4>For Those Using Hexo</h4>
+<p>If you're using Hexo as your static site generator, you can follow <a href="https://hexo.io/docs/setup.html" target="_blank" rel="noopener">these instructions</a> to get setup.</p>
+<p>Before you push, make sure you add a <code>.gitignore</code> file that excludes the <em>public</em> and <em>node_modules</em> as those folders contain the generated static content and generator dependencies, which we don't need to store in source control.</p>
+<h2>Writing Blog Posts</h2>
+<p>We will tackle this topic again in <a href="https://blog.davidwesst.com/2016/11/How-to-Blog-with-VSTS-Part-3/" target="_blank" rel="noopener">part 3</a> but for now I want to describe the workflow I use to write blog posts. It should be noted that the workflow I'm about to describe works in either VSTS or GitHub. I used it in GitHub for a long time, and it continues to serve me well in VSTS.</p>
+<p>Here's a summary of what I do:</p>
+<ol>
+<li>Create a new branch off of <code>master</code></li>
+<li>Write the post and commit all files to the new branch</li>
+<li>Create a Pull Request to pull the post branch into <code>master</code></li>
+<li>Approve the PR when I'm ready to publish the post</li>
+</ol>
+<h3>Post Branches</h3>
+<p>With a static site, or in this case a static blog, each post is a new file (or files if you're including images). I think of each post as a new feature and use a <a href="https://git-scm.com/book/en/v2/Git-Branching-Branching-Workflows#Topic-Branches" target="_blank" rel="noopener"><em>topic branch</em></a>.</p>
+<p>My <code>master</code> branch is my most recent and stable code, and so each post is a branch off of <code>master</code>. In short, I do the following:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b post/my-new-post</span><br><span class="line"><span class="comment"># ...write the post...</span></span><br><span class="line">git add . --all</span><br><span class="line">git commit -m <span class="string">"wrote new post"</span></span><br><span class="line">git push -u origin post/my-new-post</span><br></pre></td></tr></table></figure>
+<p>When I'm done, the branch contains everything I need to publish the post. All I need to do is merge, but I generally don't do that from the command line on my machine. Rather, I use Pull Requests.</p>
+<h3>Pull Requests</h3>
+<p>You may have noticed the Pull Requests link in the header earlier, which is a nice way to merge a post branch without needing a computer with the project setup. In my case, I tend to write my posts in advance and want to publish them on Monday mornings. I don't necessarily want to have to open up a command line and do the merge and push from my workstation.</p>
+<p>With Pull Requests, I can do the merge from any web browser, and it forces me to give myself a code review. I look over the spelling and grammar and make sure everything looks good. When I'm done, I click &quot;Complete&quot; and it's merged into my master branch, which is what is used to generate the site content and published to my web host.</p>
+<p><img src="http://i.imgur.com/ZXtAeaHl.png" alt="A Pull Request"></p>
+<h2>But Wait, There's More!</h2>
+<p>Absolultely.</p>
+<p>More specifically <a href="https://blog.davidwesst.com/2016/11/How-to-Blog-with-VSTS-Part-3/" target="_blank" rel="noopener">Work</a> for managing issue tracking, <a href="https://blog.davidwesst.com/2016/11/How-to-Blog-with-VSTS-Part-4/" target="_blank" rel="noopener">Builds</a> for generating the blog content, and <a href="#">Releases</a> for publishing posts. So stay tuned!</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/david_wesst">
+				
+					<img src='/images/avatars/davidwesst_400x400.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/david_wesst">David Wesst</a></h2>
+			
+			<a href="mailto:questions@davidwesst.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://www.davidwesst.com" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/davidwesst" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/davidwesst" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			<a href="https://www.linkedin.com/in/davidwesst" target="_blank"><img class="ProfileIcon" src="/images/icon_linkedin.png" border="0" alt="LinkedIN" title="LinkedIN"> LinkedIn</a><br>
+			
+			
+ 			<a href="/feeds/david_wesst.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/alm/How-to-Blog-with-VSTS-Part-2/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'david_wesst');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

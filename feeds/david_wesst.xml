@@ -1,0 +1,735 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Western Devs</title>
+  
+  <link href="/feeds/david_wesst" rel="self" type="application/atom+xml"/>
+  <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
+  
+  <updated>2020-11-06T00:19:55.670Z</updated>
+  <id>https://westerndevs.com/</id>
+  
+  <author>
+    <name>Western Devs</name>
+	<uri>https://westerndevs.com</uri>
+    <email>info@westerndevs.com</email>
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title type="html">A Solo Gamejam Experience | A Ludum Dare 47 Story</title>
+    <link href="https://westerndevs.com/devlog/a-solo-gamejam-experience-ld47/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/devlog/a-solo-gamejam-experience-ld47/</id>
+    <published>2020-10-23T13:00:00.000Z</published>
+    <updated>2020-11-06T00:19:55.670Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>I submitted a game to <a href="https://ldjam.com/events/ludum-dare/47/out-the-door" target="_blank" rel="noopener">Ludum Dare 47</a> I call <a href="https://davidwesst.itch.io/out-the-door" target="_blank" rel="noopener">Out the Door (Play Now in your Browser)</a> as a solo, amateur game developer with a non-gamedev day job, family responsibilities, and household to maintain.</p><!-- more --><iframe width="560" height="315" src="https://www.youtube.com/embed/AFnGMS24qvg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]]></content>
+    
+    <summary type="html">
+    
+      Wonder what it takes to be a solo amateur game developer in a global gamejam? DW summarizes his Ludum Dare 47 experience in this video.
+    
+    </summary>
+    
+      <category term="devlog" scheme="https://westerndevs.com/categories/devlog/"/>
+    
+    
+      <category term="gamedev" scheme="https://westerndevs.com/tags/gamedev/"/>
+    
+      <category term="game development" scheme="https://westerndevs.com/tags/game-development/"/>
+    
+      <category term="devlog" scheme="https://westerndevs.com/tags/devlog/"/>
+    
+      <category term="gamejam" scheme="https://westerndevs.com/tags/gamejam/"/>
+    
+      <category term="ludum dare" scheme="https://westerndevs.com/tags/ludum-dare/"/>
+    
+      <category term="github gameoff" scheme="https://westerndevs.com/tags/github-gameoff/"/>
+    
+  </entry>
+  
+  <entry>
+    <title type="html">Game Portfolio Self Evaluation (in prep for Ludum Dare 47)</title>
+    <link href="https://westerndevs.com/devlog/game-portfolio-review-2020/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/devlog/game-portfolio-review-2020/</id>
+    <published>2020-09-18T13:00:00.000Z</published>
+    <updated>2020-11-06T00:19:55.670Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>Ludum Dare 47, a weekend long global gamejam, is coming up in a few weeks. In order to prep for the event, I decided to take the time for review and reflect on my game portfolio to see what I learning objective and goals I can set for myself.</p><iframe width="560" height="315" src="https://www.youtube.com/embed/V_zCHtZIsYw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><h2>My Portfolio</h2><p>What was that? You wanted to know where to find and play my games?! Well then, if you're inclined to try some of my games (and hopefully leave some feedback), here they are:</p><ul><li><a href="https://davidwesst.itch.io/vagabondgame" target="_blank" rel="noopener">Vagabond Game</a> -&gt; A top-down Unity based prototype where I learned the technical ropes of putting together a small, game experience, with narrative, graphics, and animation.</li><li><a href="https://davidwesst.itch.io/leaps-and-bounds" target="_blank" rel="noopener">Car Scientist</a> -&gt; My first gamejam submission and evolution of the Vagabond Game prototype, except this time built in Godot.</li><li><a href="https://davidwesst.itch.io/little-shop-of-wall-street" target="_blank" rel="noopener">Little Shop of Wall Street</a> -&gt; My Ludum Dare 46 submission, co-authored by <a href="https://westerndevs.com/bios/darcy_lussier/">D'Arcy Lussier</a> where you trade stocks online in order to feed an interesting plant, before it feeds on YOU!</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      Ludum Dare 47, a weekend long global gamejam, is coming up in a few weeks. In order to prep for the event, I decided to take the time for review and reflect on my game portfolio to see what I learning objective and goals I can set for myself.
+    
+    </summary>
+    
+      <category term="devlog" scheme="https://westerndevs.com/categories/devlog/"/>
+    
+    
+      <category term="gamedev" scheme="https://westerndevs.com/tags/gamedev/"/>
+    
+      <category term="game development" scheme="https://westerndevs.com/tags/game-development/"/>
+    
+      <category term="devlog" scheme="https://westerndevs.com/tags/devlog/"/>
+    
+      <category term="gamejam" scheme="https://westerndevs.com/tags/gamejam/"/>
+    
+      <category term="ludum dare" scheme="https://westerndevs.com/tags/ludum-dare/"/>
+    
+      <category term="github gameoff" scheme="https://westerndevs.com/tags/github-gameoff/"/>
+    
+  </entry>
+  
+  <entry>
+    <title type="html">Release Notes for Little Shop of Wall Street 0.1.0-beta</title>
+    <link href="https://westerndevs.com/devlog/little-shop-of-wall-street-01-release-notes/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/devlog/little-shop-of-wall-street-01-release-notes/</id>
+    <published>2020-07-02T15:13:00.000Z</published>
+    <updated>2020-11-06T00:19:55.670Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>Finally! The 0.1 beta has arrived for Little Shop of Wall Street!</p><p>In this video, DW walks through the new features rolled out both in-game and behind the scenes for his LD46 game jam title.</p><iframe width="560" height="315" src="https://www.youtube.com/embed/baMlNqGgiV4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>You can play the game here on <a href="https://davidwesst.itch.io/little-shop-of-wall-street" target="_blank" rel="noopener">Itch.io</a>.</p><h2>Side Notes</h2><p>This release is an important one for me.</p><p>First, off it's the first &quot;beta&quot; release which I've categorized as a moderately stable release, and includes a &quot;complete gameplay loop&quot; on purpose. There are still plenty of bugs (as the video even showed) but it works and playable.</p><p>Second, this release is the original vision of what I pictured the gamejam submission to be when D'Arcy and I came up with the idea back in April. Many months later, I have that release which says a lot about my prototyping and experimenting process (i.e. I'm too slow).</p><p>Lastly, I have multiple versions of the game out there including Linux/X11 and Windows versions. There's still a lot more to learn and do with the while devops setup for my projects, but this is a great step forward and can be reused with all my Godot-based projects moving forward.</p><p>Until the next one-- thanks for playing.</p><p>~ DW</p>]]></content>
+    
+    <summary type="html">
+    
+      Little Shop of Wall Street has a 0.1-beta release!
+    
+    </summary>
+    
+      <category term="devlog" scheme="https://westerndevs.com/categories/devlog/"/>
+    
+    
+      <category term="gamedev" scheme="https://westerndevs.com/tags/gamedev/"/>
+    
+      <category term="game development" scheme="https://westerndevs.com/tags/game-development/"/>
+    
+      <category term="devlog" scheme="https://westerndevs.com/tags/devlog/"/>
+    
+      <category term="little shop of wall street" scheme="https://westerndevs.com/tags/little-shop-of-wall-street/"/>
+    
+      <category term="godot" scheme="https://westerndevs.com/tags/godot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title type="html">How Github Makes Game Making Easier for Noncoders</title>
+    <link href="https://westerndevs.com/Game-Design/How-GitHub-Makes-Game-Making-Easier-For-NonCoders/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/Game-Design/How-GitHub-Makes-Game-Making-Easier-For-NonCoders/</id>
+    <published>2020-02-19T20:48:36.000Z</published>
+    <updated>2020-11-06T00:19:55.670Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>DW goes through five things he's been using in Github while designing his latest prototype that require zero coding skills.</p><a id="more"></a><p>GitHub is a social development platform that will make your game development journey easier even if you're not a coder! We'll cover how GitHub can help keep your file history, through to how it can help organize your work, and even where to find cool projects to learn (and possibly contribute to).</p><iframe width="560" height="315" src="https://www.youtube.com/embed/rq0JDWnVt8I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><h2>References and Links</h2><h3>Github Desktop (Desktop Client)</h3><p>https://help.github.com/en/desktop</p><h3>Links to interesting game development &amp; design projects</h3><p>Tiled | https://github.com/bjorn/tiledInky | https://github.com/inkle/inkyOpenTDD | https://github.com/OpenTTD/OpenTTDMicropolisJS | https://github.com/graememcc/micropolisJS</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;DW goes through five things he&#39;s been using in Github while designing his latest prototype that require zero coding skills.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Game Design" scheme="https://westerndevs.com/categories/Game-Design/"/>
+    
+    
+      <category term="GitHub" scheme="https://westerndevs.com/tags/GitHub/"/>
+    
+      <category term="Game Development" scheme="https://westerndevs.com/tags/Game-Development/"/>
+    
+      <category term="Game Design" scheme="https://westerndevs.com/tags/Game-Design/"/>
+    
+      <category term="Video" scheme="https://westerndevs.com/tags/Video/"/>
+    
+  </entry>
+  
+  <entry>
+    <title type="html">Jan 2020 Devlog</title>
+    <link href="https://westerndevs.com/Devlog/Jan-2020-Devlog/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/Devlog/Jan-2020-Devlog/</id>
+    <published>2020-02-04T21:03:24.000Z</published>
+    <updated>2020-11-06T00:19:55.670Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>Did you know that I really try and make video games and not just talk about them? Me neither, but this video will fix all that!</p><a id="more"></a><p>I tend to fall into the crutch of talking about technology rather than actually doing it. There is nothing wrong with the evangelism/marketing side of the tech community, but the whole point of me doing this is to share my journey and the tips along the way. Note the &quot;journey&quot; part means, I have to move the needle. An so, here we are with the first devlog of the year.</p><p>In this video I cover the bit of progres I've had on Car Scientist, and how it's become something of a game development sandbox to practice and (ideally) sharpen my gamedev skills. I also review the LARGE amount of planning I did and reflect a bit on how I sort through what ideas should be in this game versus the next one.</p><iframe width="560" height="315" src="https://www.youtube.com/embed/-sKlp_CUhB0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Did you know that I really try and make video games and not just talk about them? Me neither, but this video will fix all that!&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Devlog" scheme="https://westerndevs.com/categories/Devlog/"/>
+    
+    
+      <category term="Game Development" scheme="https://westerndevs.com/tags/Game-Development/"/>
+    
+      <category term="Devlog" scheme="https://westerndevs.com/tags/Devlog/"/>
+    
+      <category term="Video" scheme="https://westerndevs.com/tags/Video/"/>
+    
+      <category term="Car Scientist" scheme="https://westerndevs.com/tags/Car-Scientist/"/>
+    
+  </entry>
+  
+  <entry>
+    <title type="html">Where to Find Your Gamedev Community</title>
+    <link href="https://westerndevs.com/Game-Development/Where-To-Find-Your-Gamedev-Community/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/Game-Development/Where-To-Find-Your-Gamedev-Community/</id>
+    <published>2020-01-21T11:09:00.000Z</published>
+    <updated>2020-11-06T00:19:55.670Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>Four places to find your new game development and/or design and/or technology community and figure out if it's even good!</p><a id="more"></a><iframe width="560" height="315" src="https://www.youtube.com/embed/rfxfLZTM7Fk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>Did you know there are people out there who will help you with your game because they WANT TO DO IT? I know, right? This magical place is called a “community” and they exist literally all over the world. You just need to find one. In this video, I talk about four different places to find technology and game development/design communities right from where your sitting.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Four places to find your new game development and/or design and/or technology community and figure out if it&#39;s even good!&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Game Development" scheme="https://westerndevs.com/categories/Game-Development/"/>
+    
+    
+      <category term="Game Development" scheme="https://westerndevs.com/tags/Game-Development/"/>
+    
+      <category term="Community" scheme="https://westerndevs.com/tags/Community/"/>
+    
+      <category term="Game Design" scheme="https://westerndevs.com/tags/Game-Design/"/>
+    
+      <category term="Gamedev" scheme="https://westerndevs.com/tags/Gamedev/"/>
+    
+      <category term="Professional Development" scheme="https://westerndevs.com/tags/Professional-Development/"/>
+    
+  </entry>
+  
+  <entry>
+    <title type="html">No Cost Game Design Toolbox</title>
+    <link href="https://westerndevs.com//No-Cost-Game-Design-Toolbox/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com//No-Cost-Game-Design-Toolbox/</id>
+    <published>2020-01-13T21:51:04.000Z</published>
+    <updated>2020-11-06T00:19:55.670Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>Want to design games but have no money? Never fear, for my game design toolbox (and process) can help get you started!</p><a id="more"></a><iframe width="560" height="315" src="https://www.youtube.com/embed/Wtt_a2hbF3o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>I've spent the past week working on the the game design for #CarScientist. What I noticed was that I didn't open a code editor or development tool once this whole week, and considering that's my comfort zone when it comes to any form of software development, I was both surprised and pleased that I managed to wear my design hat so well!</p><p>On top of just being in design mode, I avoided my other &quot;excuse&quot; which is to want and research what you don't have, which is usually some tool or domain I think is clever. This whole toolbox not only keeps me focused, but it keeps me on budget as well as you can get all of it for nothing. Take a look and let me know in the comments your thoughts on my game design toolbox, along with what tools you use.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Want to design games but have no money? Never fear, for my game design toolbox (and process) can help get you started!&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Game Development" scheme="https://westerndevs.com/tags/Game-Development/"/>
+    
+      <category term="Game Design" scheme="https://westerndevs.com/tags/Game-Design/"/>
+    
+      <category term="Toolbox" scheme="https://westerndevs.com/tags/Toolbox/"/>
+    
+      <category term="OneNote" scheme="https://westerndevs.com/tags/OneNote/"/>
+    
+      <category term="Excel" scheme="https://westerndevs.com/tags/Excel/"/>
+    
+  </entry>
+  
+  <entry>
+    <title type="html">GitHub Game Off 2019 Game Jam featuring DW</title>
+    <link href="https://westerndevs.com/Game-Development/gameoff2019-gamejam-devlog/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/Game-Development/gameoff2019-gamejam-devlog/</id>
+    <published>2019-11-26T14:57:00.000Z</published>
+    <updated>2020-11-06T00:19:55.670Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>For the past month I have been participating in the GameOff 2019 Gamejam hosted by GitHub over on Itch.io and I've been devlogging about it over on my YouTube channel.</p><a id="more"></a><iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLbTA1UhK0wKjTEEc_wO1n0w_hPAUIeVRf" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe><p>For the past year or so, I've been working on learning and getting into video game development (a.k.a. gamedev) as a sort of side thing to the whole enterprise cloud architect thing that I do during the day.</p><p>In order to focus my effort, I decided that I would participate in the GitHub hosted <a href="https://itch.io/jam/game-off-2019" target="_blank" rel="noopener">GameOff 2019 Game Jam on Itch.io</a>. It's been a ride to say the least, but as I've been doing it, I've been doing a devlog series on YouTube about my progress and my thoughts throughout the competition.</p><h2>Where Do I Find the Vlog</h2><p>You're in the right spot, as I'm going to cross post my <a href="https://itch.io/" target="_blank" rel="noopener">Itch.io</a> project devlog posts here, but you can also follow along on my <a href="https://youtube.com/davidwesst" target="_blank" rel="noopener">YouTube channel</a> if you're into that sort of thing, or you can just <a href="https://www.youtube.com/playlist?list=PLbTA1UhK0wKjTEEc_wO1n0w_hPAUIeVRf" target="_blank" rel="noopener">checkout the playlist here</a>.</p><p>The game jam ends on December 1, and there is more work to be done, so stay tuned for more posts.</p><hr><p>Thanks for playing. ~ DW</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;For the past month I have been participating in the GameOff 2019 Gamejam hosted by GitHub over on Itch.io and I&#39;ve been devlogging about it over on my YouTube channel.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Game Development" scheme="https://westerndevs.com/categories/Game-Development/"/>
+    
+    
+      <category term="gamedev" scheme="https://westerndevs.com/tags/gamedev/"/>
+    
+  </entry>
+  
+  <entry>
+    <title type="html">Streaming Code and Play on Mixer every Thursday and Sunday</title>
+    <link href="https://westerndevs.com//streaming-code-and-games-on-mixer/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com//streaming-code-and-games-on-mixer/</id>
+    <published>2018-09-27T17:55:42.000Z</published>
+    <updated>2020-11-06T00:19:55.666Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<iframe allowfullscreen="true" src="https://mixer.com/embed/player/davidwesst" width="620" height="349"> </iframe><p>I recently started streaming twice a week on <a href="https://mixer.com/davidwesst" target="_blank" rel="noopener">Mixer</a>. The streams happen at 9:30pm CT (7:30pm PT or 10:30pm ET) on Thursdays and Sundays. Thursdays are <em>Code Nights</em> where I fumble through the creation of a video game. Sundays are <em>Play Nights</em> I play and analyze a game that has something interesting in it. No specific topic, just play and talk about game with the intent of finding interesting design in games.</p><p>Now, I'll take a few questions.</p><h2>Are you a game developer now?</h2><p>No, but I'd like to be. More specifically, I'd like <em>my own</em> games.</p><p>That's not to say I wouldn't work somewhere that makes games, as I'm sure I'd learn a lot, but as it stands right now with my real life, I'm not willing take on the cost of doing the whole &quot;lift and shift&quot; to my whole career. Maybe another day, but not today.</p><h2>What about all that web development stuff?</h2><p>That's still something I like and will continue to work on, but making a video game has always been something of a dream. I've dabbled in combining the two, but there is a lot I need to learn about game development and design that has nothing to do with code.</p><h2>What is with the streaming?</h2><p>If I'm being honest, it's more for me than it is for you. No offense.</p><p>The streams act as milestones to keep it relevent in my real life. The streams are scheduled and planned for, as they are hard dates in a calendar that I can plan my life around. Playing a game keeps me thinking about what I want to see in my game, and code keeps me building the game.</p><h2>Is that why you've been in hiding for so long?</h2><p>Not intentionally, but yeah.</p><p>There is a whole story behind it, but I'll save that for another post. The short of it is that during my self imposed sabatical, I realized that I need to work on something I'm truly passionate about. That passion is video games, and this is me making sure I don't regret trying to get myself involved.</p><h2>I have an idea for a game...</h2><p>Awesome. Me too! Feel free to share it with me on <a href="https://twitter.com/davidwesst" target="_blank" rel="noopener">Twitter</a>, <a href="https://www.instagram.com/davidwesst/" target="_blank" rel="noopener">Instagram</a>, or <a href="https://mixer.com/davidwesst" target="_blank" rel="noopener">Mixer Chat</a> and we can chat about it.</p><h2>Does that mean you're leaving the Western Devs?</h2><p>Heh, no.</p><p>First, these people would be lost without me. Second, I'm still planning on talking about code, but likely a little less often. I'll be reviving <a href="https://davidwesst.com" target="_blank" rel="noopener">davidwesst.com</a> in the near future where you can see all my game related content. For the time being though, only devblogs will show up over here.</p><h2>When can I buy your game?</h2><p>I have no idea. Right now, I'm toying with a prototype I call <em>Vagabond</em> and whether that turns into a game is a whole other story.</p><h2>Is your game code open source?</h2><p>No, but I'm not against it.</p><p>Ignoring the whole selling an open source game discussion, my code is amateur at best. I'm an application web developer trying to wear the shoes of a console/PC game developer. It's going to take some time before I feel like I know what I'm doing to actually put something out there for people to assess.</p><h2>I'm interested. How do I support?</h2><p>Like, share, watch, and participate whenever and however you can.</p><p>I'm really just getting started in this, and it's going to have some rough edges. Just stay tuned and we'll see where this takes me.</p><hr><p>Thanks for playing. ~ DW</p>]]></content>
+    
+    <summary type="html">
+    
+      This month I started livestreaming game code and gameplay every Thursday and Sunday night at 9:30pm CT
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title type="html">F12 Chooser is a Dev Tool Thing</title>
+    <link href="https://westerndevs.com/Development/f12-chooser-is-dev-tool-thing/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/Development/f12-chooser-is-dev-tool-thing/</id>
+    <published>2018-03-28T17:10:00.000Z</published>
+    <updated>2020-11-06T00:19:55.666Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>The F12 Chooser is a development tool thing that I like and you should know about if you want your web application or web extension to support Microsoft Edge.</p><a id="more"></a><p><img src="https://i.imgur.com/wt4L09z.png" alt="1"></p><p>The <a href="https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide" target="_blank" rel="noopener">F12 Developer Tools</a> are pretty great. They are the original in-browser developer tools (included in Internet Explorer 7), and have evolved into something more modern for all us &quot;modern&quot; developers.</p><p>With all in-browser developer tools, I've found that every once and I come across an application I'm trying to debug that is so unstable that F12 can't seem to attache properly. Whether that's because of the application locking up the browser or whatever, without being able to attach a debugger I can't really get into the code and start sorting out the issue.</p><p>That's where the F12 Chooser comes into play.</p><h2>What is F12 Chooser?</h2><p>F12 Chooser is a utility built into Windows that allows you choose the target application for the F12 Developer Tools without having to open Microsoft Edge itself.</p><h2>How do I run it?</h2><p>On Windows 10, you run <code>\\Windows\System32\F12\F12Chooser.exe</code>. The window that comes up will display a list of targets for which you can attach the F12 tools. You can find the 64-bit version in <code>C:\Windows\SysWOW64\F12\F12Chooser.exe</code>.</p><p><img src="https://i.imgur.com/ch1TjEr.gif" alt="2"></p><h2>Why does this matter?</h2><p>Because it gives you another option when it seems like the F12 tools are failing. If your browser locks up when you try and debug your application code, you should try the F12 Chooser once the application has loaded in the browser.</p><p>It also allows you to target applications that aren't necessarily web applications that you view in a browser. For example, maybe you're looking to debug an <a href="https://docs.microsoft.com/en-us/office/dev/add-ins/testing/debug-add-ins-using-f12-developer-tools-on-windows-10" target="_blank" rel="noopener">Office Add-In</a>.</p><h2>Conclusion</h2><p>In conclusion, you have the F12 Chooser as another way to load up and attach the F12 developer tools in Windows 10 to help you with debugging web applications, web extensions, and even other things like Office Add-Ins.</p><p>And now you know it exists. You're welcome.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;The F12 Chooser is a development tool thing that I like and you should know about if you want your web application or web extension to support Microsoft Edge.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Development" scheme="https://westerndevs.com/categories/Development/"/>
+    
+    
+      <category term="JavaScript" scheme="https://westerndevs.com/tags/JavaScript/"/>
+    
+      <category term="TypeScript" scheme="https://westerndevs.com/tags/TypeScript/"/>
+    
+      <category term="Web Extensions" scheme="https://westerndevs.com/tags/Web-Extensions/"/>
+    
+      <category term="Office Add-In" scheme="https://westerndevs.com/tags/Office-Add-In/"/>
+    
+  </entry>
+  
+  <entry>
+    <title type="html">Picking between TypeScript and JavaScript</title>
+    <link href="https://westerndevs.com/Development/typescript-or-javascript/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/Development/typescript-or-javascript/</id>
+    <published>2018-03-15T15:40:00.000Z</published>
+    <updated>2020-11-06T00:19:55.666Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>Which one should you pick: TypeScript or JavaScript? They are both great languages, people always ask me when you should use one or the other. This post puts that to rest.</p><a id="more"></a><p>Whether it's a work project or a personal one, the question &quot;TypeScript or JavaScript&quot; always seems to come up in my mind. Utlimately, they provide a very similiar function considering that TypeScript is a superset of JavaScript, and compiles down to JavaScript itself.</p><p>I'm not the only person that has this question either. Over the past year, I've asked a number of JavaScript/TypeScript developers about how they pick between the two and I wanted to sum up my thoughts here after being influenced by my private panel of experts.</p><h2>It Depends on the Project</h2><p>Of course it does.</p><p>There is never one answer for everything, and this is no different. That being said, there are a few criteria or &quot;flags&quot; that help me select when I want to use one over the other.</p><h3>JavaScript Knowledge is Assumed</h3><p>Before we get into it, let me clarify that I'm assuming that the developer(s) working on the project already know JavaScript. They don't need to be experts, but they are familiar with writing vanilla JavaScript for applications, whether that be client or server side code.</p><p>That being said, I'm also assuming that a TypeScript-focued developer can get their way around JavaScript code.</p><h2>When to TypeScript</h2><p><img src="https://i.imgur.com/IAPRGfv.png" alt=""></p><p>I fall to TypeScript when I am writing more than one or two code files or if I'm writing code that I expect someone else to have to run. Although I use TypeScript, the it's not necessarily the language itself that I want, but the TypeScript compiler as it helps the other developers running my code, and removes the ambiguity of types between functions or classes that need to work togther.</p><p>It does a lot of stuff for me:</p><ul><li>Catches errors, especially typing ones, at compile time rather than run time</li><li>Sets standards around what JS-like conventions I want to use</li><li>Better legacy browser support</li><li>Supports multiple module practices</li></ul><p>Ultimately, that compiler is powerful and I put a lot of trust into it considering I expect that the compiled code to be optimal.</p><h3>But doesn't the compiler work on JavaScript too?</h3><p>Yes. Yes it does.</p><p>The catch is that the compiler is not as thurough as it is with TypeScript. When you add the <code>//@ts-check</code> <a href="https://code.visualstudio.com/docs/languages/javascript#_type-checking-and-quick-fixes-for-javascript-files" target="_blank" rel="noopener">reference</a> at the top of your JavaScript file in Visual Studio Code, that really helps with the development story of any JavaScript code, but it's still not as deep as using TypeScript itself.</p><p>Using TypeScript with the TypeScript compiler gives you that little bit of extra help in development, and that is really where the value comes in for me.</p><h2>When to JavaScript</h2><p><img src="https://i.imgur.com/yCn8NUQ.png" alt=""></p><p>I tend to use JavaScript when I'm only writing a little bit of code and don't want to deal with the overhead of setting up the compiler for the project. For examples, when I'm writing a little Node script, or experimenting with REST API and want a simple GUI, I'll quickly put together some vanilla JS code and get something working quickly.</p><p>That being said, I write the majority of my JavaScript in <a href="https://code.visualstudio.com" target="_blank" rel="noopener">Visual Studio Code</a> which provides a lot of JavaScript tooling support using the TypeScript compiler underneath the hood.</p><h2>Conclusion</h2><p>In conclusion, when I have to pick between JavaScript or TypeScript I lean towards TypeScript. It provides the better development story between the two, and that's a really important factor when I'm writing and sharing code.</p><p>When I'm lazy and don't want to setup a TypeScript project, I fall back on JavaScript but still rely on the built-in TypeScript tooling in Visual Studio Code.</p><p>TypeScript provides the tooling and needed bit of abstraction from the implementation with its compiler. Even though JavaScript has come a long way with <a href="https://github.com/tc39/ecma262" target="_blank" rel="noopener">ECMA-262</a> getting plenty of updates, there is still the challenge of browser vendors supporting the spec and so on. In the end, the overhead of setting up your project to using the TypeScript compiler outweighs the complexity that large JavaScript projects bring to the table.</p><p>Even when JavaScript is &quot;feature complete&quot;, I'm guessing that TypeScript will still provide a stronger developer story for larger software projects, while JavaScript will continue to provide the foundation for the web platform, and TypeScript itself.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Which one should you pick: TypeScript or JavaScript? They are both great languages, people always ask me when you should use one or the other. This post puts that to rest.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Development" scheme="https://westerndevs.com/categories/Development/"/>
+    
+    
+      <category term="JavaScript" scheme="https://westerndevs.com/tags/JavaScript/"/>
+    
+      <category term="TypeScript" scheme="https://westerndevs.com/tags/TypeScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title type="html">Crowdsourcing Documentation is Cool</title>
+    <link href="https://westerndevs.com/Development/crowdsourcing-docs-is-cool/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/Development/crowdsourcing-docs-is-cool/</id>
+    <published>2018-03-13T13:40:00.000Z</published>
+    <updated>2020-11-06T00:19:55.666Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>The idea of these large enterprises crowdsourcing their technical documentation is pretty cool. More cool than I had originally realized, and I want to take a moment to explain why I like it and why you should get involved yourself.</p><a id="more"></a><p>I updated the Microsoft Edge documentation on web extensions. As of this writing, you can see it <a href="https://docs.microsoft.com/en-us/microsoft-edge/extensions/extensions-for-enterprise" target="_blank" rel="noopener">here</a>, but just in case you can't I've included an image.</p><p><img src="https://i.imgur.com/5ptKftE.png" alt=""></p><p>The idea of these large enterprises crowdsourcing their technical documentation is pretty cool. More cool than I had originally realized and, for that reason, I want to take a moment to explain why I like it and why you should get involved yourself.</p><h2>What do you mean by &quot;Crowdsourcing&quot;?</h2><p>When it comes to web platforms, many of the platform owners (<a href="https://github.com/awsdocs" target="_blank" rel="noopener">Amazon</a>, <a href="https://github.com/MicrosoftDocs" target="_blank" rel="noopener">Microsoft</a>, <a href="https://github.com/mdn" target="_blank" rel="noopener">Mozilla</a>) have started crowdsourcing their technical documentation. When I say <em>crowdsourcing</em> I mean that the organization opens up the conversation about what the documentation should say to the community at large.</p><p>The community, being the consumers of the product (and the documentation) can have input into adding, editing, or removing sections of official product or platform documentation. Assuming the vendor agrees with the changes being suggested, then the change is accepted and the official documentation is updated.</p><p>This whole process if facilitated generally by GitHub, where documentation is published as source code and pull requests act as the avenue submitting changes. This way, the conversation about the changes is tracked, shared, and kept in the open for people to review and understand.</p><p>Plus, using things like contributors guides and automated build tools can be integrated with GitHub to validate the change, to make sure that the change to the documentation doesn't break anything and follows any rules the vendor has in place.</p><h2>Where is the coolness?</h2><p>There are a couple of cool points I'd like to highlight.</p><h3>Consumers are More Qualified than Vendors</h3><p>The developers of the platform itself are somewhat qualified considering they know the inner workings of the product, but they aren't the ones using it. The people using the product don't need to know how the guts work, they need to how to use it.</p><p>There is nobody more qualified to update product documentation than the consumers of the documentation and technology. The people that are neck deep and actually <em>using</em> in tech to make things happen. Those are the people that are best suited to critique and ultimately improve the documentation.</p><h3>Transparent Conversations</h3><p>When you crowdsource your documentation, you need to make it open and accessible, which tends to make conversation around the documentation transparent. In our case, GitHub provides the facilty to make this happen with public repositories filled with documentation and through the issue and pull request interface.</p><p>People can submit pull requests and issues and have a conversation with the vendor about their documentation and ultimately their product.</p><p>Something that starts out like a minor update, could result in an entire section. In my case, I was confident that I'd be adding new pages of content, but once I got into the thick of it, I realized all the parts were already present in the docs. I just needed to add some context and minor updates to what was already there.</p><h2>Conclusion</h2><p>In conclusion, anyone reviewing the documentation for a tool or technology should check to see if:</p><ol><li>It's open to improvement through crowdsourcing</li><li>They can think they can make it better.</li></ol><p>It's a great way to get involved in your technology community, all while improving the developer experience for the next person that comes along.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;The idea of these large enterprises crowdsourcing their technical documentation is pretty cool. More cool than I had originally realized, and I want to take a moment to explain why I like it and why you should get involved yourself.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Development" scheme="https://westerndevs.com/categories/Development/"/>
+    
+    
+      <category term="JavaScript" scheme="https://westerndevs.com/tags/JavaScript/"/>
+    
+      <category term="Documentation" scheme="https://westerndevs.com/tags/Documentation/"/>
+    
+  </entry>
+  
+  <entry>
+    <title type="html">Windows Subsystem for Linux is Cool. No really, it is.</title>
+    <link href="https://westerndevs.com/web/websummit-wsl/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/web/websummit-wsl/</id>
+    <published>2017-09-20T22:35:00.000Z</published>
+    <updated>2020-11-06T00:19:55.666Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p><em>This is part of a series of posts capturing the highlights from my experience at the <a href="https://summit.microsoftedge.com/" target="_blank" rel="noopener">Microsoft Edge Web Summit 2017</a></em></p><p><img src="https://davidwesst.blob.core.windows.net/blog/websummit-wsl/ubuntu-install.gif" alt="Installing Ubuntu on Windows 10 from the Windows Store"></p><p>With the Fall Creators Update for Windows 10, you can go to the Windows Store and install Linux.</p><p>Yeah, that's a thing now and it's pretty cool.</p><h2>What is the Windows Subsystem for Linux (WSL)?</h2><p>It's a new Windows feature that allows Linux distributions like Ubuntu and OpenSUSE to run inside of Windows. Essentially, this let's you run Linux-based command line applications against your files stored in Windows.</p><h2>Why is that cool?</h2><p>It's cool because a lot of the web runs on Linux, but many of us develop on Windows because the business runs on the Windows platform. This means that the dev tools you have installed to run your build and test your application are the Windows versions.</p><p>It might not seem like a big deal, but it's definitely a discrepancy. How are you expected to catch Linux issues before you deploy if you're running Windows? The WSL, that's how.</p><h2>Isn't this just CygWin?</h2><p>No, it's different.</p><p>According to the <a href="https://www.cygwin.com/" target="_blank" rel="noopener">CygWin homepage</a></p><blockquote><p>Cygwin is:</p><ul><li>a large collection of GNU and Open Source tools which provide functionality similar to a Linux distribution on Windows.</li><li>a DLL (cygwin1.dll) which provides substantial POSIX API functionality.</li></ul></blockquote><p>WSL, is a layer inside of Windows that allows actual Linux distributions to run against. Microsoft is providing the foundation for Linux distributions to build upon, and keeping their hands out of the tooling itself.</p><p>When you're using CygWin, you're not using a Linux distribution. You're using CygWin. With WSL, you're not using any Linux distributions unless you install them on top of the WSL. Once you do, you're using the tooling provided and build <em>for that Linux distribution</em>.</p><h2>Isn't this just Bash for Windows 10?</h2><p>No, it's also different.</p><p>Although I won't get into the weeds with it, Bash for Windows 10 was something of a precursor to the Ubuntu distribution that is in the Windows Store. Think of it as an Ubuntu for Windows preview.</p><p>Now, we're not limited to just Bash on Ubuntu. We can install OpenSUSE and run bash on that, and eventually Fedora, and probably other flavours of Linux as time goes on. So you can run two different or three different versions of Linux against the Windows filesystem at the same time, without needing a bunch of VMs running.</p><h2>Why don't I just run Linux?</h2><p>You totally can, this doesn't change that.</p><p>This is a dev tool, first and foremost. It's meant to (IMHO) provide developers a easier way to run Linux tools on Windows, with the resource boundaries and extra resource consumption of a virutal machine.</p><p>For example, if you're running Apache on your Linux-based web server, you no longer have to run Windows-based Apache. Rather, you can install the Linux version of Apache on Ubunut or whatever, adn directly against your Windows filesystem. No VM to prep, or system boundaries to cross. Just install and run it.</p><h2>How do I start?</h2><p>You can start by <a href="https://msdn.microsoft.com/en-us/commandline/wsl/install_guide" target="_blank" rel="noopener">installing the WSL on your Windows 10 machine</a>.</p><p>The Windows Store animation I showed at the beginning of this post is using an <a href="https://insider.windows.com/en-us/" target="_blank" rel="noopener">Insiders Build</a> of Fall Creators update for Windows 10. You can join the insiders program yourself learn about that <a href="https://insider.windows.com/en-us/" target="_blank" rel="noopener">here</a>.</p><p>Until the Fall Creators update, you can still start tinkering with Bash on Ubuntu for Windows 10 by following the <a href="https://msdn.microsoft.com/en-us/commandline/wsl/install_guide" target="_blank" rel="noopener">install instructions</a> provided earlier.</p><h2>Anything else?</h2><p>Yeah.</p><p>They are finally fixing the console window in Windows, so that's a thing too. Read about it on <a href="https://blogs.msdn.microsoft.com/commandline/" target="_blank" rel="noopener">the team's blog</a>.</p><hr><h2>Resources</h2><ul><li><a href="https://blogs.msdn.microsoft.com/commandline/" target="_blank" rel="noopener">Windows Command Line Tools Blog</a></li><li><a href="https://msdn.microsoft.com/en-us/commandline/wsl/install_guide" target="_blank" rel="noopener">Installing WSL Instructions</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      With the Fall Creators update of Windows 10, you can go to the Windows Store and install Linux. Yeah, that&#39;s a thing now and it&#39;s pretty cool.
+    
+    </summary>
+    
+      <category term="web" scheme="https://westerndevs.com/categories/web/"/>
+    
+    
+      <category term="microsoft-edge" scheme="https://westerndevs.com/tags/microsoft-edge/"/>
+    
+      <category term="f12" scheme="https://westerndevs.com/tags/f12/"/>
+    
+      <category term="linux" scheme="https://westerndevs.com/tags/linux/"/>
+    
+      <category term="windows subsystem for linux" scheme="https://westerndevs.com/tags/windows-subsystem-for-linux/"/>
+    
+      <category term="wsl" scheme="https://westerndevs.com/tags/wsl/"/>
+    
+  </entry>
+  
+  <entry>
+    <title type="html">Sonar, the Linter I Never Knew I Wanted</title>
+    <link href="https://westerndevs.com/web/websummit-sonar/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/web/websummit-sonar/</id>
+    <published>2017-09-19T22:35:00.000Z</published>
+    <updated>2020-11-06T00:19:55.666Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p><em>This is part of a series of posts capturing the highlights from my experience at the <a href="https://summit.microsoftedge.com/" target="_blank" rel="noopener">Microsoft Edge Web Summit 2017</a></em></p><p><img src="https://davidwesst.blob.core.windows.net/blog/websummit-sonar/sonar-bttf.png" alt="Nellie the Narwhal in the Back to the Future DeLorean"></p><p>Meet Nellie the Narwhal. Nellie is the official mascot for <a href="https://sonarwhal.com/" target="_blank" rel="noopener">Sonar</a>, the linting tool for the web. Nellie represents a tool that is long-overdue. It provides any web application the ability to verify they are meeting a high level of quality when it comes to their web applications, and catch any improvements to implement or common pitfalls to fix.</p><h2>What is Sonar?</h2><p>Sonar is a linting tool for the web. Plain and simple.</p><p>It provides command line linting tool, along with some rules, that prevent developers from making some common mistakes or pitfalls with their web applications. It covers things like security, accessbility, and progressive web applications, to name a few.</p><p>You can also create your own rules for the linter, allowing you to extend the tool to check your solutions for business specific requirements.</p><p>Oh, and it's been <a href="https://js.foundation/announcements/2017/06/22/sonar-js-foundation-welcomes-newest-project" target="_blank" rel="noopener">donated to the JS Foundation</a>, where Microsoft continues to contribute to it.</p><h2>Why do you want this?</h2><p>Because of devops, that's why.</p><p>This is a command line tool that can break a build if your site doesn't meet specific requirements. Personally, I'm happy about the security and accessiblity rules they provide, but being that <a href="http://www.westerndevs.com/web/websummit-pwa/" target="_blank" rel="noopener">I'm pretty focused on PWAs</a>, I'm sure that Sonar is going to help me write better PWAs than I would have done learning on my own.</p><p>Personally, I'm looking forward to breaking a build because I forgot to implement some accessibility rules. It will help me and my team learn some of these optimizations to make our web projects work best for everyone on any device.</p><h2>How can I start using it?</h2><p><img src="https://davidwesst.blob.core.windows.net/blog/websummit-sonar/sonar-in-action.gif" alt="Sonar running against WesternDevs.com showing lots of issues"></p><p>It's pretty easy: just install, initialize, and run it.</p><p>As you can see, there is work for us to do if we want to bring our blog up to the recommended specification provided by Sonar.</p><p>If you're looking to set a bar of quality, whether it be the recommended standard or just your own set of standards, Sonar is the tool that can make that happen.</p><hr><h2>Resources</h2><ul><li><a href="https://sonarwhal.com/" target="_blank" rel="noopener">Sonar</a></li><li><a href="https://js.foundation/" target="_blank" rel="noopener">JS Foundation</a></li></ul><h2>Image Credit</h2><ul><li><a href="https://github.com/sonarwhal/nellie" target="_blank" rel="noopener">Nellie's Photo Album | Back to the Future</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      Meet Nellie the Narwhal, the official mascot for Sonar, the linting tool for the web. Nellie represents a tool that is long-overdue. It provides any web application the ability to verify they are meeting a high level of quality when it comes to their web applications, and not miss any common mistakes.
+    
+    </summary>
+    
+      <category term="web" scheme="https://westerndevs.com/categories/web/"/>
+    
+    
+      <category term="devops" scheme="https://westerndevs.com/tags/devops/"/>
+    
+      <category term="microsoft-edge" scheme="https://westerndevs.com/tags/microsoft-edge/"/>
+    
+      <category term="sonar" scheme="https://westerndevs.com/tags/sonar/"/>
+    
+      <category term="accessibility" scheme="https://westerndevs.com/tags/accessibility/"/>
+    
+  </entry>
+  
+  <entry>
+    <title type="html">Service Workers and PWAs are Super Cool</title>
+    <link href="https://westerndevs.com/web/websummit-pwa/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/web/websummit-pwa/</id>
+    <published>2017-09-18T23:35:00.000Z</published>
+    <updated>2020-11-06T00:19:55.666Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p><em>This is part of a series of posts capturing the highlights from my experience at the <a href="https://summit.microsoftedge.com/" target="_blank" rel="noopener">Microsoft Edge Web Summit 2017</a></em></p><p>One of the core items highlighted by the Microsoft Edge team, along with many others who were just web professionals, was the importance of Progressive Web Apps (PWAs). I started out thinking they were something that <em>could</em> be interesting one day, but left the conference convinced that this will change the way we think of the web.</p><h2>What is a PWA?</h2><p><img src="https://davidwesst.blob.core.windows.net/blog/websummit-pwa/pwa-logo.svg" alt="PWA Logo from diekus.net/logo-pwinter"></p><p><a href="https://developers.google.com/web/progressive-web-apps/" target="_blank" rel="noopener">Google has been talking about PWAs</a> for a while now, but in my words they are web applications that use a progressive enhancement design strategy to add device native features, when available.</p><p>So, it's just a web app with some fancy bells and whistles, like offline loading once the site has been downloaded once and native device API access, like camera access or push notifications straight to the device.</p><p>If it sounds like regular installed application rather than a web application, then you're understanding this correctly.</p><p>PWAs <em>could</em> be the next wave of &quot;apps&quot; for our devices, but they won't need a store front. Rather, the user can just navigate to the site and &quot;install&quot; the site, which can be cached for offline usage amongst other things.</p><h2>What makes them super cool?</h2><p>Outside of the coolness of extending the reach of the web into offline world, it's also built on a set of open web standards.</p><p>Standards give developers APIs to use across platforms, but they also give the platform holders something common to build against. Both Windows and Android have big plans for PWAs, giving web developers a whole new opportunity to use our existing skills to deliver great software.</p><p>Just to be clear, software that can be offline and installed natively, using web development tools and skills.</p><p>That <em>is</em> super cool.</p><h2>So, where do I start?</h2><p>With the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API" target="_blank" rel="noopener">Service Worker API</a>.</p><p>This is the first step in building a great PWA, as it allows you to &quot;install&quot; the web application on the device. Once you have it installed, then you can worry about the rest of the functionality and how it should work.</p><p>On top of that, start looking at some of the new APIs that have been coming out of the W3C like the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Push_API" target="_blank" rel="noopener">Push API</a>, the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Payment_Request_API" target="_blank" rel="noopener">Payment Request API</a>, and <a href="https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API" target="_blank" rel="noopener">IndexedDB</a>.</p><p>This should give you a good idea of what can do with a PWA rather than a regular old web application.</p>]]></content>
+    
+    <summary type="html">
+    
+      One of the core items highlighted by the Microsoft Edge team, along with many others who were just web professionals, was the importance of Progressive Web Apps (PWAs). I started out thinking they were something that could be interesting one day, but left the conference convinced that this will change the way we think of the web.
+    
+    </summary>
+    
+      <category term="web" scheme="https://westerndevs.com/categories/web/"/>
+    
+    
+      <category term="javascript" scheme="https://westerndevs.com/tags/javascript/"/>
+    
+      <category term="microsoft-edge" scheme="https://westerndevs.com/tags/microsoft-edge/"/>
+    
+      <category term="service-workers" scheme="https://westerndevs.com/tags/service-workers/"/>
+    
+      <category term="progressive-web-apps" scheme="https://westerndevs.com/tags/progressive-web-apps/"/>
+    
+  </entry>
+  
+  <entry>
+    <title type="html">Posh-GVM, the Groovy Version Manager for Powershell</title>
+    <link href="https://westerndevs.com/java/posh-gvm/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/java/posh-gvm/</id>
+    <published>2017-08-17T14:00:00.000Z</published>
+    <updated>2020-11-06T00:19:55.666Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>Here's another dev thing I use: <a href="https://github.com/flofreud/posh-gvm" target="_blank" rel="noopener">Posh-GVM</a>, a Groovy version manager that works for Windows.</p><p>You remember Groovy right? The language that was all the rage at some point with Groovy on Grails?</p><p>All kidding aside, in my adventures as an enterprise JDK developer, I've come across a number of Groovy on Grails applications. These projects tend to span multiple versions of Grails, ranging from 2.3.x which works on older versions of Tomcat, upto 3.2.x for of of our newer solutions. Instead of manually configuring my system for each project, I just use Posh-GVM as recommended by the folks who brought you <a href="http://sdkman.io/" target="_blank" rel="noopener">SDKMan for Unix systems</a>.</p><p><img src="https://davidwesst.blob.core.windows.net/blog/posh-gvm/poshgvm-example.gif" alt="Posh-GVM in action" title="Posh-GVM in action in a Powershell terminal"></p><h2>What does it do?</h2><p>It handles switching between versions of Groovy, Grails, and a bunch more technologies without having to fuss with configuring your system. It switch between versions of Grails, Groovy, Gradle, Koitlin, and more with <code>gvm use &lt;candidate&gt; &lt;version&gt;</code> where candidate is the technology and version is...well, the version.</p><h2>Using Posh-GVM</h2><p>Posh-GVM is a Windows port to <a href="http://sdkman.io/" target="_blank" rel="noopener">SDKMan</a> formerly known as the GVM, or Groovy eVironment Manager. Instead of requiring a Unix system to run, it requires Powershell.</p><p>To install it, I followed the README instructions to install it via <a href="https://github.com/flofreud/posh-gvm#via-short-script" target="_blank" rel="noopener">a short script</a>. I tried using the PsGet method described, but didn't have any luck finding the module. More on that later.</p><p>Once installed (and added to your profile) you can run <code>gvm help</code> in the Powershell terminal and you should see a lovely help menu with all the goodies you can install and switch your fingertips.</p><h3>Won't these conflict with the versions I already have installed?</h3><p>No. It installs the tools in a different directory, so you should be good.</p><p>That being said, you probably don't need to have a local version of Grails or whatever tool installed anymore because Posh-GVM will handle that for you.</p><h2>What makes it cool?</h2><p>It's cool because it works on Windows, without the need for Bash or Cygwin.</p><p>The fact that it covers a number of tools, including Grails, Groovy, and Gradle (and many more) is a pretty nifty too.</p><h2>What are the drawbacks?</h2><p>There are two that stand out to me, but nothing that has made me abandon the tool for something else.</p><h3>Java not included</h3><p>The first being that it doesn't support Java like it's Unix couterpart. My guess is that Java is something special when it comes to Unix VS Windows and was eliminated for that reason. We have <a href="http://www.westerndevs.com/java/jabba/" target="_blank" rel="noopener" title="My post on Jabba, the Java version manager for everyone">Jabba</a> for that on Windows, but it would be nice to have all the pieces in to the puzzle in a single tool.</p><h3>Lack of Project Activity</h3><p>The second is the lack of updates.</p><p>As of this writing, it hasn't been updated since <a href="https://github.com/flofreud/posh-gvm/commit/2145f8a65c5bf317e96664ebb03bf84c569ba770" target="_blank" rel="noopener">December 2015</a> while SDKMan has continued to be actively developed.</p><p>This isn't necessarily a bad thing, as there haven't been any pull requests in quite some time either. It's just something I note as a risk when I adopt an open source tool.</p><hr><p>Ultimately, I think this tool is a great solution for people that need to use any of these tools, but don't want to couple themselves to Cygwin or Bash for Windows. It has solved my Grails, Groovy, and Gradle versioning issues on Windows, and that is more than enough to make it a win in my books.</p>]]></content>
+    
+    <summary type="html">
+    
+      Here&#39;s another dev thing I use: Posh-GVM, a Groovy version manager that works for Windows.
+    
+    </summary>
+    
+      <category term="java" scheme="https://westerndevs.com/categories/java/"/>
+    
+    
+      <category term="powershell" scheme="https://westerndevs.com/tags/powershell/"/>
+    
+      <category term="version manager" scheme="https://westerndevs.com/tags/version-manager/"/>
+    
+      <category term="grails" scheme="https://westerndevs.com/tags/grails/"/>
+    
+      <category term="groovy" scheme="https://westerndevs.com/tags/groovy/"/>
+    
+      <category term="gradle" scheme="https://westerndevs.com/tags/gradle/"/>
+    
+  </entry>
+  
+  <entry>
+    <title type="html">Jabba, the Java Version Manager for Everyone</title>
+    <link href="https://westerndevs.com/java/jabba/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/java/jabba/</id>
+    <published>2017-08-16T13:35:00.000Z</published>
+    <updated>2020-11-06T00:19:55.666Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>Here's another dev thing I use: <a href="https://github.com/shyiko/jabba" target="_blank" rel="noopener">Jabba</a>, a cross-platform Java version manager that works for Windows.</p><p>Over the the past few years, I've been doing JDK-based development in an enterprise Windows environment. In that time, I've continually struggled with being able to easily switch between versions of Java on my machine, depending on the project. We have legacy application that run old Java, and modern applications that run newer versions of Java. Being able to switch versions, without having to manually change my environment variables or handle mula</p><p>Now, that is no longer a problem thanks to my good friend, Jabba.</p><p><img src="https://davidwesst.blob.core.windows.net/blog/jabba/jabba-example.gif" alt="Jabba in Action" title="Jabba in Action in a Powershell terminal"></p><h2>What does it do?</h2><p>Exactly what you think: it changes the version of Java you're running on the fly. No need to install anything or worry about conflicting versions, or searching out and installing the specific Java version you need for your project.</p><h2>Using Jabba</h2><p>First thing is installing Jabba, which is a breeze thanks to the following the <a href="https://github.com/shyiko/jabba#windows-10" target="_blank" rel="noopener">instructions provided</a> in the repository README. After that, I included it in my Powershell profile so it initializes it when I start Powershell.</p><figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Jabba</span><br><span class="line">if (Test-Path "H:<span class="symbol">\U</span>sers<span class="symbol">\d</span>w<span class="symbol">\.</span>jabba<span class="symbol">\j</span>abba.ps1") </span><br><span class="line">&#123; </span><br><span class="line">   . "$&#123;HOME&#125;<span class="symbol">\.</span>jabba<span class="symbol">\j</span>abba.ps1" </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>To test it out, I run a <code>refreshenv</code> command in the Powershell window, and run <code>jabba -h</code> to see if I get the help file.The commands are pretty straightforward. You can list all the available versions, using <code>jabba ls-remote</code>, install the one(s) you need need with <code>jabba install my-version</code> and you're good to go to run that version of Java.</p><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">H</span>:\src</span><br><span class="line">&gt; jabba</span><br><span class="line">Java <span class="keyword">Version</span> Manager (https:<span class="comment">//github.com/shyiko/jabba).</span></span><br><span class="line"></span><br><span class="line">Usage:</span><br><span class="line">  jabba [flags]</span><br><span class="line">  jabba [command]</span><br><span class="line"></span><br><span class="line">Available Commands:</span><br><span class="line">  install     Download and install JDK</span><br><span class="line">  uninstall   Uninstall JDK</span><br><span class="line">  link        Resolve or <span class="keyword">update</span> a link</span><br><span class="line">  unlink      Delete a link</span><br><span class="line">  <span class="keyword">use</span>         Modify PATH &amp; JAVA_HOME to <span class="keyword">use</span> specific JDK</span><br><span class="line">  current     <span class="keyword">Display</span> currently '<span class="keyword">use</span>'<span class="keyword">ed</span> <span class="keyword">version</span></span><br><span class="line">  <span class="keyword">ls</span>          <span class="keyword">List</span> installed versions</span><br><span class="line">  <span class="keyword">ls</span>-remote   <span class="keyword">List</span> remote versions available <span class="keyword">for</span> install</span><br><span class="line">  deactivate  Undo effects of `jabba` <span class="keyword">on</span> current <span class="keyword">shell</span></span><br><span class="line">  alias       Resolve or <span class="keyword">update</span> <span class="keyword">an</span> alias</span><br><span class="line">  unalias     Delete <span class="keyword">an</span> alias</span><br><span class="line">  <span class="keyword">which</span>       <span class="keyword">Display</span> path to installed JDK</span><br><span class="line"></span><br><span class="line">Flags:</span><br><span class="line">      --<span class="keyword">version</span>   <span class="keyword">version</span> of jabba</span><br><span class="line"></span><br><span class="line"><span class="keyword">Use</span> <span class="string">"jabba [command] --help"</span> <span class="keyword">for</span> <span class="keyword">more</span> information <span class="keyword">about</span> a command.</span><br></pre></td></tr></table></figure><p>And now you're good to go with whatever version of Java your current command line needs.</p><h3>Won't this conflict with my installed version of Java?</h3><p>Nope. The <a href="https://github.com/shyiko/jabba#faq" target="_blank" rel="noopener">FAQ</a> section of the README covers that.</p><p>In my case, I uninstalled all the different JDK's I had installed to ensure there were no conflicts, and I like to remove tools I'm no longer needing on my machine.</p><h3>But what about my really old legacy JDK on my machine?</h3><p>If you check the <a href="https://github.com/shyiko/jabba#usage" target="_blank" rel="noopener">usage</a> section of the README, you can use Jabba to install JDKs that are hosted in a custom spot.</p><p>In the case of the depracated versions of Java that are difficult to come by, I use the Zulu or OpenJDK versions that are available through Jabba. You can see them when you run <code>jabba ls-remote</code>. It's not an exact replica of the Oracle JDK, but I haven't hit any issues in my legacy enterprise applications.</p><h2>What makes it cool?</h2><p>My prefernce for any dev tool is to have it available through the command line.</p><p>When it comes to Java and Windows, the command line tools out there for Java are a bit limited. The standard answer seems to be to use Powershell to update your environment variables, but that doesn't solve the need to find and install the version I need.</p><p>Jabba solves that for me.</p><p>Plus, since it's written in Go, it works on OSX and Linux, so anyone can use the tool.</p><p>And just to put some more icing on the cake, the solo developer building Jabba was kind enough to implement <a href="https://github.com/shyiko/jabba/issues/67#issuecomment-300869749" target="_blank" rel="noopener">a feature I supported</a> on over a weekend which made the tool work even better for me at work and at home. So, thank you <a href="https://github.com/shyiko" target="_blank" rel="noopener">Stanley Shyiko</a>.</p><h2>What are the drawbacks?</h2><p>I haven't hit any so far, which is pretty impressive considering I use this tools almost every day.</p><hr><p>If you're an enterprise Java developer that needs to support legacy applications, I would strongly suggest taking a look at Jabba. With <a href="https://support.microsoft.com/en-ca/help/13853/windows-lifecycle-fact-sheet" target="_blank" rel="noopener">Windows 7 extended support ending</a> in the next few years, your enterprise will be looking to move you to a new OS, Windows 10 or otherwise.</p><p>With Jabba, you'll at least have a tool that works regardless of how your development machine changes.</p>]]></content>
+    
+    <summary type="html">
+    
+      Here&#39;s another dev thing I use: Jabba, a cross-platform Java version manager that works for Windows.
+    
+    </summary>
+    
+      <category term="java" scheme="https://westerndevs.com/categories/java/"/>
+    
+    
+      <category term="powershell" scheme="https://westerndevs.com/tags/powershell/"/>
+    
+      <category term="version manager" scheme="https://westerndevs.com/tags/version-manager/"/>
+    
+      <category term="java" scheme="https://westerndevs.com/tags/java/"/>
+    
+      <category term="jabba" scheme="https://westerndevs.com/tags/jabba/"/>
+    
+  </entry>
+  
+  <entry>
+    <title type="html">NVS, the Node Version Manger for Everyone</title>
+    <link href="https://westerndevs.com/javascript/nvs/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/javascript/nvs/</id>
+    <published>2017-08-15T16:35:00.000Z</published>
+    <updated>2020-11-06T00:19:55.666Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>Here's another dev thing I use: <a href="https://github.com/jasongin/nvs" target="_blank" rel="noopener">NVS</a>, a cross-platform Node version manager that works for Windows.</p><p>It's no secret that I like JavaScript, which includes <a href="nodejs.org/">Node</a>. The history of Node releases has been fast, furious, and <a href="https://stackoverflow.com/questions/27309412/what-is-the-difference-between-node-js-and-io-js" target="_blank" rel="noopener">somewhat turbulent</a> which led to a lot of different versions of Node being released. Manually managing the version of Node in you development enviornment is painful, just like it is for Java. For the Linux and Unix people, there was <a href="https://github.com/creationix/nvm" target="_blank" rel="noopener">nvm</a> and <a href="https://github.com/tj/n" target="_blank" rel="noopener">n</a>, but nothing really comparable for Windows.</p><p>Until NVS that is.</p><h2>What does it do?</h2><p>The Node Version Switcher switches versions of Node in environment. So, if you need to jump from 4.8.4 to 6.11.1, no problem. Just a quick <code>nvs add 6.11.1</code> and <code>nvs use 6.11.1</code> and you're ready to go.</p><p>No downloading binaries. No changing environment variables.</p><h2>Using NVS</h2><p>Although supported on <a href="https://github.com/jasongin/nvs#mac-linux" target="_blank" rel="noopener">OSX and Linux</a>, I'm going to focus on Windows as that is the environment where I use it the most.</p><p>You have two different installtion options on Windows, the first being a traditional installer file that you can download from <a href="https://github.com/jasongin/nvs/releases" target="_blank" rel="noopener">the release page</a> for the project.</p><p>The second is using <a href="https://github.com/jasongin/nvs/blob/master/doc/SETUP.md#manual-setup---powershell" target="_blank" rel="noopener">Powershell</a> or the good old fashioned <a href="https://github.com/jasongin/nvs/blob/master/doc/SETUP.md#manual-setup---command-prompt" target="_blank" rel="noopener">command line</a>, both of which are described on the <a href="https://github.com/jasongin/nvs/blob/master/doc/SETUP.md" target="_blank" rel="noopener">setup page</a> for the project.</p><p>NVS even supported Bash for Windows, which is pretty great for those Linux-y Windows people, although it requires a few manual configuration steps.</p><p>Once you get things installed, you can run <code>nvs</code> and go through the interactive menu goodness to get your favourite flavour of Node installed.</p><p><img src="https://davidwesst.blob.core.windows.net/blog/nvs/nvs-menu.gif" alt="NVS Interactive Console Menu" title="NVS Consle Menu in Action"></p><p>I really dig this interactive command line menu, which was created by the NVS author for NVS, and eventually turned into it's own library called <a href="https://github.com/jasongin/console-menu" target="_blank" rel="noopener">console-menu</a>. But that is post for another time.</p><h3>Won't this conflict with my installed version of Node?</h3><p>Not from my experience.</p><p>When I started with NVS, I had a version of Node installed, but I ended up uninstalling just to simplify my development environment. I kept forgetting that I had a base installation of Node installed. This confusion would result in me running <code>node --version</code> only to get a conflicting version number than the one I would see in my Windows Application list, and get me triaging an issue that didn't exist.</p><p>Plus, NVS provides a feature to set a default version of using the <code>nvs link</code> command.</p><h3>What about the global packages I've installed?</h3><p>In the case where you install a package globally using a certain version of Node, when you switch to a different version, you could face some problems. More specifically, around code features available in Node based on what version of Node you've installed, or around the nested dependencies that get installed as part of a package your project needs.</p><p>Not an issue, as NVS provides the <code>migrate</code> command to move packages, global or otherwise from one version of Node to another.</p><h3>But what about my weird, custom Node versions?</h3><p>No issue, because you can point to whatever directory you want as source for Node binaries using the <a href="https://github.com/jasongin/nvs/blob/master/doc/ALIAS.md#aliasing-directories" target="_blank" rel="noopener">aliasing capabilities</a>.</p><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">C:<span class="tag">\<span class="name">Users</span></span><span class="tag">\<span class="name">dw</span></span><span class="tag">\<span class="name">src</span></span><span class="tag">\<span class="name">_</span></span>scratch</span><br><span class="line">&gt; node --version</span><br><span class="line">v8.1.4</span><br><span class="line"></span><br><span class="line">C:<span class="tag">\<span class="name">Users</span></span><span class="tag">\<span class="name">dw</span></span><span class="tag">\<span class="name">src</span></span><span class="tag">\<span class="name">_</span></span>scratch</span><br><span class="line">&gt; nvs use chakracore/8.1.2</span><br><span class="line">PATH -= <span class="formula">$env:LOCALAPPDATA<span class="tag">\<span class="name">nvs</span></span><span class="tag">\<span class="name">chakracore</span></span><span class="tag">\</span>8.1.4<span class="tag">\<span class="name">x</span></span>64</span></span><br><span class="line"><span class="formula">PATH += $</span>env:LOCALAPPDATA<span class="tag">\<span class="name">nvs</span></span><span class="tag">\<span class="name">chakracore</span></span><span class="tag">\</span>8.1.2<span class="tag">\<span class="name">x</span></span>64</span><br><span class="line"></span><br><span class="line">C:<span class="tag">\<span class="name">Users</span></span><span class="tag">\<span class="name">dw</span></span><span class="tag">\<span class="name">src</span></span><span class="tag">\<span class="name">_</span></span>scratch</span><br><span class="line">&gt; node --version</span><br><span class="line">v8.1.2</span><br></pre></td></tr></table></figure><h2>What makes it cool?</h2><p>It's cross-platform, so that's pretty awesome. But, there's more stuff that I haven't touched on in this post.</p><p>For example, there is bundled integration with <a href="https://github.com/jasongin/nvs#vs-code-support" target="_blank" rel="noopener">Visual Studio Code</a> which is a huge cross-platform bonus for me. VS Code is my editor of choice, and considering that it too is cross-platform, this is pretty great.</p><p>Other coolness to note would be things like <a href="https://github.com/jasongin/nvs#aliases" target="_blank" rel="noopener">aliasing</a> and <a href="">automatic directory swtiching</a>(https://github.com/jasongin/nvs#automatic-switching-per-directory). Not to mention that it supports <a href="https://github.com/nodejs/node-chakracore">ChrakraCore</a>, making it easy to turn it on for all your <a href="https://github.com/nodejs/node-chakracore#time-travel-debugging" target="_blank" rel="noopener">Time Travel Debugging</a> needs.</p><p>All of that is icing on a delicious dev tool cake.</p><h2>What are the drawbacks?</h2><p>Honestly, I'm not sure. I haven't found any so far, so that counts for something.</p><hr><p>At the end of the day NVS does the job, and it does the job well. Plus, it comes with a bunch of cool extras that can make your Node development experience even more smooth.</p>]]></content>
+    
+    <summary type="html">
+    
+      Here&#39;s another dev thing I use: NVS, or the Node Version Switcher. It works on Windows and it&#39;s great.
+    
+    </summary>
+    
+      <category term="javascript" scheme="https://westerndevs.com/categories/javascript/"/>
+    
+    
+      <category term="javascript" scheme="https://westerndevs.com/tags/javascript/"/>
+    
+      <category term="node" scheme="https://westerndevs.com/tags/node/"/>
+    
+      <category term="powershell" scheme="https://westerndevs.com/tags/powershell/"/>
+    
+      <category term="nvs" scheme="https://westerndevs.com/tags/nvs/"/>
+    
+      <category term="version manager" scheme="https://westerndevs.com/tags/version-manager/"/>
+    
+  </entry>
+  
+  <entry>
+    <title type="html">IstanbulJS Code Coverage Reports in VSTS</title>
+    <link href="https://westerndevs.com/development/istanbuljs-in-vsts/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/development/istanbuljs-in-vsts/</id>
+    <published>2017-08-03T16:10:00.000Z</published>
+    <updated>2020-11-06T00:19:55.666Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>Here's another dev thing I use: <a href="https://istanbul.js.org/" target="_blank" rel="noopener">IstanbulJS</a> in <a href="https://www.visualstudio.com/team-services/continuous-integration/" target="_blank" rel="noopener">Visual Studio Team Services</a> (VSTS) builds and display the test reports as part of the build reports. When a build completes, I get a report like this one.</p><p><img src="https://davidwesst.blob.core.windows.net/blog/istanbuljs-in-vsts/vsts-code-coverage-report.gif" alt="VSTS Build Report with an IstanbulJS code coverage report" title="VSTS Build Report with an IstanbulJS code coverage report"></p><p>I can browse the report right in the build report, and drill into the results for each file.</p><p>This is how I did it.</p><h2>Step 0: Assumptions</h2><p>I'm not going to go into the details on how to setup IstanbulJS or a test suite, but you'll need a project with tests and uses the IstanbulJS command line tool, <a href="https://github.com/istanbuljs/nyc" target="_blank" rel="noopener">NYC</a>, to run them. My suggestion is to use <a href="https://mochajs.org/" target="_blank" rel="noopener">Mocha</a> as <a href="http://www.westerndevs.com/development/mocha-in-vsts/" target="_blank" rel="noopener">the test report can be integreated into VSTS as well</a>.</p><p>You'll also need a VSTS account, which is free and worth the effort.</p><h2>Step 1: Script Your Command</h2><p>The goal here is to be able to run a script command that will execute the appropriate code coverage command, complete with parameters, easily. I use <a href="https://docs.npmjs.com/misc/scripts" target="_blank" rel="noopener">npm scripts</a> for this tutorial, but you can use whatever scripting tool you'd like.</p><p>In my case, I like to run the code coverage report everytime I run my Mocha tests. So, I've updated my <code>npm test</code> command in <em>package.json</em> to use NYC. It looks like:</p><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">  <span class="string">"test"</span>: <span class="string">"./node_modules/.bin/nyc ./node_modules/.bin/mocha --recursive --reporter=mocha-multi-reporters "</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>Note, that I don't use globally installed packages. I only use the local ones installed in my <em>node_modules</em> folder.</p><h2>Step 2: Configuring NYC</h2><p>I've configured it in the <em>package.json</em> file with an <code>&quot;nyc&quot;</code> configuration object. Mine looks like this:</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">"nyc":</span> <span class="string">&#123;</span></span><br><span class="line">  <span class="attr">"check-coverage":</span> <span class="literal">true</span><span class="string">,</span></span><br><span class="line">  <span class="attr">"per-file":</span> <span class="literal">true</span><span class="string">,</span></span><br><span class="line">  <span class="attr">"lines":</span> <span class="number">99</span><span class="string">,</span></span><br><span class="line">  <span class="attr">"statements":</span> <span class="number">99</span><span class="string">,</span></span><br><span class="line">  <span class="attr">"functions":</span> <span class="number">99</span><span class="string">,</span></span><br><span class="line">  <span class="attr">"branches":</span> <span class="number">99</span><span class="string">,</span></span><br><span class="line">  <span class="attr">"include":</span> <span class="string">[</span></span><br><span class="line">    <span class="string">"src/**/*.js"</span></span><br><span class="line">  <span class="string">],</span></span><br><span class="line">  <span class="attr">"reporter":</span> <span class="string">[</span></span><br><span class="line">    <span class="string">"text"</span><span class="string">,</span></span><br><span class="line">    <span class="string">"cobertura"</span><span class="string">,</span></span><br><span class="line">    <span class="string">"html"</span></span><br><span class="line">  <span class="string">],</span></span><br><span class="line">  <span class="attr">"report-dir":</span> <span class="string">"./.test_output/coverage"</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure><p>The part of the configuration we care about for this tutorial are the <code>&quot;reporter&quot;</code> and <code>&quot;report-dir&quot;</code> properties. The rest of the configuration is out of scope for this post, but you can learn more in the <a href="https://github.com/istanbuljs/nyc#configuring-nyc" target="_blank" rel="noopener">nyc README configuration section</a>.</p><p>For <code>&quot;reporters&quot;</code>, you can see that we are using three different reporters. The <em>text</em> reporter is the one that displays in the terminal, the <em>cobertura</em> reporter generates an XML file with all of the results which we'll need, and the <em>html</em> reporter generates the HTML files you saw me browsing at the beginning of this post.</p><p>At this point, when we run <code>npm test</code> we get run our tests and generate the code coverage assets we want.</p><h2>Step 3: Post-Processing the HTML Report</h2><p>This one isn't obvious, but I'm going to save you the trouble of discovering it for yourself.</p><p>That being said, if you don't mind the plain text reports sans-CSS, you can skip this step altogether.</p><p>Our HTML report is going to get displayed in VSTS. Remember, the HTML report isn't just a single file, it's a bunch of HTML files complete with CSS for styling. VSTS doesn't natively load up the extra CSS files, which means we'll need to embed the CSS right into the files themselves to create a copy of the report that'll look good in VSTS.</p><p>Thanks to <a href="http://anthonychu.ca/post/css-styles-vsts-code-coverage/" target="_blank" rel="noopener">this post from Anthony Chu</a>, I had a headstart on figuring out how to solve this issue. The plan is to run a post-processing script on the <em>posttest</em> script command in npm. I called my script file <em>process-coverage-report.js</em> and updated the scripts section of my <em>package.json</em> to look like this:</p><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">  <span class="string">"test"</span>: <span class="string">"./node_modules/.bin/nyc ./node_modules/.bin/mocha --recursive --reporter=mocha-multi-reporters "</span>,</span><br><span class="line">  <span class="string">"posttest"</span>: <span class="string">"node ./tools/process-coverage-report.js"</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure><p>The <em>posttest</em> script will everytime we run <code>npm test</code>. You can also call it directly by running <code>npm run posttest</code> but be sure to have test results for it to process.</p><p>I'll cut to the case, and just show you my post-processing code.</p><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">let fs = <span class="built_in">require</span>(<span class="string">"fs"</span>),</span><br><span class="line">    path = <span class="built_in">require</span>(<span class="string">"path"</span>),</span><br><span class="line">    inline = <span class="built_in">require</span>(<span class="string">"inline-css"</span>);</span><br><span class="line"></span><br><span class="line">const TEST_RESULTS_DIRECTORY = <span class="string">"./.test_output"</span>;</span><br><span class="line">const CODE_COVERAGE_DIRECTORY = <span class="string">"./.test_output/coverage"</span>;</span><br><span class="line"></span><br><span class="line">fs.readdir(CODE_COVERAGE_DIRECTORY, <span class="function"><span class="params">(err, files)</span>=&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(err) &#123; <span class="keyword">throw</span> <span class="keyword">new</span> Error(err); &#125;</span><br><span class="line"></span><br><span class="line">    let reports = files.filter(<span class="function"><span class="params">(report)</span>=&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> report.endsWith(<span class="string">".html"</span>);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    reports.forEach(<span class="function"><span class="params">(report)</span>=&gt;</span> &#123;</span><br><span class="line">        let filePath = path.join(CODE_COVERAGE_DIRECTORY, report);</span><br><span class="line">        let options = &#123; </span><br><span class="line">            url: <span class="string">"file://"</span> + path.resolve(filePath),</span><br><span class="line">            extraCss: <span class="string">".pad1 &#123; padding: 0; &#125;"</span></span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        fs.readFile(path.resolve(filePath), <span class="function"><span class="params">(err, data)</span>=&gt;</span> &#123;</span><br><span class="line">            inline(data, options)</span><br><span class="line">                .<span class="keyword">then</span>(<span class="function"><span class="params">(html)</span>=&gt;</span> &#123;</span><br><span class="line">                    let outputFile = path.join(TEST_RESULTS_DIRECTORY, report);</span><br><span class="line">                    fs.writeFile(outputFile, html, <span class="function"><span class="params">(err)</span>=&gt;</span> &#123;</span><br><span class="line">                        <span class="keyword">if</span>(err) &#123; <span class="keyword">throw</span> err; &#125;</span><br><span class="line">                    &#125;);</span><br><span class="line">                &#125;)</span><br><span class="line">                .<span class="keyword">catch</span>(<span class="function"><span class="params">(err)</span>=&gt;</span> &#123;</span><br><span class="line">                    <span class="built_in">console</span>.log(err);</span><br><span class="line">                &#125;);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>My build doesn't use a task runner like Gulp I settled on <a href="https://www.npmjs.com/package/inline-css" target="_blank" rel="noopener">inline-css</a> because I liked the API and it returned promises. If you're using Gulp or Grunt, there are some good options (<a href="https://www.npmjs.com/package/inline-css" target="_blank" rel="noopener">as suggested by Anthony</a>) for you to create a task to do this for you.</p><p>Now, when you run <code>npm test</code> you'll end up with an extra copy of the HTML report, where you have nothing but HTML files with CSS embedded in the files themselves.</p><h2>Step 4: Adding this to VSTS</h2><p>All you need to do here, is configure your build to use the new code coverage setup. We do that by adding the <em>Publish Code Coverage Results</em> task as a build step and configuring properly. Here's what my configuration looks like:</p><ul><li>Version:  1.*</li><li>Display Name: Publish Code Coverage Results | NYC</li><li>Code Coverage Tool: Cobertura</li><li>Summary File: $(System.DefaultWorkingDirectory)/.test_output/coverage/cobertura-coverage.xml</li><li>Report Directory: $(System.DefaultWorkingDirectory)/.test_output     |</li></ul><p>Your properties may vary, depending on how to configured NYC.</p><h2>Step 5: Done</h2><p>And now we code coverage reporting showing up in VSTS. Huzzah!</p><p>Happy code covering!</p>]]></content>
+    
+    <summary type="html">
+    
+      Here&#39;s another dev thing I use: IstanbulJS in Visual Studio Team Services (VSTS) builds and display the test reports as part of the build reports.
+    
+    </summary>
+    
+      <category term="development" scheme="https://westerndevs.com/categories/development/"/>
+    
+    
+      <category term="javascript" scheme="https://westerndevs.com/tags/javascript/"/>
+    
+      <category term="visual studio team services" scheme="https://westerndevs.com/tags/visual-studio-team-services/"/>
+    
+      <category term="testing" scheme="https://westerndevs.com/tags/testing/"/>
+    
+      <category term="istanbuljs" scheme="https://westerndevs.com/tags/istanbuljs/"/>
+    
+      <category term="nyc" scheme="https://westerndevs.com/tags/nyc/"/>
+    
+  </entry>
+  
+  <entry>
+    <title type="html">Mocha Test Reports in VSTS</title>
+    <link href="https://westerndevs.com/development/mocha-in-vsts/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/development/mocha-in-vsts/</id>
+    <published>2017-08-01T15:19:00.000Z</published>
+    <updated>2020-11-06T00:19:55.666Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>Here's another dev thing I use: <a href="https://mochajs.org/" target="_blank" rel="noopener">MochaJS</a> in <a href="https://www.visualstudio.com/team-services/continuous-integration/" target="_blank" rel="noopener">Visual Studio Team Services (VSTS) builds</a> and display the test reports as part of the build reports. See? Like this.</p><p><img src="https://davidwesst.blob.core.windows.net/blog/mocha-in-vsts/vsts-test-results-in-action.gif" alt="Mocha Test Report in VSTS" title="Screenshot of a MochaJS test report in VSTS"></p><p>This wasn't me trying to fit a square peg into a round hole. VSTS is exceptionally flexible and it comes bundled with all the pieces you need to do this out of the box. The key is making sure that we setup our test runner to produce the output VSTS needs.</p><h2>Step 0: Assumptions</h2><p>I'm not going to explain how to do this, but I'm going to assume you have a project with tests that use <a href="https://mochajs.org/" target="_blank" rel="noopener">MochaJS</a>. So, you can run <code>mocha</code> from the terminal and your tests run.</p><p>I'm also not going to explain that to use VSTS, you need a VSTS account. They are <a href="https://www.visualstudio.com/team-services/" target="_blank" rel="noopener">free to start</a> and you'll need one to make this work. It's worth the effort.</p><h2>Step 1: Script Your Test Command</h2><p>Personally, I use <a href="https://docs.npmjs.com/misc/scripts" target="_blank" rel="noopener">npm scripts</a> for this. I just figure out what my test command is, and then have the <code>npm test</code> script run that. In my project, I run the locally installed version of MochaJS and use the <code>recursive</code> flag.</p><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">./node_modules/.bin/mocha</span> <span class="params">--recursive</span></span><br></pre></td></tr></table></figure><p>In my <em>package.json</em> file, I have:</p><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"test"</span>: <span class="string">"./node_modules/.bin/mocha --recursive"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>You can just as easily use a Bash or Powershell script for this too if you're not a fan of npm scripts. But you should be.</p><h2>Step 2: Use the mocha-junit-reporter</h2><p>Woah, wait a minute? This is JavaScript not <em>Java</em>.</p><p>I know, but JUnit reports are a standard report format that is supported by VSTS. The key is making sure that our mocha test reports are being output into a format that VSTS can understand. VSTS does not care about your test report to standard out.</p><p>Mocha doesn't come bundled with a JUnit reporter, so I used <a href="https://github.com/michaelleeallen/mocha-junit-reporter" target="_blank" rel="noopener">mocha-junit-reporter</a> which outputs a <em>test-results.xml</em> file to the root project directory by default. I don't like the default, so I have it output to a directory of my choosing.</p><p>So, first we run: <code>npm install --save-dev mocha-junit-reporter</code></p><p>Then, we update our <code>npm test</code> command in <em>package.json</em> to</p><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"test"</span>: <span class="string">"./node_modules/.bin/mocha --recursive --reporter mocha-unit-reporter --reporter-options mochaFile=./test-output/test-results.xml"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>Don't forget to add test output directory to your <em>.gitignore</em> file.</p><h3>(OPTIONAL) Step 2a: Using Mutliple Reporters</h3><p>But now I can't see my tests in the terminal output!</p><p>I didn't like that either, so I fixed it by using another Mocha extension called <a href="https://github.com/stanleyhlng/mocha-multi-reporters" target="_blank" rel="noopener">mocha-multi-reporters</a>. It lets us define mutlple reporters for MochaJS and specify reporter parameters in a <em>config.json</em> file that we save in the project root.</p><p>First, install the tool: <code>npm install --save-dev mocha-multi-reporters</code>.</p><p>Then, we update our <code>npm test</code> command to</p><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"test"</span>: <span class="string">"./node_modules/.bin/mocha --recursive --reporter=mocha-multi-reporters"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>And finally, we add a <em>config.json</em> file to the project root. I'm using the spec and mocha-junit-reporter, which result in this <em>config.json</em>:</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"reporterEnabled"</span>: <span class="string">"spec,mocha-junit-reporter"</span>,</span><br><span class="line">    <span class="attr">"mochaJunitReporterReporterOptions"</span>: &#123;</span><br><span class="line">        <span class="attr">"mochaFile"</span>: <span class="string">"./.test_output/test-results.xml"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>It's not perfect, but it works well enough for my purposes.</p><h4>Gotcha! You should use Mocha-Multi</h4><p>I tried using <a href="https://github.com/glenjamin/mocha-multi" target="_blank" rel="noopener">mocha-multi</a> and I couldn't get it to work with the parameter for <a href="https://github.com/michaelleeallen/mocha-junit-reporter" target="_blank" rel="noopener">mocha-junit-reporter</a>.</p><h4>Gotcha! This produces an xunit.xml file in the root directory</h4><p>It's a <a href="https://github.com/stanleyhlng/mocha-multi-reporters/issues/35" target="_blank" rel="noopener" title="My bug report for the XUnit issue in mocha-multi-reporters">bug with mocha-multi-reporters</a> that I've reported. I'm hoping to get a pull request in for it soon, as it's a pretty easy fix.</p><p>The workaround is to add <em>xunit.xml</em> to your <em>.gitignore</em> file and ignore it yourself.</p><h2>Step 3: Run Test Script in your VSTS Build</h2><p>To run your test script, you need to add a build task  in VSTS. In our case, we're adding the NPM buid task, and configuring it to run our <code>npm test</code> command. The build task properties I use are:</p><ul><li>Version: 1.*</li><li>Display Name: npm test</li><li>Command: custom</li><li>Command and arguments: test</li></ul><p>Here's what it looks like:</p><p><img src="https://davidwesst.blob.core.windows.net/blog/mocha-in-vsts/vsts-npm-test-task.png" alt="Screenshot of npm build step" title="Screenshot of VSTS Build Task that runs the tests"></p><h2>Step 4: Publish the Test Results in VSTS</h2><p>For our last step, we need to publish the test results report to VSTS and tell it how to read it.</p><p>We do this with the Publish Test Results build step in VSTS and configure it with the following properties.</p><ul><li>Version: 2.*</li><li>Display name: Publish Test Results | Mocha</li><li>Test result format: JUnit</li><li>Search folder: $(System.DefaultWorkingDirectory)</li></ul><p>Which looks something like this:</p><p><img src="https://davidwesst.blob.core.windows.net/blog/mocha-in-vsts/vsts-publish-test-results.png" alt="VSTS Publish Test Results Build Step" title="Screenshot of VSTS Build Task that consumes the test report"></p><h2>Step 5: Done</h2><p>And with that, you're good to go to capture and explore your MochaJS test results from within your VSTS build report.</p><p>Happy test reporting!</p>]]></content>
+    
+    <summary type="html">
+    
+      Here&#39;s another dev thing I do: Display my MochaJS test report in the Visual Studio Team Services (VSTS) build report.
+    
+    </summary>
+    
+      <category term="development" scheme="https://westerndevs.com/categories/development/"/>
+    
+    
+      <category term="javascript" scheme="https://westerndevs.com/tags/javascript/"/>
+    
+      <category term="visual studio team services" scheme="https://westerndevs.com/tags/visual-studio-team-services/"/>
+    
+      <category term="mocha" scheme="https://westerndevs.com/tags/mocha/"/>
+    
+      <category term="testing" scheme="https://westerndevs.com/tags/testing/"/>
+    
+  </entry>
+  
+</feed>

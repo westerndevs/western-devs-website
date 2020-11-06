@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Octopus Deploy Gotchas: 400 Error and Can&#39;t Create File When It Exists | Western Devs</title>
+  <meta name="description" content="Lessons from setting up a successful Octopus deployment.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Octopus Deploy Gotchas: 400 Error and Can&#39;t Create File When It Exists">
+<meta property="og:url" content="https://westerndevs.com/News/OctopusDeployGotchas/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="Lessons from setting up a successful Octopus deployment.">
+<meta property="article:published_time" content="2016-01-29T05:00:00.000Z">
+<meta property="article:modified_time" content="2020-11-06T00:19:55.658Z">
+<meta property="article:author" content="Western Devs">
+<meta property="article:tag" content="Octopus">
+<meta property="article:tag" content="TFS">
+<meta property="article:tag" content="TFS Build">
+<meta property="article:tag" content="OctopusDeploy">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">JAN</div>
+    <div class="ListLrgDateDay">29</div>
+    <div class="ListLrgDateYear">2016</div>
+  </div>
+  <h2>Octopus Deploy Gotchas: 400 Error and Can&#39;t Create File When It Exists</h2>
+</div>
+
+		    
+
+			<div id="mainPostContent">
+	        <p>I came across two isues with setting up a deployment with TFS and Octopus that seem pretty common based on my web searches. I wanted to document the root causes and the solutions I used to get around them.</p>
+<h3>400 Error</h3>
+<p>I began seeing 400 - Bad Request error messages when queueing up a build in TFS. The weird thing is that a build done seconds before was fine, but any subsequent build after that would throw the 400.</p>
+<p>The reason for this is because the NuGet package being pushed had the same identifier as the previous NuGet package. To avoid this, you can do a few things:</p>
+<ol>
+<li>Manually set the version number.</li>
+<li>Write some script that will set the package version number.</li>
+<li>Enable auto-incrementing on your project's asembly info.</li>
+</ol>
+<p>I did #3. This is as simple as going into the AssemblyInfo.cs file of any project that will be deployed as part of the build and changing the AssemblyVersion value to..</p>
+<p>[assembly: AssemblyVersion(&quot;1.0.*&quot;)]</p>
+<p>OctoPack will automagically take the automatically incremented assembly version and use that for creating the NuGet package version number. The caveat here is that you must <strong><em>change code</em></strong> for this to work - by that I mean change a code file in your project which will trigger the assembly version to be incremented when a new build kicks off. For web projects, remember that <strong><em>HTML files don't get compiled</em></strong> so adding a line break in one of your views won't help because those don't get compiled and ergo don't trigger the assembly version increment.</p>
+<p>This is not the ideal way to deal with this; its a stop gap. I shouldn't have to change a code file just to push new web files or images or whatever. I'm looking at how to implement a better solution, but for now this does work.</p>
+<p>Also while there is docmentation that says adding &quot;?replace=true&quot; to your OctoPackPublishPackageToHttp MSBuild argument will force a NuGet package to deploy regardless if its the same version, I couldn't get that working. I have an email in to Octopus support and I'll update this post if I get it figured out.</p>
+<h3>Cannot Create a File When It Already Exists</h3>
+<p>Once Octopus does the deployment, you may see this error:</p>
+<p><strong><em>Web site is stopped. Attempting to start...</em></strong></p>
+<p><strong><em>start-webitem : Cannot create a file when that file already exists</em></strong></p>
+<p>In my case, my deployments were completed when I manually checked them but this error forced all my deployments to show as having errored out and unsuccessful.</p>
+<p>This issue seems to happen if you're deploying to a virtual directory in IIS and you're not using the &quot;IIS6+ Home Directory&quot; feature.</p>
+<p>In Octopus select a project, click on Process, then click on the package you have set to deploy to IIS. Click on <strong><em>Configure Features</em></strong> (it's a hyperlink found closer to the bottom of the page. It's not obvious, so even doing a text search for it on the page can be a help).</p>
+<p>This will bring up a dialogue of Enabled Features. Here you want to <strong><em>deselect the &quot;IIS Web Site and Application Pool&quot;</em></strong> and instead <strong><em>select &quot;IIS6+ Home Directory&quot;</em></strong>. Now part of your step will have an area to specify a site/virtualdirectory path. You can only have one of the IIS-related features enabled at a time so make sure you uncheck &quot;IIS Web Site and Application Pool&quot; feature if its checked.</p>
+<p>On a side note, but hand-in-hand with typical virtual directory deployments, if you need to have your app deployed in a specific spot (read: your virtual directory points to a folder outside of IIS) then also enable the Custom Install Directory option in Configuration Features; this will let you specify which folder the package contents should be deployed to.</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/darcy_lussier">
+				
+					<img src='/images/avatars/DarcyLussier_avatar.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/darcy_lussier">D&#39;Arcy Lussier</a></h2>
+			
+			<a href="mailto:darcy.lussier@gmail.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://geekswithblogs.net/dlussier/Default.aspx" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/darcy_lussier" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			
+			
+ 			<a href="/feeds/darcy_lussier.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/News/OctopusDeployGotchas/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'darcy_lussier');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

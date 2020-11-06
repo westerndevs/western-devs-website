@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Introduction to messaging primitives | Western Devs</title>
+  <meta name="description" content="An introduction to messaging and the Primitives library to make writing message-driven&#x2F;event-oriented systems easier.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Introduction to messaging primitives">
+<meta property="og:url" content="https://westerndevs.com/C/2016-9-30-Introduction-to-Messaging-Primitives/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="An introduction to messaging and the Primitives library to make writing message-driven&#x2F;event-oriented systems easier.">
+<meta property="article:published_time" content="2016-09-30T21:00:00.000Z">
+<meta property="article:modified_time" content="2020-11-06T00:19:55.662Z">
+<meta property="article:author" content="Western Devs">
+<meta property="article:tag" content="C#">
+<meta property="article:tag" content="Messaging">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">SEP</div>
+    <div class="ListLrgDateDay">30</div>
+    <div class="ListLrgDateYear">2016</div>
+  </div>
+  <h2>Introduction to messaging primitives</h2>
+</div>
+
+		    
+
+<p class="TXTsm">ORIGINALLY POSTED TO: <a href="http://pr-blog.azurewebsites.net/2016/09/30/introduction-to-messaging-primitives/" target="_blank" rel="noopener" class='originalurl'>http://pr-blog.azurewebsites.net/2016/09/30/introduction-to-messaging-primitives/</a></p>
+
+
+
+			<div id="mainPostContent">
+	        <p>One of the most flexible design/architecture techniques is event-driven/message-oriented design.  It offers unparalleled ability to loosely couple, accomplish Dependency Inversion, facilitates composability, etc.  Message-oriented systems are by nature asynchronous.  This means that a message is sent and the process that sent the message continues on to do other processing without knowing whether the message was received by the other end.  Think of it like sending an email.  You send an email, close your email client, and go on to do something else.  Later, you may return to your email program and notice that the email you sent bounced.  But, you had to return to your email program to see that because you where asynchronously doing something else.</p>
+<p>I've been working on an OSS project for a while that provides a framework for simple (once you wrap your head around the degree of loose coupling and asynchronousness) and flexible message-oriented design.  This framework is based on a small set of types that I call primitives.  Before going into what you can do with the framework, this post will first cover the primitives.</p>
+<p>If you're used to message-oriented systems, some of this may be very understandable.  For those new to message-orientation, you'll understand why I started with the primitives.</p>
+<p>The message primitives source code is on <a href="https://github.com/peteraritchie/Messaging.Primitives" target="_blank" rel="noopener">GitHub</a> and can be added to your Visual Studio project/solution from <a href="https://www.nuget.org/packages/PRI.Messaging.Primitives/" target="_blank" rel="noopener">NuGet</a> (but you may want to wait to add this package to your project/solution until a future post, as it's a dependency of the framework, so you don't need to add this package manually (i.e. it's referenced and NuGet will automatically get it for you).</p>
+<p>The primitives are based on the most simple messaging building blocks (or patterns, which are well-defined in the book <a href="http://amazon.com/o/asin/0321200683/ref=nosim/enterpriseint-20" target="_blank" rel="noopener">Enterprise Integration Patterns</a> but can also be seen on <a href="http://www.enterpriseintegrationpatterns.com/" target="_blank" rel="noopener">enterpriseintegrationpatterns.com/</a>) and consist of a generic <a href="http://www.enterpriseintegrationpatterns.com/patterns/messaging/Message.html" target="_blank" rel="noopener">Message</a>, a generic message Consumer, a generic message Producer, a generic <a href="http://www.enterpriseintegrationpatterns.com/patterns/messaging/PipesAndFilters.html" target="_blank" rel="noopener">Pipe</a>, a generic <a href="http://www.enterpriseintegrationpatterns.com/patterns/messaging/CommandMessage.html" target="_blank" rel="noopener">Command</a> message (a specialized Message), a generic <a href="http://www.enterpriseintegrationpatterns.com/patterns/messaging/EventMessage.html" target="_blank" rel="noopener">Event</a> message (a specialized Message), and a <a href="http://www.enterpriseintegrationpatterns.com/patterns/messaging/ControlBus.html" target="_blank" rel="noopener">Bus</a>.</p>
+<h2>Message</h2>
+<p>The Message pattern is modeled in the Primitives via the <code>IMessage</code> interface, detailed as follows:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">IMessage</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">string</span> CorrelationId &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>The idea is that the message you want to send/receive implements this interface and you add the properties you need to contain the data.  The interface contains a property <code>CorrelationId</code> to provide a first-class ability to correlate multiple messages together involved in a particular interaction, transaction, or saga.  But, for the most part, you should use either Command or Event instead.</p>
+<h2>Command</h2>
+<p>As mentioned above, you don't normally implement <code>IMessage</code> directly, you derive from one of two types of <code>IMessage</code>-derived interfaces.  The first interface I'll talk about is the <code>ICommand</code> interface.  This is a marker interface to add compile-time checked semantics that I'll detail in a future post, and detailed as follows:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">ICommand</span> : <span class="title">IMessage</span></span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>The <a href="https://en.wikipedia.org/wiki/Marker_interface_pattern" target="_blank" rel="noopener">marker interface pattern</a> is a pattern that allows associating metadata with a type.  In this case the metadata is the ability to differentiate at compile-time that a particular type is a Command.
+The Command message pattern allows you to encapsulate all the information required to request a handler perform a command, or otherwise change state.  The type of command to be performed is the type of the <code>ICommand</code>-implementating class.  Message handlers should typically have no run-time state, so everything the command handler needs to perform the command should be included within the <code>ICommand</code> type.  For example, if I want to make a request to a handler to create a client, I may have a <code>CorrectClientAddressCommand</code> with the following detail:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">Serializable</span>]</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">CorrectClientAddressCommand</span> : <span class="title">ICommand</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">string</span> CorrelationId &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">string</span> ClientId &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">  <span class="keyword">public</span> Address PriorAddress &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">  <span class="keyword">public</span> Address Address &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>As with marker interfaces, we have the ability to introduce metadata when we're defining our messages.  Just like something can be known as a Command because it implements <code>ICommand</code>, we can introduce more depth of intent in our messages.  For example, if a client moves, their address changes, but using a command like CorrectClientAddress does not include that intent.  We could create a new, identical command named &quot;MoveClientCommand&quot; that is effectively identical to <code>CorrectClientAddressCommand</code> in content (or even derive from the same base class).  And that way we can include semantic intent with the message.  Why would you want to do that?  In the address change example, when a client corrects their address they may never have received important mailings.  In the case of a correction, the organization can re-send important mailings.  In the MoveClientCommand you may not want to re-send all that information (waste of money, annoys clients, etc.) and instead send a card welcoming them to their new home and taking advantage of an opportunity to impress the clients.</p>
+<h2>Event</h2>
+<p>The second message type pattern is an Event.  And just like an event we deal with in day-to-day life: it's a moment in time and information about that moment in time.  From the standpoint of messages, we say that an event is moment of time in the <em>past</em>, otherwise known as a fact.  It's important to remember that it's a past fact and really should be considered as immutable data.  Typically events model the details about a change in state. We model events in Primitives with the <code>IEvent</code> interface, with the following details:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">IEvent</span> : <span class="title">IMessage</span></span><br><span class="line">&#123;</span><br><span class="line">	DateTime OccurredDateTime &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Notice that we force implementation of <code>IMessage</code> (that is, include <code>CorrelationId</code>) and add an <code>OccurredDateTime</code> property.
+When we want to communicate an event, we call sending an event &quot;publishing&quot; the event.  This concept is considered &quot;pub/sub&quot; (or publish/subscribe) where something that publishes an event never knows how many subscribers (or if any) are subscribed to receive an event.  When utilizing event-driven in this way, we're very loosely coupled and any number of things can subscribe to these events and extend without affecting the sender (i.e. code changes or availability).
+Typically, when we talk about what we model with events, or facts about the past, we model state changes and include information about that state change.  To correlate to the <code>CorrectClientAddressCommand</code>; upon a successful address change, the handler of that message may publish a <code>ClientAddressCorrectedEvent</code>.  Which may look like this:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">Serializable</span>]</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ClientAddressCorrectedEvent</span> : <span class="title">IEvent</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">string</span> CorrelationId &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">  <span class="keyword">public</span> DateTime OccurredDateTime &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">string</span> ClientId &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">  <span class="keyword">public</span> Address PriorAddress &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">  <span class="keyword">public</span> Address Address &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Circling back to the CorrelationId concept, the event includes the <code>CorrelationId</code> field.  If the event is published due to the processing of another message then we would copy that <code>CorrelationId</code> value into the event.  That way, when something receives the event (remember that messaging is asynchronous) it can correlate it back to another message, likely one that <em>it</em> sent.</p>
+<h2>Consumer</h2>
+<p>Now that we have a grasp on some basic message types and concepts, lets talk about how we use those messages.
+The thing that performs consumption or handling of a message is a Consumer.  It is modeled in the Primitives via the <code>IConsumer</code> interface, detailed as follows:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public interface IConsumer&lt;in T&gt; where T:IMessage</span><br><span class="line">&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">Handle</span>(<span class="params">T message</span>)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Notice that it's a generic interface and the generic type must implement <code>IMessage</code>.  The implementer of <code>IConsumer&lt;in T&gt;</code> must also implement a Handle method that takes in the an instance of the message that the class would process.  So, if I wanted to create a class to implement a handler for the <code>CorrectClientAddressCommand</code> command, it may look like this:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class CorrectClientAddressCommandHandler: IConsumer&lt;CorrectClientAddressCommand&gt;</span><br><span class="line">&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Handle</span>(<span class="params">CorrectClientAddressCommand message</span>)</span></span><br><span class="line"><span class="function"></span>  &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Now, since we're using interfaces, a class can implement more than one handler.  For example, if I also wanted to process the ClientAddressCorrectedEvent, I may update my class to be something like:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public class CorrectClientAddressCommandHandler : IConsumer&lt;CorrectClientAddressCommand&gt;, IConsumer&lt;ClientAddressChangedEvent&gt;</span><br><span class="line">&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Handle</span>(<span class="params">CorrectClientAddressCommand message</span>)</span></span><br><span class="line"><span class="function"></span>  &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Handle</span>(<span class="params">ClientAddressChangedEvent message</span>)</span></span><br><span class="line"><span class="function"></span>  &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>But, as you can tell from the type of the handler class (<code>CorrectClientAddressCommandHandler</code>) that it's named very specifically to be a <code>CorrectClientAddressCommand</code> handler.  I typically use that convention and have one handler per class, which offers a greater flexibility in terms of loosely coupled and composability.  But, in the end, it's up to you what convention you'd like to use.
+To write code to handle a particular message you simply implement <code>IConsumer&lt;int T&gt;</code> for one or more types of messages</p>
+<h2>Producer</h2>
+<p>The thing that performs production of a message is called a Producer, and is model in Primitives as <code>IProducer&lt;out T&gt;</code>, detailed as follows:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public interface IProducer&lt;out T&gt; where T:IMessage</span><br><span class="line">&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">AttachConsumer</span>(<span class="params">IConsumer&lt;T&gt; consumer</span>)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Similar to <code>IConsumer&lt;in T&gt;</code>, except for the fact the generic type is covariant instead of contravariant, the generic type must implement <code>IMessage</code>.
+Now this is where the loose coupling and composability takes us into an advanced realm.  You'll notice that the <code>IProducer</code> has a single method <code>AttachConsumer</code> that accepts an <code>IConsumer&lt;in T&gt;</code> where T is the same generic type as the producer.  This is probably very different from a typical imperative design that might have a method that returns a message.  We don't do it in an imperative way because 1) we have message consumption abstraction (<code>IConsumer</code>) and 2) the fundamental asynchronousness of messaging.  The production and consumption of messages does not occur in a consistent, sequential fashion such that we would know where to place a call to a method that returns a message.  Instead, we tell the producer who can consume the message and whenever the producer gets around the producing that message, it passes it right along to the consumer.
+We may have a class that is a producer of <code>CorrectClientAddressCommand</code> and could define it as follows:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">CorrectClientAddressController : IProducer&lt;CorrectClientAddressCommand&gt;</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">private</span> IConsumer&lt;CorrectClientAddressCommand&gt; consumer;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">AttachConsumer</span>(<span class="params">IConsumer&lt;CorrectClientAddressCommand&gt; consumer</span>)</span></span><br><span class="line"><span class="function"></span>  &#123;</span><br><span class="line">    <span class="keyword">this</span>.consumer = consumer;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">CorrectClientAddress</span>(<span class="params">Client client, Address newAddress</span>)</span></span><br><span class="line"><span class="function"></span>  &#123;</span><br><span class="line">    <span class="keyword">if</span>(consumer == <span class="literal">null</span>)</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> InvalidOperationException(</span><br><span class="line">        <span class="string">"@nameof(consumer) was null during invocation of CorrectClientAddress"</span>);</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">var</span> command = <span class="keyword">new</span> CorrectClientAddressCommand()</span><br><span class="line">    &#123;</span><br><span class="line">      CorrelationId = Guid.NewGuid().ToString(<span class="string">"N"</span>);</span><br><span class="line">      ClientId = client.Id;</span><br><span class="line">      PriorAddress = client.Address;</span><br><span class="line">      Address = newAddress;</span><br><span class="line">    &#125;</span><br><span class="line">    consumer.Handle(command);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Notice an application-/domain-specific method <code>CorrectClientAddress</code> that contains all the information required to send a <code>CorrectClientAddressCommand</code> (and the <code>CorrectClientAddressCommand</code> handler would perform the heavy lifting asynchronously and potentially in another thread/process/node, if you're looking for scalability).
+You could use this class like this:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> controller = <span class="keyword">new</span> CorrectClientAddressController();</span><br><span class="line">controller.AttachConsumer(<span class="keyword">new</span> CorrectClientAddressCommandHandler());</span><br></pre></td></tr></table></figure>
+<p>And then when the <code>CorrectClientAddress</code> method is called, the consumer is invoked.</p>
+<h2>Pipe</h2>
+<p>The last Primitive type is the Pipe.  The pipe is a general abstraction to model anything that is both a consumer and producer.  And, in fact, is just an interface that implements <code>IConsumer</code> and <code>IProducer</code>, detailed as follows:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public interface IPipe&lt;in TIn, out TOut&gt;</span><br><span class="line">  : IConsumer&lt;TIn&gt;, IProducer&lt;TOut&gt;</span><br><span class="line">    <span class="keyword">where</span> TIn : IMessage <span class="keyword">where</span> TOut : IMessage</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>With <code>IPipe</code> the consumer has a different generic type name than the producer, but, a single type could be used for both (<code>IPipe&lt;MyMessage, MyMessage&gt;</code>) to model a true pipe.
+Typically though, we use <code>IPipe</code> to model various other messaging patterns like <a href="http://www.enterpriseintegrationpatterns.com/patterns/messaging/Filter.html" target="_blank" rel="noopener">Filters</a> (something that would ignore a message based on content) or <a href="http://www.enterpriseintegrationpatterns.com/patterns/messaging/MessageTranslator.html" target="_blank" rel="noopener">Translators</a> (something that converts one message type into another message type).</p>
+<h2>Bus</h2>
+<p>The next message pattern is the Bus.  A bus is modeled with the <code>IBus</code> type.  This bus model is basically facilitates implementing a Control Bus.  The Control Bus facilitates connecting message producers with message consumers in a more loosely coupled way.
+Remember the <code>CorrectClientAddressController</code> <code>IProducer</code> example?  The code was tightly coupled to both <code>CorrectClientAddressController</code> and <code>CorrectClientAddressCommandHandler</code> and we had to new-up both in order to hook them up.  If I'm writing code that produces a message like <code>CorrectClientAddressCommand</code>, I don't want it to be directly coupled to one particular handler.  After all, we're looking for loosely coupled and asynchronous.  With tight coupling like that I might as well just do all the work in the <code>CorrectClientAddress</code> method and skip all the messaging.
+A bus allows us to build up something at runtime that does that connection.  It will keep track of a variety handlers and invoke the correct handler when it consumes a message.
+As you probably guessed, the <code>IBus</code> is a consumer and thus implements <code>IConsumer&lt;in T&gt;</code>.  But, a bus can handle a variety of different messages, so it uses <code>IMessage</code> for its type parameter, as detailed:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public interface IBus : IConsumer&lt;IMessage&gt;</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">void</span> AddTranslator&lt;TIn, TOut&gt;(IPipe&lt;TIn, TOut&gt; pipe)<span class="keyword">where</span> TIn : IMessage <span class="keyword">where</span> TOut : IMessage;</span><br><span class="line">	<span class="keyword">void</span> AddHandler&lt;TIn&gt;(IConsumer&lt;TIn&gt; consumer) <span class="keyword">where</span> TIn : IMessage;</span><br><span class="line">	<span class="keyword">void</span> RemoveHandler&lt;TMessage&gt;(IConsumer&lt;TMessage&gt; consumer) <span class="keyword">where</span> TMessage : IMessage;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>As we can see from the definition of <code>IBus</code> is also allows the connection of pipes or translators.
+So, if I wanted the type <code>CorrectClientAddressCommandHandler</code> to handle a <code>CorrectClientAddressCommand</code> (and produce a <code>ClientAddressCorrectedEvent</code> and a <code>ClientAddressCorrectedEventHandler</code> type to handle a <code>ClientAddressCorrectedEvent</code> message,  could use a mythical bus implementation <code>Bus</code> like this:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> bus = <span class="keyword">new</span> Bus();</span><br><span class="line">bus.AddHandler(<span class="keyword">new</span> CorrectClientAddressCommandHandler());</span><br><span class="line"><span class="comment">//...</span></span><br><span class="line">bus.AddHandler(<span class="keyword">new</span> ClientAddressCorrectedEventHandler());</span><br><span class="line"><span class="comment">//...</span></span><br></pre></td></tr></table></figure>
+<p>I could then send the command to the bus and have the command handler handle the message and the event handler handle event, without ever specifically attaching one handler to the producer.  Sending that command could be done as follows:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bus.Send(<span class="keyword">new</span> CorrectClientAddressCommand());</span><br></pre></td></tr></table></figure>
+<p>&quot;So?&quot;, you may be thinking.  Remember when I spoke about how events are subscribed to, and how there may be more than one subscriber to an event?  I have a command handler than can only attach to one consumer, how would I be able to do that?  That's one of the benefits of the Bus, it deals with that for you.  If I added another event handler, I may create my bus as follows:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> bus = <span class="keyword">new</span> Bus();</span><br><span class="line">bus.AddHandler(<span class="keyword">new</span> CorrectClientAddressCommandHandler());</span><br><span class="line"><span class="comment">//...</span></span><br><span class="line">bus.AddHandler(<span class="keyword">new</span> ClientAddressCorrectedEventHandler());</span><br><span class="line"><span class="comment">//...</span></span><br><span class="line">bus.AddHandler(<span class="keyword">new</span> ClientAddressCorrectedEventHandler2());</span><br><span class="line"><span class="comment"><span class="doctag">///</span></span></span><br></pre></td></tr></table></figure>
+<p>The Bus would then handle forwarding the event to both of the event handlers, avoiding the need to write a different <code>IConsumer</code> implementation that would manually do that (e.g. a <a href="https://en.wikipedia.org/wiki/Tee_(command)" target="_blank" rel="noopener">Tee</a>).
+These are examples of composing in-memory buses. That is, they process messages within the same process (and in a specific order).</p>
+<p>There's a couple of important concepts that relate to messaging.  Immutability and Idempotency.</p>
+<h2>Immutability</h2>
+<p>I've already touched on immutability.  But, it's important to remember that due to the asychronous nature of messaging that you should consider the messages you send to be immutable.  That is, you should't change them.  For example, I could write some error-prone code like this:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> command = <span class="keyword">new</span> CorrectClientAddressCommand();</span><br><span class="line"><span class="comment">//...</span></span><br><span class="line">bus.Send(command);</span><br><span class="line">command.ClientId = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<p>In the case of a message that is physically sent to a queue (covered in a future post) that message has been serialized to the queue and has left this process.  Making a change to the <code>command</code> object cannot be seen by the consumer of that message.  If we're talking about an in-memory bus, it could be the same situation, but the time <code>Send</code> returns the message has already been processed.  If any of the message handlers are multi-threaded then the <code>command</code> object may or may not be already handled by the time <code>Send</code> returns.  In any case, it's best to view sent messages as immutable to avoid these race conditions.</p>
+<h2>Idempotency</h2>
+<p>Another concept that often comes up in messaging is <a href="https://en.wikipedia.org/wiki/Idempotence" target="_blank" rel="noopener">Idempotency</a>.  Idempotency is the quality of a message consumer to produce the same side-effects with the same parameters, no matter how many times it is invoked.
+What I've detailed so far with in-memory buses is effectively Reliable Messaging.  If <code>IBus.Send</code> returns, the message was reliably processed.  When we start to include message queues and accept messages over the wire, running on multiple computers, we have to deal with the possibility that another server or process might fail and might have to re-send a message.  This typically only happens when the reliability settings of the Queue are not set to the highest level (for example &quot;at-least-once delivery&quot;, where we trade performance for the potential that a message may be sent more once.  In situations like this you may want to send a message that allows the consumer be an <a href="http://www.enterpriseintegrationpatterns.com/patterns/messaging/IdempotentReceiver.html" target="_blank" rel="noopener">Idempotent Receiver</a>.
+In our <code>CorrectClientAddressCommand</code> we've effectively facilitated a Idempotent Receiver, no matter how many times I send a <code>CorrectClientAddressCommand</code> the resulting client address will be the same.  Other types of messages make it difficult to have an Idempotent Receiver.  For example, if I had an <code>IncreaseClientAgeCommand</code>, processing it would always increase an <code>Age</code> property of a client.  If at-least-once-delivery was configured for the queue, this could occasionally lead to incorrect ages.  You may want to either have a command like <code>SetClientAgeCommand</code> or better yet (avoid pedantry) and have a <code>CorrectClientBirthDateCommand</code>.</p>
+<p>And with that, we have a good introduction of messaging and an intro to the messaging primitives library.  In a future post I'll detail the implementation of these primitives: the patterns library.</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/peter_ritchie">
+				
+					<img src='https://www.gravatar.com/avatar/9f2f98606c6c7002862ef3be62cfc97c?s=200' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/peter_ritchie">Peter Ritchie</a></h2>
+			
+			<a href="mailto:peter.ritchie@outlook.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://blogs.msmvps.com/peterritchie/" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/peterritchie" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/peteraritchie" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			<a href="https://www.linkedin.com/in/peteraritchie" target="_blank"><img class="ProfileIcon" src="/images/icon_linkedin.png" border="0" alt="LinkedIN" title="LinkedIN"> LinkedIn</a><br>
+			
+			
+ 			<a href="/feeds/peter_ritchie.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/C/2016-9-30-Introduction-to-Messaging-Primitives/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'peter_ritchie');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

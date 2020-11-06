@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Bulk Load and Merge Pattern | Western Devs</title>
+  <meta name="description" content="The more years you spend programming the more you run into situations you&#39;ve run into before. Situations you now know, instinctively, how to address. I suppose this is &quot;experience&quot; and is wh">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bulk Load and Merge Pattern">
+<meta property="og:url" content="https://westerndevs.com/bulk-load-and-merge/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="The more years you spend programming the more you run into situations you&#39;ve run into before. Situations you now know, instinctively, how to address. I suppose this is &quot;experience&quot; and is wh">
+<meta property="article:published_time" content="2019-10-12T04:00:00.000Z">
+<meta property="article:modified_time" content="2020-11-06T00:19:55.670Z">
+<meta property="article:author" content="Western Devs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">OCT</div>
+    <div class="ListLrgDateDay">12</div>
+    <div class="ListLrgDateYear">2019</div>
+  </div>
+  <h2>Bulk Load and Merge Pattern</h2>
+</div>
+
+		    
+
+			<div id="mainPostContent">
+	        <p>The more years you spend programming the more you run into situations you've run into before. Situations you now know, instinctively, how to address. I suppose this is &quot;experience&quot; and is what I'm paid the medium dollars for. One such problem I've solved at least a dozen times over the years is updating a bunch of data in a database from an external source. This, as it turns out, can be a great source of poor performance if you don't know how to address it. Let's dig into my approach.</p>
+<a id="more"></a>
+<p>To start with let's give some examples of the problem</p>
+<ul>
+<li>update a database with the result of a web service call</li>
+<li>load an Excel workbook or CSV file into the database</li>
+<li>synchronize an external data source with your own cache in a database</li>
+</ul>
+<p>The approach that I commonly see people take is to get the records to load into the database and loop over them, checking them against existing records. It looks something like</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Update</span>(<span class="params">DbContext context, IEnumerable&lt;ExternalData&gt; toLoad</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">foreach</span>(<span class="keyword">var</span> record <span class="keyword">in</span> toLoad)&#123;</span><br><span class="line">        <span class="keyword">var</span> dbRecord = context.Find(record.Id);</span><br><span class="line">        <span class="keyword">if</span>(dbRecord != <span class="literal">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            dbRecord.Field1 = record.Field1;</span><br><span class="line">            ...</span><br><span class="line">            context.Save(dbRecord);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            context.Add(record);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>This is a pretty logical approach. Any existing record is updated, any new record is inserted. Problem is that you're running 2 database operations for every record that comes in. Try to load 10k records and all of a sudden you're in for a world of hurt. It gets even scarier if you're running all this inside a transaction which might live a minute or two. Operations like this are likely to be subject to lock escalation up to table locks which is certainly not something you want.</p>
+<h1>Bulk Loading</h1>
+<p>Way back in my university days we had a database class which was so popular the professor taught 2 sessions back to back. This professor was famous for wearing brown sweaters no matter the time of year. Because we had two sessions every day I'd grab somebody from the previous class and ask what the class covered that day.</p>
+<p>On this day the professor was talking about bulk loading, it was the subject of some of his research. I asked a fellow in the previous class what they covered</p>
+<p>&quot;Bulk loading and how much faster it is than regular inserts&quot;</p>
+<p>&quot;Oh yeah? How much faster?&quot;</p>
+<p>&quot;312 times, I think it was&quot;</p>
+<p>So down into the basement I trudged, into the windowless class room. The class started and the professor asked</p>
+<p>&quot;How many times faster do you think bulk loading is?&quot;</p>
+<p>He sat back, waiting for the ridiculous answers, comfortable in the knowledge that he'd spend the last month writing paper on exactly this subject.</p>
+<p>&quot;312 times, sir&quot; I answered</p>
+<p>He was flabbergasted that somebody would know this. He'd just spent the last month figuring out that exact number. Eventually I let him off the hook and told him where I'd found out his precise number but not until I span him some story about how Donald Kunth was my uncle.</p>
+<p>Anyway the point of this story is that I'm a better person now and that bulk loading is way faster than doing individual inserts. When loading data into the database I like to load the data into a bulk loading table instead of directly into the destination table. That provides a staging area where changes can be made.</p>
+<p>In C# the bulk loading API is a bit <a href="https://blogs.msdn.microsoft.com/nikhilsi/2008/06/11/bulk-insert-into-sql-from-c-app/" target="_blank" rel="noopener">comically dated</a> and relies on data tables. There are some nice wrappers for it including <a href="https://dapper-plus.net/bulk-insert" target="_blank" rel="noopener">dapper-plus</a>. Using bulk copy speeds up loading substantially, perhaps not 312 times but I've certainly seen 50-100x. This reduces the chances that the transaction will run for a long time and having it run against a non-production table makes things even less likely to be problematic.</p>
+<p>With the data loaded we can now merge it into the live data, for this we can make use of merge.</p>
+<h1>Merge Statement</h1>
+<p>I have a long list of features that SQL server is, frustratingly, missing. On that list is a simple upsert statement where you can tell the database what to do if there is a conflict. Both <a href="http://www.postgresqltutorial.com/postgresql-upsert/" target="_blank" rel="noopener">Postgresql</a> and <a href="https://www.techbeamers.com/mysql-upsert/" target="_blank" rel="noopener">MySQL</a> have a nice syntax for upsert. On SQL Server you have to wade through the complex <code>MERGE</code> statement. The <a href="https://docs.microsoft.com/en-us/sql/t-sql/statements/merge-transact-sql?view=sql-server-ver15" target="_blank" rel="noopener">documentation</a> for <code>MERGE</code> has on off the longest grammars for a statement I've ever seen; as you would expect for such a powerful a command.</p>
+<p>A very simple example looks like this</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">MERGE</span> HotelRooms <span class="keyword">AS</span> target  </span><br><span class="line">    <span class="keyword">USING</span> (<span class="keyword">SELECT</span> @roomNumber, @occupants <span class="keyword">from</span> bulkLoadHotelRooms) <span class="keyword">AS</span> <span class="keyword">source</span> (roomNumber, occupants)  </span><br><span class="line">    <span class="keyword">ON</span> (target.roomNumber = source.roomNumber)  </span><br><span class="line">    <span class="keyword">WHEN</span> <span class="keyword">MATCHED</span> <span class="keyword">THEN</span></span><br><span class="line">        <span class="keyword">UPDATE</span> <span class="keyword">SET</span> <span class="keyword">Name</span> = source.occupants  </span><br><span class="line">    <span class="keyword">WHEN</span> <span class="keyword">NOT</span> <span class="keyword">MATCHED</span> <span class="keyword">THEN</span>  </span><br><span class="line">        <span class="keyword">INSERT</span> (roomNumber, occupants)  </span><br><span class="line">        <span class="keyword">VALUES</span> (source.roomNumber, source.occupants)</span><br></pre></td></tr></table></figure>
+<p>This will insert records into the table <code>HotelRooms</code> from the bulk load table <code>BulkLoadHotelRooms</code> matching them on the room number (the <code>MATCHED</code> clause). If there is already a room number there then the occupants are updated (the <code>NOT MATCHED</code> clause). Not shown here there is also the ability to delete records which aren't in the target table. Also not shown are about 10 more clauses. The documentation is certainly worthwhile reading.</p>
+<h1>Wrapping Up</h1>
+<p>Bulk loading and merging is the best approach I've found so far to load data into a database. I've loaded millions of records on dozens of projects using this approach. If there is a better way that you've found, I'd love to hear about it.</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/simon_timms">
+				
+					<img src='/images/avatars/simon.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/simon_timms">Simon Timms</a></h2>
+			
+			<a href="mailto:stimms@gmail.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://blog.simontimms.com/" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/stimms" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/stimms" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			
+ 			<a href="/feeds/simon_timms.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/bulk-load-and-merge/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'simon_timms');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

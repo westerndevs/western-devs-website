@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Accessing B2C Claims in an Azure Function | Western Devs</title>
+  <meta name="description" content="In a previous article I talked about how to authenticate your function application against Azure Active Directory Business to Consumer (which we&#39;re going to call B2C for the sake of my fingers). Chanc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Accessing B2C Claims in an Azure Function">
+<meta property="og:url" content="https://westerndevs.com/B2C/Getting-b2c-claims-in-an-azure-function/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="In a previous article I talked about how to authenticate your function application against Azure Active Directory Business to Consumer (which we&#39;re going to call B2C for the sake of my fingers). Chanc">
+<meta property="og:image" content="https://blog.simontimms.com/images/functions-claims/metadata.png">
+<meta property="article:published_time" content="2019-02-14T00:00:00.000Z">
+<meta property="article:modified_time" content="2020-11-06T00:19:55.666Z">
+<meta property="article:author" content="Western Devs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.simontimms.com/images/functions-claims/metadata.png">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">FEB</div>
+    <div class="ListLrgDateDay">14</div>
+    <div class="ListLrgDateYear">2019</div>
+  </div>
+  <h2>Accessing B2C Claims in an Azure Function</h2>
+</div>
+
+		    
+
+<p class="TXTsm">ORIGINALLY POSTED TO: <a href="https://blog.simontimms.com/2019/02/13/2019-02-12-Getting-b2c-claims-in-an-azure-function/" target="_blank" rel="noopener" class='originalurl'>https://blog.simontimms.com/2019/02/13/2019-02-12-Getting-b2c-claims-in-an-azure-function/</a></p>
+
+
+
+			<div id="mainPostContent">
+	        <p>In a <a href="2019-01-30-Functions-aad-authentication">previous article</a> I talked about how to authenticate your function application against Azure Active Directory Business to Consumer (which we're going to call B2C for the sake of my fingers). Chances are in your function you're going to want to get some of the information which is available as a claim from the bearer token. Here is how to do it.</p>
+<a id="more"></a>
+<p>On the surface this seems like a really simple problem. After all you can take the bearer token you got and paste it into <a href="https://jwt.io/" target="_blank" rel="noopener">jwt.io</a> and get back all the information you want. However we should probably take some effort to validate that what's coming back is what was originally derived from the B2C login. We can do this by making use of the System.IdentityModel.Tokens.Jwt NugGet package along with a bunch of other cryptographic stuff from the framework.</p>
+<p>In my case I'm most interested in the <code>emails</code> claim so I can send the user an e-mail. The first thing we need to do is get the Issuer Signing key from Azure B2C. The easiest way to do this is to use the json metadata endpoint your service provided.</p>
+<p><img src="https://blog.simontimms.com/images/functions-claims/metadata.png" alt="The metadata URL for your B2C"></p>
+<p>If you click on that link you'll get a document like</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	issuer: <span class="string">"https://yourtenant.b2clogin.com/a04a23ad-1e6a-4114-a91b-b8f8f7ac9660/v2.0/"</span>,</span><br><span class="line">	authorization_endpoint: <span class="string">"https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/oauth2/v2.0/authorize?p=b2c_1_siupin"</span>,</span><br><span class="line">	token_endpoint: <span class="string">"https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_siupin"</span>,</span><br><span class="line">	end_session_endpoint: <span class="string">"https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/oauth2/v2.0/logout?p=b2c_1_siupin"</span>,</span><br><span class="line">	jwks_uri: <span class="string">"https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_siupin"</span>,</span><br><span class="line">	response_modes_supported: [</span><br><span class="line">		<span class="string">"query"</span>,</span><br><span class="line">		<span class="string">"fragment"</span>,</span><br><span class="line">		<span class="string">"form_post"</span></span><br><span class="line">	],</span><br><span class="line">	response_types_supported: [</span><br><span class="line">		<span class="string">"code"</span>,</span><br><span class="line">		<span class="string">"code id_token"</span>,</span><br><span class="line">		<span class="string">"code token"</span>,</span><br><span class="line">		<span class="string">"code id_token token"</span>,</span><br><span class="line">		<span class="string">"id_token"</span>,</span><br><span class="line">		<span class="string">"id_token token"</span>,</span><br><span class="line">		<span class="string">"token"</span>,</span><br><span class="line">		<span class="string">"token id_token"</span></span><br><span class="line">	],</span><br><span class="line">	scopes_supported: [</span><br><span class="line">		<span class="string">"openid"</span></span><br><span class="line">	],</span><br><span class="line">	subject_types_supported: [</span><br><span class="line">		<span class="string">"pairwise"</span></span><br><span class="line">	],</span><br><span class="line">	id_token_signing_alg_values_supported: [</span><br><span class="line">		<span class="string">"RS256"</span></span><br><span class="line">	],</span><br><span class="line">	token_endpoint_auth_methods_supported: [</span><br><span class="line">		<span class="string">"client_secret_post"</span>,</span><br><span class="line">		<span class="string">"client_secret_basic"</span></span><br><span class="line">	],</span><br><span class="line">	claims_supported: [</span><br><span class="line">		<span class="string">"emails"</span>,</span><br><span class="line">		<span class="string">"idp"</span>,</span><br><span class="line">		<span class="string">"name"</span>,</span><br><span class="line">		<span class="string">"sub"</span>,</span><br><span class="line">		<span class="string">"tfp"</span></span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>In this document is the <code>jwks_uri</code> which, if you click on it will give you something like this (keys altered to protect the innocent)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">	keys: [&#123;</span><br><span class="line">		kid: <span class="string">"X5eXjf93njNFum1kl2Ytv8dlNP4-c57dO6QGTVBwaNk"</span>,</span><br><span class="line">		nbf: <span class="number">1493764781</span>,</span><br><span class="line">		use: <span class="string">"sig"</span>,</span><br><span class="line">		kty: <span class="string">"RSA"</span>,</span><br><span class="line">		e: <span class="string">"AQAB"</span>,</span><br><span class="line">		n: <span class="string">"tVKUtcx_n9rt5afY_2WFNvU6PlFMggCatsZ3l4RjKxH0jgdLqab345de3ZGXYbPzXvmmLiWZizpb-h0qup5jznOvOr-Dhw9908584BSgC83YacjWNqEK3urxhyE2jWjwRm2N95WGgb5mzE5XmZIvkvyXnn7X8dvgFPF5QwIngGsDG8LyHuJWlaDhr_EPLMW4wHvH0zZCuRMARIJmmqiMy3VD4ftq4nS5s8vJL0pVSrkuNojtokp84AtkADCDU_BUhrc2sIgfnvZ03koCQRoZmWiHu86SuJZYkDFstVTVSR0hiXudFlfQ2rOhPlpObmku68lXw-7V-P7jwrQRFfQVXw"</span></span><br><span class="line">	&#125;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>The information in here is what's needed to decode the JWT and validate it. The keys here can rotate so if you're going to cache the information you'll want to make sure it expires with some frequency. I've seen an hour recommended but your mileage may vary. I followed the very helpful post <a href="https://stackoverflow.com/a/47390593/361" target="_blank" rel="noopener">here</a> for how to consume this information.</p>
+<p>In my function I grabbed the bearer token out of the request and passed it</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> bearerToken = request.Headers[<span class="string">"Authorization"</span>].ToString().Split(<span class="string">' '</span>).Last();</span><br><span class="line"><span class="keyword">var</span> json = <span class="keyword">await</span> client.GetStringAsync(configService.TokenMetadataEndpoint()); <span class="comment">//client is a static HTTP Client</span></span><br><span class="line">JwtSecurityTokenHandler handler = <span class="keyword">new</span> JwtSecurityTokenHandler();</span><br><span class="line"><span class="keyword">var</span> claims = handler.ValidateToken(bearerToken,</span><br><span class="line">    <span class="keyword">new</span> TokenValidationParameters</span><br><span class="line">    &#123;</span><br><span class="line">        ValidateAudience = <span class="literal">true</span>,</span><br><span class="line">        ValidateIssuer = <span class="literal">true</span>,</span><br><span class="line">        ValidateLifetime = <span class="literal">true</span>,</span><br><span class="line">        ValidIssuer =  configService.TokenIssuer(),</span><br><span class="line">        ValidAudience = configService.TokenAudience(),</span><br><span class="line">        IssuerSigningKeys = GetSecurityKeys(JsonConvert.DeserializeObject&lt;JsonWebKeySet&gt;(json))</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">out</span> <span class="keyword">var</span> validatedToken).Claims;</span><br></pre></td></tr></table></figure>
+<p>The token audience is the ID of the API application in Azure B2C. The token issuer I had trouble figuring out, in the end the only place I could find it was in a known JWT that I decoded. For me it ended up being <code>https://yourtenant.b2clogin.com/a04a23ad-1e6a-4114-a91b-b8f8f7ac9660/v2.0/</code>. I'm not sure if that GUID in there changes from tenant to tenant but certainly the host name in the URL will change to yours. We want to make sure to validate that the JWT hasn't expired (lifetime) that it was issued by our B2C instance (issuer) and that it was intended for this application (audience).</p>
+<p>The claims object here will contain all of the claims for the JWT. I'm interested in <code>emails</code> so I run</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> email = claims.Single(x =&gt; x.Type == <span class="string">"emails"</span>);</span><br></pre></td></tr></table></figure>
+<p>Getting the security keys is done via this handy function which deserializes the keys into a list of SecurityKeys.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> List&lt;SecurityKey&gt; <span class="title">GetSecurityKeys</span>(<span class="params">JsonWebKeySet jsonWebKeySet</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">var</span> keys = <span class="keyword">new</span> List&lt;SecurityKey&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">foreach</span> (<span class="keyword">var</span> key <span class="keyword">in</span> jsonWebKeySet.Keys)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (key.Kty == <span class="string">"RSA"</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (key.X5C != <span class="literal">null</span> &amp;&amp; key.X5C.Length &gt; <span class="number">0</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">string</span> certificateString = key.X5C[<span class="number">0</span>];</span><br><span class="line">                    <span class="keyword">var</span> certificate = <span class="keyword">new</span> X509Certificate2(Convert.FromBase64String(certificateString));</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">var</span> x509SecurityKey = <span class="keyword">new</span> X509SecurityKey(certificate)</span><br><span class="line">                    &#123;</span><br><span class="line">                        KeyId = key.Kid</span><br><span class="line">                    &#125;;</span><br><span class="line"></span><br><span class="line">                    keys.Add(x509SecurityKey);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (!<span class="keyword">string</span>.IsNullOrWhiteSpace(key.E) &amp;&amp; !<span class="keyword">string</span>.IsNullOrWhiteSpace(key.N))</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">byte</span>[] exponent = Base64UrlDecode(key.E);</span><br><span class="line">                    <span class="keyword">byte</span>[] modulus = Base64UrlDecode(key.N);</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">var</span> rsaParameters = <span class="keyword">new</span> RSAParameters</span><br><span class="line">                    &#123;</span><br><span class="line">                        Exponent = exponent,</span><br><span class="line">                        Modulus = modulus</span><br><span class="line">                    &#125;;</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">var</span> rsaSecurityKey = <span class="keyword">new</span> RsaSecurityKey(rsaParameters)</span><br><span class="line">                    &#123;</span><br><span class="line">                        KeyId = key.Kid</span><br><span class="line">                    &#125;;</span><br><span class="line"></span><br><span class="line">                    keys.Add(rsaSecurityKey);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">"JWK data is missing in token validation"</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> NotImplementedException(<span class="string">"Only RSA key type is implemented for token validation"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> keys;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>The final pieces are the models</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Model the JSON Web Key Set</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">JsonWebKeySet</span></span><br><span class="line">    &#123;</span><br><span class="line">        [<span class="meta">JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore, NullValueHandling = NullValueHandling.Ignore, PropertyName = <span class="meta-string">"keys"</span>, Required = Required.Default)</span>]</span><br><span class="line">        <span class="keyword">public</span> JsonWebKey[] Keys &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//Model the JSON Web Key object</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">JsonWebKey</span></span><br><span class="line">    &#123;</span><br><span class="line">        [<span class="meta">JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore, NullValueHandling = NullValueHandling.Ignore, PropertyName = <span class="meta-string">"kty"</span>, Required = Required.Default)</span>]</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">string</span> Kty &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line"></span><br><span class="line">        [<span class="meta">JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore, NullValueHandling = NullValueHandling.Ignore, PropertyName = <span class="meta-string">"use"</span>, Required = Required.Default)</span>]</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">string</span> Use &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line"></span><br><span class="line">        [<span class="meta">JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore, NullValueHandling = NullValueHandling.Ignore, PropertyName = <span class="meta-string">"kid"</span>, Required = Required.Default)</span>]</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">string</span> Kid &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line"></span><br><span class="line">        [<span class="meta">JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore, NullValueHandling = NullValueHandling.Ignore, PropertyName = <span class="meta-string">"x5t"</span>, Required = Required.Default)</span>]</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">string</span> X5T &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line"></span><br><span class="line">        [<span class="meta">JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore, NullValueHandling = NullValueHandling.Ignore, PropertyName = <span class="meta-string">"e"</span>, Required = Required.Default)</span>]</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">string</span> E &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line"></span><br><span class="line">        [<span class="meta">JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore, NullValueHandling = NullValueHandling.Ignore, PropertyName = <span class="meta-string">"n"</span>, Required = Required.Default)</span>]</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">string</span> N &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line"></span><br><span class="line">        [<span class="meta">JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore, NullValueHandling = NullValueHandling.Ignore, PropertyName = <span class="meta-string">"x5c"</span>, Required = Required.Default)</span>]</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">string</span>[] X5C &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line"></span><br><span class="line">        [<span class="meta">JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore, NullValueHandling = NullValueHandling.Ignore, PropertyName = <span class="meta-string">"alg"</span>, Required = Required.Default)</span>]</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">string</span> Alg &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>and the Bas64Decoder</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">byte</span>[] <span class="title">Base64UrlDecode</span>(<span class="params"><span class="keyword">string</span> arg</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">string</span> s = arg;</span><br><span class="line">    s = s.Replace(<span class="string">'-'</span>, <span class="string">'+'</span>); <span class="comment">// 62nd char of encoding</span></span><br><span class="line">    s = s.Replace(<span class="string">'_'</span>, <span class="string">'/'</span>); <span class="comment">// 63rd char of encoding</span></span><br><span class="line">    <span class="keyword">switch</span> (s.Length % <span class="number">4</span>) <span class="comment">// Pad with trailing '='s</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">0</span>: <span class="keyword">break</span>; <span class="comment">// No pad chars in this case</span></span><br><span class="line">        <span class="keyword">case</span> <span class="number">2</span>: s += <span class="string">"=="</span>; <span class="keyword">break</span>; <span class="comment">// Two pad chars</span></span><br><span class="line">        <span class="keyword">case</span> <span class="number">3</span>: s += <span class="string">"="</span>; <span class="keyword">break</span>; <span class="comment">// One pad char</span></span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> System.Exception(</span><br><span class="line">        <span class="string">"Illegal base64url string!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> Convert.FromBase64String(s); <span class="comment">// Standard base64 decoder</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>As with all things security related this stuff is confusing and convoluted. Hopefully this post will help out somebody in the future.</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/simon_timms">
+				
+					<img src='/images/avatars/simon.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/simon_timms">Simon Timms</a></h2>
+			
+			<a href="mailto:stimms@gmail.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://blog.simontimms.com/" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/stimms" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/stimms" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			
+ 			<a href="/feeds/simon_timms.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/B2C/Getting-b2c-claims-in-an-azure-function/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'simon_timms');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

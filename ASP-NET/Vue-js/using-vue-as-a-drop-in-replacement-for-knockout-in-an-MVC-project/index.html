@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Using Vue as a drop-in replacement for Knockout in an ASP.NET MVC project | Western Devs</title>
+  <meta name="description" content="When maintaining existing ASP.NET applications, we often need to add some client side behaviour. I am a little surprised to see people reaching for Knockout in these scenarios but I think vuejs is a g">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Using Vue as a drop-in replacement for Knockout in an ASP.NET MVC project">
+<meta property="og:url" content="https://westerndevs.com/ASP-NET/Vue-js/using-vue-as-a-drop-in-replacement-for-knockout-in-an-MVC-project/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="When maintaining existing ASP.NET applications, we often need to add some client side behaviour. I am a little surprised to see people reaching for Knockout in these scenarios but I think vuejs is a g">
+<meta property="og:image" content="https://www.davepaquette.com/images/vue/simple-country-dropdown.png">
+<meta property="og:image" content="https://www.davepaquette.com/images/vue/country-province-dropdown.png">
+<meta property="article:published_time" content="2019-01-21T11:57:12.000Z">
+<meta property="article:modified_time" content="2020-11-06T00:19:55.666Z">
+<meta property="article:author" content="Western Devs">
+<meta property="article:tag" content="ASP.NET Core">
+<meta property="article:tag" content="ASP.NET">
+<meta property="article:tag" content="MVC">
+<meta property="article:tag" content="Vue.js">
+<meta property="article:tag" content="Javascript">
+<meta property="article:tag" content="Knockout.js">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.davepaquette.com/images/vue/simple-country-dropdown.png">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">JAN</div>
+    <div class="ListLrgDateDay">21</div>
+    <div class="ListLrgDateYear">2019</div>
+  </div>
+  <h2>Using Vue as a drop-in replacement for Knockout in an ASP.NET MVC project</h2>
+</div>
+
+		    
+
+<p class="TXTsm">ORIGINALLY POSTED TO: <a href="http://www.davepaquette.com/archive/2019/01/21/using-vue-as-a-drop-in-replacement-for-knockout-in-an-MVC-project.aspx" target="_blank" rel="noopener" class='originalurl'>http://www.davepaquette.com/archive/2019/01/21/using-vue-as-a-drop-in-replacement-for-knockout-in-an-MVC-project.aspx</a></p>
+
+
+
+			<div id="mainPostContent">
+	        <p>So you're working an existing (brown-field) ASP.NET MVC application. The application's views are rendered server-side using Razor. Everything is working great and life is good. Suddenly, someone asks for a bit of additional functionality that will require some client side logic. Okay, no big deal. We do this all the time. The question though, is what framework/JavaScript library you will use to implement that client side functionality.</p>
+<p>The default MVC project templates already include jQuery, so you might use that. You'll probably end up writing a lot of code if you go down that path. Chances are, you will want to use a JavaScript framework that offers two-way data binding between the elements in the DOM to a your model data.</p>
+<p>It seems that for many people, <a href="https://knockoutjs.com/" target="_blank" rel="noopener">Knockout.js</a> is the default library to use in these scenarios. I won't get into the specifics but I think that Knockout is a little dated and that there are better options these days. If you want to dig into some of the issues with Knockout, you can read <a href="https://westerndevs.com/a-discussion-on-knockout/">Simon Timms' rant on the subject</a>.</p>
+<h2>Vue.js</h2>
+<p>My fellow <a href="https://aspnetmonsters.com" target="_blank" rel="noopener">ASP.NET Monster</a> <a href="http://jameschambers.com" target="_blank" rel="noopener">James Chambers</a> recently strongly recommended I take a look at <a href="https://vuejs.org" target="_blank" rel="noopener">Vue.js</a>. I had been meaning to give Vue a try for some time now and I finally had a chance to use it on a recent project. Let me tell you...I love it.</p>
+<p>I love it for a whole bunch of reasons. The <a href="https://vuejs.org/v2/guide/" target="_blank" rel="noopener">documentation</a> is great! It is super easy to get drop in to your existing project and it doesn't get in the way. For what I needed to do, it just did the job and allowed me to get on with my day. It is also designed to be &quot;incrementally adoptable&quot;, which means you can start out with just using the core view layer, then start pulling in other things like routing and state management if/when you need them.</p>
+<h2>A simple example</h2>
+<p>I won't go into great detail about how to use Vue. If you want a full tutorial, head on over to the <a href="https://vuejs.org/v2/guide/" target="_blank" rel="noopener">Vue docs</a>. What I want to show here is just how simple it is to drop Vue into an existing ASP.NET MVC project and add a bit of client side functionality.</p>
+<p>The simplest example I can think of is a set of cascading dropdowns. Let's consider a form where a user is asked to enter their Country / Province. When the Country is selected, we would expect the Province dropdown to only display the valid Provinces/States for the selected Country. That probably involves a call to an HTTP endpoint that will return the list of valid values.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ProvinceLookupController</span> : <span class="title">Controller</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ActionResult <span class="title">Index</span>(<span class="params"><span class="keyword">string</span> countryCode</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">var</span> provinces = ProvinceLookupService.GetProvinces(countryCode);</span><br><span class="line">        <span class="keyword">return</span> Json(provinces, JsonRequestBehavior.AllowGet);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3>Including Vue in your Razor (cshtml) view</h3>
+<p>The easiest way to include Vue on a particular Razor view is to link to the <code>vue.js</code> file from a CDN. You can add the following Script tag to your <code>scripts</code> section.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@section scripts  &#123;</span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Be sure to <a href="https://vuejs.org/v2/guide/installation.html" target="_blank" rel="noopener">check the docs</a> to make sure you are referencing the latest version of Vue.</p>
+<h3>Binding data to the our View</h3>
+<p>Now that you have included the core Vue library, you can start using Vue to bind DOM elements to model data.</p>
+<p>Start by defining a <code>Vue</code> object in JavaScript. You can add this in a new <code>&lt;script&gt;</code> tag in your <code>scripts</code> section.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">@section scripts  &#123;</span><br><span class="line">    &lt;script src=<span class="string">"https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"</span>&gt;&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">    &lt;script type="text/</span>javascript<span class="string">"&gt;</span></span><br><span class="line"><span class="string">        var app = new Vue(&#123;</span></span><br><span class="line"><span class="string">            el: '#vueApp',</span></span><br><span class="line"><span class="string">            data: &#123;</span></span><br><span class="line"><span class="string">                selectedCountryCode: null,</span></span><br><span class="line"><span class="string">                countries: [</span></span><br><span class="line"><span class="string">                    &#123; code: 'ca', name: 'Canada' &#125;,</span></span><br><span class="line"><span class="string">                    &#123; code: 'us', name: 'United States' &#125;</span></span><br><span class="line"><span class="string">                ]            </span></span><br><span class="line"><span class="string">            &#125;</span></span><br><span class="line"><span class="string">        &#125;);</span></span><br><span class="line"><span class="string">    &lt;/script&gt;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>This <code>Vue</code> object targets the DOM element with id <code>vueApp</code> and contains some simple data. The currently selected country code and the list of countries.</p>
+<p>Now, back in the HTML part of your csthml, wrap the <code>form</code> in a div that has an <code>id=&quot;vueApp&quot;</code>.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"vueApp"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- your form --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Next, bind the <code>&lt;select&gt;</code> element to the data in your <code>Vue</code> object. In Vue, data binding is done using a combination of custom attributes that start with <code>v-</code> and the double curly bracket (aka. Mustache) syntax for text.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></span><br><span class="line">    @Html.LabelFor(model =&gt; model.CountryCode, new &#123; @class = "control-label col-md-2" &#125;)</span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-10"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"CountryCode"</span> <span class="attr">name</span>=<span class="string">"CountryCode"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> </span></span><br><span class="line"><span class="tag">                <span class="attr">v-model</span>=<span class="string">"selectedCountryCode"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">option</span> <span class="attr">v-for</span>=<span class="string">"country in countries"</span> <span class="attr">v-bind:value</span>=<span class="string">"country.code"</span>&gt;</span></span><br><span class="line">                </span><br><span class="line">            <span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Now, when you run the app, you should see a dropdown containing Canada and United States.</p>
+<p><img src="https://www.davepaquette.com/images/vue/simple-country-dropdown.png" alt="Country Dropdown"></p>
+<h3>Adding functionality</h3>
+<p>Next, you will want to add some client side logic to get the list of valid provinces from the server whenever the selected country changes.</p>
+<p>First, add an empty <code>provinces</code> array and a <code>selectedProvinceCode</code> property to the <code>Vue</code> object's data.</p>
+<p>Next, add a method called <code>countryChanged</code> to the <code>Vue</code> object. This method will call the <code>ProvinceLookup</code> action method on the server, passing in the <code>selectedCountryCode</code> as a parameter. Assign the response data to the <code>provinces</code> array.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">'#vueApp'</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        selectedCountryCode: <span class="literal">null</span>,</span><br><span class="line">        countries: [</span><br><span class="line">            &#123; <span class="attr">code</span>: <span class="string">'ca'</span>, <span class="attr">name</span>: <span class="string">'Canada'</span> &#125;,</span><br><span class="line">            &#123; <span class="attr">code</span>: <span class="string">'us'</span>, <span class="attr">name</span>: <span class="string">'United States'</span> &#125;</span><br><span class="line">        ],</span><br><span class="line">        selectedProvinceCode: <span class="literal">null</span>,</span><br><span class="line">        provinces: []</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">        countryChanged: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            $.getJSON(<span class="string">'@Url.Action("Index", "ProvinceLookup")?countryCode='</span> + <span class="keyword">this</span>.selectedCountryCode, <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">this</span>.provinces = data;</span><br><span class="line">            &#125;.bind(<span class="keyword">this</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>Here I used jQuery to make the call to the server. In the Vue community, <a href="https://github.com/axios/axios" target="_blank" rel="noopener">Axios</a> is a popular library for making HTTP requests.</p>
+<p>Back in the HTML, bind the <code>change</code> event from the country select element to the <code>countryChanged</code> method using the <code>v-on:change</code> attribute.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"CountryCode"</span> <span class="attr">name</span>=<span class="string">"CountryCode"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> </span></span><br><span class="line"><span class="tag">        <span class="attr">v-model</span>=<span class="string">"selectedCountryCode"</span> <span class="attr">v-on:change</span>=<span class="string">"countryChanged"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">v-for</span>=<span class="string">"country in countries"</span> <span class="attr">v-bind:value</span>=<span class="string">"country.code"</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">    <span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Now you can add a select element for the provinces.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></span><br><span class="line">    @Html.LabelFor(model =&gt; model.ProvinceCode, new &#123; @class = "control-label col-md-2" &#125;)</span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-10"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"ProvinceCode"</span> <span class="attr">name</span>=<span class="string">"ProvinceCode"</span> <span class="attr">class</span>=<span class="string">"form-control"</span></span></span><br><span class="line"><span class="tag">                <span class="attr">v-model</span>=<span class="string">"selectedProvinceCode"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">option</span> <span class="attr">v-for</span>=<span class="string">"province in provinces"</span> <span class="attr">v-bind:value</span>=<span class="string">"province.Code"</span>&gt;</span></span><br><span class="line">                </span><br><span class="line">            <span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Voila! You now have a working set of cascading dropdowns.</p>
+<p><img src="https://www.davepaquette.com/images/vue/country-province-dropdown.png" alt="Country Dropdown"></p>
+<h3>One last thing</h3>
+<p>You might want to disable the provinces dropdown whenever a request is being made to get the list of provinces for the selected country. You can do this by adding an <code>isProvincesLoading</code> property to the <code>Vue</code> object's data, then setting that property in the <code>countryChanged</code> method.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">'#vueApp'</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        selectedCountryCode: <span class="literal">null</span>,</span><br><span class="line">        countries: [</span><br><span class="line">            &#123; <span class="attr">code</span>: <span class="string">'ca'</span>, <span class="attr">name</span>: <span class="string">'Canada'</span> &#125;,</span><br><span class="line">            &#123; <span class="attr">code</span>: <span class="string">'us'</span>, <span class="attr">name</span>: <span class="string">'United States'</span> &#125;</span><br><span class="line">        ],</span><br><span class="line">        selectedProvinceCode: <span class="literal">null</span>,</span><br><span class="line">        provinces: [],</span><br><span class="line">        isProvincesLoading: <span class="literal">false</span></span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">        countryChanged: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.isProvincesLoading = <span class="literal">true</span>;</span><br><span class="line">            $.getJSON(<span class="string">'@Url.Action("Index", "ProvinceLookup")?countryCode='</span> + <span class="keyword">this</span>.selectedCountryCode, <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">this</span>.provinces = data;</span><br><span class="line">                <span class="keyword">this</span>.isProvincesLoading = <span class="literal">false</span>;</span><br><span class="line">            &#125;.bind(<span class="keyword">this</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>In your HTML, bind the <code>disabled</code> attribute to the <code>isProvincesLoading</code> property.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"ProvinceCode"</span> <span class="attr">name</span>=<span class="string">"ProvinceCode"</span> <span class="attr">class</span>=<span class="string">"form-control"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">v-model</span>=<span class="string">"selectedProvinceCode"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">v-bind:disabled</span>=<span class="string">"isProvincesLoading"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">v-for</span>=<span class="string">"province in provinces"</span> <span class="attr">v-bind:value</span>=<span class="string">"province.Code"</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">    <span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3>Putting it all together</h3>
+<p>Here is the entire cshtml file.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">@&#123;</span><br><span class="line">    ViewBag.Title = "Location Settings";</span><br><span class="line">&#125;</span><br><span class="line">@model Mvc5VueJsExample.Models.LocationSettingsModel</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>@ViewBag.Title.<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h3</span>&gt;</span>@ViewBag.Message<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"vueApp"</span>&gt;</span></span><br><span class="line">    @using (Html.BeginForm("LocationSettings", "Home", FormMethod.Post, new &#123; @class = "form" &#125;))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></span><br><span class="line">            @Html.LabelFor(model =&gt; model.CountryCode, new &#123; @class = "control-label col-md-2" &#125;)</span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-10"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"CountryCode"</span> <span class="attr">name</span>=<span class="string">"CountryCode"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> </span></span><br><span class="line"><span class="tag">                        <span class="attr">v-model</span>=<span class="string">"selectedCountryCode"</span> <span class="attr">v-on:change</span>=<span class="string">"countryChanged"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">option</span> <span class="attr">v-for</span>=<span class="string">"country in countries"</span> <span class="attr">v-bind:value</span>=<span class="string">"country.code"</span>&gt;</span></span><br><span class="line">                        </span><br><span class="line">                    <span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></span><br><span class="line">            @Html.LabelFor(model =&gt; model.ProvinceCode, new &#123; @class = "control-label col-md-2" &#125;)</span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-10"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"ProvinceCode"</span> <span class="attr">name</span>=<span class="string">"ProvinceCode"</span> <span class="attr">class</span>=<span class="string">"form-control"</span></span></span><br><span class="line"><span class="tag">                        <span class="attr">v-model</span>=<span class="string">"selectedProvinceCode"</span></span></span><br><span class="line"><span class="tag">                        <span class="attr">v-bind:disabled</span>=<span class="string">"isProvincesLoading"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">option</span> <span class="attr">v-for</span>=<span class="string">"province in provinces"</span> <span class="attr">v-bind:value</span>=<span class="string">"province.Code"</span>&gt;</span></span><br><span class="line">                        </span><br><span class="line">                    <span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn btn-primary"</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span>Save<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">@section scripts  &#123;</span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">            el: <span class="string">'#vueApp'</span>,</span></span><br><span class="line">            data: &#123;</span><br><span class="line"><span class="actionscript">                selectedCountryCode: <span class="literal">null</span>,</span></span><br><span class="line">                countries: [</span><br><span class="line"><span class="actionscript">                    &#123; code: <span class="string">'ca'</span>, name: <span class="string">'Canada'</span> &#125;,</span></span><br><span class="line"><span class="actionscript">                    &#123; code: <span class="string">'us'</span>, name: <span class="string">'United States'</span> &#125;</span></span><br><span class="line">                ],</span><br><span class="line"><span class="actionscript">                selectedProvinceCode: <span class="literal">null</span>,</span></span><br><span class="line">                provinces: [],</span><br><span class="line"><span class="actionscript">                isProvincesLoading: <span class="literal">false</span></span></span><br><span class="line">            &#125;,</span><br><span class="line">            methods: &#123;</span><br><span class="line"><span class="actionscript">                countryChanged: <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">                    <span class="keyword">this</span>.isProvincesLoading = <span class="literal">true</span>;</span></span><br><span class="line"><span class="javascript">                    $.getJSON(<span class="string">'@Url.Action("Index", "ProvinceLookup")?countryCode='</span> + <span class="keyword">this</span>.selectedCountryCode, <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span></span><br><span class="line"><span class="actionscript">                        <span class="keyword">this</span>.provinces = data;</span></span><br><span class="line"><span class="actionscript">                        <span class="keyword">this</span>.isProvincesLoading = <span class="literal">false</span>;</span></span><br><span class="line"><span class="actionscript">                    &#125;.bind(<span class="keyword">this</span>));</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2>Wrapping it up</h2>
+<p>I hope this gives you a taste for how easy it is to work with Vue. My current thinking is that Vue should be the default choice for client side frameworks in existing ASP.NET MVC apps.</p>
+<p>NOTE: This example uses ASP.NET MVC 5 to illustrate that Vue can be used with brownfield applications. It would be just as easy, if not easier, to use Vue in an ASP.NET Core project.</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/dave_paquette">
+				
+					<img src='/images/avatars/DavePaquette_241x241.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/dave_paquette">Dave Paquette</a></h2>
+			
+			<a href="mailto:contactme@davepaquette.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://www.davepaquette.com/" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/Dave_Paquette" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/dpaquette" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			
+ 			<a href="/feeds/dave_paquette.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/ASP-NET/Vue-js/using-vue-as-a-drop-in-replacement-for-knockout-in-an-MVC-project/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'dave_paquette');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

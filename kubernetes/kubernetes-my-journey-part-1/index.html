@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Kubernetes - My Journey - Part 1 | Western Devs</title>
+  <meta name="description" content="Series Table of Contents The Business Problem My client has been in business since 1993. As you can imagine, software has been an integral part of their ability to deliver services to their customers.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kubernetes - My Journey - Part 1">
+<meta property="og:url" content="https://westerndevs.com/kubernetes/kubernetes-my-journey-part-1/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="Series Table of Contents The Business Problem My client has been in business since 1993. As you can imagine, software has been an integral part of their ability to deliver services to their customers.">
+<meta property="article:published_time" content="2020-05-22T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-11-06T00:19:55.670Z">
+<meta property="article:author" content="Western Devs">
+<meta property="article:tag" content="kubernetes, azure, aks, identityserver, docker, containers">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">MAY</div>
+    <div class="ListLrgDateDay">22</div>
+    <div class="ListLrgDateYear">2020</div>
+  </div>
+  <h2>Kubernetes - My Journey - Part 1</h2>
+</div>
+
+		    
+
+			<div id="mainPostContent">
+	        <p><a href="/kubernetes/kubernetes-my-journey">Series Table of Contents</a></p>
+<h1>The Business Problem</h1>
+<p>My client has been in business since 1993. As you can imagine, software has been an integral part of their ability to deliver services to their customers. About 10 years ago, they had a re-platforming initiative that was the start of their current monolithic, critical LOB system. It is an ASP.NET MVC 5.x application that has evolved over time and is certainly reaching the limits of what its architecture can provide. It isn't &quot;cloud-native&quot; and it basically continues to be enhanced/evolved based on assumptions that were made 10 years ago.</p>
+<p>For this project, the important part to understand is that it used forms authentication and has a user store internally that manages all of the user accounts and authorization rules. It currently only uses cookies to store authenticated user details on the client and doesn't support any modern sort of token-based activities that are needed for modern applications.</p>
+<p>It is also important to understand that the platform is growing as users and customers demand more modern and specific user experiences. New web applications (React), mobile devices (native), IoT devices, and system-to-system integrations are all being added to the platform and all these new applications need to participate in the authentication scheme. In some cases, new applications have been created but because the current LOB system doesn't support modern authentication techniques, they cloned the existing user store and used the data to implement the appropriate authentication techniques for their specific use case. This has led to a bunch of applications re-implementing their own authentication, with everyone sharing the user store (or a copy of it) of the core LOB system.</p>
+<p>So, the current system has demonstrated a few key problems that the new system needs to address.</p>
+<h3>Security is hard and incredibly important</h3>
+<p>One of the plagues of modern business is bad actors attacking various systems trying to gain access and cause lots of troubles. This is an ever-present problem for most corporations. Security needs to be a first-class citizen in all projects. Using modern authentication platforms that are proven and community-reviewed is seen as a requirement.</p>
+<p>Speaking of security, in this series, you will find a lot of usernames, passwords, and internal details about the systems that is being built. I would ask that you <strong>please take a great deal of care when building your systems!</strong> I'm not worried about presenting these details as I'm tearing all of this down all the time and it won't be left running on my Azure accounts. I will change passwords, usernames, and all kinds of other details to make it harder for anyone to break into a running system. I strongly encourage you to do the same.</p>
+<h3>Decentralized identity management sucks</h3>
+<p>The platform is currently a monolithic LOB system that provides <strong>all</strong> functional aspects for the various business groups. The platform is also growing a collection of loosely related applications that basically represent specific implementations that are tailored for each individual area of the business. All the systems are re-implementing authentication while using, in most cases, a copy of the LOB user store. This basically means that we have multiple user stores that all must be managed independently. There are SSIS workflows trying to keep the right data in sync while not clobbering specific customizations to the user store data.</p>
+<p>This is all complicated, complex, and error prone. We generally don't have a lot of troubles with authentication, but it is expensive and time-consuming to setup and maintain and as new applications are added, it adds more things to manage and has more things that can go wrong.</p>
+<h3>New applications require modern Identity technologies</h3>
+<p>In 2020, business that used to be well-served by a monolithic web application, are finding that this is no longer the case. Native applications, new web applications based on new technologies (SPA), IoT devices and System-to-System integrations all require more modern authentication technologies and these applications are being added to platform ecosystems at an increasing pace.</p>
+<h3>Reduce the costs of running applications</h3>
+<p>One of the overall initiatives for this client is to become more cloud-native and reduce the running costs of applications. There is already an initiative to move all the platform servers to Azure, but we didn't want any new applications continuing the pattern of &quot;lift and shift&quot; used for the existing apps. There is a strong desire to leverage containers (docker) and orchestrators (Kubernetes) at an increasing rate for all the applications in order to reduce overall run costs.</p>
+<h3>Being able to scale up is important</h3>
+<p>As with all businesses, we expect growth. My client is heavily reliant on devices for their current business needs and will be adding customers, native apps, and IoT devices at an ever-increasing rate. This means that having the ability to scale vertically or horizontally needs to be present from the start. Growth was anticipated (pre-COVID19) to be &gt; 30% year over year for the next 3-5 years so there were going to be lots of people and devices needing to use the system in the future.</p>
+<h2>Summary (TL;DR;)</h2>
+<p>Security is hard! De-centralized (read: many) authentication systems are expensive. Old Application are ... well... old! Modern applications need support! Moving to the cloud is happening! And businesses grow!!</p>
+<p>I hope that this gives some context that helps you understand some of the decisions that I'll be sharing in the next section!</p>
+<p><strong>Next up:</strong>
+<a href="/kubernetes/kubernetes-my-journey-part-2">Initial Assumptions, Technologies, Learning resources</a></p>
+<style>
+    h1, h2, h3, h4, h5, h6 {
+       margin-top: 25px;
+    }
+    
+    figure.highlight{
+        background-color: #E8EEFE;
+    }
+    figure.highlight .gutter{
+        color: #0033CD;
+    }
+    figure.highlight pre {
+        font-family: 'Cascadia Code PL', monospace;
+    }
+    code {
+        font-family: 'Cascadia Code PL', sans-serif;
+        border-width: 0.1em;
+        border-color: #E8EEFE;
+        border-style: solid;
+        border-radius: 0.3em;
+        background-color: #E8EEFE;
+        color: #0033CD;
+        padding: 0em 0.4em;
+        white-space: nowrap;
+    }
+</style>
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/dave_white">
+				
+					<img src='https://www.gravatar.com/avatar/4b7708d2ae7f7bb866446e0459e3e156?s=200' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/dave_white">Dave White</a></h2>
+			
+			<a href="mailto:dmhwhite@gmail.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://agileramblings.com/" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/AgileRamblings" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/agileramblings" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			<a href="https://www.linkedin.com/in/dave-white" target="_blank"><img class="ProfileIcon" src="/images/icon_linkedin.png" border="0" alt="LinkedIN" title="LinkedIN"> LinkedIn</a><br>
+			
+			
+ 			<a href="/feeds/dave_white.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/kubernetes/kubernetes-my-journey-part-1/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'dave_white');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

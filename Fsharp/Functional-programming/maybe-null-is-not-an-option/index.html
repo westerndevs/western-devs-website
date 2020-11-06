@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Maybe null is not an Option | Western Devs</title>
+  <meta name="description" content="Tony Hoare calls null references his billion dollar mistake. Using null values (NULL, Null, nil, etc) makes code harder to maintain and to understand. But what can we do about it? To start let&#39;s revie">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Maybe null is not an Option">
+<meta property="og:url" content="https://westerndevs.com/Fsharp/Functional-programming/maybe-null-is-not-an-option/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="Tony Hoare calls null references his billion dollar mistake. Using null values (NULL, Null, nil, etc) makes code harder to maintain and to understand. But what can we do about it? To start let&#39;s revie">
+<meta property="article:published_time" content="2016-06-09T02:28:25.000Z">
+<meta property="article:modified_time" content="2020-11-06T00:19:55.658Z">
+<meta property="article:author" content="Western Devs">
+<meta property="article:tag" content="design">
+<meta property="article:tag" content="functional">
+<meta property="article:tag" content="fsharp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">JUN</div>
+    <div class="ListLrgDateDay">9</div>
+    <div class="ListLrgDateYear">2016</div>
+  </div>
+  <h2>Maybe null is not an Option</h2>
+</div>
+
+		    
+
+<p class="TXTsm">ORIGINALLY POSTED TO: <a href="http://orthocoders.com/blog/2016/06/08/maybe-null-is-not-an-option/" target="_blank" rel="noopener" class='originalurl'>http://orthocoders.com/blog/2016/06/08/maybe-null-is-not-an-option/</a></p>
+
+
+
+			<div id="mainPostContent">
+	        <p><a href="http://www.infoq.com/presentations/Null-References-The-Billion-Dollar-Mistake-Tony-Hoare" target="_blank" rel="noopener">Tony Hoare</a> calls <em>null references</em> his <strong>billion dollar mistake</strong>. Using <code>null</code> values (<code>NULL</code>, <code>Null</code>, <code>nil</code>, etc) makes code harder to maintain and to understand.</p>
+<p>But what can we do about it? To start let's review the meaning of <code>null</code> values ...</p>
+<a id="more"></a>
+<h2>Modeling optional results</h2>
+<h3>Finding Customers</h3>
+<p>Finding operations are very common. Given a <code>Customer</code> class, a <code>Find</code> method could look like this:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Customer <span class="title">Find</span>(<span class="params">Query query</span>)</span> ;</span><br></pre></td></tr></table></figure>
+<p>Now what happens when the customer can not be found? Possible options are:</p>
+<ul>
+<li>
+<p>Throw an exception: Why though? Where is the exceptional case? Trying to find a <code>Customer</code> has the possible scenario of not beign found.</p>
+</li>
+<li>
+<p>Return <code>null</code> to mean nothing was found. But are we positive we are getting a <code>null</code> for that reason and not other? And what can we do with the <code>null</code> value after?</p>
+</li>
+<li>
+<p>Return a <code>NullObject</code> that represents <code>Customer</code> null value. That could work to show some of the customer's data, if we expect strings or something similar. But for most cases this won't be enough.</p>
+</li>
+</ul>
+<h3>Parsing Integers</h3>
+<p>In <em>C#</em> you can use <code>Int32.parse</code> or <code>Int32.tryParse</code> to do the job. The former throws an <code>Exception</code> when the string can not be parsed into an int and the later returns a <code>Bool</code> indicating if the operation succeeded using an <code>out</code> parameter for the value.</p>
+<p>The first approach is not that intuitive. I want to get a result, not to catch an exception.</p>
+<p>The second one with the boolean result seems to go in the right direction but having an <code>out</code> parameter complicates things, and makes it hard to understand and hard to pass to another function, etc.</p>
+<h3>Optional values</h3>
+<p><em>F#</em> has a very simple way to deal with this by creating a <a href="https://fsharpforfunandprofit.com/posts/discriminated-unions/" target="_blank" rel="noopener">Discriminated Union</a> with only two values:</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">type</span> <span class="title">Option</span>&lt;<span class="title">'T</span>&gt; </span>= </span><br><span class="line">  | Some <span class="keyword">of</span> <span class="symbol">'T</span> </span><br><span class="line">  | None</span><br></pre></td></tr></table></figure>
+<p>Now finding customers has a very clear interface:</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> tryFindCustomer (q: query) : Option&lt;Customer&gt;</span><br></pre></td></tr></table></figure>
+<p>Parse clearly can succeed giving the parsed result or fail, therefore the result is <code>Optional</code>.</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> tryParseInt (s:string) =</span><br><span class="line">  <span class="keyword">match</span> Int32.TryParse(s) <span class="keyword">with</span></span><br><span class="line">  | <span class="keyword">true</span>, result -&gt; Some result</span><br><span class="line">  | <span class="keyword">false</span>, _     -&gt; None</span><br></pre></td></tr></table></figure>
+<p>NOTE: out parameters are converted tuples in F#.</p>
+<p>As a convention is common to call functions <code>trySomeAction</code> when the action can fail and return an <em>optional</em> value.</p>
+<h2>Working with optional values</h2>
+<p>Modeling optional values is a great start. Using an optional value makes very clear the fact that the caller has the <em>responsibility</em> to handle the possiblity of having <code>None</code> as a result.</p>
+<p>Having clear meaning improves clarity, intent, error handling, and there is no <code>null</code> that can cause problems.</p>
+<p>However, in terms of handling the result, are we that much better than before?</p>
+<p>Of course we could check always for <code>Some</code> or <code>None</code> and handle the result, but where is the <code>fun</code> in that?</p>
+<p>The key to create a great abstraction is <em>usage</em>. After seeing the same bit of code used again and again we could be confident that <em>abstracting</em> the behaviour is going to be really useful.</p>
+<p>To avoid doing a <code>match</code> on <code>Option</code> types luckily we have a series of helper functions that address most common scenarios.</p>
+<p>Many of these functions live in the <a href="https://github.com/fsprojects/FSharpx.Extras" target="_blank" rel="noopener">FSharpx</a> library.</p>
+<h3>Using defaults</h3>
+<p>To obtain the value from an <code>Option</code> we can use <code>Option.get</code>:</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> get = </span><br><span class="line">  <span class="keyword">function</span></span><br><span class="line">  | Some a -&gt; a</span><br><span class="line">  | None   -&gt; failwith <span class="string">"Nothing to get!"</span></span><br></pre></td></tr></table></figure>
+<p>(what's that <code>function</code>? Here is an <a href="http://fsharpforfunandprofit.com/posts/match-expression/" target="_blank" rel="noopener">explanation about pattern maching function</a>)</p>
+<p>Notice that <code>get</code> throws an exception when there is nothing to get.</p>
+<p>Throwing exception (and catching it) is ok, but makes hard to compose the result or transform it.</p>
+<p>Instead why not use a default value when there is <code>None</code>? (Taken from <a href="https://github.com/fsprojects/FSharpx.Extras/blob/master/src/FSharpx.Extras/ComputationExpressions/Monad.fs" target="_blank" rel="noopener">FSharpx</a>):</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> getOrElse v = </span><br><span class="line">  <span class="keyword">function</span></span><br><span class="line">  | Some a -&gt; a</span><br><span class="line">  | None   -&gt; v</span><br></pre></td></tr></table></figure>
+<p>Knowing that it can fail, and having a default value help us write code that can use a default value and keep going:</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> doWebRequest countStr =</span><br><span class="line">  countStr</span><br><span class="line">  |&gt; tryParse</span><br><span class="line">  |&gt; Option.getOrElse <span class="number">10</span></span><br><span class="line">  |&gt; processRequest</span><br></pre></td></tr></table></figure>
+<h3>Applying functions</h3>
+<p>Another common scenario is to apply a function when we get a result or just do nothing otherwise:</p>
+<p>For example, the following code will only print the message when <code>tryParse</code> returns <code>Some</code>:</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> doWebRequest param =</span><br><span class="line">  param</span><br><span class="line">  |&gt; tryParse</span><br><span class="line">  |&gt; Option.iter (printf <span class="string">"The result is %d"</span>)</span><br></pre></td></tr></table></figure>
+<p>And the implementation:</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> iter f = </span><br><span class="line">  <span class="keyword">function</span></span><br><span class="line">  | Some a -&gt; f a</span><br><span class="line">  | None   -&gt; unit</span><br></pre></td></tr></table></figure>
+<h3>Shortcircuit <code>None</code></h3>
+<p><code>iter</code> is useful to execute a function when there is <code>Some</code> value returned, but is common to use the value somehow and transform it into something else.</p>
+<p>For that we can use the <code>map</code> function:</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> map f = </span><br><span class="line">  <span class="keyword">function</span></span><br><span class="line">  | Some a -&gt; f a |&gt; Some</span><br><span class="line">  | None   -&gt; None</span><br></pre></td></tr></table></figure>
+<p>This is a bit different. Not only the function passed as parameter is applied after <em>unboxing</em> the value, but the result is <em>boxed</em> back into an <code>Option</code>. Once an <code>Option</code> always an <code>Option</code>.</p>
+<p>Imagine a <a href="http://fsharpforfunandprofit.com/rop/" target="_blank" rel="noopener">railway</a> and a train that once hits the value <code>None</code> switches to a <code>None</code> railway and bypasses any operation that comes after. Thus the <em>shortcircuit</em>.</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> queryCustomers quantity = [] <span class="comment">// silly implementation</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> doWebRequest req =</span><br><span class="line">  req.tryGetParam <span class="string">"customers"</span></span><br><span class="line">  |&gt; Option.map queryCustomers         <span class="comment">// Shortcircuit with None</span></span><br><span class="line">  |&gt; Option.getOrElse invalidRequest   <span class="comment">// uses the default</span></span><br></pre></td></tr></table></figure>
+<h3>Mapping to <code>Option</code></h3>
+<p>Another common case, very similar to <code>map</code>, is to use a function that transforms the boxed value and returns an <code>Option</code>.</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> bind f = </span><br><span class="line">  <span class="keyword">function</span></span><br><span class="line">  | Some a -&gt; f a </span><br><span class="line">  | None   -&gt; None</span><br></pre></td></tr></table></figure>
+<p>For example the parameter that represents the <em>customer id</em> is a string, and we need to parse it into an int. Getting the parameter can return a <code>None</code> and the parse function could return a <code>None</code> as well.</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> doWebRequest req =</span><br><span class="line">  req.tryGetParam <span class="string">"customerId"</span></span><br><span class="line">  |&gt; Option.bind Int32.tryParse       <span class="comment">// Shortcircuit if None</span></span><br><span class="line">  |&gt; Option.map  findCUstomer         <span class="comment">// Shortcircuit if None</span></span><br><span class="line">  |&gt; Option.getOrElse invalidRequest</span><br></pre></td></tr></table></figure>
+<h2>Multiple optional values</h2>
+<p>So far so good with one parameter. But what happens with more than one parameter? The goal is to <em>shortcircuit</em> and if one of the parameters is <code>None</code> then abort and just return <code>None</code>.</p>
+<p>One option is to use <em>FSharpx</em> and the <code>MaybeBuilder</code>. I'm not going to discuss the details of how builders work but I will show you the practical usage to illustrate the point.</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">type</span> <span class="title">Result</span>&lt;<span class="title">'TData</span>&gt; </span>= </span><br><span class="line">  | Success <span class="keyword">of</span> 'TData</span><br><span class="line">  | Error <span class="keyword">of</span> string</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> findCustomers count country city = ... <span class="comment">// implement query</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> invalidRequest = <span class="string">"Boooo! Not all parameters are present!"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> doWebRequest (req:Request) =</span><br><span class="line">  maybe &#123;</span><br><span class="line">    <span class="keyword">let!</span> strCount = req.tryGetParam <span class="string">"count"</span></span><br><span class="line">    <span class="keyword">let!</span> city     = req.tryGetParam <span class="string">"city"</span></span><br><span class="line">    <span class="keyword">let!</span> country  = req.tryGetParam <span class="string">"country"</span></span><br><span class="line">    <span class="keyword">let!</span> count    = Int32.tryParse strCount</span><br><span class="line">    <span class="keyword">return</span> findCustomers count country city</span><br><span class="line">  &#125;</span><br><span class="line">  |&gt; Option.map Success</span><br><span class="line">  |&gt; Option.getOrElse (invalidRequest |&gt; Error)</span><br></pre></td></tr></table></figure>
+<p>In this scenario we have a happy path:</p>
+<ul>
+<li>All parameters are present, then the result is <code>Success</code> with the output of <code>findCustomers</code>.</li>
+</ul>
+<p>And four <em>unhappy</em> paths:</p>
+<ul>
+<li><code>count</code> is not present, then the <code>maybe</code> builder does shortcircuit to <code>None</code> and <code>getOrElse</code> returns an <code>Error</code>.</li>
+<li><code>city</code> is not present, then the <code>maybe</code> builder does shortcircuit to <code>None</code> and <code>getOrElse</code> returns an <code>Error</code>.</li>
+<li><code>country</code> is not present, then the <code>maybe</code> builder does shortcircuit to <code>None</code> and <code>getOrElse</code> returns an <code>Error</code>.</li>
+<li><code>count</code> is present, but can not be parsed then ... shortcircuit ... and <code>Error</code>.</li>
+</ul>
+<p>The <code>let!</code> is doing the <em>unboxing</em> from <code>Option</code> to the actual type, and when any of the expressions has the value <code>None</code> then the builder does the <em>shortcircuit</em> and returns <code>None</code> as result.</p>
+<h2>Applicative Style</h2>
+<p>Another way to write the same concept (sometimes a bit more clear) is to use the <em>Applicative</em> style by using operators that represent the operations that we already are using that also apply shortcircuit when possible.</p>
+<p>For the functions we have used in the <code>Option</code> type the operators are:</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!&gt; <span class="comment">// is an alias for map</span></span><br><span class="line">&gt;&gt;= <span class="comment">// is an alias for bind</span></span><br></pre></td></tr></table></figure>
+<p><em>(Find all the definitions <a href="https://github.com/fsprojects/FSharpx.Extras/blob/master/src/FSharpx.Extras/ComputationExpressions/Monad.fs" target="_blank" rel="noopener">here</a>)</em>.</p>
+<p>To use them let's try to read the parameters from the request.</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> city    = req.tryGetParam <span class="string">"city"</span></span><br><span class="line"><span class="keyword">let</span> country = req.tryGetParam <span class="string">"country"</span></span><br></pre></td></tr></table></figure>
+<p>Good, now <code>count</code> needs to be parsed as well, so we can use <code>tryParse</code> that returns an <code>Option</code>. What can we use when we need to apply a function that returns also an <code>Option</code>? <code>Bind</code> of course, or <code>&gt;&gt;=</code>.</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> count = req.tryGetParam <span class="string">"count"</span> &gt;&gt;= Int32.tryParse</span><br></pre></td></tr></table></figure>
+<p>All the parameters are parsed into <code>Option</code> and <code>findCustomers</code> can be invoked.</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">findCustomers &lt;!&gt; count ???? city ??? country</span><br></pre></td></tr></table></figure>
+<p>To apply a function over an <code>Option</code> we can use the operator <code>&lt;!&gt;</code> (<code>map</code>), but what about the other two parameters?</p>
+<p>Let me rephrase, what happens when we apply a function that takes three parameters to just one parameter? Exactly! A partial application!</p>
+<p>Same happens when applying the operator <code>&lt;!&gt;</code> to a function that takes three parameters, the difference is that the partially applied function gets <em>boxed</em> in an <code>Option</code>.</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> count = req.tryGetParam <span class="string">"count"</span> &gt;&gt;= Int32.tryParse </span><br><span class="line"></span><br><span class="line">findCustomers &lt;!&gt; count ... <span class="comment">// returns an Option&lt;int -&gt; int -&gt; Customer list&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Now we need to apply the boxed function to a boxed value, and for that we can use the operator <code>&lt;*&gt;</code> that takes a boxed function and a boxed value and returns the boxed version of applying the function to the value.</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">findCustomers &lt;!&gt; count &lt;*&gt; city  ... <span class="comment">// partial application of the function to city</span></span><br></pre></td></tr></table></figure>
+<p>In this case we have two more parameters so the full version would be:</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> findCustomers count city country = [] </span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> doWebRequest (req:Request) =</span><br><span class="line">  <span class="keyword">let</span> city    = req.tryGetParam <span class="string">"city"</span></span><br><span class="line">  <span class="keyword">let</span> country = req.tryGetParam <span class="string">"country"</span></span><br><span class="line">  <span class="keyword">let</span> count   = req.tryGetParam <span class="string">"count"</span> &gt;&gt;= Int32.tryParse </span><br><span class="line"></span><br><span class="line">  findCustomers &lt;!&gt; count &lt;*&gt; city &lt;*&gt; country</span><br><span class="line">  |&gt; Option.map Success</span><br><span class="line">  |&gt; Option.getOrElse (invalidRequest |&gt; Error)</span><br></pre></td></tr></table></figure>
+<h2>Summary</h2>
+<p>Using an <code>Option</code> to represent when a value may not be present has many advantages.</p>
+<p>Not only is easier to deal with cases that produce no results, but also the code is clear an easy to follow.</p>
+<p>Though here the code is in F# you could implement similar features in your favourite language.</p>
+<p>(<em>Check out Java 8 <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html" target="_blank" rel="noopener">Optional class</a> or this <a href="https://github.com/adamkrieger/FSBetter/blob/master/functions/0.2_Maybe.csx" target="_blank" rel="noopener">C# implementation of Maybe</a> by <a href="https://twitter.com/AdamKrieger" target="_blank" rel="noopener">Adam Krieger</a></em>).</p>
+<p>All the code can be found <a href="https://github.com/amirci/option-sample" target="_blank" rel="noopener">here</a>. I included a series of tests that show how the builder and applicative style apply a shortcircuit when one of the parameters is missing.</p>
+<p>Thanks to my good friend <a href="https://twitter.com/Dead_Stroke" target="_blank" rel="noopener">Shane</a> for helping me to test the code in all platforms.</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/amir_barylko">
+				
+					<img src='https://www.gravatar.com/avatar/fadb1de2c18ab0fc42ebc0988327c90f?s=200' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/amir_barylko">Amir Barylko</a></h2>
+			
+			<a href="mailto:amir@barylko.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://www.orthocoders.com/" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/abarylko" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/amirci" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			<a href="https://www.linkedin.com/in/amirbarylko" target="_blank"><img class="ProfileIcon" src="/images/icon_linkedin.png" border="0" alt="LinkedIN" title="LinkedIN"> LinkedIn</a><br>
+			
+			
+ 			<a href="/feeds/amir_barylko.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/Fsharp/Functional-programming/maybe-null-is-not-an-option/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'amir_barylko');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

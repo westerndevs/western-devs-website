@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>ASP.NET Core Distributed Cache Tag Helper | Western Devs</title>
+  <meta name="description" content="The anxiously awaited ASP.NET Core RC2 has finally landed and with it we have a shiny new tag helper to explorer. In this post we will explore the new Distributed Cache tag helper and how it differs f">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ASP.NET Core Distributed Cache Tag Helper">
+<meta property="og:url" content="https://westerndevs.com/ASP-NET-Core/Tag-Helpers/ASP-NET-Core-Distributed-Cache-Tag-Helper/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="The anxiously awaited ASP.NET Core RC2 has finally landed and with it we have a shiny new tag helper to explorer. In this post we will explore the new Distributed Cache tag helper and how it differs f">
+<meta property="og:image" content="http://www.davepaquette.com/images/distributed-cache-key-collision.png">
+<meta property="og:image" content="http://www.davepaquette.com/images/sql-server-cache-contents.png">
+<meta property="article:published_time" content="2016-05-22T16:11:17.000Z">
+<meta property="article:modified_time" content="2020-11-06T00:19:55.658Z">
+<meta property="article:author" content="Western Devs">
+<meta property="article:tag" content="Tag Helpers">
+<meta property="article:tag" content="ASP.NET Core">
+<meta property="article:tag" content="MVC">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.davepaquette.com/images/distributed-cache-key-collision.png">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">MAY</div>
+    <div class="ListLrgDateDay">22</div>
+    <div class="ListLrgDateYear">2016</div>
+  </div>
+  <h2>ASP.NET Core Distributed Cache Tag Helper</h2>
+</div>
+
+		    
+
+<p class="TXTsm">ORIGINALLY POSTED TO: <a href="http://www.davepaquette.com/archive/2016/05/22/ASP-NET-Core-Distributed-Cache-Tag-Helper.aspx" target="_blank" rel="noopener" class='originalurl'>http://www.davepaquette.com/archive/2016/05/22/ASP-NET-Core-Distributed-Cache-Tag-Helper.aspx</a></p>
+
+
+
+			<div id="mainPostContent">
+	        <p>The anxiously awaited ASP.NET Core RC2 has finally landed and with it we have a shiny new tag helper to explorer.</p>
+<p>We previously talked about the <a href="http://www.davepaquette.com/archive/2015/06/03/mvc-6-cache-tag-helper.aspx" target="_blank" rel="noopener">Cache Tag Helper</a> and how it allows you to cache the output from any section of a Razor page. While the Cache Tag Helper is powerful and very useful, it is limited in that it uses an instance of <code>IMemoryCache</code> which stores cache entries in memory in the local process. If the server process restarts for some reason, the contents of the cache will be post. Also, if your deployment consists of multiple servers, each server would have its own cache, each potentially containing different contents.</p>
+<h1>Distributed Cache Tag Helper</h1>
+<p>The cache tag helper left people wanting more. Specifically they wanted to store the cached HTML in a distributed cache like Redis. Instead of complicating the existing Cache Tag Helper, the ASP.NET team enabled this use-case by adding a new <a href="https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNetCore.Mvc.TagHelpers/DistributedCacheTagHelper.cs" target="_blank" rel="noopener">Distributed Cache Tag Helper</a>.</p>
+<p>Using the Distributed Cache Tag Helper is very similar to using the Cache Tag Helper:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">distributed-cache</span> <span class="attr">name</span>=<span class="string">"MyCache"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Something that will be cached<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    @DateTime.Now.ToString()</span><br><span class="line"><span class="tag">&lt;/<span class="name">distributed-cache</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>The name property is required and the value should be unique. It is used as a prefix for the cache key. This differs from the Cache Tag Helper which uses an automatically generated unique id based on the location of the cache tag helper in your Razor page. The auto generated approach cannot be used with a distributed cache because Razor would generate different unique ids for each server. You will need to make sure that you use a unique <code>name</code> each time you use the <code>distributed-cache</code> tag helper. If you unintentionally use the same name in multiple places, you might get the same results in 2 places.</p>
+<p>For example, see what happens when 2 <code>distributed-cache</code> tag helpers with the same <code>name</code>:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">distributed-cache</span> <span class="attr">name</span>=<span class="string">"MyCache"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Something that will be cached<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    @DateTime.Now.ToString()</span><br><span class="line"><span class="tag">&lt;/<span class="name">distributed-cache</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">distributed-cache</span> <span class="attr">name</span>=<span class="string">"MyCache"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>This should be different<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    @DateTime.Now.ToString()</span><br><span class="line"><span class="tag">&lt;/<span class="name">distributed-cache</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://www.davepaquette.com/images/distributed-cache-key-collision.png" alt="Accidental Cache Key Collision"></p>
+<p><em>If you are really curious about the how cache keys are generated for both tag helpers, take a look at the <a href="https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNetCore.Mvc.TagHelpers/Cache/CacheTagKey.cs" target="_blank" rel="noopener">CacheTagKey Class</a>.</em></p>
+<p>The <code>vary-by-*</code> and <code>expires-*</code> attributes all work the same as the Cache Tag Helper. You can review those in my <a href="http://www.davepaquette.com/archive/2015/06/03/mvc-6-cache-tag-helper.aspx" target="_blank" rel="noopener">previous post</a>.</p>
+<h2>Configuring the Distributed Cache</h2>
+<p>Unless you specify some additional configuration, the distributed cache tag helper actually uses a local process in memory cache. This might seem a little strange but it does help with the developer workflow. As a developer, I don't need to worry about standing up a distributed cache like Redis just to run the app locally. The intention of course is that a true distributed cache would be used in a staging/production environments.</p>
+<p>The simplest approach to configuring the distributed cache tag helper is to configure a <code>IDistributedCache</code> service in the Startup class. ASP.NET Core ships with 2 distributed cache implementations out of the box: <a href="https://github.com/aspnet/Caching/blob/dev/src/Microsoft.Extensions.Caching.SqlServer/SqlServerCache.cs" target="_blank" rel="noopener">SqlServer</a> and <a href="https://github.com/aspnet/Caching/blob/dev/src/Microsoft.Extensions.Caching.Redis/RedisCache.cs" target="_blank" rel="noopener">Redis</a>.</p>
+<p>As a simple test, let's try specifying a <code>SqlServerCache</code> in the <code>Startup.ConfigureServices</code> method:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">services.AddSingleton&lt;IDistributedCache&gt;(serviceProvider =&gt;</span><br><span class="line">    <span class="keyword">new</span> SqlServerCache(<span class="keyword">new</span> SqlServerCacheOptions()</span><br><span class="line">    &#123;</span><br><span class="line">        ConnectionString = <span class="string">@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=DistributedCacheTest;Integrated Security=True;"</span>,</span><br><span class="line">        SchemaName = <span class="string">"dbo"</span>,</span><br><span class="line">        TableName = <span class="string">"MyAppCache"</span></span><br><span class="line">    &#125;));</span><br></pre></td></tr></table></figure>
+<p>Of course, the ConnectionString should be stored in a configuration file but for demonstration purposes I have in-lined it here.</p>
+<p>You will need to create the database and table manually. Here is a script for creating the table, which I extracted from <a href="https://github.com/aspnet/Caching/blob/dev/src/Microsoft.Extensions.Caching.SqlServer/SqlQueries.cs" target="_blank" rel="noopener">here</a>:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> MyAppCache(            </span><br><span class="line">	<span class="keyword">Id</span> <span class="keyword">nvarchar</span>(<span class="number">449</span>) <span class="keyword">COLLATE</span> SQL_Latin1_General_CP1_CS_AS <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">	<span class="keyword">Value</span> varbinary(<span class="keyword">MAX</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">	ExpiresAtTime datetimeoffset <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">	SlidingExpirationInSeconds <span class="built_in">bigint</span> <span class="literal">NULL</span>,</span><br><span class="line">	AbsoluteExpiration datetimeoffset <span class="literal">NULL</span>,</span><br><span class="line">	<span class="keyword">CONSTRAINT</span> pk_Id PRIMARY <span class="keyword">KEY</span> (<span class="keyword">Id</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> NONCLUSTERED <span class="keyword">INDEX</span> Index_ExpiresAtTime <span class="keyword">ON</span> MyAppCache(ExpiresAtTime)</span><br></pre></td></tr></table></figure>
+<p>Now when I visit the page that contains the <code>distributed-cache</code> tag helper, I get the following error:</p>
+<p><code>InvalidOperationException: Either absolute or sliding expiration needs to be provided.</code></p>
+<p>The SQL Server implementation requires us to specify some form of expiry. No problem, let's just add the those attributes to the tag helper:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">distributed-cache</span> <span class="attr">name</span>=<span class="string">"MyCacheItem1"</span> <span class="attr">expires-after</span>=<span class="string">"TimeSpan.FromHours(1)"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Something that will be cached<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    @DateTime.Now.ToString()</span><br><span class="line"><span class="tag">&lt;/<span class="name">distributed-cache</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">distributed-cache</span> <span class="attr">name</span>=<span class="string">"MyCacheItem2"</span> <span class="attr">expires-sliding</span>=<span class="string">"TimeSpan.FromMinutes(30)"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>This should be different<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    @DateTime.Now.ToString()</span><br><span class="line"><span class="tag">&lt;/<span class="name">distributed-cache</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Now the page renders properly and we can see the contents in SQL Server:</p>
+<p><img src="http://www.davepaquette.com/images/sql-server-cache-contents.png" alt="SQL Server Cache Contents"></p>
+<p>Note that since the key is hashed and the value is stored in binary, the contents of the table in SQL server are not human readable.</p>
+<p>For more details on working with a SQL Server or Redis distrubted cache, see the <a href="https://docs.asp.net/en/latest/performance/caching/distributed.html" target="_blank" rel="noopener">official ASP.NET Docs</a>;</p>
+<h2>Even more configuration</h2>
+<p>In some cases, you might want more control over how values are serialized or even how the distributed cache is used by the tag helper. In those cases, you could implement your own <a href="https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNetCore.Mvc.TagHelpers/Cache/IDistributedCacheTagHelperFormatter.cs" target="_blank" rel="noopener">IDistributedCacheTagHelperFormatter</a> and/or <a href="https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNetCore.Mvc.TagHelpers/Cache/IDistributedCacheTagHelperStorage.cs" target="_blank" rel="noopener">IDistributedCacheTagHelperStorage</a>.</p>
+<p>In cases where you need complete control, you could implement your own <a href="https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNetCore.Mvc.TagHelpers/Cache/IDistributedCacheTagHelperService.cs" target="_blank" rel="noopener">IDistributedCacheTagHelperService</a>.</p>
+<p>I suspect that this added level of customization won't be needed by most people.</p>
+<h1>Conclusion</h1>
+<p>The Distributed Cache Tag Helper provides an easy path to caching HTML fragments in a distributed cache. Out of the box, Redis and SQL Server are supported. Over time, I expect that a number of alternative distributed cache implementations will be provided by the community.</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/dave_paquette">
+				
+					<img src='/images/avatars/DavePaquette_241x241.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/dave_paquette">Dave Paquette</a></h2>
+			
+			<a href="mailto:contactme@davepaquette.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://www.davepaquette.com/" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/Dave_Paquette" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/dpaquette" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			
+ 			<a href="/feeds/dave_paquette.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/ASP-NET-Core/Tag-Helpers/ASP-NET-Core-Distributed-Cache-Tag-Helper/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'dave_paquette');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

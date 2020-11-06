@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Scrum with Kanban WIP Limits | Western Devs</title>
+  <meta name="description" content="A natural, easy first step for enhancing Scrum with a Kanban practice is a WIP limit">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Scrum with Kanban WIP Limits">
+<meta property="og:url" content="https://westerndevs.com/Kanban/Scrum_with_WIP_Limits/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="A natural, easy first step for enhancing Scrum with a Kanban practice is a WIP limit">
+<meta property="og:image" content="https://i.imgur.com/sWbffZY.png">
+<meta property="og:image" content="https://i.imgur.com/WVnJClc.png">
+<meta property="article:published_time" content="2017-07-07T00:00:00.000Z">
+<meta property="article:modified_time" content="2020-11-06T00:19:55.662Z">
+<meta property="article:author" content="Western Devs">
+<meta property="article:tag" content="kanban">
+<meta property="article:tag" content="agile">
+<meta property="article:tag" content="scrum">
+<meta property="article:tag" content="myths">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/sWbffZY.png">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">JUL</div>
+    <div class="ListLrgDateDay">7</div>
+    <div class="ListLrgDateYear">2017</div>
+  </div>
+  <h2>Scrum with Kanban WIP Limits</h2>
+</div>
+
+		    
+
+			<div id="mainPostContent">
+	        <p>Inspired by <a href="https://www.scrum.org/user/119" target="_blank" rel="noopener">Steve Porter's</a> efforts to bring process practitioners closer together and educate Scrum practitioners, I'm writing a shadow series of posts that will follow the <a href="https://www.scrum.org/resources/blog/scrum-and-kanban-stronger-together" target="_blank" rel="noopener">Kanban and Scrum - Stronger Together</a> series and continue <a href="https://agileramblings.com/2013/03/10/the-difference-between-the-kanban-method-and-scrum/" target="_blank" rel="noopener">my own efforts</a> to clear up misconceptions between practitioners of these methods.</p>
+<p>In my last post, I discussed how a Scrum team could change nothing about their process and organically start describing how they work in Kanban terms. In this post, I'm hoping to show a minimally viable change to their process that could lead to enhanced team delivery performance.</p>
+<h2>Scrum's WIP Limit Policy</h2>
+<p>As we described last post, many Scrum teams limit work in progress (WIP) at the beginning of the Sprint by filling the Sprint Plan with work. The teams are given the ownership of deciding how much work to <em>pull</em> into the sprint. In kanban terms, we would probably call this a <a href="https://en.wikipedia.org/wiki/CONWIP" target="_blank" rel="noopener">CONWIP (CONstant Work In Progress)</a> WIP control policy. We have constant WIP in the sprint, and we don't control WIP at individual stages of the workflow. One thing that Scrum teams will do that doesn't exactly fit with a CONWIP policy is that CONWIP policies normally just counts cards. In Scrum, cards are assigned a <em>relative size</em> value (Story point) that describes the size of the card. So instead of having a CONWIP limit of 5 cards, Scrum teams will a CONWIP policy of 25 story points. That may be 3 cards, it may be 20 cards, depending on the nature of the work.</p>
+<p>We're not going to change that at all. Limiting work in any manner is a <strong>GREAT</strong> start!</p>
+<p>What we can do though is introduce count-based WIP limits at stages in the virtual kanban system. And that is it! Remember we are doing a minimum viable change to minimize risk, build experience and comfort, and see if this even works.</p>
+<h2>Scrum is naturally enhanced by Kanban</h2>
+<p>Kanban practitioners usually strive to enhance the effect of the WIP limit policies on their system, constantly tuning them to get optimal performance. In order to do this, Kanban tends to promote more fine-grained WIP policies at the workflow stage level. This isn't the only place or way that we can use WIP policies, but it is a really great next step for a Scrum team to take.</p>
+<p>So very simply, the next step for Scrum teams to take is to put a WIP limit policy indicator at the top of a their kanban board!</p>
+<p>Let's walk thorough an example and see how simple that would be!</p>
+<h3>Scrum CONWIP policy controlled board</h3>
+<p><img src="https://i.imgur.com/sWbffZY.png" alt="Scrum Board with CONWIP policy" title="Basic Scrum board with CONWIP policy"></p>
+<p>We can see here that we are only controlling WIP for the entire system by limiting how much work can be pulled in per sprint. This is a great start to limiting WIP, but we might be able to improve the overall flow of work within the team's workflow. I have seen Scrum teams that start <strong>everything</strong> at the beginning of the sprint instead of starting only as much as they can handle and trying to finish that before starting a new story. Starting everything at once isn't good behaviour or encouraged behaviour in a Scrum team, but it happens without any other policies to guide team members to better behaviour.</p>
+<h3>Scrum Board with Workflow Stage WIP control policies added</h3>
+<p><img src="https://i.imgur.com/WVnJClc.png" alt="Scrum Board with WIP Limits per stage policy" title="Basic Scrum board with WIP limits per phase"></p>
+<p>We can see here that we have simply added some indicators of the WIP limit policy on the Kanban board. I just put a few sample numbers in place, but it is now clear what the policy is for the team with regard to pulling the work <strong>through</strong> the sprint and not just pulling work <em>into</em> the sprint.</p>
+<p>So what these numbers mean is that we believe that there should only be <em>n</em> # of PBIs in a stage at once. Anything more is going to lead to emotional distress due to overburdening and probably slow delivery due to multi-tasking. Using these policies as an example, we believe we should only have 2 PBIs in analysis at a time and if someone is not busy in Dev and Test, they can help out with work on Analysis of a PBI to help flow work through the system.</p>
+<p>It is also very important to understand that in the same way that the sprint capacity is determined during the Sprint Planning meeting and adjusted per sprint, these intra-sprint WIP limit policies should be adjusted when there is new information available about the capabilities of the team.</p>
+<p>We also gain and share information about how we believe the team <em>should</em> behave to help deliver PBIs more effectively. We can discuss work and policies instead of discussing people and why they are working a certain way.</p>
+<p>And that is it! That is as easy as it is to add the idea of intra-workflow WIP limit policies to a Scrum team's kanban board. We didn't have to change anything about the way that we worked. We just enhanced and communicated our team's understanding of how we want to work.</p>
+<h2>Did it Work?!?!</h2>
+<p>Before we call this experiment a success, we need to know, did this even work to improve our delivery capability?</p>
+<p>If you're been practicing Scrum for a bit, you will have some historical information and hopefully trend data about your team's ability to deliver Story Points/PBIs to the customer. It is this information that we use in the Sprint Planning meeting to determine what our CONWIP number should be.</p>
+<p>After you've implemented your intra-workflow WIP limit policies, doing nothing else, you should be able to detect if these policies helped you, or hindered you by measuring your Story Point/PBI delivery rate per sprint. You may also be able to capture some qualitative information in your Sprint Retrospective about the positive or negative impact of these policies on the team members.</p>
+<p>If the experiment produced a measurable improvement in your team's ability to delivery, congratulations!! That is great news and I'd love to hear about it!</p>
+<p>If the experiment produced <em>no</em> measurable improvement in your team's delivery rate, congratulations!! You've discovered that it didn't work! And you have more information and I'd love to hear about it!  But if we had hoped to improve and discovered we didn't, we have a decision to make. Revert the changes as easily as removing the WIP limits from your board and continue life as it was before, or dig into why the policies didn't have the desired effect. Did you constantly exceed the WIP limits? Did you not measure all work? We know from experience that reducing WIP should improve delivery rates.</p>
+<p>But again, if you don't want to figure that out, just remove the WIP limits from your board. Easy!</p>
+<h2>Is there more</h2>
+<p>There is more to the Kanban Method and virtual kanban systems, but we were just planning to demonstrate a minimum viable change that gives Scrum teams a chance to try out a little kanban practice. Once we've mastered the understanding of WIP limits and their implementation, we can pick our next technique to start to learn about like demand shaping, kanban system designs that are fit for purpose, capacity allocations, managing emergent work, or any of the other practices that our community uses as we gain experience with Kanban.</p>
+<h2>What's Next</h2>
+<p>Those are just some of the opportunities that you have! I'm not suggesting you can't find those opportunities elsewhere, but you shouldn't be afraid to approach kanban! It will happily support the way you want to work today and help you continue your growth into the future!</p>
+<p>In our next post, we will discuss how a Scrum team could enhance their practices to handle emergent (or emergency) work!</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/dave_white">
+				
+					<img src='https://www.gravatar.com/avatar/4b7708d2ae7f7bb866446e0459e3e156?s=200' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/dave_white">Dave White</a></h2>
+			
+			<a href="mailto:dmhwhite@gmail.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://agileramblings.com/" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/AgileRamblings" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/agileramblings" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			<a href="https://www.linkedin.com/in/dave-white" target="_blank"><img class="ProfileIcon" src="/images/icon_linkedin.png" border="0" alt="LinkedIN" title="LinkedIN"> LinkedIn</a><br>
+			
+			
+ 			<a href="/feeds/dave_white.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/Kanban/Scrum_with_WIP_Limits/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'dave_white');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

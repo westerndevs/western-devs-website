@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Kubernetes - My Journey - Part 3 | Western Devs</title>
+  <meta name="description" content="Series Table of Contents Previously: Initial Assumptions, Technologies, Learning resources Tools in Use Tooling is an incredibly important aspect of a developer&#39;s daily life. IDEs, CLIs, Automations,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kubernetes - My Journey - Part 3">
+<meta property="og:url" content="https://westerndevs.com/kubernetes/kubernetes-my-journey-part-3/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="Series Table of Contents Previously: Initial Assumptions, Technologies, Learning resources Tools in Use Tooling is an incredibly important aspect of a developer&#39;s daily life. IDEs, CLIs, Automations,">
+<meta property="og:image" content="https://s3.amazonaws.com/neowin/news/images/uploaded/2017/02/1486663278_visual-studio-97.jpg">
+<meta property="article:published_time" content="2020-05-22T14:00:00.000Z">
+<meta property="article:modified_time" content="2020-11-06T00:19:55.670Z">
+<meta property="article:author" content="Western Devs">
+<meta property="article:tag" content="kubernetes, azure, aks, identityserver, docker, containers">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s3.amazonaws.com/neowin/news/images/uploaded/2017/02/1486663278_visual-studio-97.jpg">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">MAY</div>
+    <div class="ListLrgDateDay">22</div>
+    <div class="ListLrgDateYear">2020</div>
+  </div>
+  <h2>Kubernetes - My Journey - Part 3</h2>
+</div>
+
+		    
+
+			<div id="mainPostContent">
+	        <p><a href="/kubernetes/kubernetes-my-journey">Series Table of Contents</a></p>
+<p><strong>Previously:</strong>
+<a href="/kubernetes/kubernetes-my-journey-part-2">Initial Assumptions, Technologies, Learning resources</a></p>
+<h1>Tools in Use</h1>
+<p>Tooling is an incredibly important aspect of a developer's daily life. IDEs, CLIs, Automations, Visualizations; the list goes on and on. Sifting through the set of tools that are available and finding out if they work for you can take a lot of time. As a former Microsoft MVP (Dev Tools), I'm always interested in tooling because I know the importance it can make in developer productivity and the overall productivity and quality for an organization! I'm hoping that by sharing my base set of tools, and what I use them for, you'll get a bit of tool-curation time savings back to spend on learning other things.</p>
+<p>These are the tools I use <strong>every day</strong> on this project.</p>
+<h2>Visual Studio</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://visualstudio.microsoft.com/vs/" target="_blank" rel="noopener">Visual Studio</a> has come a long, long way since the first time I ever used is as Microsoft Visual Studio 97 (5.x). Wow! This IDE has been my constant companion for the entirety of my development career, and I have to say that the current VS 2019 version of the tool is a pleasure to work with. Given the complex nature of building projects and supporting all of the ecosystems that we build projects for, VS 2019 does a fantastic job of supporting <em>my</em> needs.</td>
+<td style="text-align:center"><img width="200px" src="https://s3.amazonaws.com/neowin/news/images/uploaded/2017/02/1486663278_visual-studio-97.jpg" alt="Visual Studio 97"></td>
+</tr>
+</tbody>
+</table>
+<p>With this project, I obviously appreciate all of the normal C# coding functions that are present, but the docker/docker-compose support is particularly important and the ability to debug applications running in docker containers is great.</p>
+<p>I still have <a href="https://www.jetbrains.com/resharper/" target="_blank" rel="noopener">ReSharper</a> and I still have many extensions (Thanks <a href="https://marketplace.visualstudio.com/publishers/MadsKristensen" target="_blank" rel="noopener">Mads</a>!) running in Visual Studio, but this IDE is the workhorse of my day-to-day activities when I'm working in C#.</p>
+<blockquote>
+<p>I don't recommend that you download and try to use Microsoft Visual Studio 97!</p>
+</blockquote>
+<h2>VS Code</h2>
+<p><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Visual Studio Code</a> is a fantastic, light-weight text editor with an incredible extensibility feature that the community has taken full advantage of! Out of the box, it is very good at one thing. Editing text files. With all the extensions being written and placed on the marketplace, it has become some people's full-time IDE. The great thing about VS Code is that it runs on macOS, Linux, and Windows, so you take it wherever you go! And, it's free! It has mostly replaced all my other text editors, with the exception of <strong>Notepad</strong>. Still use that one from time to time.</p>
+<p>I use VS Code for editing all my manifests, <strong>Pulumi</strong> Typescript applications, and markdown files for documentation. This blog post was written in Markdown using VS Code! With an integrated terminal window using PS Core, I can do pretty much all my <strong>k8s</strong> deployment and resource work without leaving VS Code.</p>
+<h2>Pulumi</h2>
+<p>I've mentioned that while I find manifests a great way to learn <strong>k8s</strong>, I've adopted a different approach for deploying <strong>k8s</strong>. That approach is from a company called <a href="https://www.pulumi.com/" target="_blank" rel="noopener">Pulumi</a>! What they've basically done is built a platform and multiple SDKs in various languages that allow us to do <strong>Infrastructure as Code</strong> in a programming language of our choice!! It's a great way to define and manage your cloud resources. Once you have written your application that knows what you want to do, you simply tell the <strong>pulumi cli</strong> to <code>up</code> or <code>destroy</code> your infrastructure! <code>pulumi up</code> and it will create or update your infrastructure resources as needed, and <code>pulumi destroy</code> tears it all down and cleans everything up!</p>
+<h2>Git</h2>
+<p><a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a> is the most popular and arguably the defacto source control system in the world today. All my manifests and pulumi typescript files are version controlled in git, as are all the Identity application projects that we'll be building later on.</p>
+<h2>Azure DevOps Services (Server 2019)</h2>
+<p><a href="https://azure.microsoft.com/en-ca/services/devops/" target="_blank" rel="noopener">Azure DevOps (Server)</a> is our DevOps management software. Source control (Git and TFVC), Work Item Management, Builds, and Deployments are all provided by this service. It provides us a tremendous amount of automation, and it gives us a place to make our knowledge about how to build and deploy our applications concrete! If you haven't tried Azure DevOps recently, you really should give it another go. It's been a tremendously valuable addition to the development process.</p>
+<h2>Kubernetes Web UI (Dashboard)</h2>
+<p><a href="https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/" target="_blank" rel="noopener">Kubernetes Web UI (Dashboard)</a> is a great dashboard that is built into your <strong>k8s</strong> cluster that provides a User experience to help you visualize and manage your <strong>k8s</strong> cluster.</p>
+<h2>Octant</h2>
+<p><a href="https://octant.dev/" target="_blank" rel="noopener">Octant</a> is a dashboard for your <strong>k8s</strong> cluster, similar to the Kubernetes Dashboard, but it doesn't require you to port-forward to your local machine to get at the dashboard, it simply runs on your local development machine and uses the kubectl current context to access the cluster! This makes is quite easy to spin up. It provides port-forwarding capabilities in addition to many of the capabilities present in the Kubernetes Web UI. I find myself using them both quite often throughout the day.</p>
+<h2>K9s</h2>
+<p><a href="https://k9scli.io/" target="_blank" rel="noopener">K9s</a> is a console-based user experience for managing your <strong>k8s</strong> cluster! As with Octant, it uses kubectl and your current context to determine which <strong>k8s</strong> cluster it is managing. I quite like it! I also find it really interesting how I have three different tools for managing the <strong>k8s</strong> cluster and depending on what I'm doing or even my mood, I can pick from any of the three tools.</p>
+<h2>Honorable Mention - Docker Desktop for Windows</h2>
+<p><a href="https://hub.docker.com/editions/community/docker-ce-desktop-windows" target="_blank" rel="noopener">Docker Desktop for Windows</a> is the easiest way to get docker containers running on a windows desktop. You need a CPU that supports virtualization and you have to have Windows 10 Pro for the HyperV/WSL2 support. There are other options if you aren't running Windows 10 Pro and up, but I'll leave that as an exercise for you to figure out. But during initial development of the Skoruba project, it was immensely helpful to be able to build, deploy, and debug the application without having to deal with <strong>k8s</strong> or <strong>minikube</strong>. There are additional complexities involved with that that you will want to defer for a while.</p>
+<p><strong>Next up:</strong>
+<a href="/kubernetes/kubernetes-my-journey-part-4">Building an ASP.NET Core IdentityServer Implementation</a></p>
+<h3>Links</h3>
+<ul>
+<li><a href="https://visualstudio.microsoft.com/" target="_blank" rel="noopener">Visual Studio</a></li>
+<li><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VS Code</a></li>
+<li><a href="https://www.pulumi.com/" target="_blank" rel="noopener">Pulumi</a></li>
+<li><a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a></li>
+<li><a href="https://www.github.com" target="_blank" rel="noopener">Github</a>
+<ul>
+<li><a href="http://git-school.github.io/visualizing-git/" target="_blank" rel="noopener">Git Simulator - Github</a></li>
+</ul>
+</li>
+<li><a href="https://azure.microsoft.com/en-ca/services/devops/" target="_blank" rel="noopener">Azure DevOps (Server)</a></li>
+<li><a href="https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/" target="_blank" rel="noopener">Kubernetes Dashboard</a></li>
+<li><a href="https://octant.dev/" target="_blank" rel="noopener">Octant</a> - <a href="https://github.com/vmware-tanzu/octant" target="_blank" rel="noopener">Github</a></li>
+<li><a href="https://k9scli.io/" target="_blank" rel="noopener">K9s</a> - <a href="https://github.com/derailed/k9s" target="_blank" rel="noopener">Github</a></li>
+<li><a href="https://www.virtuallyghetto.com/2020/04/useful-interactive-terminal-and-graphical-ui-tools-for-kubernetes.html" target="_blank" rel="noopener">Useful Interactive Terminal And Graphical UI Tools For Kubernetes - Virtually Ghetto</a></li>
+</ul>
+<style>
+    h1, h2, h3, h4, h5, h6 {
+       margin-top: 25px;
+    }
+    figure.highlight{
+        background-color: #E8EEFE;
+    }
+    figure.highlight .gutter{
+        color: #0033CD;
+    }
+    figure.highlight pre {
+        font-family: 'Cascadia Code PL', monospace;
+    }
+    code {
+        font-family: 'Cascadia Code PL', sans-serif;
+        border-width: 0.1em;
+        border-color: #E8EEFE;
+        border-style: solid;
+        border-radius: 0.3em;
+        background-color: #E8EEFE;
+        color: #0033CD;
+        padding: 0em 0.4em;
+        white-space: nowrap;
+    }
+</style>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/dave_white">
+				
+					<img src='https://www.gravatar.com/avatar/4b7708d2ae7f7bb866446e0459e3e156?s=200' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/dave_white">Dave White</a></h2>
+			
+			<a href="mailto:dmhwhite@gmail.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://agileramblings.com/" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/AgileRamblings" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/agileramblings" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			<a href="https://www.linkedin.com/in/dave-white" target="_blank"><img class="ProfileIcon" src="/images/icon_linkedin.png" border="0" alt="LinkedIN" title="LinkedIN"> LinkedIn</a><br>
+			
+			
+ 			<a href="/feeds/dave_white.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/kubernetes/kubernetes-my-journey-part-3/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'dave_white');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

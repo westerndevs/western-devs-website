@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Migrating from Jekyll to Hexo | Western Devs</title>
+  <meta name="description" content="The Western Devs website has a sporty new look and a shiny new technology behind it. In this post, we&#39;ll look at the good and bad with migrating from Jekyll to Hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Migrating from Jekyll to Hexo">
+<meta property="og:url" content="https://westerndevs.com/jekyll/hexo/Migrating-from-Jekyll-to-Hexo/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="The Western Devs website has a sporty new look and a shiny new technology behind it. In this post, we&#39;ll look at the good and bad with migrating from Jekyll to Hexo">
+<meta property="og:image" content="https://avatars2.githubusercontent.com/u/6375567?v=3&s=200">
+<meta property="article:published_time" content="2015-12-22T19:00:42.000Z">
+<meta property="article:modified_time" content="2020-11-06T00:19:55.658Z">
+<meta property="article:author" content="Western Devs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://avatars2.githubusercontent.com/u/6375567?v=3&s=200">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">DEC</div>
+    <div class="ListLrgDateDay">22</div>
+    <div class="ListLrgDateYear">2015</div>
+  </div>
+  <h2>Migrating from Jekyll to Hexo</h2>
+</div>
+
+		    
+
+			<div id="mainPostContent">
+	        <p>WesternDevs has a shiny new look thanks to graphic designer extraodinaire, <a href="http://www.karenchudobiak.ca/" target="_blank" rel="noopener">Karen Chudobiak</a>. When implementing the design, we also decided to switch from Jekyll to Hexo. Besides having the opportunity to learn NodeJS, the other main reason was Windows. Most of us use it as our primary machine and Jekyll doesn't officially support it. There are <a href="http://jekyll-windows.juthilo.com/" target="_blank" rel="noopener">instructions</a> available by people who were obviously more successful at it than we were. And there are even <a href="https://davidburela.wordpress.com/2015/11/28/easily-install-jekyll-on-windows-with-3-command-prompt-entries-and-chocolatey/" target="_blank" rel="noopener">simpler ones</a> that I discovered during the course of writing this post and that I wish existed three months ago.</p>
+<img src="https://avatars2.githubusercontent.com/u/6375567?v=3&s=200" class="pull-right">
+<p>Regardless, here we are and it's already been a positive move overall, not least because the move to Node means more of us are available to help with the maintenance of the site. But it wasn't without it's challenges. So I'm going to outline the major ones we faced here in the hopes that it will help you make your decision more informed than ours was.</p>
+<p>To preface this, note that I'm new to Node and in fact, this is my first real project with it. That said, I'm no expert in Ruby either, which is what Jekyll is written in. And the short version of my first impressions is: Jekyll feels more like a real product but I had an easier time customizing Hexo once I dug into it. Here's the longer version</p>
+<h3>Documentation/Resources</h3>
+<p>You'll run into this very quickly. Documentation for Hexo is decent but incomplete. And once you start Googling, you'll discover many of the resources are in Chinese. I found very quickly that there is <code>posts</code> collection and that each post has a <code>categories</code> collection. But as to what these objects look like, I couldn't tell. They aren't arrays. And you can't <code>JSON.stringify</code> them because they have circular references in them. <code>util.inspect</code> works but it's not available everywhere.</p>
+<h3>Multi-author support</h3>
+<p>By default, Hexo doesn't support multiple authors. Neither does Jekyll, mind you, but we found a <a href="https://github.com/mmistakes/minimal-mistakes" target="_blank" rel="noopener">pretty complete</a> theme that does. In Hexo, there's a <a href="https://www.npmjs.com/package/hexo-multiauthor" target="_blank" rel="noopener">decent package</a> that gets you partway there. It lets you specify an author ID on a post and it will attach a bunch of information to it. But you can't, for example, get a full list of authors to list on a Who We Are page. So we created a separate data file for the authors. But we also haven't figured out how to use that file to generate a .json file to use for the Featured section on the home page. So at the moment, we have author information in three places. Our temporary solution is to disallow anyone from joining or leaving Western Devs.</p>
+<h3>Customization</h3>
+<p>If you go with Hexo and choose an <a href="https://hexo.io/themes/" target="_blank" rel="noopener">existing themes</a>, you won't run into the same issues we did. Out of the box, it has good support for posts, categories, pagination, even things like tags and aliases with the <a href="https://hexo.io/plugins/" target="_blank" rel="noopener">right plugins</a>.</p>
+<p>But we started from a design <em>and</em> were migrating from an existing site with existing URLs and had to make it work. I've mentioned the challenge of multiple authors already. Another one: maintaining our URLs. Most of our posts aren't categorized. In Jekyll, that means they show up at the root of the site. In Hexo, that's not possible. At least at the moment and I suspect this is a bug. We eventually had to fork Hexo itself to maintain our existing URLs.</p>
+<p>Another challenge: excerpts. In Jekyll, excerpts work like this: Check the front matter for an <code>excerpt</code>. If one doesn't exist, take the first few characters from the post. In Hexo, excerpts are empty by default. If you add a <code>&lt;!--more--&gt;</code> tag in your post, everything before that is considered an excerpt. If you specify an <code>excerpt</code> in your front matter, it's ignored because there is already an <code>excerpt</code> property on your posts.</p>
+<p>Luckily, there's a <a href="https://github.com/lalunamel/hexo-front-matter-excerpt" target="_blank" rel="noopener">plugin</a> to address the last point. But it still didn't address the issue of all our posts without an excerpt where we relied solely on the contents of the post.</p>
+<p>So if you're looking to veer from the scripted path, be prepared. More on this later in the &quot;good parts&quot; section.</p>
+<h3>Overall feeling of rawness</h3>
+<p>This is more a culmination of the previous issues. It just feels like Hexo is a work-in-progress whereas Jekyll feels more like a finished product. There's a strong community behind Jekyll and plenty of help. Hexo still has bugs that suggest it's just not used much in the wild. Like <a href="https://github.com/hexojs/hexo-renderer-marked/issues/16" target="_blank" rel="noopener">rendering headers with links in them</a>. It makes the learning process a bit challenging because with Jekyll, if something didn't work, I'd think <em>I'm obviously doing something wrong</em>. With Hexo, it's <em>I might be doing something wrong or there might be a bug</em>.</p>
+<hr>
+<h3>The good parts</h3>
+<p>I said earlier that the move to Hexo was positive overall and not just because I'm optimistic by nature. There are two key benefits we've gained just in the last two weeks.</p>
+<h4>Generation time</h4>
+<p>Hexo is fast, plain and simple. Our old Jekyll site took six seconds to generate. Doesn't sound like much but when you're working on a feature or tweaking a post, then saving, then refreshing, then rinsing, then repeating, that six seconds adds up fast. In Hexo, a full site generation takes three seconds. But more importantly, it is smart enough to do incremental updates while you're working on it. So if you run <code>hexo server</code>, then see a mistake in your post, you can save it, and the change will be reflected almost instantly. In fact, it's usually done by the time I've switched back to the browser.</p>
+<h4>Contributors</h4>
+<p>We had logistical challenges with Jekyll. To the point where we had two methods for Windows users that wanted to contribute (i.e. add a post). One involved a <a href="http://www.westerndevs.com/docker-and-western-devs/" target="_blank" rel="noopener">Docker image</a> and the other <a href="http://www.westerndevs.com/using-azure-arm-to-deploy-a-docker-container/" target="_blank" rel="noopener">Azure ARM</a>. Neither was ideal as they took between seconds and minutes to refresh if you made changes. Granted, both methods furthered our collective knowledge in both Docker and Azure but they both kinda sucked for productivity.</p>
+<p>That meant that realistically, only the Mac users really contributed to the maintenance of the site. And our Docker/Azure ARM processes were largely ignored as we would generally just test in production. I.e. create a post, check it in, wait for the site to deploy, make necessary changes, etc, etc.</p>
+<p>With the switch to Hexo, we've had no fewer than five contributors to the site's maintenance already. Hexo just works on Windows. And on Mac. Best of both worlds.</p>
+<h4>Customization</h4>
+<p>This is listed under the challenges but ever the optimist, I'm including it here as well. We've had to make some customizations for our site, including <a href="https://github.com/westerndevs/hexo" target="_blank" rel="noopener">forking Hexo</a> itself. And for me personally, once I got past the <em>why isn't this working the way I want?</em> stage, it's been a ton of fun. It's crazy simple to muck around in the node modules to try stuff out. And just as simple to fork something and reference it in your project when the need arises. I mentioned an earlier issue rendering links in headers. No problem, we just swapped out the markdown renderer for <a href="https://github.com/celsomiranda/hexo-renderer-markdown-it" target="_blank" rel="noopener">another one</a>. And if that doesn't work, we'll tweak something until it does.</p>
+<hr>
+<p>I want to talk more on specific conversion issues we ran into as a guide to those following in our footsteps. But there are enough of them to warrant a follow up post without all this pre-amble. For now, we're all feeling the love for Hexo. So much so that no less than three other Western Devs are in the process of converting their personal blogs to it.</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/kyle_baley">
+				
+					<img src='/images/avatars/Kyle_300x300.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/kyle_baley">Kyle Baley</a></h2>
+			
+			<a href="mailto:kyle@baley.org"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://kyle.baley.org" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/kyle_baley" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/kbaley" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			<a href="https://www.linkedin.com/in/kylebaley" target="_blank"><img class="ProfileIcon" src="/images/icon_linkedin.png" border="0" alt="LinkedIN" title="LinkedIN"> LinkedIn</a><br>
+			
+			
+ 			<a href="/feeds/kyle_baley.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/jekyll/hexo/Migrating-from-Jekyll-to-Hexo/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'kyle_baley');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Kubernetes - My Journey - Part 8 | Western Devs</title>
+  <meta name="description" content="Series Table of Contents Previously: Moving to Azure Kubernetes Service - Part B Making Your Kubernetes Cluster Publicly Accessible Hopefully you&#39;ve arrived at this article with two Pulumi application">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kubernetes - My Journey - Part 8">
+<meta property="og:url" content="https://westerndevs.com/kubernetes/kubernetes-my-journey-part-8/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="Series Table of Contents Previously: Moving to Azure Kubernetes Service - Part B Making Your Kubernetes Cluster Publicly Accessible Hopefully you&#39;ve arrived at this article with two Pulumi application">
+<meta property="og:image" content="https://westerndevs.com/images/dwhite/helm-nginx-resources.png">
+<meta property="og:image" content="https://westerndevs.com/images/dwhite/helm-nginx-default-backend.png">
+<meta property="og:image" content="https://westerndevs.com/images/dwhite/cert-manager-letsencrypt-staging-cert.png">
+<meta property="og:image" content="https://westerndevs.com/images/dwhite/cert-manager-letsencrypt-staging-cert-path.png">
+<meta property="og:image" content="https://westerndevs.com/images/dwhite/identity-configuration-sql-update.png">
+<meta property="og:image" content="https://westerndevs.com/images/dwhite/identity-configuration-envvar-update.png">
+<meta property="og:image" content="https://westerndevs.com/images/dwhite/nginx-pod-logs.png">
+<meta property="article:published_time" content="2020-05-22T07:00:00.000Z">
+<meta property="article:modified_time" content="2020-11-06T00:19:55.670Z">
+<meta property="article:author" content="Western Devs">
+<meta property="article:tag" content="kubernetes, azure, aks, identityserver, docker, containers">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://westerndevs.com/images/dwhite/helm-nginx-resources.png">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">MAY</div>
+    <div class="ListLrgDateDay">22</div>
+    <div class="ListLrgDateYear">2020</div>
+  </div>
+  <h2>Kubernetes - My Journey - Part 8</h2>
+</div>
+
+		    
+
+			<div id="mainPostContent">
+	        <p><a href="/kubernetes/kubernetes-my-journey">Series Table of Contents</a></p>
+<p><strong>Previously:</strong>
+<a href="/kubernetes/kubernetes-my-journey-part-7b">Moving to Azure Kubernetes Service - Part B</a></p>
+<h1>Making Your Kubernetes Cluster Publicly Accessible</h1>
+<p>Hopefully you've arrived at this article with two Pulumi applications that you can use to create an <strong>Azure Kubernetes Service</strong>-based Kubernetes (<strong>k8s</strong>) cluster with a collection of <strong>k8s</strong> resources (container images) inside of it that all function together to provide a <strong>IdentityServer4</strong> based authentication system. If not, you should probably <a href="/kubernetes/kubernetes-my-journey">go back and re-read those articles</a> since we're going to build off of that effort in this article.</p>
+<p>In this article, we're going to go through the process of making our <strong>k8s</strong> cluster publicly accessible with proper DNS entries (hostname) so that the authentication system can be configured and works properly.</p>
+<h2>Pre-requisites</h2>
+<p>Up until now, I've done my best to ensure you can do as much as possible on your developer machine with minimal financial requirements. From this point forward, I will be assuming that you have a <strong>custom domain</strong> that you can use for your configuration. On my part, I will be using the <strong>codingwithdave.xyz</strong> domain for the remainder of the articles.</p>
+<h2>Daily Ritual</h2>
+<p>I want to share a side-note about one of my processes.</p>
+<p>One thing I really appreciate about my infrastructure automation while I'm doing all of this development and writing is the ability to stand up and tear down the <strong>k8s</strong> cluster every day. I start my day by doing a <code>pulumi up</code> command and it stands up all the cluster. I do another <code>pulumi up</code> and it puts all of the applications in the cluster. And at the end of the day, I reverse my start of day activities by doing a <code>pulumi destroy</code> on the resources and then a <code>pulumi destroy</code> on the cluster itself. I do this for two reasons. First, it saves money. This cluster only runs when I'm working on this article or doing some <strong>k8s</strong> research and then it goes away. This is a great benefit for a development process. Second, it forces me to make sure that my automation is working at the beginning and end of each day.</p>
+<p>Standing up the <strong>k8s</strong> cluster daily makes this <code>get-credentials</code> command a nice output that we capture in Pulumi. This is generated in the Pulumi application that stands up the <strong>aks</strong> services. All of my <strong>k8s</strong> development tooling uses this set of credentials.</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">az aks <span class="built_in">get-credentials</span> -<span class="literal">-resource</span><span class="literal">-group</span> rg_identity_dev_zwus_aks -<span class="literal">-name</span> akscluster5b1237c2 -<span class="literal">-context</span> <span class="string">"MyProject.Identity"</span></span><br></pre></td></tr></table></figure>
+<p>This command changes daily, so having this change captured in standing up the infrastructure so I can just go to my Pulumi service to pull it out and use it, is certainly helpful. Hey <strong>@Pulumi</strong> if you are reading, I'd love a <a href="https://github.com/pulumi/pulumi/issues/4623" target="_blank" rel="noopener">copy-to-clipboard-button beside my Outputs in the service page for my stacks!</a></p>
+<blockquote>
+<p>Consider rate limited activities like Let's Encrypt when standing-up and tearing down resources.</p>
+</blockquote>
+<h2>Ingress and Ingress Controllers</h2>
+<p>A <strong>k8s</strong> cluster, kind of by default, is a closed system. You can access it administratively which is certainly dangerous, but unless you make conscious decisions about how and when to expose <em>your</em> services, only the cluster services themselves are exposed so that tools like <strong>kubectl</strong> can work. There are a number of mechanisms for exposing your services but in this article, we are going to discuss the Ingress resource and the IngressController resource as the means by which we expose services in our cluster to the public.</p>
+<h2>Ingress Controllers</h2>
+<p>In order to expose the IdentityServer4 services, my first step was to create an <a href="https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/" target="_blank" rel="noopener">IngressController resource</a>. An IngressController is something that you put into your <strong>k8s</strong> cluster that will watch for <strong>Ingress</strong> resources, interpret them,  create the appropriate external resources for your cluster to interact with the outside, and then route all traffic that comes in through your ingress point to the appropriate services inside of your cluster.</p>
+<p>There are many IngressController implementations that you can use, and if you find that you don't like one after a bit of use, it isn't terribly hard to change to another one. There are certainly considerations to make when picking on, but for me, honestly, it was originally ease of getting it working, so I choose the <a href="https://kubernetes.github.io/ingress-nginx/" target="_blank" rel="noopener">nginx IngressController</a>. There are many examples of how to put this controller into your <strong>k8s</strong> cluster and how to create the Ingress rules that <strong>nginx</strong> will follow.</p>
+<p>For the IngressController, there is no manifest. I didn't put one into the minikube instance. So we'll only have Pulumi code for this part of the journey.</p>
+<h3>Deploying nginx Ingress Controller</h3>
+<p>Up until now, we've mostly been dealing with single-container resources. A self-contained application that for the most part can provide it's own bit of functionality. Arguably, the IdentityServer4 group of containers should always be deployed together, but I haven't set that up yet. The way that you do that in <strong>k8s</strong> is by using <a href="https://helm.sh/" target="_blank" rel="noopener">Helm</a>, basically a package manager for your <strong>k8s</strong> resources. Eventually, I will figure out how to author a Helm package, but for the time being, I'm just going to use them.</p>
+<p>Installing Helm is very easy. In our case, on Windows, we can use <strong>chocolatey</strong> to install it.</p>
+<p><code>choco install kubernetes-helm</code></p>
+<p><a href="https://helm.sh/docs/intro/quickstart/" target="_blank" rel="noopener">This documentation</a> has more detailed instructions.</p>
+<p>Once you have Helm installed, Pulumi is capable of using it to push Helm charts into your <strong>k8s</strong> cluster.</p>
+<p>To give you a sense of what a Helm chart will do to your cluster, you can see that when we ask Pulumi to put a Helm chart into the cluster, a lot of things actually happen.</p>
+<img id="image" src="/images/dwhite/helm-nginx-resources.png" alt="All the nginx resources">
+<p>Let's take a look at the pulumi typescript code required to install this Helm chart.</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Deploy ingress-controller using helm to AKS Cluster</span></span><br><span class="line"><span class="keyword">const</span> nginxIngress = <span class="keyword">new</span> k8s.helm.v3.Chart(<span class="string">"nginx"</span>, &#123;</span><br><span class="line">    chart: <span class="string">"nginx-ingress-controller"</span>,</span><br><span class="line">    <span class="keyword">namespace</span>: <span class="string">"kube-system"</span>,</span><br><span class="line">    repo: <span class="string">"bitnami"</span>,</span><br><span class="line">    values: &#123;</span><br><span class="line">      service: &#123;</span><br><span class="line">        annotations: &#123;</span><br><span class="line">            <span class="string">"service.beta.kubernetes.io/azure-dns-label-name"</span>: aksStack.getOutput(<span class="string">"k8sDnsName"</span>),</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;,</span><br><span class="line">      resources: &#123; requests : &#123;memory: <span class="string">"150Mi"</span>, cpu: <span class="string">"100m"</span>&#125;&#125;,</span><br><span class="line">      serviceType: <span class="string">"LoadBalancer"</span>,</span><br><span class="line">      nodeCount: <span class="number">1</span>,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;, &#123;provider: k8sProvider &#125;);</span><br></pre></td></tr></table></figure>
+<p>Most of the parameters in the <strong>ChartOpts</strong> parameter of the object we created are easy to understand.</p>
+<ul>
+<li><strong>chart</strong> - The chart we want to install</li>
+<li><strong>namespace</strong> - The namespace that we are going to put this chart into</li>
+<li><strong>repo</strong> - The Helm repository to get the chart from</li>
+</ul>
+<p>After that, we get into some options parameters that are a bit harder to deduce and I had to dig a bit into how Helm works to understand them and what Pulumi needed in order to make this work.</p>
+<p>In our options we have created a <strong>values</strong> object that has additional properties. The <strong>values</strong> object is how we pass configurable values into Helm. This is comparable to the <strong>values.yaml</strong> in the chart definition. There are <a href="https://helm.sh/docs/chart_template_guide/values_files/" target="_blank" rel="noopener">a number of different ways</a> to pass in these values when using Helm charts directly, but this is how Pulumi provides these values to Helm.</p>
+<blockquote>
+<p>When trying to figure out what Helm chart options are available, it can be helpful to look at the default <strong>values.yaml</strong> in a chart's definition. <a href="https://github.com/kubernetes/ingress-nginx/blob/master/charts/ingress-nginx/values.yaml" target="_blank" rel="noopener">Here is the Nginx Ingress Controller Charts default values.yaml file</a>.</p>
+</blockquote>
+<p>There are a couple simple parameters in our values object.</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">resources: &#123; requests : &#123;memory: <span class="string">"150Mi"</span>, cpu: <span class="string">"100m"</span>&#125;&#125;,</span><br><span class="line">serviceType: <span class="string">"LoadBalancer"</span>,</span><br><span class="line">nodeCount: <span class="number">1</span>,</span><br></pre></td></tr></table></figure>
+<p>This are parameters that are for the <strong>kubernetes</strong> resource for what will eventually be provisioned in <strong>k8s</strong>. They are resource requests for the Pod template in the Deployment, the service type for the nginx <strong>Service</strong> resource, and a nodeCount (replicas) for the Deployment resource.</p>
+<p>The next part of these values is where we encounter some of the complicated aspects of IngressControllers. They are a resource in your <strong>k8s</strong> cluster that needs to work with things <strong>outside</strong> of the cluster. In this case, the <strong>nginx IngressController</strong> needs to be able to talk to Azure and create a <strong>LoadBalancer</strong> and <strong>PublicIP</strong> outside of the cluster. The same <strong>nginx IngressController</strong> would need to talk to AWS if this was deployed there. We can give these IngressControllers some information that helps them understand which external provider to work with and what that provider needs. We can add provider-specific values via <strong>annotations</strong> which could be provided in the <strong>values.yaml</strong> file but in our case, we will provide them via the <strong>values:</strong> object in the Pulumi ChartOpts class.</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">service: &#123;</span><br><span class="line">  annotations: &#123;</span><br><span class="line">    <span class="string">"service.beta.kubernetes.io/azure-dns-label-name"</span>: aksStack.getOutput(<span class="string">"k8sDnsName"</span>),</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>In this case, we are telling the IngressController to tell Azure that we want to use <strong>k8sDnsName</strong> as the DNS name label on the PublicIP that is created for our load balancer.</p>
+<blockquote>
+<p><strong>NOTE</strong> <s>At this time, this annotation is not working. I'll update as soon as I figure out what is going on.</s> I've updated the code snippet as I've figured out how this works now. Another blog post (short) will be written up.</p>
+</blockquote>
+<p>Now that the Pulumi script is working, we don't need to use this PowerShell but I will leave it here as an example of using the azure-cli with some PowerShell. <em>After</em> our IngressController has been provisioned, we can run this PowerShell script against the <strong>azure-cli</strong> command to do this for us.</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># get the PublicIP object for our load balancer</span></span><br><span class="line"><span class="variable">$pip</span> = az network public<span class="literal">-ip</span> list -<span class="literal">-query</span> <span class="string">"[?tags.service=='kube-system/nginx-nginx-ingress-controller']"</span> | <span class="built_in">ConvertFrom-Json</span></span><br><span class="line"><span class="comment"># update the --dns-name and refresh our object in PowerShell</span></span><br><span class="line"><span class="variable">$pip</span> = az network public<span class="literal">-ip</span> update <span class="literal">-n</span> <span class="variable">$pip</span>.name <span class="literal">-g</span> <span class="variable">$pip</span>.resourceGroup  -<span class="literal">-dns</span><span class="literal">-name</span> <span class="string">"identity-auth-dev"</span> | <span class="built_in">ConvertFrom-Json</span></span><br><span class="line"><span class="comment"># set the clusterFQDN in Pulumi</span></span><br><span class="line">pulumi config set clusterFQDN <span class="variable">$pip</span>.dnsSettings.fqdn</span><br><span class="line"><span class="comment"># verify that we can resolve our DNS entry</span></span><br><span class="line">nslookup <span class="variable">$pip</span>.dnsSettings.fqdn</span><br></pre></td></tr></table></figure>
+<p>The important thing about this activity in regard to progressing toward a working IdentityServer4 implementation is that we now have a single public IP address that we can create DNS entries for. We also have a single DNS entry provided to us by Azure that we can use as a CNAME entry, but we still need individual DNS entries for each service that we are going to expose.</p>
+<p>We aren't quite done yet though. We have 3-5 apps (depending on how you feel) that we need to expose as separate applications from our cluster. In order to do that, we need to a couple more things.</p>
+<p>For the next steps, let's assume that:</p>
+<ul>
+<li>our the FQDN is <strong>identity-auth-dev.westus.cloudapp.azure.com</strong></li>
+<li>our public IPv4 is <strong>137.135.18.68</strong></li>
+</ul>
+<blockquote>
+<p>I abandon IP address all the time. Please don't expect this one to work. After this effort, I wouldn't expect the FQDN to be around either. It might be, but don't count on it.</p>
+</blockquote>
+<h3>Configuring Public DNS Records</h3>
+<p>In order to make this authentication system work on your custom domain, you can simply take the following sub-domains and make a <a href="https://en.wikipedia.org/wiki/CNAME_record" target="_blank" rel="noopener">CNAME entry</a> in your DNS provider for each that points at our Azure-provided DNS entry.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Record Type</td>
+<td>Name</td>
+<td>Value</td>
+<td>TTL</td>
+</tr>
+<tr>
+<td>CNAME</td>
+<td>auth</td>
+<td>identity-auth-dev.westus.cloudapp.azure.com</td>
+<td>1hr</td>
+</tr>
+<tr>
+<td>CNAME</td>
+<td>auth-admin</td>
+<td>identity-auth-dev.westus.cloudapp.azure.com</td>
+<td>1hr</td>
+</tr>
+<tr>
+<td>CNAME</td>
+<td>auth-admin-api</td>
+<td>identity-auth-dev.westus.cloudapp.azure.com</td>
+<td>1hr</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>I'm no longer trying to keep this all on my local machine. There are no hosts file instructions going forward.</p>
+</blockquote>
+<h4>Give it a try</h4>
+<p>After a quick <code>pulumi up</code> with the IngressController code added to our application, we should have a couple new Azure resources and a bunch of new <strong>k8s</strong> resources.</p>
+<p>In Azure, you should find:</p>
+<ul>
+<li>A load balancer
+<code>az network lb list</code></li>
+<li>A public IP
+<code>az network public-ip list</code></li>
+</ul>
+<p>In <strong>k8s</strong> you should find a bunch of nginx-based resources in the <strong>kube-system</strong> namespace. This should show you some, but not all, of these resources.</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kubectl get deployments -<span class="literal">-namespace</span> kube<span class="literal">-system</span> <span class="literal">-l</span> app=nginx<span class="literal">-ingress</span><span class="literal">-controller</span></span><br><span class="line">kubectl get pods -<span class="literal">-namespace</span> kube<span class="literal">-system</span> <span class="literal">-l</span> app=nginx<span class="literal">-ingress</span><span class="literal">-controller</span></span><br><span class="line">kubectl get services -<span class="literal">-namespace</span> kube<span class="literal">-system</span> <span class="literal">-l</span> app=nginx<span class="literal">-ingress</span><span class="literal">-controller</span></span><br></pre></td></tr></table></figure>
+<p>The great thing about the <strong>nginx IngressController</strong> Helm chart is that it installs a default backend for all un-managed routes. We will add rules for managing routes in the <strong>Ingress</strong> resource next, but until then, if you go to any of the URLs we setup, they should all work, with all of the traffic getting routed to the nginx backend web server!</p>
+<img id="image" src="/images/dwhite/helm-nginx-default-backend.png" alt="All the nginx resources" height="258px">
+<p>Now, lets add certificates!</p>
+<h3>Certificates</h3>
+<h4>Big Caveat Here</h4>
+<p>If you are still trying to use the host-file approach to access your applications, you <strong>won't be able</strong> to follow all of my steps for adding certificates management or HTTPs to your cluster. You will need to step outside of these articles to figure out how to provide a certificate to cert-manager that you can use. My guidance uses <a href="https://letsencrypt.org/" target="_blank" rel="noopener">lets-encrypt</a> and <a href="https://letsencrypt.org/" target="_blank" rel="noopener">lets-encrypt</a> needs to be able to access your public DNS entries to ensure that you are who you say you are. At this point, you should probably start thinking about getting a custom domain to make all of this a bit easier.</p>
+<h4>Adding cert-manager</h4>
+<p>One of the goals of the project was to ensure that everything has certificates, is using HTTPs, and it is easy to manage. With <strong>k8s</strong> that is very easy with <a href="https://cert-manager.io/docs/" target="_blank" rel="noopener">cert-manager</a>. In this case, we simply need to install <strong>cert-manager</strong> into our cluster with some pulumi code.</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// setup cert-manager</span></span><br><span class="line"><span class="keyword">const</span> certManager = <span class="keyword">new</span> k8s.yaml.ConfigFile(<span class="string">"cert-manager"</span>, &#123;</span><br><span class="line">    file: <span class="string">"https://github.com/jetstack/cert-manager/releases/download/v0.14.1/cert-manager.yaml"</span>,</span><br><span class="line"> &#125;, &#123;provider: k8sProvider&#125;);</span><br></pre></td></tr></table></figure>
+<p>This file, which you can <a href="https://github.com/jetstack/cert-manager/releases/download/v0.14.1/cert-manager.yaml" target="_blank" rel="noopener">look at on github</a>, will install a lot of resources into your <strong>k8s</strong> cluster. You don't need to know a lot about them to use the certificate acquisition properties. I'm using <a href="https://letsencrypt.org/" target="_blank" rel="noopener">lets-encrypt</a> so I need to understand any limitations or restrictions imposed by them which in this case means the <a href="https://letsencrypt.org/docs/rate-limits/" target="_blank" rel="noopener">rate limits</a> for acquiring certificates. These are important to understand so please read up and manage your certificate usage appropriately.</p>
+<h3>Adding a ClusterIssuer</h3>
+<p>Once <strong>cert-manager</strong> is installed into your cluster, it will be able to acquire/issue local cluster self-signed certificates. If you'd like to acquire certificates from Let's Encrypt or another supported issuer, you need to add an <strong>Issuer</strong> or a <strong>ClusterIssuer</strong> resource so that <strong>cert-manager</strong> can get certs. In our case, we are going to <a href="https://docs.cert-manager.io/en/release-0.11/reference/clusterissuers.html" target="_blank" rel="noopener">add two ClusterIssuers</a> so that we can get staging certificates from Let's Encrypt and we can get production certificates from Let's Encrypt as well.</p>
+<p>You should also take into consideration that we are using <strong>nginx</strong> as our <strong>IngressController</strong>. Each IngressController will have <a href="https://cert-manager.io/docs/tutorials/acme/ingress/" target="_blank" rel="noopener">different configuration and classes</a> that you need to setup and use.</p>
+<p>Currently, Pulumi doesn't have a API/SDK module for <strong>cert-manager</strong> so we need to create a .yaml file and then use Pulumi to read it and bring the resources into the cluster.</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># filename: ca-cluster-issuer.yaml</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">cert-manager.io/v1alpha2</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">ClusterIssuer</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">letsencrypt-staging</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">acme:</span></span><br><span class="line">    <span class="attr">server:</span> <span class="string">https://acme-staging-v02.api.letsencrypt.org/directory</span> <span class="comment"># &lt;-- staging issuer, no certificate rate limits</span></span><br><span class="line">    <span class="attr">email:</span> <span class="string">dave@depthconsulting.ca</span> <span class="comment"># &lt;-- email address required for Let's Encrypt</span></span><br><span class="line">    <span class="attr">privateKeySecretRef:</span></span><br><span class="line">      <span class="attr">name:</span> <span class="string">letsencrypt-staging</span></span><br><span class="line">    <span class="attr">solvers:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">http01:</span></span><br><span class="line">        <span class="attr">ingress:</span></span><br><span class="line">          <span class="attr">class:</span> <span class="string">nginx</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">apiVersion:</span> <span class="string">cert-manager.io/v1alpha2</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">ClusterIssuer</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">letsencrypt-prod</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">acme:</span></span><br><span class="line">    <span class="attr">server:</span> <span class="string">https://acme-v02.api.letsencrypt.org/directory</span> <span class="comment"># &lt;-- prod issuer, strict certificate rate limits</span></span><br><span class="line">    <span class="attr">email:</span> <span class="string">dave@depthconsulting.ca</span></span><br><span class="line">    <span class="attr">privateKeySecretRef:</span></span><br><span class="line">      <span class="attr">name:</span> <span class="string">letsencrypt-prod</span></span><br><span class="line">    <span class="attr">solvers:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">http01:</span></span><br><span class="line">        <span class="attr">ingress:</span></span><br><span class="line">          <span class="attr">class:</span> <span class="string">nginx</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// create certificate issuers for lets-encrypt</span></span><br><span class="line"><span class="keyword">const</span> caClusterIssuer = <span class="keyword">new</span> k8s.yaml.ConfigFile(<span class="string">"ca-cluster-issuer"</span>, &#123;</span><br><span class="line">    file: <span class="string">"ca-cluster-issuer.yaml"</span>,</span><br><span class="line"> &#125;, &#123;provider: k8sProvider&#125;);</span><br></pre></td></tr></table></figure>
+<p>Once you've created this .yaml file and TypeScript fragment, you can <code>pulumi up</code> to get these resources into your cluster.</p>
+<h3>Ingress Resource</h3>
+<p>Now that we have <strong>cert-manager</strong> installed and issuers configured, we can add our <a href="https://kubernetes.io/docs/concepts/services-networking/ingress/" target="_blank" rel="noopener">Ingress Resource</a>.</p>
+<p>An <strong>Ingress</strong> resource tells an <strong>IngressController</strong> what rules to setup for accessing services in the cluster. You can switch <strong>IngressControllers</strong> if you need to and the <strong>Ingress</strong> resource may not have to change. The rules can stay the same as long as the controller supports all of the rules laid out in the <strong>Ingress</strong> resource.</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> ingressName = <span class="string">"identity-ingress"</span>;</span><br><span class="line"><span class="keyword">const</span> ingressFrontEnd = <span class="keyword">new</span> k8s.networking.v1beta1.Ingress(ingressName,&#123;</span><br><span class="line">    metadata:&#123;</span><br><span class="line">        name: ingressName,</span><br><span class="line">        annotations: &#123;</span><br><span class="line">            <span class="string">"kubernetes.io/ingress.class"</span>: <span class="string">"nginx"</span>, <span class="comment">// &lt;-- we are using an nginx ingress controller</span></span><br><span class="line">            <span class="string">"cert-manager.io/cluster-issuer"</span>: <span class="string">"letsencrypt-staging"</span> <span class="comment">// &lt;-- we are using test certificates</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    spec: &#123;</span><br><span class="line">        tls:[&#123; <span class="comment">// &lt;-- we want certificates for all of these domains</span></span><br><span class="line">          hosts:[</span><br><span class="line">              <span class="string">"auth.codingwithdave.xyz"</span>,</span><br><span class="line">              <span class="string">"auth-admin.codingwithdave.xyz"</span>,</span><br><span class="line">              <span class="string">"auth-admin-api.codingwithdave.xyz"</span></span><br><span class="line">            ],</span><br><span class="line">          secretName: <span class="string">"tls-secret-certificate"</span> <span class="comment">// &lt;-- store the cert in this secret</span></span><br><span class="line">        &#125;],</span><br><span class="line">        rules: [</span><br><span class="line">            &#123;</span><br><span class="line">                host: <span class="string">"auth.codingwithdave.xyz"</span>,</span><br><span class="line">                http:&#123;</span><br><span class="line">                    paths: [&#123;</span><br><span class="line">                        path: <span class="string">"/"</span>,</span><br><span class="line">                        backend: &#123;</span><br><span class="line">                            serviceName: <span class="string">"identity-sts-svc"</span>,</span><br><span class="line">                            servicePort: <span class="number">80</span></span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                host: <span class="string">"auth-admin.codingwithdave.xyz"</span>,</span><br><span class="line">                http:&#123;</span><br><span class="line">                    paths: [&#123;</span><br><span class="line">                        path: <span class="string">"/"</span>,</span><br><span class="line">                        backend: &#123;</span><br><span class="line">                            serviceName: <span class="string">"identity-admin-svc"</span>,</span><br><span class="line">                            servicePort: <span class="number">80</span></span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                host: <span class="string">"auth-admin-api.codingwithdave.xyz"</span>,</span><br><span class="line">                http:&#123;</span><br><span class="line">                    paths: [&#123;</span><br><span class="line">                        path: <span class="string">"/"</span>,</span><br><span class="line">                        backend: &#123;</span><br><span class="line">                            serviceName: <span class="string">"identity-admin-api-svc"</span>,</span><br><span class="line">                            servicePort: <span class="number">80</span></span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,&#123;provider: k8sProvider&#125;);</span><br></pre></td></tr></table></figure>
+<p>The rules in this particular <strong>Ingress</strong> definition are all using host-based rules. When someone visits our IdentityServer4 sites, the host-name that they used to get there will be pulled out of the request, and the <strong>nginx IngressController</strong> will look for that host in the rules, and if it finds it, send the request to the appropriate service. If it doesn't find it, it goes to the default backend controller.</p>
+<blockquote>
+<p>Internally, the <strong>k8s</strong> cluster only uses http. I'm sure there is a security reason to have HTTPs everywhere internally in the cluster, but I don't understand why, so I haven't implemented any of that.</p>
+</blockquote>
+<p>In these rules, we can see we need to declare a host and the path. Once that is in place, we simply describe what service to go to, using the internal <strong>k8s</strong> DNS entry and the port.</p>
+<p>If you are using <strong>cert-manager</strong>, you can see that there are some instructions in the ingress for <strong>cert-manager</strong>.</p>
+<ul>
+<li><strong>&quot;cert-manager.io/cluster-issuer&quot;: &quot;letsencrypt-staging&quot;</strong> - this tells <strong>cert-manager</strong> to use letsencrypt-prod generates production certificates but also has important rate limits</li>
+<li><strong>tls:[{ ... }]</strong> - this parameter will be used by <strong>cert-manager</strong> to determine what domains to generate certificates for.</li>
+</ul>
+<p>At this point, you should now be able to <code>pulumi up</code> and add <strong>cert-manager</strong> and the <strong>Ingress</strong> resource to your cluster. This will do a lot of things for you. If you are not generating production certificates, you should use the <strong>&quot;cert-manager.io/cluster-issuer&quot;: &quot;letsencrypt-staging&quot;</strong> issuer in <strong>cert-manager</strong>. There are no rate limits on generating staging certificates. If you are generating production certificates, you'll need to switch to the <strong>letsencrypt-prod</strong> issuer and understand the <a href="https://letsencrypt.org/docs/rate-limits/" target="_blank" rel="noopener">rate limits</a>.</p>
+<p>Once that is done, you can start visiting your sites and you should hit something other than the default nginx backend.</p>
+<ul>
+<li><a href="https://auth.codingwithdave.xyz" target="_blank" rel="noopener">https://auth.codingwithdave.xyz</a> - STS landing page, should work</li>
+<li><a href="https://auth-admin.codingwithdave.xyz" target="_blank" rel="noopener">https://auth-admin.codingwithdave.xyz</a> - Admin landing page, not default backend, won't work</li>
+<li><a href="https://auth-admin-api.codingwithdave.xyz/swagger" target="_blank" rel="noopener">https://auth-admin-api.codingwithdave.xyz/swagger</a> - Swagger page, won't work, CORS error due to configuration</li>
+</ul>
+<p>If you used the letsencrypt-staging <strong>ClusterIssuer</strong> then you are going to get certificate error, but you can inspect the certificate before you acknowledge and continue. The certificates and certificate path should look like the following:</p>
+<p><img id="image" src="/images/dwhite/cert-manager-letsencrypt-staging-cert.png" alt="Let's Encrypt Staging Certificate" height="500px"><br/></p>
+<p><img id="image" src="/images/dwhite/cert-manager-letsencrypt-staging-cert-path.png" alt="ALet's Encrypt Staging Certificate Path" height="500px"><br/></p>
+<p>In the case of the <strong>STS</strong>, you should land on a functioning page. You should be able to login with admin/P@ssw0rd!</p>
+<p>For the <strong>Admin</strong> site, you should not land on the default backend, but you will probably land on a developer exception page because the admin site configuration in the IdentityServer4 database does not have the correct URLs anymore. We'll fix that in a moment.</p>
+<p>For the <strong>AdminApi</strong> Swagger page, you should see the Swashbuckle Api Explorer frame, but the app will complain that it has a CORS issue. This will also be fixed by configuration now that we know our host names.</p>
+<p>But this is progress! We are now able to access our services in the cluster!</p>
+<h3>Updating our Client Configuration</h3>
+<p>In order to fix all of our sites and get all of this working, we need to make some configuration changes in the IdentityServer4 database and in the Environmental Variables for our ASP.NET Core sites. Let's do that quickly.</p>
+<p>For now, we have not exposed pgAdmin4 via the <strong>Ingress</strong> rules so we are going to need to connect to our cluster, create a port-forward to our local machines, and then browse to the pgAdmin4 app to do our data configuration changes via sql. I'm going to do this via <strong>octant</strong> again. We did exactly this activity <a href="kubernetes/kubernetes-my-journey-part-7b/">back in this article</a>.</p>
+<p>Once you have pgAdmin4 open and connected to our postgres database, we can run the SQL script below in pgAdmin4.</p>
+<blockquote>
+<p>Remember to ensure the custom domain we are using is corrected in the scripts.</p>
+<p>I am using https for all of these examples.</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- ClientCorsOrigins</span></span><br><span class="line"><span class="keyword">UPDATE</span> <span class="string">"ClientCorsOrigins"</span></span><br><span class="line"><span class="keyword">SET</span> <span class="string">"Origin"</span> = <span class="string">'https://auth-admin.codingwithdave.xyz'</span></span><br><span class="line"><span class="keyword">WHERE</span> <span class="string">"Id"</span> = <span class="number">1</span>;  </span><br><span class="line"></span><br><span class="line"><span class="comment">-- ClientPostLogoutRedirectUris</span></span><br><span class="line"><span class="keyword">UPDATE</span> <span class="string">"ClientPostLogoutRedirectUris"</span></span><br><span class="line"><span class="keyword">SET</span> <span class="string">"PostLogoutRedirectUri"</span> = <span class="string">'https://auth-admin.codingwithdave.xyz/signout-callback-oidc'</span></span><br><span class="line"><span class="keyword">WHERE</span> <span class="string">"Id"</span> = <span class="number">1</span>;  </span><br><span class="line"></span><br><span class="line"><span class="comment">-- ClientRedirectUris</span></span><br><span class="line"><span class="keyword">UPDATE</span> <span class="string">"ClientRedirectUris"</span></span><br><span class="line"><span class="keyword">SET</span> <span class="string">"RedirectUri"</span> = <span class="string">'https://auth-admin-api.codingwithdave.xyz/swagger/oauth2-redirect.html'</span></span><br><span class="line"><span class="keyword">WHERE</span> <span class="string">"Id"</span> = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">UPDATE</span> <span class="string">"ClientRedirectUris"</span></span><br><span class="line"><span class="keyword">SET</span> <span class="string">"RedirectUri"</span> = <span class="string">'https://auth-admin.codingwithdave.xyz/signin-oidc'</span></span><br><span class="line"><span class="keyword">WHERE</span> <span class="string">"Id"</span> = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- ClientPostLogoutRedirectUris</span></span><br><span class="line"><span class="keyword">UPDATE</span> <span class="string">"Clients"</span></span><br><span class="line"><span class="keyword">SET</span> <span class="string">"ClientUri"</span> = <span class="string">'https://admin-auth.codingwithdave.xyz'</span>, <span class="string">"FrontChannelLogoutUri"</span> = <span class="string">'https://auth-admin.codingwithdave.xyz/signout-oidc'</span></span><br><span class="line"><span class="keyword">WHERE</span> <span class="string">"Id"</span> = <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+<img id="image" src="/images/dwhite/identity-configuration-sql-update.png" alt="IdentityServer4 SQL Data Configuration changes" height="400px">
+<p>We also need to update the configuration for the environmental variables for our IdentityServer4 applications in our pulumi script. You will find these lines (approximately) in 3 Deployment resources in our scripts. You need to update them all.</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// find these lines in deployment env: [&#123; &#125;] blocks and make the appropriate custom domain name changes</span></span><br><span class="line">&#123;name: <span class="string">"AdminApiConfiguration__IdentityServerBaseUrl"</span>, value: <span class="string">"https://auth.codingwithdave.xyz"</span>&#125;,</span><br><span class="line">&#123;name: <span class="string">"AdminApiConfiguration__ApiBaseUrl"</span>, value: <span class="string">"https://auth-admin-api.codingwithdave.xyz"</span>&#125;,</span><br><span class="line">&#123;name: <span class="string">"AdminConfiguration__IdentityAdminRedirectUri"</span>, value: <span class="string">"https://auth-admin.codingwithdave.xyz/signin-oidc"</span>&#125;,</span><br></pre></td></tr></table></figure>
+<p>Once you've changed your pulumi application, a simple <code>pulumi up</code> will get everything setup for you.</p>
+<img id="image" src="/images/dwhite/identity-configuration-envvar-update.png" alt="IdentityServer4 App Settings Configuration changes" height="300px">
+<p>We should now have functional (or mostly functional) set of applications! If you used the <strong>letsencrypt-staging</strong> certificates, the <strong>Admin</strong> site will generate SSL errors since it can't create a valid TLS connection yet.</p>
+<h3>nginx, IdentityServer4 and Aggravation</h3>
+<blockquote>
+<p>When this cluster and Pulumi application were originally written, I had this problem. When I started writing these articles and building the assets, it went away. I'm guessing that a default in nginx changed in one of the containers, but I'm not certain. I'm going to leave this here as a precaution.</p>
+</blockquote>
+<p>So, configuration is changed, services are running, everything is accessible, and you log into the STS. This works! Check the Admin Api Swashbuckle API Explorer and our page loads! But you can't log into the Admin application! What is going on!?!?</p>
+<p>This particular problem vexed me for several days. I had gotten to this point pretty early in my journey, and I've done some (not all) things in these articles so far to help you have a chance to not spend several days on this problem or a problem like this one.</p>
+<p>One thing I've done is the Seq log ingestion. You should be able to port-forward to the Seq application and look at the logs for our IdentityServer4 applications. This will allow you to see all of the applications logs in one spot. When I was looking at the Seq logs, I could see that some traffic simply wasn't flowing between the STS and the Admin application when a use performed an action. Technically, when you try to log into the Admin application, you go to the Admin application first, it determines you are not logged in, and then it re-directs you to the STS application to log in. Via Seq, I saw that this was not happening.</p>
+<p>But there were things that I couldn't see directly in Seq, which was the motivation for our next chapter, but for now, the way this project is currently configured, you will miss log entries from all of our other applications/resources in <strong>k8s</strong> like nginx, coredns, and kubernetes itself.</p>
+<p>In this case, I went to the <strong>nginx</strong> log entries and saw some problems that indicated that <em>something</em> was too small to handle the communications with STS.</p>
+<img id="image" src="/images/dwhite/nginx-pod-logs.png" alt="nginx pod logs" height="250px">
+<p>In the logs, I found this error.</p>
+<p><code>upstream sent too big header while reading response header from upstream</code></p>
+<p>That little error snippet ended up sending me down a path where it took a couple days to refine my google-foo enough to find the solution to this problem. I tried a lot of different tricks during those couple days, but amazingly, I eventually found this exact problem on another blog that I read a lot, but I hadn't read this article! Andrew Lock does a LOT of good writing for the .NET community and he had run into the exact same problem <em>2 years earlier</em>!</p>
+<p><a href="https://andrewlock.net/fixing-nginx-upstream-sent-too-big-header-error-when-running-an-ingress-controller-in-kubernetes/" target="_blank" rel="noopener">Andrew Lock - upstream-sent-too-big-header-error</a></p>
+<p>Andrew fully describes the problem in a really good way. I'm not going to repeat it. I had the exact same problem and his solution worked. What I am going to present is the Pulumi application code that creates a ConfigMap that nginx will find to make the adjustments.</p>
+<p>Morale of the story - You have to be ready to explore ALL of the logs in your cluster. If you have to do it manually, you should still be prepared to do it.</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> nginxIngressControllerConfigMap = <span class="keyword">new</span> k8s.core.v1.ConfigMap(<span class="string">"nginx-nginx-ingress-controller"</span>, &#123;</span><br><span class="line">    metadata:&#123;</span><br><span class="line">        annotations: &#123;&#125;,</span><br><span class="line">        name: <span class="string">"nginx-nginx-ingress-controller"</span>,</span><br><span class="line">        labels: &#123;<span class="string">"k8s-app"</span>: <span class="string">"nginx-ingress-controller"</span>&#125;,</span><br><span class="line">        <span class="keyword">namespace</span>:<span class="string">"kube-system"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    data: &#123;</span><br><span class="line">        <span class="string">"proxy-buffer-size"</span>: <span class="string">"128k"</span>,</span><br><span class="line">        <span class="string">"proxy-buffers"</span>: <span class="string">"8 128k"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;,&#123;provider: k8sProvider, <span class="keyword">import</span>: <span class="string">"kube-system/nginx-nginx-ingress-controller"</span>&#125;);</span><br></pre></td></tr></table></figure>
+<h2>Summary</h2>
+<p>We have arrived! If everything is going the way I hoped if not necessarily the way I planned, you (and I) should have a functional, basic Azure Kubernetes Service-based <strong>k8s</strong> cluster running an IdentityServer4 implementation in a completely self-sustained manner. It is publicly accessible, our backend infrastructure is not exposed but is accessible, and you can begin integrating your application into this authentication system.</p>
+<p>My hope was that you were going to share my learning journey so that you could have a hands-on platform to continue your learning journey. Mine certainly isn't done. The next step is to show you how I made my logging a lot more comprehensive in a very easy manner!</p>
+<p><strong>Next up:</strong>
+<a href="/kubernetes/kubernetes-my-journey-part-9">Adding Cluster Logging (fluentd)</a></p>
+<style>
+    h1, h2, h3, h4, h5, h6 {
+       margin-top: 25px;
+    }
+    figure.highlight{
+        background-color: #E8EEFE;
+    }
+    figure.highlight .gutter{
+        color: #0033CD;
+    }
+    figure.highlight pre {
+        font-family: 'Cascadia Code PL', monospace;
+    }
+    code {
+        font-family: 'Cascadia Code PL', sans-serif;
+        border-width: 0.1em;
+        border-color: #E8EEFE;
+        border-style: solid;
+        border-radius: 0.3em;
+        background-color: #E8EEFE;
+        color: #0033CD;
+        padding: 0em 0.4em;
+        white-space: nowrap;
+    }
+</style>
+<link  href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.5.0/viewer.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.5.0/viewer.min.js"></script>
+<script>
+// View an image
+const gallery = new Viewer(document.getElementById('mainPostContent', {
+    "navbar": false,
+    "toolbar": false
+}));
+</script>
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/dave_white">
+				
+					<img src='https://www.gravatar.com/avatar/4b7708d2ae7f7bb866446e0459e3e156?s=200' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/dave_white">Dave White</a></h2>
+			
+			<a href="mailto:dmhwhite@gmail.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://agileramblings.com/" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/AgileRamblings" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/agileramblings" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			<a href="https://www.linkedin.com/in/dave-white" target="_blank"><img class="ProfileIcon" src="/images/icon_linkedin.png" border="0" alt="LinkedIN" title="LinkedIN"> LinkedIn</a><br>
+			
+			
+ 			<a href="/feeds/dave_white.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/kubernetes/kubernetes-my-journey-part-8/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'dave_white');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

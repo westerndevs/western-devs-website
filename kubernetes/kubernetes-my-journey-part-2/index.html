@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Kubernetes - My Journey - Part 2 | Western Devs</title>
+  <meta name="description" content="Series Table of Contents Previously: Business problems Initial Assumptions, Technologies, Learning Resources There are some assumptions that were made before my involvement with this company that made">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kubernetes - My Journey - Part 2">
+<meta property="og:url" content="https://westerndevs.com/kubernetes/kubernetes-my-journey-part-2/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="Series Table of Contents Previously: Business problems Initial Assumptions, Technologies, Learning Resources There are some assumptions that were made before my involvement with this company that made">
+<meta property="article:published_time" content="2020-05-22T15:00:00.000Z">
+<meta property="article:modified_time" content="2020-11-06T00:19:55.670Z">
+<meta property="article:author" content="Western Devs">
+<meta property="article:tag" content="kubernetes, azure, **AKS**, identityserver, docker, containers">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">MAY</div>
+    <div class="ListLrgDateDay">22</div>
+    <div class="ListLrgDateYear">2020</div>
+  </div>
+  <h2>Kubernetes - My Journey - Part 2</h2>
+</div>
+
+		    
+
+			<div id="mainPostContent">
+	        <p><a href="/kubernetes/kubernetes-my-journey">Series Table of Contents</a></p>
+<p><strong>Previously:</strong>
+<a href="/kubernetes/kubernetes-my-journey-part-1">Business problems</a></p>
+<h1>Initial Assumptions, Technologies, Learning Resources</h1>
+<p>There are some assumptions that were made before my involvement with this company that made some of this decision making easy. Those assumptions were driven by the business problems we discussed previously.</p>
+<p>Some of these decisions were made by me throughout this project. It was important for me to understand the organization's business, goals, and culture when making these decisions so they weren't as easy to make. The good thing is that I've got a great group of leaders and developers in this organization that helped me and trusted me to make better decisions on their behalf.</p>
+<h2>Pre-defined Assumptions</h2>
+<p>So, there are a bunch of things that we're decided before me arriving on the scene! These decisions governed my initial decision making to just get the project started.</p>
+<h3>We're going to the cloud</h3>
+<p>I'm not sure this needs a lot of elaboration. Everyone is going to the cloud. Owning and operating data centres is hard. Companies like Microsoft, Amazon, and Google have commoditized hardware setup, management, and maintenance so much so that it almost doesn't makes sense to own your own data centre. So, anything I did should strive to be cloud-native.</p>
+<h4>Azure</h4>
+<p>Azure was chosen as the vendor for all our cloud services prior to my involvement. This certainly plays to my strength as a Microsoft-based technologist and an avid Azure user for all my own projects.</p>
+<h4>ASP.NET Core (C#)</h4>
+<p>This company is a Microsoft shop. All the developers are C# developers who are familiar with Microsoft technologies, so it only makes sense that we are going to leverage the existing people and skills that are present in the organization. Using .NET Core and ASP.NET Core 3+ in all projects going forward was made a requirement (and is probably simple common sense) by the assumption of moving to the cloud.</p>
+<p>I couldn't build something that only I could maintain or would require the company to go and try to find new developers or acquire new skills in their current developers. There is going to be a lot of learning being done by everyone here, but we don't need to add to the pile of new stuff to learn.</p>
+<h4>HTTPS</h4>
+<p>One of the things that seems obvious, but turns out isn't always obvious, is the fact that in today's world, we should be using HTTPS everywhere. It has become easier and easier to do this, and part of this project's mandate was to ensure that we accelerated the adoption of HTTPS throughout the deployed platform and make it <em>easier to own and maintain</em>. Simply doing an Identity implementation will drive this.</p>
+<h2>Decisions I made</h2>
+<p>During the planning of this project, I had the flexibility to make a lot of decisions. I didn't make them in isolation, but I did get to make the final decisions.</p>
+<h3>Containers and Orchestration</h3>
+<p>Going to the cloud can be as simple as lift-and-shift. Pick up your server, virtualize it if necessary, and place it in the cloud. In some cases, we can make this even simpler by provisioning a VM with all the pre-installed parts we need and simply deploying our application into that new VM. This is certainly &quot;going to the cloud&quot; but it isn't considered <em>cloud-native</em>.</p>
+<h4>Docker</h4>
+<p>I'm not an expert on what <em>cloud-native</em> entirely means, but I've discerned that one thing you need to do is containers. So today, that means <strong>Docker</strong>. Being a Microsoft shop, going to Azure, using Visual Studio and the az cli as tools, Docker was a no-brainer for a container engine with all the great tool support in Visual Studio, Azure DevOps Server, and the other tools, so I just rolled with it.</p>
+<h4>Kubernetes</h4>
+<p>When using Azure and running containers in the cloud, you have several options. Two easy ones are Azure Container Instances (server-less container hosting) and <strong>Azure Kubernetes Services (aka AKS)</strong>. Since our environment was going to be far more complicated than running a bunch of single containers in the cloud, we needed an orchestration platform. There are two options for that today: Kubernetes and DockerCompose and we chose Kubernetes. The community support for Kubernetes is incredible, the momentum it has in the marketplace can't be denied, and it is natively supported by Azure via the <strong>AKS</strong> product, so it was another easy decision.</p>
+<h3>Cloud-Hosted</h3>
+<p>I sort of covered this one off, but there is an option to stand up your own Kubernetes cluster manually in Azure simply using Virtual Machines. <strong>AKS</strong> effectively took this option off the table. In my experience so far, <strong>AKS</strong> is a polished product, easy to use, and the control plane components are included for free. You simply pay for all the other Azure products that will make up your cluster. These include VMs, Storage, Networking, and any other products you leverage in your implementation.</p>
+<h4>Azure Kubernetes Service (<strong>AKS</strong>)</h4>
+<p><strong>AKS</strong> also makes some of our <em>ability to scale</em> requirements much easier to address. You can scale vertically by dynamically increasing the size of the VMs in the cluster and we can scale horizontally by dynamically adding (or removing) nodes from the cluster.</p>
+<h3>Identity Implementation</h3>
+<p>While this project has many objectives, they key objective for all this work was to deliver a new Identity management implementation to the platform that would enable a secure, modern way for all users, applications, and devices to authenticate with each other.</p>
+<p>One of the underlying cultural desires at this client that I should state is a strong desire to minimize subscriptions and dependencies on 3rd party vendors. This desire precluded us from selecting any of the current Identity providers that exist on the marketplace today. AuthO and Okta are two such companies and while I'm sure they have great products, we
+decided to build our own Identity system.</p>
+<h4>IdentityServer4</h4>
+<p>Now, we didn't want to build all the identity system from scratch! That doesn't make sense. We'd have to become experts in OAuth, OpenID Connect, flows, encryption, tokens, and all those technologies that are implemented by great communities out there already. This OSS frameworks are also scrutinized and vetted by the community, so you know that a lot of people care that they are done right. Basically, we wanted to take the best implementation of a security framework in the Microsoft open-source community, host it in our infrastructure, and be able to customize it to our specific use-cases. This led us to IdentityServer4, which is the core technical component of our Identity implementation.</p>
+<h4>Skoruba IdentityServer4 Admin</h4>
+<p>One of the things about identity implementations is that there is a lot of configuration and user data to manage. To be honest, client configuration and user data is one of the biggest PITA about doing Identity work. Once you get it, it isn't so bad but so much of a successful roll-out with an identity platform hinges on getting all this data right. And to do that, it helps to have a good administrative platform.</p>
+<p>While I'd love to have had the time to write an application that gives a good user experience for the administration of this data, I didn't have that time. So, I went looking for something in the community that used IdentityServer4 as a foundational component and added the user experience I wanted. And after several pilots, I found and selected Skoruba IdentityServer4 Admin. This is an ASP.NET Core 3.x web application that provides the Security Token Service (STS), and Administrative Application, and an Administrative API, all in one easy to use package! I've been really happy that I found it.</p>
+<h3>Data Persistence</h3>
+<p>The Skoruba templates allows for the selection of one from three different built-in persistence providers via Entity Framework Core. SqlServer, MySql and Postgres.</p>
+<h4>Postgres</h4>
+<p>Postgres was the database provider the I selected. This reduced our licensing costs, provides the appropriate level of performance and functionality, and with us being in Azure, we always have the option of moving to <strong>Azure Database for PostgreSQL</strong> which has single instance SKU and an HA/Hyperscale SKU if that eventually becomes a needed capability. There is also a ton of community support around the product, which means libraries, documentation, and examples are plentiful.</p>
+<h3>Logging</h3>
+<p>I cannot under-state how important logging is when developing, maintaining, and owning a multi-container environment, spread across multiple servers (nodes) that are hosted in the cloud. This isn't the first and hopefully won't be the last blog post to emphasize this point. The community building cloud-based applications already blogs about this, you've almost certainly read about it somewhere before here, but it still may not have sunk in that, perhaps, this needs to be the first thing you figure out in your new container-based platform. I paid some attention at the beginning, but not enough.</p>
+<h4>Seq - Log Ingestion and Analytics</h4>
+<p>When I first arrived at my client, they were still relying on file-based logging, spread over all the servers in the farm. They had a lot of logging in the application, but it wasn't easily accessible, and it wasn't easy at all to find out what happened across a workflow, sometimes broken, that traversed a bunch of servers.</p>
+<p>The other thing that wasn't possible was querying and basic analytics of the log data that was being generated. It was inconsistent, unstructured, and just barely helping them solve problems.</p>
+<p>At a previous engagement, I had used Splunk and really came to love it! The tool was great. Powerful queries, visualization, dashboard, alerts, integrations! Splunk has it all. There was only one problem. Splunk is expensive. That isn't a problem if your needs justify the spend and you have the required expertise in owning and operating Splunk, but that wasn't the case here, so I needed to find something easier to bring into the ecosystem. This was when I found Seq!</p>
+<p>Seq is a great entry-level tool (that keeps on getting better) for organizations that are just getting started on getting logs into a central product and using that log data to analyze problems and operational aspects of the platform. Seq is built by Datalust.co, who also makes Serilog the .NET library that we use for logging internally in the application. This combination has turned out to be a cost-effective, easy to learn, setup and maintain logging infrastructure for our apps, so it was quite easy for me to bring this into the Identity project and the <strong>Kubernetes (k8s)</strong> infrastructure.</p>
+<h4>Fluentd</h4>
+<p>In addition to the identity applications that are in the <strong>k8s</strong> cluster that will be logging to Seq, the infrastructure applications in the cluster <em>itself</em> will generate an incredible amount of information about its operations and problems. This is a non-trivial log ingestion problem that has been made very approachable with a product called <strong>fluentd</strong>. Built to live inside of <strong>k8s</strong> clusters, fluentd is basically an event processing pipeline implementation that takes events from log files that are written all over the <strong>k8s</strong> cluster. It takes care of finding the files, processing them as they get additional entries, and sending those events &quot;somewhere&quot;. In this case, I used an fluentd docker image that emits logs to <strong>graylog</strong> consumers, which thankfully, Seq is with an addon. So, with Serilog in the applications, fluentd in the cluster using a graylog variant and Seq running in the cluster to ingest and aggregate all the log information, we have a very compact, useful logging strategy to get us started.</p>
+<p>I don't know how far this logging implementation will grow with the cluster into the future, but it is designed to have pieces replaced as we outgrow their capabilities.</p>
+<h3>Learning Resources</h3>
+<p>This adventure required an incredible amount of learning on my part. The way that I learn best is by reading/learning enough to get started, and then building like crazy, discovering deficiencies in what I know, resolving the deficiency, and then finding the next thing I don't know.</p>
+<p>This series of blog posts will hopefully capture some of that learning experience, but I wanted to make sure I shared the places that I started.</p>
+<h4>Pluralsight</h4>
+<p>There are a lot of courses on Pluralsight. I think I've enjoyed all them, with some courses being better than others for me at that point in my learning. For this project, I didn't need any help with C# or ASP.NET Core or any of that part. I needed to get familiar with Kubernetes and I needed to become familiar with authentication flows using OAuth2 and OpenID Connect.</p>
+<p>The <strong>k8s</strong> courses were from Nigel Poulton were great places to get started with <strong>k8s</strong>. The ones that I watched are:</p>
+<ul>
+<li><a href="https://app.pluralsight.com/library/courses/getting-started-kubernetes/table-of-contents" target="_blank" rel="noopener">Getting Started with Kubernetes</a></li>
+<li><a href="https://app.pluralsight.com/library/courses/docker-kubernetes-big-picture/table-of-contents" target="_blank" rel="noopener">Docker and Kubernetes: The Big Picture</a></li>
+</ul>
+<p>When getting more details on OAuth2 and OpenId Connect, Kevin Dockx and Micah Silverman had two nice courses to review.</p>
+<ul>
+<li><a href="https://app.pluralsight.com/library/courses/securing-aspdotnet-core2-oauth2-openid-connect/table-of-contents" target="_blank" rel="noopener">Securing ASP.NET Core 2 with OAuth2 and OpenID Connect</a></li>
+<li><a href="https://app.pluralsight.com/library/courses/that-conference-2019-session-07/table-of-contents" target="_blank" rel="noopener">THAT Conference '19: OAuth 2.0 and OpenID Connect (In Plain English)</a></li>
+</ul>
+<blockquote>
+<p>There is a new version of Kevin Dockx course available using ASP.NET Core 3 <a href="https://app.pluralsight.com/library/courses/securing-aspnet-core-3-oauth2-openid-connect/table-of-contents" target="_blank" rel="noopener">here</a></p>
+</blockquote>
+<h4>Kubernetes.io</h4>
+<p>Based on what and how I was learning <strong>k8s</strong> from Nigel on Pluralsight, Kubernetes.io became an invaluable resource for me to learn about <strong>k8s</strong> and its ecosystem. Nigel's courses encourage you to work with manifests, building your <strong>k8s</strong> cluster in a declarative manner, and kubernetes.io supported that approach well. I would highly recommend working with manifests and understanding them and how they work when learning <strong>k8s</strong>. We'll discover later that I don't work directly with manifests when provisioning my cluster resources, but you have to know manifests because all the examples in the communities are in manifests!</p>
+<h4>Community blogs</h4>
+<p>This would have been much harder without the incredibly vibrant community of bloggers in the world who are sharing what they are doing, the problems, and how they are solving those problems. I'm hoping that my addition in writing this blog fills a gap and makes it a bit easier for you or someone else to put this all together, but this would have been incredibly difficult without this vibrant community.</p>
+<p><strong>Next up:</strong>
+<a href="/kubernetes/kubernetes-my-journey-part-3">Tools in Use</a></p>
+<h5>Links</h5>
+<ul>
+<li><a href="https://azure.microsoft.com/en-us/" target="_blank" rel="noopener">Azure</a></li>
+<li><a href="https://azure.microsoft.com/en-us/-services/kubernetes-service/" target="_blank" rel="noopener">Azure Kubernetes Services</a></li>
+<li><a href="https://www.kubernetes.io" target="_blank" rel="noopener">Kubernetes</a></li>
+<li><a href="https://identityserver4.readthedocs.io/en/latest/" target="_blank" rel="noopener">IdentityServer4</a></li>
+<li><a href="https://github.com/skoruba/IdentityServer4.Admin" target="_blank" rel="noopener">Skoruba IdentityServe4 Administration</a></li>
+<li><a href="https://www.pulumi.com/" target="_blank" rel="noopener">Pulumi</a></li>
+<li><a href="https://datalust.co/seq" target="_blank" rel="noopener">Seq Log Ingestion</a></li>
+<li><a href="https://docs.fluentd.org/" target="_blank" rel="noopener">Fluentd</a></li>
+<li><a href="https://www.postgresql.org/" target="_blank" rel="noopener">Postgres</a></li>
+<li><a href="https://www.postgresql.org/" target="_blank" rel="noopener">pgAdmin4</a></li>
+<li><a href="https://github.com/jetstack/cert-manager" target="_blank" rel="noopener">CertManager</a></li>
+<li><a href="https://www.nginx.com/" target="_blank" rel="noopener">Nginx</a></li>
+<li><a href="https://containo.us/traefik/" target="_blank" rel="noopener">Traefix</a></li>
+</ul>
+<style>
+    h1, h2, h3, h4, h5, h6 {
+       margin-top: 25px;
+    }
+    figure.highlight{
+        background-color: #E8EEFE;
+    }
+    figure.highlight .gutter{
+        color: #0033CD;
+    }
+    figure.highlight pre {
+        font-family: 'Cascadia Code PL', monospace;
+    }
+    code {
+        font-family: 'Cascadia Code PL', sans-serif;
+        border-width: 0.1em;
+        border-color: #E8EEFE;
+        border-style: solid;
+        border-radius: 0.3em;
+        background-color: #E8EEFE;
+        color: #0033CD;
+        padding: 0em 0.4em;
+        white-space: nowrap;
+    }
+</style>
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/dave_white">
+				
+					<img src='https://www.gravatar.com/avatar/4b7708d2ae7f7bb866446e0459e3e156?s=200' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/dave_white">Dave White</a></h2>
+			
+			<a href="mailto:dmhwhite@gmail.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://agileramblings.com/" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/AgileRamblings" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/agileramblings" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			<a href="https://www.linkedin.com/in/dave-white" target="_blank"><img class="ProfileIcon" src="/images/icon_linkedin.png" border="0" alt="LinkedIN" title="LinkedIN"> LinkedIn</a><br>
+			
+			
+ 			<a href="/feeds/dave_white.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/kubernetes/kubernetes-my-journey-part-2/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'dave_white');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

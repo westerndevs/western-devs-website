@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Migrating from Jekyll to Hexo: Part 2 | Western Devs</title>
+  <meta name="description" content="Specific issues we ran into during the migration from Jekyll to Hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Migrating from Jekyll to Hexo: Part 2">
+<meta property="og:url" content="https://westerndevs.com/jekyll/hexo/Migrating-from-Jekyll-to-Hexo-Part-2/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="Specific issues we ran into during the migration from Jekyll to Hexo">
+<meta property="article:published_time" content="2015-12-28T00:43:32.000Z">
+<meta property="article:modified_time" content="2020-11-06T00:19:55.658Z">
+<meta property="article:author" content="Western Devs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">DEC</div>
+    <div class="ListLrgDateDay">28</div>
+    <div class="ListLrgDateYear">2015</div>
+  </div>
+  <h2>Migrating from Jekyll to Hexo: Part 2</h2>
+</div>
+
+		    
+
+			<div id="mainPostContent">
+	        <p>In my <a href="http://www.westerndevs.com/jekyll/hexo/Migrating-from-Jekyll-to-Hexo/" target="_blank" rel="noopener">previous post</a>, I gave some general impressions from the recent conversion of WesternDevs from Jekyll to Hexo. Here, I'll outline specific issues we tackled during the process of migrating and converting to our own theme.</p>
+<h3>Excerpts</h3>
+<p>Jekyll and Hexo handle excerpts very differently. In Jekyll, you can specify an excerpt in the front matter. If one isn't provided, it will use the first few characters of the post itself as the excerpt.</p>
+<p>In Hexo, the excerpt is set in one and only one way. You need to add <code>&lt;!--more--&gt;</code> somewhere in the post. Everything before that is considered the excerpt. If you don't have that tag in your post, no excerpt.</p>
+<div style="float: right; width: 250px; border: 1px solid #ddd; background-color: #eee; padding: 8px; font-size:12px; margin: 8px;">One minor annoyance with the default handling of the excerpt in Hexo is that it escapes HTML. So if you have a link in your excerpt, it shows as &lt;a href='moo.com'&gt;My web page&lt;/a&gt; in the excerpt. Our current solution is to make sure these posts have an explicit excerpt in the front-matter.</div>
+<p>Luckily, <a href="http://www.westerndevs.com/bios/amir_barylko/" target="_blank" rel="noopener">Amir</a> had some foresight and added code to our Jekyll site to support <code>&lt;!--more--&gt;</code>. Unluckily, we rarely used it. Some of our posts had excerpts, particularly the podcasts. But mostly, we relied on Jekyll to parse the post for the excerpt.</p>
+<p>In the end, we did two things to remedy this. First we added the <a href="https://github.com/lalunamel/hexo-front-matter-excerpt" target="_blank" rel="noopener">https://github.com/lalunamel/hexo-front-matter-excerpt</a> package. This fixed all the posts that already had an <code>excerpt</code> in the front matter. For the rest, we went through all the remaining posts and added <code>&lt;!--more--&gt;</code> after the first paragraph. Ever the optimists, we also submitted a <a href="https://github.com/lalunamel/hexo-front-matter-excerpt/pull/2" target="_blank" rel="noopener">pull request</a> for the package to make it behave more like Jekyll.</p>
+<h3>Syntax highlighting</h3>
+<p>A code block in Jekyll looks like this</p>
+<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="template-tag">&#123;% <span class="name">highlight</span> html%&#125;</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>moo<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="template-tag">&#123;% <span class="name">endhighlight</span> %&#125;</span></span><br></pre></td></tr></table></figure>
+<p>And in Hexo, like this:</p>
+<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="template-tag">&#123;% <span class="name">codeblock</span> lang:html %&#125;</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>moo<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="template-tag">&#123;% <span class="name">endcodeblock</span> %&#125;</span></span><br></pre></td></tr></table></figure>
+<p>A series of &quot;Find and replace in files&quot; actions took care of this. We also found a <code>syntax.styl</code> file to our liking. Not sure if Jekyll has built-in support for syntax highlighting. I suspect not and that it was automatically included with the <a href="https://github.com/mmistakes/minimal-mistakes" target="_blank" rel="noopener">theme we chose for Jekyll</a>.</p>
+<h3>CSS styles</h3>
+<p>Jekyll uses Kramdown for parsing Markdown. One of the features it adds is the ability to specify a class on your elements like so.</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;: .pull-right &#125;</span><br><span class="line">![<span class="string">My image</span>](<span class="link">http://my/image/reference</span>)</span><br></pre></td></tr></table></figure>
+<p>This will add the <code>pull-right</code> CSS class to the image and, as the name suggests, this will float the image on the right.</p>
+<p>As far as I know, there's no Kramdown support in NodeJS, likely because Kramdown is a Ruby gem. So we had to modify each instance of this syntax manually. For images, we converted to the Hexo <a href="https://hexo.io/docs/tag-plugins.html" target="_blank" rel="noopener">img tag plugin</a> like so:</p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% img pull-right <span class="string">"http://my/image/reference"</span> <span class="string">"My image"</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>There are a few tag plugins in Hexo all ported from Octopress. Which likely means we could have used them in our Jekyll site but not much point in testing that out now...</p>
+<p>For other instances of this kramdown-specific syntax that were applied to other elements, we just dropped down to native HTML in the Markdown:</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="keyword">class</span>="<span class="symbol">notice</span>"&gt;<span class="symbol">This</span> <span class="symbol">is</span> <span class="symbol">a</span> <span class="symbol">notice</span>&lt;/<span class="symbol">div</span>&gt;</span><br></pre></td></tr></table></figure>
+<h3>Aliases</h3>
+<p>We changed the URL structure for our podcasts early on and to keep any links pointing to the existing ones valid, we used <a href="https://github.com/jekyll/jekyll-redirect-from" target="_blank" rel="noopener">the jekyll-redirect-from gem</a> to maintain the old link. We find a <a href="https://github.com/jekyll/jekyll-redirect-from" target="_blank" rel="noopener">suitable replacement</a> for it in Hexo. BUT that suitable replacement's official package on NPM doesn't support Hexo 3 at the time of writing so we had to reference it in our <code>package.json</code> file like so:</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"hexo-generator-alias"</span>: <span class="string">"git+https://github.com/hexojs/hexo-generator-alias.git"</span></span><br></pre></td></tr></table></figure>
+<p>Bear in mind that this is a static site. So both of these plugins, the Jekyll and the Hexo one, handle redirects by generating an HTML page at the alias location with a redirect embedded in it:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Redirecting...<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"canonical"</span> <span class="attr">href</span>=<span class="string">"/podcasts/podcast-the-internet-of-things/"</span>&gt;</span><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"refresh"</span> <span class="attr">content</span>=<span class="string">"0; url=/podcasts/podcast-the-internet-of-things/"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>This isn't quite ideal for SEO purposes but it is the recommended approach if you can't do a server-side redirect.</p>
+<h3>Empty categories</h3>
+<p>This issue was probably the source of most of our trouble. Our permalink URL is of the form <code>/:category/:title</code>. For example: <code>/docker/yet-another-docker-intro/</code>. The issue is that the vast majority of our posts are uncategorized. And Jekyll and Hexo each handle uncategorized posts very differently in their permalinks.</p>
+<p>In the front matter for Hexo, you can define a default category which all posts will use if a category is not assigned. So if you set the default category to &quot;moo&quot;, your permalink URL will be: <code>/moo/a-discussion-on-knockout/</code>.</p>
+<p>In Jekyll, an uncategorized post appears at the root of the site. Like this: <code>http://www.westerndevs.com/Migrating-from-Jekyll-to-Hexo-Part-2</code>. But setting the default category to an empty string or to <code>/</code>, led to fully-qualified URLs that look like this: <code>//Migrating-from-Jekyll-to-Hexo-Part-2</code>. I believe this is a bug in the permalink generator. It's generating the permalink as /category/title and when there is no category, it's not going to treat it any differently.</p>
+<p>Our initial solution to this was to stick with a default category of <code>uncategorized</code> but to alias each post to the root so that existing URLs would still work but would redirect to the new one. Alas, we have Disqus comments to deal with and those are tied to a specific URL. We could have migrated them but we also would have had to contend with sucky looking URLs that have <code>uncategorized</code> in them.</p>
+<p>Our current solution: <a href="https://github.com/westerndevs/hexo" target="_blank" rel="noopener">fork Hexo</a>. In our fork, we add some handling when generating the URL for a post so that if it starts with a //, we trim one of them. Not the most elegant solution but workable for now. And if that's not hacky enough for you, check out the solution for...</p>
+<h3>Permalinks/Disqus Comments</h3>
+<p>After deployment, we discovered none of the existing Disqus comments were showing on our posts. The Disqus script was working because you could add new comments and it would show &quot;Also on Western Devs&quot; comments. Just no existing comments.</p>
+<p>The culprit was, again, the permalink. Because of the leading //, Disqus thought the URL for our posts was (as an example): http://www.westerndevs.com//a-discussion-on-knockout. That double slash was enough to confuse it into not showing comments.</p>
+<p>Our interim solution is to include this in our post template:</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> disqus_url = <span class="string">'&lt;%= page.permalink %&gt;'</span>.replace(<span class="string">".com//"</span>, <span class="string">".com/"</span>);</span><br></pre></td></tr></table></figure>
+<p>That right there is some quality coding...</p>
+<h3>Feed/Sitemap/iTunes</h3>
+<p>This issue is more of a warning not to over-think things. Our feed is served up at <a href="http://www.westerndevs.com/feed" target="_blank" rel="noopener">http://www.westerndevs.com/feed</a>. In Jekyll, we created a <code>feed.xml</code> file and assumed that it did some magic to generate a <code>feed</code> file. And we had a hell of a time trying to get Hexo to generate that same file without the .xml extension. Even to the point where we created our own package that still didn't quite work.</p>
+<p>Then someone realized that Jekyll was not actually generating a <code>feed</code> file, just a <code>feed.xml</code> file. Whatever GitHub Pages runs on allows you to access XML files without the extension. Jekyll's development server knows this. Hexo's doesn't. So when we run locally, we can't access our various XML files (for our RSS feed, our iTunes feed, and our sitemap) without specifying the extension. But on the deployed site, they work fine.</p>
+<h3>Links in Headers</h3>
+<p>There was a bug in the <a href="https://github.com/hexojs/hexo-renderer-marked" target="_blank" rel="noopener">default Markdown renderer</a> that caused rendering issues when you had links within headers. The bug has since been fixed but I'm including it here mostly to reiterate that you aren't locked into anything with Hexo. While we were converting, the bug was still active and all we did to fix it was to switch to <a href="https://github.com/celsomiranda/hexo-renderer-markdown-it" target="_blank" rel="noopener">a different renderer</a>.</p>
+<p>One philosophical point: One of the reasons for this bug is that the default renderer will automatically add bookmarks for every heading. This is a <a href="https://github.com/hexojs/hexo-renderer-marked/issues/16" target="_blank" rel="noopener">design decision</a> that I'm not convinced has a lot of value though it's not a position I'll defend strongly. The renderer we've switched to includes this as an option you have to explicitly turn on which I think is a better way to go.</p>
+<h3>Deployment</h3>
+<p>Since GitHub Pages runs Jekyll, it's understandable that deployment with Jekyll is relatively easy. We did need to wrap it in a Rake task to accommodate working locally with a different <code>_config.yml</code> file than what is used in production but that wasn't hard to do.</p>
+<p>For Hexo, our process is still mostly manual and has to be done locally rather than on our CI server (Travis). We generate the site, copy the static files to a folder, then check those files into the <code>gh-pages</code> branch. I imagine it <a href="https://sazzer.github.io/blog/2015/05/04/Deploying-Hexo-to-Github-Pages-with-Travis/" target="_blank" rel="noopener">won't be hard</a> to get our Travis process adapted to this but at present, we haven't got around to it yet. Just keep in mind, it won't be quite as easy as Jekyll.</p>
+<h3>So which one is &quot;better&quot;?</h3>
+<p>I forgot to answer this in the last post. As I mentioned, we're enjoying Hexo and it's nice having everyone excited about blogging again. For the Western Devs as a group, Hexo is the better choice.</p>
+<p>But personally, I like Jekyll a little better. It feels more polished and doesn't require you to fork the product to get what you want. Typing this up, I was looking for a way to disable line numbers for individual codeblocks but I've come up short. Plus there's a larger and more comprehensive community behind it. That said, I am <em>really</em> enjoying the quick generation time in Hexo.</p>
+<hr>
+<p>I believe that covers the major gotchas we encountered in our conversion. It glosses over a few things, like whether to stick with Stylus as the default CSS pre-processor or move to SASS. Or whether to use <a href="http://jade-lang.com/" target="_blank" rel="noopener">Jade</a> as the templating language rather than the default, EJS. Those questions are quite a bit more subjective and I wanted to keep this discussion limited to the technical hurdles we encountered.</p>
+<p>But if you run into an issue not mentioned here, add a comment and I will update the post.</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/kyle_baley">
+				
+					<img src='/images/avatars/Kyle_300x300.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/kyle_baley">Kyle Baley</a></h2>
+			
+			<a href="mailto:kyle@baley.org"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://kyle.baley.org" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/kyle_baley" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/kbaley" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			<a href="https://www.linkedin.com/in/kylebaley" target="_blank"><img class="ProfileIcon" src="/images/icon_linkedin.png" border="0" alt="LinkedIN" title="LinkedIN"> LinkedIn</a><br>
+			
+			
+ 			<a href="/feeds/kyle_baley.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/jekyll/hexo/Migrating-from-Jekyll-to-Hexo-Part-2/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'kyle_baley');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

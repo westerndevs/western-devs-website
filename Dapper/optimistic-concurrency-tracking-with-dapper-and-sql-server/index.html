@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Optimistic Concurrency Tracking with Dapper and SQL Server | Western Devs</title>
+  <meta name="description" content="This is a part of a series of blog posts on data access with Dapper. In today&#39;s post, we explore optimistic checks to ensure 2 users can&#39;t accidentally overwrite each other&#39;s updates to a particular r">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Optimistic Concurrency Tracking with Dapper and SQL Server">
+<meta property="og:url" content="https://westerndevs.com/Dapper/optimistic-concurrency-tracking-with-dapper-and-sql-server/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="This is a part of a series of blog posts on data access with Dapper. In today&#39;s post, we explore optimistic checks to ensure 2 users can&#39;t accidentally overwrite each other&#39;s updates to a particular r">
+<meta property="og:image" content="https://www.davepaquette.com/images/dapper/concurrency.png">
+<meta property="article:published_time" content="2019-03-20T13:45:36.000Z">
+<meta property="article:modified_time" content="2020-11-06T00:19:55.666Z">
+<meta property="article:author" content="Western Devs">
+<meta property="article:tag" content=".NET Core">
+<meta property="article:tag" content="Dapper">
+<meta property="article:tag" content=".NET">
+<meta property="article:tag" content="Micro ORM">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.davepaquette.com/images/dapper/concurrency.png">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">MAR</div>
+    <div class="ListLrgDateDay">20</div>
+    <div class="ListLrgDateYear">2019</div>
+  </div>
+  <h2>Optimistic Concurrency Tracking with Dapper and SQL Server</h2>
+</div>
+
+		    
+
+<p class="TXTsm">ORIGINALLY POSTED TO: <a href="https://www.davepaquette.com/archive/2019/03/20/optimistic-concurrency-tracking-with-dapper-and-sql-server.aspx" target="_blank" rel="noopener" class='originalurl'>https://www.davepaquette.com/archive/2019/03/20/optimistic-concurrency-tracking-with-dapper-and-sql-server.aspx</a></p>
+
+
+
+			<div id="mainPostContent">
+	        <p>This is a part of a series of blog posts on data access with Dapper. To see the full list of posts, visit the <a href="https://www.davepaquette.com/archive/2018/01/21/exploring-dapper-series.aspx" target="_blank" rel="noopener">Dapper Series Index Page</a>.</p>
+<p>In today's post, we explore a pattern to prevent multiple users (or processes) from accidentally overwriting each other's change. Given our <a href="https://www.davepaquette.com/archive/2019/02/04/basic-insert-update-delete-with-dapper.aspx" target="_blank" rel="noopener">current implementation for updating the <code>Aircraft</code> record</a>, there is potential for data loss if there are multiple active sessions are attempting to update the same <code>Aircraft</code> record at the same time. In the example shown below, Bob accidentally overwrites Jane's changes without even knowing that Jane made changes to the same <code>Aircraft</code> record</p>
+<p><img src="https://www.davepaquette.com/images/dapper/concurrency.png" alt="Concurrent Updates"></p>
+<p>The pattern we will use here is <a href="https://martinfowler.com/eaaCatalog/optimisticOfflineLock.html" target="_blank" rel="noopener">Optimistic Offline Lock</a>, which is often also referred to as Optimistic Concurrency Control.</p>
+<h2>Modifying the Database and Entities</h2>
+<p>To implement this approach, we will use a <a href="https://docs.microsoft.com/sql/t-sql/data-types/rowversion-transact-sql" target="_blank" rel="noopener">rowversion column in SQL Server</a>. Essentially, this is a column that automatically version stamps a row in a table. Any time a row is modified, the <code>rowversion</code> column will is automatically incremented for that row. We will start by adding the column to our <code>Aircraft</code> table.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> Aircraft <span class="keyword">ADD</span> RowVer rowversion</span><br></pre></td></tr></table></figure>
+<p>Next, we add a <code>RowVer</code> property to the <code>Aircraft</code> table. The property is a <code>byte</code> array. When we read the <code>RowVer</code> column from the database, we will get an array of 8 bytes.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Aircraft</span> </span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> Id &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> Manufacturer &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> Model &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> RegistrationNumber &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> FirstClassCapacity &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> RegularClassCapacity &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> CrewCapacity &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line">    <span class="keyword">public</span> DateTime ManufactureDate &#123;<span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> NumberOfEngines &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> EmptyWeight &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> MaxTakeoffWeight &#123;<span class="keyword">get</span>; <span class="keyword">set</span>;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">byte</span>[] RowVer &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">&#125;   </span><br></pre></td></tr></table></figure>
+<p>Finally, we will modify the query used to load <code>Aircraft</code> entities so it returns the <code>RowVer</code> column. We don't need to change any of the Dapper code here.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">async</span> Task&lt;Aircraft&gt; <span class="title">Get</span>(<span class="params"><span class="keyword">int</span> id</span>)</span></span><br><span class="line"><span class="function"></span>&#123; </span><br><span class="line">    Aircraft aircraft;</span><br><span class="line">    <span class="keyword">using</span> (<span class="keyword">var</span> connection = <span class="keyword">new</span> SqlConnection(_connectionString))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">await</span> connection.OpenAsync();</span><br><span class="line">        <span class="keyword">var</span> query = <span class="string">@"</span></span><br><span class="line"><span class="string">SELECT </span></span><br><span class="line"><span class="string">Id</span></span><br><span class="line"><span class="string">,Manufacturer</span></span><br><span class="line"><span class="string">,Model</span></span><br><span class="line"><span class="string">,RegistrationNumber</span></span><br><span class="line"><span class="string">,FirstClassCapacity</span></span><br><span class="line"><span class="string">,RegularClassCapacity</span></span><br><span class="line"><span class="string">,CrewCapacity</span></span><br><span class="line"><span class="string">,ManufactureDate</span></span><br><span class="line"><span class="string">,NumberOfEngines</span></span><br><span class="line"><span class="string">,EmptyWeight</span></span><br><span class="line"><span class="string">,MaxTakeoffWeight</span></span><br><span class="line"><span class="string">,RowVer</span></span><br><span class="line"><span class="string">FROM Aircraft WHERE Id = @Id"</span>;</span><br><span class="line">        aircraft = <span class="keyword">await</span> connection.QuerySingleAsync&lt;Aircraft&gt;(query, <span class="keyword">new</span> &#123;Id = id&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> aircraft;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2>Adding the Concurrency Checks</h2>
+<p>Now that we have the row version loaded in to our model, we need to add the checks to ensure that one user doesn't accidentally overwrite another users changes. To do this, we simply need to add the <code>RowVer</code> to the <code>WHERE</code> clause on the <code>UPDATE</code> statement. By adding this constraint to the <code>WHERE</code> clause, we we ensure that the updates will only be applied if the <code>RowVer</code> has not changed since this user originally loaded the <code>Aircraft</code> entity.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">async</span> Task&lt;IActionResult&gt; <span class="title">Put</span>(<span class="params"><span class="keyword">int</span> id, [FromBody] Aircraft model</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (id != model.Id) </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> BadRequest();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">using</span> (<span class="keyword">var</span> connection = <span class="keyword">new</span> SqlConnection(_connectionString))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">await</span> connection.OpenAsync();</span><br><span class="line">        <span class="keyword">var</span> query = <span class="string">@"</span></span><br><span class="line"><span class="string">UPDATE Aircraft </span></span><br><span class="line"><span class="string">SET  Manufacturer = @Manufacturer</span></span><br><span class="line"><span class="string">  ,Model = @Model</span></span><br><span class="line"><span class="string">  ,RegistrationNumber = @RegistrationNumber </span></span><br><span class="line"><span class="string">  ,FirstClassCapacity = @FirstClassCapacity</span></span><br><span class="line"><span class="string">  ,RegularClassCapacity = @RegularClassCapacity</span></span><br><span class="line"><span class="string">  ,CrewCapacity = @CrewCapacity</span></span><br><span class="line"><span class="string">  ,ManufactureDate = @ManufactureDate</span></span><br><span class="line"><span class="string">  ,NumberOfEngines = @NumberOfEngines</span></span><br><span class="line"><span class="string">  ,EmptyWeight = @EmptyWeight</span></span><br><span class="line"><span class="string">  ,MaxTakeoffWeight = @MaxTakeoffWeight</span></span><br><span class="line"><span class="string">WHERE Id = @Id</span></span><br><span class="line"><span class="string">      AND RowVer = @RowVer"</span>;</span><br><span class="line">      </span><br><span class="line">      <span class="keyword">await</span> connection.ExecuteAsync(query, model);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> Ok();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>So, the <code>WHERE</code> clause stops the update from happening, but how do we know if the update was applied successfully? We need to let the user know that the update was not applied due to a concurrency conflict. To do that, we add <code>OUTPUT inserted.RowVer</code> to the <code>UPDATE</code> statement. The effect of this is that the query will return the new value for the <code>RowVer</code> column if the update was applied. If not, it will return null.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">async</span> Task&lt;IActionResult&gt; <span class="title">Put</span>(<span class="params"><span class="keyword">int</span> id, [FromBody] Aircraft model</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">byte</span>[] rowVersion;</span><br><span class="line">    <span class="keyword">if</span> (id != model.Id) </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> BadRequest();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">using</span> (<span class="keyword">var</span> connection = <span class="keyword">new</span> SqlConnection(_connectionString))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">await</span> connection.OpenAsync();</span><br><span class="line">        <span class="keyword">var</span> query = <span class="string">@"</span></span><br><span class="line"><span class="string">UPDATE Aircraft </span></span><br><span class="line"><span class="string">SET  Manufacturer = @Manufacturer</span></span><br><span class="line"><span class="string">  ,Model = @Model</span></span><br><span class="line"><span class="string">  ,RegistrationNumber = @RegistrationNumber </span></span><br><span class="line"><span class="string">  ,FirstClassCapacity = @FirstClassCapacity</span></span><br><span class="line"><span class="string">  ,RegularClassCapacity = @RegularClassCapacity</span></span><br><span class="line"><span class="string">  ,CrewCapacity = @CrewCapacity</span></span><br><span class="line"><span class="string">  ,ManufactureDate = @ManufactureDate</span></span><br><span class="line"><span class="string">  ,NumberOfEngines = @NumberOfEngines</span></span><br><span class="line"><span class="string">  ,EmptyWeight = @EmptyWeight</span></span><br><span class="line"><span class="string">  ,MaxTakeoffWeight = @MaxTakeoffWeight</span></span><br><span class="line"><span class="string">  OUTPUT inserted.RowVer</span></span><br><span class="line"><span class="string">WHERE Id = @Id</span></span><br><span class="line"><span class="string">      AND RowVer = @RowVer"</span>;</span><br><span class="line">        rowVersion = <span class="keyword">await</span> connection.ExecuteScalarAsync&lt;<span class="keyword">byte</span>[]&gt;(query, model);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (rowVersion == <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> DBConcurrencyException(<span class="string">"The entity you were trying to edit has changed. Reload the entity and try again."</span>); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> Ok(rowVersion);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Instead of calling <code>ExecuteAsync</code>, we call <code>ExecuteScalarAsync&lt;byte[]&gt;</code>. Then we can check if the returned value is <code>null</code> and raise a <code>DBConcurrencyException</code> if it is null. If it is not null, we can return the new <code>RowVer</code> value.</p>
+<h1>Wrapping it up</h1>
+<p>Using SQL Server's <code>rowversion</code> column type makes it easy to implement optimistic concurrency checks in a .NET app that uses Dapper.</p>
+<p>If you are building as REST api, you should really use the ETag header to represent the current RowVer for your entity. You can read more about this pattern <a href="https://sookocheff.com/post/api/optimistic-locking-in-a-rest-api/" target="_blank" rel="noopener">here</a>.</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/dave_paquette">
+				
+					<img src='/images/avatars/DavePaquette_241x241.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/dave_paquette">Dave Paquette</a></h2>
+			
+			<a href="mailto:contactme@davepaquette.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://www.davepaquette.com/" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/Dave_Paquette" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/dpaquette" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			
+ 			<a href="/feeds/dave_paquette.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/Dapper/optimistic-concurrency-tracking-with-dapper-and-sql-server/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'dave_paquette');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

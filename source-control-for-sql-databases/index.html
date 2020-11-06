@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Source Control for SQL Databases | Western Devs</title>
+  <meta name="description" content="There are a bunch of options for migrating database schema, how can you be sure you&#39;ve picked the right one?">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Source Control for SQL Databases">
+<meta property="og:url" content="https://westerndevs.com/source-control-for-sql-databases/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="There are a bunch of options for migrating database schema, how can you be sure you&#39;ve picked the right one?">
+<meta property="og:image" content="http://imgur.com/SlfjxSE.png">
+<meta property="og:image" content="http://imgur.com/Kq0UvYt.png">
+<meta property="og:image" content="http://imgur.com/yNcJdl9.png">
+<meta property="article:published_time" content="2015-11-19T08:40:31.000Z">
+<meta property="article:modified_time" content="2020-11-06T00:19:55.678Z">
+<meta property="article:author" content="Western Devs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://imgur.com/SlfjxSE.png">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">NOV</div>
+    <div class="ListLrgDateDay">19</div>
+    <div class="ListLrgDateYear">2015</div>
+  </div>
+  <h2>Source Control for SQL Databases</h2>
+</div>
+
+		    
+
+			<div id="mainPostContent">
+	        <p>Discussion on the Western Devs slack channel today turned to how to manage the lifecycle of databases. This is something we've discussed in the past and today's rehash was brought to us by <a href="http://www.westerndevs.com/bios/darcy_lussier/" target="_blank" rel="noopener">D'Arcy</a> asking an innocent question about Entity Framework. As seems to happen on slack instead of helping five people immediately told him how wrong he was to be using EF in that way in the first place (we helped him later).  Database migrations are a hot topic and there are a lot of options in the space so I thought I'd put together a little flow chart to help people decide which option is the best for their scenario.</p>
+<p>Let's start by looking at the options.</p>
+<ol>
+<li>Explicit migrations in code</li>
+<li>Explicit migrations in SQL</li>
+<li>Desired state migrations</li>
+</ol>
+<p>What's all this mean? First let's look at explicit migrations vs desired state. In explicit migration we write out what changes we want to make to the database. So if you want to add a new column to a table then you would actually write out some form of <code>please add column address to the users table it is a varchar of size 50</code>.  These migrations stack up on each other. This means that after a few weeks of development you might have a dozen or more files with update instructions. It is very important that once you've checked in one of these migrations that you don't ever change it. Migrations are immutable. If you change your mind or make a mistake then you correct it by adding another migration.</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">migration <span class="number">1</span>: <span class="keyword">add</span> <span class="keyword">column</span> addresss</span><br><span class="line">//oh drat, spelled that wrong</span><br><span class="line">migration <span class="number">2</span>: <span class="keyword">rename</span> <span class="keyword">column</span> addresss <span class="keyword">to</span> address</span><br></pre></td></tr></table></figure>
+<p>The reason for this is that you never know when your database is going to be deployed to an environment. Typically the tools in this space keep track of the migrations which have been applied to a database. If you change a migration which has been applied then they have no way to correct the database and the migration will fail. Best not to get yourself into that situation.</p>
+<p>With migrations you can get yourself into a mess of migrations. A project that lasts a couple of years may acquire hundreds or even thousands of migrations. For the most part this doesn't matter because the files should never change however it can slow down deployments a bit. If it does bug you and you are certain that all your database instances in the wild are current up to a certain migration then you can build a checkpoint. You would take an image of the database or generate the schema and check that in. Now you can delete all the migrations up to that point and start fresh.</p>
+<p>These migrations can be created in code using something like entity framework migrations or using a tool like <a href="https://github.com/schambers/fluentmigrator" target="_blank" rel="noopener">Fluent Migrator</a> - that's option #1. Option #2 is to keep all the migrations in SQL and use something like <a href="https://github.com/chucknorris/roundhouse" target="_blank" rel="noopener">Roundhouse</a>. Option #1 is easier to integrate with your existing ORM and you might even be able to generate some of the migrations though tools like EF's add migration which compares the previous state of your model with the new state and builds migrations (this is starting to blur the lines between options #1 and #3). However it is further away from pure SQL which a lot of people are more comfortable with. I have also found in the past that EF is easily confused by multiple people on a project building migrations at the same time. Explicit SQL migrations are a bit more work but can be cleaner.</p>
+<p>The final option is to use a desired state migration tool. These tools look at the current state of the database and compare them with your desired state then perform whatever operations are necessary to take current to desired. You might have seen desired state configuration in other places like <a href="https://puppetlabs.com/" target="_blank" rel="noopener">puppet</a> or <a href="https://technet.microsoft.com/en-us/library/dn249912.aspx" target="_blank" rel="noopener">Powershell DSC</a> and this is pretty much the same idea. These tools are nice because you don't have to care about the current state of the database. If it is possible the tool will migrate the database. Instead of specifying what you want to change you just update the model and the desired state tooling will calculate the change. These tools tend to fall down when you have to make changes to the data in the database - they are very focused on structural changes.</p>
+<p>We've now looked at all the options so which one should you pick? There is never going to be a 100% right answer here (unless your boss happens to be in love with one of the solutions and will fire you if you pick a different one) but there are some indicators that might point you in the right direction.</p>
+<ol>
+<li>
+<p>Is your product one which has a single database instance? An example of this might be most internal corporate apps. There is only one instance and only likely to be one instance. If so then you could use any migration tool. If not then the fact that you can't properly manage multiple data migrations with SQL Server Database Projects preclude it. Code based migrations would work but tend to be a bit more difficult to set up than using pure SQL migrations.</p>
+</li>
+<li>
+<p>Do you need to create a bunch of seed data or default values? Again you might want to stay away from desired state because it is harder to get the data in. Either of the explicit migration approaches would be better.</p>
+</li>
+<li>
+<p>Is this an existing database which isn't under source control? SQL server database projects are great for this scenario. They will create a full schema from the database and properly organize it into folders. Then you can easily jump into maintaining and updating the database without a whole lot of work.</p>
+</li>
+<li>
+<p>Are there multiple slightly different versions of the database in the wild? Desired state is perfect for this. You don't need to figure out a bunch of manual migrations to set a baseline.</p>
+</li>
+<li>
+<p>Are you already using EF and have a small team unlikely to step on each other's toes? Then straight up EF migrations could be your best bet. You don't have to introduce another technology or tool. (I should mention here that you can use EF's automatic migrations to act in the same way as a desired state configuration tool so consider that. Generally the EF experts recommend against doing that in favour of explict migrations)</p>
+</li>
+<li>
+<p>Do you have a team that is very strong in SQL but not modern ORMs? Ah then SQL based migrations are likely you friend. A well-versed team may have already created a version of this. Switch to roundhouse, it will save you time in the long run.</p>
+</li>
+</ol>
+<p>I hope that these will give you a little guidance as to which tool will work best for your project. I'm sure there are all sorts of other questions one might ask to give a hint as to which technique should be used. Please do comment on this post and I'll update it.</p>
+<p><img src="http://imgur.com/SlfjxSE.png" alt="http://imgur.com/SlfjxSE">
+<img src="http://imgur.com/Kq0UvYt.png" alt="http://imgur.com/Kq0UvYt">
+<img src="http://imgur.com/yNcJdl9.png" alt="http://imgur.com/yNcJdl9"></p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/simon_timms">
+				
+					<img src='/images/avatars/simon.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/simon_timms">Simon Timms</a></h2>
+			
+			<a href="mailto:stimms@gmail.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://blog.simontimms.com/" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/stimms" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/stimms" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			
+ 			<a href="/feeds/simon_timms.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/source-control-for-sql-databases/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'simon_timms');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Unit Conversions Done (Mostly) Right | Western Devs</title>
+  <meta name="description" content="Thanks to a certain country which, for the purposes of this blog let&#39;s call it Backwardlandia, which uses a different unit system there is frequently a need to use two wildly different units for some">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unit Conversions Done (Mostly) Right">
+<meta property="og:url" content="https://westerndevs.com/unit-conversions/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="Thanks to a certain country which, for the purposes of this blog let&#39;s call it Backwardlandia, which uses a different unit system there is frequently a need to use two wildly different units for some">
+<meta property="article:published_time" content="2015-07-23T00:30:30.000Z">
+<meta property="article:modified_time" content="2020-11-06T00:19:55.678Z">
+<meta property="article:author" content="Western Devs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">JUL</div>
+    <div class="ListLrgDateDay">23</div>
+    <div class="ListLrgDateYear">2015</div>
+  </div>
+  <h2>Unit Conversions Done (Mostly) Right</h2>
+</div>
+
+		    
+
+<p class="TXTsm">ORIGINALLY POSTED TO: <a href="http://blog.simontimms.com/2015/07/22/unit_convesions/" target="_blank" rel="noopener" class='originalurl'>http://blog.simontimms.com/2015/07/22/unit_convesions/</a></p>
+
+
+
+			<div id="mainPostContent">
+	        <p>Thanks to a certain country which, for the purposes of this blog let's call it Backwardlandia, which uses a different unit system there is frequently a need to use two wildly different units for some value. Temperature is a classic one, it could be represented in Centigrade, Fahrenheit or Kelvin Rankine (that's the absolute temperature scale, same as Kelvin, but using Fahrenheit). Centigrade is a great, well devised unit that is based on the freezing and boiling points of water at one standard atmosphere. Fahrenheit is a temperature system based on the number of pigs heads you can fit in a copper kettle sold by some bloke on Fleet Street in 1832. Basically it is a disaster. Nonetheless Backwardlandia needs it and they have so many people and so much money that we can't ignore them.</p>
+<!--more-->
+<p>I cannot count the number of terrible approaches there are to doing unit conversions. Even the <a href="http://www.cnn.com/TECH/space/9909/30/mars.metric.02/" target="_blank" rel="noopener">real pros</a> get it wrong from time to time. I spent a pretty good amount of time working with a system that put unit conversions in between the database and the data layer in the stored procedures. The issue with that was that it wasn't easily testable and it meant that directly querying the table could yield you units in either metric or imperial. You needed to explore the stored procedures to have any idea what units were being used. It also meant that any other system that wanted to use this database had to be aware of the, possibly irregular, units used within.</p>
+<p>Moving the logic a layer away from the database puts it in the data retrieval logic. There could be a worse place for it but it does mean that all of your functions need to have the unit system in which they are currently operating passed into them. Your nice clean database retrievals become polluted with knowing about the units.</p>
+<p>It would likely end up looking something like this:</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> IEnumerable&lt;Pipes&gt; <span class="title">GetPipesForWell</span>(<span class="params"><span class="keyword">int</span> wellId, UnitSystem unitSystem</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span>(<span class="keyword">var</span> connection = GetConnection())&#123;</span><br><span class="line">    	<span class="keyword">var</span> result = connection.Query&lt;Pipes&gt;(<span class="string">"select id, boreDiameter from pipes where wellId=@wellId"</span>, <span class="keyword">new</span> &#123; wellId&#125;);</span><br><span class="line">        <span class="keyword">return</span> NormalizeForUnits(result, unitSystem);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>I've abstracted away some of the complexity with a magic function that accounts for the units and it is still a complex mess.</p>
+<p>##A View Level Concern
+I believe that unit conversion should be treated as a view level concern. This means that we delay doing unit conversions until the very last second. By doing this we don't have to pass down the current unit information to some layer deep in our application. All the data is persisted in a known unit system(I recommend metric) and we never have any confusion about what the units are. This is the exact same approach I suggest for dealing with times and time zones. Everything that touches my database or any persistent store is in a common time zone, specifically UTC.</p>
+<p>If you want to feel extra confident then stop treating your numbers as primitives and treat them as a value and a unit.  Just by having the name of the type contain the unit system you'll make future developers, including yourself, think twice about what unit system they're using.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">TemperatureInCentigrade</span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">readonly</span> <span class="keyword">double</span> _value;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">TemperatureInCentigrade</span>(<span class="params"><span class="keyword">double</span> <span class="keyword">value</span></span>)</span>&#123;</span><br><span class="line">    	_value = <span class="keyword">value</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> TemperatureInCentigrade <span class="title">Add</span>(<span class="params">TemperatureInCentigrade toAdd</span>) </span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">    	<span class="keyword">return</span> <span class="keyword">new</span> TemperatureInCentigrade(_value + toAdd.AsNumeric());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>You'll also notice in this class that I've made the value immutable. By doing so we save ourselves from a whole bunch of potential bugs. This is the same approach that functional programming languages take.</p>
+<p>Having a complex type keep track of your units also protects you from taking illogical actions. For instance consider a unit that holds a distance in meters. The <code>DistanceInMeters</code> class would likely not contains a <code>Multiply</code> function or, if it did, the function would return <code>AreaInSquareMeters</code>. The compiler would protect you from making a lot of mistakes and this sort of thing would likely eliminate a bunch of manual testing.</p>
+<p>The actual act of converting units is pretty simple and there are numerous libraries out there which can do a very effective job for us. I am personally a big fan of the <a href="https://github.com/gentooboontoo/js-quantities" target="_blank" rel="noopener">js-quantities library</a>. This lets you push your unit conversions all the way down to the browser. Of course math in JavaScript can, from time to time, be flaky. For the vast majority of non-scientific applications the level of resolution that JavaScripts native math supports is wholly sufficient. You generally don't even need to worry about it.</p>
+<p>If you're not doing a lot of your rendering in JavaScript then there are libraries for .net which can handle unit conversions (disclaimer, I stole this list from the github page for QuantityType and haven't tried them all).</p>
+<ul>
+<li><a href="https://github.com/objorke/QuantityTypes" target="_blank" rel="noopener">Quantity Types</a></li>
+<li><a href="https://github.com/cureos/csunits" target="_blank" rel="noopener">CSUnits</a></li>
+<li><a href="https://ngenericdimensions.codeplex.com/" target="_blank" rel="noopener">NGenericDimensions</a></li>
+<li><a href="http://sourceforge.net/projects/quantitiesnet/" target="_blank" rel="noopener">quantities.net</a></li>
+<li><a href="http://sourceforge.net/projects/unitcon/" target="_blank" rel="noopener">unitcon</a></li>
+<li><a href="http://www.gnu.org/software/units/" target="_blank" rel="noopener">units</a></li>
+<li><a href="http://www.codeproject.com/Articles/23087/Measurement-Unit-Conversion-Library" target="_blank" rel="noopener">Measurement Unit Conversion Library</a></li>
+<li><a href="http://www.codeproject.com/Articles/404573/Units-of-Measure-Library-for-NET" target="_blank" rel="noopener">Units of Measure Library</a></li>
+<li><a href="http://www.codeproject.com/Articles/413750/Units-of-Measure-Validator-for-Csharp" target="_blank" rel="noopener">Units of Measure Validator for C#</a></li>
+<li><a href="http://www.codeproject.com/Articles/611731/Working-with-Units-and-Amounts" target="_blank" rel="noopener">Working with Units and Amounts</a></li>
+<li><a href="https://github.com/InitialForce/UnitsNet" target="_blank" rel="noopener">Units.NET</a></li>
+<li><a href="https://github.com/JohanLarsson/Gu.Units" target="_blank" rel="noopener">Gu.Units</a></li>
+<li><a href="https://bitbucket.org/Clearspan/unit-class-library/wiki/Home" target="_blank" rel="noopener">Unit Class Library</a></li>
+</ul>
+<p>Otherwise this might be a fine time to try out F# which supports units of measure <a href="https://msdn.microsoft.com/en-us/library/dd233243.aspx" target="_blank" rel="noopener">natively</a>.</p>
+<p>The long and short of it is that we're trying to remove unit system confusion from our application and to do that we want to expose as little of the application to divergent units as possible. Catch the units as they are entered, normalize them and then pass them on to the rest of your code. You'll save yourself a lot of headaches by taking this approach, trust a person who has done it wrong many times.</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/simon_timms">
+				
+					<img src='/images/avatars/simon.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/simon_timms">Simon Timms</a></h2>
+			
+			<a href="mailto:stimms@gmail.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://blog.simontimms.com/" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/stimms" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/stimms" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			
+ 			<a href="/feeds/simon_timms.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/unit-conversions/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'simon_timms');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

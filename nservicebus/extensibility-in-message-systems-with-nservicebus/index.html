@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Extensibility In Message Based Systems With NServiceBus | Western Devs</title>
+  <meta name="description" content="One of my favorite things about message based systems is the natural points of extensibility you can gain. Though, you don&#39;t get it for free if you aren&#39;t setting yourself up for it.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Extensibility In Message Based Systems With NServiceBus">
+<meta property="og:url" content="https://westerndevs.com/nservicebus/extensibility-in-message-systems-with-nservicebus/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="One of my favorite things about message based systems is the natural points of extensibility you can gain. Though, you don&#39;t get it for free if you aren&#39;t setting yourself up for it.">
+<meta property="article:published_time" content="2016-06-29T07:30:00.000Z">
+<meta property="article:modified_time" content="2020-11-06T00:19:55.674Z">
+<meta property="article:author" content="Western Devs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">JUN</div>
+    <div class="ListLrgDateDay">29</div>
+    <div class="ListLrgDateYear">2016</div>
+  </div>
+  <h2>Extensibility In Message Based Systems With NServiceBus</h2>
+</div>
+
+		    
+
+<p class="TXTsm">ORIGINALLY POSTED TO: <a href="http://www.justinself.com/extensibility-in-message-based-systems-with-nservicebus/" target="_blank" rel="noopener" class='originalurl'>http://www.justinself.com/extensibility-in-message-based-systems-with-nservicebus/</a></p>
+
+
+
+			<div id="mainPostContent">
+	        <p>One of my favorite things about message based systems is the natural points of extensibility you can gain. Though, you don't get it for free if you aren't setting yourself up for it.</p>
+<a id="more"></a>
+<p>Let's say you work for a company that sells dog shoes online. Thinking about it, that's a dramatically under served market.</p>
+<p>Currently, your company's website allows for users to pay with their credit card and then, hopefully within a few days, receive their shoes. So let's take a look at some sample code for the handler that processes the message for payment.</p>
+<pre><code>public class ProcessPaymentHandler : IHandleMessage&lt;ProcessPayment&gt;
+{
+    public void Handle(ProcessPayment message)
+    {
+        paymentProviderClient.Charge(message.paymentData);
+        //save and log response
+    }
+}
+</code></pre>
+<p>Ok, obviously a simple example but you get the idea.</p>
+<p>Everything is working well and your client's canine pals are having their paws covered in stylish footware.</p>
+<h2>The New Requirement</h2>
+<p>Now your product owner comes to you with a new requirement: send a confirmation email once the payment has been processed. This is easy enough. Let's just have the ProcessPaymentHandler send a command to send the confirmation email.</p>
+<pre><code>public class ProcessPaymentHandler : IHandleMessage&lt;ProcessPayment&gt;
+{
+    public void Handle(ProcessPayment message)
+    {
+        paymentProviderClient.Charge(message.paymentData);
+        //save and log response
+
+        var emailAddress = customerRepo.GetEmailByOrderId(message.OrderId);
+        bus.Send(new SendConfirmationEmail(emailAddress));
+    }
+}
+</code></pre>
+<p>This is a common, albiet naive, approach to the problem. It will work, assuming we have a handler for the SendConfirmationEmail message to be received by, but there are some problems with it.</p>
+<h2>Problems</h2>
+<h3>Dependency</h3>
+<p>The first problem is now the code that handles processing a payment has a dependency on the process that sends emails. This single line of code may not seem like a dependency problem, but maintaining code and clean architecture is a lot about managing dependencies. Introducing the command here forces the host of this handler to know about the location of the email handler.</p>
+<p>There's also a deployment dependency. We now have to keep this handler in sync with the current version of the email handler.</p>
+<p>If the message interface changes because the handler was expanded or for any other of a multitude of reasons, we now have to come back and change code that handles processing a payment because some other code related to an email has changed (admittedly, though, we could effectively manage different versions in messages). Which leads us to the next problem...</p>
+<h3>Single Responsibility</h3>
+<p>It's a violation of the Single Responsibility Principle (SRP) which basically means that a piece of code should have only one reason to change. The class is currently supporting two requirements (processing a payment and sending an email) therefore has two reasons to change.</p>
+<h3>Open/Closed</h3>
+<p>In order for us to add a new feature, we had to modify existing code. Sometimes that's inevitable, but sometimes it's a sign of a series of preceeding bad design choices. When that happens, it is a violation of the open/closed principle. This principle states that you should be able to extend functionality without having to modify the internals of existing code.</p>
+<p>What we want is the ability to complete the feature for sending the email without having to modify the existing code.</p>
+<h2>The Solution - Events</h2>
+<p>If the ProcessPayment Handler published an event once it was done, then the Email Handler could subscribe to the event and take the appropriate action. This allows the payment processor to continue on its merry way being none the wiser that any process cares about it.</p>
+<p>Here's the code for that:</p>
+<pre><code>public class ProcessPaymentHandler : IHandleMessage&lt;ProcessPayment&gt;
+{
+    public void Handle(ProcessPayment message)
+    {
+        paymentProviderClient.Charge(message.paymentData);
+        //save and log response
+
+        bus.Publish(new PaymentProcessed(message.OrderId));
+    }
+}
+</code></pre>
+<p>In this code, we removed the line getting the email address and the code to send a new SendConfirmationEmail command.</p>
+<p>It's pretty clear why the first line was removed. Since we aren't sending the command, we don't need to find the email address.</p>
+<p>The second line, however, has some subtleties that could be missed.</p>
+<h3>Publish</h3>
+<p>The command was &quot;sent&quot; while the event is &quot;published&quot;. Commands can be sent from N number of hosts but they are &quot;sent&quot; to a location because that location is always known. If a service has the contract and the correct queue, it can send any command it wants to. This means, however, that the service is now coupled to the processor of that command; being aware of its very existence is a coupling.</p>
+<p>However, events are published from one and only one logical host but can be received by N number of hosts. Other services can subscribe to those events without the publishing service being aware of it. This inverts the coupling the other direction. The service that needs to do the action is now coupled to the service that publishes the event. The coupling here makes sense. In our case, the email service wants to know when it needs to send the confirmation email. So, we can allow it to couple to the PaymentProcesssor service.</p>
+<p>If you are still not quite groking events vs commands, try this:</p>
+<ul>
+<li>
+<p>Commands are like email. You know who is going to read it and you know where it is going. You send the email to one person with the expectation that they will read it and act on it.</p>
+</li>
+<li>
+<p>Events are like this blog post. I have no idea if anyone will read it, who that person is or where they are located. I put it out in case anyone is interested in my data.</p>
+</li>
+</ul>
+<p>I want to reiterate something really quickly: Anyone can send a command, but there must be only <strong>ONE</strong> service that handles it. Anyone can subscribe to an event but there must be only <strong>ONE</strong> service that publishes it.</p>
+<h3>Naming</h3>
+<p>The event is named as a past tense version of the command it was being published from. This is a convention I pretty much always use when naming commands and events. The commands are imperative. They represent actions your services can do and generally found in your ubiquitous language. The events are past tense. If your command name is &quot;DeleteAccount&quot; the event would be &quot;AccountDeleted&quot;.</p>
+<p>Here's some sample code for handling the event:</p>
+<pre><code>public class PaymentProcessedHandler : IHandleMessage&lt;PaymentProcessed&gt;
+{
+    public void Handle(ProcessPayment message)
+    {
+        bus.Send(new SendConfirmationEmail());
+    }
+}
+</code></pre>
+<p>You may have noticed I'm sending a command from this event handler instead of just doing the work. There is a reason and I'll get to why I did that in another post.</p>
+<h2>Extensibility</h2>
+<p>Up to now, all we've really done is changed a command to an event and moved some logic to the event handler, which then delegates to another command handler. So where's the power in that?</p>
+<p><em>Cue the Product Owner</em></p>
+<p>Now we have some new requirements. Once a payment has been successfully processed, if this is a first time customer then the company wants to send out a special dog treat to the customer to give to their canine companion as a thank you for their business. So let's add that capability.</p>
+<p>If we didn't have events, we would need to modify the existing code for processing a payment and have another command sent (which introduce more of the three problems from earlier). However, since we have events, all we need to do is let this catalogue service subscribe to the PaymentProcessed event and do its thing. This means we don't have to modify ANY code in the Payment Processor.</p>
+<pre><code>public class PaymentProcessedHandler : IHandleMessage&lt;PaymentProcessed&gt;
+{
+    public void Handle(ProcessPayment message)
+    {
+        bus.Send(new SendPhysicalCatalouge());
+    }
+}
+</code></pre>
+<p>We just extended the application without modifying any existing code. That's the power of using events. If the company decides they also want to add the customer to a list for someone to call and thank them personally, we could subscribe to the event again. If the company decided they no longer wanted to send dog treats, then we simply unsubscribe to the event.</p>
+<p>All of this is done without redeploying the current, existing code (PaymentProcessor).</p>
+<h2>Under The Hood</h2>
+<p>When you add a subscription to a host, NServiceBus actually sends a message from the subscribing host to the publishing host. This informs the publishing host that the subscribing host wants a copy of the event when it is published. This gets stored in whatever persistence you previously chose: (Azure Storage, SQL, MSMQ, etc). This is true for all persistences except when you are using Azure ServiceBus or RabbitMQ because they both native pub/sub capabilities and hold onto the subscription data.</p>
+<h2>TL;DR</h2>
+<p>In order to allow for extensibility and prepare for future features, every command should have a corresponding event to go with it. With NServiceBus, if no one has subscribed to the event, then nothing will happen so there's no overhead of adding the events to the handler.</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/justin_self">
+				
+					<img src='/images/avatars/justin_self.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/justin_self">Justin Self</a></h2>
+			
+			<a href="mailto:justinself@outlook.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://www.justinself.com" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/thejustinself" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/justinself" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			<a href="https://www.linkedin.com/in/therealjustinself" target="_blank"><img class="ProfileIcon" src="/images/icon_linkedin.png" border="0" alt="LinkedIN" title="LinkedIN"> LinkedIn</a><br>
+			
+			
+ 			<a href="/feeds/justin_self.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/nservicebus/extensibility-in-message-systems-with-nservicebus/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'justin_self');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

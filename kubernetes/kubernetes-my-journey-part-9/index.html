@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Kubernetes - My Journey - Part 9 | Western Devs</title>
+  <meta name="description" content="Series Table of Contents Previously: Making Your Kubernetes Cluster Publicly Accessible Adding kubernetes logging (fluentd) In this article, we are going to add some logging infrastructure to our k8s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kubernetes - My Journey - Part 9">
+<meta property="og:url" content="https://westerndevs.com/kubernetes/kubernetes-my-journey-part-9/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="Series Table of Contents Previously: Making Your Kubernetes Cluster Publicly Accessible Adding kubernetes logging (fluentd) In this article, we are going to add some logging infrastructure to our k8s">
+<meta property="article:published_time" content="2020-05-22T06:00:00.000Z">
+<meta property="article:modified_time" content="2020-11-06T00:19:55.670Z">
+<meta property="article:author" content="Western Devs">
+<meta property="article:tag" content="kubernetes, azure, aks, identityserver, docker, containers">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">MAY</div>
+    <div class="ListLrgDateDay">22</div>
+    <div class="ListLrgDateYear">2020</div>
+  </div>
+  <h2>Kubernetes - My Journey - Part 9</h2>
+</div>
+
+		    
+
+			<div id="mainPostContent">
+	        <p><a href="/kubernetes/kubernetes-my-journey">Series Table of Contents</a></p>
+<p><strong>Previously:</strong>
+<a href="/kubernetes/kubernetes-my-journey-part-8">Making Your Kubernetes Cluster Publicly Accessible</a></p>
+<h1>Adding kubernetes logging (fluentd)</h1>
+<p>In this article, we are going to add some logging infrastructure to our <strong>k8s</strong> cluster to address the problems I had when an application doesn't log directly to the log ingestion platform I was using. (Seq).</p>
+<p>This article is mostly Pulumi application code with a bit of an origin story, but to be honest, I haven't fully refined my understanding of <strong>fluentd</strong> for the article to be much more. I will add to and refine this article as I refine my <strong>fluentd</strong> implementation. This article will get your whole-cluster logging working though.</p>
+<h2>fluentd</h2>
+<p>As I mentioned before, <a href="https://www.fluentd.org/" target="_blank" rel="noopener">fluentd</a> is one of several <strong>k8s</strong> log ingestion solutions that is out there right now. It has a lot of community support, so it was really easy to get started with it.</p>
+<h3>Service Account and Roles</h3>
+<p>In order to get <strong>fluentd</strong> running in the cluster, there are a bunch of resources that need to be in place. Because <strong>fluentd</strong> <em>needs</em> access to <em>all</em> of the pods in the cluster to get at their logs, it needs a fairly empowered service account but we also want to make sure that service account only has the minimum amount of permissions as required to do it's job.</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Fluentd Service Account and Role creation</span></span><br><span class="line"><span class="keyword">const</span> fluentdServiceAccount = <span class="keyword">new</span> k8s.core.v1.ServiceAccount(<span class="string">"fluentd-serviceaccount"</span>, &#123;</span><br><span class="line">    metadata: &#123;name: <span class="string">"fluentd-serviceaccount"</span>, <span class="keyword">namespace</span>: <span class="string">"kube-system"</span>&#125;</span><br><span class="line">&#125;, &#123;provider: k8sProvider&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fluentdClusterRole = <span class="keyword">new</span> k8s.rbac.v1beta1.ClusterRole(<span class="string">"fluentd-clusterrole"</span>,&#123;</span><br><span class="line">    metadata: &#123;</span><br><span class="line">        name: <span class="string">"fluentd-clusterrole"</span>,</span><br><span class="line">        <span class="keyword">namespace</span>: <span class="string">"kube-system"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    rules: [&#123;apiGroups: [<span class="string">""</span>], resources: [<span class="string">"pods"</span>, <span class="string">"namespaces"</span>], verbs: [<span class="string">"get"</span>, <span class="string">"list"</span>, <span class="string">"watch"</span>]&#125;]</span><br><span class="line">&#125;, &#123;provider: k8sProvider&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fluentdClusterRoleBinding = <span class="keyword">new</span> k8s.rbac.v1beta1.ClusterRoleBinding(<span class="string">"fluentd-clusterrolebinding"</span>, &#123;</span><br><span class="line">    metadata:&#123;</span><br><span class="line">        name: <span class="string">"fluentd-clusterrolebinding"</span>,</span><br><span class="line">        <span class="keyword">namespace</span>: <span class="string">"kube-system"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    roleRef: &#123;kind: <span class="string">"ClusterRole"</span>, name:<span class="string">"fluentd-clusterrole"</span>,apiGroup:<span class="string">"rbac.authorization.k8s.io"</span> &#125;,</span><br><span class="line">    subjects: [&#123;kind: <span class="string">"ServiceAccount"</span>, name:<span class="string">"fluentd-serviceaccount"</span>, <span class="keyword">namespace</span>: <span class="string">"kube-system"</span>&#125;]</span><br><span class="line">&#125;, &#123;provider: k8sProvider&#125;)</span><br></pre></td></tr></table></figure>
+<h3>fluentd Pods</h3>
+<p>We now have a properly configured service account to use with our <strong>fluentd</strong> pods. Remember, <strong>fluentd</strong> is just another application running in the cluster performing its duties. And applications run in pods/containers.</p>
+<p>In this section, we are going to see code that creates our first <a href="https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/" target="_blank" rel="noopener">DaemonSet</a> set of resources in the cluster. A DaemonSet is similar to a Deployment with the primary difference being that a DaemonSet is used when you want to make sure there is one pod, that is described in the DaemonSet spec, on each node in the cluster. As nodes are added, the DaemonSet will ensure that the pods in its spec are automatically added.</p>
+<p><strong>fluentd</strong> is an application that is running on the node basically scraping log files. All of the log files are stored in the node file system, so in order to get all of the logs, we have to have a <strong>fluentd</strong> instance per node. DaemonSets are how we do that in <strong>k8s</strong>.</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> gldsLabels = &#123; <span class="string">"k8s-app"</span>: <span class="string">"fluentd-logging"</span>, version: <span class="string">"v1"</span>&#125;;</span><br><span class="line"><span class="keyword">const</span> fluentdGraylogDaemonSet = <span class="keyword">new</span> k8s.apps.v1.DaemonSet(<span class="string">"fluentd-graylog-daemonset"</span>, &#123;</span><br><span class="line">    metadata: &#123; name: <span class="string">"fluentd-graylog-daemonset"</span>,</span><br><span class="line">    <span class="keyword">namespace</span>: <span class="string">"kube-system"</span>,</span><br><span class="line">    labels: gldsLabels &#125;,</span><br><span class="line">    spec: &#123;</span><br><span class="line">        selector: &#123;</span><br><span class="line">            matchLabels: gldsLabels</span><br><span class="line">        &#125;,</span><br><span class="line">        updateStrategy: &#123;<span class="keyword">type</span>: <span class="string">"RollingUpdate"</span> &#125;,</span><br><span class="line">        template: &#123;</span><br><span class="line">            metadata: &#123; labels: gldsLabels &#125;,</span><br><span class="line">            spec: &#123;</span><br><span class="line">                serviceAccount: <span class="string">"fluentd-serviceaccount"</span>,</span><br><span class="line">                serviceAccountName: <span class="string">"fluentd-serviceaccount"</span>,</span><br><span class="line">                containers: [</span><br><span class="line">                    &#123;</span><br><span class="line">                        name: <span class="string">"fluentd"</span>,</span><br><span class="line">                        image: <span class="string">"fluent/fluentd-kubernetes-daemonset:v1-debian-graylog"</span>,</span><br><span class="line">                        imagePullPolicy: <span class="string">"IfNotPresent"</span>,</span><br><span class="line">                        env: [</span><br><span class="line">                            &#123;name: <span class="string">"FLUENT_GRAYLOG_HOST"</span>, value: <span class="string">"seq-svc.default.svc.cluster.local"</span>&#125;,</span><br><span class="line">                            &#123;name: <span class="string">"FLUENT_GRAYLOG_PORT"</span>, value: <span class="string">"12201"</span>&#125;</span><br><span class="line">                        ],</span><br><span class="line">                        resources: &#123;</span><br><span class="line">                            requests: &#123;</span><br><span class="line">                                cpu: <span class="string">"200m"</span>,</span><br><span class="line">                                memory: <span class="string">"0.5Gi"</span></span><br><span class="line">                            &#125;,</span><br><span class="line">                            limits: &#123;</span><br><span class="line">                                cpu: <span class="string">"1000m"</span>,</span><br><span class="line">                                memory: <span class="string">"1Gi"</span></span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;,</span><br><span class="line">                        volumeMounts :[</span><br><span class="line">                            &#123;name: <span class="string">"varlog"</span>, mountPath: <span class="string">"/var/log"</span>&#125;,</span><br><span class="line">                            &#123;name: <span class="string">"varlibdockercontainers"</span>, mountPath: <span class="string">"/var/lib/docker/containers"</span>, readOnly: <span class="literal">true</span>&#125;</span><br><span class="line">                        ],</span><br><span class="line">                    &#125;</span><br><span class="line">                ],</span><br><span class="line">                terminationGracePeriodSeconds: <span class="number">30</span>,</span><br><span class="line">                volumes: [</span><br><span class="line">                    &#123;name: <span class="string">"config-volume"</span>, configMap: &#123; name: <span class="string">"fluentd-conf"</span>&#125;&#125;,</span><br><span class="line">                    &#123;name: <span class="string">"varlog"</span>, hostPath: &#123;path: <span class="string">"/var/log"</span>&#125;&#125;,</span><br><span class="line">                    &#123;name: <span class="string">"varlibdockercontainers"</span>, hostPath: &#123;path: <span class="string">"/var/lib/docker/containers"</span>&#125;&#125;</span><br><span class="line">                ]</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;, &#123;provider: k8sProvider&#125;);</span><br></pre></td></tr></table></figure>
+<p>There is a bunch of configurations in here that are standard, but there are two things that are unique to this Pulumi application.</p>
+<p>The first unique item is the <strong>flavour</strong> of fluentd that we are using. There are <a href="https://github.com/fluent/fluentd-kubernetes-daemonset/tree/master/docker-image/v1.3" target="_blank" rel="noopener">numerous container images</a> that are available from fluentd's repository and I was really fortunate to find the graylog-flavoured image. This image creates containers that natively talk using the graylog logging format.</p>
+<p><code>fluent/fluentd-kubernetes-daemonset:v1-debian-graylog</code></p>
+<p>The second unique item is a derivative of the first. Because we are using graylog, we need to give the <strong>fluentd</strong> pod some environmental configuration telling it where to send the logs to. In this case, we will be sending them to <code>sqelf</code> which will in turn send them directly into <code>Seq</code>. We can finally see this pair of containers in action in the Seq-dep pod.</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">env: [</span><br><span class="line">    &#123;name: <span class="string">"FLUENT_GRAYLOG_HOST"</span>, value: <span class="string">"seq-svc.default.svc.cluster.local"</span>&#125;,</span><br><span class="line">    &#123;name: <span class="string">"FLUENT_GRAYLOG_PORT"</span>, value: <span class="string">"12201"</span>&#125;</span><br><span class="line">],</span><br></pre></td></tr></table></figure>
+<p>You should notice that we've used the FQDN of the seq-svc because the <strong>fluentd</strong> application is not in the same namespace in the <strong>k8s</strong> cluster as Seq/sqelf.</p>
+<h3>Next Steps for fluentd</h3>
+<p>That is most of what I've done so far with <strong>fluentd</strong>. I've got it working, and the local Seq instance is ingesting a lot of log entries. This is ok because this is all in the same cluster, so network traffic isn't a concern I am currently worried about. It is something I'm more aware of because the Seq logs are <strong>full</strong> of log entries and it makes it a bit harder to find what I'm looking for.</p>
+<p><strong>fluentd</strong> has an approach to describe the <strong>pipeline</strong> that all log entries flow through. This is the kubernetes.conf file and you can replace the default configuration with one in a ConfigMap. This yaml resource file is an example:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">ConfigMap</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">fluentd-conf</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">kube-system</span></span><br><span class="line"><span class="attr">data:</span></span><br><span class="line">  <span class="attr">kubernetes.conf:</span> <span class="string">"&lt;match kubernetes.**&gt;\r\n  @type null\r\n&lt;/match&gt;\r\n&lt;match fluent.**&gt;\r\n</span></span><br><span class="line"><span class="string">    \ @type null\r\n&lt;/match&gt;\r\n&lt;match **&gt;\r\n  @type stdout\r\n&lt;/match&gt;\r\n"</span></span><br></pre></td></tr></table></figure>
+<p>And the <strong>fluentd</strong> pod is configured to use this ConfigMap here in the <strong>volumes</strong> section of the Pulumi declaration:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;name: <span class="string">"config-volume"</span>, configMap: &#123; name: <span class="string">"fluentd-conf"</span>&#125;&#125;,</span><br></pre></td></tr></table></figure>
+<p>My next learning steps are refining this pipeline so that I can better manage how much data is flowing to <code>sqelf</code> and <code>Seq</code>.</p>
+<p>Another thing I need to get a handle on is doing ConfigMap declarations in Pulumi. Currently, a YAML ConfigMap examples is a PITA to convert to a Pulumi declaration. That will be another chapter, eventually, in this series. I've also asked Pulumi to start providing better examples of ConfigMaps in their documentation. A recipe book for many common YAML ConfigMaps would be great.</p>
+<p><strong>Next up:</strong>
+<a href="/kubernetes/kubernetes-my-journey-part-10">Tuning resource usage</a></p>
+<style>
+    h1, h2, h3, h4, h5, h6 {
+       margin-top: 25px;
+    }
+    figure.highlight{
+        background-color: #E8EEFE;
+    }
+    figure.highlight .gutter{
+        color: #0033CD;
+    }
+    figure.highlight pre {
+        font-family: 'Cascadia Code PL', monospace;
+    }
+    code {
+        font-family: 'Cascadia Code PL', sans-serif;
+        border-width: 0.1em;
+        border-color: #E8EEFE;
+        border-style: solid;
+        border-radius: 0.3em;
+        background-color: #E8EEFE;
+        color: #0033CD;
+        padding: 0em 0.4em;
+        white-space: nowrap;
+    }
+</style>
+<link  href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.5.0/viewer.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.5.0/viewer.min.js"></script>
+<script>
+// View an image
+const gallery = new Viewer(document.getElementById('mainPostContent', {
+    "navbar": false,
+    "toolbar": false
+}));
+</script>
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/dave_white">
+				
+					<img src='https://www.gravatar.com/avatar/4b7708d2ae7f7bb866446e0459e3e156?s=200' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/dave_white">Dave White</a></h2>
+			
+			<a href="mailto:dmhwhite@gmail.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://agileramblings.com/" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/AgileRamblings" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/agileramblings" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			<a href="https://www.linkedin.com/in/dave-white" target="_blank"><img class="ProfileIcon" src="/images/icon_linkedin.png" border="0" alt="LinkedIN" title="LinkedIN"> LinkedIn</a><br>
+			
+			
+ 			<a href="/feeds/dave_white.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/kubernetes/kubernetes-my-journey-part-9/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'dave_white');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Setting Cloud Role Name in Application Insights | Western Devs</title>
+  <meta name="description" content="A continuation in my series of love letters about Application Insights. Today I dig into the importance of setting cloud role name.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Setting Cloud Role Name in Application Insights">
+<meta property="og:url" content="https://westerndevs.com/Application-Insights/setting-cloud-role-name-in-application-insights/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="A continuation in my series of love letters about Application Insights. Today I dig into the importance of setting cloud role name.">
+<meta property="og:image" content="https://www.davepaquette.com/images/app_insights/example_application_map.png">
+<meta property="og:image" content="https://www.davepaquette.com/images/app_insights/example_application_map_no_cloud_role_name.png">
+<meta property="og:image" content="https://www.davepaquette.com/images/app_insights/roles_pill.png">
+<meta property="og:image" content="https://www.davepaquette.com/images/app_insights/roles_filter.png">
+<meta property="article:published_time" content="2020-02-06T00:59:38.000Z">
+<meta property="article:modified_time" content="2020-11-06T00:19:55.670Z">
+<meta property="article:author" content="Western Devs">
+<meta property="article:tag" content=".NET Core">
+<meta property="article:tag" content=".NET">
+<meta property="article:tag" content="Azure">
+<meta property="article:tag" content="Application Insights">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.davepaquette.com/images/app_insights/example_application_map.png">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">FEB</div>
+    <div class="ListLrgDateDay">6</div>
+    <div class="ListLrgDateYear">2020</div>
+  </div>
+  <h2>Setting Cloud Role Name in Application Insights</h2>
+</div>
+
+		    
+
+<p class="TXTsm">ORIGINALLY POSTED TO: <a href="https://www.davepaquette.com/archive/2020/02/05/setting-cloud-role-name-in-application-insights.aspx" target="_blank" rel="noopener" class='originalurl'>https://www.davepaquette.com/archive/2020/02/05/setting-cloud-role-name-in-application-insights.aspx</a></p>
+
+
+
+			<div id="mainPostContent">
+	        <p>This post is a continuation of my series about using <a href="https://www.davepaquette.com/archive/2020/01/20/getting-the-most-out-of-application-insights-for-net-core-apps.aspx" target="_blank" rel="noopener">Application Insights in ASP.NET Core</a>. Today we will explore the concept of Cloud Role and why it's an important thing to get right for your application.</p>
+<p>In any application that involves more than a single server process/service, the concept of <em>Cloud Role</em> becomes really important in Application Insights. A Cloud Role roughly represents a process that runs somewhere on a server or possibly on a number of servers. A cloud role made up of 2 things: a <em>cloud role name</em> and a <em>cloud role instance</em>.</p>
+<h2>Cloud Role Name</h2>
+<p>The cloud role name is a logical name for a particular process. For example, I might have a cloud role name of &quot;Front End&quot; for my front end web server and a name of &quot;Weather Service&quot; for a service that is responsible for providing weather data.</p>
+<p>When a cloud role name is set, it will appear as a node in the Application Map. Here is an example showing a Front End role and a Weather Service role.</p>
+<p><img src="https://www.davepaquette.com/images/app_insights/example_application_map.png" alt="Application Map when Cloud Role Name is set "></p>
+<p>However, when Cloud Role Name is not set, we end up with a misleading visual representation of how our services communicate.
+<img src="https://www.davepaquette.com/images/app_insights/example_application_map_no_cloud_role_name.png" alt="Application Map when Cloud Role Name is not set "></p>
+<p>By default, the application insights SDK attempts to set the cloud role name for you. For example, when you're running in Azure App Service, the name of the web app is used. However, when you are running in an on-premise VM, the cloud role name is often blank.</p>
+<h2>Cloud Role Instance</h2>
+<p>The cloud role instance tells us which specific server the cloud role is running on. This is important when scaling out your application. For example, if my Front End web server was running 2 instances behind a load balancer, I might have a cloud role instance of &quot;frontend_prod_1&quot; and another instance of &quot;frontend_prod_2&quot;.</p>
+<p>The application insights SDK sets the cloud role instance to the name of the server hosting the service. For example, the name of the VM or the name of the underlying compute instance hosting the app in App Service. In my experience, the SDK does a good job here and I don't usually need to override the cloud role instance.</p>
+<h2>Setting Cloud Role Name using a Telemetry Initializer</h2>
+<p>Telemetry Initializers are a powerful mechanism for customizing the telemetry that is collected by the Application Insights SDK. By creating and registering a telemetry initializer, you can overwrite or extend the properties of any piece of telemetry collected by Application Insights.</p>
+<p>To set the Cloud Role Name, create a class that implements <code>ITelemetryInitializer</code> and in the <code>Initialize</code> method set the <code>telemetry.Context.Cloud.RoleName</code> to the cloud role name for the current application.</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">CloudRoleNameTelemetryInitializer</span> : <span class="title">ITelemetryInitializer</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Initialize</span>(<span class="params">ITelemetry telemetry</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">      <span class="comment">// set custom role name here</span></span><br><span class="line">      telemetry.Context.Cloud.RoleName = <span class="string">"Custom RoleName"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Next, in the <code>Startup.ConfigureServices</code> method, register that telemetry initializer as a singleton.</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">services.AddSingleton&lt;ITelemetryInitializer, CloudRoleNameTelemetryInitializer&gt;();</span><br></pre></td></tr></table></figure>
+<p>For those who learn by watching, I have recorded a video talking about using telemetry initializers to customize application insights.</p>
+<iframe width="640" height="360" src="https://www.youtube.com/embed/1OAaYb_HL5g?list=PLFHLo5Y9d4JaGXNF80SzymGTkbmED6VoO" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<h2>Using a Nuget Package</h2>
+<p>Creating a custom telemetry initializer to set the cloud role name is a simple enough, but it's something I've done so many times that I decided to publish a <a href="https://www.nuget.org/packages/AspNetMonsters.ApplicationInsights.AspNetCore/" target="_blank" rel="noopener">Nuget package</a> to simplify it even further.</p>
+<p>First, add the <code>AspNetMonsters.ApplicationInsights.AspNetCore</code> Nuget package:</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dotnet add <span class="keyword">package</span> <span class="title">AspNetMonsters.ApplicationInsights.AspNetCore</span></span><br></pre></td></tr></table></figure>
+<p>Next, in call <code>AddCloudRoleNameInitializer</code> in your application's <code>Startup.ConfigureServices</code> method:</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">services.AddCloudRoleNameInitializer(<span class="string">"WeatherService"</span>)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<h2>Filtering by Cloud Role</h2>
+<p>Setting the Cloud Role Name / Instance is about a lot more than seeing your services laid out properly in the Application Map. It's also really important when you starting digging in to the performance and failures tabs in the Application Insights portal. In fact, on most of the sections of the portal, you'll see this Roles filter.</p>
+<p><img src="https://www.davepaquette.com/images/app_insights/roles_pill.png" alt="Roles pill"></p>
+<p>The default setting is <em>all</em>. When you click on it, you have the option to select any combination of your application's role names / instances. For example, maybe I'm only interested in the <em>FrontEnd</em> service and <em>WeatherService</em> that were running on the dave_yoga920 instance.</p>
+<p><img src="https://www.davepaquette.com/images/app_insights/roles_filter.png" alt="Roles filter"></p>
+<p>These filters are extremely useful when investigating performance or errors on a specific server or within a specific service. The more services your application is made up of, the more useful and essential this filtering become. These filters really help focus in on specific areas of an application within the Application Insights portal.</p>
+<h2>Next Steps</h2>
+<p>In this post, we saw how to customize telemetry data using telemetry initializers. Setting the cloud role name is a simple customization that can help you navigate the massive amount of telemetry that application insights collects. In the next post, we will explore a more in complex example of using telemetry initializers.</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/dave_paquette">
+				
+					<img src='/images/avatars/DavePaquette_241x241.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/dave_paquette">Dave Paquette</a></h2>
+			
+			<a href="mailto:contactme@davepaquette.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://www.davepaquette.com/" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/Dave_Paquette" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/dpaquette" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			
+ 			<a href="/feeds/dave_paquette.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/Application-Insights/setting-cloud-role-name-in-application-insights/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'dave_paquette');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

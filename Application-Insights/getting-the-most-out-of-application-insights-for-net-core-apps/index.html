@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Getting the Most Out of Application Insights for .NET (Core) Apps | Western Devs</title>
+  <meta name="description" content="If you&#39;ve worked with me in the last couple years, you know that I&#39;ve fallen in love with Application Insights.  This is the first in a series of posts designed to help you get the most out of Applica">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Getting the Most Out of Application Insights for .NET (Core) Apps">
+<meta property="og:url" content="https://westerndevs.com/Application-Insights/getting-the-most-out-of-application-insights-for-net-core-apps/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="If you&#39;ve worked with me in the last couple years, you know that I&#39;ve fallen in love with Application Insights.  This is the first in a series of posts designed to help you get the most out of Applica">
+<meta property="og:image" content="https://www.davepaquette.com/images/app_insights/example_application_map.png">
+<meta property="og:image" content="https://www.davepaquette.com/images/app_insights/end-to-end-transaction-view.png">
+<meta property="og:image" content="https://www.davepaquette.com/images/app_insights/detailed_application_map.png">
+<meta property="article:published_time" content="2020-01-20T16:50:18.000Z">
+<meta property="article:modified_time" content="2020-11-06T00:19:55.670Z">
+<meta property="article:author" content="Western Devs">
+<meta property="article:tag" content=".NET Core">
+<meta property="article:tag" content=".NET">
+<meta property="article:tag" content="Azure">
+<meta property="article:tag" content="Application Insights">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.davepaquette.com/images/app_insights/example_application_map.png">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">JAN</div>
+    <div class="ListLrgDateDay">20</div>
+    <div class="ListLrgDateYear">2020</div>
+  </div>
+  <h2>Getting the Most Out of Application Insights for .NET (Core) Apps</h2>
+</div>
+
+		    
+
+<p class="TXTsm">ORIGINALLY POSTED TO: <a href="https://www.davepaquette.com/archive/2020/01/20/getting-the-most-out-of-application-insights-for-net-core-apps.aspx" target="_blank" rel="noopener" class='originalurl'>https://www.davepaquette.com/archive/2020/01/20/getting-the-most-out-of-application-insights-for-net-core-apps.aspx</a></p>
+
+
+
+			<div id="mainPostContent">
+	        <p><a href="https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview" target="_blank" rel="noopener">Application Insights</a> is a powerful and surprisingly flexible application performance monitoring (APM) service hosted in Azure. Every time I've used Application Insights on a project, it has opened the team's eyes to what is happening with our application in production. In fact, this might just be one of the best named Microsoft products ever. It literally provides <strong>insights</strong> into your <strong>applications</strong>.</p>
+<p><img src="https://www.davepaquette.com/images/app_insights/example_application_map.png" alt="Application Map provides a visual representation of your app's dependencies "></p>
+<p>Application Insights has built-in support for .NET, Java, Node.js, Python, and Client-side JavaScript based applications. This blog post is specifically about .NET applications. If you're application is built in another language, head over to the <a href="https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview" target="_blank" rel="noopener">docs</a> to learn more.</p>
+<h2>Codeless Monitoring vs Code-based Monitoring</h2>
+<p>With codeless monitoring, you can configure a monitoring tool to run on the server (or service) that is hosting your application. The monitoring tool will monitor running processes and collect whatever information is available for that particular platform. There is built in support for <a href="https://docs.microsoft.com/en-us/azure/azure-monitor/app/azure-vm-vmss-apps" target="_blank" rel="noopener">Azure VM and scale sets</a>, <a href="https://docs.microsoft.com/en-us/azure/azure-monitor/app/azure-web-apps" target="_blank" rel="noopener">Azure App Service</a>, <a href="https://docs.microsoft.com/en-us/azure/azure-monitor/app/cloudservices" target="_blank" rel="noopener">Azure Cloud Services</a>, <a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-monitoring" target="_blank" rel="noopener">Azure Functions</a>, <a href="https://docs.microsoft.com/en-us/azure/azure-monitor/app/monitor-performance-live-website-now" target="_blank" rel="noopener">Kubernetes applications</a> and <a href="https://docs.microsoft.com/en-us/azure/azure-monitor/app/status-monitor-v2-overview" target="_blank" rel="noopener">On-Premises VMs</a>. Codeless monitoring is a good option if you want to collect information for applications that have already been built and deployed, but you are generally going to get more information using Code-based monitoring.</p>
+<p>With code-based monitoring, you add the Application Insights SDK. The steps for adding the SDK are well document for <a href="https://docs.microsoft.com/en-us/azure/azure-monitor/app/asp-net-core" target="_blank" rel="noopener">ASP.NET Core</a>, <a href="https://docs.microsoft.com/en-us/azure/azure-monitor/app/asp-net" target="_blank" rel="noopener">ASP.NET</a>, and <a href="https://docs.microsoft.com/en-us/azure/azure-monitor/app/console" target="_blank" rel="noopener">.NET Console</a> applications so I don't need to re-hash that here.</p>
+<p>If you prefer, I have recorded a video showing how to add Application Insights to an existing ASP.NET Core application.</p>
+<iframe width="640" height="360" src="https://www.youtube.com/embed/C4G1rRgY9OI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<h2>Telemetry</h2>
+<p>Once you've added the Application Insights SDK to your application, it will start collecting telemetry data at runtime and sending it to Application Insights. That telemetry data is what feeds the UI in the Application Insights portal. The SDK will automatically collection information about your dependencies calls to SQL Server, HTTP calls and calls to many popular Azure Services. It's the dependencies that often are the most insightful. In a complex system it's difficult to know exactly what dependencies your application calls in order to process an incoming request. With App Insights, you can see exactly what dependencies are called by drilling in to the End-to-End Transaction view.</p>
+<p><img src="https://www.davepaquette.com/images/app_insights/end-to-end-transaction-view.png" alt="End-to-end transaction view showing an excess number of calls to SQL Server"></p>
+<p>In addition to dependencies, the SDK will also collect requests, exceptions, traces, customEvents, and performanceCounters. If your application has a web front-end and you add the JavaScript client SDK, you'll also find pageViews and browserTimings.</p>
+<h2>Separate your Environments</h2>
+<p>The SDK decides which Application Insights instance to send the collected telemetry based on the configured Instrumentation Key.</p>
+<p>In the ASP.NET Core SDK, this is done through app settings:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"ApplicationInsights"</span>: &#123;</span><br><span class="line">    <span class="string">"InstrumentationKey"</span>: <span class="string">"ccbe3f84-0f5b-44e5-b40e-48f58df563e1"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>When you're diagnosing an issue in production or investigating performance in your production systems, you don't want any noise from your development or staging environments. I always recommend creating an Application Insights resource per environment. In the Azure Portal, you'll find the instrumentation key in the top section of the Overview page for your Application Insights resource. Just grab that instrumentation key and add it to your environment specific configuration.</p>
+<h2>Use a single instance for all your production services</h2>
+<p>Consider a micro-services type architecture where your application is composed of a number of services, each hosted within it's own process. It might be tempting to have each service point to a separate instance of Application Insights.</p>
+<p>Contrary to the guidance of separating your environments, you'll actually get the most value from Application Insights if you point all your related production services to a single Application Insights instance. The reason for this is that Application Insights automatically correlates telemetry so you can track a particular request across a series of separate services. That might sound a little like magic but it's <a href="https://docs.microsoft.com/en-us/azure/azure-monitor/app/correlation" target="_blank" rel="noopener">not actually as complicated as it sounds</a>.</p>
+<p>It's this correlation that allows the Application Map in App Insights to show exactly how all your services interact with each other.</p>
+<p><img src="https://www.davepaquette.com/images/app_insights/detailed_application_map.png" alt="Application Map showing multiple services "></p>
+<p>It also enables the end-to-end transaction view to show a timeline of all the calls between your services when you are drilling in to a specific request.</p>
+<p>This is all contingent on all your services sending telemetry to the same Application Insights instance. The Application Insights UI in the Azure Portal has no ability to display this visualizations across multiple Application Insights instances.</p>
+<h2>You don't need to be on Azure</h2>
+<p>I've often heard developers say &quot;I can't use Application Insights because we're not on Azure&quot;. Well, you don't need to host your application on Azure to use Application Insights. Yes, you will need an Azure subscription for the Application Insights resource, but your application can be hosted anywhere. That includes your own on-premise services, AWS or any other public/private cloud.</p>
+<h2>Next Steps</h2>
+<p>Out of the box, Application Insights provides a tremendous amount of value but I always find myself having to customize a few things to really get the most out of the telemetry. Fortunately, the SDK provides some useful extension points. My plan is to follow up this post with a few more posts that go over those customizations in detail. I also have started to create a <a href="https://github.com/AspNetMonsters/ApplicationInsights" target="_blank" rel="noopener">NuGet package</a> to simplify those customizations so stay tuned!</p>
+<h2>*Update</h2>
+<p>Other posts in this series:
+<a href="https://www.davepaquette.com/archive/2020/02/05/setting-cloud-role-name-in-application-insights.aspx" target="_blank" rel="noopener">Setting Cloud Role Name</a>
+<a href="https://www.davepaquette.com/archive/2020/03/07/enhancing-application-insights-request-telemetry.aspx" target="_blank" rel="noopener">Enhancing Application Insights Request Telemetry</a></p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/dave_paquette">
+				
+					<img src='/images/avatars/DavePaquette_241x241.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/dave_paquette">Dave Paquette</a></h2>
+			
+			<a href="mailto:contactme@davepaquette.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://www.davepaquette.com/" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/Dave_Paquette" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/dpaquette" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			
+ 			<a href="/feeds/dave_paquette.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/Application-Insights/getting-the-most-out-of-application-insights-for-net-core-apps/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'dave_paquette');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

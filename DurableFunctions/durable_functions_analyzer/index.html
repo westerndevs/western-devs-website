@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Durable Functions Analyzer | Western Devs</title>
+  <meta name="description" content="When it was announced the Roslyn would become the default compiler for C# in Visual Studio I was super excited. I felt like it would generate all sorts of domain specific languages, custom flavors of">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Durable Functions Analyzer">
+<meta property="og:url" content="https://westerndevs.com/DurableFunctions/durable_functions_analyzer/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="When it was announced the Roslyn would become the default compiler for C# in Visual Studio I was super excited. I felt like it would generate all sorts of domain specific languages, custom flavors of">
+<meta property="og:image" content="https://blog.simontimms.com/images/roslynanalyzer/poc.png">
+<meta property="og:image" content="https://blog.simontimms.com/images/roslynanalyzer/poc2.png">
+<meta property="og:image" content="https://blog.simontimms.com/images/roslynanalyzer/poc3.png">
+<meta property="og:image" content="https://blog.simontimms.com/images/roslynanalyzer/poc4.png">
+<meta property="article:published_time" content="2019-02-18T00:00:00.000Z">
+<meta property="article:modified_time" content="2020-11-06T00:19:55.666Z">
+<meta property="article:author" content="Western Devs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.simontimms.com/images/roslynanalyzer/poc.png">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">FEB</div>
+    <div class="ListLrgDateDay">18</div>
+    <div class="ListLrgDateYear">2019</div>
+  </div>
+  <h2>Durable Functions Analyzer</h2>
+</div>
+
+		    
+
+<p class="TXTsm">ORIGINALLY POSTED TO: <a href="https://blog.simontimms.com/2019/02/17/2019-02-17-durable_functions_analyzer/" target="_blank" rel="noopener" class='originalurl'>https://blog.simontimms.com/2019/02/17/2019-02-17-durable_functions_analyzer/</a></p>
+
+
+
+			<div id="mainPostContent">
+	        <p>When it was announced the Roslyn would become the default compiler for C# in Visual Studio I was <a href="https://blog.simontimms.com/2014/04/04/roslyn-changes-everything/" target="_blank" rel="noopener">super excited</a>. I felt like it would generate all sorts of domain specific languages, custom flavors of C#, tons of custom error providers. So here we are 5 years later and almost none of it has come to pass. Why not?</p>
+<a id="more"></a>
+<p>Well turns out the compiler stuff is kind of hard. It is just a bridge too far for people to do any of the cool things I thought they would do. I guess we can add this to the long list of things that I'm wrong about.</p>
+<p>But a few weeks ago I broke some code in a durable function because I was returning the wrong shaped data. I didn't find out until the code was deployed which is obviously later than I wanted. Because of the way that Durable Functions were constructed favoring magic strings and Objects it tends to be more susceptible to bugs which you wouldn't normally see in a statically typed language.</p>
+<p>For instance consider this code</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">FunctionName(<span class="meta-string">"HireEmployee"</span>)</span>]</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">async</span> Task&lt;Application&gt; <span class="title">RunOrchestrator</span>(<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">    [OrchestrationTrigger] DurableOrchestrationContext context,</span></span></span><br><span class="line"><span class="function"><span class="params">    ILogger log</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> applications = context.GetInput&lt;List&lt;Application&gt;&gt;();</span><br><span class="line">    <span class="keyword">var</span> approvals = <span class="keyword">await</span> context.CallActivityAsync&lt;List&lt;Application&gt;&gt;(<span class="string">"ApplicationsFiltered"</span>, Guid.NewGuid());</span><br><span class="line">    log.LogInformation(<span class="string">$"Approval received. <span class="subst">&#123;approvals.Count&#125;</span> applicants approved"</span>);</span><br><span class="line">    <span class="keyword">return</span> approvals.OrderByDescending(x =&gt; x.Score).First();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>There are two magic strings in this code. The first is the name of the function in the annotation before the function declaration. The second is in the <code>CallActivityAsync</code> where a function called <code>ApplicationsFiltered</code> is called. If there is a typo in either of these strings the orchestration will fail at runtime.</p>
+<p>You'll note too that we pass a Guid into that function. The function definition simply has an Object as the second argument so there is no type checking. Instead of passing in the Guid which is required there would be no compiler issues if we instead passed in a <code>Frog</code> or a <code>Puppy</code> or even an <code>int</code>.</p>
+<p>I started working on a Roslyn analyzer which could solve some, or all of these short comings. I won't get into the technical parts of how to build an analyzer here (although I did just submit a conference talk on that).</p>
+<p>It produces warnings (for now) when your functions aren't used correctly. Right now it will detect</p>
+<ul>
+<li>Incorrectly named functions</li>
+<li>Incorrect return types from functions</li>
+<li>Incorrect argument for functions</li>
+<li>Orchestration annotations misapplied to arguments</li>
+</ul>
+<p>Here are some screenshots of it in action.</p>
+<p><img src="https://blog.simontimms.com/images/roslynanalyzer/poc.png" alt="A misnamed function and a suggestion for what it should be called.">
+A misnamed function and a suggestion for what it should be called.</p>
+<p><img src="https://blog.simontimms.com/images/roslynanalyzer/poc2.png" alt="An incorrect argument being detected">
+An incorrect argument being detected</p>
+<p><img src="https://blog.simontimms.com/images/roslynanalyzer/poc3.png" alt="An incorrect return type being detected">
+An incorrect return type being detected</p>
+<p><img src="https://blog.simontimms.com/images/roslynanalyzer/poc4.png" alt="Orchestration trigger on the wrong data type">
+Orchestration trigger on the wrong data type</p>
+<p>If you want to try this out on your own project it is as easy as installing a <a href="https://www.nuget.org/packages/DurableFunctionsAnalyzer/" target="_blank" rel="noopener">nuget package</a>.</p>
+<p>I'm looking for suggestions for new features or bugs in existing features. My tests are limited so any bug people can contribute will improve the product. Open an issue on <a href="https://github.com/stimms/DurableFunctionsAnalyzer" target="_blank" rel="noopener">github</a></p>
+<p>Now I know how to build these analyzers I think I'll try to build more for internal applications.</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/simon_timms">
+				
+					<img src='/images/avatars/simon.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/simon_timms">Simon Timms</a></h2>
+			
+			<a href="mailto:stimms@gmail.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://blog.simontimms.com/" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/stimms" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/stimms" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			
+ 			<a href="/feeds/simon_timms.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/DurableFunctions/durable_functions_analyzer/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'simon_timms');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

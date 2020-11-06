@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>IstanbulJS Code Coverage Reports in VSTS | Western Devs</title>
+  <meta name="description" content="Here&#39;s another dev thing I use: IstanbulJS in Visual Studio Team Services (VSTS) builds and display the test reports as part of the build reports.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IstanbulJS Code Coverage Reports in VSTS">
+<meta property="og:url" content="https://westerndevs.com/development/istanbuljs-in-vsts/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="Here&#39;s another dev thing I use: IstanbulJS in Visual Studio Team Services (VSTS) builds and display the test reports as part of the build reports.">
+<meta property="og:image" content="https://davidwesst.blob.core.windows.net/blog/istanbuljs-in-vsts/vsts-code-coverage-report.gif">
+<meta property="article:published_time" content="2017-08-03T16:10:00.000Z">
+<meta property="article:modified_time" content="2020-11-06T00:19:55.666Z">
+<meta property="article:author" content="Western Devs">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="visual studio team services">
+<meta property="article:tag" content="testing">
+<meta property="article:tag" content="istanbuljs">
+<meta property="article:tag" content="nyc">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://davidwesst.blob.core.windows.net/blog/istanbuljs-in-vsts/vsts-code-coverage-report.gif">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">AUG</div>
+    <div class="ListLrgDateDay">3</div>
+    <div class="ListLrgDateYear">2017</div>
+  </div>
+  <h2>IstanbulJS Code Coverage Reports in VSTS</h2>
+</div>
+
+		    
+
+			<div id="mainPostContent">
+	        <p>Here's another dev thing I use: <a href="https://istanbul.js.org/" target="_blank" rel="noopener">IstanbulJS</a> in <a href="https://www.visualstudio.com/team-services/continuous-integration/" target="_blank" rel="noopener">Visual Studio Team Services</a> (VSTS) builds and display the test reports as part of the build reports. When a build completes, I get a report like this one.</p>
+<p><img src="https://davidwesst.blob.core.windows.net/blog/istanbuljs-in-vsts/vsts-code-coverage-report.gif" alt="VSTS Build Report with an IstanbulJS code coverage report" title="VSTS Build Report with an IstanbulJS code coverage report"></p>
+<p>I can browse the report right in the build report, and drill into the results for each file.</p>
+<p>This is how I did it.</p>
+<h2>Step 0: Assumptions</h2>
+<p>I'm not going to go into the details on how to setup IstanbulJS or a test suite, but you'll need a project with tests and uses the IstanbulJS command line tool, <a href="https://github.com/istanbuljs/nyc" target="_blank" rel="noopener">NYC</a>, to run them. My suggestion is to use <a href="https://mochajs.org/" target="_blank" rel="noopener">Mocha</a> as <a href="http://www.westerndevs.com/development/mocha-in-vsts/" target="_blank" rel="noopener">the test report can be integreated into VSTS as well</a>.</p>
+<p>You'll also need a VSTS account, which is free and worth the effort.</p>
+<h2>Step 1: Script Your Command</h2>
+<p>The goal here is to be able to run a script command that will execute the appropriate code coverage command, complete with parameters, easily. I use <a href="https://docs.npmjs.com/misc/scripts" target="_blank" rel="noopener">npm scripts</a> for this tutorial, but you can use whatever scripting tool you'd like.</p>
+<p>In my case, I like to run the code coverage report everytime I run my Mocha tests. So, I've updated my <code>npm test</code> command in <em>package.json</em> to use NYC. It looks like:</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">  <span class="string">"test"</span>: <span class="string">"./node_modules/.bin/nyc ./node_modules/.bin/mocha --recursive --reporter=mocha-multi-reporters "</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Note, that I don't use globally installed packages. I only use the local ones installed in my <em>node_modules</em> folder.</p>
+<h2>Step 2: Configuring NYC</h2>
+<p>I've configured it in the <em>package.json</em> file with an <code>&quot;nyc&quot;</code> configuration object. Mine looks like this:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">"nyc":</span> <span class="string">&#123;</span></span><br><span class="line">  <span class="attr">"check-coverage":</span> <span class="literal">true</span><span class="string">,</span></span><br><span class="line">  <span class="attr">"per-file":</span> <span class="literal">true</span><span class="string">,</span></span><br><span class="line">  <span class="attr">"lines":</span> <span class="number">99</span><span class="string">,</span></span><br><span class="line">  <span class="attr">"statements":</span> <span class="number">99</span><span class="string">,</span></span><br><span class="line">  <span class="attr">"functions":</span> <span class="number">99</span><span class="string">,</span></span><br><span class="line">  <span class="attr">"branches":</span> <span class="number">99</span><span class="string">,</span></span><br><span class="line">  <span class="attr">"include":</span> <span class="string">[</span></span><br><span class="line">    <span class="string">"src/**/*.js"</span></span><br><span class="line">  <span class="string">],</span></span><br><span class="line">  <span class="attr">"reporter":</span> <span class="string">[</span></span><br><span class="line">    <span class="string">"text"</span><span class="string">,</span></span><br><span class="line">    <span class="string">"cobertura"</span><span class="string">,</span></span><br><span class="line">    <span class="string">"html"</span></span><br><span class="line">  <span class="string">],</span></span><br><span class="line">  <span class="attr">"report-dir":</span> <span class="string">"./.test_output/coverage"</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>The part of the configuration we care about for this tutorial are the <code>&quot;reporter&quot;</code> and <code>&quot;report-dir&quot;</code> properties. The rest of the configuration is out of scope for this post, but you can learn more in the <a href="https://github.com/istanbuljs/nyc#configuring-nyc" target="_blank" rel="noopener">nyc README configuration section</a>.</p>
+<p>For <code>&quot;reporters&quot;</code>, you can see that we are using three different reporters. The <em>text</em> reporter is the one that displays in the terminal, the <em>cobertura</em> reporter generates an XML file with all of the results which we'll need, and the <em>html</em> reporter generates the HTML files you saw me browsing at the beginning of this post.</p>
+<p>At this point, when we run <code>npm test</code> we get run our tests and generate the code coverage assets we want.</p>
+<h2>Step 3: Post-Processing the HTML Report</h2>
+<p>This one isn't obvious, but I'm going to save you the trouble of discovering it for yourself.</p>
+<p>That being said, if you don't mind the plain text reports sans-CSS, you can skip this step altogether.</p>
+<p>Our HTML report is going to get displayed in VSTS. Remember, the HTML report isn't just a single file, it's a bunch of HTML files complete with CSS for styling. VSTS doesn't natively load up the extra CSS files, which means we'll need to embed the CSS right into the files themselves to create a copy of the report that'll look good in VSTS.</p>
+<p>Thanks to <a href="http://anthonychu.ca/post/css-styles-vsts-code-coverage/" target="_blank" rel="noopener">this post from Anthony Chu</a>, I had a headstart on figuring out how to solve this issue. The plan is to run a post-processing script on the <em>posttest</em> script command in npm. I called my script file <em>process-coverage-report.js</em> and updated the scripts section of my <em>package.json</em> to look like this:</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">  <span class="string">"test"</span>: <span class="string">"./node_modules/.bin/nyc ./node_modules/.bin/mocha --recursive --reporter=mocha-multi-reporters "</span>,</span><br><span class="line">  <span class="string">"posttest"</span>: <span class="string">"node ./tools/process-coverage-report.js"</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p>The <em>posttest</em> script will everytime we run <code>npm test</code>. You can also call it directly by running <code>npm run posttest</code> but be sure to have test results for it to process.</p>
+<p>I'll cut to the case, and just show you my post-processing code.</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">let fs = <span class="built_in">require</span>(<span class="string">"fs"</span>),</span><br><span class="line">    path = <span class="built_in">require</span>(<span class="string">"path"</span>),</span><br><span class="line">    inline = <span class="built_in">require</span>(<span class="string">"inline-css"</span>);</span><br><span class="line"></span><br><span class="line">const TEST_RESULTS_DIRECTORY = <span class="string">"./.test_output"</span>;</span><br><span class="line">const CODE_COVERAGE_DIRECTORY = <span class="string">"./.test_output/coverage"</span>;</span><br><span class="line"></span><br><span class="line">fs.readdir(CODE_COVERAGE_DIRECTORY, <span class="function"><span class="params">(err, files)</span>=&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(err) &#123; <span class="keyword">throw</span> <span class="keyword">new</span> Error(err); &#125;</span><br><span class="line"></span><br><span class="line">    let reports = files.filter(<span class="function"><span class="params">(report)</span>=&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> report.endsWith(<span class="string">".html"</span>);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    reports.forEach(<span class="function"><span class="params">(report)</span>=&gt;</span> &#123;</span><br><span class="line">        let filePath = path.join(CODE_COVERAGE_DIRECTORY, report);</span><br><span class="line">        let options = &#123; </span><br><span class="line">            url: <span class="string">"file://"</span> + path.resolve(filePath),</span><br><span class="line">            extraCss: <span class="string">".pad1 &#123; padding: 0; &#125;"</span></span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        fs.readFile(path.resolve(filePath), <span class="function"><span class="params">(err, data)</span>=&gt;</span> &#123;</span><br><span class="line">            inline(data, options)</span><br><span class="line">                .<span class="keyword">then</span>(<span class="function"><span class="params">(html)</span>=&gt;</span> &#123;</span><br><span class="line">                    let outputFile = path.join(TEST_RESULTS_DIRECTORY, report);</span><br><span class="line">                    fs.writeFile(outputFile, html, <span class="function"><span class="params">(err)</span>=&gt;</span> &#123;</span><br><span class="line">                        <span class="keyword">if</span>(err) &#123; <span class="keyword">throw</span> err; &#125;</span><br><span class="line">                    &#125;);</span><br><span class="line">                &#125;)</span><br><span class="line">                .<span class="keyword">catch</span>(<span class="function"><span class="params">(err)</span>=&gt;</span> &#123;</span><br><span class="line">                    <span class="built_in">console</span>.log(err);</span><br><span class="line">                &#125;);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>My build doesn't use a task runner like Gulp I settled on <a href="https://www.npmjs.com/package/inline-css" target="_blank" rel="noopener">inline-css</a> because I liked the API and it returned promises. If you're using Gulp or Grunt, there are some good options (<a href="https://www.npmjs.com/package/inline-css" target="_blank" rel="noopener">as suggested by Anthony</a>) for you to create a task to do this for you.</p>
+<p>Now, when you run <code>npm test</code> you'll end up with an extra copy of the HTML report, where you have nothing but HTML files with CSS embedded in the files themselves.</p>
+<h2>Step 4: Adding this to VSTS</h2>
+<p>All you need to do here, is configure your build to use the new code coverage setup. We do that by adding the <em>Publish Code Coverage Results</em> task as a build step and configuring properly. Here's what my configuration looks like:</p>
+<ul>
+<li>Version:  1.*</li>
+<li>Display Name: Publish Code Coverage Results | NYC</li>
+<li>Code Coverage Tool: Cobertura</li>
+<li>Summary File: $(System.DefaultWorkingDirectory)/.test_output/coverage/cobertura-coverage.xml</li>
+<li>Report Directory: $(System.DefaultWorkingDirectory)/.test_output     |</li>
+</ul>
+<p>Your properties may vary, depending on how to configured NYC.</p>
+<h2>Step 5: Done</h2>
+<p>And now we code coverage reporting showing up in VSTS. Huzzah!</p>
+<p>Happy code covering!</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/david_wesst">
+				
+					<img src='/images/avatars/davidwesst_400x400.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/david_wesst">David Wesst</a></h2>
+			
+			<a href="mailto:questions@davidwesst.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://www.davidwesst.com" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/davidwesst" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/davidwesst" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			<a href="https://www.linkedin.com/in/davidwesst" target="_blank"><img class="ProfileIcon" src="/images/icon_linkedin.png" border="0" alt="LinkedIN" title="LinkedIN"> LinkedIn</a><br>
+			
+			
+ 			<a href="/feeds/david_wesst.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/development/istanbuljs-in-vsts/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'david_wesst');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

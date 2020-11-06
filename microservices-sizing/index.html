@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Microservice Sizing | Western Devs</title>
+  <meta name="description" content="As I mentioned in my last blog post (Microservices and Boundaries), I regularly see the question &quot;How big should my microservice be?&quot; The fast answer, albeit not the easy one, is that they s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Microservice Sizing">
+<meta property="og:url" content="https://westerndevs.com/microservices-sizing/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="As I mentioned in my last blog post (Microservices and Boundaries), I regularly see the question &quot;How big should my microservice be?&quot; The fast answer, albeit not the easy one, is that they s">
+<meta property="article:published_time" content="2015-10-12T20:01:34.000Z">
+<meta property="article:modified_time" content="2020-11-06T00:19:55.674Z">
+<meta property="article:author" content="Western Devs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">OCT</div>
+    <div class="ListLrgDateDay">12</div>
+    <div class="ListLrgDateYear">2015</div>
+  </div>
+  <h2>Microservice Sizing</h2>
+</div>
+
+		    
+
+			<div id="mainPostContent">
+	        <p>As I mentioned in my last blog post (<a href="http://www.westerndevs.com/microservices-and-boundaries/" target="_blank" rel="noopener">Microservices and Boundaries</a>), I regularly see the question &quot;How big should my microservice be?&quot; The fast answer, albeit not the easy one, is that they should be the 'right' size. In that last blog post I talked about getting the right functionality into the right places (Antel for phone related functionality, Abitab for payment related functionality). There are a lot of people giving a lot of advise about scoping microservices, and I disagree with the majority of it. Here are some of the suggestions I've seen.</p>
+<a id="more"></a>
+<h2>One Week's Work</h2>
+<p>This scoping idea follows the premise that any microservice that you make should only take one week to write. There's no discussion about the difficulty of the task at hand, the proper encapsulation, what the bounded context is or what the velocity of your development team is. Without fail, every one of your microservices should fit into a work week.</p>
+<p>My question is what if the work isn't done at the end of one week? I was once told that at that point you should throw it away and start over with a smaller scope. I'm not sure about you but to me that is about as wasteful as you could be. Run into a problem with a third party API that you can't get resolved in a week? Scrap that work and start again.</p>
+<p>Don't think that what I'm saying is that we should allow our teams to take months to build microservices. We should be able to iterate on them quickly. This is one of the biggest benefits of taking the microservices approach. I think that the approach to writing your microservices should be one of Minimum Viable Product (MVP). If you write the bare minimum to have a functioning product, you will minimize the time spent on it. If the problem space is well bounded you will likely be working on microservices for very short periods of time. You shouldn't, however, set an arbitrary timebox as a means to scope the work.</p>
+<h2>X Number of Lines</h2>
+<p>I can't count the number of times that I've heard/read &quot;your microservice should be no more than X lines of code.&quot; Usually the value of X is absurdly small, even for the most terse programming languages. Common numbers I've seen thrown around are 250, 100 and 10. Yes, 10. Can you imagine trying to write a 10 line microservice that does everything that I explained that Antel was doing in my previous post? Of course not. You couldn't even write the business logic for that process let alone all the infrastructure code that would be required (transactioning, logging, diagnostics) to create a healthy and sustainable microservice (more on this in a future post).</p>
+<p>Long ago we decided that LoC was a horrible metric for measuring anything to do with software development. Why would we introduce it again? The number of Lines of Code required for a microservice will only be known once all the functionality has been written. Sure, you might be able to shrink that count with some judicious refactoring, but you're not going to change 1500 lines of code into 100. If you can I'd suggest that you have a bigger cultural, or staffing, issue at hand.</p>
+<h2>Two Pizza Team</h2>
+<p>I <em>hate</em> this metric. I've seen it pop up in so many different discussions for so many different things. First, why pizza? Are we just a bunch of frat kids that haven't let our culinary preferences evolve? Second, have you seen the size of pizzas in some countries (looking at you United States of Gluttony)? You could feed a batallion with two large pizzas. Third, what if you can't decide on only two combinations of toppings? Sure you could get half-and-half done, but there's only so combinations you can request before the pizza joint hangs up on you.</p>
+<p>More importantly I'd like to ask what does this metric prove? Focus on technical and team structure concerns when you think about that. The only thing that I can think of is that it could cap the size of the team. What does that mean for code? Lower overall velocity? Maybe, but that is probably more influenced by the quality of the individuals on the team.</p>
+<h2>Summary</h2>
+<p>I'm a firm believer in working on microservices based on bounded contexts and minimum viable products. I don't need some catchy phrase telling me how I need to staff up my team or plan my work. Instead I know that I need to invest time into understanding my problem and setting expectations on the work.
+Just like microservices aren't a panacea for software development, none of these are for sizing your microservices.</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/donald_belcham">
+				
+					<img src='/images/avatars/donald_belcham_240x240.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/donald_belcham">Donald Belcham</a></h2>
+			
+			<a href="mailto:donald.belcham@igloocoder.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://www.igloocoder.com" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/dbelcham" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/dbelcham" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			<a href="https://www.linkedin.com/in/donaldbelcham" target="_blank"><img class="ProfileIcon" src="/images/icon_linkedin.png" border="0" alt="LinkedIN" title="LinkedIN"> LinkedIn</a><br>
+			
+			
+ 			<a href="/feeds/donald_belcham.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/microservices-sizing/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'donald_belcham');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

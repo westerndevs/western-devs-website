@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>How to Compile TypeScript into a Single File with SystemJS Modules with Gulp | Western Devs</title>
+  <meta name="description" content="I decided to move a TypeScript project from AMD modules (i.e. RequireJS) to SystemJS, still using Gulp. In this post, I walk you through the sample project I&#39;ve created and share the lessons I learned">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to Compile TypeScript into a Single File with SystemJS Modules with Gulp">
+<meta property="og:url" content="https://westerndevs.com/javascript/How-to-Compile-TypeScript-into-a-Single-File-with-SystemJS-Modules-with-Gulp/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="I decided to move a TypeScript project from AMD modules (i.e. RequireJS) to SystemJS, still using Gulp. In this post, I walk you through the sample project I&#39;ve created and share the lessons I learned">
+<meta property="og:image" content="http://i.imgur.com/TyAgU0N.png">
+<meta property="og:image" content="http://i.imgur.com/gUGeHfI.png">
+<meta property="article:published_time" content="2017-03-14T13:47:22.000Z">
+<meta property="article:modified_time" content="2020-11-06T00:19:55.662Z">
+<meta property="article:author" content="Western Devs">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="typescript">
+<meta property="article:tag" content="systemjs">
+<meta property="article:tag" content="modules">
+<meta property="article:tag" content="gulpjs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://i.imgur.com/TyAgU0N.png">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">MAR</div>
+    <div class="ListLrgDateDay">14</div>
+    <div class="ListLrgDateYear">2017</div>
+  </div>
+  <h2>How to Compile TypeScript into a Single File with SystemJS Modules with Gulp</h2>
+</div>
+
+		    
+
+<p class="TXTsm">ORIGINALLY POSTED TO: <a href="https://blog.davidwesst.com/2017/03/How-to-Compile-TypeScript-into-a-Single-File-with-SystemJS-Modules-with-Gulp/" target="_blank" rel="noopener" class='originalurl'>https://blog.davidwesst.com/2017/03/How-to-Compile-TypeScript-into-a-Single-File-with-SystemJS-Modules-with-Gulp/</a></p>
+
+
+
+			<div id="mainPostContent">
+	        <p>I've been messing around with TypeScript again for my <a href="https://blog.davidwesst.com/2017/03/Intital-Thoughts-on-Using-Phaser/" target="_blank" rel="noopener">game project</a> and wanted a module loader to consume the single file produced by the TypeScript compiler. This time around I decided to use SystemJS and figured I'd share the lessons I learned along the way.</p>
+<h5>Sample Project</h5>
+<p>If you're interested in playing with the code, you can checkout <a href="https://github.com/davidwesst/ts-systemjs" target="_blank" rel="noopener">this GitHub project</a> I setup just for that reason.</p>
+<h5>Previous Post</h5>
+<p>I also posted about doing the same sort of thing <a href="https://blog.davidwesst.com/2016/09/How-to-Compile-Typescript-into-a-Single-File-with-AMD-Modules/" target="_blank" rel="noopener">with AMD and RequireJS</a> complete with <a href="https://github.com/davidwesst/ts-project-template" target="_blank" rel="noopener">a GitHub sample project</a></p>
+<h2>Project Breakdown</h2>
+<p>Here's the gist of it. My project has the following requirements:</p>
+<ol>
+<li>Source code in TypeScript, organized in to multiple modules</li>
+<li>Load external modules into application as dependencies</li>
+<li>Transpile down to a single bundle file</li>
+<li>Load the bundle in the browser</li>
+</ol>
+<p>It seems pretty straight forward, right? Plus, because I'm using TypeScript I figured this would be easy peezy lemon-squeezy with the <a href="https://www.typescriptlang.org/docs/handbook/compiler-options.html" target="_blank" rel="noopener">TypeScript compiler</a> and rich documentation.</p>
+<p>As it turns out, it wasn't that simple.</p>
+<h3>Wait. Where's GulpJS?</h3>
+<p>It's in the sample project handling the transpiling the TypeScript through a task.</p>
+<p>It's actually not required, but rather a convienience for keeping all my build tasks together. I just put it in the title, because it matches the previous post.</p>
+<h2>Problem 1: Using an External Module</h2>
+<p>I wanted to use <a href="https://momentjs.com/" target="_blank" rel="noopener">Moment.js</a> to help handle date objects with my code.</p>
+<p>There were two parts to this:</p>
+<ul>
+<li>Getting it working in the development environment</li>
+<li>Getting it bundled up with SystemJS.</li>
+</ul>
+<h3>Using it in Development</h3>
+<p>I use <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Visual Studio Code</a>, which is a great TypeScript development environment.</p>
+<p>Normally, you would use the <a href="https://www.npmjs.com/search?q=%40types" target="_blank" rel="noopener"><code>@types</code></a> collection of defintion files from the NPM which is wired up by default. For Moment, we need to break that.</p>
+<p>The definition file for Moment is found in the library itself. Since I use NPM to handle all my dependencies, you just set this up in your <code>tsconfig.json</code> file.</p>
+<p><img src="http://i.imgur.com/TyAgU0N.png" alt=""></p>
+<p>Then, in code, we import it.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> moment <span class="keyword">from</span> <span class="string">"moment"</span>;</span><br></pre></td></tr></table></figure>
+<p>Remember: if your project is already using <code>@types</code> definition files, you'll need to add that folder to the <code>typeRoots</code> collection yourself.</p>
+<h3>Bundling it Up</h3>
+<p>Because we're using SystemJS, we need to do is configure it as a path to understand where to find the library when it gets referenced.</p>
+<p>In the <a href="https://github.com/davidwesst/ts-systemjs" target="_blank" rel="noopener">sample project</a>, we do it in <code>script</code> tag on the HTML page, but you can do this in wherever you end up doing your SystemJS configuration.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SystemJS.config(&#123;</span><br><span class="line">    <span class="string">"paths"</span>: &#123;</span><br><span class="line">        <span class="string">"moment"</span>: <span class="string">"https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2>Problem 2: Loading the Bundle</h2>
+<p>Making a bundle is easy. Consuming the bundle is something different.</p>
+<h3>Making a Bundle</h3>
+<p>If you're interested in bundling your code into a single file with the compiler, you're limited to AMD or SystemJS modules. This is configured in the <code>tsconfig.json</code> file included in <a href="https://github.com/davidwesst/ts-systemjs" target="_blank" rel="noopener">the sample project</a> with the module property. You can read more about it <a href="https://www.typescriptlang.org/docs/handbook/modules.html" target="_blank" rel="noopener">here in the TypeScript Handbook</a>.</p>
+<p><img src="http://i.imgur.com/gUGeHfI.png" alt=""></p>
+<h3>Consuming the Bundle</h3>
+<p>This is where I got stuck.</p>
+<p>Now I have this fancy bundle, but I need to figure out how to consume it in my HTML page. The solution is pretty simple, but it took some research and some tinkering, but I got there.</p>
+<p>Take a look at the <code>&lt;body&gt;</code> take of the HTML file:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"display"</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- script will display content here --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.20.9/system.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"bundle.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">        SystemJS.config(&#123;</span><br><span class="line"><span class="actionscript">            <span class="string">"paths"</span>: &#123;</span></span><br><span class="line"><span class="actionscript">                <span class="string">"moment"</span>: <span class="string">"https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"</span></span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line"><span class="actionscript">        SystemJS<span class="meta">.<span class="meta-keyword">import</span>("game")</span></span></span><br><span class="line"><span class="javascript">            .then(<span class="function">(<span class="params"><span class="built_in">module</span></span>)=&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">let</span> g = <span class="keyword">new</span> <span class="built_in">module</span>.Game(<span class="string">"display"</span>);</span></span><br><span class="line">                g.start();</span><br><span class="line">            &#125;)</span><br><span class="line"><span class="javascript">            .catch(<span class="function">(<span class="params">error</span>)=&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">                <span class="built_in">console</span>.error(error);</span></span><br><span class="line">            &#125;);</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>I blame myself for getting stuck considering this sort all documented well in the <a href="https://github.com/systemjs/systemjs" target="_blank" rel="noopener">SystemJS documentation on GitHub</a>. Either way, I had issues finding solid resources about using bundles. Hopefull this can help someone else in the future.</p>
+<h2>Conclusion</h2>
+<p>My problems can be traced back to my lack of experience with JavaScript module loaders. And yes, I know that <a href="http://caniuse.com/#feat=es6-module" target="_blank" rel="noopener">ES6 Modules are coming</a>, but the browsers are a ways away from having a full implementation (except for Safari).</p>
+<p>Until then, we'll be using TypeScript and <a href="http://babeljs.io/" target="_blank" rel="noopener">Babel</a> to help us get our modular JavaScript working in the browser.</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/david_wesst">
+				
+					<img src='/images/avatars/davidwesst_400x400.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/david_wesst">David Wesst</a></h2>
+			
+			<a href="mailto:questions@davidwesst.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://www.davidwesst.com" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/davidwesst" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/davidwesst" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			<a href="https://www.linkedin.com/in/davidwesst" target="_blank"><img class="ProfileIcon" src="/images/icon_linkedin.png" border="0" alt="LinkedIN" title="LinkedIN"> LinkedIn</a><br>
+			
+			
+ 			<a href="/feeds/david_wesst.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/javascript/How-to-Compile-TypeScript-into-a-Single-File-with-SystemJS-Modules-with-Gulp/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'david_wesst');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

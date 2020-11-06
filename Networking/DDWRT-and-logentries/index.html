@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>DDWRT and logentries | Western Devs</title>
+  <meta name="description" content="Logging DD-WRT system entries to the cloud">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DDWRT and logentries">
+<meta property="og:url" content="https://westerndevs.com/Networking/DDWRT-and-logentries/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="Logging DD-WRT system entries to the cloud">
+<meta property="og:image" content="http://content.igloocoder.com/images/ddwrt-logentries-1.png">
+<meta property="og:image" content="http://content.igloocoder.com/images/ddwrt-logentries-2.png">
+<meta property="og:image" content="http://content.igloocoder.com/images/ddwrt-logentries-3.png">
+<meta property="og:image" content="http://content.igloocoder.com/images/ddwrt-logentries-4.png">
+<meta property="og:image" content="http://content.igloocoder.com/images/ddwrt-logentries-5.png">
+<meta property="og:image" content="http://content.igloocoder.com/images/ddwrt-logentries-6.png">
+<meta property="og:image" content="http://content.igloocoder.com/images/ddwrt-logentries-7.png">
+<meta property="og:image" content="http://content.igloocoder.com/images/ddwrt-logentries-8.png">
+<meta property="og:image" content="http://content.igloocoder.com/images/ddwrt-logentries-9.png">
+<meta property="og:image" content="http://content.igloocoder.com/images/ddwrt-logentries-10.png">
+<meta property="og:image" content="http://content.igloocoder.com/images/ddwrt-logentries-11.png">
+<meta property="article:published_time" content="2016-02-17T04:10:46.000Z">
+<meta property="article:modified_time" content="2020-11-06T00:19:55.658Z">
+<meta property="article:author" content="Western Devs">
+<meta property="article:tag" content="Networking">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://content.igloocoder.com/images/ddwrt-logentries-1.png">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">FEB</div>
+    <div class="ListLrgDateDay">17</div>
+    <div class="ListLrgDateYear">2016</div>
+  </div>
+  <h2>DDWRT and logentries</h2>
+</div>
+
+		    
+
+			<div id="mainPostContent">
+	        <p>I've had <a href="http://www.dd-wrt.com/site/index" target="_blank" rel="noopener" title="dd-wrt.com">DD-WRT</a> setup on all the routers/repeaters in my house for a few years now. The platform, generally, is great. It has it's quirks, and you're not going to get my mother to install and administer it on her home network. Overall, I think it works just fine for a guy like me though.</p>
+<p>Over the last few months I've been seeing some intermittent stability issues. It seems that at the most random times the main router in the house will lock up and not respond to any pings. I have to then go downstairs, unplug the router for 30 seconds and plug it back in. By the time I'm back upstairs at my computer it's all working again.</p>
+<p>Thus far the disconnections haven't happened during any meetings. When you work from home, having that happen would be a royal pain in the ass. As it is, going up and down the stairs during a train of thought is a complete pain in the ass so I've wanted to get to the bottom of it.</p>
+<h3>Logging in DD-WRT</h3>
+<p>By default logs for DD-WRT are stored in volatile memory. When you have to hard reset the router you, of course, lose those logs. This makes it really hard to track down the source of the problem.</p>
+<p>An alternative is to log to the volatile memory location and then have a scheduled cron job to move those log files to an attached USB storage device. While this seems a bit better, you are never going to get the log entries that happened immediately before the router went down. There just isn't time for the cron job to run and it's on a schedule so it might not even be time for it to run.</p>
+<p>A third option is to push the logging information to a remote server. Most examples out there show a configuration where the router is pushing the log entries to a computer on the internal network. This is all well and good, but I don't want to have to guarantee that my desktop/laptop is running to receive and archive that data.</p>
+<p>Buried in <a href="https://www.dd-wrt.com/wiki/index.php/Logging_with_DD-WRT" target="_blank" rel="noopener" title="Logging with DD-WRT">a wiki page on logging</a> is mention of being able to log to a service called <a href="https://papertrailapp.com/" target="_blank" rel="noopener" title="papertrailapp.com">Papertrail</a>. This got me thinking; I've logged from my <a href="http://www.igloocoder.com/2015/04/09/Arduino-and-logging-to-the-cloud/" target="_blank" rel="noopener">Arduino and Netduino</a> to <a href="http://www.logentries.com" target="_blank" rel="noopener" title="logentries.com">logentries.com</a> before. Why couldn't I configure DD-WRT to do the same thing?</p>
+<h3>Configuration</h3>
+<p>There are three steps you need to do to get DD-WRT to log to logentries.com.</p>
+<ol>
+<li>Setup a Log Set and Log on logentries.com</li>
+<li>Configure DD-WRT</li>
+<li>Restart DD-WRT</li>
+</ol>
+<h5>logentries.com</h5>
+<p>If you don't already have one, create an account with logentries.com for their <a href="https://logentries.com/pricing/" target="_blank" rel="noopener" title="logentries.com Pricing">Free Plan</a>. Once you're logged into the website, open the Logs tab. Then click the &quot;+ Add New&quot; button and select &quot;Add a log&quot;.</p>
+<p><img src="http://content.igloocoder.com/images/ddwrt-logentries-1.png" alt=""></p>
+<p>The will put you into the page where you select the type of logging source you're going to use. In the case of DD-WRT the logger is Syslogd so we select that one.</p>
+<p><img src="http://content.igloocoder.com/images/ddwrt-logentries-2.png" alt=""></p>
+<p>In the Configure screen you will want to add this Log to a Log Set. If you're new to logentries.com you'll want to select &quot;New Set&quot; and type a meaningful name in (i.e. Home Router). If you already have logs on logentries.com you may want to use an Existing Set.</p>
+<p><img src="http://content.igloocoder.com/images/ddwrt-logentries-3.png" alt=""></p>
+<p>The last step you need to take is to click on the &quot;Create Log Token&quot; button. This will open a bunch more information in a Configuration section of the same page.</p>
+<p><img src="http://content.igloocoder.com/images/ddwrt-logentries-4.png" alt=""></p>
+<p>The only thing you need to worry about at this time is what appears in the first command area. In my case it's telling me to use <code>*.* @@data.logentries.com:13630</code> which includes the endpoint information. This information is what you will need for configuring DD-WRT so don't ignore it.</p>
+<p>After you take note of the endpoint, you can click the &quot;Finish &amp; View Log&quot; button. At this point your Log will be put into &quot;Discovery Mode&quot;. You have 15 minutes to make the first call to this endpoint to activate it. That call to the logentries.com endpoint needs to happen from the IP address of your router. This will configure the Log to only accept data from that IP address.</p>
+<p><img src="http://content.igloocoder.com/images/ddwrt-logentries-5.png" alt=""></p>
+<h5>DD-WRT</h5>
+<p>Now that you have logentries.com configured you need to quickly move through the DD-WRT setup. Remember that you only have 15 minutes to get this done. It should be easy, but don't wander off to the bowels of YouTube to watch cat videos.</p>
+<p>First step, log into your DD-WRT router's web interface and navigate to the Services tab.</p>
+<p><img src="http://content.igloocoder.com/images/ddwrt-logentries-6.png" alt=""></p>
+<p>Towards the bottom of that page you will find the System Log section. Enable Syslogd and enter the endpoint information that you got from logentries.com earlier. You will want to ignore the <code>*.* @@</code> and only use the <code>data.logentries.com:XXXXX</code> portion, where XXXXX is the port that you were assigned.</p>
+<p><img src="http://content.igloocoder.com/images/ddwrt-logentries-7.png" alt=""></p>
+<p>Once you have this done, click Apply Settings followed by the Save button. After you've added the settings you can click the Reboot Router button and wait for your router to come back online.</p>
+<p>Once your router has come back online and you have internet access you should be able to go to logentries.com and see that the &quot;Discovery on Port XXXXX&quot; has changed to show the IP address of your router. When I did mine it took a couple of minutes for logentries.com to process in the incoming messages and make this change. If you don't see the IP address then you weren't successful in connecting your router to logentries.com. I didn't have the happen so the only suggestion I can give you is to verify that the Syslogd settings in DD-WRT were saved and then do a reboot of the router again.</p>
+<p><img src="http://content.igloocoder.com/images/ddwrt-logentries-8.png" alt=""></p>
+<p>Once you have successfully connected the two systems you should be able to open the Log for your router and see the logging that occurs when it goes through it's startup process.</p>
+<p><img src="http://content.igloocoder.com/images/ddwrt-logentries-9.png" alt=""></p>
+<p>You could stop at this point and have all your system logging taken care of. But you can go one step further and enable firewall logging if you want. Note that when I tried this it made my router horrifically unstable and I had to completely disable it to get more than 5 consecutive minutes of uptime.<br>
+Open the Security | Firewall tabs and look to the bottom of the page. There, you will see a section for Log Management. Click Enable and set up the log levels and options as you desire.</p>
+<p><img src="http://content.igloocoder.com/images/ddwrt-logentries-10.png" alt=""></p>
+<p><img src="http://content.igloocoder.com/images/ddwrt-logentries-11.png" alt=""></p>
+<h3>Conclusion</h3>
+<p>Setting up DD-WRT and logentries.com isn't very difficult. DD-WRT can be a bit persnickety but otherwise it's a straight forward endeavour. Things you should note about this configuration:</p>
+<ul>
+<li>if your internet goes down you don't get logging</li>
+<li>I've not had my router freeze up since doing this so I'm not sure what, if anything, I'll capture</li>
+<li>if you only configure and run the Syslogd logging you will not get much activity in the log file</li>
+</ul>
+<p>When my router craps out on me again I'll post something about what I saw, or didn't see, in the log files.</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/donald_belcham">
+				
+					<img src='/images/avatars/donald_belcham_240x240.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/donald_belcham">Donald Belcham</a></h2>
+			
+			<a href="mailto:donald.belcham@igloocoder.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://www.igloocoder.com" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/dbelcham" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/dbelcham" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			<a href="https://www.linkedin.com/in/donaldbelcham" target="_blank"><img class="ProfileIcon" src="/images/icon_linkedin.png" border="0" alt="LinkedIN" title="LinkedIN"> LinkedIn</a><br>
+			
+			
+ 			<a href="/feeds/donald_belcham.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/Networking/DDWRT-and-logentries/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'donald_belcham');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

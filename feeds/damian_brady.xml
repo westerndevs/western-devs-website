@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Western Devs</title>
+  
+  <link href="/feeds/damian_brady" rel="self" type="application/atom+xml"/>
+  <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
+  
+  <updated>2020-11-06T00:19:55.666Z</updated>
+  <id>https://westerndevs.com/</id>
+  
+  <author>
+    <name>Western Devs</name>
+	<uri>https://westerndevs.com</uri>
+    <email>info@westerndevs.com</email>
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title type="html">Awareness, Acknowledgement, and Adjustment</title>
+    <link href="https://westerndevs.com/devops/Awareness-Acknowledgement-Adjustment/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/devops/Awareness-Acknowledgement-Adjustment/</id>
+    <published>2017-08-23T13:00:00.000Z</published>
+    <updated>2020-11-06T00:19:55.666Z</updated>
+	<author>
+	
+	  
+	  <name>Damian Brady</name>
+	  <email>blog@damianbrady.com.au</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>There's a common pattern in IT. In many cases, it ultimately leads to a new buzzword. It's not complicated. In fact it's fairly obvious. But <em>understanding what you can do with it</em> can help immensely when it comes to pushing change in your organisation.</p><p>Agile, DevOps, Microservices, Containerization, whatever the next buzzword is - all of these &quot;revolutions&quot; are really a result of these three steps.</p><blockquote><ol><li>Awareness</li></ol></blockquote><blockquote><ol start="2"><li>Acknowledgement</li></ol></blockquote><blockquote><ol start="3"><li>Adjustment</li></ol></blockquote><p><img src="https://damianbrady.com.au/content/images/2017/08/binoculars.jpg" alt="You need awareness and acknowledgement before things will change"></p><h2>Examples:</h2><p>Let's look at a couple of examples to solidify what I'm talking about. I'm simplifying for the purposes of brevity, but consider Agile and Microservices:</p><h3>Agile:</h3><ol><li><em>Awareness</em> of slipping timelines, incorrect estimates, project failures.</li><li><em>Acknowledgement</em> that big, upfront plans never seem to go smoothly, no matter how long you spend on them or how many people are involved. Some things you just can't know until you start.</li><li><em>Adjustment</em> of how projects are run - you can't plan for the long term, so let's just plan a short distance ahead and iterate.</li></ol><h3>Microservices:</h3><ol><li><em>Awareness</em> that even small changes can be expensive in a monolithic architecture, and side-effects can be hard to predict.</li><li><em>Acknowledgement</em> that isolated and decoupled services can make change easier and more predictable.</li><li><em>Adjustment</em> of how software is put together - small, self-contained components that can be iterated on more quickly.</li></ol><p><strong>The same pattern can apply for DevOps:</strong></p><h3>DevOps:</h3><ol><li><em>Awareness</em> that software in prodduction is the aim, and that there are some obvious bottlenecks that slow things down.</li><li><em>Acknowledgement</em> that software should be able to help with this - most of what we do is able to be automated!</li><li><em>Adjustment</em> by removing the bottlenecks using software and scripts, adding surety through automated testing, and reducing the cycle time from idea to production.</li></ol><p><img src="https://damianbrady.com.au/content/images/2017/08/lightbulbs-hanging.jpg" alt=""></p><h2>So what can I do with this?</h2><p>I've given a few talks lately on the challenges of implementing DevOps in an organisation where you have little to no control over how the business operates.</p><p>In particular, my &quot;<a href="https://vimeo.com/223984407" target="_blank" rel="noopener">Doing DevOps as a Politically Powerless Developer</a>&quot; talk has resonated with a lot of people lately.</p><p>As a &quot;politically powerless developer&quot; in an organisation, it can be difficult to instigate change, even when you know it's the right thing to do. In short, you probably don't have the power to implement the <em>Adjustment</em> part of this pattern.</p><p><strong>But you can definitely affect <em>Awareness</em>. It's easy - start measuring.</strong></p><p><img src="https://damianbrady.com.au/content/images/2017/08/ruler.jpg" alt="Make people aware there's a problem"></p><p>Measure how long it takes for a change you commit to make it to production. What happens in that time? Is there a lot of waiting?</p><p>Measure how long it takes for a user-reported issue to get to your backlog. Add some production monitoring, and measure how much time is saved by learning about issues first-hand. How much time did you save?</p><p>Measure the time it takes to write tests, and compare that to the time you take fixing bugs for code that doesn't have tests around it. Can you prove that writing tests is beneficial overall?</p><p>Once you have information, you can give it to your boss or pass it up the chain. You've already acknowledged there's a better way, so you'll be ready with solutions once management acknowledges there's a problem!</p><p><img src="https://damianbrady.com.au/content/images/2017/08/report.jpg" alt="Drive change by measuring and passing that information up the chain"></p><h2>Summary</h2><p>To really instigate change and <em>adjust</em> how your organisation delivers software, there needs to be an <em>acknowledgement</em> that there's a problem. That won't happen unless there's <em>awareness</em>.</p><p><strong>If you're having trouble pushing change, focus on <em>awareness</em> first.</strong></p>]]></content>
+    
+    <summary type="html">
+    
+      There&#39;s a common pattern in IT that frequently leads to new buzzwords: Awareness, Acknowledgement, and Adjustment. Make it work for you!
+    
+    </summary>
+    
+      <category term="devops" scheme="https://westerndevs.com/categories/devops/"/>
+    
+    
+      <category term="alm" scheme="https://westerndevs.com/tags/alm/"/>
+    
+      <category term="devops" scheme="https://westerndevs.com/tags/devops/"/>
+    
+  </entry>
+  
+</feed>
