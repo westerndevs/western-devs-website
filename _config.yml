@@ -16,8 +16,6 @@ email: info@westerndevs.com
 url: https://westerndevs.com
 root: /
 permalink: :category/:title/
-permalink_defaults:
-  categories: ""
 
 # Directory
 source_dir: source
@@ -46,7 +44,7 @@ highlight:
   tab_replace:
 
 # Category & Tag
-default_category: ''
+default_category: '_'
 category_map:
 tag_map:
 
