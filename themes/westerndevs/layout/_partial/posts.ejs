@@ -29,7 +29,8 @@
 			<div class="ListLrgSubBG">
 			<div class="ListLrgDateBG">
 			  <div class="ListLrgDateMonth"><%= moment(post.date).format('MMM').toUpperCase() %></div>
-			  <div class="ListLrgDateDay"><%= moment(post.date).format('D') %></div>        
+			  <div class="ListLrgDateDay"><%= moment(post.date).format('D') %></div>
+			  <div class="ListLrgDateYear"><%= moment(post.date).format('YYYY') %></div>     
 			</div>
 			<div class="ListLrgTxtSub">
 	          <% var cat = post.categories.findOne({name: 'podcasts'}) %>
