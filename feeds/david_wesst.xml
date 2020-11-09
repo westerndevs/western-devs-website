@@ -5,7 +5,7 @@
   <link href="/feeds/david_wesst" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2020-11-06T02:37:14.035Z</updated>
+  <updated>2020-11-09T16:14:54.822Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,53 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">New Artwork and a Complete Rewrite...ish | Out the Door Devlog</title>
+    <link href="https://westerndevs.com/devlog/out-the-door/out-the-door-post-jam-update/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/devlog/out-the-door/out-the-door-post-jam-update/</id>
+    <published>2020-11-09T14:00:00.000Z</published>
+    <updated>2020-11-09T16:14:54.822Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>My effort continues on Out the Door with some new artwork, a rewrite (of sorts) to fix the build process, which has led to something of a self-driven code review.</p><a id="more"></a><iframe width="560" height="315" src="https://www.youtube.com/embed/LLXO-6Pretk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><h2>Wanna Play?</h2><p>Sure you do! Head over to my <a href="https://davidwesst.itch.io/out-the-door" target="_blank" rel="noopener">davidwesst.itch.io/out-the-door</a> to give it a whirl in your browser (no install needed) or Windows! It's totally free, and feedback is always appreciated.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;My effort continues on Out the Door with some new artwork, a rewrite (of sorts) to fix the build process, which has led to something of a self-driven code review.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="devlog" scheme="https://westerndevs.com/categories/devlog/"/>
+    
+      <category term="out the door" scheme="https://westerndevs.com/categories/devlog/out-the-door/"/>
+    
+    
+      <category term="game development" scheme="https://westerndevs.com/tags/game-development/"/>
+    
+      <category term="gamejam" scheme="https://westerndevs.com/tags/gamejam/"/>
+    
+      <category term="ludum dare" scheme="https://westerndevs.com/tags/ludum-dare/"/>
+    
+      <category term="ludum dare 47" scheme="https://westerndevs.com/tags/ludum-dare-47/"/>
+    
+      <category term="game design" scheme="https://westerndevs.com/tags/game-design/"/>
+    
+      <category term="out the door" scheme="https://westerndevs.com/tags/out-the-door/"/>
+    
+  </entry>
+  
+  <entry>
     <title type="html">A Solo Gamejam Experience | A Ludum Dare 47 Story</title>
     <link href="https://westerndevs.com/devlog/a-solo-gamejam-experience-ld47/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/a-solo-gamejam-experience-ld47/</id>
     <published>2020-10-23T13:00:00.000Z</published>
-    <updated>2020-11-06T02:37:14.035Z</updated>
+    <updated>2020-11-09T16:14:54.822Z</updated>
 	<author>
 	
 	  
@@ -61,7 +103,7 @@
     <link href="https://westerndevs.com/devlog/game-portfolio-review-2020/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/game-portfolio-review-2020/</id>
     <published>2020-09-18T13:00:00.000Z</published>
-    <updated>2020-11-06T02:37:14.035Z</updated>
+    <updated>2020-11-09T16:14:54.822Z</updated>
 	<author>
 	
 	  
@@ -101,7 +143,7 @@
     <link href="https://westerndevs.com/devlog/little-shop-of-wall-street-01-release-notes/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/little-shop-of-wall-street-01-release-notes/</id>
     <published>2020-07-02T15:13:00.000Z</published>
-    <updated>2020-11-06T02:37:14.035Z</updated>
+    <updated>2020-11-09T16:14:54.822Z</updated>
 	<author>
 	
 	  
@@ -139,7 +181,7 @@
     <link href="https://westerndevs.com/Game-Design/How-GitHub-Makes-Game-Making-Easier-For-NonCoders/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Game-Design/How-GitHub-Makes-Game-Making-Easier-For-NonCoders/</id>
     <published>2020-02-19T20:48:36.000Z</published>
-    <updated>2020-11-06T02:37:14.031Z</updated>
+    <updated>2020-11-09T16:14:54.818Z</updated>
 	<author>
 	
 	  
@@ -175,7 +217,7 @@
     <link href="https://westerndevs.com/Devlog/Jan-2020-Devlog/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Devlog/Jan-2020-Devlog/</id>
     <published>2020-02-04T21:03:24.000Z</published>
-    <updated>2020-11-06T02:37:14.031Z</updated>
+    <updated>2020-11-09T16:14:54.818Z</updated>
 	<author>
 	
 	  
@@ -211,7 +253,7 @@
     <link href="https://westerndevs.com/Game-Development/Where-To-Find-Your-Gamedev-Community/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Game-Development/Where-To-Find-Your-Gamedev-Community/</id>
     <published>2020-01-21T11:09:00.000Z</published>
-    <updated>2020-11-06T02:37:14.031Z</updated>
+    <updated>2020-11-09T16:14:54.818Z</updated>
 	<author>
 	
 	  
@@ -249,7 +291,7 @@
     <link href="https://westerndevs.com//No-Cost-Game-Design-Toolbox/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com//No-Cost-Game-Design-Toolbox/</id>
     <published>2020-01-13T21:51:04.000Z</published>
-    <updated>2020-11-06T02:37:14.031Z</updated>
+    <updated>2020-11-09T16:14:54.818Z</updated>
 	<author>
 	
 	  
@@ -285,7 +327,7 @@
     <link href="https://westerndevs.com/Game-Development/gameoff2019-gamejam-devlog/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Game-Development/gameoff2019-gamejam-devlog/</id>
     <published>2019-11-26T14:57:00.000Z</published>
-    <updated>2020-11-06T02:37:14.031Z</updated>
+    <updated>2020-11-09T16:14:54.818Z</updated>
 	<author>
 	
 	  
@@ -315,7 +357,7 @@
     <link href="https://westerndevs.com//streaming-code-and-games-on-mixer/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com//streaming-code-and-games-on-mixer/</id>
     <published>2018-09-27T17:55:42.000Z</published>
-    <updated>2020-11-06T02:37:14.031Z</updated>
+    <updated>2020-11-09T16:14:54.818Z</updated>
 	<author>
 	
 	  
@@ -341,7 +383,7 @@
     <link href="https://westerndevs.com/Development/f12-chooser-is-dev-tool-thing/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Development/f12-chooser-is-dev-tool-thing/</id>
     <published>2018-03-28T17:10:00.000Z</published>
-    <updated>2020-11-06T02:37:14.031Z</updated>
+    <updated>2020-11-09T16:14:54.818Z</updated>
 	<author>
 	
 	  
@@ -377,7 +419,7 @@
     <link href="https://westerndevs.com/Development/typescript-or-javascript/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Development/typescript-or-javascript/</id>
     <published>2018-03-15T15:40:00.000Z</published>
-    <updated>2020-11-06T02:37:14.031Z</updated>
+    <updated>2020-11-09T16:14:54.818Z</updated>
 	<author>
 	
 	  
@@ -409,7 +451,7 @@
     <link href="https://westerndevs.com/Development/crowdsourcing-docs-is-cool/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Development/crowdsourcing-docs-is-cool/</id>
     <published>2018-03-13T13:40:00.000Z</published>
-    <updated>2020-11-06T02:37:14.031Z</updated>
+    <updated>2020-11-09T16:14:54.818Z</updated>
 	<author>
 	
 	  
@@ -441,7 +483,7 @@
     <link href="https://westerndevs.com/web/websummit-wsl/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/web/websummit-wsl/</id>
     <published>2017-09-20T22:35:00.000Z</published>
-    <updated>2020-11-06T02:37:14.031Z</updated>
+    <updated>2020-11-09T16:14:54.810Z</updated>
 	<author>
 	
 	  
@@ -479,7 +521,7 @@
     <link href="https://westerndevs.com/web/websummit-sonar/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/web/websummit-sonar/</id>
     <published>2017-09-19T22:35:00.000Z</published>
-    <updated>2020-11-06T02:37:14.031Z</updated>
+    <updated>2020-11-09T16:14:54.810Z</updated>
 	<author>
 	
 	  
@@ -515,7 +557,7 @@
     <link href="https://westerndevs.com/web/websummit-pwa/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/web/websummit-pwa/</id>
     <published>2017-09-18T23:35:00.000Z</published>
-    <updated>2020-11-06T02:37:14.031Z</updated>
+    <updated>2020-11-09T16:14:54.810Z</updated>
 	<author>
 	
 	  
@@ -551,7 +593,7 @@
     <link href="https://westerndevs.com/java/posh-gvm/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/java/posh-gvm/</id>
     <published>2017-08-17T14:00:00.000Z</published>
-    <updated>2020-11-06T02:37:14.031Z</updated>
+    <updated>2020-11-09T16:14:54.810Z</updated>
 	<author>
 	
 	  
@@ -589,7 +631,7 @@
     <link href="https://westerndevs.com/java/jabba/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/java/jabba/</id>
     <published>2017-08-16T13:35:00.000Z</published>
-    <updated>2020-11-06T02:37:14.031Z</updated>
+    <updated>2020-11-09T16:14:54.810Z</updated>
 	<author>
 	
 	  
@@ -625,7 +667,7 @@
     <link href="https://westerndevs.com/javascript/nvs/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/javascript/nvs/</id>
     <published>2017-08-15T16:35:00.000Z</published>
-    <updated>2020-11-06T02:37:14.031Z</updated>
+    <updated>2020-11-09T16:14:54.810Z</updated>
 	<author>
 	
 	  
@@ -663,7 +705,7 @@
     <link href="https://westerndevs.com/development/istanbuljs-in-vsts/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/development/istanbuljs-in-vsts/</id>
     <published>2017-08-03T16:10:00.000Z</published>
-    <updated>2020-11-06T02:37:14.031Z</updated>
+    <updated>2020-11-09T16:14:54.810Z</updated>
 	<author>
 	
 	  
@@ -693,42 +735,6 @@
       <category term="istanbuljs" scheme="https://westerndevs.com/tags/istanbuljs/"/>
     
       <category term="nyc" scheme="https://westerndevs.com/tags/nyc/"/>
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Mocha Test Reports in VSTS</title>
-    <link href="https://westerndevs.com/development/mocha-in-vsts/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/development/mocha-in-vsts/</id>
-    <published>2017-08-01T15:19:00.000Z</published>
-    <updated>2020-11-06T02:37:14.031Z</updated>
-	<author>
-	
-	  
-	  <name>David Wesst</name>
-	  <email>questions@davidwesst.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>Here's another dev thing I use: <a href="https://mochajs.org/" target="_blank" rel="noopener">MochaJS</a> in <a href="https://www.visualstudio.com/team-services/continuous-integration/" target="_blank" rel="noopener">Visual Studio Team Services (VSTS) builds</a> and display the test reports as part of the build reports. See? Like this.</p><p><img src="https://davidwesst.blob.core.windows.net/blog/mocha-in-vsts/vsts-test-results-in-action.gif" alt="Mocha Test Report in VSTS" title="Screenshot of a MochaJS test report in VSTS"></p><p>This wasn't me trying to fit a square peg into a round hole. VSTS is exceptionally flexible and it comes bundled with all the pieces you need to do this out of the box. The key is making sure that we setup our test runner to produce the output VSTS needs.</p><h2>Step 0: Assumptions</h2><p>I'm not going to explain how to do this, but I'm going to assume you have a project with tests that use <a href="https://mochajs.org/" target="_blank" rel="noopener">MochaJS</a>. So, you can run <code>mocha</code> from the terminal and your tests run.</p><p>I'm also not going to explain that to use VSTS, you need a VSTS account. They are <a href="https://www.visualstudio.com/team-services/" target="_blank" rel="noopener">free to start</a> and you'll need one to make this work. It's worth the effort.</p><h2>Step 1: Script Your Test Command</h2><p>Personally, I use <a href="https://docs.npmjs.com/misc/scripts" target="_blank" rel="noopener">npm scripts</a> for this. I just figure out what my test command is, and then have the <code>npm test</code> script run that. In my project, I run the locally installed version of MochaJS and use the <code>recursive</code> flag.</p><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">./node_modules/.bin/mocha</span> <span class="params">--recursive</span></span><br></pre></td></tr></table></figure><p>In my <em>package.json</em> file, I have:</p><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"test"</span>: <span class="string">"./node_modules/.bin/mocha --recursive"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>You can just as easily use a Bash or Powershell script for this too if you're not a fan of npm scripts. But you should be.</p><h2>Step 2: Use the mocha-junit-reporter</h2><p>Woah, wait a minute? This is JavaScript not <em>Java</em>.</p><p>I know, but JUnit reports are a standard report format that is supported by VSTS. The key is making sure that our mocha test reports are being output into a format that VSTS can understand. VSTS does not care about your test report to standard out.</p><p>Mocha doesn't come bundled with a JUnit reporter, so I used <a href="https://github.com/michaelleeallen/mocha-junit-reporter" target="_blank" rel="noopener">mocha-junit-reporter</a> which outputs a <em>test-results.xml</em> file to the root project directory by default. I don't like the default, so I have it output to a directory of my choosing.</p><p>So, first we run: <code>npm install --save-dev mocha-junit-reporter</code></p><p>Then, we update our <code>npm test</code> command in <em>package.json</em> to</p><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"test"</span>: <span class="string">"./node_modules/.bin/mocha --recursive --reporter mocha-unit-reporter --reporter-options mochaFile=./test-output/test-results.xml"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>Don't forget to add test output directory to your <em>.gitignore</em> file.</p><h3>(OPTIONAL) Step 2a: Using Mutliple Reporters</h3><p>But now I can't see my tests in the terminal output!</p><p>I didn't like that either, so I fixed it by using another Mocha extension called <a href="https://github.com/stanleyhlng/mocha-multi-reporters" target="_blank" rel="noopener">mocha-multi-reporters</a>. It lets us define mutlple reporters for MochaJS and specify reporter parameters in a <em>config.json</em> file that we save in the project root.</p><p>First, install the tool: <code>npm install --save-dev mocha-multi-reporters</code>.</p><p>Then, we update our <code>npm test</code> command to</p><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"test"</span>: <span class="string">"./node_modules/.bin/mocha --recursive --reporter=mocha-multi-reporters"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>And finally, we add a <em>config.json</em> file to the project root. I'm using the spec and mocha-junit-reporter, which result in this <em>config.json</em>:</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"reporterEnabled"</span>: <span class="string">"spec,mocha-junit-reporter"</span>,</span><br><span class="line">    <span class="attr">"mochaJunitReporterReporterOptions"</span>: &#123;</span><br><span class="line">        <span class="attr">"mochaFile"</span>: <span class="string">"./.test_output/test-results.xml"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>It's not perfect, but it works well enough for my purposes.</p><h4>Gotcha! You should use Mocha-Multi</h4><p>I tried using <a href="https://github.com/glenjamin/mocha-multi" target="_blank" rel="noopener">mocha-multi</a> and I couldn't get it to work with the parameter for <a href="https://github.com/michaelleeallen/mocha-junit-reporter" target="_blank" rel="noopener">mocha-junit-reporter</a>.</p><h4>Gotcha! This produces an xunit.xml file in the root directory</h4><p>It's a <a href="https://github.com/stanleyhlng/mocha-multi-reporters/issues/35" target="_blank" rel="noopener" title="My bug report for the XUnit issue in mocha-multi-reporters">bug with mocha-multi-reporters</a> that I've reported. I'm hoping to get a pull request in for it soon, as it's a pretty easy fix.</p><p>The workaround is to add <em>xunit.xml</em> to your <em>.gitignore</em> file and ignore it yourself.</p><h2>Step 3: Run Test Script in your VSTS Build</h2><p>To run your test script, you need to add a build task  in VSTS. In our case, we're adding the NPM buid task, and configuring it to run our <code>npm test</code> command. The build task properties I use are:</p><ul><li>Version: 1.*</li><li>Display Name: npm test</li><li>Command: custom</li><li>Command and arguments: test</li></ul><p>Here's what it looks like:</p><p><img src="https://davidwesst.blob.core.windows.net/blog/mocha-in-vsts/vsts-npm-test-task.png" alt="Screenshot of npm build step" title="Screenshot of VSTS Build Task that runs the tests"></p><h2>Step 4: Publish the Test Results in VSTS</h2><p>For our last step, we need to publish the test results report to VSTS and tell it how to read it.</p><p>We do this with the Publish Test Results build step in VSTS and configure it with the following properties.</p><ul><li>Version: 2.*</li><li>Display name: Publish Test Results | Mocha</li><li>Test result format: JUnit</li><li>Search folder: $(System.DefaultWorkingDirectory)</li></ul><p>Which looks something like this:</p><p><img src="https://davidwesst.blob.core.windows.net/blog/mocha-in-vsts/vsts-publish-test-results.png" alt="VSTS Publish Test Results Build Step" title="Screenshot of VSTS Build Task that consumes the test report"></p><h2>Step 5: Done</h2><p>And with that, you're good to go to capture and explore your MochaJS test results from within your VSTS build report.</p><p>Happy test reporting!</p>]]></content>
-    
-    <summary type="html">
-    
-      Here&#39;s another dev thing I do: Display my MochaJS test report in the Visual Studio Team Services (VSTS) build report.
-    
-    </summary>
-    
-      <category term="development" scheme="https://westerndevs.com/categories/development/"/>
-    
-    
-      <category term="javascript" scheme="https://westerndevs.com/tags/javascript/"/>
-    
-      <category term="visual studio team services" scheme="https://westerndevs.com/tags/visual-studio-team-services/"/>
-    
-      <category term="mocha" scheme="https://westerndevs.com/tags/mocha/"/>
-    
-      <category term="testing" scheme="https://westerndevs.com/tags/testing/"/>
     
   </entry>
   

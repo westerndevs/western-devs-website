@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2020-11-06T02:37:14.035Z</updated>
+  <updated>2020-11-09T16:14:54.822Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,53 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">New Artwork and a Complete Rewrite...ish | Out the Door Devlog</title>
+    <link href="https://westerndevs.com/devlog/out-the-door/out-the-door-post-jam-update/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/devlog/out-the-door/out-the-door-post-jam-update/</id>
+    <published>2020-11-09T14:00:00.000Z</published>
+    <updated>2020-11-09T16:14:54.822Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>My effort continues on Out the Door with some new artwork, a rewrite (of sorts) to fix the build process, which has led to something of a self-driven code review.</p><a id="more"></a><iframe width="560" height="315" src="https://www.youtube.com/embed/LLXO-6Pretk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><h2>Wanna Play?</h2><p>Sure you do! Head over to my <a href="https://davidwesst.itch.io/out-the-door" target="_blank" rel="noopener">davidwesst.itch.io/out-the-door</a> to give it a whirl in your browser (no install needed) or Windows! It's totally free, and feedback is always appreciated.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;My effort continues on Out the Door with some new artwork, a rewrite (of sorts) to fix the build process, which has led to something of a self-driven code review.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="devlog" scheme="https://westerndevs.com/categories/devlog/"/>
+    
+      <category term="out the door" scheme="https://westerndevs.com/categories/devlog/out-the-door/"/>
+    
+    
+      <category term="game development" scheme="https://westerndevs.com/tags/game-development/"/>
+    
+      <category term="gamejam" scheme="https://westerndevs.com/tags/gamejam/"/>
+    
+      <category term="ludum dare" scheme="https://westerndevs.com/tags/ludum-dare/"/>
+    
+      <category term="ludum dare 47" scheme="https://westerndevs.com/tags/ludum-dare-47/"/>
+    
+      <category term="game design" scheme="https://westerndevs.com/tags/game-design/"/>
+    
+      <category term="out the door" scheme="https://westerndevs.com/tags/out-the-door/"/>
+    
+  </entry>
+  
+  <entry>
     <title type="html">Azure Processor Limits</title>
     <link href="https://westerndevs.com//processor-limits/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com//processor-limits/</id>
     <published>2020-11-05T20:00:00.000Z</published>
-    <updated>2020-11-06T02:37:14.035Z</updated>
+    <updated>2020-11-09T16:14:54.822Z</updated>
 	<author>
 	
 	  
@@ -47,7 +89,7 @@
     <link href="https://westerndevs.com//elasticquery/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com//elasticquery/</id>
     <published>2020-11-05T19:00:00.000Z</published>
-    <updated>2020-11-06T02:37:14.035Z</updated>
+    <updated>2020-11-09T16:14:54.822Z</updated>
 	<author>
 	
 	  
@@ -73,7 +115,7 @@
     <link href="https://westerndevs.com/devlog/a-solo-gamejam-experience-ld47/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/a-solo-gamejam-experience-ld47/</id>
     <published>2020-10-23T13:00:00.000Z</published>
-    <updated>2020-11-06T02:37:14.035Z</updated>
+    <updated>2020-11-09T16:14:54.822Z</updated>
 	<author>
 	
 	  
@@ -113,7 +155,7 @@
     <link href="https://westerndevs.com//typescript-definition/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com//typescript-definition/</id>
     <published>2020-09-28T18:00:00.000Z</published>
-    <updated>2020-11-06T02:37:14.035Z</updated>
+    <updated>2020-11-09T16:14:54.822Z</updated>
 	<author>
 	
 	  
@@ -139,7 +181,7 @@
     <link href="https://westerndevs.com/devlog/game-portfolio-review-2020/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/game-portfolio-review-2020/</id>
     <published>2020-09-18T13:00:00.000Z</published>
-    <updated>2020-11-06T02:37:14.035Z</updated>
+    <updated>2020-11-09T16:14:54.822Z</updated>
 	<author>
 	
 	  
@@ -179,7 +221,7 @@
     <link href="https://westerndevs.com/devlog/little-shop-of-wall-street-01-release-notes/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/little-shop-of-wall-street-01-release-notes/</id>
     <published>2020-07-02T15:13:00.000Z</published>
-    <updated>2020-11-06T02:37:14.035Z</updated>
+    <updated>2020-11-09T16:14:54.822Z</updated>
 	<author>
 	
 	  
@@ -217,7 +259,7 @@
     <link href="https://westerndevs.com/Azure/Azure-Functions/scaling-azure-functions-from-consumption-plan-to-premium-hosting-plan/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Azure/Azure-Functions/scaling-azure-functions-from-consumption-plan-to-premium-hosting-plan/</id>
     <published>2020-05-23T16:30:00.000Z</published>
-    <updated>2020-11-06T02:37:14.035Z</updated>
+    <updated>2020-11-09T16:14:54.822Z</updated>
 	<author>
 	
 	  
@@ -255,7 +297,7 @@
     <link href="https://westerndevs.com/kubernetes/kubernetes-my-journey/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/kubernetes/kubernetes-my-journey/</id>
     <published>2020-05-22T17:00:00.000Z</published>
-    <updated>2020-11-06T02:37:14.035Z</updated>
+    <updated>2020-11-09T16:14:54.822Z</updated>
 	<author>
 	
 	  
@@ -286,7 +328,7 @@
     <link href="https://westerndevs.com/kubernetes/kubernetes-my-journey-part-1/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-1/</id>
     <published>2020-05-22T16:00:00.000Z</published>
-    <updated>2020-11-06T02:37:14.035Z</updated>
+    <updated>2020-11-09T16:14:54.818Z</updated>
 	<author>
 	
 	  
@@ -318,7 +360,7 @@
     <link href="https://westerndevs.com/kubernetes/kubernetes-my-journey-part-2/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-2/</id>
     <published>2020-05-22T15:00:00.000Z</published>
-    <updated>2020-11-06T02:37:14.035Z</updated>
+    <updated>2020-11-09T16:14:54.822Z</updated>
 	<author>
 	
 	  
@@ -350,7 +392,7 @@
     <link href="https://westerndevs.com/kubernetes/kubernetes-my-journey-part-3/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-3/</id>
     <published>2020-05-22T14:00:00.000Z</published>
-    <updated>2020-11-06T02:37:14.035Z</updated>
+    <updated>2020-11-09T16:14:54.822Z</updated>
 	<author>
 	
 	  
@@ -382,7 +424,7 @@
     <link href="https://westerndevs.com/kubernetes/kubernetes-my-journey-part-4/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-4/</id>
     <published>2020-05-22T13:00:00.000Z</published>
-    <updated>2020-11-06T02:37:14.035Z</updated>
+    <updated>2020-11-09T16:14:54.822Z</updated>
 	<author>
 	
 	  
@@ -414,7 +456,7 @@
     <link href="https://westerndevs.com/kubernetes/kubernetes-my-journey-part-5a/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-5a/</id>
     <published>2020-05-22T12:00:00.000Z</published>
-    <updated>2020-11-06T02:37:14.035Z</updated>
+    <updated>2020-11-09T16:14:54.822Z</updated>
 	<author>
 	
 	  
@@ -446,7 +488,7 @@
     <link href="https://westerndevs.com/kubernetes/kubernetes-my-journey-part-5b/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-5b/</id>
     <published>2020-05-22T11:00:00.000Z</published>
-    <updated>2020-11-06T02:37:14.035Z</updated>
+    <updated>2020-11-09T16:14:54.822Z</updated>
 	<author>
 	
 	  
@@ -478,7 +520,7 @@
     <link href="https://westerndevs.com/kubernetes/kubernetes-my-journey-part-6/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-6/</id>
     <published>2020-05-22T10:00:00.000Z</published>
-    <updated>2020-11-06T02:37:14.035Z</updated>
+    <updated>2020-11-09T16:14:54.822Z</updated>
 	<author>
 	
 	  
@@ -510,7 +552,7 @@
     <link href="https://westerndevs.com/kubernetes/kubernetes-my-journey-part-7a/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-7a/</id>
     <published>2020-05-22T09:00:00.000Z</published>
-    <updated>2020-11-06T02:37:14.035Z</updated>
+    <updated>2020-11-09T16:14:54.822Z</updated>
 	<author>
 	
 	  
@@ -542,7 +584,7 @@
     <link href="https://westerndevs.com/kubernetes/kubernetes-my-journey-part-7b/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-7b/</id>
     <published>2020-05-22T08:00:00.000Z</published>
-    <updated>2020-11-06T02:37:14.035Z</updated>
+    <updated>2020-11-09T16:14:54.822Z</updated>
 	<author>
 	
 	  
@@ -574,7 +616,7 @@
     <link href="https://westerndevs.com/kubernetes/kubernetes-my-journey-part-8/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-8/</id>
     <published>2020-05-22T07:00:00.000Z</published>
-    <updated>2020-11-06T02:37:14.035Z</updated>
+    <updated>2020-11-09T16:14:54.822Z</updated>
 	<author>
 	
 	  
@@ -606,7 +648,7 @@
     <link href="https://westerndevs.com/kubernetes/kubernetes-my-journey-part-9/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-9/</id>
     <published>2020-05-22T06:00:00.000Z</published>
-    <updated>2020-11-06T02:37:14.035Z</updated>
+    <updated>2020-11-09T16:14:54.822Z</updated>
 	<author>
 	
 	  
@@ -617,38 +659,6 @@
 	</author>
     
     <content type="html"><![CDATA[<p><a href="/kubernetes/kubernetes-my-journey">Series Table of Contents</a></p><p><strong>Previously:</strong><a href="/kubernetes/kubernetes-my-journey-part-8">Making Your Kubernetes Cluster Publicly Accessible</a></p><h1>Adding kubernetes logging (fluentd)</h1><p>In this article, we are going to add some logging infrastructure to our <strong>k8s</strong> cluster to address the problems I had when an application doesn't log directly to the log ingestion platform I was using. (Seq).</p><p>This article is mostly Pulumi application code with a bit of an origin story, but to be honest, I haven't fully refined my understanding of <strong>fluentd</strong> for the article to be much more. I will add to and refine this article as I refine my <strong>fluentd</strong> implementation. This article will get your whole-cluster logging working though.</p><h2>fluentd</h2><p>As I mentioned before, <a href="https://www.fluentd.org/" target="_blank" rel="noopener">fluentd</a> is one of several <strong>k8s</strong> log ingestion solutions that is out there right now. It has a lot of community support, so it was really easy to get started with it.</p><h3>Service Account and Roles</h3><p>In order to get <strong>fluentd</strong> running in the cluster, there are a bunch of resources that need to be in place. Because <strong>fluentd</strong> <em>needs</em> access to <em>all</em> of the pods in the cluster to get at their logs, it needs a fairly empowered service account but we also want to make sure that service account only has the minimum amount of permissions as required to do it's job.</p><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Fluentd Service Account and Role creation</span></span><br><span class="line"><span class="keyword">const</span> fluentdServiceAccount = <span class="keyword">new</span> k8s.core.v1.ServiceAccount(<span class="string">"fluentd-serviceaccount"</span>, &#123;</span><br><span class="line">    metadata: &#123;name: <span class="string">"fluentd-serviceaccount"</span>, <span class="keyword">namespace</span>: <span class="string">"kube-system"</span>&#125;</span><br><span class="line">&#125;, &#123;provider: k8sProvider&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fluentdClusterRole = <span class="keyword">new</span> k8s.rbac.v1beta1.ClusterRole(<span class="string">"fluentd-clusterrole"</span>,&#123;</span><br><span class="line">    metadata: &#123;</span><br><span class="line">        name: <span class="string">"fluentd-clusterrole"</span>,</span><br><span class="line">        <span class="keyword">namespace</span>: <span class="string">"kube-system"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    rules: [&#123;apiGroups: [<span class="string">""</span>], resources: [<span class="string">"pods"</span>, <span class="string">"namespaces"</span>], verbs: [<span class="string">"get"</span>, <span class="string">"list"</span>, <span class="string">"watch"</span>]&#125;]</span><br><span class="line">&#125;, &#123;provider: k8sProvider&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fluentdClusterRoleBinding = <span class="keyword">new</span> k8s.rbac.v1beta1.ClusterRoleBinding(<span class="string">"fluentd-clusterrolebinding"</span>, &#123;</span><br><span class="line">    metadata:&#123;</span><br><span class="line">        name: <span class="string">"fluentd-clusterrolebinding"</span>,</span><br><span class="line">        <span class="keyword">namespace</span>: <span class="string">"kube-system"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    roleRef: &#123;kind: <span class="string">"ClusterRole"</span>, name:<span class="string">"fluentd-clusterrole"</span>,apiGroup:<span class="string">"rbac.authorization.k8s.io"</span> &#125;,</span><br><span class="line">    subjects: [&#123;kind: <span class="string">"ServiceAccount"</span>, name:<span class="string">"fluentd-serviceaccount"</span>, <span class="keyword">namespace</span>: <span class="string">"kube-system"</span>&#125;]</span><br><span class="line">&#125;, &#123;provider: k8sProvider&#125;)</span><br></pre></td></tr></table></figure><h3>fluentd Pods</h3><p>We now have a properly configured service account to use with our <strong>fluentd</strong> pods. Remember, <strong>fluentd</strong> is just another application running in the cluster performing its duties. And applications run in pods/containers.</p><p>In this section, we are going to see code that creates our first <a href="https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/" target="_blank" rel="noopener">DaemonSet</a> set of resources in the cluster. A DaemonSet is similar to a Deployment with the primary difference being that a DaemonSet is used when you want to make sure there is one pod, that is described in the DaemonSet spec, on each node in the cluster. As nodes are added, the DaemonSet will ensure that the pods in its spec are automatically added.</p><p><strong>fluentd</strong> is an application that is running on the node basically scraping log files. All of the log files are stored in the node file system, so in order to get all of the logs, we have to have a <strong>fluentd</strong> instance per node. DaemonSets are how we do that in <strong>k8s</strong>.</p><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> gldsLabels = &#123; <span class="string">"k8s-app"</span>: <span class="string">"fluentd-logging"</span>, version: <span class="string">"v1"</span>&#125;;</span><br><span class="line"><span class="keyword">const</span> fluentdGraylogDaemonSet = <span class="keyword">new</span> k8s.apps.v1.DaemonSet(<span class="string">"fluentd-graylog-daemonset"</span>, &#123;</span><br><span class="line">    metadata: &#123; name: <span class="string">"fluentd-graylog-daemonset"</span>,</span><br><span class="line">    <span class="keyword">namespace</span>: <span class="string">"kube-system"</span>,</span><br><span class="line">    labels: gldsLabels &#125;,</span><br><span class="line">    spec: &#123;</span><br><span class="line">        selector: &#123;</span><br><span class="line">            matchLabels: gldsLabels</span><br><span class="line">        &#125;,</span><br><span class="line">        updateStrategy: &#123;<span class="keyword">type</span>: <span class="string">"RollingUpdate"</span> &#125;,</span><br><span class="line">        template: &#123;</span><br><span class="line">            metadata: &#123; labels: gldsLabels &#125;,</span><br><span class="line">            spec: &#123;</span><br><span class="line">                serviceAccount: <span class="string">"fluentd-serviceaccount"</span>,</span><br><span class="line">                serviceAccountName: <span class="string">"fluentd-serviceaccount"</span>,</span><br><span class="line">                containers: [</span><br><span class="line">                    &#123;</span><br><span class="line">                        name: <span class="string">"fluentd"</span>,</span><br><span class="line">                        image: <span class="string">"fluent/fluentd-kubernetes-daemonset:v1-debian-graylog"</span>,</span><br><span class="line">                        imagePullPolicy: <span class="string">"IfNotPresent"</span>,</span><br><span class="line">                        env: [</span><br><span class="line">                            &#123;name: <span class="string">"FLUENT_GRAYLOG_HOST"</span>, value: <span class="string">"seq-svc.default.svc.cluster.local"</span>&#125;,</span><br><span class="line">                            &#123;name: <span class="string">"FLUENT_GRAYLOG_PORT"</span>, value: <span class="string">"12201"</span>&#125;</span><br><span class="line">                        ],</span><br><span class="line">                        resources: &#123;</span><br><span class="line">                            requests: &#123;</span><br><span class="line">                                cpu: <span class="string">"200m"</span>,</span><br><span class="line">                                memory: <span class="string">"0.5Gi"</span></span><br><span class="line">                            &#125;,</span><br><span class="line">                            limits: &#123;</span><br><span class="line">                                cpu: <span class="string">"1000m"</span>,</span><br><span class="line">                                memory: <span class="string">"1Gi"</span></span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;,</span><br><span class="line">                        volumeMounts :[</span><br><span class="line">                            &#123;name: <span class="string">"varlog"</span>, mountPath: <span class="string">"/var/log"</span>&#125;,</span><br><span class="line">                            &#123;name: <span class="string">"varlibdockercontainers"</span>, mountPath: <span class="string">"/var/lib/docker/containers"</span>, readOnly: <span class="literal">true</span>&#125;</span><br><span class="line">                        ],</span><br><span class="line">                    &#125;</span><br><span class="line">                ],</span><br><span class="line">                terminationGracePeriodSeconds: <span class="number">30</span>,</span><br><span class="line">                volumes: [</span><br><span class="line">                    &#123;name: <span class="string">"config-volume"</span>, configMap: &#123; name: <span class="string">"fluentd-conf"</span>&#125;&#125;,</span><br><span class="line">                    &#123;name: <span class="string">"varlog"</span>, hostPath: &#123;path: <span class="string">"/var/log"</span>&#125;&#125;,</span><br><span class="line">                    &#123;name: <span class="string">"varlibdockercontainers"</span>, hostPath: &#123;path: <span class="string">"/var/lib/docker/containers"</span>&#125;&#125;</span><br><span class="line">                ]</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;, &#123;provider: k8sProvider&#125;);</span><br></pre></td></tr></table></figure><p>There is a bunch of configurations in here that are standard, but there are two things that are unique to this Pulumi application.</p><p>The first unique item is the <strong>flavour</strong> of fluentd that we are using. There are <a href="https://github.com/fluent/fluentd-kubernetes-daemonset/tree/master/docker-image/v1.3" target="_blank" rel="noopener">numerous container images</a> that are available from fluentd's repository and I was really fortunate to find the graylog-flavoured image. This image creates containers that natively talk using the graylog logging format.</p><p><code>fluent/fluentd-kubernetes-daemonset:v1-debian-graylog</code></p><p>The second unique item is a derivative of the first. Because we are using graylog, we need to give the <strong>fluentd</strong> pod some environmental configuration telling it where to send the logs to. In this case, we will be sending them to <code>sqelf</code> which will in turn send them directly into <code>Seq</code>. We can finally see this pair of containers in action in the Seq-dep pod.</p><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">env: [</span><br><span class="line">    &#123;name: <span class="string">"FLUENT_GRAYLOG_HOST"</span>, value: <span class="string">"seq-svc.default.svc.cluster.local"</span>&#125;,</span><br><span class="line">    &#123;name: <span class="string">"FLUENT_GRAYLOG_PORT"</span>, value: <span class="string">"12201"</span>&#125;</span><br><span class="line">],</span><br></pre></td></tr></table></figure><p>You should notice that we've used the FQDN of the seq-svc because the <strong>fluentd</strong> application is not in the same namespace in the <strong>k8s</strong> cluster as Seq/sqelf.</p><h3>Next Steps for fluentd</h3><p>That is most of what I've done so far with <strong>fluentd</strong>. I've got it working, and the local Seq instance is ingesting a lot of log entries. This is ok because this is all in the same cluster, so network traffic isn't a concern I am currently worried about. It is something I'm more aware of because the Seq logs are <strong>full</strong> of log entries and it makes it a bit harder to find what I'm looking for.</p><p><strong>fluentd</strong> has an approach to describe the <strong>pipeline</strong> that all log entries flow through. This is the kubernetes.conf file and you can replace the default configuration with one in a ConfigMap. This yaml resource file is an example:</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">ConfigMap</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">fluentd-conf</span></span><br><span class="line">  <span class="attr">namespace:</span> <span class="string">kube-system</span></span><br><span class="line"><span class="attr">data:</span></span><br><span class="line">  <span class="attr">kubernetes.conf:</span> <span class="string">"&lt;match kubernetes.**&gt;\r\n  @type null\r\n&lt;/match&gt;\r\n&lt;match fluent.**&gt;\r\n</span></span><br><span class="line"><span class="string">    \ @type null\r\n&lt;/match&gt;\r\n&lt;match **&gt;\r\n  @type stdout\r\n&lt;/match&gt;\r\n"</span></span><br></pre></td></tr></table></figure><p>And the <strong>fluentd</strong> pod is configured to use this ConfigMap here in the <strong>volumes</strong> section of the Pulumi declaration:</p><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;name: <span class="string">"config-volume"</span>, configMap: &#123; name: <span class="string">"fluentd-conf"</span>&#125;&#125;,</span><br></pre></td></tr></table></figure><p>My next learning steps are refining this pipeline so that I can better manage how much data is flowing to <code>sqelf</code> and <code>Seq</code>.</p><p>Another thing I need to get a handle on is doing ConfigMap declarations in Pulumi. Currently, a YAML ConfigMap examples is a PITA to convert to a Pulumi declaration. That will be another chapter, eventually, in this series. I've also asked Pulumi to start providing better examples of ConfigMaps in their documentation. A recipe book for many common YAML ConfigMaps would be great.</p><p><strong>Next up:</strong><a href="/kubernetes/kubernetes-my-journey-part-10">Tuning resource usage</a></p><style>    h1, h2, h3, h4, h5, h6 {       margin-top: 25px;    }    figure.highlight{        background-color: #E8EEFE;    }    figure.highlight .gutter{        color: #0033CD;    }    figure.highlight pre {        font-family: 'Cascadia Code PL', monospace;    }    code {        font-family: 'Cascadia Code PL', sans-serif;        border-width: 0.1em;        border-color: #E8EEFE;        border-style: solid;        border-radius: 0.3em;        background-color: #E8EEFE;        color: #0033CD;        padding: 0em 0.4em;        white-space: nowrap;    }</style><link  href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.5.0/viewer.min.css" rel="stylesheet"><script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.5.0/viewer.min.js"></script><script>// View an imageconst gallery = new Viewer(document.getElementById('mainPostContent', {    "navbar": false,    "toolbar": false}));</script>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;/kubernetes/kubernetes-my-journey&quot;&gt;Series Table of Contents&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Previously:&lt;/strong&gt;
-&lt;a href=&quot;/kubernetes/kuberne
-    
-    </summary>
-    
-      <category term="kubernetes" scheme="https://westerndevs.com/categories/kubernetes/"/>
-    
-    
-      <category term="kubernetes, azure, aks, identityserver, docker, containers" scheme="https://westerndevs.com/tags/kubernetes-azure-aks-identityserver-docker-containers/"/>
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Kubernetes - My Journey - Part 10</title>
-    <link href="https://westerndevs.com/kubernetes/kubernetes-my-journey-part-10/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-10/</id>
-    <published>2020-05-22T05:00:00.000Z</published>
-    <updated>2020-11-06T02:37:14.035Z</updated>
-	<author>
-	
-	  
-	  <name>Dave White</name>
-	  <email>dmhwhite@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p><a href="/kubernetes/kubernetes-my-journey">Series Table of Contents</a></p><p><strong>Previously:</strong><a href="/kubernetes/kubernetes-my-journey-part-9">Adding kubernetes logging (fluentd)</a></p><h1>Tuning resource usage</h1><p>We now have a full-functional cluster, producing metrics, logging, running applications, the whole ball of wax! We are now in the place where we can start to tune the performance characteristics of our cluster.</p><p>I have just started down this path myself, and as such, I don't have a lot of experience with the current cluster as it is running. It is just being rolled out into production now and so over the next days, weeks, and months, we will be learning how to monitor the performance of the cluster and making adjustments to the CPU and Memory requests that we can define in our pods.</p><p>I will be adding to this article as I learn but I also wanted a place to publicly share some links that I find and like.</p><h2>Basic Resource Requests</h2><p>Going back one chapter to the <strong>fluentd</strong> pulumi declarations, we can see that in the <strong>DaemonSet</strong> resource, we are describing requests and limits for our pod resources.</p><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">resources: &#123;</span><br><span class="line">    requests: &#123;</span><br><span class="line">        cpu: <span class="string">"200m"</span>,</span><br><span class="line">        memory: <span class="string">"0.5Gi"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    limits: &#123;</span><br><span class="line">        cpu: <span class="string">"1000m"</span>,</span><br><span class="line">        memory: <span class="string">"1Gi"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure><p>You can use these requests and limits in any pod <strong>spec</strong> and you can make adjustments as you learn. Just a reminder, pods are intended to be ephemeral and any changes will cause pods to go be deleted and new replacements are created. You can make changes in your pulumi application, do a quick <code>pulumi up</code> and see the difference in node resource consumption nearly immediately.</p><h3>Monitoring Resource Usage</h3><p>It's important to remember that pods use node resources, so if you are going to monitor resources, they would be at the cluster/node level and not any particular application or namespace.</p><p>Using Octant, we can navigate to a node to get a sense of how it is doing.</p><img id="image" src="/images/dwhite/cluster-node-resources.png" alt="Cluster Node Resources" height="250px"><p>On the same node details page, we can find a section called <strong>Conditions</strong> where <strong>k8s</strong> is telling you how it feels about the current resources available vs. allocated. I don't have any ideas or guidance yet on what these ratios should be yet.</p><img id="image" src="/images/dwhite/cluster-node-conditions.png" alt="Cluster Node Conditions" height="150px"><p>I've actually found that I really like the Kubernetes Dashboard WebUI is a great place to also look at resource utilizations and configurations.</p><img id="image" src="/images/dwhite/cluster-node-resources-webui.png" alt="WebUI Cluster Node Resources" height="250px"><p>Clicking into a single node gives details about Conditions on that node.</p><img id="image" src="/images/dwhite/cluster-node-conditions-webui.png" alt="WebUI Cluster Node Conditions" height="250px"><h2>Summary</h2><p>As mentioned, this is certainly a work in progress. As we monitor the cluster and how it behaves, we'll make adjustments. I'm certain we'll also make adjustments as to how we monitor. I expect at least one <a href="https://prometheus.io/" target="_blank" rel="noopener">prometheus</a> article in the near future, so I'll just leave the <strong>Next Up</strong> link space at the bottom of the article as TBD. :D</p><h2>Links to Articles</h2><ul><li><a href="https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/" target="_blank" rel="noopener">Kubernetes Managing Resources</a></li><li><a href="https://www.replex.io/blog/kubernetes-in-production-the-ultimate-guide-to-monitoring-resource-metrics" target="_blank" rel="noopener">Making Sense of Kubernetes Cluster Metrics</a></li></ul><p><strong>Next up:</strong></p><p>TBD</p><div style="width:100%;height:0;padding-bottom:42%;position:relative;"><iframe src="https://giphy.com/embed/xUPGcdeU3wvdNPa1Py" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><style>    h1, h2, h3, h4, h5, h6 {       margin-top: 25px;    }    figure.highlight{        background-color: #E8EEFE;    }    figure.highlight .gutter{        color: #0033CD;    }    figure.highlight pre {        font-family: 'Cascadia Code PL', monospace;    }    code {        font-family: 'Cascadia Code PL', sans-serif;        border-width: 0.1em;        border-color: #E8EEFE;        border-style: solid;        border-radius: 0.3em;        background-color: #E8EEFE;        color: #0033CD;        padding: 0em 0.4em;        white-space: nowrap;    }</style><link  href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.5.0/viewer.min.css" rel="stylesheet"><script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.5.0/viewer.min.js"></script><script>// View an imageconst gallery = new Viewer(document.getElementById('mainPostContent', {    "navbar": false,    "toolbar": false}));</script>]]></content>
     
     <summary type="html">
     
