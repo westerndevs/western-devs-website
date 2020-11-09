@@ -5,7 +5,7 @@
   <link href="/feeds/simon_timms" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2020-11-09T16:14:54.822Z</updated>
+  <updated>2020-11-09T21:27:02.250Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Running Stored Procedures Across Databases in Azure</title>
+    <link href="https://westerndevs.com//cross-database-procs/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com//cross-database-procs/</id>
+    <published>2020-11-09T19:00:00.000Z</published>
+    <updated>2020-11-09T21:27:02.250Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>In a <a href="https://blog.simontimms.com/2020/11/05/2020-11-05-cross-database-queries/" target="_blank" rel="noopener">previous article</a> I talked about how to run queries across database instances on Azure using ElasticQuery. One of the limitations I talked about was the in ability to update data in the source database. Well that isn't entirely accurate. You can do it if you make use of stored procedures.</p><a id="more"></a><p>Running a stored proc on a remote database is a little bit weird looking but once you get your head around that then it is perfectly usable. Let's go back to the same example we used before with a products database an an orders database. In the products database let's add a stored procedure to add a new product and return the count of products.</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">procedure</span> addProduct</span><br><span class="line"> @item <span class="keyword">nvarchar</span>(<span class="number">50</span>)</span><br><span class="line"><span class="keyword">as</span></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Products(<span class="keyword">name</span>) <span class="keyword">values</span>(@item);</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">count</span>(*) cnt <span class="keyword">from</span> products;</span><br><span class="line">go</span><br></pre></td></tr></table></figure><p>Now over in our orders database we can use our existing database connection to call this stored proc</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sp_execute_remote ProductsSource, </span><br><span class="line">                  N'addProduct @item', </span><br><span class="line">                  @params = N'@item nvarchar(50)', </span><br><span class="line">                  @item = 'long sleeved shirts';</span><br></pre></td></tr></table></figure><p>At first glance this is a little confusing so let's break it down.</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sp_execute_remote ProductsSource,</span><br></pre></td></tr></table></figure><p>This line instructs that we want to run a stored procedure and that it should use the ProductsSource data connection.</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">N'addProduct @item',</span><br></pre></td></tr></table></figure><p>This line lists the stored proc to run and the parameters to pass to it. You'll notice that it is a NVarchar string passed as a single parameter.</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@params = N'@item nvarchar(50)',</span><br></pre></td></tr></table></figure><p>This line lists all the parameters to pass and their type. If you have multiple then you'd comma separate them here: <code>N'@item nvarchar(50), @price number(10,2)'</code></p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@item</span> = <span class="string">'long sleeved shirts'</span>;</span><br></pre></td></tr></table></figure><p>This final line is an args-style array of the values for the parameters. Again if you had a second parameter you'd pass it in as separate item here <code>@item = 'long sleeved shirts', @price=10.99</code></p><p>Running this command gets us something like</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cnt  <span class="variable">$ShardName</span></span><br><span class="line">6  [<span class="attribute">DataSource</span>=testias.database.windows.net <span class="attribute">Database</span>=testias]</span><br></pre></td></tr></table></figure><p>You'll notice that nifty ShardName colum which tells you about the source. This is because you can use a shard map to execute the stored procedure against lots of shards at once.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;In a &lt;a href=&quot;https://blog.simontimms.com/2020/11/05/2020-11-05-cross-database-queries/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;previous article&lt;/a&gt; I talked about how to run queries across database instances on Azure using ElasticQuery. One of the limitations I talked about was the in ability to update data in the source database. Well that isn&#39;t entirely accurate. You can do it if you make use of stored procedures.&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Azure Processor Limits</title>
     <link href="https://westerndevs.com//processor-limits/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com//processor-limits/</id>
     <published>2020-11-05T20:00:00.000Z</published>
-    <updated>2020-11-09T16:14:54.822Z</updated>
+    <updated>2020-11-09T21:27:02.250Z</updated>
 	<author>
 	
 	  
@@ -47,7 +73,7 @@
     <link href="https://westerndevs.com//elasticquery/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com//elasticquery/</id>
     <published>2020-11-05T19:00:00.000Z</published>
-    <updated>2020-11-09T16:14:54.822Z</updated>
+    <updated>2020-11-09T21:27:02.250Z</updated>
 	<author>
 	
 	  
@@ -73,7 +99,7 @@
     <link href="https://westerndevs.com//typescript-definition/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com//typescript-definition/</id>
     <published>2020-09-28T18:00:00.000Z</published>
-    <updated>2020-11-09T16:14:54.822Z</updated>
+    <updated>2020-11-09T21:27:02.250Z</updated>
 	<author>
 	
 	  
@@ -99,7 +125,7 @@
     <link href="https://westerndevs.com//flutter-tests-with-native/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com//flutter-tests-with-native/</id>
     <published>2020-04-01T14:00:00.000Z</published>
-    <updated>2020-11-09T16:14:54.818Z</updated>
+    <updated>2020-11-09T21:27:02.246Z</updated>
 	<author>
 	
 	  
@@ -125,7 +151,7 @@
     <link href="https://westerndevs.com//find-webforms-errors-with-precompilation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com//find-webforms-errors-with-precompilation/</id>
     <published>2020-04-01T00:00:00.000Z</published>
-    <updated>2020-11-09T16:14:54.818Z</updated>
+    <updated>2020-11-09T21:27:02.246Z</updated>
 	<author>
 	
 	  
@@ -153,7 +179,7 @@
     <link href="https://westerndevs.com//Allow-hosted-agent-through-firewall/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com//Allow-hosted-agent-through-firewall/</id>
     <published>2020-01-10T14:00:00.000Z</published>
-    <updated>2020-11-09T16:14:54.818Z</updated>
+    <updated>2020-11-09T21:27:02.246Z</updated>
 	<author>
 	
 	  
@@ -179,7 +205,7 @@
     <link href="https://westerndevs.com//UNION-vs-UNION-ALL/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com//UNION-vs-UNION-ALL/</id>
     <published>2019-12-30T14:00:00.000Z</published>
-    <updated>2020-11-09T16:14:54.818Z</updated>
+    <updated>2020-11-09T21:27:02.246Z</updated>
 	<author>
 	
 	  
@@ -206,7 +232,7 @@
     <link href="https://westerndevs.com//bulk-load-and-merge/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com//bulk-load-and-merge/</id>
     <published>2019-10-12T04:00:00.000Z</published>
-    <updated>2020-11-09T16:14:54.818Z</updated>
+    <updated>2020-11-09T21:27:02.246Z</updated>
 	<author>
 	
 	  
@@ -232,7 +258,7 @@
     <link href="https://westerndevs.com//Debugging-php-in-container/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com//Debugging-php-in-container/</id>
     <published>2019-07-05T23:00:00.000Z</published>
-    <updated>2020-11-09T16:14:54.818Z</updated>
+    <updated>2020-11-09T21:27:02.246Z</updated>
 	<author>
 	
 	  
@@ -258,7 +284,7 @@
     <link href="https://westerndevs.com/DurableFunctions/durable_functions_analyzer/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/DurableFunctions/durable_functions_analyzer/</id>
     <published>2019-02-18T00:00:00.000Z</published>
-    <updated>2020-11-09T16:14:54.818Z</updated>
+    <updated>2020-11-09T21:27:02.246Z</updated>
 	<author>
 	
 	  
@@ -286,7 +312,7 @@
     <link href="https://westerndevs.com/DurableFunctions/durablefunctions_sagas/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/DurableFunctions/durablefunctions_sagas/</id>
     <published>2019-02-15T00:00:00.000Z</published>
-    <updated>2020-11-09T16:14:54.818Z</updated>
+    <updated>2020-11-09T21:27:02.246Z</updated>
 	<author>
 	
 	  
@@ -316,7 +342,7 @@
     <link href="https://westerndevs.com/B2C/Getting-b2c-claims-in-an-azure-function/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/B2C/Getting-b2c-claims-in-an-azure-function/</id>
     <published>2019-02-14T00:00:00.000Z</published>
-    <updated>2020-11-09T16:14:54.818Z</updated>
+    <updated>2020-11-09T21:27:02.246Z</updated>
 	<author>
 	
 	  
@@ -344,7 +370,7 @@
     <link href="https://westerndevs.com//Running-a-single-durable-function/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com//Running-a-single-durable-function/</id>
     <published>2019-01-31T14:00:00.000Z</published>
-    <updated>2020-11-09T16:14:54.818Z</updated>
+    <updated>2020-11-09T21:27:02.246Z</updated>
 	<author>
 	
 	  
@@ -370,7 +396,7 @@
     <link href="https://westerndevs.com//Functions-aad-authentication/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com//Functions-aad-authentication/</id>
     <published>2019-01-30T18:00:00.000Z</published>
-    <updated>2020-11-09T16:14:54.818Z</updated>
+    <updated>2020-11-09T21:27:02.246Z</updated>
 	<author>
 	
 	  
@@ -396,7 +422,7 @@
     <link href="https://westerndevs.com//2018-12-06-creating-queues-in-devops/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com//2018-12-06-creating-queues-in-devops/</id>
     <published>2018-12-06T18:00:00.000Z</published>
-    <updated>2020-11-09T16:14:54.818Z</updated>
+    <updated>2020-11-09T21:27:02.246Z</updated>
 	<author>
 	
 	  
@@ -422,7 +448,7 @@
     <link href="https://westerndevs.com//2018-11-05-datafactory/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com//2018-11-05-datafactory/</id>
     <published>2018-11-05T18:00:00.000Z</published>
-    <updated>2020-11-09T16:14:54.818Z</updated>
+    <updated>2020-11-09T21:27:02.246Z</updated>
 	<author>
 	
 	  
@@ -448,7 +474,7 @@
     <link href="https://westerndevs.com/development-fundamentals/Checking-In-packages/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/development-fundamentals/Checking-In-packages/</id>
     <published>2018-10-21T15:36:36.000Z</published>
-    <updated>2020-11-09T16:14:54.810Z</updated>
+    <updated>2020-11-09T21:27:02.242Z</updated>
 	<author>
 	
 	  
@@ -480,7 +506,7 @@
     <link href="https://westerndevs.com//microservices-devops/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com//microservices-devops/</id>
     <published>2018-10-20T04:00:00.000Z</published>
-    <updated>2020-11-09T16:14:54.818Z</updated>
+    <updated>2020-11-09T21:27:02.246Z</updated>
 	<author>
 	
 	  
@@ -506,7 +532,7 @@
     <link href="https://westerndevs.com//2018-10-12-cloudfront-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com//2018-10-12-cloudfront-terraform/</id>
     <published>2018-10-12T04:00:00.000Z</published>
-    <updated>2020-11-09T16:14:54.818Z</updated>
+    <updated>2020-11-09T21:27:02.246Z</updated>
 	<author>
 	
 	  
@@ -521,34 +547,6 @@
     <summary type="html">
     
       &lt;p&gt;Just the other day somebody was mentioning to me that they were having trouble setting up a statically hosted site on AWS. That was the kick in the nose I needed to get this article written as it&#39;s been on my back-burner for a while. Terraform makes the whole process easy.&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Weird JavaScript - Destructuring</title>
-    <link href="https://westerndevs.com//JavaScript-Destructuring/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com//JavaScript-Destructuring/</id>
-    <published>2018-07-02T04:00:00.000Z</published>
-    <updated>2020-11-09T16:14:54.818Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>I've been at this programming game for a long time and I've written two books on JavaScript. Still today I ran into some code that had me scratching my head. It looked like</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">AppliedRoute</span> (<span class="params">&#123; component: C, props: cProps, ...rest &#125;</span>) </span>&#123;</span><br></pre></td></tr></table></figure><p>I was converting some JavaScript to TypeScript and this line threw an linting error because of <code>implicit any</code>. That means that the type being passed in has no associated type information and has been assumed to be of type <code>any</code>. This is something we'd like to avoid. Problem was I had no idea what this thing was. It looked like an object but it was being built in the parameters?</p><a id="more"></a><p>Well turns out that after some digging this was a form of JavaScript destructuring. Destructuring means taking an object or an array and extracting values from it into variables. In this weird case we were passing some object into this function and stripping off variables called C, cProps and rest. C was being bound to the field <code>component</code>, cProps to the field <code>props</code> and then all the rest of the values in the object were being assigned to an object called <code>rest</code>. Destructuring is a powerful tool but if you haven't seen the syntax before (this guy right here) then it is confusing as heck. The ever interesting Dr. Axel Rauschmayer has a fantastic article on it over at <a href="http://2ality.com/2015/01/es6-destructuring.html" target="_blank" rel="noopener">http://2ality.com/2015/01/es6-destructuring.html</a> which is well worth a read if you want to avoid my confusion.</p><p>As for the conversion to TypeScript the solution could be as simple as</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">AppliedRoute</span> (<span class="params">&#123; component: C, props: cProps, ...rest &#125;: any</span>) </span>&#123;</span><br></pre></td></tr></table></figure><p>Or it could involve creating a strong type to annotate what's being passed into the function. I opted for the former because in this case what was being passed in could take many shapes.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;I&#39;ve been at this programming game for a long time and I&#39;ve written two books on JavaScript. Still today I ran into some code that had me scratching my head. It looked like&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;AppliedRoute&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;&amp;#123; component: C, props: cProps, ...rest &amp;#125;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;I was converting some JavaScript to TypeScript and this line threw an linting error because of &lt;code&gt;implicit any&lt;/code&gt;. That means that the type being passed in has no associated type information and has been assumed to be of type &lt;code&gt;any&lt;/code&gt;. This is something we&#39;d like to avoid. Problem was I had no idea what this thing was. It looked like an object but it was being built in the parameters?&lt;/p&gt;
     
     </summary>
     
