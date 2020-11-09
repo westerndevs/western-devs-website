@@ -3,7 +3,7 @@ layout: post
 title: Azure Processor Limits
 authorId: simon_timms
 date: 2020-11-05 15:00
-
+originalurl: https://blog.simontimms.com/2020/11/05/2020-11-05-processor-limits/
 ---
 
 Ran into a fun little quirk in Azure today. We wanted to allocate a pretty beefy machine, an M32ms. Problem was that for the region we were looking at it wasn't showing up on our list of VM sizes. We checked and there were certainly VMs of that size available in the region we just couldn't see them. So we ran the command 
