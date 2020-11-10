@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Getting Started With ELK using Docker | Western Devs</title>
+  <meta name="description" content="Being able to trace calls through services an be difficult. We need to find some way to gather and aggregate these disparate logs. This is exactly what the ELK stack does.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Getting Started With ELK using Docker">
+<meta property="og:url" content="https://westerndevs.com/_/getting-started-with-elk/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="Being able to trace calls through services an be difficult. We need to find some way to gather and aggregate these disparate logs. This is exactly what the ELK stack does.">
+<meta property="og:image" content="http://i.imgur.com/FuS46Hf.jpg">
+<meta property="article:published_time" content="2015-10-13T07:56:53.000Z">
+<meta property="article:modified_time" content="2020-11-10T20:10:51.595Z">
+<meta property="article:author" content="Western Devs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://i.imgur.com/FuS46Hf.jpg">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">OCT</div>
+    <div class="ListLrgDateDay">13</div>
+    <div class="ListLrgDateYear">2015</div>
+  </div>
+  <h2>Getting Started With ELK using Docker</h2>
+</div>
+
+		    
+
+			<div id="mainPostContent">
+	        <p>In my last post I talked about how I was setting up docker to experiment with <a href="https://deviantony.wordpress.com/2014/05/19/centralized-logging-with-an-elk-stack-elasticsearch-logback-kibana/" target="_blank" rel="noopener">Elastic Search, Logstash and Kibana</a>. One of the challenges with microservices is that we have a lot of different processes all over the network. It would not be uncommon to have 30 or 40 services on many different machines. The services could be deployed within virtual machines or even docker containers. The same isolation of services that makes developing and evolving microservices easy makes logging very difficult. Being able to trace calls through services can be difficult and logs on VMs or in containers may disappear as these abstractions are recycled. We need to find some way to gather and aggregate these disparate logs.</p>
+<p>This is exactly what the ELK stack does. Let's look at all the components involved one at a time and then we'll see how to use is.</p>
+<p><strong>Logstash</strong> is the first component: it is a service which can be used to gather data from multiple sources and the perform post processing on it. For instance you might have a log file that contains the user id of a user who made a request against the server. Log stash could have a rule in place to look up the associated user name which is much friendlier for end users. Another example might be resolving an IP address to a geographic location. Logstash can also normalize data from many different sources so it is easier to correlate. You can think of logstash as really being a sewage plant which takes in various sources of garbage(your logs), cleans it and then dumps the consistent clean water into holding tanks. The holding tank can be anything but in our case it will be Elasticsearch.</p>
+<p>That brings us to <strong>Elasticsearch</strong>.  You may have heard of Elasticsearch as a general purpose search engine. It is a service which indexes large number of documents and provides an interface for searching over them. It can be used for almost anything and many people use it as a replacement for a database driving their entire application off search. In this case it is used to hold logs piped in from Logstash. This is an innovative idea. Normally log files become an inaccessible dumping ground for all sorts of data.  You only open up the logs when there is a problem discovered through other means. It is hard to find the one entry that you really need or to extract trends. Keeping the log data in a search engine really opens up the data for investigation.</p>
+<p>Build on top of the Elasticsearch database is <strong>Kibana</strong>. Kibana is a data visualizaiton tool combined with an interface for Elasticsearch's indexes. You can use Kibana to search for logs, to visualize the data or to do investigations of issues.</p>
+<p>The one component I haven't mentioned here is a way to get your log data from various different machines into your centralized logstash. You applications can write to logstash directly but there is always the possibility that logstash will be down and then you need to write a bunch of retry logic yourself. No fun! Instead it is better to simply write you log files locally and then ship the log files off to logstash. You can use logstash itself for that but logstash is built on top of the JVM which is kind of inefficient and means you have to install the JVM onto all you machines. Yuck. Instead you can use one of a number of standalone tools for shipping the logs. I like one which was called Lumberjack and is now called <a href="https://github.com/elastic/logstash-forwarder" target="_blank" rel="noopener">logstash-forwarder</a>. It is written in Go and jolly quick.</p>
+<p>Okay, okay enough introduction let's get going.</p>
+<h1>Staring the ELK</h1>
+<p>There are a couple of pre-built docker containers out there with ELK pre-configured. I found that sebp/elk was the best of them. It is well documented <a href="http://elk-docker.readthedocs.io/" target="_blank" rel="noopener">here</a>. We run the container with</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p <span class="number">5601</span>:<span class="number">5601</span> -p <span class="number">9200</span>:<span class="number">9200</span> -p <span class="number">5000</span>:<span class="number">5000</span> -it --name elk sebp/elk</span><br></pre></td></tr></table></figure>
+<p>You can see that we're exposing 3 ports</p>
+<ul>
+<li>5601 Kibana web interface</li>
+<li>9200 Elasticsearch's web interface</li>
+<li>5000 Logstash (this is where we would send logs from logstash-forwarder)</li>
+</ul>
+<p>If you're running with docker-machine don't forget to add at least ports 5601 and 5000 to the virtual machine.</p>
+<p>With that kibana should be up and running. You can test it out by going to http://localhost:5000. Of course there isn't much to visualize because we haven't put any data in there yet. Next up we have to push some data into it. To do so I pulled down logstash-forwarder and ran it locally.</p>
+<p>It didn't work because of SSL.</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2015</span>/<span class="number">10</span>/<span class="number">12</span> <span class="number">19</span>:<span class="number">13</span>:<span class="number">13.452439</span> Connecting to [<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>]:<span class="number">5000</span> (elk)</span><br><span class="line"><span class="number">2015</span>/<span class="number">10</span>/<span class="number">12</span> <span class="number">19</span>:<span class="number">13</span>:<span class="number">13.470699</span> Failed to tls handshake with <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> x509: certificate <span class="keyword">is</span> valid <span class="keyword">for</span> , <span class="keyword">not</span> elk</span><br></pre></td></tr></table></figure>
+<p>The problem here is that the certificate for logstash-forwarder locally is not the same as the one on the image. You can grab the certificate from the container by running</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker cp <span class="number">61</span><span class="string">c2e23ad51a:</span><span class="regexp">/etc/</span>pki<span class="regexp">/tls/</span><span class="keyword">private</span>/logstash-forwarder.key lumberjack.key</span><br><span class="line">docker cp <span class="number">61</span><span class="string">c2e23ad51a:</span><span class="regexp">/etc/</span>pki<span class="regexp">/tls/</span>certs/logstash-forwarder.crt lumberjack.crt</span><br></pre></td></tr></table></figure>
+<p>Even with that I couldn't get it to work because the host name in the certificate is not the same as the one I used in logstash-forwarder's config file. I initially tried using 127.0.0.1 but I guess using IP addresses in certificates is really crummy and the <a href="https://github.com/elastic/logstash-forwarder" target="_blank" rel="noopener">logstash-forwarder readme</a> recommends against it.</p>
+<p>Thus I logged into the docker image and generated a new certificate. Logging required launching the container with a shell specified</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p <span class="number">5601</span>:<span class="number">5601</span> -p <span class="number">9200</span>:<span class="number">9200</span> -p <span class="number">5000</span>:<span class="number">5000</span> -it --name elk sebp/elk /bin/bash</span><br></pre></td></tr></table></figure>
+<p>Once logged into the container I ran</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -x509  -batch -nodes -newkey <span class="string">rsa:</span><span class="number">2048</span> -keyout <span class="regexp">/etc/</span>pki<span class="regexp">/tls/</span><span class="keyword">private</span><span class="regexp">/logstash-forwarder.key -out /</span>etc<span class="regexp">/pki/</span>tls<span class="regexp">/certs/</span>logstash-forwarder.crt -subj /CN=elk</span><br></pre></td></tr></table></figure>
+<p>You'll note that I included <code>/CN=elk</code> in the command. This is the name of the domain to use in the certificate. I added a line pointing elk to 127.0.0.1 in my hosts file</p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127.0.0.1</span>	elk</span><br></pre></td></tr></table></figure>
+<p>Finally I got logstash-forwarder running and sending messages.  The config file I used looked like</p>
+ <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"> &#123;</span><br><span class="line">  <span class="attr">"network"</span>: &#123;</span><br><span class="line">    <span class="attr">"servers"</span>: [ <span class="string">"elk:5000"</span> ],</span><br><span class="line">    <span class="attr">"ssl certificate"</span>: <span class="string">"./lumberjack.crt"</span>,</span><br><span class="line">    <span class="attr">"ssl key"</span>: <span class="string">"./lumberjack.key"</span>,</span><br><span class="line">    <span class="attr">"ssl ca"</span>: <span class="string">"./lumberjack.crt"</span>,</span><br><span class="line">    <span class="attr">"ssl strict verify"</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="attr">"timeout"</span>: <span class="number">15</span></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  # The list of files configurations</span><br><span class="line">  "files": [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"paths"</span>: [</span><br><span class="line">        <span class="string">"/tmp/testlog.log"</span></span><br><span class="line">      ],</span><br><span class="line">      <span class="attr">"fields"</span>: &#123; <span class="attr">"type"</span>: <span class="string">"syslog"</span> &#125;</span><br><span class="line">    &#125;, &#123;</span><br><span class="line">      # A path of "-" means stdin.</span><br><span class="line">      "paths": [ "-" ],</span><br><span class="line">      "fields": &#123; "type": "stdin" &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>I used stdin so I could just type thing into the console and have them show up in kibana. I also put in a log file to which I could append lines. The output from logstash-forwarder tells me the log entries are being forwarded</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2015</span>/<span class="number">10</span>/<span class="number">12</span> <span class="number">21</span>:<span class="number">12</span>:<span class="number">19.365424</span> Launching harvester on new file: /tmp/testlog.log</span><br><span class="line"><span class="number">2015</span>/<span class="number">10</span>/<span class="number">12</span> <span class="number">21</span>:<span class="number">12</span>:<span class="number">19.365512</span> harvest: <span class="string">"/tmp/testlog.log"</span> (offset snapshot:<span class="number">0</span>)</span><br><span class="line"><span class="number">2015</span>/<span class="number">10</span>/<span class="number">12</span> <span class="number">21</span>:<span class="number">12</span>:<span class="number">20.109398</span> Registrar: processing <span class="number">1</span> events</span><br><span class="line"><span class="number">2015</span>/<span class="number">10</span>/<span class="number">12</span> <span class="number">21</span>:<span class="number">12</span>:<span class="number">30.109288</span> Registrar: processing <span class="number">1</span> events</span><br><span class="line"><span class="number">2015</span>/<span class="number">10</span>/<span class="number">12</span> <span class="number">21</span>:<span class="number">13</span>:<span class="number">15.111247</span> Registrar: processing <span class="number">1</span> events</span><br><span class="line"><span class="number">2015</span>/<span class="number">10</span>/<span class="number">12</span> <span class="number">21</span>:<span class="number">13</span>:<span class="number">25.109295</span> Registrar: processing <span class="number">1</span> events</span><br></pre></td></tr></table></figure>
+<p>Indeed they do show up in Kibana</p>
+<p><img src="http://i.imgur.com/FuS46Hf.jpg" alt="http://i.imgur.com/FuS46Hf.jpg"></p>
+<p>There are quite a few moving pieces here but the docker image takes care of most of them. In a future post we'll look at how to add some more information to our logs and how to get logs from ASP.net and C# in general into kibana.</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/simon_timms">
+				
+					<img src='/images/avatars/simon.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/simon_timms">Simon Timms</a></h2>
+			
+			<a href="mailto:stimms@gmail.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://blog.simontimms.com/" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/stimms" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/stimms" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			
+ 			<a href="/feeds/simon_timms.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/_/getting-started-with-elk/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'simon_timms');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Azure Data Factory - a rapid introduction | Western Devs</title>
+  <meta name="description" content="Azure is huge. There are probably a dozen ways to host a website, a similar number of different data storage technologies, tools for identity, scaling, DDoS protection - you name it Azure has it. With">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Azure Data Factory - a rapid introduction">
+<meta property="og:url" content="https://westerndevs.com/_/2018-11-05-datafactory/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="Azure is huge. There are probably a dozen ways to host a website, a similar number of different data storage technologies, tools for identity, scaling, DDoS protection - you name it Azure has it. With">
+<meta property="og:image" content="https://blog.simontimms.com/images/datafactory/datasources.png">
+<meta property="og:image" content="https://blog.simontimms.com/images/datafactory/author.png">
+<meta property="og:image" content="https://blog.simontimms.com/images/datafactory/newdatasource.png">
+<meta property="og:image" content="https://blog.simontimms.com/images/datafactory/preview.png">
+<meta property="og:image" content="https://blog.simontimms.com/images/datafactory/schema.png">
+<meta property="og:image" content="https://blog.simontimms.com/images/datafactory/selecttags.png">
+<meta property="article:published_time" content="2018-11-05T18:00:00.000Z">
+<meta property="article:modified_time" content="2020-11-10T20:10:51.587Z">
+<meta property="article:author" content="Western Devs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.simontimms.com/images/datafactory/datasources.png">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">NOV</div>
+    <div class="ListLrgDateDay">5</div>
+    <div class="ListLrgDateYear">2018</div>
+  </div>
+  <h2>Azure Data Factory - a rapid introduction</h2>
+</div>
+
+		    
+
+<p class="TXTsm">ORIGINALLY POSTED TO: <a href="https://blog.simontimms.com/2018/11/05/2018-11-01_datafactory/" target="_blank" rel="noopener" class='originalurl'>https://blog.simontimms.com/2018/11/05/2018-11-01_datafactory/</a></p>
+
+
+
+			<div id="mainPostContent">
+	        <p>Azure is huge. There are probably a dozen ways to host a website, a similar number of different data storage technologies, tools for identity, scaling, DDoS protection - you name it Azure has it. With that many services it isn't unusual for me to find some service I didn't even know existed. Today that service is <a href="https://azure.microsoft.com/en-ca/services/data-factory/" target="_blank" rel="noopener">Data Factory</a>. Data factory is a batch based Extract, Transform and Load(ETL) service which means that it moves data between locations. I mention that it is batch to distinguish it from services which are online and process events as they come in. Data Factory might be used to move data between a production database and the test system or between two data sources.</p>
+<a id="more"></a>
+<p>In most cases I'd recommend solutions which were more tightly integrated into your business processes than copying data between databases. It is easier to test, closer to real time and easier to update. However, moving to event based systems can be long and difficult so there is certainly a niche for Data Factory. A good application might be migrating data from a service you don't own to your internal database - the external system is unlikely to have data change notifications you could use to drive data population. Azure Data Factory plays in the same space that SQL Server Integration Services played in the past - in fact you can build your Azure Data Factory pipeline in SSIS and simply upload it.</p>
+<p>Let's take a look at loading some data from an Azure SQL database, and putting it into Cosmos DB. I've chosen these two systems but there are literally dozens of different data sources and destinations you can use at the click of a mouse. They are not limited to Microsoft offerings, either. There are connectors for Cassandra, Couchbase, MongoDB, Google BigQuery even Oracle.</p>
+<p><img src="https://blog.simontimms.com/images/datafactory/datasources.png" alt="A small sample of the various datasources which exist within data factory"></p>
+<p>The first step is to create a new data factory in Azure. This is as simple as searching for data factory in the Azure portal and clicking create. A few settings are required such as the name and the version. For this I went with v2 because it is a larger number than v1 and ergo way better. I'm pretty sure that's how numbers work. With the factory created the next step is to click on <code>Author and Monitor</code>.</p>
+<p><img src="https://blog.simontimms.com/images/datafactory/author.png" alt="Select author and monitor in the portal"></p>
+<p>This opens up a whole editor experience in a new tab. It is still roughly styled like the portal so it isn't as jarring as using the man styling jumble that is AWS' console. In the left gutter click on the little <code>+</code> symbol to create a new data set.</p>
+<p><img src="https://blog.simontimms.com/images/datafactory/newdatasource.png" alt="New SQL data source"></p>
+<p>I found myself an old backup database I had kicking around still on my Azure account to be the source of data for this experiment. It is a database of data related to the construction of some oil extraction facility somewhere. To protect the innocent I've anonymized the data a little. We'll start by adding this as a source for the data factory. Select Azure SQL as the source and then give it a name in the general pane. Under connection set up a new linked service. This is what holds our data connection information so multiple different data sets can use the same linked service if you wanted to pull from multiple tables. In the linked service set up you can select an existing database from the drop downs and enter the login information.</p>
+<p>With the linked service set up you can select the table you'll be using for the schema information and even preview the data.</p>
+<p><img src="https://blog.simontimms.com/images/datafactory/preview.png" alt="A preview of the data in the SQL database"></p>
+<p>Next follow a similar procedure for setting up the cosmos data source. My cosmos data source was brand new so it didn't have any document from which data factory could figure out the schema. This meant that I had to go in and define one in the data source.</p>
+<p><img src="https://blog.simontimms.com/images/datafactory/schema.png" alt="Defining the Cosmos database schema"></p>
+<p>With the two data sources in place all that is needed now is to copy the data from one to another. Data factory is obviously a lot more than being able to copy data between data bases but to do any manipulation of the data you really need to pull in other services. For instance you can manipulate the data with data bricks or HD Insights and, of course, you can analyze the data with Azure ML. What is missing, in my mind, is a really simple way of manipulating fields, concatenating them together, splitting them up that sort of thing. Because data factory is designed to scale it relies on other services which can also scale instead of internalizing too much. On one hand this is good because is formalizes your scaling and makes you think about what you do if you have huge quantities of data. On the other hand is raises the knowledge bar for entry quite high.</p>
+<p>Originally this article was going to cover manipulating data but the difficulty meant that that content had to be pushed off to another post.</p>
+<p>Returning to the problem at hand the copy task is added by adding a new pipeline. Within that pipeline we add a copy data task by dragging it to the canvas. In the task we configure the source as being the SQL database and, at the same time, select a query. My query filters for tags which are complete (you don't really need to know what that means).</p>
+<p><img src="https://blog.simontimms.com/images/datafactory/selecttags.png" alt="Entering a query"></p>
+<p>Next set up a destination sink as the cosmos db. Finally set up the mapping. Mappings determine which fields go where: from the source into the destination. Because we've gone to the trouble of ensuring field names are the same over our two data sets simply clicking <code>Import Schemas</code> is enough to set up the mappings for us. You may need to manually map fields if you're renaming as part of the copy.</p>
+<p>Pipelines are built by coupling together various tasks to copy, filter, sort and otherwise manipulate data. Each task has a success, completion and failure output which can be wired to the next task allowing you to build pretty complex logic. Of course as with all complex logic it is nice to have automated tests around it. This is a failing of data factory - it is difficult to test the workflow logic.</p>
+<p>The set up of the pipeline is now complete. To start using it you first need to publish it which is done by clicking on the <code>Publish All</code> button. Publishing takes a moment but once it is done testing the integration is as simple as clicking on trigger and going down to <code>Trigger Now</code>. Within a few seconds I was able to jump to my cosmos and find it filled with all the records from SQL. It was quick and easy to set up. What's really nice too is that the pipeline can easily be scheduled.</p>
+<p>Data factory is not the right solution for every project. I'd actually argue that it isn't the right solution for most projects but it is a good stop gap until you can move to a more online version of data integration using something like change events and functions. Of course that assumes you have infinite resources to improve your projects...</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/simon_timms">
+				
+					<img src='/images/avatars/simon.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/simon_timms">Simon Timms</a></h2>
+			
+			<a href="mailto:stimms@gmail.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://blog.simontimms.com/" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/stimms" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/stimms" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			
+ 			<a href="/feeds/simon_timms.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/_/2018-11-05-datafactory/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'simon_timms');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Mobile App Testing on 114 Devices in 20 Minutes | Western Devs</title>
+  <meta name="description" content="My day started off just like any other at the office. I plugged in my machine, launched Visual Studio and opened up the latest Xamarin.Android project I had been working on for the client. On this par">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mobile App Testing on 114 Devices in 20 Minutes">
+<meta property="og:url" content="https://westerndevs.com/_/mobile-app-testing-on-114-devices-in-20-minutes/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="My day started off just like any other at the office. I plugged in my machine, launched Visual Studio and opened up the latest Xamarin.Android project I had been working on for the client. On this par">
+<meta property="og:image" content="http://solola.ca/wp-content/uploads/2015/11/XamarinTestCloudDeviceSelection.png">
+<meta property="og:image" content="http://solola.ca/wp-content/uploads/2015/11/XamarinTestCloudReviewTests.png">
+<meta property="article:published_time" content="2015-11-03T02:52:05.000Z">
+<meta property="article:modified_time" content="2020-11-10T20:10:51.595Z">
+<meta property="article:author" content="Western Devs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://solola.ca/wp-content/uploads/2015/11/XamarinTestCloudDeviceSelection.png">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">NOV</div>
+    <div class="ListLrgDateDay">3</div>
+    <div class="ListLrgDateYear">2015</div>
+  </div>
+  <h2>Mobile App Testing on 114 Devices in 20 Minutes</h2>
+</div>
+
+		    
+
+<p class="TXTsm">ORIGINALLY POSTED TO: <a href="http://solola.ca/mobile-app-testing-xamarin-test-cloud/" target="_blank" rel="noopener" class='originalurl'>http://solola.ca/mobile-app-testing-xamarin-test-cloud/</a></p>
+
+
+
+			<div id="mainPostContent">
+	        <p>My day started off just like any other at the office. I plugged in my machine, launched Visual Studio and opened up the latest Xamarin.Android project I had been working on for the client. On this particular day, I had to make a layout change to ensure that the weighting of two different layouts were updated based on a set of conditions. Sounds easy enough, right?</p>
+<a id="more"></a>
+<p>Well making the change was trivial. Next came the part that I dreaded, which I knew would take up the rest of my day. I walked over to the device cabinet, and grabbed a handful of devices varying in screen size, resolution and OS versions.</p>
+<p>Seated at my desk, I attempted to power on the first device. Battery drain. I plugged it in, then attempted to power on the next device. Same thing. By the time I was able to get enough charge on a device to power it on, deploy to that device, and run through the necessary tests, 10 – 15 minutes had passed.  Note that I have to repeat this process on 4 more devices. If the tests all pass the first time, that's about an hour of testing spent on a small fraction of devices for a single UI change. During my round of testing on the 4th device, I already noticed problems with the layout. This is going to be a really long day.</p>
+<p>Even if all of my tests pass, QA will perform these tests on another set of devices at random which may uncover other issues. Even worse, what happens if the QA tests passed, and the application made it to market because there were issues on devices we hadn't covered? This wasn't the type of work I wanted to deliver. Ultimately, I want to be sure the layouts look good across as many devices as possible, including the most popular ones on the market.</p>
+<p>Now what?</p>
+<h3>A Better Way</h3>
+<p>Being out of office for the next week, I wanted to get this change completed to ensure it wouldn't hold the team up in my absence, and I wanted to feel confident that it would look good on a broad range of devices. I knew this would be an impossible feat if I stuck with the manual testing route. I decided to put <a href="https://developer.xamarin.com/guides/testcloud/introduction-to-test-cloud/" target="_blank" rel="noopener">Xamarin Test Cloud</a> to use to make short work of this.</p>
+<p>Thanks to those Xamarin University's courses on creating Xamarin UI Tests and deploying to Test Cloud – which I had already taken as a requirement for the Xamarin Mobile Developer Certification exam –  I knew exactly how to get started. I also had some Test Cloud time to burn which comes with being a <a href="https://xamarin.com/university" target="_blank" rel="noopener">Xamarin University</a> student – 25 hours to be exact.</p>
+<p>I created a new <a href="https://developer.xamarin.com/guides/testcloud/uitest/" target="_blank" rel="noopener">Xamarin UITest</a> project, and used <a href="https://developer.xamarin.com/guides/testcloud/uitest/working-with/repl/" target="_blank" rel="noopener">REPL</a> to assist with scripting out the steps. I copied the script into my UITest, and I included commands to take screenshots at specific points in the script. This process took about 10 minutes to complete and test on a local device.</p>
+<p>Once I was confident that the UITest I had scripted performed as I expected, I decided to run it in Xamarin Test Cloud, simply by right-clicking on the UITest project in Visual Studio and selecting &quot;Run in Test Cloud…&quot; from the context menu. I was able to quickly and easily select 25 devices to run the test on, all of varying screen sizes, resolutions and OS versions. I was even able to select from devices that were most popular on the market, thanks to a filter provided within Xamarin Test Cloud.</p>
+<p><img src="http://solola.ca/wp-content/uploads/2015/11/XamarinTestCloudDeviceSelection.png" alt="Xamarin Test Cloud Device Selection"></p>
+<p>Within minutes, my test was deployed to the cloud, and 10 minutes later the test had been completed on all 25 devices. This consumed about 35 minutes of Xamarin Test Cloud device time usage (approx. 1.4 minutes per device). Based on the results, I had to tweak the layout and re-run the test two more times until the change looked good across the board, but this process was simple, fast and efficient. Now that I knew how fast it was to test on 25 devices, I decided to push it a little further. The next run was on 114 devices. Twenty minutes later my changes were ready to review. Again, the total device time used averaged out to 1.4 minutes per device.</p>
+<p>Reviewing the UI change across all devices was easy, because they were laid out on a single page in grid format. It was easy to scroll down the page and quickly point out any nuances which needed to be addressed. I could even filter and sort the view to quickly see the devices of interest.</p>
+<p><img src="http://solola.ca/wp-content/uploads/2015/11/XamarinTestCloudReviewTests.png" alt="XamarinTestCloudReviewTests"></p>
+<p><em>Test run results of the Xamarin Store Demo app</em></p>
+<p>What could have been 1 – 2 days of effort for a simple UI change, was completed in less than 2 hours, and I had covered more ground in those 2 hours than I ever would have in manual testing.</p>
+<p>In addition to that, Xamarin Test Cloud provided metrics on the application's CPU and memory usage, as well as device and test logs. The history of all tests run are maintained in my account so I can go back to review them at any time.</p>
+<h3>Lessons Learned</h3>
+<p>That was the scenario for the effort needed to test a simple UI change. Now compound that effort with a greenfield application, which requires the team to fully test each screen and feature on as many devices as possible. Expecting that a mobile development team and QA will be able to cover ground through manual device testing is pretty far-fetched. Not to mention the costs the company would have to absorb to continue to purchase new devices as they are released in order to be able to stay on top of a changing market.</p>
+<p>Many companies balk at the <a href="https://xamarin.com/test-cloud#pricing" target="_blank" rel="noopener">price</a> of Xamarin Test Cloud without considering how much money is being wasted on the current processes in place.</p>
+<p>As the company's team continues to build out the organization's flagship mobile app and releases multiple versions, the QA Team becomes swamped and unable to test fast enough to cover ground on all those devices in that trusty cabinet. Developers barely have enough time in the schedule to fully develop the features needed, let alone allot the actual time needed to fully test across devices.</p>
+<p>Eventually, the company considers hiring a new QA member to ease the work load. Do you think it is possible to hire someone into that role at $5/hour? No? Well, that's the cost of Xamarin Test Cloud – $5 per device hour when you break it down. Considering I was able to run a single UI test across 114 devices using about 2.5 hours of device time, that would work out to be the best $12.50 ever spent. Not to mention, that's also 1 full day of developer time that is reclaimed to focus on the actual development of the product, rather than fiddling around with device after device to run manual UI tests. Last but not least, your QA team will be more focused on testing the application's functionality rather than being bogged down with logging UI related issues.</p>
+<p>If you're still skeptical at how Xamarin Test Cloud can help accelerate your mobile app testing time, make use of the <a href="https://www.xamarin.com/test-cloud" target="_blank" rel="noopener">free 60 minutes of Xamarin Test Cloud time</a> you're given each month with your Xamarin Platform Subscription.</p>
+<h3>Final Thoughts</h3>
+<p>Spend a little, save a lot, and keep your mobile product team happy in the process.</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/lori_lalonde">
+				
+					<img src='/images/avatars/Lori_Lalonde.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/lori_lalonde">Lori Lalonde</a></h2>
+			
+			<a href="mailto:loriblalonde@gmail.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="https://loriblalonde.com" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/loriblalonde" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/llalonde" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			<a href="https://www.linkedin.com/in/lorilalonde" target="_blank"><img class="ProfileIcon" src="/images/icon_linkedin.png" border="0" alt="LinkedIN" title="LinkedIN"> LinkedIn</a><br>
+			
+			
+ 			<a href="/feeds/lori_lalonde.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/_/mobile-app-testing-on-114-devices-in-20-minutes/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'lori_lalonde');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

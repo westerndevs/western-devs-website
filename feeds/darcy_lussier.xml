@@ -5,7 +5,7 @@
   <link href="/feeds/darcy_lussier" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2020-11-10T19:59:55.373Z</updated>
+  <updated>2020-11-10T20:10:51.583Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://westerndevs.com/cloud/azure/The-Cloud-Is-The-Internet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/cloud/azure/The-Cloud-Is-The-Internet/</id>
     <published>2017-04-22T15:30:00.000Z</published>
-    <updated>2020-11-10T19:59:55.373Z</updated>
+    <updated>2020-11-10T20:10:51.583Z</updated>
 	<author>
 	
 	  
@@ -51,7 +51,7 @@
     <link href="https://westerndevs.com/conference/services/Paper-Cuts-My-Review-Of-PaperCall/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/conference/services/Paper-Cuts-My-Review-Of-PaperCall/</id>
     <published>2017-03-07T16:30:00.000Z</published>
-    <updated>2020-11-10T19:59:55.373Z</updated>
+    <updated>2020-11-10T20:10:51.583Z</updated>
 	<author>
 	
 	  
@@ -81,7 +81,7 @@
     <link href="https://westerndevs.com/O365/Azure/O365DomainsForWebsites/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/O365/Azure/O365DomainsForWebsites/</id>
     <published>2016-06-20T04:00:00.000Z</published>
-    <updated>2020-11-10T19:59:55.369Z</updated>
+    <updated>2020-11-10T20:10:51.579Z</updated>
 	<author>
 	
 	  
@@ -109,10 +109,10 @@ Office 365 so you can have yourname@yourdomain.com for emails. Fantastic!&lt;/p&
   
   <entry>
     <title type="html">Addendum To My Demystifying The Cloud Talk</title>
-    <link href="https://westerndevs.com//Addendum-To-My-Demystifying-The-Cloud-Talk/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com//Addendum-To-My-Demystifying-The-Cloud-Talk/</id>
+    <link href="https://westerndevs.com/_/Addendum-To-My-Demystifying-The-Cloud-Talk/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/Addendum-To-My-Demystifying-The-Cloud-Talk/</id>
     <published>2016-03-03T05:00:00.000Z</published>
-    <updated>2020-11-10T19:59:55.369Z</updated>
+    <updated>2020-11-10T20:10:51.579Z</updated>
 	<author>
 	
 	  
@@ -138,7 +138,7 @@ Office 365 so you can have yourname@yourdomain.com for emails. Fantastic!&lt;/p&
     <link href="https://westerndevs.com/News/OctopusDeployGotchas/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/News/OctopusDeployGotchas/</id>
     <published>2016-01-29T05:00:00.000Z</published>
-    <updated>2020-11-10T19:59:55.369Z</updated>
+    <updated>2020-11-10T20:10:51.579Z</updated>
 	<author>
 	
 	  
@@ -174,7 +174,7 @@ Office 365 so you can have yourname@yourdomain.com for emails. Fantastic!&lt;/p&
     <link href="https://westerndevs.com/News/ASPNetCoreGetOverIt/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/News/ASPNetCoreGetOverIt/</id>
     <published>2016-01-20T05:00:00.000Z</published>
-    <updated>2020-11-10T19:59:55.369Z</updated>
+    <updated>2020-11-10T20:10:51.579Z</updated>
 	<author>
 	
 	  
@@ -206,7 +206,7 @@ Office 365 so you can have yourname@yourdomain.com for emails. Fantastic!&lt;/p&
     <link href="https://westerndevs.com/tfs/octopus/continuous-delivery/Setting-Up-Octopus-Build-Task-on-TFS-2015-On-Prem/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/tfs/octopus/continuous-delivery/Setting-Up-Octopus-Build-Task-on-TFS-2015-On-Prem/</id>
     <published>2016-01-06T18:47:46.000Z</published>
-    <updated>2020-11-10T19:59:55.369Z</updated>
+    <updated>2020-11-10T20:10:51.575Z</updated>
 	<author>
 	
 	  
@@ -235,10 +235,10 @@ Office 365 so you can have yourname@yourdomain.com for emails. Fantastic!&lt;/p&
   
   <entry>
     <title type="html">On Co-Location, Email, and Face-to-Face Communication</title>
-    <link href="https://westerndevs.com//on-co-location-email-and-face-to-face-communication/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com//on-co-location-email-and-face-to-face-communication/</id>
+    <link href="https://westerndevs.com/_/on-co-location-email-and-face-to-face-communication/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/on-co-location-email-and-face-to-face-communication/</id>
     <published>2015-11-20T19:13:24.000Z</published>
-    <updated>2020-11-10T19:59:55.389Z</updated>
+    <updated>2020-11-10T20:10:51.595Z</updated>
 	<author>
 	
 	  
@@ -261,10 +261,10 @@ Office 365 so you can have yourname@yourdomain.com for emails. Fantastic!&lt;/p&
   
   <entry>
     <title type="html">Adventures in Windows IoT Core for Raspberry Pi 2</title>
-    <link href="https://westerndevs.com//adventures-in-windows-iot-core-for-raspberry-pi-2/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com//adventures-in-windows-iot-core-for-raspberry-pi-2/</id>
+    <link href="https://westerndevs.com/_/adventures-in-windows-iot-core-for-raspberry-pi-2/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/adventures-in-windows-iot-core-for-raspberry-pi-2/</id>
     <published>2015-09-22T18:50:22.000Z</published>
-    <updated>2020-11-10T19:59:55.385Z</updated>
+    <updated>2020-11-10T20:10:51.591Z</updated>
 	<author>
 	
 	  
@@ -287,10 +287,10 @@ Office 365 so you can have yourname@yourdomain.com for emails. Fantastic!&lt;/p&
   
   <entry>
     <title type="html">Microsoft&#39;s Clear Message for Canadian Partners</title>
-    <link href="https://westerndevs.com//microsofts-clear-message-for-canadian-partners/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com//microsofts-clear-message-for-canadian-partners/</id>
+    <link href="https://westerndevs.com/_/microsofts-clear-message-for-canadian-partners/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/microsofts-clear-message-for-canadian-partners/</id>
     <published>2015-07-12T23:34:10.000Z</published>
-    <updated>2020-11-10T19:59:55.385Z</updated>
+    <updated>2020-11-10T20:10:51.595Z</updated>
 	<author>
 	
 	  
@@ -313,10 +313,10 @@ Office 365 so you can have yourname@yourdomain.com for emails. Fantastic!&lt;/p&
   
   <entry>
     <title type="html">The Changing Winnipeg Technology Consulting Landscape</title>
-    <link href="https://westerndevs.com//the-changing-winnipeg-technology-consulting-landscape/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com//the-changing-winnipeg-technology-consulting-landscape/</id>
+    <link href="https://westerndevs.com/_/the-changing-winnipeg-technology-consulting-landscape/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/the-changing-winnipeg-technology-consulting-landscape/</id>
     <published>2015-07-12T23:26:59.000Z</published>
-    <updated>2020-11-10T19:59:55.389Z</updated>
+    <updated>2020-11-10T20:10:51.599Z</updated>
 	<author>
 	
 	  
@@ -356,10 +356,10 @@ Office 365 so you can have yourname@yourdomain.com for emails. Fantastic!&lt;/p&
   
   <entry>
     <title type="html">Running your first code camp</title>
-    <link href="https://westerndevs.com//running-your-first-code-camp/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com//running-your-first-code-camp/</id>
+    <link href="https://westerndevs.com/_/running-your-first-code-camp/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/running-your-first-code-camp/</id>
     <published>2015-07-05T19:33:21.000Z</published>
-    <updated>2020-11-10T19:59:55.389Z</updated>
+    <updated>2020-11-10T20:10:51.599Z</updated>
 	<author>
 	
 	  
@@ -382,10 +382,10 @@ Office 365 so you can have yourname@yourdomain.com for emails. Fantastic!&lt;/p&
   
   <entry>
     <title type="html">Review - Guidebook, mobile app for conferences/events</title>
-    <link href="https://westerndevs.com//guidebook-mobile-app-for-conferences/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com//guidebook-mobile-app-for-conferences/</id>
+    <link href="https://westerndevs.com/_/guidebook-mobile-app-for-conferences/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/guidebook-mobile-app-for-conferences/</id>
     <published>2015-06-22T00:09:05.000Z</published>
-    <updated>2020-11-10T19:59:55.385Z</updated>
+    <updated>2020-11-10T20:10:51.595Z</updated>
 	<author>
 	
 	  
@@ -408,10 +408,10 @@ Office 365 so you can have yourname@yourdomain.com for emails. Fantastic!&lt;/p&
   
   <entry>
     <title type="html">Thoughts on building, making, being positive, fearing failure, and smoking meat</title>
-    <link href="https://westerndevs.com//thoughts-on-building-making/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com//thoughts-on-building-making/</id>
+    <link href="https://westerndevs.com/_/thoughts-on-building-making/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/thoughts-on-building-making/</id>
     <published>2015-06-15T00:09:05.000Z</published>
-    <updated>2020-11-10T19:59:55.389Z</updated>
+    <updated>2020-11-10T20:10:51.599Z</updated>
 	<author>
 	
 	  

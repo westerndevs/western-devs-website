@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Updating Sub-Collections With SQL Server&#39;s Merge | Western Devs</title>
+  <meta name="description" content="When you get to be as old as me then you start to see certain problems reappearing over and over again. I think this might be called &quot;experience&quot; but it could also be called &quot;not getting new experienc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Updating Sub-Collections With SQL Server&#39;s Merge">
+<meta property="og:url" content="https://westerndevs.com/_/updating-sub-collections-with-sql-servers-merge/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="When you get to be as old as me then you start to see certain problems reappearing over and over again. I think this might be called &quot;experience&quot; but it could also be called &quot;not getting new experienc">
+<meta property="og:image" content="http://i.imgur.com/QCYisPG.png">
+<meta property="article:published_time" content="2015-12-16T09:52:50.000Z">
+<meta property="article:modified_time" content="2020-11-10T20:10:51.599Z">
+<meta property="article:author" content="Western Devs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://i.imgur.com/QCYisPG.png">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">DEC</div>
+    <div class="ListLrgDateDay">16</div>
+    <div class="ListLrgDateYear">2015</div>
+  </div>
+  <h2>Updating Sub-Collections With SQL Server&#39;s Merge</h2>
+</div>
+
+		    
+
+<p class="TXTsm">ORIGINALLY POSTED TO: <a href="http://blog.simontimms.com/2015/12/16/updating-sub-collections-with-sql-servers-merge/" target="_blank" rel="noopener" class='originalurl'>http://blog.simontimms.com/2015/12/16/updating-sub-collections-with-sql-servers-merge/</a></p>
+
+
+
+			<div id="mainPostContent">
+	        <p>When you get to be as old as me then you start to see certain problems reappearing over and over again. I think this might be called &quot;experience&quot; but it could also be called &quot;not getting new experiences&quot;. It might be that instead of 10 years experience I have the same year of experience 10 times. Of course this is only true if you don't experiment and find new ways of doing things. Even if you're doing the same job year in and year out it is how you approach the work that determines how you will grow as a developer.</p>
+<p>One of those problems I have encountered over the years is the problem of updating a collection of records related to one record. I'm sure you've encountered the same thing where you present the user with a table and let them edit, delete and add records.</p>
+<p><img src="http://i.imgur.com/QCYisPG.png" alt="A collection of rows"></p>
+<p>Now how do you get that data back to the server? You could send each row back individually using some Ajax magic. This is kind of a pain, though, you have to keep track of a lot of requests and you're making a bunch of requests. You also need to track, behind the scenes, which rows were added and which were removed so you can send specific commands for that. It is preferable to send the whole collection at once in a single request. Now you've shifted the burden to the server. In the past I've handled this by pulling the existing collection from the database and doing painful comparisons to figure out what has changed.</p>
+<p>There is a very useful SQL command called UPSERT which you'll find in databases such as Postgres(assuming you're on the cutting edge and you're using 9.5). Upsert is basically a command which looks at the existing table data when you modify a record. If the record doesn't exist it will be created and if it is already there the contents will be updated. This solves 2/3rds of our cases with only delete missing. Unfortunately, SQL Server doesn't support the UPSERT command - however it does support MERGE.</p>
+<p>I've always avoided MERGE because I thought it to be very complicated but in the interests of continually growing I figured it was about time that I bit the bullet and just learned how it works. I use Dapper a fair bit for talking to the database, it is just enough ORM to handle the dumb stuff while still letting me write my own SQL. It is virtually guaranteed that I write worse SQL than a full ORM but that's a cognitive dissonance I'm prepared to let ride. By writing my own SQL I have direct access to tools like merge which might, otherwise, be missed by a beefy ORM.</p>
+<p>The first thing to know about MERGE is that it needs to run against two tables to compare their contents. Let's extend the example we have above of what appears to be a magic wand shop... that's weird and totally not related to having just watched the trailer for <a href="https://www.youtube.com/watch?v=Wj1devH5JP4" target="_blank" rel="noopener">Fantastic Beasts and Where to Find Them</a>. Anyway our order item table looks like</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> orderItems(<span class="keyword">id</span> uniqueidentifier,</span><br><span class="line">              orderId uniqueidentifier,</span><br><span class="line">              colorId uniqueidentifier,</span><br><span class="line">              quantity <span class="built_in">int</span>)</span><br></pre></td></tr></table></figure>
+<p>So the first task is to create a temporary table to hold our records. By prefacing a table name with a <code>#</code> in SQL server we get a temporary table which is unique to our session. So other running transactions won't see the table - exactly what we want.</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">using(var connection = GetConnection())</span><br><span class="line">&#123;</span><br><span class="line">   connection.Execute(@<span class="string">"create table #orderItems(id uniqueidentifier,</span></span><br><span class="line"><span class="string">               orderId uniqueidentifier,</span></span><br><span class="line"><span class="string">               colorId uniqueidentifier,</span></span><br><span class="line"><span class="string">               quantity int)"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Now we'll take the items collection we have received from the web client (in my case it was via an MVC controller but I'll leave the specifics up to you) and insert each record into the new table. Remember to do this using the same session as you used to create the table.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">foreach</span>(<span class="keyword">var</span> item <span class="keyword">in</span> orderItems)</span><br><span class="line">&#123;</span><br><span class="line">    connection.Execute(<span class="string">@"insert into #orderItems(id, </span></span><br><span class="line"><span class="string">			orderId, </span></span><br><span class="line"><span class="string">			colorId, </span></span><br><span class="line"><span class="string">			quantity) </span></span><br><span class="line"><span class="string">		values(@id, </span></span><br><span class="line"><span class="string">			@orderId, </span></span><br><span class="line"><span class="string">			@colorId, </span></span><br><span class="line"><span class="string">			@quantity)"</span>, item);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Now the fun part: writing the merge.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">merge</span> orderItems <span class="keyword">as</span> target</span><br><span class="line">      <span class="keyword">using</span> <span class="comment">#orderItems as source</span></span><br><span class="line">      <span class="keyword">on</span> target.Id = source.Id </span><br><span class="line">      <span class="keyword">when</span> <span class="keyword">matched</span> <span class="keyword">then</span></span><br><span class="line">           <span class="keyword">update</span> <span class="keyword">set</span> target.colorId = source.colorId, </span><br><span class="line">                  target.quantity = soruce.quantity</span><br><span class="line">      <span class="keyword">when</span> <span class="keyword">not</span> <span class="keyword">matched</span> <span class="keyword">by</span> target <span class="keyword">then</span> </span><br><span class="line">	  <span class="keyword">insert</span> (<span class="keyword">id</span>, </span><br><span class="line">      		  orderId, </span><br><span class="line">              colorId, </span><br><span class="line">              quantity) </span><br><span class="line">     <span class="keyword">values</span> (source.id, </span><br><span class="line">     		 source.orderId, </span><br><span class="line">             source.colorId, </span><br><span class="line">             source.quantity)</span><br><span class="line">     <span class="keyword">when</span> <span class="keyword">not</span> <span class="keyword">matched</span> <span class="keyword">by</span> <span class="keyword">source</span> </span><br><span class="line">      <span class="keyword">and</span> orderId = @orderId <span class="keyword">then</span> <span class="keyword">delete</span>;</span><br></pre></td></tr></table></figure>
+<p>What's this doing? Let's break it down. First we set a target table this is where the records will be inserted, deleted and updated. Next we set the source the place from which the records will come. In our case the temporary table. Both <code>source</code> and <code>destination</code> are aliases so really they can be whatever you want like <code>input</code> and <code>output</code> or <code>Expecto</code> and <code>Patronum</code>.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">merge</span> orderItems <span class="keyword">as</span> target</span><br><span class="line">      <span class="keyword">using</span> <span class="comment">#orderItems as source</span></span><br></pre></td></tr></table></figure>
+<p>This line instructs on how to match. Both our tables have primary ids in a single column so we'll use that.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">on target.Id = source.Id </span><br></pre></td></tr></table></figure>
+<p>If a record is matched the we'll update the two important target fields with the values from the source.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">when matched then</span><br><span class="line">           <span class="keyword">update</span> <span class="keyword">set</span> target.colorId = source.colorId, </span><br><span class="line">                  target.quantity = soruce.quantity</span><br></pre></td></tr></table></figure>
+<p>Next we give instructions as to what should happen if a record is missing in the target. Here we insert a record based on the temporary table.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">when not matched by target then </span><br><span class="line">	  <span class="keyword">insert</span> (<span class="keyword">id</span>, </span><br><span class="line">      		  orderId, </span><br><span class="line">              colorId, </span><br><span class="line">              quantity) </span><br><span class="line">     <span class="keyword">values</span> (source.id, </span><br><span class="line">     		 source.orderId, </span><br><span class="line">             source.colorId, </span><br><span class="line">             source.quantity)</span><br></pre></td></tr></table></figure>
+<p>Finally we give the instruction for what to do if the record is in the target but not in the source - we delete it.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">when not matched by source </span><br><span class="line">     and orderId = @orderId then <span class="keyword">delete</span>;</span><br></pre></td></tr></table></figure>
+<p>In another world we might do a soft delete and simply update a field.</p>
+<p>That's pretty much all there is to it. MERGE has a ton of options to do more powerful operations. There is a bunch of super poorly written documentation on this on <a href="https://msdn.microsoft.com/en-us/library/bb510625.aspx?f=255&amp;MSPPError=-2147217396" target="_blank" rel="noopener">MSDN</a> if you're looking to learn a lot more.</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/simon_timms">
+				
+					<img src='/images/avatars/simon.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/simon_timms">Simon Timms</a></h2>
+			
+			<a href="mailto:stimms@gmail.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://blog.simontimms.com/" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/stimms" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/stimms" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			
+ 			<a href="/feeds/simon_timms.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/_/updating-sub-collections-with-sql-servers-merge/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'simon_timms');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

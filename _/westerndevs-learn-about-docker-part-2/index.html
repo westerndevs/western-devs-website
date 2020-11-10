@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>WesternDevs learn about Docker - Part 2 | Western Devs</title>
+  <meta name="description" content="Dislaimer This blog post serves two purposes: Act as a historical record of a conversation with a bunch of interesting links in context, and to share a bit of an insider look at how conversations happ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WesternDevs learn about Docker - Part 2">
+<meta property="og:url" content="https://westerndevs.com/_/westerndevs-learn-about-docker-part-2/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="Dislaimer This blog post serves two purposes: Act as a historical record of a conversation with a bunch of interesting links in context, and to share a bit of an insider look at how conversations happ">
+<meta property="article:published_time" content="2015-09-08T05:30:00.000Z">
+<meta property="article:modified_time" content="2020-11-10T20:10:51.599Z">
+<meta property="article:author" content="Western Devs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">SEP</div>
+    <div class="ListLrgDateDay">8</div>
+    <div class="ListLrgDateYear">2015</div>
+  </div>
+  <h2>WesternDevs learn about Docker - Part 2</h2>
+</div>
+
+		    
+
+			<div id="mainPostContent">
+	        <h5>Dislaimer</h5>
+<p>This blog post serves two purposes: Act as a historical record of a conversation with a bunch of interesting links in context, and to share a bit of an insider look at how conversations happen in the WesternDevs slack channels.</p>
+<a id="more"></a>
+<h3>Introduction</h3>
+<p>As Tom mentioned in his post about <a href="http://www.westerndevs.com/docker-containers-explained-for-the-novice/" target="_blank" rel="noopener">Docker containers for Novices</a> which I'm considering Part 1 of this post, the WesternDevs had a conversation about how Docker containers work. A good portion of our group has a lot of experience in the Windows world and not a lot of *nix experience which is where containers seem to have been born from.</p>
+<p>One of the things that I love about WesternDevs is the fairly voracious appetite that all of us have to understand the various technologies that we use and talk about while also ensuring that the whole group understands. Leave no man behind while we learn I guess you would say.</p>
+<h3>The seed of the conversation</h3>
+<p><a href="http://codebetter.com/kylebaley/2015/09/01/windows-server-containers-are-coming-whether-you-like-it-or-not/#comment-2232115672" target="_blank" rel="noopener">&quot;Can AD, DHCP, DNS run in a container?&quot; seems like an innocuous question</a>, but it was the question that started the conversation.</p>
+<p>Several of us started to posit that there are some things (in a Windows world) that would be fundamentally required for a container to run and that maybe AD (identity) was one of those things.</p>
+<p>As often happens on Slack, someone says something that gets the rest of us dissenting. It is usually <a href="http://www.westerndevs.com/bios/dylan_smith/" target="_blank" rel="noopener">@dylansmith</a>, which was the case this time. His statement (paraphrased) was that &quot;Containers are like VMs so of course AD, DHCP, DNS, etc can run in containers.&quot; which several of us (myself included) disagreed with.  And thus began a very productive WD conversation.</p>
+<p>So <a href="http://www.westerndevs.com/bios/dylan_smith/" target="_blank" rel="noopener">@dylansmith</a> opened with &quot;Containers are like VMs&quot; and I (<a href="http://www.westerndevs.com/bios/dave_white/" target="_blank" rel="noopener">@davewhite</a>) responded with no, they are not, they are more like AppDomain than VMs. This set the stage for the two points of view in the conversation.</p>
+<h3>What is a Container</h3>
+<p>The WesternDevs all agreed that containers are a tool for isolation into consistent environments. <a href="http://www.westerndevs.com/docker-containers-explained-for-the-novice/" target="_blank" rel="noopener">Tom's post</a> quite nicely summed up our thoughts. I don't think there was any disagreement amongst us on that point. How containers achieved that was strongly debated and led to a deeper understanding of what a &quot;shared kernel&quot; is.</p>
+<blockquote>
+<p>Containers running on a single machine all share the same operating system kernel so they start instantly and make more efficient use of RAM.</p>
+</blockquote>
+<p>A VM does not share a kernel with anything else, it shares physical resources with other VMs via the HyperVisor.</p>
+<p>We agreed that VMs give extra confidence in the level of isolation that is afforded the running applications. VMs do not afford the same level of performance as a container at start-up, and will consume more of the physical resources of the hardware that a comparable solution using containers.</p>
+<h3>Windows vs. Linux</h3>
+<p>One of the things that underlied this conversation was the fundamental difference between the Windows kernel and Linux kernel. As far as we understand, the Windows kernel is big. Really big. And pulling all of the &quot;user&quot; stuff out of the &quot;system&quot; stuff will be very difficult for Microsoft and thus make containers on Windows (<a href="http://www.westerndevs.com/windows-server-containers-are-coming-whether-you-like-it-or-not/" target="_blank" rel="noopener">which is coming whether you like it or not</a>) require a two-pronged approach, VMs that think they are containers and just pure containers.</p>
+<p>The Linux kernel is much smaller, providing basic resources to &quot;user&quot; modules. <a href="http://www.westerndevs.com/bios/simon_timms/" target="_blank" rel="noopener">@stimms</a> provided an awesome link to <a href="http://chimeracoder.github.io/docker-without-docker/#1" target="_blank" rel="noopener">ChimeraCoder</a> presentation about achieving Docker containers without Docker as some information on how the linux kernel works. The difference between <a href="http://chimeracoder.github.io/docker-without-docker/#9" target="_blank" rel="noopener">systemd</a> and a distro was nicely described in this presentation, and helped move the conversation a long.</p>
+<p>This also helped us understand we could run different distros of Linux in containers, as long as they all shared the same systemd version. You'd just install the distro of your choice in the container! Distros that didn't share the same kernel wouldn't be able to live side-by-side in containers on that host. Here is a great <a href="http://superuser.com/questions/889472/docker-containers-have-their-own-kernel-or-not" target="_blank" rel="noopener">SuperUser</a> post about this that helped as well as a <a href="https://docs.docker.com/introduction/understanding-docker/#the-underlying-technology" target="_blank" rel="noopener">Docker article</a> about the underlying technology that Docker uses.</p>
+<p>And Tom also shared that...</p>
+<blockquote>
+<p>But it’s the reason why Docker requires a VM to run on Windows or OS X. Neither of those have the proper kernel extensions for Docker to work properly.</p>
+</blockquote>
+<h3>Throttling/Managing Container Resource Usage</h3>
+<p>After that, the conversation turned to managing container resources. If a container is using a hosts kernel, wouldn't that mean that a container could consume all of the resources of the machine/host without knowledge of any other containers?</p>
+<p>As it turns out, Linux already provides for this in the kernel. Linux has something called &quot;cgroups&quot; that can be used to group processes and <a href="https://goldmann.pl/blog/2014/09/11/resource-management-in-docker/" target="_blank" rel="noopener">manage all kinds of resources</a>. This is how Docker (and probably all <a href="http://chimeracoder.github.io/docker-without-docker/#9" target="_blank" rel="noopener">systemd</a> based containers) works.</p>
+<h3>What services does a host (Linux kernel) need to provide for a Container</h3>
+<p>With our core understanding of how Docker works rounding into consensus, we started to get back to the original question of what could run in a Windows container? <a href="http://www.westerndevs.com/bios/tom_opgenorth/" target="_blank" rel="noopener">@topgenorth</a> to the rescue once again providing the group with a link to an introduction blog post on the <a href="https://linuxcontainers.org/lxc/introduction/" target="_blank" rel="noopener">extensions that allow linux to create and manage containers</a>.</p>
+<p>We started with this list as a basis for discussing what might need to be shared by a Windows host to it's containers so that they could run. I don't think we have an answer on what all of the comparable Windows services are, but we have started to explore that question.</p>
+<h3>Wrapping up the Conversation</h3>
+<p>So in the end, we decided that a container was either an &quot;AppDomain on steroids&quot; or a &quot;Dumbed down VM&quot; and that we didn't know for sure what containers on a Windows Server would look like in the end. A VM clearly provides isolation over and above what is intended by containers and doesn't provide the performance benefits of using a shared kernel. But an AppDomain in itself doesn't provide the level of isolation, control, or repeatable environments that real containers and VMs can provide.</p>
+<h3>Final Thoughts</h3>
+<p>In the end as is very often the case, we decided that we were all right, we were all wrong, and that we had learned a lot during the conversation and we hope that you can share in our learning and new-found common understanding of how containers work and how they might work in a Windows world.</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/dave_white">
+				
+					<img src='https://www.gravatar.com/avatar/4b7708d2ae7f7bb866446e0459e3e156?s=200' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/dave_white">Dave White</a></h2>
+			
+			<a href="mailto:dmhwhite@gmail.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://agileramblings.com/" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/AgileRamblings" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/agileramblings" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			<a href="https://www.linkedin.com/in/dave-white" target="_blank"><img class="ProfileIcon" src="/images/icon_linkedin.png" border="0" alt="LinkedIN" title="LinkedIN"> LinkedIn</a><br>
+			
+			
+ 			<a href="/feeds/dave_white.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/_/westerndevs-learn-about-docker-part-2/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'dave_white');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Synchronize GitHub Repository with VSTS | Western Devs</title>
+  <meta name="description" content="Step by step guide to do an automated continuous one-way synchronization from a GitHub repository to a VSTS repository.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Synchronize GitHub Repository with VSTS">
+<meta property="og:url" content="https://westerndevs.com/_/Synchronize-GitHub-Repository-With-VSTS/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="Step by step guide to do an automated continuous one-way synchronization from a GitHub repository to a VSTS repository.">
+<meta property="og:image" content="http://imgur.com/YzvjdpQ.png">
+<meta property="og:image" content="http://imgur.com/bnugm3O.png">
+<meta property="og:image" content="http://imgur.com/ms364Zw.png">
+<meta property="og:image" content="http://imgur.com/LSQDzg2.png">
+<meta property="og:image" content="http://imgur.com/w8bYFxi.png">
+<meta property="og:image" content="http://imgur.com/Z6Eei4O.png">
+<meta property="og:image" content="http://imgur.com/PxGFis0.png">
+<meta property="og:image" content="http://imgur.com/OQCpY7W.png">
+<meta property="og:image" content="http://imgur.com/bSzWWig.png">
+<meta property="og:image" content="http://imgur.com/C1tVW5x.png">
+<meta property="og:image" content="http://imgur.com/SmKJlax.png">
+<meta property="og:image" content="http://imgur.com/R8zE0ss.png">
+<meta property="og:image" content="http://imgur.com/wJZmhuE.png">
+<meta property="og:image" content="http://imgur.com/ErwFNbF.png">
+<meta property="og:image" content="http://imgur.com/eCYpGEC.png">
+<meta property="og:image" content="http://imgur.com/E3GhdJI.png">
+<meta property="article:published_time" content="2017-03-08T19:00:00.000Z">
+<meta property="article:modified_time" content="2020-11-10T20:10:51.583Z">
+<meta property="article:author" content="Western Devs">
+<meta property="article:tag" content="vsts">
+<meta property="article:tag" content="devops">
+<meta property="article:tag" content="github">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://imgur.com/YzvjdpQ.png">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">MAR</div>
+    <div class="ListLrgDateDay">8</div>
+    <div class="ListLrgDateYear">2017</div>
+  </div>
+  <h2>Synchronize GitHub Repository with VSTS</h2>
+</div>
+
+		    
+
+			<div id="mainPostContent">
+	        <p>A fellow Western Dev - Justin Self - was telling me he uses GitHub for source control and VSTS for Work Items, and was wondering if it's possible to link the Work Items to GitHub commits.  If you're using VSTS for source control, you can do this easily by mentioning the Work Item ID in your commit message like so: Fixing Bug #123.  And VSTS will automatically create a link between the Work Item and the Git commit.  If you're using GitHub for source control, I don't believe there's an out of the box way to make this work.</p>
+<p>We came up with an idea, what if we could synchronize the GitHub repository to a VSTS repository.  Then VSTS could see the commits and create the WI links.  So that's what we did, and this blog post explains how you can do the same thing.</p>
+<p>First things first, you need to create a VSTS Build that points to your GitHub repo.  That's easy enough, as support is built right into VSTS builds to do this.</p>
+<ol>
+<li>Go to Builds and Create a New Definition (Note: I'm using the new build editing experience - which you can turn on for your account if you haven't already).</li>
+<li>Choose the Empty Process option</li>
+<li>Configure the Get Sources task to use GitHub as the source, and give the connection a name</li>
+<li>Click Authorize using Oauth - at this step you may be prompted for your GitHub credentials and to Authorize VSTS to talk to GitHub</li>
+<li>Pick the GitHub repo and branch - I just left this as master, but later we will set it up to synch all branches</li>
+<li>Go to the Triggers tab and turn on Continuous Integration, and change the branch to include to * to trigger a build on commits/pushes to any branch</li>
+<li>Under Options turn on Allow Scripts to Access Oauth token - we'll use this later</li>
+<li>Save and Queue a build to check if it works</li>
+</ol>
+<p><img src="http://imgur.com/YzvjdpQ.png" alt="New Build Definition"></p>
+<p><img src="http://imgur.com/bnugm3O.png" alt="Select Build Template"></p>
+<p><img src="http://imgur.com/ms364Zw.png" alt="Configure Source Repo"></p>
+<p><img src="http://imgur.com/LSQDzg2.png" alt="GH Repo Configured"></p>
+<p><img src="http://imgur.com/w8bYFxi.png" alt="Configure CI"></p>
+<p><img src="http://imgur.com/Z6Eei4O.png" alt="Configure OAuth"></p>
+<p><img src="http://imgur.com/PxGFis0.png" alt="Test Build Output"></p>
+<p>Alright, now we have a build that triggers on every GitHub commit/push, and will download the GH repo to the build agent.  The next step is to make it push any and all changes into the VSTS repo.  To do this I shamelessly copied a snippet of bash from StackOverflow.  There is a built-in build task to run a bash script - Shell Script - but that requires you to point it to a script inside your repo, which is more work than I wanted.  I just want to write the few lines of bash directly in the build.</p>
+<p><img src="http://imgur.com/OQCpY7W.png" alt="Default Shell Task"></p>
+<p>Fortunately there is a VSTS extension in the marketplace that lets us do exactly this: https://marketplace.visualstudio.com/items?itemName=tsuyoshiushio.shell-exec</p>
+<p><img src="http://imgur.com/bSzWWig.png" alt="Extension Shell Task"></p>
+<p>Once I installed that extension into my VSTS account, I can now add it as a task to my build and tell it the bash script I want it to run:</p>
+<p><img src="http://imgur.com/C1tVW5x.png" alt="Install Extension"></p>
+<p><img src="http://imgur.com/SmKJlax.png" alt="Confirm Extension"></p>
+<p><img src="http://imgur.com/R8zE0ss.png" alt="Extension Installed"></p>
+<p><img src="http://imgur.com/wJZmhuE.png" alt="Add New Task"></p>
+<p><img src="http://imgur.com/ErwFNbF.png" alt="Configure Shell Task"></p>
+<p>Those 3 lines of bash using the git command-line are all it takes.  The one tricky bit to figure out was how to make sure it synchronized all branches - even newly created branches - in github into VSTS.  The trickery in line 1 and 3 does that.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git branch -r | grep -v '\-&gt;' | while read remote; do git branch --track "$&#123;remote#origin/&#125;" "$remote"; done</span><br><span class="line">git remote add vsts https://pokerleaguemanager.visualstudio.com/DefaultCollection/_git/GitHubSync</span><br><span class="line">git branch -r | grep -v '\-&gt;' | while read remote; do git -c http.extraheader="AUTHORIZATION: bearer $SYSTEM_ACCESSTOKEN" push -u vsts "$&#123;remote#origin/&#125;"; done</span><br></pre></td></tr></table></figure>
+<p>That script is doing a few things:</p>
+<ol>
+<li>Loop through all branches in origin and create local branches to track them. Note: Because GH was setup as the repo for this build, VSTS has already created the git repo, setup origin to point to GH, and downloaded the repo to the build agent.</li>
+<li>Add the VSTS repo as a new remote called vsts</li>
+<li>Loop through all branches and push each one to VSTS</li>
+</ol>
+<p>The stuff with $SYSTEM_ACCESSTOKEN in line 3 is accessing an environment variable that contains an Oauth token that can be used to communicate with VSTS - in a previous step where we set the option in the VSTS build to make Oauth token available to scripts, is what allows this to work.</p>
+<p>There's one thing left to do to make this all work - we need to grant the build service account access to the VSTS repo.  We can do this in the repo security screen like so:</p>
+<p><img src="http://imgur.com/eCYpGEC.png" alt="Configure Security"></p>
+<p>Now you can push some commits to GitHub and/or create a new branch, and the VSTS build should automatically trigger and synch the VSTS repo up almost immediately.  If everything is working you should see build output that looks something like this:</p>
+<p><img src="http://imgur.com/E3GhdJI.png" alt="Successful Build Output"></p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/dylan_smith">
+				
+					<img src='/images/avatars/dylan_300x300.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/dylan_smith">Dylan Smith</a></h2>
+			
+			<a href="mailto:optikal@shaw.ca"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://www.geekswithblogs.net/optikal" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/dylan_smith" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			
+			
+ 			<a href="/feeds/dylan_smith.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/_/Synchronize-GitHub-Repository-With-VSTS/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'dylan_smith');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

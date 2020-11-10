@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Using Azure ARM to Deploy a Docker Container | Western Devs</title>
+  <meta name="description" content="If you’ve been following the WesternDevs blog you’ll have seen a few posts lately about our adventures with infrastructure for our blog with Jekyll&#x2F;Docker.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Using Azure ARM to Deploy a Docker Container">
+<meta property="og:url" content="https://westerndevs.com/_/using-azure-arm-to-deploy-a-docker-container/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="If you’ve been following the WesternDevs blog you’ll have seen a few posts lately about our adventures with infrastructure for our blog with Jekyll&#x2F;Docker.">
+<meta property="og:image" content="http://i.imgur.com/xfiW4Ta.png">
+<meta property="article:published_time" content="2015-08-24T23:13:00.000Z">
+<meta property="article:modified_time" content="2020-11-10T20:10:51.599Z">
+<meta property="article:author" content="Western Devs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://i.imgur.com/xfiW4Ta.png">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">AUG</div>
+    <div class="ListLrgDateDay">24</div>
+    <div class="ListLrgDateYear">2015</div>
+  </div>
+  <h2>Using Azure ARM to Deploy a Docker Container</h2>
+</div>
+
+		    
+
+			<div id="mainPostContent">
+	        <p>If you’ve been following the WesternDevs blog you’ll have seen a few posts lately about our adventures with infrastructure for our blog with Jekyll/Docker.</p>
+<a id="more"></a>
+<ul>
+<li><a href="http://www.westerndevs.com/docker-on-windows-10-problems/" target="_blank" rel="noopener">Docker on Windows 10 Problems</a></li>
+<li><a href="http://www.westerndevs.com/getting-docker-running-on-windows-10/" target="_blank" rel="noopener">Getting Docker Running on Windows 10</a></li>
+<li><a href="http://www.westerndevs.com/docker-and-western-devs/" target="_blank" rel="noopener">Docker and Western Devs</a></li>
+</ul>
+<p>We decided to use Jekyll to host our blog, which most of us had never used before.  All of us need a way to fire up a Jekyll instance to test our changes (even simple things like how a new post will render).  Jekyll is really made for Linux, and most of us run Windows.  Although <a href="http://jekyll-windows.juthilo.com/" target="_blank" rel="noopener">Jekyll can run on windows in theory</a>, we have struggled to get it to work.  Amir came to the rescue, and created a <a href="https://hub.docker.com/r/abarylko/western-devs/" target="_blank" rel="noopener">Docker image that includes Jekyll</a> configured according to our needs.</p>
+<p>Now we have a new problem – most of us haven’t used Docker before.  We had some struggles, just getting Docker up and running and configured on Windows took a little bit of work for those of us that hadn’t used it before.  Those of us using Windows 10 discovered there were [additional challenges getting Docker running](Docker on Windows 10 Problems).  And for me personally, I do all my work in VM’s (either local VM’s, or Azure VM’s) and I didn’t want to install Docker/VirtualBox on my host OS, and I discovered that you can’t install Docker/VBox inside a Hyper-V Windows VM.</p>
+<p>I decided I was going to get something running in Azure, and I had an additional goal of making what I did repeatable and automated so that my fellow Western Devs could easily do what I did.  I’ve been doing <em>a lot</em> of work with Azure ARM Templates lately, so that was the approach I took.  I noticed there is a pre-existing image with Ubuntu available, and there is a Docker VM Extension that you can apply during provisioning that will install/configure Docker, and it can use Docker Compose to spin up one or more containers too.</p>
+<p>I created the JSON ARM Template, and a simple PowerShell script to deploy it.  Now any of my fellow WesternDevs can simply run a PS1 script, get prompted for a few pieces of info (azure credentials, azure subscription, github branch name, resource group name), and ~10 mins later they will have a new VM in Azure, with Docker installed, our WesternDevs image deployed, and our Jekyll site up and running with the code from their branch.  Then they can bring it up in a web browser and test out their changes before merging with Master.  When they’re done they can delete the Azure resource group if they wish, or keep it around for future testing.</p>
+<h2>The Gory Details</h2>
+<p>If you’ve never used Azure ARM Templates before, it’s a JSON file that describes a set of Azure Resources and their configurations.  You can use a PowerShell cmdlet to give the JSON to Azure, and it will spin up a new Resource Group and a bunch of new resources based on what is described in the JSON.  For the WesternDevs template the JSON describes the following resources:</p>
+<ul>
+<li>Storage Account</li>
+<li>Public IP Address</li>
+<li>Virtual Network</li>
+<li>Network Interface</li>
+<li>Network Security Group</li>
+<li>Virtual Machine</li>
+<li>VM Extension – DockerExtension</li>
+</ul>
+<p>The full JSON file is included at the end of this post.  It can also be <a href="https://github.com/westerndevs/western-devs-website/tree/source/_azure" target="_blank" rel="noopener">found on GitHub</a>.  Some of the configuration that is described in the JSON template includes:</p>
+<ul>
+<li>The Network Security Group exposes port 22 for SSH, and port 4000 for HTTP (this is what our Jekyll/Docker is configured to use)</li>
+<li>The VM is created from an image in the Azure Gallery provided by Canonical that has Ubuntu 15.04 on it.</li>
+</ul>
+<p>VM Extensions are additional components that can be applied to your VM as part of the provisioning process.  There is an extension available called DockerExtension that will install and configure Docker for you as part of the provisioning process.  Here is the relevant part of the template:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"type"</span>: <span class="string">"Microsoft.Compute/virtualMachines/extensions"</span>,</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"[concat(variables('vmName'),'/', variables('extensionName'))]"</span>,</span><br><span class="line">  <span class="attr">"apiVersion"</span>: <span class="string">"2015-05-01-preview"</span>,</span><br><span class="line">  <span class="attr">"location"</span>: <span class="string">"[variables('location')]"</span>,</span><br><span class="line">  <span class="attr">"dependsOn"</span>: [</span><br><span class="line">    <span class="string">"[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">"properties"</span>: &#123;</span><br><span class="line">    <span class="attr">"publisher"</span>: <span class="string">"Microsoft.Azure.Extensions"</span>,</span><br><span class="line">    <span class="attr">"type"</span>: <span class="string">"DockerExtension"</span>,</span><br><span class="line">    <span class="attr">"typeHandlerVersion"</span>: <span class="string">"1.0"</span>,</span><br><span class="line">    <span class="attr">"autoUpgradeMinorVersion"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"settings"</span>: &#123;</span><br><span class="line">      <span class="attr">"compose"</span>: &#123;</span><br><span class="line">        <span class="attr">"wddocker"</span>: &#123;</span><br><span class="line">          <span class="attr">"image"</span>: <span class="string">"abarylko/western-devs:v1"</span>,</span><br><span class="line">          <span class="attr">"ports"</span>: [</span><br><span class="line">            <span class="string">"4000:4000"</span></span><br><span class="line">          ],</span><br><span class="line">          <span class="attr">"stdin_open"</span>: <span class="literal">true</span>,</span><br><span class="line">          <span class="attr">"command"</span>: <span class="string">"[concat('bash -c \"git clone https://github.com/westerndevs/western-devs-website.git &amp;&amp; cd western-devs-website &amp;&amp; git checkout ', parameters('branchName'), ' &amp;&amp; sed -i s/www.westerndevs.com/', variables('dnsNameForPublicIP'), '.westus.cloudapp.azure.com:4000/g _config.yml &amp;&amp; bundle install &amp;&amp; jekyll serve --host 0.0.0.0 --force_polling\"')]"</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>This tells it to apply the DockerExtension to the VM previously created.  Additionally it uses Docker Compose to allow you to specify one or more Docker containers that it will pull down from DockerHub, deploy into Docker, allow you to specify configuration such as ports to map to the host, and allow you to run command(s) on the docker image.</p>
+<p>In the template above we tell it to grab the Docker image abarylko/western-devs:v1 which was created by my friend <a href="http://www.westerndevs.com/bios/amir_barylko/" target="_blank" rel="noopener">Amir Barylko</a> and already has Jekyll installed.  Then we tell it to map port 4000 from the docker container to port 4000 on the host Linux VM.  Lastly we give it a few bash commands to run on the docker container when it starts up:</p>
+<ul>
+<li>git clone https://github.com/westerndevs/western-devs-website.git</li>
+<li>cd western-devs-website</li>
+<li>git checkout [branchName]</li>
+<li>sed –i s/www.westerndevs.com/[VmDns].westus.cloudapp.azure.com:4000/g _config.yml</li>
+<li>bundle install</li>
+<li>jekyll serve –host 0.0.0.0 –force_polling</li>
+</ul>
+<p>This will grab the github repo in to the docker container, checkout our branch that we want to test (the branch name is passed as a parameter into the ARM template as we’ll see below in the Powershell), update the _config.yml file (which is a config file Jekyll uses) to replace the public url with the URL for our Azure VM (so when we test the site, the links all point to the same testing site URL), use bundle to install all our gems, then fire up Jekyll to run our site.</p>
+<p>Now that we have a JSON file that describes our Azure Resources, we need a way to deploy this.  This is a simple bit of PowerShell.  My goal here was to make this as simple as possible for somebody to use, even if they aren’t comfortable with PowerShell/Azure/Docker/Linux/Jekyll/etc.  It’s as simple as running the PS1, being prompted for 4 things (new resource group name, github branch name, azure login, azure subscription), then waiting ~10 mins for Azure to do it’s thing.</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$EnvName</span> = <span class="built_in">Read-Host</span> <span class="string">"Name for Azure Resource Group (must be globally unique)?"</span></span><br><span class="line"><span class="variable">$BranchName</span> = <span class="built_in">Read-Host</span> <span class="string">"Name of branch in git?"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Add-AzureAccount</span> | <span class="built_in">Out-Null</span></span><br><span class="line"><span class="variable">$AllSubscriptions</span> = <span class="built_in">Get-AzureSubscription</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$AllSubscriptions</span>.Count <span class="operator">-eq</span> <span class="number">1</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">Select-AzureSubscription</span> <span class="variable">$AllSubscriptions</span>[<span class="number">0</span>].SubscriptionName</span><br><span class="line">    <span class="built_in">Write-Host</span> (<span class="string">"Only 1 Azure Subscription found. Using "</span> + <span class="variable">$AllSubscriptions</span>[<span class="number">0</span>].SubscriptionName)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable">$AzureSub</span> = <span class="variable">$AllSubscriptions</span> | <span class="built_in">Out-GridView</span> <span class="literal">-Title</span> <span class="string">"Select Azure Subscription"</span> <span class="literal">-PassThru</span></span><br><span class="line">    <span class="built_in">Select-AzureSubscription</span> <span class="variable">$AzureSub</span>.SubscriptionName</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Switch-AzureMode</span> AzureResourceManager</span><br><span class="line"></span><br><span class="line"><span class="variable">$TemplateFile</span> = <span class="built_in">Join-Path</span> <span class="variable">$PSScriptRoot</span> <span class="string">"wddocker.json"</span></span><br><span class="line"><span class="variable">$params</span> = <span class="selector-tag">@</span>&#123;branchName=<span class="string">"<span class="variable">$BranchName</span>"</span>&#125;</span><br><span class="line"><span class="built_in">New-AzureResourceGroup</span> <span class="literal">-Location</span> <span class="string">"West US"</span> <span class="literal">-Name</span> <span class="variable">$EnvName</span> <span class="literal">-TemplateFile</span> <span class="variable">$TemplateFile</span> <span class="literal">-TemplateParameterObject</span> <span class="variable">$params</span> <span class="literal">-verbose</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Write-Host</span> <span class="string">"Your site will be available at this URL: http://<span class="variable">$EnvName</span>.westus.cloudapp.azure.com:4000"</span></span><br><span class="line"><span class="built_in">Read-Host</span> <span class="string">"Press enter to launch a browser to your new site - if it gives an error wait a minute then refresh"</span></span><br><span class="line"><span class="built_in">Start-Process</span> <span class="string">"http://<span class="variable">$EnvName</span>.westus.cloudapp.azure.com:4000"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Write-Host</span> <span class="string">"When you're finished testing you should delete the Azure Resource Group"</span></span><br><span class="line"><span class="built_in">Write-Host</span> <span class="string">"You can do it yourself in portal.azure.com"</span></span><br><span class="line"><span class="built_in">Write-Host</span> <span class="string">"Or in PS using Remove-AzureResourceGroup -Name <span class="variable">$EnvName</span>"</span></span><br><span class="line"><span class="built_in">Write-Host</span> <span class="string">"Or this script can do it for you automatically (leave this open until done testing)"</span></span><br><span class="line"><span class="built_in">Write-Host</span> <span class="string">""</span></span><br><span class="line"><span class="variable">$DeleteRG</span> = <span class="built_in">Read-Host</span> <span class="string">"Do you want to delete the Azure Resource Group <span class="variable">$EnvName</span> now (y/n)?"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$DeleteRG</span>.ToUpper() <span class="operator">-eq</span> <span class="string">"Y"</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">Remove-AzureResourceGroup</span> <span class="literal">-Name</span> <span class="variable">$EnvName</span> <span class="literal">-Force</span> <span class="literal">-Verbose</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Read-Host</span> <span class="string">"Press enter to close this window"</span></span><br></pre></td></tr></table></figure>
+<p>The interesting line here is the one that does New-AzureResourceGroup.  That passes the JSON template to azure and tells it to create a new resource group and provision the resources described in the template.  We also tell it the azure datacenter location where everything should be created, and pass in a parameter that contains the branch name.</p>
+<p>The rest of the script is just collecting some values from the user, and at the end it will launch your browser to the newly created site, and give you the option to delete all the azure resources just created if you wish.</p>
+<h2>Try it for Yourself</h2>
+<p>You can easily give this a try yourself.</p>
+<ol>
+<li><a href="https://github.com/westerndevs/western-devs-website/tree/source/_azure" target="_blank" rel="noopener">Download wddocker.json and deploy.ps1 from github</a></li>
+<li>If you haven’t already you need to install azure powershell. You can get the installer in the <a href="https://github.com/westerndevs/western-devs-website/tree/source/_azure" target="_blank" rel="noopener">github folder</a>, or <a href="https://azure.microsoft.com/en-us/documentation/articles/powershell-install-configure/" target="_blank" rel="noopener">from Microsoft</a></li>
+<li>Run deploy.ps1</li>
+<li>When prompted for branch name use: source</li>
+<li>???</li>
+<li>Profit!!!</li>
+</ol>
+<p><img src="http://i.imgur.com/xfiW4Ta.png" alt="ARM Deployment"></p>
+<h2>Complete ARM Template JSON</h2>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"$schema"</span>: <span class="string">"https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#"</span>,</span><br><span class="line">  <span class="attr">"contentVersion"</span>: <span class="string">"1.0.0.0"</span>,</span><br><span class="line">  <span class="attr">"parameters"</span>: &#123;</span><br><span class="line">    <span class="attr">"branchName"</span>: &#123;</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"string"</span>,</span><br><span class="line">	  <span class="attr">"defaultValue"</span>: <span class="string">"source"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"variables"</span>: &#123;</span><br><span class="line">	<span class="attr">"newStorageAccountName"</span>: <span class="string">"[toLower(resourceGroup().name)]"</span>,</span><br><span class="line">	<span class="attr">"location"</span>: <span class="string">"[resourceGroup().location]"</span>,</span><br><span class="line">	<span class="attr">"adminUsername"</span>: <span class="string">"WesternDevs"</span>,</span><br><span class="line">	<span class="attr">"adminPassword"</span>: <span class="string">"P2ssw0rd"</span>,</span><br><span class="line">	<span class="attr">"dnsNameForPublicIP"</span>: <span class="string">"[toLower(resourceGroup().name)]"</span>,</span><br><span class="line">    <span class="attr">"imagePublisher"</span>: <span class="string">"Canonical"</span>,</span><br><span class="line">    <span class="attr">"imageOffer"</span>: <span class="string">"UbuntuServer"</span>,</span><br><span class="line">    <span class="attr">"ubuntuOSVersion"</span>: <span class="string">"15.04"</span>,</span><br><span class="line">    <span class="attr">"OSDiskName"</span>: <span class="string">"[resourceGroup().name]"</span>,</span><br><span class="line">    <span class="attr">"nsgName"</span>: <span class="string">"myNSG"</span>,</span><br><span class="line">    <span class="attr">"nicName"</span>: <span class="string">"myVMNic"</span>,</span><br><span class="line">    <span class="attr">"extensionName"</span>: <span class="string">"DockerExtension"</span>,</span><br><span class="line">    <span class="attr">"addressPrefix"</span>: <span class="string">"10.0.0.0/16"</span>,</span><br><span class="line">    <span class="attr">"subnetName"</span>: <span class="string">"Subnet"</span>,</span><br><span class="line">    <span class="attr">"subnetPrefix"</span>: <span class="string">"10.0.0.0/24"</span>,</span><br><span class="line">    <span class="attr">"storageAccountType"</span>: <span class="string">"Standard_LRS"</span>,</span><br><span class="line">    <span class="attr">"publicIPAddressName"</span>: <span class="string">"myPublicIP"</span>,</span><br><span class="line">    <span class="attr">"publicIPAddressType"</span>: <span class="string">"Dynamic"</span>,</span><br><span class="line">    <span class="attr">"vmStorageAccountContainerName"</span>: <span class="string">"vhds"</span>,</span><br><span class="line">    <span class="attr">"vmName"</span>: <span class="string">"[resourceGroup().name]"</span>,</span><br><span class="line">    <span class="attr">"vmSize"</span>: <span class="string">"Basic_A1"</span>,</span><br><span class="line">    <span class="attr">"virtualNetworkName"</span>: <span class="string">"MyVNET"</span>,</span><br><span class="line">    <span class="attr">"vnetID"</span>: <span class="string">"[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]"</span>,</span><br><span class="line">    <span class="attr">"nsgID"</span>: <span class="string">"[resourceId('Microsoft.Network/networkSecurityGroups',variables('nsgName'))]"</span>,</span><br><span class="line">    <span class="attr">"subnetRef"</span>: <span class="string">"[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"resources"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"Microsoft.Storage/storageAccounts"</span>,</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"[variables('newStorageAccountName')]"</span>,</span><br><span class="line">      <span class="attr">"apiVersion"</span>: <span class="string">"2015-05-01-preview"</span>,</span><br><span class="line">      <span class="attr">"location"</span>: <span class="string">"[variables('location')]"</span>,</span><br><span class="line">      <span class="attr">"properties"</span>: &#123;</span><br><span class="line">        <span class="attr">"accountType"</span>: <span class="string">"[variables('storageAccountType')]"</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"apiVersion"</span>: <span class="string">"2015-05-01-preview"</span>,</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"Microsoft.Network/publicIPAddresses"</span>,</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"[variables('publicIPAddressName')]"</span>,</span><br><span class="line">      <span class="attr">"location"</span>: <span class="string">"[variables('location')]"</span>,</span><br><span class="line">      <span class="attr">"properties"</span>: &#123;</span><br><span class="line">        <span class="attr">"publicIPAllocationMethod"</span>: <span class="string">"[variables('publicIPAddressType')]"</span>,</span><br><span class="line">        <span class="attr">"dnsSettings"</span>: &#123;</span><br><span class="line">          <span class="attr">"domainNameLabel"</span>: <span class="string">"[variables('dnsNameForPublicIP')]"</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"apiVersion"</span>: <span class="string">"2015-05-01-preview"</span>,</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"Microsoft.Network/virtualNetworks"</span>,</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"[variables('virtualNetworkName')]"</span>,</span><br><span class="line">      <span class="attr">"location"</span>: <span class="string">"[variables('location')]"</span>,</span><br><span class="line">      <span class="attr">"dependsOn"</span>: [</span><br><span class="line">        <span class="string">"[variables('nsgID')]"</span></span><br><span class="line">      ],</span><br><span class="line">      <span class="attr">"properties"</span>: &#123;</span><br><span class="line">        <span class="attr">"addressSpace"</span>: &#123;</span><br><span class="line">          <span class="attr">"addressPrefixes"</span>: [</span><br><span class="line">            <span class="string">"[variables('addressPrefix')]"</span></span><br><span class="line">          ]</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"subnets"</span>: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">"name"</span>: <span class="string">"[variables('subnetName')]"</span>,</span><br><span class="line">            <span class="attr">"properties"</span>: &#123;</span><br><span class="line">              <span class="attr">"addressPrefix"</span>: <span class="string">"[variables('subnetPrefix')]"</span>,</span><br><span class="line">              <span class="attr">"networkSecurityGroup"</span>: &#123;</span><br><span class="line">                <span class="attr">"id"</span>: <span class="string">"[variables('nsgID')]"</span></span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"apiVersion"</span>: <span class="string">"2015-05-01-preview"</span>,</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"Microsoft.Network/networkInterfaces"</span>,</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"[variables('nicName')]"</span>,</span><br><span class="line">      <span class="attr">"location"</span>: <span class="string">"[variables('location')]"</span>,</span><br><span class="line">      <span class="attr">"dependsOn"</span>: [</span><br><span class="line">        <span class="string">"[concat('Microsoft.Network/publicIPAddresses/', variables('publicIPAddressName'))]"</span>,</span><br><span class="line">        <span class="string">"[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"</span></span><br><span class="line">      ],</span><br><span class="line">      <span class="attr">"properties"</span>: &#123;</span><br><span class="line">        <span class="attr">"ipConfigurations"</span>: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">"name"</span>: <span class="string">"ipconfig1"</span>,</span><br><span class="line">            <span class="attr">"properties"</span>: &#123;</span><br><span class="line">              <span class="attr">"privateIPAllocationMethod"</span>: <span class="string">"Dynamic"</span>,</span><br><span class="line">              <span class="attr">"publicIPAddress"</span>: &#123;</span><br><span class="line">                <span class="attr">"id"</span>: <span class="string">"[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))]"</span></span><br><span class="line">              &#125;,</span><br><span class="line">              <span class="attr">"subnet"</span>: &#123;</span><br><span class="line">                <span class="attr">"id"</span>: <span class="string">"[variables('subnetRef')]"</span></span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"apiVersion"</span>: <span class="string">"2015-05-01-preview"</span>,</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"Microsoft.Network/networkSecurityGroups"</span>,</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"[variables('nsgName')]"</span>,</span><br><span class="line">      <span class="attr">"location"</span>: <span class="string">"[variables('location')]"</span>,</span><br><span class="line">      <span class="attr">"properties"</span>: &#123;</span><br><span class="line">        <span class="attr">"securityRules"</span>: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">"name"</span>: <span class="string">"http"</span>,</span><br><span class="line">            <span class="attr">"properties"</span>: &#123;</span><br><span class="line">              <span class="attr">"description"</span>: <span class="string">"Allow HTTP"</span>,</span><br><span class="line">              <span class="attr">"protocol"</span>: <span class="string">"Tcp"</span>,</span><br><span class="line">              <span class="attr">"sourcePortRange"</span>: <span class="string">"*"</span>,</span><br><span class="line">              <span class="attr">"destinationPortRange"</span>: <span class="string">"4000"</span>,</span><br><span class="line">              <span class="attr">"sourceAddressPrefix"</span>: <span class="string">"Internet"</span>,</span><br><span class="line">              <span class="attr">"destinationAddressPrefix"</span>: <span class="string">"*"</span>,</span><br><span class="line">              <span class="attr">"access"</span>: <span class="string">"Allow"</span>,</span><br><span class="line">              <span class="attr">"priority"</span>: <span class="number">100</span>,</span><br><span class="line">              <span class="attr">"direction"</span>: <span class="string">"Inbound"</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">"name"</span>: <span class="string">"ssh"</span>,</span><br><span class="line">            <span class="attr">"properties"</span>: &#123;</span><br><span class="line">              <span class="attr">"description"</span>: <span class="string">"Allow SSH"</span>,</span><br><span class="line">              <span class="attr">"protocol"</span>: <span class="string">"Tcp"</span>,</span><br><span class="line">              <span class="attr">"sourcePortRange"</span>: <span class="string">"*"</span>,</span><br><span class="line">              <span class="attr">"destinationPortRange"</span>: <span class="string">"22"</span>,</span><br><span class="line">              <span class="attr">"sourceAddressPrefix"</span>: <span class="string">"Internet"</span>,</span><br><span class="line">              <span class="attr">"destinationAddressPrefix"</span>: <span class="string">"*"</span>,</span><br><span class="line">              <span class="attr">"access"</span>: <span class="string">"Allow"</span>,</span><br><span class="line">              <span class="attr">"priority"</span>: <span class="number">110</span>,</span><br><span class="line">              <span class="attr">"direction"</span>: <span class="string">"Inbound"</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"apiVersion"</span>: <span class="string">"2015-05-01-preview"</span>,</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"Microsoft.Compute/virtualMachines"</span>,</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"[variables('vmName')]"</span>,</span><br><span class="line">      <span class="attr">"location"</span>: <span class="string">"[variables('location')]"</span>,</span><br><span class="line">      <span class="attr">"dependsOn"</span>: [</span><br><span class="line">        <span class="string">"[concat('Microsoft.Storage/storageAccounts/', variables('newStorageAccountName'))]"</span>,</span><br><span class="line">        <span class="string">"[concat('Microsoft.Network/networkInterfaces/', variables('nicName'))]"</span></span><br><span class="line">      ],</span><br><span class="line">      <span class="attr">"properties"</span>: &#123;</span><br><span class="line">        <span class="attr">"hardwareProfile"</span>: &#123;</span><br><span class="line">          <span class="attr">"vmSize"</span>: <span class="string">"[variables('vmSize')]"</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"osProfile"</span>: &#123;</span><br><span class="line">          <span class="attr">"computername"</span>: <span class="string">"[variables('vmName')]"</span>,</span><br><span class="line">          <span class="attr">"adminUsername"</span>: <span class="string">"[variables('adminUsername')]"</span>,</span><br><span class="line">          <span class="attr">"adminPassword"</span>: <span class="string">"[variables('adminPassword')]"</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"storageProfile"</span>: &#123;</span><br><span class="line">          <span class="attr">"imageReference"</span>: &#123;</span><br><span class="line">            <span class="attr">"publisher"</span>: <span class="string">"[variables('imagePublisher')]"</span>,</span><br><span class="line">            <span class="attr">"offer"</span>: <span class="string">"[variables('imageOffer')]"</span>,</span><br><span class="line">            <span class="attr">"sku"</span>: <span class="string">"[variables('ubuntuOSVersion')]"</span>,</span><br><span class="line">            <span class="attr">"version"</span>: <span class="string">"latest"</span></span><br><span class="line">          &#125;,</span><br><span class="line">          <span class="attr">"osDisk"</span>: &#123;</span><br><span class="line">            <span class="attr">"name"</span>: <span class="string">"osdisk1"</span>,</span><br><span class="line">            <span class="attr">"vhd"</span>: &#123;</span><br><span class="line">              <span class="attr">"uri"</span>: <span class="string">"[concat('http://',variables('newStorageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/',variables('OSDiskName'),'.vhd')]"</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"caching"</span>: <span class="string">"ReadWrite"</span>,</span><br><span class="line">            <span class="attr">"createOption"</span>: <span class="string">"FromImage"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"networkProfile"</span>: &#123;</span><br><span class="line">          <span class="attr">"networkInterfaces"</span>: [</span><br><span class="line">            &#123;</span><br><span class="line">              <span class="attr">"id"</span>: <span class="string">"[resourceId('Microsoft.Network/networkInterfaces',variables('nicName'))]"</span></span><br><span class="line">            &#125;</span><br><span class="line">          ]</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"Microsoft.Compute/virtualMachines/extensions"</span>,</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"[concat(variables('vmName'),'/', variables('extensionName'))]"</span>,</span><br><span class="line">      <span class="attr">"apiVersion"</span>: <span class="string">"2015-05-01-preview"</span>,</span><br><span class="line">      <span class="attr">"location"</span>: <span class="string">"[variables('location')]"</span>,</span><br><span class="line">      <span class="attr">"dependsOn"</span>: [</span><br><span class="line">        <span class="string">"[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"</span></span><br><span class="line">      ],</span><br><span class="line">      <span class="attr">"properties"</span>: &#123;</span><br><span class="line">        <span class="attr">"publisher"</span>: <span class="string">"Microsoft.Azure.Extensions"</span>,</span><br><span class="line">        <span class="attr">"type"</span>: <span class="string">"DockerExtension"</span>,</span><br><span class="line">        <span class="attr">"typeHandlerVersion"</span>: <span class="string">"1.0"</span>,</span><br><span class="line">        <span class="attr">"autoUpgradeMinorVersion"</span>: <span class="literal">true</span>,</span><br><span class="line">		<span class="attr">"settings"</span>: &#123;</span><br><span class="line">          <span class="attr">"compose"</span>: &#123;</span><br><span class="line">            <span class="attr">"wddocker"</span>: &#123;</span><br><span class="line">              <span class="attr">"image"</span>: <span class="string">"abarylko/western-devs:v1"</span>,</span><br><span class="line">              <span class="attr">"ports"</span>: [</span><br><span class="line">                <span class="string">"4000:4000"</span></span><br><span class="line">              ],</span><br><span class="line">			  <span class="attr">"stdin_open"</span>: <span class="literal">true</span>,</span><br><span class="line">			  <span class="attr">"command"</span>: <span class="string">"[concat('bash -c \"git clone https://github.com/westerndevs/western-devs-website.git &amp;&amp; cd western-devs-website &amp;&amp; git checkout ', parameters('branchName'), ' &amp;&amp; sed -i s/www.westerndevs.com/', variables('dnsNameForPublicIP'), '.westus.cloudapp.azure.com:4000/g _config.yml &amp;&amp; bundle install &amp;&amp; jekyll serve --host 0.0.0.0 --force_polling\"')]"</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">		&#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/dylan_smith">
+				
+					<img src='/images/avatars/dylan_300x300.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/dylan_smith">Dylan Smith</a></h2>
+			
+			<a href="mailto:optikal@shaw.ca"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://www.geekswithblogs.net/optikal" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/dylan_smith" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			
+			
+ 			<a href="/feeds/dylan_smith.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/_/using-azure-arm-to-deploy-a-docker-container/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'dylan_smith');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>
