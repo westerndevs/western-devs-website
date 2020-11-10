@@ -25,8 +25,9 @@
 	              <% site.posts.sort('date', -1).filter(function(post){return post.author && post.author.id == page.author.id;}).each(function(post){ %>
 					<div class="ListLrgHomeBG">
 						<div class="ListLrgDateBG">
-						<div class="ListLrgDateMonth"><%= moment(post.date).format('MMM').toUpperCase() %></div>
-						<div class="ListLrgDateDay"><%= moment(post.date).format('D') %></div>
+							<div class="ListLrgDateMonth"><%= moment(post.date).format('MMM').toUpperCase() %></div>
+							<div class="ListLrgDateDay"><%= moment(post.date).format('D') %></div>
+							<div class="ListLrgDateYear"><%= moment(post.date).format('YYYY') %></div>
 						</div>
 						<div class="ListLrgTxt recentPosts">
 							<div>
