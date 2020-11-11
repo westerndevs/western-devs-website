@@ -5,7 +5,7 @@
   <link href="/feeds/david_wesst" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2020-11-10T20:48:12.706Z</updated>
+  <updated>2020-11-11T04:33:05.391Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,49 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">From Travis CI to GitHub Actions (and GitHub Pages)</title>
+    <link href="https://westerndevs.com/devops/from-travis-ci-to-github-actions/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/devops/from-travis-ci-to-github-actions/</id>
+    <published>2020-11-10T23:36:00.000Z</published>
+    <updated>2020-11-11T04:33:05.391Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>We recently migrated the continuous integration and deployment workflow for the Western Devs website from Travis CI to GitHub Actions. These are the steps I followed to get it done.</p><a id="more"></a><p>Travis CI <a href="https://blog.travis-ci.com/2020-11-02-travis-ci-new-billing" target="_blank" rel="noopener">announced a new pricing model</a> that <em>could</em> have impact on open source projects that are using Travis for continuous integration and/or deployment. For static websites, like the <a href="https://westerndevs.com">Western Devs website</a> or <a href="https://www.davidwesst.com" target="_blank" rel="noopener">personal website</a>, this could result in getting some unforeseen costs. With that in mind, we decided to take the plunge an migrate away from Travis and over to <a href="https://docs.github.com/en/free-pro-team@latest/actions" target="_blank" rel="noopener">GitHub Actions</a> as they provide CI and CD workflows free for open source projects.</p><h2>TL;DR; -- Just show me the code</h2><p>Fine. <a href="https://github.com/westerndevs/western-devs-website/blob/master/.github/workflows/ci-cd.yml" target="_blank" rel="noopener">Here is is</a>. It is open source after all.</p><p>But just to be clear, this isn't a tutorial on how to code this up, rather its a walkthrough on what it took to get our <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> based static site from Travis to GitHub Actions.</p><h2>Start with Mapping Out Your Workflow</h2><p>And I mean <em>workflow</em> and not just the build.</p><p>For the Western Devs, our workflow goes like this:</p><ol><li>Commit a change to the code (i.e. a new blog post)</li><li>Build the website</li><li>If master branch build is successful, deploy the build to production</li><li>Notify the Western Devs of the build result in Slack</li></ol><p>GitHub workflow provides everything we need to do this, and I'll walk you through the code, which you can see for yourself in <a href="https://github.com/westerndevs/western-devs-website/blob/master/.github/workflows/ci-cd.yml" target="_blank" rel="noopener">here in our GitHub repo</a>.</p><h3>1. Commit a change to the code (i.e. a new blog post)</h3><p>This is our trigger to start the workflow. That is represented by the <code>on</code> section of the YAML. In our case, we want to trigger the workflow every time there is a pull request created for the master branch, a push to the master branch (i.e. a merge), or a push to any other feature (ft) or hotfix (hf) branches.</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="attr">name:</span> <span class="string">CI/CD</span></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">master</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ft/*</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">hf/*</span></span><br><span class="line">  <span class="attr">pull_request:</span></span><br><span class="line">    <span class="attr">branches:</span> <span class="string">[</span> <span class="string">master</span> <span class="string">]</span></span><br></pre></td></tr></table></figure><p>Now we have a workflow that will trigger when we want to. Next, we need to actually build the website.</p><h3>2. Build the website</h3><p>Our build is exceptionally simple-- just generate the site, and if the generation is successful, the build was successful. To do this, we create a <code>build</code> job that handles the work.</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">Build</span> <span class="string">and</span> <span class="string">Deploy</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span> <span class="comment"># checkout the source code</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/setup-node@v1</span> <span class="comment"># setup the environment</span></span><br><span class="line">      <span class="attr">with:</span></span><br><span class="line">        <span class="attr">node-version:</span> <span class="number">12</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">run:</span> <span class="string">npm</span> <span class="string">install</span> <span class="comment"># setup dependencies</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">run:</span> <span class="string">npm</span> <span class="string">run</span> <span class="string">build</span> <span class="comment"># run the build command</span></span><br></pre></td></tr></table></figure><p>The first two steps are using GitHub Actions provided by GitHub themselves. This pulls our source code and the sets up the Node environment that we need to build the website. Once that is done, we  <code>run</code> steps to run shell commands to install our project specific dependendies and run the build script itself.</p><p>The scripts have been defined in our <a href="https://github.com/westerndevs/western-devs-website/blob/master/package.json" target="_blank" rel="noopener">project <code>package.json</code> file</a> and are used by the developers to build the site locally as well.</p><h3>3. If master branch build is successful, deploy the build to production</h3><p>If we are talking about the master branch, we want to do a deployment if it is successful. For this step, we added a conditional expression using the <code>github</code> context that is provided to all actions. You can learn more about context and expressions for GitHub Actions in the <a href="https://docs.github.com/en/free-pro-team@latest/actions/reference/context-and-expression-syntax-for-github-actions#about-contexts-and-expressions" target="_blank" rel="noopener">GitHub Docs here</a>.</p><p>You might also see that were using an encrypted secret using the <code>secret.GITHUB_TOKEN</code> expression. All repositories have this feature in the settings section of the repo, and you can learn more about <a href="https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets" target="_blank" rel="noopener">creating encrypted secrets for a repository here</a> in the GitHub docs.</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Deploy</span> <span class="string">to</span> <span class="string">GitHub</span> <span class="string">Pages</span></span><br><span class="line">  <span class="attr">if:</span> <span class="string">github.ref</span> <span class="string">==</span> <span class="string">'refs/heads/master'</span></span><br><span class="line">  <span class="attr">uses:</span> <span class="string">peaceiris/actions-gh-pages@v3</span></span><br><span class="line">  <span class="attr">with:</span></span><br><span class="line">    <span class="attr">github_token:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.GITHUB_TOKEN</span> <span class="string">&#125;&#125;</span></span><br><span class="line">    <span class="attr">cname:</span> <span class="string">westerndevs.com</span></span><br><span class="line">    <span class="attr">commit_message:</span> <span class="string">$&#123;&#123;</span> <span class="string">github.event.head_commit.message</span> <span class="string">&#125;&#125;</span></span><br></pre></td></tr></table></figure><h4>BONUS: Free hosting with GitHub Pages</h4><p>In our case, our deployment target is <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> which provides free hosting and SSL certificates for open source static sites sites like ours.</p><p>We decided to take this opportunity to consilate everything under the GitHub umbrella because it saved us a couple of bucks, and now everything we need to manage the site is in one spot rather than spread across multiple cloud services.</p><h3>4. Notify the Western Devs of the build result in Slack</h3><p>Originally, we had forgotten this step and started to feel it right away. So an issue was created and I put a solution in place in about 15 minutes, thanks to someone else doing all the heavy lifting and publishing their work to the <a href="https://github.com/marketplace?type=actions" target="_blank" rel="noopener">GitHub Actions Marketplace</a>.</p><p>Slack supports incoming webhooks, even for for free workspaces. I set that up by following the <a href="https://api.slack.com/messaging/webhooks" target="_blank" rel="noopener">Slack documentation</a>, created another secret in our repository and voila, we were back in business wih the notifications.</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Notify</span> <span class="string">Slack</span></span><br><span class="line">  <span class="attr">if:</span> <span class="string">always()</span></span><br><span class="line">  <span class="attr">uses:</span> <span class="string">8398a7/action-slack@v3</span></span><br><span class="line">  <span class="attr">with:</span></span><br><span class="line">    <span class="attr">status:</span> <span class="string">$&#123;&#123;</span> <span class="string">job.status</span> <span class="string">&#125;&#125;</span></span><br><span class="line">    <span class="attr">fields:</span> <span class="string">repo,message,commit,author,action,eventName,ref,workflow,job,took</span> <span class="comment"># selectable (default: repo,message)</span></span><br><span class="line">  <span class="attr">env:</span></span><br><span class="line">    <span class="attr">SLACK_WEBHOOK_URL:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.SLACK_WEBHOOK_URL</span> <span class="string">&#125;&#125;</span> <span class="comment"># required</span></span><br></pre></td></tr></table></figure><h2>Conclusion</h2><p>The combination of GitHub Actions and GitHub Pages provides every developer with the opportunity to get a taste of DevOps while actually producing something they can show off to their peers and community. Travis CI is, and will continue to be, a great CI/CD solution for developers...but if you're looking for a one-stop-shop for source control, workflow, and hosting. You can't really go wrong with GitHub.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;We recently migrated the continuous integration and deployment workflow for the Western Devs website from Travis CI to GitHub Actions. These are the steps I followed to get it done.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="devops" scheme="https://westerndevs.com/categories/devops/"/>
+    
+    
+      <category term="github actions" scheme="https://westerndevs.com/tags/github-actions/"/>
+    
+      <category term="github workflow" scheme="https://westerndevs.com/tags/github-workflow/"/>
+    
+      <category term="travis ci" scheme="https://westerndevs.com/tags/travis-ci/"/>
+    
+      <category term="continuous integration" scheme="https://westerndevs.com/tags/continuous-integration/"/>
+    
+      <category term="continuous deployment" scheme="https://westerndevs.com/tags/continuous-deployment/"/>
+    
+  </entry>
+  
+  <entry>
     <title type="html">New Artwork and a Complete Rewrite...ish | Out the Door Devlog</title>
     <link href="https://westerndevs.com/devlog/out-the-door/out-the-door-post-jam-update/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/out-the-door/out-the-door-post-jam-update/</id>
     <published>2020-11-09T14:00:00.000Z</published>
-    <updated>2020-11-10T20:48:12.706Z</updated>
+    <updated>2020-11-11T04:33:05.391Z</updated>
 	<author>
 	
 	  
@@ -63,7 +101,7 @@
     <link href="https://westerndevs.com/devlog/a-solo-gamejam-experience-ld47/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/a-solo-gamejam-experience-ld47/</id>
     <published>2020-10-23T13:00:00.000Z</published>
-    <updated>2020-11-10T20:48:12.706Z</updated>
+    <updated>2020-11-11T04:33:05.391Z</updated>
 	<author>
 	
 	  
@@ -103,7 +141,7 @@
     <link href="https://westerndevs.com/devlog/game-portfolio-review-2020/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/game-portfolio-review-2020/</id>
     <published>2020-09-18T13:00:00.000Z</published>
-    <updated>2020-11-10T20:48:12.706Z</updated>
+    <updated>2020-11-11T04:33:05.391Z</updated>
 	<author>
 	
 	  
@@ -143,7 +181,7 @@
     <link href="https://westerndevs.com/devlog/little-shop-of-wall-street-01-release-notes/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/little-shop-of-wall-street-01-release-notes/</id>
     <published>2020-07-02T15:13:00.000Z</published>
-    <updated>2020-11-10T20:48:12.706Z</updated>
+    <updated>2020-11-11T04:33:05.391Z</updated>
 	<author>
 	
 	  
@@ -181,7 +219,7 @@
     <link href="https://westerndevs.com/Game-Design/How-GitHub-Makes-Game-Making-Easier-For-NonCoders/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Game-Design/How-GitHub-Makes-Game-Making-Easier-For-NonCoders/</id>
     <published>2020-02-19T20:48:36.000Z</published>
-    <updated>2020-11-10T20:48:12.702Z</updated>
+    <updated>2020-11-11T04:33:05.391Z</updated>
 	<author>
 	
 	  
@@ -217,7 +255,7 @@
     <link href="https://westerndevs.com/Devlog/Jan-2020-Devlog/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Devlog/Jan-2020-Devlog/</id>
     <published>2020-02-04T21:03:24.000Z</published>
-    <updated>2020-11-10T20:48:12.702Z</updated>
+    <updated>2020-11-11T04:33:05.391Z</updated>
 	<author>
 	
 	  
@@ -253,7 +291,7 @@
     <link href="https://westerndevs.com/Game-Development/Where-To-Find-Your-Gamedev-Community/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Game-Development/Where-To-Find-Your-Gamedev-Community/</id>
     <published>2020-01-21T11:09:00.000Z</published>
-    <updated>2020-11-10T20:48:12.702Z</updated>
+    <updated>2020-11-11T04:33:05.391Z</updated>
 	<author>
 	
 	  
@@ -291,7 +329,7 @@
     <link href="https://westerndevs.com/_/No-Cost-Game-Design-Toolbox/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/No-Cost-Game-Design-Toolbox/</id>
     <published>2020-01-13T21:51:04.000Z</published>
-    <updated>2020-11-10T20:48:12.702Z</updated>
+    <updated>2020-11-11T04:33:05.391Z</updated>
 	<author>
 	
 	  
@@ -327,7 +365,7 @@
     <link href="https://westerndevs.com/Game-Development/gameoff2019-gamejam-devlog/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Game-Development/gameoff2019-gamejam-devlog/</id>
     <published>2019-11-26T14:57:00.000Z</published>
-    <updated>2020-11-10T20:48:12.702Z</updated>
+    <updated>2020-11-11T04:33:05.383Z</updated>
 	<author>
 	
 	  
@@ -357,7 +395,7 @@
     <link href="https://westerndevs.com/_/streaming-code-and-games-on-mixer/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/streaming-code-and-games-on-mixer/</id>
     <published>2018-09-27T17:55:42.000Z</published>
-    <updated>2020-11-10T20:48:12.698Z</updated>
+    <updated>2020-11-11T04:33:05.379Z</updated>
 	<author>
 	
 	  
@@ -383,7 +421,7 @@
     <link href="https://westerndevs.com/Development/f12-chooser-is-dev-tool-thing/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Development/f12-chooser-is-dev-tool-thing/</id>
     <published>2018-03-28T17:10:00.000Z</published>
-    <updated>2020-11-10T20:48:12.698Z</updated>
+    <updated>2020-11-11T04:33:05.379Z</updated>
 	<author>
 	
 	  
@@ -419,7 +457,7 @@
     <link href="https://westerndevs.com/Development/typescript-or-javascript/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Development/typescript-or-javascript/</id>
     <published>2018-03-15T15:40:00.000Z</published>
-    <updated>2020-11-10T20:48:12.698Z</updated>
+    <updated>2020-11-11T04:33:05.379Z</updated>
 	<author>
 	
 	  
@@ -451,7 +489,7 @@
     <link href="https://westerndevs.com/Development/crowdsourcing-docs-is-cool/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Development/crowdsourcing-docs-is-cool/</id>
     <published>2018-03-13T13:40:00.000Z</published>
-    <updated>2020-11-10T20:48:12.698Z</updated>
+    <updated>2020-11-11T04:33:05.379Z</updated>
 	<author>
 	
 	  
@@ -483,7 +521,7 @@
     <link href="https://westerndevs.com/web/websummit-wsl/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/web/websummit-wsl/</id>
     <published>2017-09-20T22:35:00.000Z</published>
-    <updated>2020-11-10T20:48:12.698Z</updated>
+    <updated>2020-11-11T04:33:05.379Z</updated>
 	<author>
 	
 	  
@@ -521,7 +559,7 @@
     <link href="https://westerndevs.com/web/websummit-sonar/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/web/websummit-sonar/</id>
     <published>2017-09-19T22:35:00.000Z</published>
-    <updated>2020-11-10T20:48:12.698Z</updated>
+    <updated>2020-11-11T04:33:05.379Z</updated>
 	<author>
 	
 	  
@@ -557,7 +595,7 @@
     <link href="https://westerndevs.com/web/websummit-pwa/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/web/websummit-pwa/</id>
     <published>2017-09-18T23:35:00.000Z</published>
-    <updated>2020-11-10T20:48:12.698Z</updated>
+    <updated>2020-11-11T04:33:05.379Z</updated>
 	<author>
 	
 	  
@@ -593,7 +631,7 @@
     <link href="https://westerndevs.com/java/posh-gvm/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/java/posh-gvm/</id>
     <published>2017-08-17T14:00:00.000Z</published>
-    <updated>2020-11-10T20:48:12.698Z</updated>
+    <updated>2020-11-11T04:33:05.379Z</updated>
 	<author>
 	
 	  
@@ -631,7 +669,7 @@
     <link href="https://westerndevs.com/java/jabba/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/java/jabba/</id>
     <published>2017-08-16T13:35:00.000Z</published>
-    <updated>2020-11-10T20:48:12.698Z</updated>
+    <updated>2020-11-11T04:33:05.379Z</updated>
 	<author>
 	
 	  
@@ -667,7 +705,7 @@
     <link href="https://westerndevs.com/javascript/nvs/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/javascript/nvs/</id>
     <published>2017-08-15T16:35:00.000Z</published>
-    <updated>2020-11-10T20:48:12.698Z</updated>
+    <updated>2020-11-11T04:33:05.379Z</updated>
 	<author>
 	
 	  
@@ -697,44 +735,6 @@
       <category term="nvs" scheme="https://westerndevs.com/tags/nvs/"/>
     
       <category term="version manager" scheme="https://westerndevs.com/tags/version-manager/"/>
-    
-  </entry>
-  
-  <entry>
-    <title type="html">IstanbulJS Code Coverage Reports in VSTS</title>
-    <link href="https://westerndevs.com/development/istanbuljs-in-vsts/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/development/istanbuljs-in-vsts/</id>
-    <published>2017-08-03T16:10:00.000Z</published>
-    <updated>2020-11-10T20:48:12.698Z</updated>
-	<author>
-	
-	  
-	  <name>David Wesst</name>
-	  <email>questions@davidwesst.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>Here's another dev thing I use: <a href="https://istanbul.js.org/" target="_blank" rel="noopener">IstanbulJS</a> in <a href="https://www.visualstudio.com/team-services/continuous-integration/" target="_blank" rel="noopener">Visual Studio Team Services</a> (VSTS) builds and display the test reports as part of the build reports. When a build completes, I get a report like this one.</p><p><img src="https://davidwesst.blob.core.windows.net/blog/istanbuljs-in-vsts/vsts-code-coverage-report.gif" alt="VSTS Build Report with an IstanbulJS code coverage report" title="VSTS Build Report with an IstanbulJS code coverage report"></p><p>I can browse the report right in the build report, and drill into the results for each file.</p><p>This is how I did it.</p><h2>Step 0: Assumptions</h2><p>I'm not going to go into the details on how to setup IstanbulJS or a test suite, but you'll need a project with tests and uses the IstanbulJS command line tool, <a href="https://github.com/istanbuljs/nyc" target="_blank" rel="noopener">NYC</a>, to run them. My suggestion is to use <a href="https://mochajs.org/" target="_blank" rel="noopener">Mocha</a> as <a href="http://www.westerndevs.com/development/mocha-in-vsts/" target="_blank" rel="noopener">the test report can be integreated into VSTS as well</a>.</p><p>You'll also need a VSTS account, which is free and worth the effort.</p><h2>Step 1: Script Your Command</h2><p>The goal here is to be able to run a script command that will execute the appropriate code coverage command, complete with parameters, easily. I use <a href="https://docs.npmjs.com/misc/scripts" target="_blank" rel="noopener">npm scripts</a> for this tutorial, but you can use whatever scripting tool you'd like.</p><p>In my case, I like to run the code coverage report everytime I run my Mocha tests. So, I've updated my <code>npm test</code> command in <em>package.json</em> to use NYC. It looks like:</p><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">  <span class="string">"test"</span>: <span class="string">"./node_modules/.bin/nyc ./node_modules/.bin/mocha --recursive --reporter=mocha-multi-reporters "</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>Note, that I don't use globally installed packages. I only use the local ones installed in my <em>node_modules</em> folder.</p><h2>Step 2: Configuring NYC</h2><p>I've configured it in the <em>package.json</em> file with an <code>&quot;nyc&quot;</code> configuration object. Mine looks like this:</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">"nyc":</span> <span class="string">&#123;</span></span><br><span class="line">  <span class="attr">"check-coverage":</span> <span class="literal">true</span><span class="string">,</span></span><br><span class="line">  <span class="attr">"per-file":</span> <span class="literal">true</span><span class="string">,</span></span><br><span class="line">  <span class="attr">"lines":</span> <span class="number">99</span><span class="string">,</span></span><br><span class="line">  <span class="attr">"statements":</span> <span class="number">99</span><span class="string">,</span></span><br><span class="line">  <span class="attr">"functions":</span> <span class="number">99</span><span class="string">,</span></span><br><span class="line">  <span class="attr">"branches":</span> <span class="number">99</span><span class="string">,</span></span><br><span class="line">  <span class="attr">"include":</span> <span class="string">[</span></span><br><span class="line">    <span class="string">"src/**/*.js"</span></span><br><span class="line">  <span class="string">],</span></span><br><span class="line">  <span class="attr">"reporter":</span> <span class="string">[</span></span><br><span class="line">    <span class="string">"text"</span><span class="string">,</span></span><br><span class="line">    <span class="string">"cobertura"</span><span class="string">,</span></span><br><span class="line">    <span class="string">"html"</span></span><br><span class="line">  <span class="string">],</span></span><br><span class="line">  <span class="attr">"report-dir":</span> <span class="string">"./.test_output/coverage"</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure><p>The part of the configuration we care about for this tutorial are the <code>&quot;reporter&quot;</code> and <code>&quot;report-dir&quot;</code> properties. The rest of the configuration is out of scope for this post, but you can learn more in the <a href="https://github.com/istanbuljs/nyc#configuring-nyc" target="_blank" rel="noopener">nyc README configuration section</a>.</p><p>For <code>&quot;reporters&quot;</code>, you can see that we are using three different reporters. The <em>text</em> reporter is the one that displays in the terminal, the <em>cobertura</em> reporter generates an XML file with all of the results which we'll need, and the <em>html</em> reporter generates the HTML files you saw me browsing at the beginning of this post.</p><p>At this point, when we run <code>npm test</code> we get run our tests and generate the code coverage assets we want.</p><h2>Step 3: Post-Processing the HTML Report</h2><p>This one isn't obvious, but I'm going to save you the trouble of discovering it for yourself.</p><p>That being said, if you don't mind the plain text reports sans-CSS, you can skip this step altogether.</p><p>Our HTML report is going to get displayed in VSTS. Remember, the HTML report isn't just a single file, it's a bunch of HTML files complete with CSS for styling. VSTS doesn't natively load up the extra CSS files, which means we'll need to embed the CSS right into the files themselves to create a copy of the report that'll look good in VSTS.</p><p>Thanks to <a href="http://anthonychu.ca/post/css-styles-vsts-code-coverage/" target="_blank" rel="noopener">this post from Anthony Chu</a>, I had a headstart on figuring out how to solve this issue. The plan is to run a post-processing script on the <em>posttest</em> script command in npm. I called my script file <em>process-coverage-report.js</em> and updated the scripts section of my <em>package.json</em> to look like this:</p><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">  <span class="string">"test"</span>: <span class="string">"./node_modules/.bin/nyc ./node_modules/.bin/mocha --recursive --reporter=mocha-multi-reporters "</span>,</span><br><span class="line">  <span class="string">"posttest"</span>: <span class="string">"node ./tools/process-coverage-report.js"</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure><p>The <em>posttest</em> script will everytime we run <code>npm test</code>. You can also call it directly by running <code>npm run posttest</code> but be sure to have test results for it to process.</p><p>I'll cut to the case, and just show you my post-processing code.</p><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">let fs = <span class="built_in">require</span>(<span class="string">"fs"</span>),</span><br><span class="line">    path = <span class="built_in">require</span>(<span class="string">"path"</span>),</span><br><span class="line">    inline = <span class="built_in">require</span>(<span class="string">"inline-css"</span>);</span><br><span class="line"></span><br><span class="line">const TEST_RESULTS_DIRECTORY = <span class="string">"./.test_output"</span>;</span><br><span class="line">const CODE_COVERAGE_DIRECTORY = <span class="string">"./.test_output/coverage"</span>;</span><br><span class="line"></span><br><span class="line">fs.readdir(CODE_COVERAGE_DIRECTORY, <span class="function"><span class="params">(err, files)</span>=&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(err) &#123; <span class="keyword">throw</span> <span class="keyword">new</span> Error(err); &#125;</span><br><span class="line"></span><br><span class="line">    let reports = files.filter(<span class="function"><span class="params">(report)</span>=&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> report.endsWith(<span class="string">".html"</span>);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    reports.forEach(<span class="function"><span class="params">(report)</span>=&gt;</span> &#123;</span><br><span class="line">        let filePath = path.join(CODE_COVERAGE_DIRECTORY, report);</span><br><span class="line">        let options = &#123; </span><br><span class="line">            url: <span class="string">"file://"</span> + path.resolve(filePath),</span><br><span class="line">            extraCss: <span class="string">".pad1 &#123; padding: 0; &#125;"</span></span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        fs.readFile(path.resolve(filePath), <span class="function"><span class="params">(err, data)</span>=&gt;</span> &#123;</span><br><span class="line">            inline(data, options)</span><br><span class="line">                .<span class="keyword">then</span>(<span class="function"><span class="params">(html)</span>=&gt;</span> &#123;</span><br><span class="line">                    let outputFile = path.join(TEST_RESULTS_DIRECTORY, report);</span><br><span class="line">                    fs.writeFile(outputFile, html, <span class="function"><span class="params">(err)</span>=&gt;</span> &#123;</span><br><span class="line">                        <span class="keyword">if</span>(err) &#123; <span class="keyword">throw</span> err; &#125;</span><br><span class="line">                    &#125;);</span><br><span class="line">                &#125;)</span><br><span class="line">                .<span class="keyword">catch</span>(<span class="function"><span class="params">(err)</span>=&gt;</span> &#123;</span><br><span class="line">                    <span class="built_in">console</span>.log(err);</span><br><span class="line">                &#125;);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>My build doesn't use a task runner like Gulp I settled on <a href="https://www.npmjs.com/package/inline-css" target="_blank" rel="noopener">inline-css</a> because I liked the API and it returned promises. If you're using Gulp or Grunt, there are some good options (<a href="https://www.npmjs.com/package/inline-css" target="_blank" rel="noopener">as suggested by Anthony</a>) for you to create a task to do this for you.</p><p>Now, when you run <code>npm test</code> you'll end up with an extra copy of the HTML report, where you have nothing but HTML files with CSS embedded in the files themselves.</p><h2>Step 4: Adding this to VSTS</h2><p>All you need to do here, is configure your build to use the new code coverage setup. We do that by adding the <em>Publish Code Coverage Results</em> task as a build step and configuring properly. Here's what my configuration looks like:</p><ul><li>Version:  1.*</li><li>Display Name: Publish Code Coverage Results | NYC</li><li>Code Coverage Tool: Cobertura</li><li>Summary File: $(System.DefaultWorkingDirectory)/.test_output/coverage/cobertura-coverage.xml</li><li>Report Directory: $(System.DefaultWorkingDirectory)/.test_output     |</li></ul><p>Your properties may vary, depending on how to configured NYC.</p><h2>Step 5: Done</h2><p>And now we code coverage reporting showing up in VSTS. Huzzah!</p><p>Happy code covering!</p>]]></content>
-    
-    <summary type="html">
-    
-      Here&#39;s another dev thing I use: IstanbulJS in Visual Studio Team Services (VSTS) builds and display the test reports as part of the build reports.
-    
-    </summary>
-    
-      <category term="development" scheme="https://westerndevs.com/categories/development/"/>
-    
-    
-      <category term="javascript" scheme="https://westerndevs.com/tags/javascript/"/>
-    
-      <category term="visual studio team services" scheme="https://westerndevs.com/tags/visual-studio-team-services/"/>
-    
-      <category term="testing" scheme="https://westerndevs.com/tags/testing/"/>
-    
-      <category term="istanbuljs" scheme="https://westerndevs.com/tags/istanbuljs/"/>
-    
-      <category term="nyc" scheme="https://westerndevs.com/tags/nyc/"/>
     
   </entry>
   

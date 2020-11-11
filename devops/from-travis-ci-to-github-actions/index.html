@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>From Travis CI to GitHub Actions (and GitHub Pages) | Western Devs</title>
+  <meta name="description" content="We recently migrated the continuous integration and deployment workflow for the Western Devs website from Travis CI to GitHub Actions. These are the steps I followed to get it done.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="From Travis CI to GitHub Actions (and GitHub Pages)">
+<meta property="og:url" content="https://westerndevs.com/devops/from-travis-ci-to-github-actions/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="We recently migrated the continuous integration and deployment workflow for the Western Devs website from Travis CI to GitHub Actions. These are the steps I followed to get it done.">
+<meta property="article:published_time" content="2020-11-10T23:36:00.000Z">
+<meta property="article:modified_time" content="2020-11-11T04:33:05.391Z">
+<meta property="article:author" content="Western Devs">
+<meta property="article:tag" content="github actions">
+<meta property="article:tag" content="github workflow">
+<meta property="article:tag" content="travis ci">
+<meta property="article:tag" content="continuous integration">
+<meta property="article:tag" content="continuous deployment">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">NOV</div>
+    <div class="ListLrgDateDay">10</div>
+    <div class="ListLrgDateYear">2020</div>
+  </div>
+  <h2>From Travis CI to GitHub Actions (and GitHub Pages)</h2>
+</div>
+
+		    
+
+<p class="TXTsm">ORIGINALLY POSTED TO: <a href="https://www.davidwesst.com/blog/from-travis-ci-to-github-actions" target="_blank" rel="noopener" class='originalurl'>https://www.davidwesst.com/blog/from-travis-ci-to-github-actions</a></p>
+
+
+
+			<div id="mainPostContent">
+	        <p>We recently migrated the continuous integration and deployment workflow for the Western Devs website from Travis CI to GitHub Actions. These are the steps I followed to get it done.</p>
+<a id="more"></a>
+<p>Travis CI <a href="https://blog.travis-ci.com/2020-11-02-travis-ci-new-billing" target="_blank" rel="noopener">announced a new pricing model</a> that <em>could</em> have impact on open source projects that are using Travis for continuous integration and/or deployment. For static websites, like the <a href="https://westerndevs.com">Western Devs website</a> or <a href="https://www.davidwesst.com" target="_blank" rel="noopener">personal website</a>, this could result in getting some unforeseen costs. With that in mind, we decided to take the plunge an migrate away from Travis and over to <a href="https://docs.github.com/en/free-pro-team@latest/actions" target="_blank" rel="noopener">GitHub Actions</a> as they provide CI and CD workflows free for open source projects.</p>
+<h2>TL;DR; -- Just show me the code</h2>
+<p>Fine. <a href="https://github.com/westerndevs/western-devs-website/blob/master/.github/workflows/ci-cd.yml" target="_blank" rel="noopener">Here is is</a>. It is open source after all.</p>
+<p>But just to be clear, this isn't a tutorial on how to code this up, rather its a walkthrough on what it took to get our <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> based static site from Travis to GitHub Actions.</p>
+<h2>Start with Mapping Out Your Workflow</h2>
+<p>And I mean <em>workflow</em> and not just the build.</p>
+<p>For the Western Devs, our workflow goes like this:</p>
+<ol>
+<li>Commit a change to the code (i.e. a new blog post)</li>
+<li>Build the website</li>
+<li>If master branch build is successful, deploy the build to production</li>
+<li>Notify the Western Devs of the build result in Slack</li>
+</ol>
+<p>GitHub workflow provides everything we need to do this, and I'll walk you through the code, which you can see for yourself in <a href="https://github.com/westerndevs/western-devs-website/blob/master/.github/workflows/ci-cd.yml" target="_blank" rel="noopener">here in our GitHub repo</a>.</p>
+<h3>1. Commit a change to the code (i.e. a new blog post)</h3>
+<p>This is our trigger to start the workflow. That is represented by the <code>on</code> section of the YAML. In our case, we want to trigger the workflow every time there is a pull request created for the master branch, a push to the master branch (i.e. a merge), or a push to any other feature (ft) or hotfix (hf) branches.</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="attr">name:</span> <span class="string">CI/CD</span></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">master</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ft/*</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">hf/*</span></span><br><span class="line">  <span class="attr">pull_request:</span></span><br><span class="line">    <span class="attr">branches:</span> <span class="string">[</span> <span class="string">master</span> <span class="string">]</span></span><br></pre></td></tr></table></figure>
+<p>Now we have a workflow that will trigger when we want to. Next, we need to actually build the website.</p>
+<h3>2. Build the website</h3>
+<p>Our build is exceptionally simple-- just generate the site, and if the generation is successful, the build was successful. To do this, we create a <code>build</code> job that handles the work.</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">Build</span> <span class="string">and</span> <span class="string">Deploy</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span> <span class="comment"># checkout the source code</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/setup-node@v1</span> <span class="comment"># setup the environment</span></span><br><span class="line">      <span class="attr">with:</span></span><br><span class="line">        <span class="attr">node-version:</span> <span class="number">12</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">run:</span> <span class="string">npm</span> <span class="string">install</span> <span class="comment"># setup dependencies</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">run:</span> <span class="string">npm</span> <span class="string">run</span> <span class="string">build</span> <span class="comment"># run the build command</span></span><br></pre></td></tr></table></figure>
+<p>The first two steps are using GitHub Actions provided by GitHub themselves. This pulls our source code and the sets up the Node environment that we need to build the website. Once that is done, we  <code>run</code> steps to run shell commands to install our project specific dependendies and run the build script itself.</p>
+<p>The scripts have been defined in our <a href="https://github.com/westerndevs/western-devs-website/blob/master/package.json" target="_blank" rel="noopener">project <code>package.json</code> file</a> and are used by the developers to build the site locally as well.</p>
+<h3>3. If master branch build is successful, deploy the build to production</h3>
+<p>If we are talking about the master branch, we want to do a deployment if it is successful. For this step, we added a conditional expression using the <code>github</code> context that is provided to all actions. You can learn more about context and expressions for GitHub Actions in the <a href="https://docs.github.com/en/free-pro-team@latest/actions/reference/context-and-expression-syntax-for-github-actions#about-contexts-and-expressions" target="_blank" rel="noopener">GitHub Docs here</a>.</p>
+<p>You might also see that were using an encrypted secret using the <code>secret.GITHUB_TOKEN</code> expression. All repositories have this feature in the settings section of the repo, and you can learn more about <a href="https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets" target="_blank" rel="noopener">creating encrypted secrets for a repository here</a> in the GitHub docs.</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Deploy</span> <span class="string">to</span> <span class="string">GitHub</span> <span class="string">Pages</span></span><br><span class="line">  <span class="attr">if:</span> <span class="string">github.ref</span> <span class="string">==</span> <span class="string">'refs/heads/master'</span></span><br><span class="line">  <span class="attr">uses:</span> <span class="string">peaceiris/actions-gh-pages@v3</span></span><br><span class="line">  <span class="attr">with:</span></span><br><span class="line">    <span class="attr">github_token:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.GITHUB_TOKEN</span> <span class="string">&#125;&#125;</span></span><br><span class="line">    <span class="attr">cname:</span> <span class="string">westerndevs.com</span></span><br><span class="line">    <span class="attr">commit_message:</span> <span class="string">$&#123;&#123;</span> <span class="string">github.event.head_commit.message</span> <span class="string">&#125;&#125;</span></span><br></pre></td></tr></table></figure>
+<h4>BONUS: Free hosting with GitHub Pages</h4>
+<p>In our case, our deployment target is <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> which provides free hosting and SSL certificates for open source static sites sites like ours.</p>
+<p>We decided to take this opportunity to consilate everything under the GitHub umbrella because it saved us a couple of bucks, and now everything we need to manage the site is in one spot rather than spread across multiple cloud services.</p>
+<h3>4. Notify the Western Devs of the build result in Slack</h3>
+<p>Originally, we had forgotten this step and started to feel it right away. So an issue was created and I put a solution in place in about 15 minutes, thanks to someone else doing all the heavy lifting and publishing their work to the <a href="https://github.com/marketplace?type=actions" target="_blank" rel="noopener">GitHub Actions Marketplace</a>.</p>
+<p>Slack supports incoming webhooks, even for for free workspaces. I set that up by following the <a href="https://api.slack.com/messaging/webhooks" target="_blank" rel="noopener">Slack documentation</a>, created another secret in our repository and voila, we were back in business wih the notifications.</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Notify</span> <span class="string">Slack</span></span><br><span class="line">  <span class="attr">if:</span> <span class="string">always()</span></span><br><span class="line">  <span class="attr">uses:</span> <span class="string">8398a7/action-slack@v3</span></span><br><span class="line">  <span class="attr">with:</span></span><br><span class="line">    <span class="attr">status:</span> <span class="string">$&#123;&#123;</span> <span class="string">job.status</span> <span class="string">&#125;&#125;</span></span><br><span class="line">    <span class="attr">fields:</span> <span class="string">repo,message,commit,author,action,eventName,ref,workflow,job,took</span> <span class="comment"># selectable (default: repo,message)</span></span><br><span class="line">  <span class="attr">env:</span></span><br><span class="line">    <span class="attr">SLACK_WEBHOOK_URL:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.SLACK_WEBHOOK_URL</span> <span class="string">&#125;&#125;</span> <span class="comment"># required</span></span><br></pre></td></tr></table></figure>
+<h2>Conclusion</h2>
+<p>The combination of GitHub Actions and GitHub Pages provides every developer with the opportunity to get a taste of DevOps while actually producing something they can show off to their peers and community. Travis CI is, and will continue to be, a great CI/CD solution for developers...but if you're looking for a one-stop-shop for source control, workflow, and hosting. You can't really go wrong with GitHub.</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/david_wesst">
+				
+					<img src='/images/avatars/davidwesst_400x400.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/david_wesst">David Wesst</a></h2>
+			
+			<a href="mailto:questions@davidwesst.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://www.davidwesst.com" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/davidwesst" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/davidwesst" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			<a href="https://www.linkedin.com/in/davidwesst" target="_blank"><img class="ProfileIcon" src="/images/icon_linkedin.png" border="0" alt="LinkedIN" title="LinkedIN"> LinkedIn</a><br>
+			
+			
+ 			<a href="/feeds/david_wesst.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/devops/from-travis-ci-to-github-actions/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'david_wesst');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>
