@@ -5,7 +5,7 @@
   <link href="/feeds/simon_timms" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2020-11-11T04:33:05.391Z</updated>
+  <updated>2020-11-19T16:22:43.271Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Allocating a Serverless Database in SQL Azure</title>
+    <link href="https://westerndevs.com/_/serverless-sql-azure-terraform/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/serverless-sql-azure-terraform/</id>
+    <published>2020-11-18T19:00:00.000Z</published>
+    <updated>2020-11-19T16:22:43.271Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>I'm pretty big on the SQL Azure Serverless SKU. It allows you to scale databases up and down automatically within a band of between 0.75 and 40 vCores on Gen5 hardware. It also supports auto-pausing which can shut down the entire database during periods of inactivity. I'm provisioning a bunch of databases for a client and we're not sure what performance tier is going to be needed. Eventually we may move to an elastic pool but initially we wanted to allocate the databases in a serverless configuration so we can ascertain a performance envelope. We wanted to allocate the resources in a terraform template but had a little trouble figuring it out.</p><a id="more"></a><p>Traditionally we've been using the resource <code>azurerm_sql_database</code> for our databases but this provider is starting to be deprecated in favour of <code>azurerm_mssql_database</code> which has better support for some of the more modern concept in SQL Azure. The <a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mssql_database#state" target="_blank" rel="noopener">documentation</a> is pretty good for it but while there was a <code>min_capacity</code> we couldn't find an equivalent <code>max_capacity</code>. Turns out you can set the max capacity using the SKU. So we had something like</p><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">resource <span class="string">"azurerm_mssql_database"</span> <span class="string">"database"</span> &#123;</span><br><span class="line">  <span class="attr">name</span>                        = var.database_name</span><br><span class="line">  <span class="attr">server_id</span>                   = var.database_server_id</span><br><span class="line">  <span class="attr">max_size_gb</span>                 = var.database_max_size_gb</span><br><span class="line">  <span class="attr">auto_pause_delay_in_minutes</span> = -<span class="number">1</span></span><br><span class="line">  <span class="attr">min_capacity</span>                = <span class="number">1</span></span><br><span class="line">  <span class="attr">sku_name</span>                    = <span class="string">"GP_S_Gen5_6"</span></span><br><span class="line">  <span class="attr">tags</span> = &#123;</span><br><span class="line">    <span class="attr">environment</span> = var.prefix</span><br><span class="line">  &#125;</span><br><span class="line">  short_term_retention_policy &#123;</span><br><span class="line">    <span class="attr">retention_days</span> = <span class="number">14</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>This allocates a database with a capacity of between 1 and 6 vCPU that has auto pause disabled. The S in the GP_S_Gen5_6 stands for serverless and the 6 denotes the maximum capacity.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;I&#39;m pretty big on the SQL Azure Serverless SKU. It allows you to scale databases up and down automatically within a band of between 0.75 and 40 vCores on Gen5 hardware. It also supports auto-pausing which can shut down the entire database during periods of inactivity. I&#39;m provisioning a bunch of databases for a client and we&#39;re not sure what performance tier is going to be needed. Eventually we may move to an elastic pool but initially we wanted to allocate the databases in a serverless configuration so we can ascertain a performance envelope. We wanted to allocate the resources in a terraform template but had a little trouble figuring it out.&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Running Stored Procedures Across Databases in Azure</title>
     <link href="https://westerndevs.com/_/cross-database-procs/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cross-database-procs/</id>
     <published>2020-11-09T19:00:00.000Z</published>
-    <updated>2020-11-11T04:33:05.391Z</updated>
+    <updated>2020-11-19T16:22:43.271Z</updated>
 	<author>
 	
 	  
@@ -47,7 +73,7 @@
     <link href="https://westerndevs.com/_/processor-limits/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/processor-limits/</id>
     <published>2020-11-05T20:00:00.000Z</published>
-    <updated>2020-11-11T04:33:05.391Z</updated>
+    <updated>2020-11-19T16:22:43.271Z</updated>
 	<author>
 	
 	  
@@ -73,7 +99,7 @@
     <link href="https://westerndevs.com/_/elasticquery/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/elasticquery/</id>
     <published>2020-11-05T19:00:00.000Z</published>
-    <updated>2020-11-11T04:33:05.391Z</updated>
+    <updated>2020-11-19T16:22:43.271Z</updated>
 	<author>
 	
 	  
@@ -99,7 +125,7 @@
     <link href="https://westerndevs.com/_/typescript-definition/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/typescript-definition/</id>
     <published>2020-09-28T18:00:00.000Z</published>
-    <updated>2020-11-11T04:33:05.391Z</updated>
+    <updated>2020-11-19T16:22:43.271Z</updated>
 	<author>
 	
 	  
@@ -125,7 +151,7 @@
     <link href="https://westerndevs.com/_/flutter-tests-with-native/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/flutter-tests-with-native/</id>
     <published>2020-04-01T14:00:00.000Z</published>
-    <updated>2020-11-11T04:33:05.391Z</updated>
+    <updated>2020-11-19T16:22:43.267Z</updated>
 	<author>
 	
 	  
@@ -151,7 +177,7 @@
     <link href="https://westerndevs.com/_/find-webforms-errors-with-precompilation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/find-webforms-errors-with-precompilation/</id>
     <published>2020-04-01T00:00:00.000Z</published>
-    <updated>2020-11-11T04:33:05.391Z</updated>
+    <updated>2020-11-19T16:22:43.267Z</updated>
 	<author>
 	
 	  
@@ -179,7 +205,7 @@
     <link href="https://westerndevs.com/_/Allow-hosted-agent-through-firewall/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Allow-hosted-agent-through-firewall/</id>
     <published>2020-01-10T14:00:00.000Z</published>
-    <updated>2020-11-11T04:33:05.391Z</updated>
+    <updated>2020-11-19T16:22:43.267Z</updated>
 	<author>
 	
 	  
@@ -205,7 +231,7 @@
     <link href="https://westerndevs.com/_/UNION-vs-UNION-ALL/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/UNION-vs-UNION-ALL/</id>
     <published>2019-12-30T14:00:00.000Z</published>
-    <updated>2020-11-11T04:33:05.383Z</updated>
+    <updated>2020-11-19T16:22:43.267Z</updated>
 	<author>
 	
 	  
@@ -232,7 +258,7 @@
     <link href="https://westerndevs.com/_/bulk-load-and-merge/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/bulk-load-and-merge/</id>
     <published>2019-10-12T04:00:00.000Z</published>
-    <updated>2020-11-11T04:33:05.383Z</updated>
+    <updated>2020-11-19T16:22:43.267Z</updated>
 	<author>
 	
 	  
@@ -258,7 +284,7 @@
     <link href="https://westerndevs.com/_/Debugging-php-in-container/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Debugging-php-in-container/</id>
     <published>2019-07-05T23:00:00.000Z</published>
-    <updated>2020-11-11T04:33:05.383Z</updated>
+    <updated>2020-11-19T16:22:43.267Z</updated>
 	<author>
 	
 	  
@@ -284,7 +310,7 @@
     <link href="https://westerndevs.com/DurableFunctions/durable_functions_analyzer/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/DurableFunctions/durable_functions_analyzer/</id>
     <published>2019-02-18T00:00:00.000Z</published>
-    <updated>2020-11-11T04:33:05.379Z</updated>
+    <updated>2020-11-19T16:22:43.267Z</updated>
 	<author>
 	
 	  
@@ -312,7 +338,7 @@
     <link href="https://westerndevs.com/DurableFunctions/durablefunctions_sagas/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/DurableFunctions/durablefunctions_sagas/</id>
     <published>2019-02-15T00:00:00.000Z</published>
-    <updated>2020-11-11T04:33:05.379Z</updated>
+    <updated>2020-11-19T16:22:43.267Z</updated>
 	<author>
 	
 	  
@@ -342,7 +368,7 @@
     <link href="https://westerndevs.com/B2C/Getting-b2c-claims-in-an-azure-function/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/B2C/Getting-b2c-claims-in-an-azure-function/</id>
     <published>2019-02-14T00:00:00.000Z</published>
-    <updated>2020-11-11T04:33:05.379Z</updated>
+    <updated>2020-11-19T16:22:43.267Z</updated>
 	<author>
 	
 	  
@@ -370,7 +396,7 @@
     <link href="https://westerndevs.com/_/Running-a-single-durable-function/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Running-a-single-durable-function/</id>
     <published>2019-01-31T14:00:00.000Z</published>
-    <updated>2020-11-11T04:33:05.379Z</updated>
+    <updated>2020-11-19T16:22:43.267Z</updated>
 	<author>
 	
 	  
@@ -396,7 +422,7 @@
     <link href="https://westerndevs.com/_/Functions-aad-authentication/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Functions-aad-authentication/</id>
     <published>2019-01-30T18:00:00.000Z</published>
-    <updated>2020-11-11T04:33:05.379Z</updated>
+    <updated>2020-11-19T16:22:43.267Z</updated>
 	<author>
 	
 	  
@@ -422,7 +448,7 @@
     <link href="https://westerndevs.com/_/2018-12-06-creating-queues-in-devops/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/2018-12-06-creating-queues-in-devops/</id>
     <published>2018-12-06T18:00:00.000Z</published>
-    <updated>2020-11-11T04:33:05.379Z</updated>
+    <updated>2020-11-19T16:22:43.267Z</updated>
 	<author>
 	
 	  
@@ -448,7 +474,7 @@
     <link href="https://westerndevs.com/_/2018-11-05-datafactory/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/2018-11-05-datafactory/</id>
     <published>2018-11-05T18:00:00.000Z</published>
-    <updated>2020-11-11T04:33:05.379Z</updated>
+    <updated>2020-11-19T16:22:43.267Z</updated>
 	<author>
 	
 	  
@@ -474,7 +500,7 @@
     <link href="https://westerndevs.com/development-fundamentals/Checking-In-packages/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/development-fundamentals/Checking-In-packages/</id>
     <published>2018-10-21T15:36:36.000Z</published>
-    <updated>2020-11-11T04:33:05.375Z</updated>
+    <updated>2020-11-19T16:22:43.263Z</updated>
 	<author>
 	
 	  
@@ -506,7 +532,7 @@
     <link href="https://westerndevs.com/_/microservices-devops/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/microservices-devops/</id>
     <published>2018-10-20T04:00:00.000Z</published>
-    <updated>2020-11-11T04:33:05.379Z</updated>
+    <updated>2020-11-19T16:22:43.267Z</updated>
 	<author>
 	
 	  
@@ -521,32 +547,6 @@
     <summary type="html">
     
       &lt;p&gt;Two of the major ideas de jour in development circles these past few years have been DevOps and Microservices. That they rose to the forefront at the same time was not a coincidence. They are inexorably linked ideas.&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Terraform for a statically hosted AWS site</title>
-    <link href="https://westerndevs.com/_/2018-10-12-cloudfront-terraform/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/2018-10-12-cloudfront-terraform/</id>
-    <published>2018-10-12T04:00:00.000Z</published>
-    <updated>2020-11-11T04:33:05.379Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>Just the other day somebody was mentioning to me that they were having trouble setting up a statically hosted site on AWS. That was the kick in the nose I needed to get this article written as it's been on my back-burner for a while. Terraform makes the whole process easy.</p><a id="more"></a><p>AWS, just like the other cloud platforms, offers a myriad of ways to host a website. Frequently, though, what you need is the simplest approach and that is using S3 to do your hosting. S3 doesn't have any smarts behind it so it is really only useful for static sites. However you can do an awful lot with static sites. This blog is statically generated and hosted but you can also do static hosting for most rich JavasScript applications  be they written in Angular, React, Vue, whatever. The one place where S3 falls down is that it cannot do SSL for custom domains. There is <a href="https://www.troyhunt.com/heres-why-your-static-website-needs-https/" target="_blank" rel="noopener">no excuse</a> for not doing SSL these days so we need to make sure our static site has it.</p><p>In front of the S3 bucket we need to put something to do SSL termination. Of course, there is a service for that in the shape of CloudFront. CloudFront is a content delivery network which means that in addition to doing SSL termination it can improve performance through geo-distribution, caching and load balancing. It can even put in restrictions to disallow certain geographic regions from reaching the site. We're just interested in SSL termination right now.</p><p>Probably the hardest part of getting going on static hosting is setting up all the pieces. You can click through the, frankly, terrible AWS UI or you can cut out the mouse and use <a href="https://www.terraform.io/" target="_blank" rel="noopener">Terraform</a>. Terraform is a tool for writing infrastructure descriptions and it has adapters for all the major cloud providers and <a href="https://www.terraform.io/docs/providers/index.html" target="_blank" rel="noopener">a bunch which aren't major</a>. The descriptions are called templates.</p><p>Let's take a look at a template for setting up a statically hosted site. We'll include a few services in this template</p><ul><li>S3 - holds our files</li><li>CloudFront - does SSL termination for S3</li><li>Route53 - DNS to get our domain to point at CloudFront</li></ul><h2>Preamble</h2><p>This section sets up the provider (the plugin for terraform which tells it how to talk with a cloud provider) and a storage location for the state. Terraform maintains a state of the deployment so it knows how to update resources instead of just destroying them and recreating them.</p><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">provider</span> <span class="string">"aws"</span> &#123;</span><br><span class="line">  <span class="attribute">region</span> = <span class="string">"<span class="variable">$&#123;var.region&#125;</span>"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">terraform &#123;</span><br><span class="line">  <span class="attribute">backend</span> <span class="string">"s3"</span> &#123;</span><br><span class="line">    <span class="attribute">bucket</span> = <span class="string">"my-awesome-terraform"</span></span><br><span class="line">    key    = <span class="string">"environment"</span></span><br><span class="line">    region = <span class="string">"us-east-1"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2>S3</h2><p>Next we set up the S3 bucket to hold our files. By now you might have noticed that we're using some variables denoted by the <code>${variable.name}</code> syntax. These variables can be defined in a file passed into the terraform tool. It is nice to make these things configurable so they can be reused.</p><p>The S3 is a little complicated because we need to allow public reading and add some CORS rules. The rules here are in place to allow the site to call out to an API. I've left the rules really open here and you probably shouldn't do that in real life.</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># s3 for sites</span></span><br><span class="line">resource <span class="string">"aws_s3_bucket"</span> <span class="string">"website"</span> &#123;</span><br><span class="line">  bucket = <span class="string">"<span class="variable">$&#123;var.domain-name&#125;</span>"</span></span><br><span class="line">  acl    = <span class="string">"public-read"</span></span><br><span class="line"></span><br><span class="line"> <span class="built_in"> policy </span>= &lt;&lt;EOF</span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">"Version"</span>:<span class="string">"2008-10-17"</span>,</span><br><span class="line">    <span class="string">"Statement"</span>:[&#123;</span><br><span class="line">    <span class="string">"Sid"</span>:<span class="string">"AllowPublicRead"</span>,</span><br><span class="line">    <span class="string">"Effect"</span>:<span class="string">"Allow"</span>,</span><br><span class="line">    <span class="string">"Principal"</span>: &#123;<span class="string">"AWS"</span>: <span class="string">"*"</span>&#125;,</span><br><span class="line">    <span class="string">"Action"</span>:[<span class="string">"s3:GetObject"</span>],</span><br><span class="line">    <span class="string">"Resource"</span>:[<span class="string">"arn:aws:s3:::<span class="variable">$&#123;var.domain-name&#125;</span>/*"</span>]</span><br><span class="line">    &#125;]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">  website &#123;</span><br><span class="line">    index_document = <span class="string">"index.html"</span></span><br><span class="line">    error_document = <span class="string">"error.html"</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  cors_rule &#123;</span><br><span class="line">    allowed_headers = [<span class="string">"*"</span>]</span><br><span class="line">    allowed_methods = [<span class="string">"PUT"</span>, <span class="string">"POST"</span>]</span><br><span class="line">    allowed_origins = [<span class="string">"*"</span>]</span><br><span class="line">    expose_headers  = [<span class="string">"ETag"</span>]</span><br><span class="line">    max_age_seconds = 3000</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2>CloudFront</h2><p>Next we'll set up the CloudFront. This is a very bare-bones set up of CloudFront and doesn't make use of any of the cool advanced features. However, Terraform can do all that configuration for you. You may notice here that we're using that same variable syntax to reference other resources defined in the template. Specifically check out <code>domain_name = &quot;${aws_s3_bucket.website.bucket_domain_name}&quot;</code> which references back to the S3 container we set up just above.</p><p>Another thing to note here is that I've skipped creating the SSL certificate as part of this tutorial. I assume you've either got your own or you've set up one in AWS already; we just reference it by ARN.</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cloudfront</span></span><br><span class="line"></span><br><span class="line">resource <span class="string">"aws_cloudfront_origin_access_identity"</span> <span class="string">"access_identity"</span> &#123;</span><br><span class="line">  comment = <span class="string">"Access for cloudfront"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">resource <span class="string">"aws_cloudfront_distribution"</span> <span class="string">"distribution"</span> &#123;</span><br><span class="line">  origin &#123;</span><br><span class="line">    domain_name = <span class="string">"<span class="variable">$&#123;aws_s3_bucket.website.bucket_domain_name&#125;</span>"</span></span><br><span class="line">    origin_id   = <span class="string">"origin"</span></span><br><span class="line"></span><br><span class="line">    s3_origin_config &#123;</span><br><span class="line">      origin_access_identity = <span class="string">"<span class="variable">$&#123;aws_cloudfront_origin_access_identity.access_identity.cloudfront_access_identity_path&#125;</span>"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  aliases             = [<span class="string">"<span class="variable">$&#123;var.domain-name&#125;</span>"</span>, <span class="string">"www.<span class="variable">$&#123;var.domain-name&#125;</span>"</span>]</span><br><span class="line">  enabled             = <span class="string">"true"</span></span><br><span class="line">  default_root_object = <span class="string">"index.html"</span></span><br><span class="line"></span><br><span class="line">  default_cache_behavior &#123;</span><br><span class="line">    allowed_methods  = [<span class="string">"DELETE"</span>, <span class="string">"GET"</span>, <span class="string">"HEAD"</span>, <span class="string">"OPTIONS"</span>, <span class="string">"PATCH"</span>, <span class="string">"POST"</span>, <span class="string">"PUT"</span>]</span><br><span class="line">    cached_methods   = [<span class="string">"GET"</span>, <span class="string">"HEAD"</span>]</span><br><span class="line">    target_origin_id = <span class="string">"origin"</span></span><br><span class="line"></span><br><span class="line">    forwarded_values &#123;</span><br><span class="line">      query_string = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">      cookies &#123;</span><br><span class="line">        forward = <span class="string">"none"</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    viewer_protocol_policy = <span class="string">"redirect-to-https"</span></span><br><span class="line">    min_ttl                = 0</span><br><span class="line">    default_ttl            = 3600</span><br><span class="line">    max_ttl                = 86400</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  viewer_certificate &#123;</span><br><span class="line">    acm_certificate_arn = <span class="string">"<span class="variable">$&#123;var.ssl-arn&#125;</span>"</span></span><br><span class="line">    ssl_support_method  = <span class="string">"sni-only"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2>Route53</h2><p>We're almost there. This part sets up the domain routing in route 53. We have both bare and www prefixed domains here</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># route 53</span></span><br><span class="line">data <span class="string">"aws_route53_zone"</span> <span class="string">"route53zone"</span> &#123;</span><br><span class="line">  name = <span class="string">"<span class="variable">$&#123;var.domain-name&#125;</span>."</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># bare domain</span></span><br><span class="line">resource <span class="string">"aws_route53_record"</span> <span class="string">"domain"</span> &#123;</span><br><span class="line">  zone_id = <span class="string">"<span class="variable">$&#123;data.aws_route53_zone.route53zone.zone_id&#125;</span>"</span></span><br><span class="line">  name    = <span class="string">"<span class="variable">$&#123;var.domain-name&#125;</span>"</span></span><br><span class="line"> <span class="built_in"> type </span>   = <span class="string">"A"</span></span><br><span class="line"></span><br><span class="line">  alias &#123;</span><br><span class="line">    name                   = <span class="string">"<span class="variable">$&#123;aws_cloudfront_distribution.distribution.domain_name&#125;</span>"</span></span><br><span class="line">    zone_id                = <span class="string">"<span class="variable">$&#123;aws_cloudfront_distribution.distribution.hosted_zone_id&#125;</span>"</span></span><br><span class="line">    evaluate_target_health = <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#www domain</span></span><br><span class="line">resource <span class="string">"aws_route53_record"</span> <span class="string">"www-domain"</span> &#123;</span><br><span class="line">  zone_id = <span class="string">"<span class="variable">$&#123;data.aws_route53_zone.route53zone.zone_id&#125;</span>"</span></span><br><span class="line">  name    = <span class="string">"www.<span class="variable">$&#123;var.domain-name&#125;</span>"</span></span><br><span class="line"> <span class="built_in"> type </span>   = <span class="string">"A"</span></span><br><span class="line"></span><br><span class="line">  alias &#123;</span><br><span class="line">    name                   = <span class="string">"<span class="variable">$&#123;aws_cloudfront_distribution.distribution.domain_name&#125;</span>"</span></span><br><span class="line">    zone_id                = <span class="string">"<span class="variable">$&#123;aws_cloudfront_distribution.distribution.hosted_zone_id&#125;</span>"</span></span><br><span class="line">    evaluate_target_health = <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>Finally we set up an output from the template which will be printed to the console when we deploy the template. Here we're printing out the name servers from Route53, these can be added to our domain.</p><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">output</span> <span class="string">"name servers"</span> &#123;</span><br><span class="line">  <span class="attribute">value</span> = <span class="string">"<span class="variable">$&#123;data.aws_route53_zone.route53zone.name_servers&#125;</span>"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2>Variables</h2><p>Our variables file looks like.</p><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">region</span> = <span class="string">"us-east-1"</span></span><br><span class="line"><span class="attr">domain-name</span> = <span class="string">"simontimms.com"</span></span><br><span class="line"><span class="attr">ssl-arn</span>=<span class="string">"arn:aws:acm:us-east-1:194820576566:certificate/aabcd5b3-4f32-4cbf-abd4-3b7e5385018a"</span></span><br></pre></td></tr></table></figure><p>To run the terraform we need just do something like</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">terraform init <span class="comment">#only needed on the first run</span></span><br><span class="line">terraform apply -var-file dev.variables.tfvars</span><br></pre></td></tr></table></figure><p>Terraform will spin up a CloudFormation stack containing all the resources you've defined. If you need to make changes you can change the template and run the apply command again.</p><p>The whole thing together looks like:</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br></pre></td><td class="code"><pre><span class="line">provider <span class="string">"aws"</span> &#123;</span><br><span class="line">  region = <span class="string">"<span class="variable">$&#123;var.region&#125;</span>"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">terraform &#123;</span><br><span class="line">  backend <span class="string">"s3"</span> &#123;</span><br><span class="line">    bucket = <span class="string">"my-awesome-terraform"</span></span><br><span class="line">    key    = <span class="string">"environment"</span></span><br><span class="line">    region = <span class="string">"us-east-1"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># s3 for sites</span></span><br><span class="line">resource <span class="string">"aws_s3_bucket"</span> <span class="string">"website"</span> &#123;</span><br><span class="line">  bucket = <span class="string">"<span class="variable">$&#123;var.domain-name&#125;</span>"</span></span><br><span class="line">  acl    = <span class="string">"public-read"</span></span><br><span class="line"></span><br><span class="line"> <span class="built_in"> policy </span>= &lt;&lt;EOF</span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">"Version"</span>:<span class="string">"2008-10-17"</span>,</span><br><span class="line">    <span class="string">"Statement"</span>:[&#123;</span><br><span class="line">    <span class="string">"Sid"</span>:<span class="string">"AllowPublicRead"</span>,</span><br><span class="line">    <span class="string">"Effect"</span>:<span class="string">"Allow"</span>,</span><br><span class="line">    <span class="string">"Principal"</span>: &#123;<span class="string">"AWS"</span>: <span class="string">"*"</span>&#125;,</span><br><span class="line">    <span class="string">"Action"</span>:[<span class="string">"s3:GetObject"</span>],</span><br><span class="line">    <span class="string">"Resource"</span>:[<span class="string">"arn:aws:s3:::<span class="variable">$&#123;var.domain-name&#125;</span>/*"</span>]</span><br><span class="line">    &#125;]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">  website &#123;</span><br><span class="line">    index_document = <span class="string">"index.html"</span></span><br><span class="line">    error_document = <span class="string">"error.html"</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  cors_rule &#123;</span><br><span class="line">    allowed_headers = [<span class="string">"*"</span>]</span><br><span class="line">    allowed_methods = [<span class="string">"PUT"</span>, <span class="string">"POST"</span>]</span><br><span class="line">    allowed_origins = [<span class="string">"*"</span>]</span><br><span class="line">    expose_headers  = [<span class="string">"ETag"</span>]</span><br><span class="line">    max_age_seconds = 3000</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># cloudfront</span></span><br><span class="line"></span><br><span class="line">resource <span class="string">"aws_cloudfront_origin_access_identity"</span> <span class="string">"access_identity"</span> &#123;</span><br><span class="line">  comment = <span class="string">"Access for cloudfront"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">resource <span class="string">"aws_cloudfront_distribution"</span> <span class="string">"distribution"</span> &#123;</span><br><span class="line">  origin &#123;</span><br><span class="line">    domain_name = <span class="string">"<span class="variable">$&#123;aws_s3_bucket.website.bucket_domain_name&#125;</span>"</span></span><br><span class="line">    origin_id   = <span class="string">"origin"</span></span><br><span class="line"></span><br><span class="line">    s3_origin_config &#123;</span><br><span class="line">      origin_access_identity = <span class="string">"<span class="variable">$&#123;aws_cloudfront_origin_access_identity.access_identity.cloudfront_access_identity_path&#125;</span>"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  aliases             = [<span class="string">"<span class="variable">$&#123;var.domain-name&#125;</span>"</span>, <span class="string">"www.<span class="variable">$&#123;var.domain-name&#125;</span>"</span>]</span><br><span class="line">  enabled             = <span class="string">"true"</span></span><br><span class="line">  default_root_object = <span class="string">"index.html"</span></span><br><span class="line"></span><br><span class="line">  default_cache_behavior &#123;</span><br><span class="line">    allowed_methods  = [<span class="string">"DELETE"</span>, <span class="string">"GET"</span>, <span class="string">"HEAD"</span>, <span class="string">"OPTIONS"</span>, <span class="string">"PATCH"</span>, <span class="string">"POST"</span>, <span class="string">"PUT"</span>]</span><br><span class="line">    cached_methods   = [<span class="string">"GET"</span>, <span class="string">"HEAD"</span>]</span><br><span class="line">    target_origin_id = <span class="string">"origin"</span></span><br><span class="line"></span><br><span class="line">    forwarded_values &#123;</span><br><span class="line">      query_string = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">      cookies &#123;</span><br><span class="line">        forward = <span class="string">"none"</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    viewer_protocol_policy = <span class="string">"redirect-to-https"</span></span><br><span class="line">    min_ttl                = 0</span><br><span class="line">    default_ttl            = 3600</span><br><span class="line">    max_ttl                = 86400</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  viewer_certificate &#123;</span><br><span class="line">    acm_certificate_arn = <span class="string">"<span class="variable">$&#123;var.ssl-arn&#125;</span>"</span></span><br><span class="line">    ssl_support_method  = <span class="string">"sni-only"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># route 53</span></span><br><span class="line">data <span class="string">"aws_route53_zone"</span> <span class="string">"route53zone"</span> &#123;</span><br><span class="line">  name = <span class="string">"<span class="variable">$&#123;var.domain-name&#125;</span>."</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># bare domain</span></span><br><span class="line">resource <span class="string">"aws_route53_record"</span> <span class="string">"domain"</span> &#123;</span><br><span class="line">  zone_id = <span class="string">"<span class="variable">$&#123;data.aws_route53_zone.route53zone.zone_id&#125;</span>"</span></span><br><span class="line">  name    = <span class="string">"<span class="variable">$&#123;var.domain-name&#125;</span>"</span></span><br><span class="line"> <span class="built_in"> type </span>   = <span class="string">"A"</span></span><br><span class="line"></span><br><span class="line">  alias &#123;</span><br><span class="line">    name                   = <span class="string">"<span class="variable">$&#123;aws_cloudfront_distribution.distribution.domain_name&#125;</span>"</span></span><br><span class="line">    zone_id                = <span class="string">"<span class="variable">$&#123;aws_cloudfront_distribution.distribution.hosted_zone_id&#125;</span>"</span></span><br><span class="line">    evaluate_target_health = <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#www domain</span></span><br><span class="line">resource <span class="string">"aws_route53_record"</span> <span class="string">"www-domain"</span> &#123;</span><br><span class="line">  zone_id = <span class="string">"<span class="variable">$&#123;data.aws_route53_zone.route53zone.zone_id&#125;</span>"</span></span><br><span class="line">  name    = <span class="string">"www.<span class="variable">$&#123;var.domain-name&#125;</span>"</span></span><br><span class="line"> <span class="built_in"> type </span>   = <span class="string">"A"</span></span><br><span class="line"></span><br><span class="line">  alias &#123;</span><br><span class="line">    name                   = <span class="string">"<span class="variable">$&#123;aws_cloudfront_distribution.distribution.domain_name&#125;</span>"</span></span><br><span class="line">    zone_id                = <span class="string">"<span class="variable">$&#123;aws_cloudfront_distribution.distribution.hosted_zone_id&#125;</span>"</span></span><br><span class="line">    evaluate_target_health = <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">output <span class="string">"name servers"</span> &#123;</span><br><span class="line">  value = <span class="string">"<span class="variable">$&#123;data.aws_route53_zone.route53zone.name_servers&#125;</span>"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Just the other day somebody was mentioning to me that they were having trouble setting up a statically hosted site on AWS. That was the kick in the nose I needed to get this article written as it&#39;s been on my back-burner for a while. Terraform makes the whole process easy.&lt;/p&gt;
     
     </summary>
     

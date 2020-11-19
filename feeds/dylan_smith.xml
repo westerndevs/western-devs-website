@@ -5,7 +5,7 @@
   <link href="/feeds/dylan_smith" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2020-11-11T04:33:05.375Z</updated>
+  <updated>2020-11-19T16:22:43.263Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://westerndevs.com/_/Dylan-Joins-Microsoft/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Dylan-Joins-Microsoft/</id>
     <published>2017-06-13T00:00:00.000Z</published>
-    <updated>2020-11-11T04:33:05.375Z</updated>
+    <updated>2020-11-19T16:22:43.263Z</updated>
 	<author>
 	
 	  
@@ -55,7 +55,7 @@
     <link href="https://westerndevs.com/_/Synchronize-GitHub-Repository-With-VSTS/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Synchronize-GitHub-Repository-With-VSTS/</id>
     <published>2017-03-08T19:00:00.000Z</published>
-    <updated>2020-11-11T04:33:05.375Z</updated>
+    <updated>2020-11-19T16:22:43.263Z</updated>
 	<author>
 	
 	  
@@ -76,9 +76,9 @@
     
       <category term="vsts" scheme="https://westerndevs.com/tags/vsts/"/>
     
-      <category term="github" scheme="https://westerndevs.com/tags/github/"/>
-    
       <category term="devops" scheme="https://westerndevs.com/tags/devops/"/>
+    
+      <category term="github" scheme="https://westerndevs.com/tags/github/"/>
     
   </entry>
   
@@ -87,7 +87,7 @@
     <link href="https://westerndevs.com/alm/What-Is-DevOps/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/alm/What-Is-DevOps/</id>
     <published>2016-11-18T07:14:00.000Z</published>
-    <updated>2020-11-11T04:33:05.375Z</updated>
+    <updated>2020-11-19T16:22:43.263Z</updated>
 	<author>
 	
 	  
@@ -119,7 +119,7 @@
     <link href="https://westerndevs.com/_/azure-snapshots/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-snapshots/</id>
     <published>2015-11-04T06:30:00.000Z</published>
-    <updated>2020-11-11T04:33:05.391Z</updated>
+    <updated>2020-11-19T16:22:43.271Z</updated>
 	<author>
 	
 	  
@@ -145,7 +145,7 @@
     <link href="https://westerndevs.com/_/using-azure-arm-to-deploy-a-docker-container/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/using-azure-arm-to-deploy-a-docker-container/</id>
     <published>2015-08-24T23:13:00.000Z</published>
-    <updated>2020-11-11T04:33:05.399Z</updated>
+    <updated>2020-11-19T16:22:43.279Z</updated>
 	<author>
 	
 	  
