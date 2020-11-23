@@ -19,6 +19,10 @@ jobs:
         node-version: 12
     - run: npm install
     - run: npm run build
+    - name: Update robots.txt for Testing Site
+      run: |
+        rm ./public/robots.txt
+        echo "User-agent: *\nDisallow: /" >> ./public/robots.txt
     - name: Deploy Pull Request to Testing Site
       if: github.event_name == 'pull_request'
       uses: peaceiris/actions-gh-pages@v3
