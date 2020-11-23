@@ -27,6 +27,7 @@ jobs:
         cname: wdtest.devopsdylan.com
         commit_message: ${{ github.event.head_commit.message }}
         external_repository: westerndevs/western-devs-website-testing
+        exclude_assets: 'CNAME'
     - name: Deploy to GitHub Pages
       if: github.ref == 'refs/heads/master'
       uses: peaceiris/actions-gh-pages@v3
