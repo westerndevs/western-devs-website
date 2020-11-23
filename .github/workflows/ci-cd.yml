@@ -19,6 +19,14 @@ jobs:
         node-version: 12
     - run: npm install
     - run: npm run build
+    - name: Deploy Pull Request to Testing Site
+      if: github.event_name == 'pull_request'
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        personal_token: ${{ secrets.TESTING_TOKEN }}
+        cname: wdtest.devopsdylan.com
+        commit_message: ${{ github.event.head_commit.message }}
+        external_repository: westerndevs/western-devs-website-testing
     - name: Deploy to GitHub Pages
       if: github.ref == 'refs/heads/master'
       uses: peaceiris/actions-gh-pages@v3
