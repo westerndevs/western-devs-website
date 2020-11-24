@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2020-11-19T16:22:43.271Z</updated>
+  <updated>2020-11-24T21:29:47.625Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://westerndevs.com/_/serverless-sql-azure-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/serverless-sql-azure-terraform/</id>
     <published>2020-11-18T19:00:00.000Z</published>
-    <updated>2020-11-19T16:22:43.271Z</updated>
+    <updated>2020-11-24T21:29:47.625Z</updated>
 	<author>
 	
 	  
@@ -47,7 +47,7 @@
     <link href="https://westerndevs.com/devops/from-travis-ci-to-github-actions/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devops/from-travis-ci-to-github-actions/</id>
     <published>2020-11-10T23:36:00.000Z</published>
-    <updated>2020-11-19T16:22:43.271Z</updated>
+    <updated>2020-11-24T21:29:47.625Z</updated>
 	<author>
 	
 	  
@@ -85,7 +85,7 @@
     <link href="https://westerndevs.com/_/cross-database-procs/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cross-database-procs/</id>
     <published>2020-11-09T19:00:00.000Z</published>
-    <updated>2020-11-19T16:22:43.271Z</updated>
+    <updated>2020-11-24T21:29:47.625Z</updated>
 	<author>
 	
 	  
@@ -111,7 +111,7 @@
     <link href="https://westerndevs.com/devlog/out-the-door/out-the-door-post-jam-update/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/out-the-door/out-the-door-post-jam-update/</id>
     <published>2020-11-09T14:00:00.000Z</published>
-    <updated>2020-11-19T16:22:43.271Z</updated>
+    <updated>2020-11-24T21:29:47.625Z</updated>
 	<author>
 	
 	  
@@ -153,7 +153,7 @@
     <link href="https://westerndevs.com/_/processor-limits/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/processor-limits/</id>
     <published>2020-11-05T20:00:00.000Z</published>
-    <updated>2020-11-19T16:22:43.271Z</updated>
+    <updated>2020-11-24T21:29:47.625Z</updated>
 	<author>
 	
 	  
@@ -179,7 +179,7 @@
     <link href="https://westerndevs.com/_/elasticquery/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/elasticquery/</id>
     <published>2020-11-05T19:00:00.000Z</published>
-    <updated>2020-11-19T16:22:43.271Z</updated>
+    <updated>2020-11-24T21:29:47.625Z</updated>
 	<author>
 	
 	  
@@ -205,7 +205,7 @@
     <link href="https://westerndevs.com/devlog/a-solo-gamejam-experience-ld47/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/a-solo-gamejam-experience-ld47/</id>
     <published>2020-10-23T13:00:00.000Z</published>
-    <updated>2020-11-19T16:22:43.271Z</updated>
+    <updated>2020-11-24T21:29:47.625Z</updated>
 	<author>
 	
 	  
@@ -245,7 +245,7 @@
     <link href="https://westerndevs.com/_/typescript-definition/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/typescript-definition/</id>
     <published>2020-09-28T18:00:00.000Z</published>
-    <updated>2020-11-19T16:22:43.271Z</updated>
+    <updated>2020-11-24T21:29:47.625Z</updated>
 	<author>
 	
 	  
@@ -271,7 +271,7 @@
     <link href="https://westerndevs.com/devlog/game-portfolio-review-2020/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/game-portfolio-review-2020/</id>
     <published>2020-09-18T13:00:00.000Z</published>
-    <updated>2020-11-19T16:22:43.271Z</updated>
+    <updated>2020-11-24T21:29:47.625Z</updated>
 	<author>
 	
 	  
@@ -311,7 +311,7 @@
     <link href="https://westerndevs.com/devlog/little-shop-of-wall-street-01-release-notes/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/little-shop-of-wall-street-01-release-notes/</id>
     <published>2020-07-02T15:13:00.000Z</published>
-    <updated>2020-11-19T16:22:43.271Z</updated>
+    <updated>2020-11-24T21:29:47.625Z</updated>
 	<author>
 	
 	  
@@ -349,7 +349,7 @@
     <link href="https://westerndevs.com/Azure/Azure-Functions/scaling-azure-functions-from-consumption-plan-to-premium-hosting-plan/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Azure/Azure-Functions/scaling-azure-functions-from-consumption-plan-to-premium-hosting-plan/</id>
     <published>2020-05-23T16:30:00.000Z</published>
-    <updated>2020-11-19T16:22:43.271Z</updated>
+    <updated>2020-11-24T21:29:47.625Z</updated>
 	<author>
 	
 	  
@@ -387,7 +387,7 @@
     <link href="https://westerndevs.com/kubernetes/kubernetes-my-journey/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/kubernetes/kubernetes-my-journey/</id>
     <published>2020-05-22T17:00:00.000Z</published>
-    <updated>2020-11-19T16:22:43.271Z</updated>
+    <updated>2020-11-24T21:29:47.625Z</updated>
 	<author>
 	
 	  
@@ -418,7 +418,7 @@
     <link href="https://westerndevs.com/kubernetes/kubernetes-my-journey-part-1/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-1/</id>
     <published>2020-05-22T16:00:00.000Z</published>
-    <updated>2020-11-19T16:22:43.267Z</updated>
+    <updated>2020-11-24T21:29:47.625Z</updated>
 	<author>
 	
 	  
@@ -450,7 +450,7 @@
     <link href="https://westerndevs.com/kubernetes/kubernetes-my-journey-part-2/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-2/</id>
     <published>2020-05-22T15:00:00.000Z</published>
-    <updated>2020-11-19T16:22:43.267Z</updated>
+    <updated>2020-11-24T21:29:47.625Z</updated>
 	<author>
 	
 	  
@@ -482,7 +482,7 @@
     <link href="https://westerndevs.com/kubernetes/kubernetes-my-journey-part-3/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-3/</id>
     <published>2020-05-22T14:00:00.000Z</published>
-    <updated>2020-11-19T16:22:43.271Z</updated>
+    <updated>2020-11-24T21:29:47.625Z</updated>
 	<author>
 	
 	  
@@ -514,7 +514,7 @@
     <link href="https://westerndevs.com/kubernetes/kubernetes-my-journey-part-4/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-4/</id>
     <published>2020-05-22T13:00:00.000Z</published>
-    <updated>2020-11-19T16:22:43.271Z</updated>
+    <updated>2020-11-24T21:29:47.625Z</updated>
 	<author>
 	
 	  
@@ -546,7 +546,7 @@
     <link href="https://westerndevs.com/kubernetes/kubernetes-my-journey-part-5a/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-5a/</id>
     <published>2020-05-22T12:00:00.000Z</published>
-    <updated>2020-11-19T16:22:43.271Z</updated>
+    <updated>2020-11-24T21:29:47.625Z</updated>
 	<author>
 	
 	  
@@ -578,7 +578,7 @@
     <link href="https://westerndevs.com/kubernetes/kubernetes-my-journey-part-5b/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-5b/</id>
     <published>2020-05-22T11:00:00.000Z</published>
-    <updated>2020-11-19T16:22:43.271Z</updated>
+    <updated>2020-11-24T21:29:47.625Z</updated>
 	<author>
 	
 	  
@@ -610,7 +610,7 @@
     <link href="https://westerndevs.com/kubernetes/kubernetes-my-journey-part-6/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-6/</id>
     <published>2020-05-22T10:00:00.000Z</published>
-    <updated>2020-11-19T16:22:43.271Z</updated>
+    <updated>2020-11-24T21:29:47.625Z</updated>
 	<author>
 	
 	  
@@ -642,7 +642,7 @@
     <link href="https://westerndevs.com/kubernetes/kubernetes-my-journey-part-7a/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-7a/</id>
     <published>2020-05-22T09:00:00.000Z</published>
-    <updated>2020-11-19T16:22:43.271Z</updated>
+    <updated>2020-11-24T21:29:47.625Z</updated>
 	<author>
 	
 	  
