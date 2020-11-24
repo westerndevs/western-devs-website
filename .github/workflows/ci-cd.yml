@@ -29,7 +29,7 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       with:
         deploy_key: ${{ secrets.TESTING_DEPLOY_KEY }}
-        cname: wdtest.devopsdylan.com
+        cname: test.westerndevs.com
         commit_message: ${{ github.event.head_commit.message }}
         external_repository: westerndevs/western-devs-website-testing
         exclude_assets: 'CNAME'
