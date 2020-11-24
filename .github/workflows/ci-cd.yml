@@ -19,6 +19,20 @@ jobs:
         node-version: 12
     - run: npm install
     - run: npm run build
+    - name: Update robots.txt for Testing Site
+      if: github.event_name == 'pull_request'
+      run: |
+        rm ./public/robots.txt
+        echo $'User-agent: *\nDisallow: /' >> ./public/robots.txt
+    - name: Deploy Pull Request to Testing Site
+      if: github.event_name == 'pull_request'
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        deploy_key: ${{ secrets.TESTING_DEPLOY_KEY }}
+        cname: test.westerndevs.com
+        commit_message: ${{ github.event.head_commit.message }}
+        external_repository: westerndevs/western-devs-website-testing
+        exclude_assets: 'CNAME'
     - name: Deploy to GitHub Pages
       if: github.ref == 'refs/heads/master'
       uses: peaceiris/actions-gh-pages@v3
