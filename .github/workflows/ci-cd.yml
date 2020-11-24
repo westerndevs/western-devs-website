@@ -28,7 +28,7 @@ jobs:
       if: github.event_name == 'pull_request'
       uses: peaceiris/actions-gh-pages@v3
       with:
-        personal_token: ${{ secrets.TESTING_TOKEN }}
+        deploy_key: ${{ secrets.TESTING_DEPLOY_KEY }}
         cname: wdtest.devopsdylan.com
         commit_message: ${{ github.event.head_commit.message }}
         external_repository: westerndevs/western-devs-website-testing
