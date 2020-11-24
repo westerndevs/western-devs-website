@@ -5,7 +5,7 @@
   <link href="/feeds/dylan_smith" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2020-11-24T21:29:47.617Z</updated>
+  <updated>2020-11-24T21:38:45.432Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Advent of Code 2020 - C# Framework</title>
+    <link href="https://westerndevs.com/_/Advent-Of-Code-Intro/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/Advent-Of-Code-Intro/</id>
+    <published>2020-11-24T19:00:00.000Z</published>
+    <updated>2020-11-24T21:38:45.432Z</updated>
+	<author>
+	
+	  
+	  <name>Dylan Smith</name>
+	  <email>optikal@shaw.ca</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p><a href="https://adventofcode.com/" target="_blank" rel="noopener">Advent Of Code 2020</a> is just around the corner.  This year my hope is to create a short video after solving each day to show off my solution.  Here's an intro video where I walk-through the framework/GUI I've created where I write and run my code.</p><a id="more"></a><iframe width="560" height="315" src="https://www.youtube.com/embed/BDeR8KBJnv0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://adventofcode.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Advent Of Code 2020&lt;/a&gt; is just around the corner.  This year my hope is to create a short video after solving each day to show off my solution.  Here&#39;s an intro video where I walk-through the framework/GUI I&#39;ve created where I write and run my code.&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Dylan Joins Microsoft</title>
     <link href="https://westerndevs.com/_/Dylan-Joins-Microsoft/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Dylan-Joins-Microsoft/</id>
     <published>2017-06-13T00:00:00.000Z</published>
-    <updated>2020-11-24T21:29:47.617Z</updated>
+    <updated>2020-11-24T21:38:45.420Z</updated>
 	<author>
 	
 	  
@@ -55,7 +81,7 @@
     <link href="https://westerndevs.com/_/Synchronize-GitHub-Repository-With-VSTS/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Synchronize-GitHub-Repository-With-VSTS/</id>
     <published>2017-03-08T19:00:00.000Z</published>
-    <updated>2020-11-24T21:29:47.617Z</updated>
+    <updated>2020-11-24T21:38:45.420Z</updated>
 	<author>
 	
 	  
@@ -87,7 +113,7 @@
     <link href="https://westerndevs.com/alm/What-Is-DevOps/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/alm/What-Is-DevOps/</id>
     <published>2016-11-18T07:14:00.000Z</published>
-    <updated>2020-11-24T21:29:47.617Z</updated>
+    <updated>2020-11-24T21:38:45.420Z</updated>
 	<author>
 	
 	  
@@ -119,7 +145,7 @@
     <link href="https://westerndevs.com/_/azure-snapshots/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-snapshots/</id>
     <published>2015-11-04T06:30:00.000Z</published>
-    <updated>2020-11-24T21:29:47.629Z</updated>
+    <updated>2020-11-24T21:38:45.432Z</updated>
 	<author>
 	
 	  
@@ -145,7 +171,7 @@
     <link href="https://westerndevs.com/_/using-azure-arm-to-deploy-a-docker-container/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/using-azure-arm-to-deploy-a-docker-container/</id>
     <published>2015-08-24T23:13:00.000Z</published>
-    <updated>2020-11-24T21:29:47.637Z</updated>
+    <updated>2020-11-24T21:38:45.440Z</updated>
 	<author>
 	
 	  
