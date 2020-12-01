@@ -12,7 +12,7 @@ There was a slight hiccup with the Advent Of Code site going down right at launc
 ![Postmortem](https://imgur.com/ei64QeP.png)
 ![Postmortem comment](https://imgur.com/2fZOaJt.png)
 
-My code can be found on GitHub: https://github.com/dylan-smith/AdventOfCode2020/blob/master/src/Days/Day01.cs
+My code can be found [here on GitHub](https://github.com/dylan-smith/AdventOfCode2020/blob/master/src/Days/Day01.cs)
 
 Here's quick walkthrough of my final solution:
 
