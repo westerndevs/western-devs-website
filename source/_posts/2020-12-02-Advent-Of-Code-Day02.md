@@ -10,10 +10,8 @@ Day 2 solution with a new ParseLines() extension method, some Tuples, and the XO
 <!--more -->
 
 Previous Posts:
-
-[Intro](https://www.westerndevs.com/_/Advent-Of-Code-Intro/)
-
-[Day 1](https://www.westerndevs.com/_/Advent-Of-Code-Day01/)
+- [Intro](https://www.westerndevs.com/_/Advent-Of-Code-Intro/)
+- [Day 1](https://www.westerndevs.com/_/Advent-Of-Code-Day01/)
 
 My code can be found [here on GitHub](https://github.com/dylan-smith/AdventOfCode2020/blob/master/src/Days/Day02.cs)
 
