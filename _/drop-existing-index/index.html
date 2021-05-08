@@ -4,15 +4,15 @@
   <head>
   
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>drop-existing-index | Western Devs</title>
-  <meta name="description" content="title:  Create or Update Index authorId: simon_timms date: 2021-05-08">
+    <title>Create or Update Index | Western Devs</title>
+  <meta name="description" content="Of course the SQL server syntax for this doesn&#39;t quite jive with what I want but you can use the clause WITH (DROP_EXISTING &#x3D; ON) to have SQL server handle updating an existing index keeping the old i">
 <meta property="og:type" content="article">
-<meta property="og:title" content="drop-existing-index">
+<meta property="og:title" content="Create or Update Index">
 <meta property="og:url" content="https://westerndevs.com/_/drop-existing-index/index.html">
 <meta property="og:site_name" content="Western Devs">
-<meta property="og:description" content="title:  Create or Update Index authorId: simon_timms date: 2021-05-08">
-<meta property="article:published_time" content="2021-05-08T22:17:36.746Z">
-<meta property="article:modified_time" content="2021-05-08T22:17:36.746Z">
+<meta property="og:description" content="Of course the SQL server syntax for this doesn&#39;t quite jive with what I want but you can use the clause WITH (DROP_EXISTING &#x3D; ON) to have SQL server handle updating an existing index keeping the old i">
+<meta property="article:published_time" content="2021-05-08T04:00:00.000Z">
+<meta property="article:modified_time" content="2021-05-08T22:22:33.830Z">
 <meta property="article:author" content="Western Devs">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:creator" content="@westerndevs">
@@ -96,16 +96,16 @@
     <div class="ListLrgDateDay">8</div>
     <div class="ListLrgDateYear">2021</div>
   </div>
-  <h2>drop-existing-index</h2>
+  <h2>Create or Update Index</h2>
 </div>
 
 		    
 
 			<div id="mainPostContent">
-	        <hr>
-<p>title:  Create or Update Index
-authorId: simon_timms
-date: 2021-05-08</p>
+	        <p>Of course the SQL server syntax for this doesn't quite jive with what I want but you can use the clause <code>WITH (DROP_EXISTING = ON)</code> to have SQL server handle updating an existing index keeping the old index live until the new version is ready. You use it like</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> NONCLUSTERED <span class="keyword">INDEX</span> idxMonthlyParkers_vendor_expiry_issue</span><br><span class="line"><span class="keyword">ON</span> [dbo].[tblParkers] ([VendorId],[LotTimezoneExpiryDate],[LotTimezoneIssueDate])</span><br><span class="line"><span class="keyword">INCLUDE</span> ([HangTagCode],[FirstName],[LastName])</span><br><span class="line"> <span class="keyword">WITH</span> (DROP_EXISTING = <span class="keyword">ON</span>)</span><br></pre></td></tr></table></figure>
+<p>However that will throw an error if the index doesn't exist (of course) so you need to wrap it with an <code>if</code></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">if exists (<span class="keyword">SELECT</span> * </span><br><span class="line"><span class="keyword">FROM</span> sys.indexes </span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">name</span>=<span class="string">'idxMonthlyParkers_vendor_expiry_issue'</span> <span class="keyword">AND</span> object_id = OBJECT_ID(<span class="string">'dbo.tblMonthlyParker'</span>))</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">    <span class="keyword">CREATE</span> NONCLUSTERED <span class="keyword">INDEX</span> idxMonthlyParkers_vendor_expiry_issue</span><br><span class="line">    <span class="keyword">ON</span> [dbo].[tblParkers] ([VendorId],[LotTimezoneExpiryDate],[LotTimezoneIssueDate])</span><br><span class="line">    <span class="keyword">INCLUDE</span> ([HangTagCode],[FirstName],[LastName])</span><br><span class="line">    <span class="keyword">WITH</span> (DROP_EXISTING = <span class="keyword">ON</span>)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">else</span> </span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">    <span class="keyword">CREATE</span> NONCLUSTERED <span class="keyword">INDEX</span> idxMonthlyParkers_vendor_expiry_issue</span><br><span class="line">    <span class="keyword">ON</span> [dbo].[tblParkers] ([VendorId],[LotTimezoneExpiryDate],[LotTimezoneIssueDate])</span><br><span class="line">    <span class="keyword">INCLUDE</span> ([HangTagCode],[FirstName],[LastName])</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 
 	        </div>
 
@@ -128,24 +128,32 @@ date: 2021-05-08</p>
 
 			<div class="ProfileImg">
 				
-					<img src='/images/avatars/small_logo_vertical.png' />
+				<a href="/bios/simon_timms">
+				
+					<img src='/images/avatars/simon.jpg' />
+				
+				</a>
 				
 			</div>
 
 			<BR clear="all">
 
-			<h2><a href="/bios/undefined"></a></h2>
+			<h2><a href="/bios/simon_timms">Simon Timms</a></h2>
 			
-			<a href="mailto:info@westerndevs.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
-			
-			
-			
-			<a href="http://twitter.com/westerndevs" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			<a href="mailto:stimms@gmail.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
 			
 			
-			<a href="https://github.com/westerndevs" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			<a href="http://blog.simontimms.com/" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
 			
 			
+			<a href="http://twitter.com/stimms" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/stimms" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			
+ 			<a href="/feeds/simon_timms.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
 			
 
 			<hr />
@@ -231,6 +239,8 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
 ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'simon_timms');
 
 ga('send', 'pageview');
 }

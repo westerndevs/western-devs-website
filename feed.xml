@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2021-05-08T22:17:36.750Z</updated>
+  <updated>2021-05-08T22:22:33.830Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,145 +17,26 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title type="html">query-collections-in-big-table</title>
-    <link href="https://westerndevs.com/_/query-collections-in-big-table/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/query-collections-in-big-table/</id>
-    <published>2021-05-08T22:17:36.750Z</published>
-    <updated>2021-05-08T22:17:36.750Z</updated>
-	<author>
-		  
-	  <name>Western Devs</name>
-	  <email>info@westerndevs.com</email>	  
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<hr><p>title:  Query BigTable EventsauthorId: simon_timmsdate: 2021-05-08</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;hr&gt;
-&lt;p&gt;title:  Query BigTable Events
-authorId: simon_timms
-date: 2021-05-08&lt;/p&gt;
-
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">set-env-variable</title>
-    <link href="https://westerndevs.com/_/set-env-variable/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/set-env-variable/</id>
-    <published>2021-05-08T22:17:36.750Z</published>
-    <updated>2021-05-08T22:17:36.750Z</updated>
-	<author>
-		  
-	  <name>Western Devs</name>
-	  <email>info@westerndevs.com</email>	  
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<hr><p>title:  Setting a persistent environment variableauthorId: simon_timmsdate: 2021-05-08</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;hr&gt;
-&lt;p&gt;title:  Setting a persistent environment variable
-authorId: simon_timms
-date: 2021-05-08&lt;/p&gt;
-
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">terminal-buffer</title>
-    <link href="https://westerndevs.com/_/terminal-buffer/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/terminal-buffer/</id>
-    <published>2021-05-08T22:17:36.750Z</published>
-    <updated>2021-05-08T22:17:36.750Z</updated>
-	<author>
-		  
-	  <name>Western Devs</name>
-	  <email>info@westerndevs.com</email>	  
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<hr><p>title:  Increase Terminal Buffer in VS CodeauthorId: simon_timmsdate: 2021-05-08</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;hr&gt;
-&lt;p&gt;title:  Increase Terminal Buffer in VS Code
-authorId: simon_timms
-date: 2021-05-08&lt;/p&gt;
-
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">xdt-transforms</title>
-    <link href="https://westerndevs.com/_/xdt-transforms/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/xdt-transforms/</id>
-    <published>2021-05-08T22:17:36.750Z</published>
-    <updated>2021-05-08T22:17:36.750Z</updated>
-	<author>
-		  
-	  <name>Western Devs</name>
-	  <email>info@westerndevs.com</email>	  
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<hr><p>title:  Transforms</p><h1>Testing</h1><p>authorId: simon_timmsdate: 2021-05-08</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;hr&gt;
-&lt;p&gt;title:  Transforms&lt;/p&gt;
-&lt;h1&gt;Testing&lt;/h1&gt;
-&lt;p&gt;authorId: simon_timms
-date: 2021-05-08&lt;/p&gt;
-
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">download-file</title>
+    <title type="html">Download a file in powershell</title>
     <link href="https://westerndevs.com/_/download-file/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/download-file/</id>
-    <published>2021-05-08T22:17:36.746Z</published>
-    <updated>2021-05-08T22:17:36.746Z</updated>
+    <published>2021-05-08T04:00:00.000Z</published>
+    <updated>2021-05-08T22:22:33.830Z</updated>
 	<author>
-		  
-	  <name>Western Devs</name>
-	  <email>info@westerndevs.com</email>	  
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
 	
 	  <uri>https://westerndevs.com</uri>
 	</author>
     
-    <content type="html"><![CDATA[<hr><p>title:  Download a file in powershellauthorId: simon_timmsdate: 2021-05-08</p>]]></content>
+    <content type="html"><![CDATA[<p>Here is a quick way to download a file in powershell:</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Invoke-WebRequest -Uri <span class="tag">&lt;<span class="name">source</span>&gt;</span> -OutFile <span class="tag">&lt;<span class="name">destination</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
-      &lt;hr&gt;
-&lt;p&gt;title:  Download a file in powershell
-authorId: simon_timms
-date: 2021-05-08&lt;/p&gt;
-
+      &lt;p&gt;Here is a quick way to download a file in powershell:&lt;/p&gt;
+&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;l
     
     </summary>
     
@@ -163,28 +44,25 @@ date: 2021-05-08&lt;/p&gt;
   </entry>
   
   <entry>
-    <title type="html">drop-existing-index</title>
+    <title type="html">Create or Update Index</title>
     <link href="https://westerndevs.com/_/drop-existing-index/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/drop-existing-index/</id>
-    <published>2021-05-08T22:17:36.746Z</published>
-    <updated>2021-05-08T22:17:36.746Z</updated>
+    <published>2021-05-08T04:00:00.000Z</published>
+    <updated>2021-05-08T22:22:33.830Z</updated>
 	<author>
-		  
-	  <name>Western Devs</name>
-	  <email>info@westerndevs.com</email>	  
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
 	
 	  <uri>https://westerndevs.com</uri>
 	</author>
     
-    <content type="html"><![CDATA[<hr><p>title:  Create or Update IndexauthorId: simon_timmsdate: 2021-05-08</p>]]></content>
+    <content type="html"><![CDATA[<p>Of course the SQL server syntax for this doesn't quite jive with what I want but you can use the clause <code>WITH (DROP_EXISTING = ON)</code> to have SQL server handle updating an existing index keeping the old index live until the new version is ready. You use it like</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> NONCLUSTERED <span class="keyword">INDEX</span> idxMonthlyParkers_vendor_expiry_issue</span><br><span class="line"><span class="keyword">ON</span> [dbo].[tblParkers] ([VendorId],[LotTimezoneExpiryDate],[LotTimezoneIssueDate])</span><br><span class="line"><span class="keyword">INCLUDE</span> ([HangTagCode],[FirstName],[LastName])</span><br><span class="line"> <span class="keyword">WITH</span> (DROP_EXISTING = <span class="keyword">ON</span>)</span><br></pre></td></tr></table></figure><p>However that will throw an error if the index doesn't exist (of course) so you need to wrap it with an <code>if</code></p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">if exists (<span class="keyword">SELECT</span> * </span><br><span class="line"><span class="keyword">FROM</span> sys.indexes </span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">name</span>=<span class="string">'idxMonthlyParkers_vendor_expiry_issue'</span> <span class="keyword">AND</span> object_id = OBJECT_ID(<span class="string">'dbo.tblMonthlyParker'</span>))</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">    <span class="keyword">CREATE</span> NONCLUSTERED <span class="keyword">INDEX</span> idxMonthlyParkers_vendor_expiry_issue</span><br><span class="line">    <span class="keyword">ON</span> [dbo].[tblParkers] ([VendorId],[LotTimezoneExpiryDate],[LotTimezoneIssueDate])</span><br><span class="line">    <span class="keyword">INCLUDE</span> ([HangTagCode],[FirstName],[LastName])</span><br><span class="line">    <span class="keyword">WITH</span> (DROP_EXISTING = <span class="keyword">ON</span>)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">else</span> </span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">    <span class="keyword">CREATE</span> NONCLUSTERED <span class="keyword">INDEX</span> idxMonthlyParkers_vendor_expiry_issue</span><br><span class="line">    <span class="keyword">ON</span> [dbo].[tblParkers] ([VendorId],[LotTimezoneExpiryDate],[LotTimezoneIssueDate])</span><br><span class="line">    <span class="keyword">INCLUDE</span> ([HangTagCode],[FirstName],[LastName])</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
-      &lt;hr&gt;
-&lt;p&gt;title:  Create or Update Index
-authorId: simon_timms
-date: 2021-05-08&lt;/p&gt;
-
+      &lt;p&gt;Of course the SQL server syntax for this doesn&#39;t quite jive with what I want but you can use the clause &lt;code&gt;WITH (DROP_EXISTING = ON)&lt;/
     
     </summary>
     
@@ -192,28 +70,130 @@ date: 2021-05-08&lt;/p&gt;
   </entry>
   
   <entry>
-    <title type="html">function-appinsights</title>
+    <title type="html">Logging in Functions</title>
     <link href="https://westerndevs.com/_/function-appinsights/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/function-appinsights/</id>
-    <published>2021-05-08T22:17:36.746Z</published>
-    <updated>2021-05-08T22:17:36.746Z</updated>
+    <published>2021-05-08T04:00:00.000Z</published>
+    <updated>2021-05-08T22:22:33.830Z</updated>
 	<author>
-		  
-	  <name>Western Devs</name>
-	  <email>info@westerndevs.com</email>	  
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
 	
 	  <uri>https://westerndevs.com</uri>
 	</author>
     
-    <content type="html"><![CDATA[<hr><p>title:  Logging in FunctionsauthorId: simon_timmsdate: 2021-05-08</p>]]></content>
+    <content type="html"><![CDATA[<p>Looks like by default functions log at the <code>info</code> level. To change the level you can use set the application setting <code>AzureFunctionsJobHost__logging__LogLevel__Default</code> to some other value like <code>Error</code> or <code>Info</code>.</p><p>If you want to disable adaptive sampling then that can be done in the host.json</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"2.0"</span>,</span><br><span class="line">  <span class="attr">"extensions"</span>: &#123;</span><br><span class="line">    <span class="attr">"queues"</span>: &#123;</span><br><span class="line">      <span class="attr">"maxPollingInterval"</span>: <span class="string">"00:00:05"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"logging"</span>: &#123;</span><br><span class="line">    <span class="attr">"logLevel"</span>: &#123;</span><br><span class="line">      <span class="attr">"default"</span>: <span class="string">"Information"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"applicationInsights"</span>: &#123;</span><br><span class="line">      <span class="attr">"samplingSettings"</span>: &#123;</span><br><span class="line">        <span class="attr">"isEnabled"</span>: <span class="literal">false</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"functionTimeout"</span>: <span class="string">"00:10:00"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>In this example adaptive sampling is turned off so you get every log message.</p><p>A thing to note is that if you crank down logging to Error you won't see the invocations at all in the portal but they're still running.</p>]]></content>
     
     <summary type="html">
     
-      &lt;hr&gt;
-&lt;p&gt;title:  Logging in Functions
-authorId: simon_timms
-date: 2021-05-08&lt;/p&gt;
-
+      &lt;p&gt;Looks like by default functions log at the &lt;code&gt;info&lt;/code&gt; level. To change the level you can use set the application setting &lt;code&gt;Azu
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title type="html">Query BigTable Events</title>
+    <link href="https://westerndevs.com/_/query-collections-in-big-table/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/query-collections-in-big-table/</id>
+    <published>2021-05-08T04:00:00.000Z</published>
+    <updated>2021-05-08T22:22:33.834Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>Firebase can feed its data to bigtable and then you can run queries there. The syntax is SQL like but not quite because they have internal record types. So for the data that is fed across from firebase you get a structure that looks like</p><p><img src="/images/2021-03-05-query-collections-in-big-table.md/2021-03-05-10-39-05.png" alt=""></p><p>You can see that event_params and user_properties are these kind of collection things. The easiest way to deal with them is to flatten the structure and internally join the table against itself</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> r.event_name, p.key, p.value <span class="keyword">FROM</span> <span class="string">`pocketgeek-auto.analytics_258213689.events_intraday_20210305`</span> r <span class="keyword">cross</span> <span class="keyword">join</span> <span class="keyword">unnest</span>(r.event_params) <span class="keyword">as</span> p <span class="keyword">where</span> <span class="keyword">key</span> = <span class="string">'DealerName'</span></span><br></pre></td></tr></table></figure><p>This gets you a dataset like</p><p><img src="/images/2021-03-05-query-collections-in-big-table.md/2021-03-05-10-39-05.png" alt=""></p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> r.event_name, p.key, p.value <span class="keyword">FROM</span> <span class="string">`pocketgeek-auto.analytics_258213689.events_intraday_20210305`</span> r <span class="keyword">cross</span> <span class="keyword">join</span> <span class="keyword">unnest</span>(r.event_params) <span class="keyword">as</span> p <span class="keyword">where</span> <span class="keyword">key</span> = <span class="string">'DealerName'</span> <span class="keyword">and</span> p.value.string_value &lt;&gt; <span class="string">'none'</span></span><br></pre></td></tr></table></figure><p>is probably even better with the filter</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Firebase can feed its data to bigtable and then you can run queries there. The syntax is SQL like but not quite because they have interna
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title type="html">Setting a persistent environment variable</title>
+    <link href="https://westerndevs.com/_/set-env-variable/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/set-env-variable/</id>
+    <published>2021-05-08T04:00:00.000Z</published>
+    <updated>2021-05-08T22:22:33.834Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>If you want to set a variable but you want it to live forever then you can use</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="type">System.Environment</span>]::SetEnvironmentVariable(<span class="string">"JAVA_HOME"</span>, <span class="string">"c:\program files\openjdk\jdk-13.0.2"</span>, <span class="string">"Machine"</span>)</span><br></pre></td></tr></table></figure><p>That last argument can take on the values {<code>Process</code>, <code>User</code>, <code>Machine</code>}</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;If you want to set a variable but you want it to live forever then you can use&lt;/p&gt;
+&lt;figure class=&quot;highlight powershell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td cl
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title type="html">Increase Terminal Buffer in VS Code</title>
+    <link href="https://westerndevs.com/_/terminal-buffer/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/terminal-buffer/</id>
+    <published>2021-05-08T04:00:00.000Z</published>
+    <updated>2021-05-08T22:22:33.834Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>Got something in your terminal which is producing more output than you can scroll back through (I'm looking at you <code>terraform plan</code>)? You can adjust the setting in preferences:</p><p><img src="/images/2021-04-29-terminal-buffer.md/2021-04-29-15-04-52.png" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Got something in your terminal which is producing more output than you can scroll back through (I&#39;m looking at you &lt;code&gt;terraform plan&lt;/
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title type="html">Transforms</title>
+    <link href="https://westerndevs.com/_/xdt-transforms/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/xdt-transforms/</id>
+    <published>2021-05-08T04:00:00.000Z</published>
+    <updated>2021-05-08T22:22:33.834Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>You can apply little transforms by just writing XML transformation on configuration files. For instance here is one for adding a section to the <code>system.web</code> section of the configuration file</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span> <span class="attr">xmlns:xdt</span>=<span class="string">"http://schemas.microsoft.com/XML-Document-Transform"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">system.web</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">machineKey</span> <span class="attr">xdt:Transform</span>=<span class="string">"Insert"</span> <span class="attr">decryptionKey</span>=<span class="string">"abc"</span> <span class="attr">validationKey</span>=<span class="string">"def"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">system.web</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure><p>Here is one for removing an attribute</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span> <span class="attr">xmlns:xdt</span>=<span class="string">"http://schemas.microsoft.com/XML-Document-Transform"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">system.web</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">compilation</span> <span class="attr">xdt:Transform</span>=<span class="string">"RemoveAttributes(debug)"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">system.web</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure><p>How about changing an attribute based on matching the key?</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span> <span class="attr">xmlns:xdt</span>=<span class="string">"http://schemas.microsoft.com/XML-Document-Transform"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">appSettings</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">add</span> <span class="attr">key</span>"<span class="attr">MaxUsers</span>" <span class="attr">value</span>=<span class="string">"3"</span> <span class="attr">xdt:Transform</span>=<span class="string">"SetAttributes"</span> <span class="attr">xdt:Locator</span>=<span class="string">"Match(key)"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">appSettings</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure><p>If you happen to be using Octopus Deploy they have a feature you can add to your IIS deployment task to run these transformations</p><p><img src="/images/2021-05-06-xdt-transforms.md/2021-05-06-13-34-59.png" alt=""></p><h2>Testing</h2><p>There is a great little online testing tool at https://elmah.io/tools/webconfig-transformation-tester/ where you can plug in random things until you get them working.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;You can apply little transforms by just writing XML transformation on configuration files. For instance here is one for adding a section 
     
     </summary>
     
@@ -225,7 +205,7 @@ date: 2021-05-08&lt;/p&gt;
     <link href="https://westerndevs.com/_/Advent-Of-Code-Day03/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Advent-Of-Code-Day03/</id>
     <published>2020-12-04T00:00:00.000Z</published>
-    <updated>2021-05-08T22:17:36.746Z</updated>
+    <updated>2021-05-08T22:22:33.826Z</updated>
 	<author>
 	
 	  
@@ -251,7 +231,7 @@ date: 2021-05-08&lt;/p&gt;
     <link href="https://westerndevs.com/_/Advent-Of-Code-Day02/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Advent-Of-Code-Day02/</id>
     <published>2020-12-02T22:00:00.000Z</published>
-    <updated>2021-05-08T22:17:36.746Z</updated>
+    <updated>2021-05-08T22:22:33.826Z</updated>
 	<author>
 	
 	  
@@ -277,7 +257,7 @@ date: 2021-05-08&lt;/p&gt;
     <link href="https://westerndevs.com/_/Advent-Of-Code-Day01/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Advent-Of-Code-Day01/</id>
     <published>2020-12-01T05:00:00.000Z</published>
-    <updated>2021-05-08T22:17:36.746Z</updated>
+    <updated>2021-05-08T22:22:33.826Z</updated>
 	<author>
 	
 	  
@@ -303,7 +283,7 @@ date: 2021-05-08&lt;/p&gt;
     <link href="https://westerndevs.com/_/Advent-Of-Code-Intro/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Advent-Of-Code-Intro/</id>
     <published>2020-11-24T19:00:00.000Z</published>
-    <updated>2021-05-08T22:17:36.746Z</updated>
+    <updated>2021-05-08T22:22:33.826Z</updated>
 	<author>
 	
 	  
@@ -329,7 +309,7 @@ date: 2021-05-08&lt;/p&gt;
     <link href="https://westerndevs.com/_/serverless-sql-azure-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/serverless-sql-azure-terraform/</id>
     <published>2020-11-18T19:00:00.000Z</published>
-    <updated>2021-05-08T22:17:36.746Z</updated>
+    <updated>2021-05-08T22:22:33.826Z</updated>
 	<author>
 	
 	  
@@ -355,7 +335,7 @@ date: 2021-05-08&lt;/p&gt;
     <link href="https://westerndevs.com/devops/from-travis-ci-to-github-actions/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devops/from-travis-ci-to-github-actions/</id>
     <published>2020-11-10T23:36:00.000Z</published>
-    <updated>2021-05-08T22:17:36.746Z</updated>
+    <updated>2021-05-08T22:22:33.826Z</updated>
 	<author>
 	
 	  
@@ -393,7 +373,7 @@ date: 2021-05-08&lt;/p&gt;
     <link href="https://westerndevs.com/_/cross-database-procs/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cross-database-procs/</id>
     <published>2020-11-09T19:00:00.000Z</published>
-    <updated>2021-05-08T22:17:36.746Z</updated>
+    <updated>2021-05-08T22:22:33.826Z</updated>
 	<author>
 	
 	  
@@ -419,7 +399,7 @@ date: 2021-05-08&lt;/p&gt;
     <link href="https://westerndevs.com/devlog/out-the-door/out-the-door-post-jam-update/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/out-the-door/out-the-door-post-jam-update/</id>
     <published>2020-11-09T14:00:00.000Z</published>
-    <updated>2021-05-08T22:17:36.746Z</updated>
+    <updated>2021-05-08T22:22:33.826Z</updated>
 	<author>
 	
 	  
@@ -461,7 +441,7 @@ date: 2021-05-08&lt;/p&gt;
     <link href="https://westerndevs.com/_/processor-limits/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/processor-limits/</id>
     <published>2020-11-05T20:00:00.000Z</published>
-    <updated>2021-05-08T22:17:36.746Z</updated>
+    <updated>2021-05-08T22:22:33.826Z</updated>
 	<author>
 	
 	  
@@ -487,7 +467,7 @@ date: 2021-05-08&lt;/p&gt;
     <link href="https://westerndevs.com/_/elasticquery/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/elasticquery/</id>
     <published>2020-11-05T19:00:00.000Z</published>
-    <updated>2021-05-08T22:17:36.746Z</updated>
+    <updated>2021-05-08T22:22:33.826Z</updated>
 	<author>
 	
 	  
@@ -513,7 +493,7 @@ date: 2021-05-08&lt;/p&gt;
     <link href="https://westerndevs.com/devlog/a-solo-gamejam-experience-ld47/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/a-solo-gamejam-experience-ld47/</id>
     <published>2020-10-23T13:00:00.000Z</published>
-    <updated>2021-05-08T22:17:36.742Z</updated>
+    <updated>2021-05-08T22:22:33.826Z</updated>
 	<author>
 	
 	  
@@ -553,7 +533,7 @@ date: 2021-05-08&lt;/p&gt;
     <link href="https://westerndevs.com/_/typescript-definition/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/typescript-definition/</id>
     <published>2020-09-28T18:00:00.000Z</published>
-    <updated>2021-05-08T22:17:36.742Z</updated>
+    <updated>2021-05-08T22:22:33.826Z</updated>
 	<author>
 	
 	  
@@ -579,7 +559,7 @@ date: 2021-05-08&lt;/p&gt;
     <link href="https://westerndevs.com/devlog/game-portfolio-review-2020/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/game-portfolio-review-2020/</id>
     <published>2020-09-18T13:00:00.000Z</published>
-    <updated>2021-05-08T22:17:36.742Z</updated>
+    <updated>2021-05-08T22:22:33.826Z</updated>
 	<author>
 	
 	  

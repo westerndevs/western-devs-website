@@ -5,7 +5,7 @@
   <link href="/feeds/simon_timms" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2021-05-08T22:17:36.746Z</updated>
+  <updated>2021-05-08T22:22:33.830Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,195 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Download a file in powershell</title>
+    <link href="https://westerndevs.com/_/download-file/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/download-file/</id>
+    <published>2021-05-08T04:00:00.000Z</published>
+    <updated>2021-05-08T22:22:33.830Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>Here is a quick way to download a file in powershell:</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Invoke-WebRequest -Uri <span class="tag">&lt;<span class="name">source</span>&gt;</span> -OutFile <span class="tag">&lt;<span class="name">destination</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Here is a quick way to download a file in powershell:&lt;/p&gt;
+&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;l
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title type="html">Create or Update Index</title>
+    <link href="https://westerndevs.com/_/drop-existing-index/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/drop-existing-index/</id>
+    <published>2021-05-08T04:00:00.000Z</published>
+    <updated>2021-05-08T22:22:33.830Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>Of course the SQL server syntax for this doesn't quite jive with what I want but you can use the clause <code>WITH (DROP_EXISTING = ON)</code> to have SQL server handle updating an existing index keeping the old index live until the new version is ready. You use it like</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> NONCLUSTERED <span class="keyword">INDEX</span> idxMonthlyParkers_vendor_expiry_issue</span><br><span class="line"><span class="keyword">ON</span> [dbo].[tblParkers] ([VendorId],[LotTimezoneExpiryDate],[LotTimezoneIssueDate])</span><br><span class="line"><span class="keyword">INCLUDE</span> ([HangTagCode],[FirstName],[LastName])</span><br><span class="line"> <span class="keyword">WITH</span> (DROP_EXISTING = <span class="keyword">ON</span>)</span><br></pre></td></tr></table></figure><p>However that will throw an error if the index doesn't exist (of course) so you need to wrap it with an <code>if</code></p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">if exists (<span class="keyword">SELECT</span> * </span><br><span class="line"><span class="keyword">FROM</span> sys.indexes </span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">name</span>=<span class="string">'idxMonthlyParkers_vendor_expiry_issue'</span> <span class="keyword">AND</span> object_id = OBJECT_ID(<span class="string">'dbo.tblMonthlyParker'</span>))</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">    <span class="keyword">CREATE</span> NONCLUSTERED <span class="keyword">INDEX</span> idxMonthlyParkers_vendor_expiry_issue</span><br><span class="line">    <span class="keyword">ON</span> [dbo].[tblParkers] ([VendorId],[LotTimezoneExpiryDate],[LotTimezoneIssueDate])</span><br><span class="line">    <span class="keyword">INCLUDE</span> ([HangTagCode],[FirstName],[LastName])</span><br><span class="line">    <span class="keyword">WITH</span> (DROP_EXISTING = <span class="keyword">ON</span>)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">else</span> </span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">    <span class="keyword">CREATE</span> NONCLUSTERED <span class="keyword">INDEX</span> idxMonthlyParkers_vendor_expiry_issue</span><br><span class="line">    <span class="keyword">ON</span> [dbo].[tblParkers] ([VendorId],[LotTimezoneExpiryDate],[LotTimezoneIssueDate])</span><br><span class="line">    <span class="keyword">INCLUDE</span> ([HangTagCode],[FirstName],[LastName])</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Of course the SQL server syntax for this doesn&#39;t quite jive with what I want but you can use the clause &lt;code&gt;WITH (DROP_EXISTING = ON)&lt;/
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title type="html">Logging in Functions</title>
+    <link href="https://westerndevs.com/_/function-appinsights/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/function-appinsights/</id>
+    <published>2021-05-08T04:00:00.000Z</published>
+    <updated>2021-05-08T22:22:33.830Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>Looks like by default functions log at the <code>info</code> level. To change the level you can use set the application setting <code>AzureFunctionsJobHost__logging__LogLevel__Default</code> to some other value like <code>Error</code> or <code>Info</code>.</p><p>If you want to disable adaptive sampling then that can be done in the host.json</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"2.0"</span>,</span><br><span class="line">  <span class="attr">"extensions"</span>: &#123;</span><br><span class="line">    <span class="attr">"queues"</span>: &#123;</span><br><span class="line">      <span class="attr">"maxPollingInterval"</span>: <span class="string">"00:00:05"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"logging"</span>: &#123;</span><br><span class="line">    <span class="attr">"logLevel"</span>: &#123;</span><br><span class="line">      <span class="attr">"default"</span>: <span class="string">"Information"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"applicationInsights"</span>: &#123;</span><br><span class="line">      <span class="attr">"samplingSettings"</span>: &#123;</span><br><span class="line">        <span class="attr">"isEnabled"</span>: <span class="literal">false</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"functionTimeout"</span>: <span class="string">"00:10:00"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>In this example adaptive sampling is turned off so you get every log message.</p><p>A thing to note is that if you crank down logging to Error you won't see the invocations at all in the portal but they're still running.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Looks like by default functions log at the &lt;code&gt;info&lt;/code&gt; level. To change the level you can use set the application setting &lt;code&gt;Azu
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title type="html">Query BigTable Events</title>
+    <link href="https://westerndevs.com/_/query-collections-in-big-table/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/query-collections-in-big-table/</id>
+    <published>2021-05-08T04:00:00.000Z</published>
+    <updated>2021-05-08T22:22:33.834Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>Firebase can feed its data to bigtable and then you can run queries there. The syntax is SQL like but not quite because they have internal record types. So for the data that is fed across from firebase you get a structure that looks like</p><p><img src="/images/2021-03-05-query-collections-in-big-table.md/2021-03-05-10-39-05.png" alt=""></p><p>You can see that event_params and user_properties are these kind of collection things. The easiest way to deal with them is to flatten the structure and internally join the table against itself</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> r.event_name, p.key, p.value <span class="keyword">FROM</span> <span class="string">`pocketgeek-auto.analytics_258213689.events_intraday_20210305`</span> r <span class="keyword">cross</span> <span class="keyword">join</span> <span class="keyword">unnest</span>(r.event_params) <span class="keyword">as</span> p <span class="keyword">where</span> <span class="keyword">key</span> = <span class="string">'DealerName'</span></span><br></pre></td></tr></table></figure><p>This gets you a dataset like</p><p><img src="/images/2021-03-05-query-collections-in-big-table.md/2021-03-05-10-39-05.png" alt=""></p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> r.event_name, p.key, p.value <span class="keyword">FROM</span> <span class="string">`pocketgeek-auto.analytics_258213689.events_intraday_20210305`</span> r <span class="keyword">cross</span> <span class="keyword">join</span> <span class="keyword">unnest</span>(r.event_params) <span class="keyword">as</span> p <span class="keyword">where</span> <span class="keyword">key</span> = <span class="string">'DealerName'</span> <span class="keyword">and</span> p.value.string_value &lt;&gt; <span class="string">'none'</span></span><br></pre></td></tr></table></figure><p>is probably even better with the filter</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Firebase can feed its data to bigtable and then you can run queries there. The syntax is SQL like but not quite because they have interna
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title type="html">Setting a persistent environment variable</title>
+    <link href="https://westerndevs.com/_/set-env-variable/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/set-env-variable/</id>
+    <published>2021-05-08T04:00:00.000Z</published>
+    <updated>2021-05-08T22:22:33.834Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>If you want to set a variable but you want it to live forever then you can use</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="type">System.Environment</span>]::SetEnvironmentVariable(<span class="string">"JAVA_HOME"</span>, <span class="string">"c:\program files\openjdk\jdk-13.0.2"</span>, <span class="string">"Machine"</span>)</span><br></pre></td></tr></table></figure><p>That last argument can take on the values {<code>Process</code>, <code>User</code>, <code>Machine</code>}</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;If you want to set a variable but you want it to live forever then you can use&lt;/p&gt;
+&lt;figure class=&quot;highlight powershell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td cl
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title type="html">Increase Terminal Buffer in VS Code</title>
+    <link href="https://westerndevs.com/_/terminal-buffer/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/terminal-buffer/</id>
+    <published>2021-05-08T04:00:00.000Z</published>
+    <updated>2021-05-08T22:22:33.834Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>Got something in your terminal which is producing more output than you can scroll back through (I'm looking at you <code>terraform plan</code>)? You can adjust the setting in preferences:</p><p><img src="/images/2021-04-29-terminal-buffer.md/2021-04-29-15-04-52.png" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Got something in your terminal which is producing more output than you can scroll back through (I&#39;m looking at you &lt;code&gt;terraform plan&lt;/
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title type="html">Transforms</title>
+    <link href="https://westerndevs.com/_/xdt-transforms/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/xdt-transforms/</id>
+    <published>2021-05-08T04:00:00.000Z</published>
+    <updated>2021-05-08T22:22:33.834Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>You can apply little transforms by just writing XML transformation on configuration files. For instance here is one for adding a section to the <code>system.web</code> section of the configuration file</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span> <span class="attr">xmlns:xdt</span>=<span class="string">"http://schemas.microsoft.com/XML-Document-Transform"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">system.web</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">machineKey</span> <span class="attr">xdt:Transform</span>=<span class="string">"Insert"</span> <span class="attr">decryptionKey</span>=<span class="string">"abc"</span> <span class="attr">validationKey</span>=<span class="string">"def"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">system.web</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure><p>Here is one for removing an attribute</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span> <span class="attr">xmlns:xdt</span>=<span class="string">"http://schemas.microsoft.com/XML-Document-Transform"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">system.web</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">compilation</span> <span class="attr">xdt:Transform</span>=<span class="string">"RemoveAttributes(debug)"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">system.web</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure><p>How about changing an attribute based on matching the key?</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span> <span class="attr">xmlns:xdt</span>=<span class="string">"http://schemas.microsoft.com/XML-Document-Transform"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">appSettings</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">add</span> <span class="attr">key</span>"<span class="attr">MaxUsers</span>" <span class="attr">value</span>=<span class="string">"3"</span> <span class="attr">xdt:Transform</span>=<span class="string">"SetAttributes"</span> <span class="attr">xdt:Locator</span>=<span class="string">"Match(key)"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">appSettings</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure><p>If you happen to be using Octopus Deploy they have a feature you can add to your IIS deployment task to run these transformations</p><p><img src="/images/2021-05-06-xdt-transforms.md/2021-05-06-13-34-59.png" alt=""></p><h2>Testing</h2><p>There is a great little online testing tool at https://elmah.io/tools/webconfig-transformation-tester/ where you can plug in random things until you get them working.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;You can apply little transforms by just writing XML transformation on configuration files. For instance here is one for adding a section 
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Allocating a Serverless Database in SQL Azure</title>
     <link href="https://westerndevs.com/_/serverless-sql-azure-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/serverless-sql-azure-terraform/</id>
     <published>2020-11-18T19:00:00.000Z</published>
-    <updated>2021-05-08T22:17:36.746Z</updated>
+    <updated>2021-05-08T22:22:33.826Z</updated>
 	<author>
 	
 	  
@@ -47,7 +231,7 @@
     <link href="https://westerndevs.com/_/cross-database-procs/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cross-database-procs/</id>
     <published>2020-11-09T19:00:00.000Z</published>
-    <updated>2021-05-08T22:17:36.746Z</updated>
+    <updated>2021-05-08T22:22:33.826Z</updated>
 	<author>
 	
 	  
@@ -73,7 +257,7 @@
     <link href="https://westerndevs.com/_/processor-limits/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/processor-limits/</id>
     <published>2020-11-05T20:00:00.000Z</published>
-    <updated>2021-05-08T22:17:36.746Z</updated>
+    <updated>2021-05-08T22:22:33.826Z</updated>
 	<author>
 	
 	  
@@ -99,7 +283,7 @@
     <link href="https://westerndevs.com/_/elasticquery/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/elasticquery/</id>
     <published>2020-11-05T19:00:00.000Z</published>
-    <updated>2021-05-08T22:17:36.746Z</updated>
+    <updated>2021-05-08T22:22:33.826Z</updated>
 	<author>
 	
 	  
@@ -125,7 +309,7 @@
     <link href="https://westerndevs.com/_/typescript-definition/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/typescript-definition/</id>
     <published>2020-09-28T18:00:00.000Z</published>
-    <updated>2021-05-08T22:17:36.742Z</updated>
+    <updated>2021-05-08T22:22:33.826Z</updated>
 	<author>
 	
 	  
@@ -151,7 +335,7 @@
     <link href="https://westerndevs.com/_/flutter-tests-with-native/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/flutter-tests-with-native/</id>
     <published>2020-04-01T14:00:00.000Z</published>
-    <updated>2021-05-08T22:17:36.742Z</updated>
+    <updated>2021-05-08T22:22:33.822Z</updated>
 	<author>
 	
 	  
@@ -177,7 +361,7 @@
     <link href="https://westerndevs.com/_/find-webforms-errors-with-precompilation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/find-webforms-errors-with-precompilation/</id>
     <published>2020-04-01T00:00:00.000Z</published>
-    <updated>2021-05-08T22:17:36.742Z</updated>
+    <updated>2021-05-08T22:22:33.822Z</updated>
 	<author>
 	
 	  
@@ -205,7 +389,7 @@
     <link href="https://westerndevs.com/_/Allow-hosted-agent-through-firewall/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Allow-hosted-agent-through-firewall/</id>
     <published>2020-01-10T14:00:00.000Z</published>
-    <updated>2021-05-08T22:17:36.742Z</updated>
+    <updated>2021-05-08T22:22:33.822Z</updated>
 	<author>
 	
 	  
@@ -231,7 +415,7 @@
     <link href="https://westerndevs.com/_/UNION-vs-UNION-ALL/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/UNION-vs-UNION-ALL/</id>
     <published>2019-12-30T14:00:00.000Z</published>
-    <updated>2021-05-08T22:17:36.742Z</updated>
+    <updated>2021-05-08T22:22:33.822Z</updated>
 	<author>
 	
 	  
@@ -258,7 +442,7 @@
     <link href="https://westerndevs.com/_/bulk-load-and-merge/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/bulk-load-and-merge/</id>
     <published>2019-10-12T04:00:00.000Z</published>
-    <updated>2021-05-08T22:17:36.742Z</updated>
+    <updated>2021-05-08T22:22:33.822Z</updated>
 	<author>
 	
 	  
@@ -284,7 +468,7 @@
     <link href="https://westerndevs.com/_/Debugging-php-in-container/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Debugging-php-in-container/</id>
     <published>2019-07-05T23:00:00.000Z</published>
-    <updated>2021-05-08T22:17:36.742Z</updated>
+    <updated>2021-05-08T22:22:33.822Z</updated>
 	<author>
 	
 	  
@@ -310,7 +494,7 @@
     <link href="https://westerndevs.com/DurableFunctions/durable_functions_analyzer/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/DurableFunctions/durable_functions_analyzer/</id>
     <published>2019-02-18T00:00:00.000Z</published>
-    <updated>2021-05-08T22:17:36.742Z</updated>
+    <updated>2021-05-08T22:22:33.822Z</updated>
 	<author>
 	
 	  
@@ -338,7 +522,7 @@
     <link href="https://westerndevs.com/DurableFunctions/durablefunctions_sagas/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/DurableFunctions/durablefunctions_sagas/</id>
     <published>2019-02-15T00:00:00.000Z</published>
-    <updated>2021-05-08T22:17:36.742Z</updated>
+    <updated>2021-05-08T22:22:33.822Z</updated>
 	<author>
 	
 	  
@@ -359,196 +543,6 @@
     </summary>
     
       <category term="DurableFunctions" scheme="https://westerndevs.com/categories/DurableFunctions/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Accessing B2C Claims in an Azure Function</title>
-    <link href="https://westerndevs.com/B2C/Getting-b2c-claims-in-an-azure-function/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/B2C/Getting-b2c-claims-in-an-azure-function/</id>
-    <published>2019-02-14T00:00:00.000Z</published>
-    <updated>2021-05-08T22:17:36.742Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>In a <a href="2019-01-30-Functions-aad-authentication">previous article</a> I talked about how to authenticate your function application against Azure Active Directory Business to Consumer (which we're going to call B2C for the sake of my fingers). Chances are in your function you're going to want to get some of the information which is available as a claim from the bearer token. Here is how to do it.</p><a id="more"></a><p>On the surface this seems like a really simple problem. After all you can take the bearer token you got and paste it into <a href="https://jwt.io/" target="_blank" rel="noopener">jwt.io</a> and get back all the information you want. However we should probably take some effort to validate that what's coming back is what was originally derived from the B2C login. We can do this by making use of the System.IdentityModel.Tokens.Jwt NugGet package along with a bunch of other cryptographic stuff from the framework.</p><p>In my case I'm most interested in the <code>emails</code> claim so I can send the user an e-mail. The first thing we need to do is get the Issuer Signing key from Azure B2C. The easiest way to do this is to use the json metadata endpoint your service provided.</p><p><img src="https://blog.simontimms.com/images/functions-claims/metadata.png" alt="The metadata URL for your B2C"></p><p>If you click on that link you'll get a document like</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">issuer: <span class="string">"https://yourtenant.b2clogin.com/a04a23ad-1e6a-4114-a91b-b8f8f7ac9660/v2.0/"</span>,</span><br><span class="line">authorization_endpoint: <span class="string">"https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/oauth2/v2.0/authorize?p=b2c_1_siupin"</span>,</span><br><span class="line">token_endpoint: <span class="string">"https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_siupin"</span>,</span><br><span class="line">end_session_endpoint: <span class="string">"https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/oauth2/v2.0/logout?p=b2c_1_siupin"</span>,</span><br><span class="line">jwks_uri: <span class="string">"https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_siupin"</span>,</span><br><span class="line">response_modes_supported: [</span><br><span class="line"><span class="string">"query"</span>,</span><br><span class="line"><span class="string">"fragment"</span>,</span><br><span class="line"><span class="string">"form_post"</span></span><br><span class="line">],</span><br><span class="line">response_types_supported: [</span><br><span class="line"><span class="string">"code"</span>,</span><br><span class="line"><span class="string">"code id_token"</span>,</span><br><span class="line"><span class="string">"code token"</span>,</span><br><span class="line"><span class="string">"code id_token token"</span>,</span><br><span class="line"><span class="string">"id_token"</span>,</span><br><span class="line"><span class="string">"id_token token"</span>,</span><br><span class="line"><span class="string">"token"</span>,</span><br><span class="line"><span class="string">"token id_token"</span></span><br><span class="line">],</span><br><span class="line">scopes_supported: [</span><br><span class="line"><span class="string">"openid"</span></span><br><span class="line">],</span><br><span class="line">subject_types_supported: [</span><br><span class="line"><span class="string">"pairwise"</span></span><br><span class="line">],</span><br><span class="line">id_token_signing_alg_values_supported: [</span><br><span class="line"><span class="string">"RS256"</span></span><br><span class="line">],</span><br><span class="line">token_endpoint_auth_methods_supported: [</span><br><span class="line"><span class="string">"client_secret_post"</span>,</span><br><span class="line"><span class="string">"client_secret_basic"</span></span><br><span class="line">],</span><br><span class="line">claims_supported: [</span><br><span class="line"><span class="string">"emails"</span>,</span><br><span class="line"><span class="string">"idp"</span>,</span><br><span class="line"><span class="string">"name"</span>,</span><br><span class="line"><span class="string">"sub"</span>,</span><br><span class="line"><span class="string">"tfp"</span></span><br><span class="line">]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>In this document is the <code>jwks_uri</code> which, if you click on it will give you something like this (keys altered to protect the innocent)</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">keys: [&#123;</span><br><span class="line">kid: <span class="string">"X5eXjf93njNFum1kl2Ytv8dlNP4-c57dO6QGTVBwaNk"</span>,</span><br><span class="line">nbf: <span class="number">1493764781</span>,</span><br><span class="line">use: <span class="string">"sig"</span>,</span><br><span class="line">kty: <span class="string">"RSA"</span>,</span><br><span class="line">e: <span class="string">"AQAB"</span>,</span><br><span class="line">n: <span class="string">"tVKUtcx_n9rt5afY_2WFNvU6PlFMggCatsZ3l4RjKxH0jgdLqab345de3ZGXYbPzXvmmLiWZizpb-h0qup5jznOvOr-Dhw9908584BSgC83YacjWNqEK3urxhyE2jWjwRm2N95WGgb5mzE5XmZIvkvyXnn7X8dvgFPF5QwIngGsDG8LyHuJWlaDhr_EPLMW4wHvH0zZCuRMARIJmmqiMy3VD4ftq4nS5s8vJL0pVSrkuNojtokp84AtkADCDU_BUhrc2sIgfnvZ03koCQRoZmWiHu86SuJZYkDFstVTVSR0hiXudFlfQ2rOhPlpObmku68lXw-7V-P7jwrQRFfQVXw"</span></span><br><span class="line">&#125;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>The information in here is what's needed to decode the JWT and validate it. The keys here can rotate so if you're going to cache the information you'll want to make sure it expires with some frequency. I've seen an hour recommended but your mileage may vary. I followed the very helpful post <a href="https://stackoverflow.com/a/47390593/361" target="_blank" rel="noopener">here</a> for how to consume this information.</p><p>In my function I grabbed the bearer token out of the request and passed it</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> bearerToken = request.Headers[<span class="string">"Authorization"</span>].ToString().Split(<span class="string">' '</span>).Last();</span><br><span class="line"><span class="keyword">var</span> json = <span class="keyword">await</span> client.GetStringAsync(configService.TokenMetadataEndpoint()); <span class="comment">//client is a static HTTP Client</span></span><br><span class="line">JwtSecurityTokenHandler handler = <span class="keyword">new</span> JwtSecurityTokenHandler();</span><br><span class="line"><span class="keyword">var</span> claims = handler.ValidateToken(bearerToken,</span><br><span class="line">    <span class="keyword">new</span> TokenValidationParameters</span><br><span class="line">    &#123;</span><br><span class="line">        ValidateAudience = <span class="literal">true</span>,</span><br><span class="line">        ValidateIssuer = <span class="literal">true</span>,</span><br><span class="line">        ValidateLifetime = <span class="literal">true</span>,</span><br><span class="line">        ValidIssuer =  configService.TokenIssuer(),</span><br><span class="line">        ValidAudience = configService.TokenAudience(),</span><br><span class="line">        IssuerSigningKeys = GetSecurityKeys(JsonConvert.DeserializeObject&lt;JsonWebKeySet&gt;(json))</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">out</span> <span class="keyword">var</span> validatedToken).Claims;</span><br></pre></td></tr></table></figure><p>The token audience is the ID of the API application in Azure B2C. The token issuer I had trouble figuring out, in the end the only place I could find it was in a known JWT that I decoded. For me it ended up being <code>https://yourtenant.b2clogin.com/a04a23ad-1e6a-4114-a91b-b8f8f7ac9660/v2.0/</code>. I'm not sure if that GUID in there changes from tenant to tenant but certainly the host name in the URL will change to yours. We want to make sure to validate that the JWT hasn't expired (lifetime) that it was issued by our B2C instance (issuer) and that it was intended for this application (audience).</p><p>The claims object here will contain all of the claims for the JWT. I'm interested in <code>emails</code> so I run</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> email = claims.Single(x =&gt; x.Type == <span class="string">"emails"</span>);</span><br></pre></td></tr></table></figure><p>Getting the security keys is done via this handy function which deserializes the keys into a list of SecurityKeys.</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> List&lt;SecurityKey&gt; <span class="title">GetSecurityKeys</span>(<span class="params">JsonWebKeySet jsonWebKeySet</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">var</span> keys = <span class="keyword">new</span> List&lt;SecurityKey&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">foreach</span> (<span class="keyword">var</span> key <span class="keyword">in</span> jsonWebKeySet.Keys)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (key.Kty == <span class="string">"RSA"</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (key.X5C != <span class="literal">null</span> &amp;&amp; key.X5C.Length &gt; <span class="number">0</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">string</span> certificateString = key.X5C[<span class="number">0</span>];</span><br><span class="line">                    <span class="keyword">var</span> certificate = <span class="keyword">new</span> X509Certificate2(Convert.FromBase64String(certificateString));</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">var</span> x509SecurityKey = <span class="keyword">new</span> X509SecurityKey(certificate)</span><br><span class="line">                    &#123;</span><br><span class="line">                        KeyId = key.Kid</span><br><span class="line">                    &#125;;</span><br><span class="line"></span><br><span class="line">                    keys.Add(x509SecurityKey);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (!<span class="keyword">string</span>.IsNullOrWhiteSpace(key.E) &amp;&amp; !<span class="keyword">string</span>.IsNullOrWhiteSpace(key.N))</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">byte</span>[] exponent = Base64UrlDecode(key.E);</span><br><span class="line">                    <span class="keyword">byte</span>[] modulus = Base64UrlDecode(key.N);</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">var</span> rsaParameters = <span class="keyword">new</span> RSAParameters</span><br><span class="line">                    &#123;</span><br><span class="line">                        Exponent = exponent,</span><br><span class="line">                        Modulus = modulus</span><br><span class="line">                    &#125;;</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">var</span> rsaSecurityKey = <span class="keyword">new</span> RsaSecurityKey(rsaParameters)</span><br><span class="line">                    &#123;</span><br><span class="line">                        KeyId = key.Kid</span><br><span class="line">                    &#125;;</span><br><span class="line"></span><br><span class="line">                    keys.Add(rsaSecurityKey);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">"JWK data is missing in token validation"</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> NotImplementedException(<span class="string">"Only RSA key type is implemented for token validation"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> keys;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>The final pieces are the models</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Model the JSON Web Key Set</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">JsonWebKeySet</span></span><br><span class="line">    &#123;</span><br><span class="line">        [<span class="meta">JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore, NullValueHandling = NullValueHandling.Ignore, PropertyName = <span class="meta-string">"keys"</span>, Required = Required.Default)</span>]</span><br><span class="line">        <span class="keyword">public</span> JsonWebKey[] Keys &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//Model the JSON Web Key object</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">JsonWebKey</span></span><br><span class="line">    &#123;</span><br><span class="line">        [<span class="meta">JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore, NullValueHandling = NullValueHandling.Ignore, PropertyName = <span class="meta-string">"kty"</span>, Required = Required.Default)</span>]</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">string</span> Kty &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line"></span><br><span class="line">        [<span class="meta">JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore, NullValueHandling = NullValueHandling.Ignore, PropertyName = <span class="meta-string">"use"</span>, Required = Required.Default)</span>]</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">string</span> Use &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line"></span><br><span class="line">        [<span class="meta">JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore, NullValueHandling = NullValueHandling.Ignore, PropertyName = <span class="meta-string">"kid"</span>, Required = Required.Default)</span>]</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">string</span> Kid &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line"></span><br><span class="line">        [<span class="meta">JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore, NullValueHandling = NullValueHandling.Ignore, PropertyName = <span class="meta-string">"x5t"</span>, Required = Required.Default)</span>]</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">string</span> X5T &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line"></span><br><span class="line">        [<span class="meta">JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore, NullValueHandling = NullValueHandling.Ignore, PropertyName = <span class="meta-string">"e"</span>, Required = Required.Default)</span>]</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">string</span> E &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line"></span><br><span class="line">        [<span class="meta">JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore, NullValueHandling = NullValueHandling.Ignore, PropertyName = <span class="meta-string">"n"</span>, Required = Required.Default)</span>]</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">string</span> N &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line"></span><br><span class="line">        [<span class="meta">JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore, NullValueHandling = NullValueHandling.Ignore, PropertyName = <span class="meta-string">"x5c"</span>, Required = Required.Default)</span>]</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">string</span>[] X5C &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line"></span><br><span class="line">        [<span class="meta">JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore, NullValueHandling = NullValueHandling.Ignore, PropertyName = <span class="meta-string">"alg"</span>, Required = Required.Default)</span>]</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">string</span> Alg &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><p>and the Bas64Decoder</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">byte</span>[] <span class="title">Base64UrlDecode</span>(<span class="params"><span class="keyword">string</span> arg</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">string</span> s = arg;</span><br><span class="line">    s = s.Replace(<span class="string">'-'</span>, <span class="string">'+'</span>); <span class="comment">// 62nd char of encoding</span></span><br><span class="line">    s = s.Replace(<span class="string">'_'</span>, <span class="string">'/'</span>); <span class="comment">// 63rd char of encoding</span></span><br><span class="line">    <span class="keyword">switch</span> (s.Length % <span class="number">4</span>) <span class="comment">// Pad with trailing '='s</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">0</span>: <span class="keyword">break</span>; <span class="comment">// No pad chars in this case</span></span><br><span class="line">        <span class="keyword">case</span> <span class="number">2</span>: s += <span class="string">"=="</span>; <span class="keyword">break</span>; <span class="comment">// Two pad chars</span></span><br><span class="line">        <span class="keyword">case</span> <span class="number">3</span>: s += <span class="string">"="</span>; <span class="keyword">break</span>; <span class="comment">// One pad char</span></span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> System.Exception(</span><br><span class="line">        <span class="string">"Illegal base64url string!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> Convert.FromBase64String(s); <span class="comment">// Standard base64 decoder</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>As with all things security related this stuff is confusing and convoluted. Hopefully this post will help out somebody in the future.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;In a &lt;a href=&quot;2019-01-30-Functions-aad-authentication&quot;&gt;previous article&lt;/a&gt; I talked about how to authenticate your function application against Azure Active Directory Business to Consumer (which we&#39;re going to call B2C for the sake of my fingers). Chances are in your function you&#39;re going to want to get some of the information which is available as a claim from the bearer token. Here is how to do it.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="B2C" scheme="https://westerndevs.com/categories/B2C/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Running a single instance of a durable function</title>
-    <link href="https://westerndevs.com/_/Running-a-single-durable-function/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/Running-a-single-durable-function/</id>
-    <published>2019-01-31T14:00:00.000Z</published>
-    <updated>2021-05-08T22:17:36.742Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>I have a durable functions project which orchestrates several thousand function calls the purpose of which is to scrape and load a bunch of data. It is scheduled to run once a day but one of my concerns was that I didn't want to accidentally run to functions at the same time. They would duplicate a bunch of the data loading and, at least until the function ran again, chaos would reign. I'm not a huge fan of chaos reigning so I set out to find a way around this.</p><a id="more"></a><p>If you've ever launched a durable function from the default HTTP triggered template you might have noticed that the JSON returned contains a number of interesting looking urls.</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"><span class="string">"id"</span>: <span class="string">"ad6b8019-b356-4099-b70c-a2b503168db3"</span>,</span><br><span class="line"><span class="string">"statusQueryGetUri"</span>: <span class="string">"http://localhost:7071/runtime/webhooks/durabletask/instances/ad6b8019-b356-4099-b70c-a2b503168db3?taskHub=DataIngest&amp;connection=Storage&amp;code=ra8WlNh5Vadbj0tqQddXXoZKpkamqMMt2zzfhnmais0SD1K1VzppuA=="</span>,</span><br><span class="line"><span class="string">"sendEventPostUri"</span>: <span class="string">"http://localhost:7071/runtime/webhooks/durabletask/instances/ad6b8019-b356-4099-b70c-a2b503168db3/raiseEvent/&#123;eventName&#125;?taskHub=DataIngest&amp;connection=Storage&amp;code=ra8WlNh5Vadbj0tqQddXXoZKpkamqMMt2zzfhnmais0SD1K1VzppuA=="</span>,</span><br><span class="line"><span class="string">"terminatePostUri"</span>: <span class="string">"http://localhost:7071/runtime/webhooks/durabletask/instances/ad6b8019-b356-4099-b70c-a2b503168db3/terminate?reason=&#123;text&#125;&amp;taskHub=DataIngest&amp;connection=Storage&amp;code=ra8WlNh5Vadbj0tqQddXXoZKpkamqMMt2zzfhnmais0SD1K1VzppuA=="</span>,</span><br><span class="line"><span class="string">"rewindPostUri"</span>: <span class="string">"http://localhost:7071/runtime/webhooks/durabletask/instances/ad6b8019-b356-4099-b70c-a2b503168db3/rewind?reason=&#123;text&#125;&amp;taskHub=DataIngest&amp;connection=Storage&amp;code=ra8WlNh5Vadbj0tqQddXXoZKpkamqMMt2zzfhnmais0SD1K1VzppuA=="</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>The one we're interested in there is the <code>statusQueryGetUri</code>. Poking at that gets you something like</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="string">"instanceId"</span>: <span class="string">"ad6b8019-b356-4099-b70c-a2b503168db3"</span>,</span><br><span class="line"><span class="string">"runtimeStatus"</span>: <span class="string">"Completed"</span>,</span><br><span class="line"><span class="string">"input"</span>: <span class="string">"ad6b8019-b356-4099-b70c-a2b503168db3"</span>,</span><br><span class="line"><span class="string">"customStatus"</span>: <span class="literal">null</span>,</span><br><span class="line"><span class="string">"output"</span>: <span class="literal">null</span>,</span><br><span class="line"><span class="string">"createdTime"</span>: <span class="string">"2019-01-30T23:09:20Z"</span>,</span><br><span class="line"><span class="string">"lastUpdatedTime"</span>: <span class="string">"2019-01-30T23:10:25Z"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>Notice that there is a <code>runtimeStatus</code> field there which reports the status of the orchestration. If we could look at the running orchestrations then perhaps we could see if there is already one running. Playing with the status URL I found that you could see all the running instances by simply looking at <code>http://localhost:7071/runtime/webhooks/durabletask/instances</code>.</p><p>Even better than that the DurableOrchestrationClient used to start an orchestration has on it a function called GetStatusAsync which returns a list of all the running orchestrations currently running on the task hub. This means we can do something like</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> statuses = <span class="keyword">await</span> starter.GetStatusAsync();</span><br><span class="line"><span class="keyword">if</span> (statuses.Any(x =&gt; x.RuntimeStatus == OrchestrationRuntimeStatus.Running &amp;&amp; x.Name == <span class="string">"OrchestrationName"</span>))</span><br><span class="line">&#123;</span><br><span class="line">    log.LogWarning(<span class="string">"An a running instance of the orchestration was detected. Terminating run."</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> HttpResponseMessage(System.Net.HttpStatusCode.Conflict);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>This will prevent multiple instances of the orchestrator running. Note that we need to filter on orchestration name because it is possible the same task hub has multiple different orchestrations.</p><p>Is this perfect? Oh heck no. There are lots of windows in which multiple orchestrations could be started. For my purposes, however, this works just fine. If your orchestrations are run more tightly than this then you might want to look at a distributed lock. My buddy Matt has a solution on the <a href="https://stackify.com/distributed-method-mutexing/" target="_blank" rel="noopener">Stackify blog</a> for this exact problem.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;I have a durable functions project which orchestrates several thousand function calls the purpose of which is to scrape and load a bunch of data. It is scheduled to run once a day but one of my concerns was that I didn&#39;t want to accidentally run to functions at the same time. They would duplicate a bunch of the data loading and, at least until the function ran again, chaos would reign. I&#39;m not a huge fan of chaos reigning so I set out to find a way around this.&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Azure Functions and Azure B2C Authentication</title>
-    <link href="https://westerndevs.com/_/Functions-aad-authentication/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/Functions-aad-authentication/</id>
-    <published>2019-01-30T18:00:00.000Z</published>
-    <updated>2021-05-08T22:17:36.742Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>I had a pretty good struggle setting up Azure Functions and Azure B2C to work together. There are a few guides out there but I wanted to put my own together because I had a terrible time finding these posts initially. The scenario here is that we want a single page application written in React to talk to an API hosted entirely in Azure Functions such that the functions are authenticated.</p><a id="more"></a><h2>Azure</h2><p>First up you'll need to create a new tenant for Azure B2C. This is a weird two step process which I'm given to understand is going to be improved at some point in the near future. For now in the Azure Portal select <code>Create a resource</code> then <code>Azure B2C</code>. You'll be presented with these two options.</p><p><img src="https://blog.simontimms.com/images/functions-aad/create_tenant.png" alt="Creating a tenant"></p><p>To start you'll need to create a tenant, so pick the first one. You'll be presented with a few options for organization name and initial domain. These are specific to your organization so I'll leave them up to you but think on the names a little because they cannot be changed.</p><p>With the B2C tenant created you'll now need the second option to link an existing Azure AD B2C tenant to the Azure subscription. This will create a reference to your tenant in your main Azure subscription.</p><p><img src="https://blog.simontimms.com/images/functions-aad/linking_tenant.png" alt="Linking a tenant"></p><p>Managing tenants is very confusing because you need to actually switch your Azure portal over to the new tenant. This is the least intuitive part of the process in my mind and shouldn't have been implemented this way. So click on the account selector in the top right of the portal to switch directories. Once you're in the new directory you'll see all the various resources you're use to. Don't both touching those, head straight over to Azure AD B2C in All resources.</p><p>In here you'll want to start in the Applications section. We'll be creating two applications and defining some claims between them. One application will be for the functions and the other for the SPA. You can expand this to more applications as your application grows.</p><p>The SPA should be the first one you create. I, creatively, called mine <code>SPA</code>. This one does not need an App ID URI but you should allow implicit flows and include web app/web API.</p><p><img src="https://blog.simontimms.com/images/functions-aad/spa_properties.png" alt="Properties for the SPA"></p><p>The reply URLs should contain a list of all the page from which a user can authenticate. Unfortunately, wildcards are not permitted here so you need to be explicit.</p><p>With that created we can now move onto the API app. This one is similar except that you'll want to put in place an App ID. Mine is simply called <code>API</code></p><p><img src="https://blog.simontimms.com/images/functions-aad/api_properties.png" alt="Properties for the API"></p><p>In that screenshot you'll notice a reply URL. You likely don't have that yet so leave it blank. We'll come back to it. Now the API app will need to publish a scope. This is what ties your two apps (API and SPA) together. I created a single scope called <code>access</code> because I don't have anything too complex in my API. You can publish multiple scopes if you wish.</p><p><img src="https://blog.simontimms.com/images/functions-aad/scopes.png" alt="Scopes"></p><p>Publishing scopes is half the equation, now back to the API application and select <code>API access</code>. In there select <code>Add</code> and select <code>API</code> in the first dropdown and then select both scopes in the second. Users who have authenticated against the SPA will now be able to access the API.</p><p>We're almost done in the B2C for now but we also want to set up a <code>User Flow</code>. This is a hosted login experience. You can customize the experience but that's outside of this tutorial. We want a basic Signup and Sign in policy. I named mine <code>SignupSignin</code> but you can pick whatever you like. Be sure to check the Email Signup identity provider. I also drilled into the <code>User attributes and claims</code> to select Email Address as a collected attribute and Email Addresses as a returned claim. This means that during the signup process we'll ask for the Email address and when authenticating in the SPA the JWT passed back will contain a collection of Email addresses. You can select more if you like.</p><p><img src="https://blog.simontimms.com/images/functions-aad/policy.png" alt="Policy"></p><p>Once the policy is created you'll want to select it and click <code>Run user flow</code> in there you'll find a metadata URL which will be used in your SPA application and functions. Make a note of it. While we're here also make a not of the ID of the API application.</p><p>Now all this is created we're now ready to jump over to the function app you want to authenticate. Phew, that took a while.</p><p>Switch back to your primary directory and head over to your function app. If you don't have one created already just create a blank C# one. In the function app click through to the platform features and select Authentication.</p><p><img src="https://blog.simontimms.com/images/functions-aad/platform_features.png" alt="Authentication"></p><p>In authentication turn on <code>App Service Authentication</code> and select <code>Azure Active Directory</code>. Switch over to advanced and enter the API application Id in the Client ID field and the metadata URL in the Issuer Url field. These are the two things you made notes about before leaving the B2C.</p><p><img src="https://blog.simontimms.com/images/functions-aad/aad_settings.png" alt="Active Directory Auth"></p><p>Finally change the <code>Action to take when request is not authenticated</code> over to <code>Log in with Azure Active Directory</code>. Save the authentication page. Now you'll need to make one final change over in the B2C. You'll need to find the URL for you function app. This is easily found by clicking on a function and running it. Take the URL and back in the B2C head to the API application.</p><p>In the API application you'll need to set the <code>Reply URL</code>. The URL should be of the format <code>https://&lt;functionapp name&gt;/.auth/login/aad/callback</code> so if you function app is called <code>bob</code> the result would be <code>https://bob/.auth/login/aad/callback</code>. With that in place we're done the Azure setup.</p><h2>In React</h2><p>Open up a terminal and install the handy package <code>react-aad-msal</code>. (Note: If you run into problems authenticating you might want to try the <code>react-aad-msal-jfm</code> package instead. It works around a new domain that Microsoft is using for B2C which isn't accepted by the <code>react-aad-msal</code> package.). This package provides some React components you can put on your page to do the actual authentication.</p><p>In a page I put in this control. I'm using Create ReactApp so the values for authority, clientID and scope are taken from a config file. The Authority is the Url for the policy so something like <code>https://yourtenant.b2clogin.com/tfp/yourtenant.onmicrosoft.com/B2C_1_SiUpIn</code>. The client Id is the ID of the SPA app from the B2C. Finally the scope is the fully qualified scope <code>https://yourtenant.onmicrosoft.com/API/access</code></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import &#123; AzureAD, LoginType, MsalAuthProviderFactory &#125; from 'react-aad-msal-jfm';</span><br><span class="line">...</span><br><span class="line"> <span class="tag">&lt;<span class="name">AzureAD</span></span></span><br><span class="line"><span class="tag">    <span class="attr">provider</span>=<span class="string">&#123;new</span> <span class="attr">MsalAuthProviderFactory</span>(&#123;</span></span><br><span class="line"><span class="tag">        <span class="attr">authority:</span> <span class="attr">process.env.REACT_APP_AUTHORITY</span>,</span></span><br><span class="line"><span class="tag">        <span class="attr">clientID:</span> <span class="attr">process.env.REACT_APP_CLIENT_ID</span>,</span></span><br><span class="line"><span class="tag">        <span class="attr">scopes:</span> [<span class="attr">process.env.REACT_APP_SCOPE</span>],</span></span><br><span class="line"><span class="tag">        <span class="attr">type:</span> <span class="attr">LoginType.Popup</span>,</span></span><br><span class="line"><span class="tag">        <span class="attr">persistLoginPastSession:</span> <span class="attr">true</span>,</span></span><br><span class="line"><span class="tag">        <span class="attr">validateAuthority:</span> <span class="attr">false</span></span></span><br><span class="line"><span class="tag"></span></span><br><span class="line"><span class="tag">    &#125;)&#125;</span></span><br><span class="line"><span class="tag">    <span class="attr">unauthenticatedFunction</span>=<span class="string">&#123;this.unauthenticatedFunction&#125;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">authenticatedFunction</span>=<span class="string">&#123;this.authenticatedFunction&#125;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">userInfoCallback</span>=<span class="string">&#123;this.userJustLoggedIn&#125;</span> /&gt;</span></span><br></pre></td></tr></table></figure><p>With this in place a login button is rendered. Click on the button and a popup will be shown with your login page. I saved off the bearer token from the <code>userInfoCallback</code> which is passed an object containing the <code>jwtAccessToken</code>. The emails we permitted as a claim are passed back as <code>idToken.emails</code>. My reducer looks a bit like</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> getType(login.loginSuccess):</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        ...state,</span><br><span class="line">        loggedIn: <span class="literal">true</span>,</span><br><span class="line">        bearerToken: action.payload.body.jwtAccessToken,</span><br><span class="line">        displayName: action.payload.body.user.name,</span><br><span class="line">        userId: action.payload.body.user.userIdentifier,</span><br><span class="line">        email: action.payload.body.user.idToken.emails[<span class="number">0</span>]</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure><p>This jwtAccess token should be used in the headers of any fetches against the function app.</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> result = <span class="keyword">await</span> fetch(<span class="string">`<span class="subst">$&#123;process.env.REACT_APP_API_URL&#125;</span>/Practices`</span>, &#123;</span><br><span class="line">            method: <span class="string">'GET'</span>,</span><br><span class="line">            headers: &#123;</span><br><span class="line">                <span class="string">'Authorization'</span>: <span class="string">`Bearer <span class="subst">$&#123;<span class="keyword">this</span>.props.login.bearerToken&#125;</span>`</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;I had a pretty good struggle setting up Azure Functions and Azure B2C to work together. There are a few guides out there but I wanted to put my own together because I had a terrible time finding these posts initially. The scenario here is that we want a single page application written in React to talk to an API hosted entirely in Azure Functions such that the functions are authenticated.&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Creating Storage Queues in Azure DevOps</title>
-    <link href="https://westerndevs.com/_/2018-12-06-creating-queues-in-devops/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/2018-12-06-creating-queues-in-devops/</id>
-    <published>2018-12-06T18:00:00.000Z</published>
-    <updated>2021-05-08T22:17:36.742Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>Storage Queues are one of the original pieces of Azure dating back about a decade now. They are great for deferring work to later or spreading it out over a bunch of consumers. If you're following best practices for DevOps you'll know that the creation of your queues should be done in code. In some cases you can create the queues on application startup but in serverless scenarios there often is no startup code so the responsibility of creating queues falls to your deployment process. Let's look at how to do that on Azure DevOps</p><a id="more"></a><p>Your first instinct might be to use your ARM templates to build queues. This makes great sense - the storage account is defined in the ARM template so why not also define the queues? Because you can't!</p><p>There is a <a href="https://feedback.azure.com/forums/281804-azure-resource-manager/suggestions/9306108-let-me-define-preconfigured-blob-containers-table" target="_blank" rel="noopener">request open to add that functionality</a> but after 3 years it remains unanswered. Talking to some Azure engineers at Microsoft it seems like the approach they would like people to take is to build the queue in the application. Problem with that is that now your application needs to have rights to create queues instead of just right to write to or read from the queue. You might also not have an appropriate place to put startup code - for instance Azure Functions don't have a good way to run code on startup. Same deal with logic apps.</p><p>The fact that creating storage queues is not officially supported in ARM templates is baloney and the argument that this is an application level create queue to do is proof that parts of Microsoft still doesn't get DevOps.</p><p>This means we have to plug something into the pipeline to create the queues. I quite like the <a href="https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest" target="_blank" rel="noopener">Azure CLI</a> which is a great little command line tool for interacting with Azure. You can add in the Azure CLI task in Azure DevOps, hook up the subscription and the give it an inline script like so:</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">call az storage<span class="built_in"> queue </span>create -n <span class="string">"awesome-queue-1"</span> --connection-string <span class="string">"<span class="variable">$(storageAccountConnectionString)</span>"</span></span><br></pre></td></tr></table></figure><p>If you're using a Windows build agent then you need to include the <code>call</code> to ensure that multiple lines are executed. If you're on a Linux agent then <code>call</code> can be omitted.</p><p>That connection string can be exported from your ARM template as an output parameter and then sucked into the DevOps variables using <a href="https://github.com/keesschollaart81/vsts-arm-outputs" target="_blank" rel="noopener">ARM Outputs</a>.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Storage Queues are one of the original pieces of Azure dating back about a decade now. They are great for deferring work to later or spreading it out over a bunch of consumers. If you&#39;re following best practices for DevOps you&#39;ll know that the creation of your queues should be done in code. In some cases you can create the queues on application startup but in serverless scenarios there often is no startup code so the responsibility of creating queues falls to your deployment process. Let&#39;s look at how to do that on Azure DevOps&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Azure Data Factory - a rapid introduction</title>
-    <link href="https://westerndevs.com/_/2018-11-05-datafactory/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/2018-11-05-datafactory/</id>
-    <published>2018-11-05T18:00:00.000Z</published>
-    <updated>2021-05-08T22:17:36.742Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>Azure is huge. There are probably a dozen ways to host a website, a similar number of different data storage technologies, tools for identity, scaling, DDoS protection - you name it Azure has it. With that many services it isn't unusual for me to find some service I didn't even know existed. Today that service is <a href="https://azure.microsoft.com/en-ca/services/data-factory/" target="_blank" rel="noopener">Data Factory</a>. Data factory is a batch based Extract, Transform and Load(ETL) service which means that it moves data between locations. I mention that it is batch to distinguish it from services which are online and process events as they come in. Data Factory might be used to move data between a production database and the test system or between two data sources.</p><a id="more"></a><p>In most cases I'd recommend solutions which were more tightly integrated into your business processes than copying data between databases. It is easier to test, closer to real time and easier to update. However, moving to event based systems can be long and difficult so there is certainly a niche for Data Factory. A good application might be migrating data from a service you don't own to your internal database - the external system is unlikely to have data change notifications you could use to drive data population. Azure Data Factory plays in the same space that SQL Server Integration Services played in the past - in fact you can build your Azure Data Factory pipeline in SSIS and simply upload it.</p><p>Let's take a look at loading some data from an Azure SQL database, and putting it into Cosmos DB. I've chosen these two systems but there are literally dozens of different data sources and destinations you can use at the click of a mouse. They are not limited to Microsoft offerings, either. There are connectors for Cassandra, Couchbase, MongoDB, Google BigQuery even Oracle.</p><p><img src="https://blog.simontimms.com/images/datafactory/datasources.png" alt="A small sample of the various datasources which exist within data factory"></p><p>The first step is to create a new data factory in Azure. This is as simple as searching for data factory in the Azure portal and clicking create. A few settings are required such as the name and the version. For this I went with v2 because it is a larger number than v1 and ergo way better. I'm pretty sure that's how numbers work. With the factory created the next step is to click on <code>Author and Monitor</code>.</p><p><img src="https://blog.simontimms.com/images/datafactory/author.png" alt="Select author and monitor in the portal"></p><p>This opens up a whole editor experience in a new tab. It is still roughly styled like the portal so it isn't as jarring as using the man styling jumble that is AWS' console. In the left gutter click on the little <code>+</code> symbol to create a new data set.</p><p><img src="https://blog.simontimms.com/images/datafactory/newdatasource.png" alt="New SQL data source"></p><p>I found myself an old backup database I had kicking around still on my Azure account to be the source of data for this experiment. It is a database of data related to the construction of some oil extraction facility somewhere. To protect the innocent I've anonymized the data a little. We'll start by adding this as a source for the data factory. Select Azure SQL as the source and then give it a name in the general pane. Under connection set up a new linked service. This is what holds our data connection information so multiple different data sets can use the same linked service if you wanted to pull from multiple tables. In the linked service set up you can select an existing database from the drop downs and enter the login information.</p><p>With the linked service set up you can select the table you'll be using for the schema information and even preview the data.</p><p><img src="https://blog.simontimms.com/images/datafactory/preview.png" alt="A preview of the data in the SQL database"></p><p>Next follow a similar procedure for setting up the cosmos data source. My cosmos data source was brand new so it didn't have any document from which data factory could figure out the schema. This meant that I had to go in and define one in the data source.</p><p><img src="https://blog.simontimms.com/images/datafactory/schema.png" alt="Defining the Cosmos database schema"></p><p>With the two data sources in place all that is needed now is to copy the data from one to another. Data factory is obviously a lot more than being able to copy data between data bases but to do any manipulation of the data you really need to pull in other services. For instance you can manipulate the data with data bricks or HD Insights and, of course, you can analyze the data with Azure ML. What is missing, in my mind, is a really simple way of manipulating fields, concatenating them together, splitting them up that sort of thing. Because data factory is designed to scale it relies on other services which can also scale instead of internalizing too much. On one hand this is good because is formalizes your scaling and makes you think about what you do if you have huge quantities of data. On the other hand is raises the knowledge bar for entry quite high.</p><p>Originally this article was going to cover manipulating data but the difficulty meant that that content had to be pushed off to another post.</p><p>Returning to the problem at hand the copy task is added by adding a new pipeline. Within that pipeline we add a copy data task by dragging it to the canvas. In the task we configure the source as being the SQL database and, at the same time, select a query. My query filters for tags which are complete (you don't really need to know what that means).</p><p><img src="https://blog.simontimms.com/images/datafactory/selecttags.png" alt="Entering a query"></p><p>Next set up a destination sink as the cosmos db. Finally set up the mapping. Mappings determine which fields go where: from the source into the destination. Because we've gone to the trouble of ensuring field names are the same over our two data sets simply clicking <code>Import Schemas</code> is enough to set up the mappings for us. You may need to manually map fields if you're renaming as part of the copy.</p><p>Pipelines are built by coupling together various tasks to copy, filter, sort and otherwise manipulate data. Each task has a success, completion and failure output which can be wired to the next task allowing you to build pretty complex logic. Of course as with all complex logic it is nice to have automated tests around it. This is a failing of data factory - it is difficult to test the workflow logic.</p><p>The set up of the pipeline is now complete. To start using it you first need to publish it which is done by clicking on the <code>Publish All</code> button. Publishing takes a moment but once it is done testing the integration is as simple as clicking on trigger and going down to <code>Trigger Now</code>. Within a few seconds I was able to jump to my cosmos and find it filled with all the records from SQL. It was quick and easy to set up. What's really nice too is that the pipeline can easily be scheduled.</p><p>Data factory is not the right solution for every project. I'd actually argue that it isn't the right solution for most projects but it is a good stop gap until you can move to a more online version of data integration using something like change events and functions. Of course that assumes you have infinite resources to improve your projects...</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Azure is huge. There are probably a dozen ways to host a website, a similar number of different data storage technologies, tools for identity, scaling, DDoS protection - you name it Azure has it. With that many services it isn&#39;t unusual for me to find some service I didn&#39;t even know existed. Today that service is &lt;a href=&quot;https://azure.microsoft.com/en-ca/services/data-factory/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Data Factory&lt;/a&gt;. Data factory is a batch based Extract, Transform and Load(ETL) service which means that it moves data between locations. I mention that it is batch to distinguish it from services which are online and process events as they come in. Data Factory might be used to move data between a production database and the test system or between two data sources.&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Checking in packages</title>
-    <link href="https://westerndevs.com/development-fundamentals/Checking-In-packages/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/development-fundamentals/Checking-In-packages/</id>
-    <published>2018-10-21T15:36:36.000Z</published>
-    <updated>2021-05-08T22:17:36.738Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>If there is one thing that we developers are good at it is holy wars. Vi vs. Emacs, tabs vs. spaces, Python vs. R, the list goes on. I'm usually smart enough to not get involved in such low brow exchanges... haha, who am I kidding? (vi, spaces and R, BTW) Recently I've been tilting at the windmill that is checking in package files. I don't mean the files that tell what version of files to check in but the actual library files.</p><a id="more"></a><p>Package managers aren't anything new, we've had them for years, decades even if you consider CPAN which has been online for 23 years. The idea behind them is that they provide an easy mechanism to install dependencies into your project. At the same time you can avoid checking in a bunch of library files and instead run a package restore as one of the build steps.</p><p>I've heard a couple of arguments against relying on package managers instead of checking in your libraries.</p><ol><li>What if the package manager goes away? How could you still reliably build the software years in the future?</li><li>What if the specific package being used goes away? It might be unpublished like what happened with <a href="https://www.theregister.co.uk/2016/03/23/npm_left_pad_chaos/" target="_blank" rel="noopener">left-pad</a></li><li>What if a transitive dependency, that is one that is included because it is a dependency of some other package, is revved and the package author of the included dependency left the dependency requirement open?</li><li>It takes a long time to restore packages using a package manager, we can speed up builds by not running the package restore during the build.</li><li>Everything you need to build your solution should be checked into source control.</li></ol><p>Let's break each one of these down and see why they are wrong headed.</p><ol><li>Package managers have been around for years and aren't going away anytime soon. Perl is hardly a well used language these days but CPAN survives still. Package managers will outlast the applications built using the language.</li><li>This is a totally legitimate concern. Fortunately policies have changed at <a href="https://docs.npmjs.com/cli/unpublish" target="_blank" rel="noopener">npm</a> and <a href="https://docs.microsoft.com/en-us/nuget/policies/deleting-packages" target="_blank" rel="noopener">NuGet</a> to no longer allow removing packages after a brief window.</li><li>I've seen this happen with some frequency. Again package managers have changed to ensure that we no longer have this problem. Npm has introduced a package-lock file with version 5 and finally fixed how it works with version 6. By checking in this file we can be assured that we get exactly the right version of packages restored in a build. NuGet is, well, <a href="https://github.com/NuGet/Home/wiki/Enable-repeatable-package-restore-using-lock-file" target="_blank" rel="noopener">trying to catch up</a> on package lock files. Paket, which uses NuGet files under the covers does have <a href="https://fsprojects.github.io/Paket/lock-file.html" target="_blank" rel="noopener">proper support for lock files</a>.</li><li>This is a legitimate concern as well. I'd say that greater than 50% of my build times are spend restoring packages. Some of that time is downloading packages and some of it is solving the dependency graph. <a href="https://westerndevs.com/bios/dylan_smith/">Dylan</a> has recently been <a href="https://github.com/Microsoft/hash-and-cache" target="_blank" rel="noopener">experimenting with caching packages</a> based on a checksum of the lock file. This, as it turns out, is quite a bit faster than simply downloading individual files from the package repository. This approach has been used for a while by Circle CI.</li><li>The goal is to make sure that you can always build every piece of code you own. One solution is to check everything in, but where do you stop? Do you check in the compiler? The system libraries? The operating system? Instead of checking everything in and hoping that they continue to build why not just run builds every night?</li></ol><p>We've countered every one of the big points for checking in packages. Now let me tell you why you shouldn't check packages in.</p><ol><li>It bloats the size of your repository. It does take time to download a repository and filling it up with multiple copies of no longer used packages is not helpful. Git works in a way that even if you delete a file it still exists in the image which is distributed to everybody who pulls the repository.<img src="https://blog.simontimms.com/images/checking_in_packages/weight.jpeg" alt="Heavy weight repositories"></li><li>It is really easy to upgrade a package and forget to check it in or otherwise get the package file out of sync with what's on disk.</li><li>The whole reason we have package managers is to help us handle installing and reinstalling packages - we should try to trust in them.</li><li>If there is concern that packages may stop being available or that package servers will be unavailable then we can stand up an internal package server. This is also beneficial for developer builds.</li></ol><p>For NuGet we have the added problem that the package directory is no longer local to the source control directory so you have to really go out of your way to check in the packages folder.</p><p>Stop checking in packages, it is a ridiculous outdated practice which is introducing bugs and slowing down builds.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;If there is one thing that we developers are good at it is holy wars. Vi vs. Emacs, tabs vs. spaces, Python vs. R, the list goes on. I&#39;m usually smart enough to not get involved in such low brow exchanges... haha, who am I kidding? (vi, spaces and R, BTW) Recently I&#39;ve been tilting at the windmill that is checking in package files. I don&#39;t mean the files that tell what version of files to check in but the actual library files.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="development fundamentals" scheme="https://westerndevs.com/categories/development-fundamentals/"/>
-    
-    
-      <category term="npm" scheme="https://westerndevs.com/tags/npm/"/>
-    
-      <category term="nuget" scheme="https://westerndevs.com/tags/nuget/"/>
-    
-  </entry>
-  
-  <entry>
-    <title type="html">DevOps and Microservices - Symbiotes</title>
-    <link href="https://westerndevs.com/_/microservices-devops/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/microservices-devops/</id>
-    <published>2018-10-20T04:00:00.000Z</published>
-    <updated>2021-05-08T22:17:36.742Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>Two of the major ideas de jour in development circles these past few years have been DevOps and Microservices. That they rose to the forefront at the same time was not a coincidence. They are inexorably linked ideas.</p><a id="more"></a><p>Microservices Architecture is a top level software design which favours creating small, loosely connected services which maintain data autonomy. Part of this design requires that each service you deploy has its own data storage (this could be as complex as its own SQL Server instance or as simple as an in-memory cache) and that the service be independently deployable. If you've ever built out a deployment pipeline for a monolithic application and thought &quot;geez, this takes a lot of work&quot; then imagine scaling that over 20 services or 100 services. Equally deploying a lot of databases can be painful to say nothing of how complex it is to deploy copies of your microservices collection over several environments (dev, test, prod,...).</p><p>The added work of deploying this large number of services necessitates changes to the old models where releases took weeks and infrastructure was manually provisioned. Perhaps the greatest motivator for people is avoiding boring, repetitive work. Microservices accentuate the pain points which traditional, monolithic design has hidden. It is slow to provision severs, difficult to set up build and annoying to log into servers to get logs. Changes had to be made to unblock microservices. Out of the pain was born a desire to make builds and infrastructure provisioning faster, more repeatable and easier to set up.</p><p>DevOps is obviously more that just speeding up builds and unblocking infrastructure. It is a cultural mindset together the previously disjoint operations and development groups to better serve the business by providing reliable changes rapidly. DevOps permeates the entire development life-cycle.<img src="https://blog.simontimms.com/images/devops_microservices/infinity.png" alt="Image from https://medium.com/@neonrocket/devops-is-a-culture-not-a-role-be1bed149b0"></p><p>To achieve success in DevOps there do need to be some changes to how the software is written. Large applications are obviously slower to build than smaller ones, so that applies pressure to create more smaller applications. As teams become larger to maintain a rate of change which limits the scope of changes pushed to production (which you want to limit investigation when something goes wrong) that also pushes towards smaller services.</p><p>Logging and instrumentation is a necessity when there is no simple, single process path for a request. Opening a half dozen log files and trying to hunt through them all is obviously far less efficient than entering a query into a log aggregator.</p><p>If the inputs and outputs from a service are well known then that unlocks the ability to blackbox services during testing. This practice allows for much better testing: another feature of a strong DevOps culture.</p><p>Independent services are needed in order to permit different parts of the business to move at different speeds without blocking each other. A monolithic application must wait for all parties to agree before promoting a build.</p><p>Without DevOps microservices would be so much more difficult to manage that it would no longer be worth it. At the same time a lot of the advantages you get from a DevOps culture push the shape of applications built under it to be more like microservices. The two are strongly related.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Two of the major ideas de jour in development circles these past few years have been DevOps and Microservices. That they rose to the forefront at the same time was not a coincidence. They are inexorably linked ideas.&lt;/p&gt;
-    
-    </summary>
     
     
   </entry>

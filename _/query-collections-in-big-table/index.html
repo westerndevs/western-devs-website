@@ -4,17 +4,20 @@
   <head>
   
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>query-collections-in-big-table | Western Devs</title>
-  <meta name="description" content="title:  Query BigTable Events authorId: simon_timms date: 2021-05-08">
+    <title>Query BigTable Events | Western Devs</title>
+  <meta name="description" content="Firebase can feed its data to bigtable and then you can run queries there. The syntax is SQL like but not quite because they have internal record types. So for the data that is fed across from firebas">
 <meta property="og:type" content="article">
-<meta property="og:title" content="query-collections-in-big-table">
+<meta property="og:title" content="Query BigTable Events">
 <meta property="og:url" content="https://westerndevs.com/_/query-collections-in-big-table/index.html">
 <meta property="og:site_name" content="Western Devs">
-<meta property="og:description" content="title:  Query BigTable Events authorId: simon_timms date: 2021-05-08">
-<meta property="article:published_time" content="2021-05-08T22:17:36.750Z">
-<meta property="article:modified_time" content="2021-05-08T22:17:36.750Z">
+<meta property="og:description" content="Firebase can feed its data to bigtable and then you can run queries there. The syntax is SQL like but not quite because they have internal record types. So for the data that is fed across from firebas">
+<meta property="og:image" content="https://westerndevs.com/images/2021-03-05-query-collections-in-big-table.md/2021-03-05-10-39-05.png">
+<meta property="og:image" content="https://westerndevs.com/images/2021-03-05-query-collections-in-big-table.md/2021-03-05-10-39-05.png">
+<meta property="article:published_time" content="2021-05-08T04:00:00.000Z">
+<meta property="article:modified_time" content="2021-05-08T22:22:33.834Z">
 <meta property="article:author" content="Western Devs">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://westerndevs.com/images/2021-03-05-query-collections-in-big-table.md/2021-03-05-10-39-05.png">
 <meta name="twitter:creator" content="@westerndevs">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -96,16 +99,20 @@
     <div class="ListLrgDateDay">8</div>
     <div class="ListLrgDateYear">2021</div>
   </div>
-  <h2>query-collections-in-big-table</h2>
+  <h2>Query BigTable Events</h2>
 </div>
 
 		    
 
 			<div id="mainPostContent">
-	        <hr>
-<p>title:  Query BigTable Events
-authorId: simon_timms
-date: 2021-05-08</p>
+	        <p>Firebase can feed its data to bigtable and then you can run queries there. The syntax is SQL like but not quite because they have internal record types. So for the data that is fed across from firebase you get a structure that looks like</p>
+<p><img src="/images/2021-03-05-query-collections-in-big-table.md/2021-03-05-10-39-05.png" alt=""></p>
+<p>You can see that event_params and user_properties are these kind of collection things. The easiest way to deal with them is to flatten the structure and internally join the table against itself</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> r.event_name, p.key, p.value <span class="keyword">FROM</span> <span class="string">`pocketgeek-auto.analytics_258213689.events_intraday_20210305`</span> r <span class="keyword">cross</span> <span class="keyword">join</span> <span class="keyword">unnest</span>(r.event_params) <span class="keyword">as</span> p <span class="keyword">where</span> <span class="keyword">key</span> = <span class="string">'DealerName'</span></span><br></pre></td></tr></table></figure>
+<p>This gets you a dataset like</p>
+<p><img src="/images/2021-03-05-query-collections-in-big-table.md/2021-03-05-10-39-05.png" alt=""></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> r.event_name, p.key, p.value <span class="keyword">FROM</span> <span class="string">`pocketgeek-auto.analytics_258213689.events_intraday_20210305`</span> r <span class="keyword">cross</span> <span class="keyword">join</span> <span class="keyword">unnest</span>(r.event_params) <span class="keyword">as</span> p <span class="keyword">where</span> <span class="keyword">key</span> = <span class="string">'DealerName'</span> <span class="keyword">and</span> p.value.string_value &lt;&gt; <span class="string">'none'</span></span><br></pre></td></tr></table></figure>
+<p>is probably even better with the filter</p>
 
 	        </div>
 
@@ -128,24 +135,32 @@ date: 2021-05-08</p>
 
 			<div class="ProfileImg">
 				
-					<img src='/images/avatars/small_logo_vertical.png' />
+				<a href="/bios/simon_timms">
+				
+					<img src='/images/avatars/simon.jpg' />
+				
+				</a>
 				
 			</div>
 
 			<BR clear="all">
 
-			<h2><a href="/bios/undefined"></a></h2>
+			<h2><a href="/bios/simon_timms">Simon Timms</a></h2>
 			
-			<a href="mailto:info@westerndevs.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
-			
-			
-			
-			<a href="http://twitter.com/westerndevs" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			<a href="mailto:stimms@gmail.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
 			
 			
-			<a href="https://github.com/westerndevs" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			<a href="http://blog.simontimms.com/" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
 			
 			
+			<a href="http://twitter.com/stimms" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/stimms" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			
+ 			<a href="/feeds/simon_timms.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
 			
 
 			<hr />
@@ -231,6 +246,8 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
 ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'simon_timms');
 
 ga('send', 'pageview');
 }

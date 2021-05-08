@@ -4,17 +4,19 @@
   <head>
   
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>xdt-transforms | Western Devs</title>
-  <meta name="description" content="title:  Transforms Testing authorId: simon_timms date: 2021-05-08">
+    <title>Transforms | Western Devs</title>
+  <meta name="description" content="You can apply little transforms by just writing XML transformation on configuration files. For instance here is one for adding a section to the system.web section of the configuration file 123456&lt;?">
 <meta property="og:type" content="article">
-<meta property="og:title" content="xdt-transforms">
+<meta property="og:title" content="Transforms">
 <meta property="og:url" content="https://westerndevs.com/_/xdt-transforms/index.html">
 <meta property="og:site_name" content="Western Devs">
-<meta property="og:description" content="title:  Transforms Testing authorId: simon_timms date: 2021-05-08">
-<meta property="article:published_time" content="2021-05-08T22:17:36.750Z">
-<meta property="article:modified_time" content="2021-05-08T22:17:36.750Z">
+<meta property="og:description" content="You can apply little transforms by just writing XML transformation on configuration files. For instance here is one for adding a section to the system.web section of the configuration file 123456&lt;?">
+<meta property="og:image" content="https://westerndevs.com/images/2021-05-06-xdt-transforms.md/2021-05-06-13-34-59.png">
+<meta property="article:published_time" content="2021-05-08T04:00:00.000Z">
+<meta property="article:modified_time" content="2021-05-08T22:22:33.834Z">
 <meta property="article:author" content="Western Devs">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://westerndevs.com/images/2021-05-06-xdt-transforms.md/2021-05-06-13-34-59.png">
 <meta name="twitter:creator" content="@westerndevs">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -96,17 +98,22 @@
     <div class="ListLrgDateDay">8</div>
     <div class="ListLrgDateYear">2021</div>
   </div>
-  <h2>xdt-transforms</h2>
+  <h2>Transforms</h2>
 </div>
 
 		    
 
 			<div id="mainPostContent">
-	        <hr>
-<p>title:  Transforms</p>
-<h1>Testing</h1>
-<p>authorId: simon_timms
-date: 2021-05-08</p>
+	        <p>You can apply little transforms by just writing XML transformation on configuration files. For instance here is one for adding a section to the <code>system.web</code> section of the configuration file</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span> <span class="attr">xmlns:xdt</span>=<span class="string">"http://schemas.microsoft.com/XML-Document-Transform"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">system.web</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">machineKey</span> <span class="attr">xdt:Transform</span>=<span class="string">"Insert"</span> <span class="attr">decryptionKey</span>=<span class="string">"abc"</span> <span class="attr">validationKey</span>=<span class="string">"def"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">system.web</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Here is one for removing an attribute</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span> <span class="attr">xmlns:xdt</span>=<span class="string">"http://schemas.microsoft.com/XML-Document-Transform"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">system.web</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">compilation</span> <span class="attr">xdt:Transform</span>=<span class="string">"RemoveAttributes(debug)"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">system.web</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>How about changing an attribute based on matching the key?</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span> <span class="attr">xmlns:xdt</span>=<span class="string">"http://schemas.microsoft.com/XML-Document-Transform"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">appSettings</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">add</span> <span class="attr">key</span>"<span class="attr">MaxUsers</span>" <span class="attr">value</span>=<span class="string">"3"</span> <span class="attr">xdt:Transform</span>=<span class="string">"SetAttributes"</span> <span class="attr">xdt:Locator</span>=<span class="string">"Match(key)"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">appSettings</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>If you happen to be using Octopus Deploy they have a feature you can add to your IIS deployment task to run these transformations</p>
+<p><img src="/images/2021-05-06-xdt-transforms.md/2021-05-06-13-34-59.png" alt=""></p>
+<h2>Testing</h2>
+<p>There is a great little online testing tool at https://elmah.io/tools/webconfig-transformation-tester/ where you can plug in random things until you get them working.</p>
 
 	        </div>
 
@@ -129,24 +136,32 @@ date: 2021-05-08</p>
 
 			<div class="ProfileImg">
 				
-					<img src='/images/avatars/small_logo_vertical.png' />
+				<a href="/bios/simon_timms">
+				
+					<img src='/images/avatars/simon.jpg' />
+				
+				</a>
 				
 			</div>
 
 			<BR clear="all">
 
-			<h2><a href="/bios/undefined"></a></h2>
+			<h2><a href="/bios/simon_timms">Simon Timms</a></h2>
 			
-			<a href="mailto:info@westerndevs.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
-			
-			
-			
-			<a href="http://twitter.com/westerndevs" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			<a href="mailto:stimms@gmail.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
 			
 			
-			<a href="https://github.com/westerndevs" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			<a href="http://blog.simontimms.com/" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
 			
 			
+			<a href="http://twitter.com/stimms" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/stimms" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			
+ 			<a href="/feeds/simon_timms.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
 			
 
 			<hr />
@@ -232,6 +247,8 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
 ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'simon_timms');
 
 ga('send', 'pageview');
 }
