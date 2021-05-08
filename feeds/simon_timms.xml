@@ -5,7 +5,7 @@
   <link href="/feeds/simon_timms" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2021-05-08T22:22:33.830Z</updated>
+  <updated>2021-05-08T22:24:20.573Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://westerndevs.com/_/download-file/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/download-file/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-08T22:22:33.830Z</updated>
+    <updated>2021-05-08T22:24:20.573Z</updated>
 	<author>
 	
 	  
@@ -48,7 +48,7 @@
     <link href="https://westerndevs.com/_/drop-existing-index/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/drop-existing-index/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-08T22:22:33.830Z</updated>
+    <updated>2021-05-08T22:24:20.573Z</updated>
 	<author>
 	
 	  
@@ -74,7 +74,7 @@
     <link href="https://westerndevs.com/_/function-appinsights/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/function-appinsights/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-08T22:22:33.830Z</updated>
+    <updated>2021-05-08T22:24:20.573Z</updated>
 	<author>
 	
 	  
@@ -100,7 +100,7 @@
     <link href="https://westerndevs.com/_/query-collections-in-big-table/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/query-collections-in-big-table/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-08T22:22:33.834Z</updated>
+    <updated>2021-05-08T22:24:20.577Z</updated>
 	<author>
 	
 	  
@@ -126,7 +126,7 @@
     <link href="https://westerndevs.com/_/set-env-variable/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-env-variable/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-08T22:22:33.834Z</updated>
+    <updated>2021-05-08T22:24:20.577Z</updated>
 	<author>
 	
 	  
@@ -153,7 +153,7 @@
     <link href="https://westerndevs.com/_/terminal-buffer/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/terminal-buffer/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-08T22:22:33.834Z</updated>
+    <updated>2021-05-08T22:24:20.577Z</updated>
 	<author>
 	
 	  
@@ -179,7 +179,7 @@
     <link href="https://westerndevs.com/_/xdt-transforms/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/xdt-transforms/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-08T22:22:33.834Z</updated>
+    <updated>2021-05-08T22:24:20.581Z</updated>
 	<author>
 	
 	  
@@ -205,7 +205,7 @@
     <link href="https://westerndevs.com/_/serverless-sql-azure-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/serverless-sql-azure-terraform/</id>
     <published>2020-11-18T19:00:00.000Z</published>
-    <updated>2021-05-08T22:22:33.826Z</updated>
+    <updated>2021-05-08T22:24:20.573Z</updated>
 	<author>
 	
 	  
@@ -231,7 +231,7 @@
     <link href="https://westerndevs.com/_/cross-database-procs/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cross-database-procs/</id>
     <published>2020-11-09T19:00:00.000Z</published>
-    <updated>2021-05-08T22:22:33.826Z</updated>
+    <updated>2021-05-08T22:24:20.573Z</updated>
 	<author>
 	
 	  
@@ -257,7 +257,7 @@
     <link href="https://westerndevs.com/_/processor-limits/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/processor-limits/</id>
     <published>2020-11-05T20:00:00.000Z</published>
-    <updated>2021-05-08T22:22:33.826Z</updated>
+    <updated>2021-05-08T22:24:20.573Z</updated>
 	<author>
 	
 	  
@@ -283,7 +283,7 @@
     <link href="https://westerndevs.com/_/elasticquery/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/elasticquery/</id>
     <published>2020-11-05T19:00:00.000Z</published>
-    <updated>2021-05-08T22:22:33.826Z</updated>
+    <updated>2021-05-08T22:24:20.569Z</updated>
 	<author>
 	
 	  
@@ -309,7 +309,7 @@
     <link href="https://westerndevs.com/_/typescript-definition/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/typescript-definition/</id>
     <published>2020-09-28T18:00:00.000Z</published>
-    <updated>2021-05-08T22:22:33.826Z</updated>
+    <updated>2021-05-08T22:24:20.569Z</updated>
 	<author>
 	
 	  
@@ -335,7 +335,7 @@
     <link href="https://westerndevs.com/_/flutter-tests-with-native/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/flutter-tests-with-native/</id>
     <published>2020-04-01T14:00:00.000Z</published>
-    <updated>2021-05-08T22:22:33.822Z</updated>
+    <updated>2021-05-08T22:24:20.569Z</updated>
 	<author>
 	
 	  
@@ -361,7 +361,7 @@
     <link href="https://westerndevs.com/_/find-webforms-errors-with-precompilation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/find-webforms-errors-with-precompilation/</id>
     <published>2020-04-01T00:00:00.000Z</published>
-    <updated>2021-05-08T22:22:33.822Z</updated>
+    <updated>2021-05-08T22:24:20.569Z</updated>
 	<author>
 	
 	  
@@ -389,7 +389,7 @@
     <link href="https://westerndevs.com/_/Allow-hosted-agent-through-firewall/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Allow-hosted-agent-through-firewall/</id>
     <published>2020-01-10T14:00:00.000Z</published>
-    <updated>2021-05-08T22:22:33.822Z</updated>
+    <updated>2021-05-08T22:24:20.569Z</updated>
 	<author>
 	
 	  
@@ -415,7 +415,7 @@
     <link href="https://westerndevs.com/_/UNION-vs-UNION-ALL/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/UNION-vs-UNION-ALL/</id>
     <published>2019-12-30T14:00:00.000Z</published>
-    <updated>2021-05-08T22:22:33.822Z</updated>
+    <updated>2021-05-08T22:24:20.569Z</updated>
 	<author>
 	
 	  
@@ -442,7 +442,7 @@
     <link href="https://westerndevs.com/_/bulk-load-and-merge/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/bulk-load-and-merge/</id>
     <published>2019-10-12T04:00:00.000Z</published>
-    <updated>2021-05-08T22:22:33.822Z</updated>
+    <updated>2021-05-08T22:24:20.569Z</updated>
 	<author>
 	
 	  
@@ -468,7 +468,7 @@
     <link href="https://westerndevs.com/_/Debugging-php-in-container/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Debugging-php-in-container/</id>
     <published>2019-07-05T23:00:00.000Z</published>
-    <updated>2021-05-08T22:22:33.822Z</updated>
+    <updated>2021-05-08T22:24:20.569Z</updated>
 	<author>
 	
 	  
@@ -494,7 +494,7 @@
     <link href="https://westerndevs.com/DurableFunctions/durable_functions_analyzer/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/DurableFunctions/durable_functions_analyzer/</id>
     <published>2019-02-18T00:00:00.000Z</published>
-    <updated>2021-05-08T22:22:33.822Z</updated>
+    <updated>2021-05-08T22:24:20.569Z</updated>
 	<author>
 	
 	  
@@ -522,7 +522,7 @@
     <link href="https://westerndevs.com/DurableFunctions/durablefunctions_sagas/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/DurableFunctions/durablefunctions_sagas/</id>
     <published>2019-02-15T00:00:00.000Z</published>
-    <updated>2021-05-08T22:22:33.822Z</updated>
+    <updated>2021-05-08T22:24:20.569Z</updated>
 	<author>
 	
 	  
