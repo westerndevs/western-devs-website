@@ -2,7 +2,7 @@
 title:  Download a file in powershell
 authorId: simon_timms
 date: 2021-05-08
-originalUrl: https://blog.simontimms.com/2021/05/08/download-file.md
+originalUrl: https://blog.simontimms.com/2021/05/08/download-file
 mode: public
 ---
 

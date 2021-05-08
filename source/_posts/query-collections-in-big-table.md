@@ -2,7 +2,7 @@
 title:  Query BigTable Events
 authorId: simon_timms
 date: 2021-05-08
-originalUrl: https://blog.simontimms.com/2021/05/08/query-collections-in-big-table.md
+originalUrl: https://blog.simontimms.com/2021/05/08/query-collections-in-big-table
 mode: public
 ---
 

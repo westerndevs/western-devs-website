@@ -2,7 +2,7 @@
 title:  Logging in Functions
 authorId: simon_timms
 date: 2021-05-08
-originalUrl: https://blog.simontimms.com/2021/05/08/function-appinsights.md
+originalUrl: https://blog.simontimms.com/2021/05/08/function-appinsights
 mode: public
 ---
 

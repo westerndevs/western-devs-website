@@ -2,7 +2,7 @@
 title:  Setting a persistent environment variable 
 authorId: simon_timms
 date: 2021-05-08
-originalUrl: https://blog.simontimms.com/2021/05/08/set-env-variable.md
+originalUrl: https://blog.simontimms.com/2021/05/08/set-env-variable
 mode: public
 ---
 
