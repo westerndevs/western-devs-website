@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2021-05-10T17:37:07.900Z</updated>
+  <updated>2021-05-10T17:41:13.689Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Creating a Shortcut in Powershell</title>
+    <link href="https://westerndevs.com/_/creating-a-shortcut/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/creating-a-shortcut/</id>
+    <published>2021-05-10T04:00:00.000Z</published>
+    <updated>2021-05-10T17:41:13.689Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>You can't really create a shortcut in powershell directly but you can using the windows script host from powershell. For instance here is how you would create a new desktop icon to log the current user off.</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$WshShell</span> = <span class="built_in">New-Object</span> <span class="literal">-comObject</span> WScript.Shell</span><br><span class="line"><span class="variable">$Shortcut</span> = <span class="variable">$WshShell</span>.CreateShortcut(<span class="string">"<span class="variable">$home</span>\Desktop\LogOff.lnk"</span>)</span><br><span class="line"><span class="variable">$Shortcut</span>.TargetPath=<span class="string">"C:\Windows\System32\shutdown.exe"</span></span><br><span class="line"><span class="variable">$Shortcut</span>.Arguments=<span class="string">"/l"</span></span><br><span class="line"><span class="variable">$Shortcut</span>.IconLocation=<span class="string">"C:\windows\system32\Shell32.dll,44"</span></span><br><span class="line"><span class="variable">$Shortcut</span>.Save()</span><br></pre></td></tr></table></figure><p>The icon here is taken from the long list of icons in <code>Shell32.dll</code> in this case it is the little orange key icon. These icons are going to be refreshed soon so your mileage may vary on them. I found the right icon by just google image searching <code>shell32.dll icon</code> and found a picture of some of the index numbers. They were 1 indexed so I had to subtract 1</p><p><img src="/images/2021-05-10-creating-a-shortcut.md/2021-05-10-11-39-21.png" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;You can&#39;t really create a shortcut in powershell directly but you can using the windows script host from powershell. For instance here is
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Setting Timezone from Powershell</title>
     <link href="https://westerndevs.com/_/set-timezone/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-timezone/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-05-10T17:37:07.900Z</updated>
+    <updated>2021-05-10T17:41:13.693Z</updated>
 	<author>
 	
 	  
@@ -48,7 +74,7 @@
     <link href="https://westerndevs.com/_/download-file/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/download-file/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-10T17:37:07.896Z</updated>
+    <updated>2021-05-10T17:41:13.689Z</updated>
 	<author>
 	
 	  
@@ -75,7 +101,7 @@
     <link href="https://westerndevs.com/_/drop-existing-index/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/drop-existing-index/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-10T17:37:07.896Z</updated>
+    <updated>2021-05-10T17:41:13.689Z</updated>
 	<author>
 	
 	  
@@ -101,7 +127,7 @@
     <link href="https://westerndevs.com/_/function-appinsights/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/function-appinsights/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-10T17:37:07.896Z</updated>
+    <updated>2021-05-10T17:41:13.689Z</updated>
 	<author>
 	
 	  
@@ -127,7 +153,7 @@
     <link href="https://westerndevs.com/_/query-collections-in-big-table/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/query-collections-in-big-table/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-10T17:37:07.900Z</updated>
+    <updated>2021-05-10T17:41:13.693Z</updated>
 	<author>
 	
 	  
@@ -153,7 +179,7 @@
     <link href="https://westerndevs.com/_/set-env-variable/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-env-variable/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-10T17:37:07.900Z</updated>
+    <updated>2021-05-10T17:41:13.693Z</updated>
 	<author>
 	
 	  
@@ -180,7 +206,7 @@
     <link href="https://westerndevs.com/_/terminal-buffer/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/terminal-buffer/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-10T17:37:07.900Z</updated>
+    <updated>2021-05-10T17:41:13.693Z</updated>
 	<author>
 	
 	  
@@ -206,7 +232,7 @@
     <link href="https://westerndevs.com/_/xdt-transforms/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/xdt-transforms/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-10T17:37:07.904Z</updated>
+    <updated>2021-05-10T17:41:13.693Z</updated>
 	<author>
 	
 	  
@@ -232,7 +258,7 @@
     <link href="https://westerndevs.com/_/Advent-Of-Code-Day03/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Advent-Of-Code-Day03/</id>
     <published>2020-12-04T00:00:00.000Z</published>
-    <updated>2021-05-10T17:37:07.896Z</updated>
+    <updated>2021-05-10T17:41:13.685Z</updated>
 	<author>
 	
 	  
@@ -258,7 +284,7 @@
     <link href="https://westerndevs.com/_/Advent-Of-Code-Day02/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Advent-Of-Code-Day02/</id>
     <published>2020-12-02T22:00:00.000Z</published>
-    <updated>2021-05-10T17:37:07.896Z</updated>
+    <updated>2021-05-10T17:41:13.685Z</updated>
 	<author>
 	
 	  
@@ -284,7 +310,7 @@
     <link href="https://westerndevs.com/_/Advent-Of-Code-Day01/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Advent-Of-Code-Day01/</id>
     <published>2020-12-01T05:00:00.000Z</published>
-    <updated>2021-05-10T17:37:07.896Z</updated>
+    <updated>2021-05-10T17:41:13.685Z</updated>
 	<author>
 	
 	  
@@ -310,7 +336,7 @@
     <link href="https://westerndevs.com/_/Advent-Of-Code-Intro/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Advent-Of-Code-Intro/</id>
     <published>2020-11-24T19:00:00.000Z</published>
-    <updated>2021-05-10T17:37:07.896Z</updated>
+    <updated>2021-05-10T17:41:13.685Z</updated>
 	<author>
 	
 	  
@@ -336,7 +362,7 @@
     <link href="https://westerndevs.com/_/serverless-sql-azure-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/serverless-sql-azure-terraform/</id>
     <published>2020-11-18T19:00:00.000Z</published>
-    <updated>2021-05-10T17:37:07.896Z</updated>
+    <updated>2021-05-10T17:41:13.685Z</updated>
 	<author>
 	
 	  
@@ -362,7 +388,7 @@
     <link href="https://westerndevs.com/devops/from-travis-ci-to-github-actions/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devops/from-travis-ci-to-github-actions/</id>
     <published>2020-11-10T23:36:00.000Z</published>
-    <updated>2021-05-10T17:37:07.896Z</updated>
+    <updated>2021-05-10T17:41:13.685Z</updated>
 	<author>
 	
 	  
@@ -400,7 +426,7 @@
     <link href="https://westerndevs.com/_/cross-database-procs/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cross-database-procs/</id>
     <published>2020-11-09T19:00:00.000Z</published>
-    <updated>2021-05-10T17:37:07.896Z</updated>
+    <updated>2021-05-10T17:41:13.685Z</updated>
 	<author>
 	
 	  
@@ -426,7 +452,7 @@
     <link href="https://westerndevs.com/devlog/out-the-door/out-the-door-post-jam-update/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/out-the-door/out-the-door-post-jam-update/</id>
     <published>2020-11-09T14:00:00.000Z</published>
-    <updated>2021-05-10T17:37:07.896Z</updated>
+    <updated>2021-05-10T17:41:13.685Z</updated>
 	<author>
 	
 	  
@@ -468,7 +494,7 @@
     <link href="https://westerndevs.com/_/processor-limits/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/processor-limits/</id>
     <published>2020-11-05T20:00:00.000Z</published>
-    <updated>2021-05-10T17:37:07.896Z</updated>
+    <updated>2021-05-10T17:41:13.685Z</updated>
 	<author>
 	
 	  
@@ -494,7 +520,7 @@
     <link href="https://westerndevs.com/_/elasticquery/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/elasticquery/</id>
     <published>2020-11-05T19:00:00.000Z</published>
-    <updated>2021-05-10T17:37:07.896Z</updated>
+    <updated>2021-05-10T17:41:13.685Z</updated>
 	<author>
 	
 	  
@@ -520,7 +546,7 @@
     <link href="https://westerndevs.com/devlog/a-solo-gamejam-experience-ld47/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/a-solo-gamejam-experience-ld47/</id>
     <published>2020-10-23T13:00:00.000Z</published>
-    <updated>2021-05-10T17:37:07.896Z</updated>
+    <updated>2021-05-10T17:41:13.685Z</updated>
 	<author>
 	
 	  
@@ -552,32 +578,6 @@
       <category term="ludum dare" scheme="https://westerndevs.com/tags/ludum-dare/"/>
     
       <category term="github gameoff" scheme="https://westerndevs.com/tags/github-gameoff/"/>
-    
-  </entry>
-  
-  <entry>
-    <title type="html">The trimStart rabbit hole</title>
-    <link href="https://westerndevs.com/_/typescript-definition/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/typescript-definition/</id>
-    <published>2020-09-28T18:00:00.000Z</published>
-    <updated>2021-05-10T17:37:07.896Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>I was bragging to <a href="https://westerndevs.com/bios/dave_paquette/">David</a> about a particularly impressive piece of TypeScript code I wrote last week</p><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (body.<span class="keyword">trim</span>().<span class="keyword">startsWith</span>(<span class="string">'&lt;'</span>)) &#123; <span class="comment">//100% infallible xml detection</span></span><br></pre></td></tr></table></figure><p>He, rightly, pointed out that <code>trimStart</code> would probably be more efficient. Of course it would! However when I went to make that change there was only <code>trim</code>, <code>trimLeft</code> and <code>trimRight</code> in my TypeScript auto-complete drop down.</p><p><img src="https://blog.simontimms.com/images/trimStart/missing.png" alt="TrimStart and TrimEnd are missing"></p><p>Odd. This was for sure a real function because it appears in the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trimStart" target="_blank" rel="noopener">MDN docs</a>.</p><p>A reasonable person would have used trimLeft and moved on but it was Monday and I was full of passion for programming. So I went down the rabbit hole.</p><p>Checking out the TypeScript directory in my node_modules I found that there were quite a few definition files in there. These were the definition files that described the JavaScript language itself rather than any libraries. Included in that bunch was one called <code>lib.es2019.string.d.ts</code>. This file contained changes which were made to the language in es2019.</p><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> String &#123;</span><br><span class="line">    <span class="comment">/** Removes the trailing white space and line terminator characters from a string. */</span></span><br><span class="line">    trimEnd(): <span class="built_in">string</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Removes the leading white space and line terminator characters from a string. */</span></span><br><span class="line">    trimStart(): <span class="built_in">string</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Removes the leading white space and line terminator characters from a string. */</span></span><br><span class="line">    trimLeft(): <span class="built_in">string</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Removes the trailing white space and line terminator characters from a string. */</span></span><br><span class="line">    trimRight(): <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>So I must be targeting the wrong thing! Sure enough in my <code>tsconfig.js</code> I was targeting <code>es5</code> on this project. When we started this was using an older version of node on lambda that didn't have support for more recent versions of ES. I checked and the lambda was running node 12.18.3 and support for ES2020 landed in node 12.9 so I was good to move up to es2020 as a target.</p><p>Incidentally you can check the running node version in JavaScript by running</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'Versions: '</span> + <span class="built_in">JSON</span>.stringify(process.versions));</span><br></pre></td></tr></table></figure><p>After updating my <code>tsconfig.js</code> and restarting the language server all was right in the world.</p><p><img src="https://blog.simontimms.com/images/trimStart/there.png" alt="The missing functions appear"></p>]]></content>
-    
-    <summary type="html">
-    
-      If you&#39;re missing expected functions in your TypeScript app the problem might be an incorrect target
-    
-    </summary>
-    
     
   </entry>
   

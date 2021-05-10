@@ -5,7 +5,7 @@
   <link href="/feeds/simon_timms" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2021-05-10T17:37:07.900Z</updated>
+  <updated>2021-05-10T17:41:13.689Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Creating a Shortcut in Powershell</title>
+    <link href="https://westerndevs.com/_/creating-a-shortcut/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/creating-a-shortcut/</id>
+    <published>2021-05-10T04:00:00.000Z</published>
+    <updated>2021-05-10T17:41:13.689Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>You can't really create a shortcut in powershell directly but you can using the windows script host from powershell. For instance here is how you would create a new desktop icon to log the current user off.</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$WshShell</span> = <span class="built_in">New-Object</span> <span class="literal">-comObject</span> WScript.Shell</span><br><span class="line"><span class="variable">$Shortcut</span> = <span class="variable">$WshShell</span>.CreateShortcut(<span class="string">"<span class="variable">$home</span>\Desktop\LogOff.lnk"</span>)</span><br><span class="line"><span class="variable">$Shortcut</span>.TargetPath=<span class="string">"C:\Windows\System32\shutdown.exe"</span></span><br><span class="line"><span class="variable">$Shortcut</span>.Arguments=<span class="string">"/l"</span></span><br><span class="line"><span class="variable">$Shortcut</span>.IconLocation=<span class="string">"C:\windows\system32\Shell32.dll,44"</span></span><br><span class="line"><span class="variable">$Shortcut</span>.Save()</span><br></pre></td></tr></table></figure><p>The icon here is taken from the long list of icons in <code>Shell32.dll</code> in this case it is the little orange key icon. These icons are going to be refreshed soon so your mileage may vary on them. I found the right icon by just google image searching <code>shell32.dll icon</code> and found a picture of some of the index numbers. They were 1 indexed so I had to subtract 1</p><p><img src="/images/2021-05-10-creating-a-shortcut.md/2021-05-10-11-39-21.png" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;You can&#39;t really create a shortcut in powershell directly but you can using the windows script host from powershell. For instance here is
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Setting Timezone from Powershell</title>
     <link href="https://westerndevs.com/_/set-timezone/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-timezone/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-05-10T17:37:07.900Z</updated>
+    <updated>2021-05-10T17:41:13.693Z</updated>
 	<author>
 	
 	  
@@ -48,7 +74,7 @@
     <link href="https://westerndevs.com/_/download-file/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/download-file/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-10T17:37:07.896Z</updated>
+    <updated>2021-05-10T17:41:13.689Z</updated>
 	<author>
 	
 	  
@@ -75,7 +101,7 @@
     <link href="https://westerndevs.com/_/drop-existing-index/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/drop-existing-index/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-10T17:37:07.896Z</updated>
+    <updated>2021-05-10T17:41:13.689Z</updated>
 	<author>
 	
 	  
@@ -101,7 +127,7 @@
     <link href="https://westerndevs.com/_/function-appinsights/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/function-appinsights/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-10T17:37:07.896Z</updated>
+    <updated>2021-05-10T17:41:13.689Z</updated>
 	<author>
 	
 	  
@@ -127,7 +153,7 @@
     <link href="https://westerndevs.com/_/query-collections-in-big-table/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/query-collections-in-big-table/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-10T17:37:07.900Z</updated>
+    <updated>2021-05-10T17:41:13.693Z</updated>
 	<author>
 	
 	  
@@ -153,7 +179,7 @@
     <link href="https://westerndevs.com/_/set-env-variable/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-env-variable/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-10T17:37:07.900Z</updated>
+    <updated>2021-05-10T17:41:13.693Z</updated>
 	<author>
 	
 	  
@@ -180,7 +206,7 @@
     <link href="https://westerndevs.com/_/terminal-buffer/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/terminal-buffer/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-10T17:37:07.900Z</updated>
+    <updated>2021-05-10T17:41:13.693Z</updated>
 	<author>
 	
 	  
@@ -206,7 +232,7 @@
     <link href="https://westerndevs.com/_/xdt-transforms/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/xdt-transforms/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-10T17:37:07.904Z</updated>
+    <updated>2021-05-10T17:41:13.693Z</updated>
 	<author>
 	
 	  
@@ -232,7 +258,7 @@
     <link href="https://westerndevs.com/_/serverless-sql-azure-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/serverless-sql-azure-terraform/</id>
     <published>2020-11-18T19:00:00.000Z</published>
-    <updated>2021-05-10T17:37:07.896Z</updated>
+    <updated>2021-05-10T17:41:13.685Z</updated>
 	<author>
 	
 	  
@@ -258,7 +284,7 @@
     <link href="https://westerndevs.com/_/cross-database-procs/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cross-database-procs/</id>
     <published>2020-11-09T19:00:00.000Z</published>
-    <updated>2021-05-10T17:37:07.896Z</updated>
+    <updated>2021-05-10T17:41:13.685Z</updated>
 	<author>
 	
 	  
@@ -284,7 +310,7 @@
     <link href="https://westerndevs.com/_/processor-limits/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/processor-limits/</id>
     <published>2020-11-05T20:00:00.000Z</published>
-    <updated>2021-05-10T17:37:07.896Z</updated>
+    <updated>2021-05-10T17:41:13.685Z</updated>
 	<author>
 	
 	  
@@ -310,7 +336,7 @@
     <link href="https://westerndevs.com/_/elasticquery/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/elasticquery/</id>
     <published>2020-11-05T19:00:00.000Z</published>
-    <updated>2021-05-10T17:37:07.896Z</updated>
+    <updated>2021-05-10T17:41:13.685Z</updated>
 	<author>
 	
 	  
@@ -336,7 +362,7 @@
     <link href="https://westerndevs.com/_/typescript-definition/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/typescript-definition/</id>
     <published>2020-09-28T18:00:00.000Z</published>
-    <updated>2021-05-10T17:37:07.896Z</updated>
+    <updated>2021-05-10T17:41:13.685Z</updated>
 	<author>
 	
 	  
@@ -362,7 +388,7 @@
     <link href="https://westerndevs.com/_/flutter-tests-with-native/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/flutter-tests-with-native/</id>
     <published>2020-04-01T14:00:00.000Z</published>
-    <updated>2021-05-10T17:37:07.892Z</updated>
+    <updated>2021-05-10T17:41:13.681Z</updated>
 	<author>
 	
 	  
@@ -388,7 +414,7 @@
     <link href="https://westerndevs.com/_/find-webforms-errors-with-precompilation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/find-webforms-errors-with-precompilation/</id>
     <published>2020-04-01T00:00:00.000Z</published>
-    <updated>2021-05-10T17:37:07.892Z</updated>
+    <updated>2021-05-10T17:41:13.681Z</updated>
 	<author>
 	
 	  
@@ -416,7 +442,7 @@
     <link href="https://westerndevs.com/_/Allow-hosted-agent-through-firewall/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Allow-hosted-agent-through-firewall/</id>
     <published>2020-01-10T14:00:00.000Z</published>
-    <updated>2021-05-10T17:37:07.892Z</updated>
+    <updated>2021-05-10T17:41:13.681Z</updated>
 	<author>
 	
 	  
@@ -442,7 +468,7 @@
     <link href="https://westerndevs.com/_/UNION-vs-UNION-ALL/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/UNION-vs-UNION-ALL/</id>
     <published>2019-12-30T14:00:00.000Z</published>
-    <updated>2021-05-10T17:37:07.892Z</updated>
+    <updated>2021-05-10T17:41:13.681Z</updated>
 	<author>
 	
 	  
@@ -469,7 +495,7 @@
     <link href="https://westerndevs.com/_/bulk-load-and-merge/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/bulk-load-and-merge/</id>
     <published>2019-10-12T04:00:00.000Z</published>
-    <updated>2021-05-10T17:37:07.892Z</updated>
+    <updated>2021-05-10T17:41:13.681Z</updated>
 	<author>
 	
 	  
@@ -495,7 +521,7 @@
     <link href="https://westerndevs.com/_/Debugging-php-in-container/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Debugging-php-in-container/</id>
     <published>2019-07-05T23:00:00.000Z</published>
-    <updated>2021-05-10T17:37:07.892Z</updated>
+    <updated>2021-05-10T17:41:13.681Z</updated>
 	<author>
 	
 	  
@@ -512,34 +538,6 @@
       &lt;p&gt;Sometimes good things happen to bad people and sometimes bad things happen to good people. I&#39;ll let you decide which one me developing a PHP application is. Maybe it is a bit of a mixture. This particular PHP app was a bit long in the tooth (what PHP app isn&#39;t) and ran on full VMs. My first operation was was to get it running inside a docker container because I couldn&#39;t be sure that my Windows development environment would be representative of production, then I wanted to be able to debug it. This is the story of how to do that.&lt;/p&gt;
     
     </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Durable Functions Analyzer</title>
-    <link href="https://westerndevs.com/DurableFunctions/durable_functions_analyzer/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/DurableFunctions/durable_functions_analyzer/</id>
-    <published>2019-02-18T00:00:00.000Z</published>
-    <updated>2021-05-10T17:37:07.892Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>When it was announced the Roslyn would become the default compiler for C# in Visual Studio I was <a href="https://blog.simontimms.com/2014/04/04/roslyn-changes-everything/" target="_blank" rel="noopener">super excited</a>. I felt like it would generate all sorts of domain specific languages, custom flavors of C#, tons of custom error providers. So here we are 5 years later and almost none of it has come to pass. Why not?</p><a id="more"></a><p>Well turns out the compiler stuff is kind of hard. It is just a bridge too far for people to do any of the cool things I thought they would do. I guess we can add this to the long list of things that I'm wrong about.</p><p>But a few weeks ago I broke some code in a durable function because I was returning the wrong shaped data. I didn't find out until the code was deployed which is obviously later than I wanted. Because of the way that Durable Functions were constructed favoring magic strings and Objects it tends to be more susceptible to bugs which you wouldn't normally see in a statically typed language.</p><p>For instance consider this code</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">FunctionName(<span class="meta-string">"HireEmployee"</span>)</span>]</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">async</span> Task&lt;Application&gt; <span class="title">RunOrchestrator</span>(<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">    [OrchestrationTrigger] DurableOrchestrationContext context,</span></span></span><br><span class="line"><span class="function"><span class="params">    ILogger log</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> applications = context.GetInput&lt;List&lt;Application&gt;&gt;();</span><br><span class="line">    <span class="keyword">var</span> approvals = <span class="keyword">await</span> context.CallActivityAsync&lt;List&lt;Application&gt;&gt;(<span class="string">"ApplicationsFiltered"</span>, Guid.NewGuid());</span><br><span class="line">    log.LogInformation(<span class="string">$"Approval received. <span class="subst">&#123;approvals.Count&#125;</span> applicants approved"</span>);</span><br><span class="line">    <span class="keyword">return</span> approvals.OrderByDescending(x =&gt; x.Score).First();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>There are two magic strings in this code. The first is the name of the function in the annotation before the function declaration. The second is in the <code>CallActivityAsync</code> where a function called <code>ApplicationsFiltered</code> is called. If there is a typo in either of these strings the orchestration will fail at runtime.</p><p>You'll note too that we pass a Guid into that function. The function definition simply has an Object as the second argument so there is no type checking. Instead of passing in the Guid which is required there would be no compiler issues if we instead passed in a <code>Frog</code> or a <code>Puppy</code> or even an <code>int</code>.</p><p>I started working on a Roslyn analyzer which could solve some, or all of these short comings. I won't get into the technical parts of how to build an analyzer here (although I did just submit a conference talk on that).</p><p>It produces warnings (for now) when your functions aren't used correctly. Right now it will detect</p><ul><li>Incorrectly named functions</li><li>Incorrect return types from functions</li><li>Incorrect argument for functions</li><li>Orchestration annotations misapplied to arguments</li></ul><p>Here are some screenshots of it in action.</p><p><img src="https://blog.simontimms.com/images/roslynanalyzer/poc.png" alt="A misnamed function and a suggestion for what it should be called.">A misnamed function and a suggestion for what it should be called.</p><p><img src="https://blog.simontimms.com/images/roslynanalyzer/poc2.png" alt="An incorrect argument being detected">An incorrect argument being detected</p><p><img src="https://blog.simontimms.com/images/roslynanalyzer/poc3.png" alt="An incorrect return type being detected">An incorrect return type being detected</p><p><img src="https://blog.simontimms.com/images/roslynanalyzer/poc4.png" alt="Orchestration trigger on the wrong data type">Orchestration trigger on the wrong data type</p><p>If you want to try this out on your own project it is as easy as installing a <a href="https://www.nuget.org/packages/DurableFunctionsAnalyzer/" target="_blank" rel="noopener">nuget package</a>.</p><p>I'm looking for suggestions for new features or bugs in existing features. My tests are limited so any bug people can contribute will improve the product. Open an issue on <a href="https://github.com/stimms/DurableFunctionsAnalyzer" target="_blank" rel="noopener">github</a></p><p>Now I know how to build these analyzers I think I'll try to build more for internal applications.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;When it was announced the Roslyn would become the default compiler for C# in Visual Studio I was &lt;a href=&quot;https://blog.simontimms.com/2014/04/04/roslyn-changes-everything/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;super excited&lt;/a&gt;. I felt like it would generate all sorts of domain specific languages, custom flavors of C#, tons of custom error providers. So here we are 5 years later and almost none of it has come to pass. Why not?&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="DurableFunctions" scheme="https://westerndevs.com/categories/DurableFunctions/"/>
     
     
   </entry>
