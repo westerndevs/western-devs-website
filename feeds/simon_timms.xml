@@ -5,7 +5,7 @@
   <link href="/feeds/simon_timms" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2021-05-08T22:26:01.175Z</updated>
+  <updated>2021-05-10T16:14:31.384Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Setting Timezone from Powershell</title>
+    <link href="https://westerndevs.com/_/set-timezone/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/set-timezone/</id>
+    <published>2021-05-10T04:00:00.000Z</published>
+    <updated>2021-05-10T16:14:31.384Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>This is pretty easy.</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set-Timezone</span> <span class="literal">-Id</span> <span class="string">"US Eastern Standard Time"</span></span><br></pre></td></tr></table></figure><p>You need to know the id of the timezone and you can figure that out using</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-Timezones</span></span><br></pre></td></tr></table></figure><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">Id                         :</span> <span class="string">Dateline</span> <span class="string">Standard</span> <span class="string">Time</span></span><br><span class="line"><span class="attr">DisplayName                :</span> <span class="string">(UTC-12:00)</span> <span class="string">International</span> <span class="string">Date</span> <span class="string">Line</span> <span class="string">West</span></span><br><span class="line"><span class="attr">StandardName               :</span> <span class="string">Dateline</span> <span class="string">Standard</span> <span class="string">Time</span></span><br><span class="line"><span class="attr">DaylightName               :</span> <span class="string">Dateline</span> <span class="string">Daylight</span> <span class="string">Time</span></span><br><span class="line"><span class="attr">BaseUtcOffset              :</span> <span class="number">-12</span><span class="string">:00:00</span></span><br><span class="line"><span class="attr">SupportsDaylightSavingTime :</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"><span class="attr">Id                         :</span> <span class="string">UTC-11</span></span><br><span class="line"><span class="attr">DisplayName                :</span> <span class="string">(UTC-11:00)</span> <span class="string">Coordinated</span> <span class="string">Universal</span> <span class="string">Time-11</span></span><br><span class="line"><span class="attr">StandardName               :</span> <span class="string">UTC-11</span></span><br><span class="line"><span class="attr">DaylightName               :</span> <span class="string">UTC-11</span></span><br><span class="line"><span class="attr">BaseUtcOffset              :</span> <span class="number">-11</span><span class="string">:00:00</span></span><br><span class="line"><span class="attr">SupportsDaylightSavingTime :</span> <span class="literal">False</span></span><br><span class="line"><span class="string">...</span></span><br></pre></td></tr></table></figure><p>You can also see the current timezone by running</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Get-Timezone</span></span><br></pre></td></tr></table></figure><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">Id                         :</span> <span class="string">Mountain</span> <span class="string">Standard</span> <span class="string">Time</span></span><br><span class="line"><span class="attr">DisplayName                :</span> <span class="string">(UTC-07:00)</span> <span class="string">Mountain</span> <span class="string">Time</span> <span class="string">(US</span> <span class="string">&amp;</span> <span class="string">Canada)</span></span><br><span class="line"><span class="attr">StandardName               :</span> <span class="string">Mountain</span> <span class="string">Standard</span> <span class="string">Time</span></span><br><span class="line"><span class="attr">DaylightName               :</span> <span class="string">Mountain</span> <span class="string">Daylight</span> <span class="string">Time</span></span><br><span class="line"><span class="attr">BaseUtcOffset              :</span> <span class="number">-07</span><span class="string">:00:00</span></span><br><span class="line"><span class="attr">SupportsDaylightSavingTime :</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;This is pretty easy.&lt;/p&gt;
+&lt;figure class=&quot;highlight powershell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/t
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Download a file in powershell</title>
     <link href="https://westerndevs.com/_/download-file/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/download-file/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-08T22:26:01.175Z</updated>
+    <updated>2021-05-10T16:14:31.380Z</updated>
 	<author>
 	
 	  
@@ -48,7 +75,7 @@
     <link href="https://westerndevs.com/_/drop-existing-index/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/drop-existing-index/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-08T22:26:01.175Z</updated>
+    <updated>2021-05-10T16:14:31.380Z</updated>
 	<author>
 	
 	  
@@ -74,7 +101,7 @@
     <link href="https://westerndevs.com/_/function-appinsights/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/function-appinsights/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-08T22:26:01.175Z</updated>
+    <updated>2021-05-10T16:14:31.380Z</updated>
 	<author>
 	
 	  
@@ -100,7 +127,7 @@
     <link href="https://westerndevs.com/_/query-collections-in-big-table/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/query-collections-in-big-table/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-08T22:26:01.179Z</updated>
+    <updated>2021-05-10T16:14:31.384Z</updated>
 	<author>
 	
 	  
@@ -126,7 +153,7 @@
     <link href="https://westerndevs.com/_/set-env-variable/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-env-variable/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-08T22:26:01.179Z</updated>
+    <updated>2021-05-10T16:14:31.384Z</updated>
 	<author>
 	
 	  
@@ -153,7 +180,7 @@
     <link href="https://westerndevs.com/_/terminal-buffer/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/terminal-buffer/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-08T22:26:01.179Z</updated>
+    <updated>2021-05-10T16:14:31.384Z</updated>
 	<author>
 	
 	  
@@ -179,7 +206,7 @@
     <link href="https://westerndevs.com/_/xdt-transforms/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/xdt-transforms/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-08T22:26:01.183Z</updated>
+    <updated>2021-05-10T16:14:31.388Z</updated>
 	<author>
 	
 	  
@@ -205,7 +232,7 @@
     <link href="https://westerndevs.com/_/serverless-sql-azure-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/serverless-sql-azure-terraform/</id>
     <published>2020-11-18T19:00:00.000Z</published>
-    <updated>2021-05-08T22:26:01.175Z</updated>
+    <updated>2021-05-10T16:14:31.380Z</updated>
 	<author>
 	
 	  
@@ -231,7 +258,7 @@
     <link href="https://westerndevs.com/_/cross-database-procs/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cross-database-procs/</id>
     <published>2020-11-09T19:00:00.000Z</published>
-    <updated>2021-05-08T22:26:01.175Z</updated>
+    <updated>2021-05-10T16:14:31.380Z</updated>
 	<author>
 	
 	  
@@ -257,7 +284,7 @@
     <link href="https://westerndevs.com/_/processor-limits/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/processor-limits/</id>
     <published>2020-11-05T20:00:00.000Z</published>
-    <updated>2021-05-08T22:26:01.175Z</updated>
+    <updated>2021-05-10T16:14:31.380Z</updated>
 	<author>
 	
 	  
@@ -283,7 +310,7 @@
     <link href="https://westerndevs.com/_/elasticquery/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/elasticquery/</id>
     <published>2020-11-05T19:00:00.000Z</published>
-    <updated>2021-05-08T22:26:01.175Z</updated>
+    <updated>2021-05-10T16:14:31.380Z</updated>
 	<author>
 	
 	  
@@ -309,7 +336,7 @@
     <link href="https://westerndevs.com/_/typescript-definition/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/typescript-definition/</id>
     <published>2020-09-28T18:00:00.000Z</published>
-    <updated>2021-05-08T22:26:01.175Z</updated>
+    <updated>2021-05-10T16:14:31.380Z</updated>
 	<author>
 	
 	  
@@ -335,7 +362,7 @@
     <link href="https://westerndevs.com/_/flutter-tests-with-native/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/flutter-tests-with-native/</id>
     <published>2020-04-01T14:00:00.000Z</published>
-    <updated>2021-05-08T22:26:01.171Z</updated>
+    <updated>2021-05-10T16:14:31.376Z</updated>
 	<author>
 	
 	  
@@ -361,7 +388,7 @@
     <link href="https://westerndevs.com/_/find-webforms-errors-with-precompilation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/find-webforms-errors-with-precompilation/</id>
     <published>2020-04-01T00:00:00.000Z</published>
-    <updated>2021-05-08T22:26:01.171Z</updated>
+    <updated>2021-05-10T16:14:31.376Z</updated>
 	<author>
 	
 	  
@@ -389,7 +416,7 @@
     <link href="https://westerndevs.com/_/Allow-hosted-agent-through-firewall/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Allow-hosted-agent-through-firewall/</id>
     <published>2020-01-10T14:00:00.000Z</published>
-    <updated>2021-05-08T22:26:01.171Z</updated>
+    <updated>2021-05-10T16:14:31.376Z</updated>
 	<author>
 	
 	  
@@ -415,7 +442,7 @@
     <link href="https://westerndevs.com/_/UNION-vs-UNION-ALL/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/UNION-vs-UNION-ALL/</id>
     <published>2019-12-30T14:00:00.000Z</published>
-    <updated>2021-05-08T22:26:01.171Z</updated>
+    <updated>2021-05-10T16:14:31.376Z</updated>
 	<author>
 	
 	  
@@ -442,7 +469,7 @@
     <link href="https://westerndevs.com/_/bulk-load-and-merge/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/bulk-load-and-merge/</id>
     <published>2019-10-12T04:00:00.000Z</published>
-    <updated>2021-05-08T22:26:01.171Z</updated>
+    <updated>2021-05-10T16:14:31.376Z</updated>
 	<author>
 	
 	  
@@ -468,7 +495,7 @@
     <link href="https://westerndevs.com/_/Debugging-php-in-container/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Debugging-php-in-container/</id>
     <published>2019-07-05T23:00:00.000Z</published>
-    <updated>2021-05-08T22:26:01.171Z</updated>
+    <updated>2021-05-10T16:14:31.376Z</updated>
 	<author>
 	
 	  
@@ -494,7 +521,7 @@
     <link href="https://westerndevs.com/DurableFunctions/durable_functions_analyzer/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/DurableFunctions/durable_functions_analyzer/</id>
     <published>2019-02-18T00:00:00.000Z</published>
-    <updated>2021-05-08T22:26:01.171Z</updated>
+    <updated>2021-05-10T16:14:31.376Z</updated>
 	<author>
 	
 	  
@@ -509,36 +536,6 @@
     <summary type="html">
     
       &lt;p&gt;When it was announced the Roslyn would become the default compiler for C# in Visual Studio I was &lt;a href=&quot;https://blog.simontimms.com/2014/04/04/roslyn-changes-everything/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;super excited&lt;/a&gt;. I felt like it would generate all sorts of domain specific languages, custom flavors of C#, tons of custom error providers. So here we are 5 years later and almost none of it has come to pass. Why not?&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="DurableFunctions" scheme="https://westerndevs.com/categories/DurableFunctions/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Durable Azure Functions vs. NServiceBus Sagas</title>
-    <link href="https://westerndevs.com/DurableFunctions/durablefunctions_sagas/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/DurableFunctions/durablefunctions_sagas/</id>
-    <published>2019-02-15T00:00:00.000Z</published>
-    <updated>2021-05-08T22:26:01.171Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>I've been on a bit of an Azure Functions kick over the last little while. I've blogged a bunch on Durable Functions and deployed a bunch more. When you're as old as me then you tend to draw comparisons between new technologies and existing ones. For instance I'm constantly telling people about how web pages are a lot like the cave paintings I use to do in my youth.</p><h1>The Twitter Exchange</h1><p>The technology that draws the closest comparison I've seen to Durable Functions are NServiceBus Sagas. A few weeks ago I tweeted out wondering if any body had done a comparison. The good folks at Particular stepped up and answered.</p><a id="more"></a><blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">Recently <a href="https://twitter.com/stimms?ref_src=twsrc%5Etfw" target="_blank" rel="noopener">@stimms</a> asked about comparisons between Azure Durable Functions and NServiceBus sagas. <a href="https://t.co/7sB5t9KMtH" target="_blank" rel="noopener">https://t.co/7sB5t9KMtH</a></p>&mdash; Particular Software (@ParticularSW) <a href="https://twitter.com/ParticularSW/status/1085212877034844160?ref_src=twsrc%5Etfw" target="_blank" rel="noopener">January 15, 2019</a></blockquote><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><p>I'll reproduce the thread here so you don't have to click through and I'll add some comments.</p><div style="background: #f3f3f3">Before continuing, a quick disclaimer: Durable Functions are extremely new. We haven't fully assessed them yet. This is just a few engineers throwing thoughts against the wall. Our position is guaranteed to evolve over time. Now, on with the show…<p>There's definitely some similarities between durable functions and sagas. After all, an NServiceBus saga is essentially an NServiceBus message handler with durable state, and a durable function is an Azure Function with durable state.</p><p>One big difference is that a durable function is a non-message-bound orchestrator for other functions or processes. That means continuation of the durable function is driven by awaits, not by additional messages.</p></div><p>This isn't entirely accurate. You can trigger durable function continuations using external events <a href="https://docs.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-external-events" target="_blank" rel="noopener">https://docs.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-external-events</a> but the mechanism is certainly less seamless than with NSB. You have to define a message handler and then raise the event. There is no nice way to find the running function like NSB does with Saga finding. <a href="https://docs.particular.net/nservicebus/sagas/saga-finding" target="_blank" rel="noopener">https://docs.particular.net/nservicebus/sagas/saga-finding</a></p><div style="background: #f3f3f3">A very cool part about durable functions is that they automatically checkpoint their progress whenever the function awaits. Local state is never lost if the process recycles or the VM reboots.<p>But this behavior is not free and does have consequences! The orchestrator stores the history of its past executions in Azure Storage, then executes the ENTIRE function again from the BEGINNING, skipping awaits already finished in previous runs.</p></div><p>Yeah this is certainly something to be aware of. You need to be careful about how long orchestrations run for. There is a concept of eternal orchestrations but basically they throw away all the history and start over again. If you have a complex orchestration then you can break it up into sub-orchestrations. But again, this isn't as nice as NSB.</p><p>One thing it does afford is the ability to rewind an orchestration and play it again.</p><div style="background: #f3f3f3">So with durable functions you need to be careful that your orchestrator's implementation is deterministic. DateTime.Now, random numbers, Guids, etc. will get you into trouble! [https://docs.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-checkpointing-and-replay#orchestrator-code-constraints](https://docs.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-checkpointing-and-replay#orchestrator-code-constraints)<p>A Saga will typically focus on the interaction of one or two messages at a time. When thinking about a large process flowchart, one Saga will typically govern just the interactions at one point on the flowchart, not the entire process.</p><p>On the other hand, with a durable function, it's easy to have an entire process represented as one durable orchestrator function that can call other functions. This is both a strength (easily seeing the big picture) and a weakness (lots of coupling, can grow very complex).</p><p>Additionally, if you're trying to divide your system along service boundary lines (the vertical slices with independent databases mentioned in @MikhailShilkov's article) a giant orchestrator function covering an entire process flowchart makes this really difficult.</p></div>This seems like another place where sub-orchestrations could come into play. Probably a better approach is to have a Durable Function simply drop messages on a queue which will trigger other functions which may or may not be durable. This provides the logical separation similar to what you'd get with a series of sagas in NSB.<div style="background: #f3f3f3">A Saga on the other hand is a kind of "policy" object which statefully handles a few interrelated messages. It is completely isolated in its own vertical slice, and can communicate with other vertical slices in a lightly-coupled manner by publishing events.<p>The dangers of an all-encompassing durable function could be mitigated somewhat by doing all the real work in normal azure functions which are called from the orchestrator, and having the durable function be very lightweight, but this is a bit of a slippery slope.</p><p>Speaking of calling other functions, to do that you use the DurableOrchestrationContext's <code>CallActivityAsync&lt;TResult&gt;(&quot;FunctionName&quot;)</code>. This requires the use of &quot;magic strings&quot; for the function names, definitely not refactoring-friendly. <a href="https://docs.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-sequence" target="_blank" rel="noopener">https://docs.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-sequence</a></p></div><p>This is a limitation I've called out on twitter and in my durable functions talks. There are a few hacks you can use like leaning on <code>nameof</code> but they're not satisfactory. I've been working on a Roslyn Analyzer which will detect incorrect names, wrong parameters and broken return types. This is an addon nuget package, though, and not something that comes out of the box (unless I can convince the team to include it in the template). You can find it at <a href="https://www.nuget.org/packages/DurableFunctionsAnalyzer" target="_blank" rel="noopener">https://www.nuget.org/packages/DurableFunctionsAnalyzer</a> and eventually I'll get around to blogging the details.</p><div style="background: #f3f3f3">The capabilities of durable functions are impressive, but with an orchestrator function spanning multiple service boundaries and calling multiple other functions identified by magic strings in a command/control style, it would be VERY easy to end up with a distributed monolith.<p>Also, chaining functions together is itself a form of coupling, and this raises versioning challenges when changes to a system need to be made. <a href="https://docs.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-versioning" target="_blank" rel="noopener">https://docs.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-versioning</a></p><p>In NServiceBus a Saga is a stateful object with some Handle(message) methods on it where that state is persisted to a database. Even timeouts are represented as messages.</p></div>There is some really quite good unit testing advice at [https://docs.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-unit-testing](https://docs.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-unit-testing) for Durable Functions but it certainly isn't as elegant as NSB's implementations. For complex orchestrations I think the tests would be quite hacky. <div style="background: #f3f3f3">The messages are strongly-typed classes. No magic strings. Message comes in, stored state is read, make some decisions, message(s) come out. Easy to test, easy to refactor. [https://docs.particular.net/nservicebus/testing/#testing-a-saga](https://docs.particular.net/nservicebus/testing/#testing-a-saga)<p>And if anything goes wrong, the message rolls back to the queue and automatic retries kick in. This makes it easy for your system to recover from transient outages of databases or 3rd party APIs: <a href="https://docs.particular.net/tutorials/quickstart/#transient-failures" target="_blank" rel="noopener">https://docs.particular.net/tutorials/quickstart/#transient-failures</a></p><p>Also, when reproducing a bug in your system, having the actual messages which caused the failure in an error queue is a huge help, not to mention being able to &quot;replay&quot; them in production to complete the business process for your customer: <a href="https://docs.particular.net/tutorials/message-replay/" target="_blank" rel="noopener">https://docs.particular.net/tutorials/message-replay/</a></p></div><p>This I can't argue with. I've reprocessed thousands of messages in NSB and the ability to do so has saved the companies for whom I've worked thousands of dollars and avoided angry customer.</p><p>You can rewind durable orchestrations after correcting the problem. However the lack of an error queue is really tricky. The restful APIs to list orchestrations and their status and potentially rewind them aren't scalable or generally usable. There is a serious lack of tooling here (start up idea, alert!).</p><div style="background: #f3f3f3">Of course, this wouldn't be complete without our real-time performance monitoring capabilities. Keep an eye on message processing time, retries, and queues backing up - resolving issues before they hurt the business: [https://particular.net/real-time-monitoring](https://particular.net/real-time-monitoring)</div><p>I am pretty confident that you could build the equivalent of Service Pulse and Service Control on top of durable functions. If you were building a serious production system on top of Durable Functions I think you'd have to build some tooling in this space. That should be a cost consideration when you do your analysis of technologies to use.</p><div style="background: #f3f3f3">But it's naïve to think that a system would have to be ALL sagas or ALL durable functions. Don't fall for the golden hammer fallacy, use each where it makes sense!<p>Azure Functions can be really great integration glue to bridge from various Azure Services like Blobs, Tables, Event Grid, CosmosDB, etc. to NServiceBus sagas and from there to your core business logic.</p><p>Azure functions are also great for small bits of infrastructure - we even recommend using them with NServiceBus to clean up data bus entries: <a href="https://docs.particular.net/samples/azure/blob-storage-databus-cleanup-function/" target="_blank" rel="noopener">https://docs.particular.net/samples/azure/blob-storage-databus-cleanup-function/</a></p><p>No matter what, remember that Azure Durable Functions are in their infancy. Going &quot;all in&quot; may not be the best bet. Start small.</p></div><p>This is totally accurate. I first used NSB in something like 2008 and even then it was a pretty mature product. Particular have built up a first class organization around NSB and you won't get better support anywhere.</p><div style="background: #f3f3f3">Also keep "credit-card-driven development" in mind. Azure Functions billing is all about actual usage. @troyhunt runs the haveibeenpwned API for pennies because the function is ridiculously efficient. You have to design for that, or you might get a bill you didn't expect.<p>We’re still assessing Azure Functions, so if you are actively using them in production or even thinking about using them some day, we’d love to get your input! Leave your comments here: <a href="https://discuss.particular.net/t/azure-functions/872" target="_blank" rel="noopener">https://discuss.particular.net/t/azure-functions/872</a></p></div><h1>Other Aspects</h1><p>No brief tweet thread can't quite capture the entirety of the comparison. Let me go through a few other thoughts I had about the comparison.</p><h2>Platform Independence</h2><p>Durable Functions are highly coupled with Azure. This can be a good thing or a bad thing depending on your point of view. It speeds up development to have a lot of the decisions made for you already. Using existing Azure services together takes away from concerns about scalability and maintenance. However, if you ever need to migrate off Azure it would be a significant engineering effort.</p><p>NSB on the other hand is an embarrassment of configuration options. You can use SQL transport, MSMQ, SQS, Service Bus and so on and so forth. You can host on windows hardware, on VMs, docker images on K8S on Linux or Windows. No matter your environment be it cloud or infrastructure based there is an NSB configuration which will work for you. There is an added burden of figuring out what the right solution is for your application.</p><h2>Support</h2><p>I don't think the support aspect of NSB should be ignored either. Certainly there is a support system in place for Functions but it isn't going to be as good as the support you'll get from Particular. On multiple occasions I've been able to chat with the actual developers of a feature of NSB at some length. I think that's something that any users of NSB could get. I've had some discussions with the Functions team but I think that that is really through the benefit of being an MVP and being kind of vocal about Functions.</p><p>Cost is a factor too. I'm hesitant to bring this up because any cost comparison between free (which is Functions) and a paid product is bound to be one sided. You're going to have to pay for running your code one way or another. There isn't likely to be a huge price difference between running 10k messages through a cloud hosted NSB and Durable Functions. If you're a startup then there is free licensing available from Particular for NSB. I could certainly see an advantage for people in companies where buying licenses is harder than buying compute time on the cloud.  On the other hand I think that the advantages of using a mature framework such as NSB offer huge advantages in reducing bugs and maintaining a production environment.</p><h2>Code Structure</h2><p>The message based paradigm of NSB is another advantage. You could write your Durable functions in a similar way to use concrete messages but boy is it tempting not to. I've found myself using a lot of tuples to chuck messages around which really I shouldn't. The constraints that NSB puts around messages are helpful in establishing good engineering practices. You can follow the same practices in Durable Functions but you'd need a strong code review culture and coding guidelines to keep you honest. There is an opportunity here for some Roslyn Analyzers or even a framework on top of Durable Functions.</p><p>On the surface the await/async model of Durable Functions is really cool. The .NET Framework provides the syntactic framework for doing orchestrations so why not lean on it? Well because it is complicated looking. You end up defining your entire workflow in a single function and being able to trace though it in your mind is limiting. Message handlers let you focus on smaller parts of the system at a time which is helpful to those of us without giant brains. Any reasonably complex orchestration is liable to spread over 50 lines and to mix business logic and the plumbing of doing things like running fan-outs and chaining.</p><h2>The Golden Hammer</h2><p>Functions can be trigged though a lot of different mechanisms. One of those is HTTP which means you can run your entire web application inside of Functions. In the same project as your web API you can also put in place Durable Functions and they will just work. This provides a low friction way of doing background tasks or multi-step processes with checkpoints. But it also mixes a lot of code together and removes the nice separation of code you can get with deploying a bunch of NSB processes. At the moment I'm leaning towards the ease of being able to stand up Durable Functions inside your API code as outweighing the increased maintenance cost of mixing code up. However it is really something which we'll have to watch evolve as Durable Function products mature.</p><h2>Scaling</h2><p>Finally I wanted to talk about the ease of doing things like scaling out. Particular have done a lot of work around ethereal instance as of late but for the longest time the handler processes were treated much more like pets than cattle. That mentality is totally different in the land of Functions where you don't even know what hardware is being used. Being able to transparently scale up and down is really nice.</p><h1>Shut Up Already and Tell me What to Use</h1><p>I wish decisions were that easy. There are advantages to both systems and I'm sure I've missed a number of key aspects worth examining here. Durable Functions are great and I'm happy to see some competition for Particular who tend to fall very much on the slow and stable side of the spectrum as opposed to the move fast and break stuff side. Durable Functions have some growing up to do. The tooling around them isn't there yet and I don't expect that tooling is going to come out of Microsoft so much as it will come out of a vendor.</p><p>If such tooling does emerge then you'll be back in the same boat as having to pay Particular for their product which does have an impact on the cost equation.</p><p>If I were that ThoughtWorks Tech Radar thing then I would probably put Durable Functions in the <code>evaluate</code> quadrant while NSB would remain in the <code>adopt</code> quadrant.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;I&#39;ve been on a bit of an Azure Functions kick over the last little while. I&#39;ve blogged a bunch on Durable Functions and deployed a bunch more. When you&#39;re as old as me then you tend to draw comparisons between new technologies and existing ones. For instance I&#39;m constantly telling people about how web pages are a lot like the cave paintings I use to do in my youth.&lt;/p&gt;
-&lt;h1&gt;The Twitter Exchange&lt;/h1&gt;
-&lt;p&gt;The technology that draws the closest comparison I&#39;ve seen to Durable Functions are NServiceBus Sagas. A few weeks ago I tweeted out wondering if any body had done a comparison. The good folks at Particular stepped up and answered.&lt;/p&gt;
     
     </summary>
     
