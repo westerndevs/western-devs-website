@@ -2,7 +2,7 @@
 title:  Increase Terminal Buffer in VS Code
 authorId: simon_timms
 date: 2021-05-08
-originalUrl: https://blog.simontimms.com/2021/05/08/terminal-buffer
+originalurl: https://blog.simontimms.com/2021/05/08/terminal-buffer
 mode: public
 ---
 

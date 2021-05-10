@@ -2,7 +2,7 @@
 title:  Setting Timezone from Powershell
 authorId: simon_timms
 date: 2021-05-10
-originalUrl: https://blog.simontimms.com/2021/05/10/set-timezone
+originalurl: https://blog.simontimms.com/2021/05/10/set-timezone
 mode: public
 ---
 

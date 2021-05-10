@@ -3,7 +3,7 @@ title:  Transforms
 # Testing
 authorId: simon_timms
 date: 2021-05-08
-originalUrl: https://blog.simontimms.com/2021/05/08/xdt-transforms
+originalurl: https://blog.simontimms.com/2021/05/08/xdt-transforms
 mode: public
 ---
 
