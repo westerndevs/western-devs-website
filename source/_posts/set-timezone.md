@@ -17,7 +17,7 @@ Set-Timezone -Id "US Eastern Standard Time"
 You need to know the id of the timezone and you can figure that out using 
 
 ```powershell
-Get-Timezones
+Get-Timezone -ListAvailable
 ```
 
 ```
