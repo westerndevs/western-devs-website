@@ -5,7 +5,7 @@
   <link href="/feeds/simon_timms" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2021-05-10T17:41:13.689Z</updated>
+  <updated>2021-05-11T15:12:47.414Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">JQ</title>
+    <link href="https://westerndevs.com/_/jq/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/jq/</id>
+    <published>2021-05-11T04:00:00.000Z</published>
+    <updated>2021-05-11T15:12:47.414Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>This is a really nice tool for manipulating JSON on the command line. The syntax is, however, esoteric like you would not believe. Here are some cheats to help out</p><p>If you have an array and want to take just the object at a specific index</p><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.[<span class="number">3</span>]</span><br></pre></td></tr></table></figure><p>which returns the 3rd element</p><p>If you want to extract a value from an array of objects then you can use</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.<span class="selector-attr">[]</span><span class="selector-class">.LicensePlate</span></span><br></pre></td></tr></table></figure><p>This works for multiple levels too so if you have nested objects you can</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.<span class="selector-attr">[]</span><span class="selector-class">.LicensePlate</span><span class="selector-class">.Province</span></span><br></pre></td></tr></table></figure><p>Given an array where you want to filter it then you can use this</p><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ .[] | select( .LicensePlate | contains(<span class="string">"PM184J"</span>)) ]</span><br></pre></td></tr></table></figure><p>To select a single field you could then do</p><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ .[] | <span class="type">select</span>( .LicensePlate | <span class="type">contains</span>(<span class="string">"PM184J"</span>)) ] |  <span class="type">map</span>( .LicensePlate)</span><br></pre></td></tr></table></figure><p>If you want multiple fields built back into an object do</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="attribute">LicensePlate</span>: .[].LicensePlate, EndTime: .[].EndTime&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;This is a really nice tool for manipulating JSON on the command line. The syntax is, however, esoteric like you would not believe. Here a
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Creating a Shortcut in Powershell</title>
     <link href="https://westerndevs.com/_/creating-a-shortcut/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/creating-a-shortcut/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-05-10T17:41:13.689Z</updated>
+    <updated>2021-05-11T15:12:47.410Z</updated>
 	<author>
 	
 	  
@@ -47,7 +73,7 @@
     <link href="https://westerndevs.com/_/set-timezone/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-timezone/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-05-10T17:41:13.693Z</updated>
+    <updated>2021-05-11T15:12:47.414Z</updated>
 	<author>
 	
 	  
@@ -74,7 +100,7 @@
     <link href="https://westerndevs.com/_/download-file/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/download-file/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-10T17:41:13.689Z</updated>
+    <updated>2021-05-11T15:12:47.410Z</updated>
 	<author>
 	
 	  
@@ -101,7 +127,7 @@
     <link href="https://westerndevs.com/_/drop-existing-index/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/drop-existing-index/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-10T17:41:13.689Z</updated>
+    <updated>2021-05-11T15:12:47.410Z</updated>
 	<author>
 	
 	  
@@ -127,7 +153,7 @@
     <link href="https://westerndevs.com/_/function-appinsights/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/function-appinsights/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-10T17:41:13.689Z</updated>
+    <updated>2021-05-11T15:12:47.410Z</updated>
 	<author>
 	
 	  
@@ -153,7 +179,7 @@
     <link href="https://westerndevs.com/_/query-collections-in-big-table/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/query-collections-in-big-table/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-10T17:41:13.693Z</updated>
+    <updated>2021-05-11T15:12:47.414Z</updated>
 	<author>
 	
 	  
@@ -179,7 +205,7 @@
     <link href="https://westerndevs.com/_/set-env-variable/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-env-variable/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-10T17:41:13.693Z</updated>
+    <updated>2021-05-11T15:12:47.414Z</updated>
 	<author>
 	
 	  
@@ -206,7 +232,7 @@
     <link href="https://westerndevs.com/_/terminal-buffer/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/terminal-buffer/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-10T17:41:13.693Z</updated>
+    <updated>2021-05-11T15:12:47.414Z</updated>
 	<author>
 	
 	  
@@ -232,7 +258,7 @@
     <link href="https://westerndevs.com/_/xdt-transforms/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/xdt-transforms/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-10T17:41:13.693Z</updated>
+    <updated>2021-05-11T15:12:47.418Z</updated>
 	<author>
 	
 	  
@@ -258,7 +284,7 @@
     <link href="https://westerndevs.com/_/serverless-sql-azure-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/serverless-sql-azure-terraform/</id>
     <published>2020-11-18T19:00:00.000Z</published>
-    <updated>2021-05-10T17:41:13.685Z</updated>
+    <updated>2021-05-11T15:12:47.410Z</updated>
 	<author>
 	
 	  
@@ -284,7 +310,7 @@
     <link href="https://westerndevs.com/_/cross-database-procs/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cross-database-procs/</id>
     <published>2020-11-09T19:00:00.000Z</published>
-    <updated>2021-05-10T17:41:13.685Z</updated>
+    <updated>2021-05-11T15:12:47.410Z</updated>
 	<author>
 	
 	  
@@ -310,7 +336,7 @@
     <link href="https://westerndevs.com/_/processor-limits/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/processor-limits/</id>
     <published>2020-11-05T20:00:00.000Z</published>
-    <updated>2021-05-10T17:41:13.685Z</updated>
+    <updated>2021-05-11T15:12:47.410Z</updated>
 	<author>
 	
 	  
@@ -336,7 +362,7 @@
     <link href="https://westerndevs.com/_/elasticquery/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/elasticquery/</id>
     <published>2020-11-05T19:00:00.000Z</published>
-    <updated>2021-05-10T17:41:13.685Z</updated>
+    <updated>2021-05-11T15:12:47.410Z</updated>
 	<author>
 	
 	  
@@ -362,7 +388,7 @@
     <link href="https://westerndevs.com/_/typescript-definition/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/typescript-definition/</id>
     <published>2020-09-28T18:00:00.000Z</published>
-    <updated>2021-05-10T17:41:13.685Z</updated>
+    <updated>2021-05-11T15:12:47.410Z</updated>
 	<author>
 	
 	  
@@ -388,7 +414,7 @@
     <link href="https://westerndevs.com/_/flutter-tests-with-native/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/flutter-tests-with-native/</id>
     <published>2020-04-01T14:00:00.000Z</published>
-    <updated>2021-05-10T17:41:13.681Z</updated>
+    <updated>2021-05-11T15:12:47.406Z</updated>
 	<author>
 	
 	  
@@ -414,7 +440,7 @@
     <link href="https://westerndevs.com/_/find-webforms-errors-with-precompilation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/find-webforms-errors-with-precompilation/</id>
     <published>2020-04-01T00:00:00.000Z</published>
-    <updated>2021-05-10T17:41:13.681Z</updated>
+    <updated>2021-05-11T15:12:47.406Z</updated>
 	<author>
 	
 	  
@@ -442,7 +468,7 @@
     <link href="https://westerndevs.com/_/Allow-hosted-agent-through-firewall/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Allow-hosted-agent-through-firewall/</id>
     <published>2020-01-10T14:00:00.000Z</published>
-    <updated>2021-05-10T17:41:13.681Z</updated>
+    <updated>2021-05-11T15:12:47.406Z</updated>
 	<author>
 	
 	  
@@ -468,7 +494,7 @@
     <link href="https://westerndevs.com/_/UNION-vs-UNION-ALL/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/UNION-vs-UNION-ALL/</id>
     <published>2019-12-30T14:00:00.000Z</published>
-    <updated>2021-05-10T17:41:13.681Z</updated>
+    <updated>2021-05-11T15:12:47.406Z</updated>
 	<author>
 	
 	  
@@ -495,7 +521,7 @@
     <link href="https://westerndevs.com/_/bulk-load-and-merge/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/bulk-load-and-merge/</id>
     <published>2019-10-12T04:00:00.000Z</published>
-    <updated>2021-05-10T17:41:13.681Z</updated>
+    <updated>2021-05-11T15:12:47.406Z</updated>
 	<author>
 	
 	  
@@ -510,32 +536,6 @@
     <summary type="html">
     
       &lt;p&gt;The more years you spend programming the more you run into situations you&#39;ve run into before. Situations you now know, instinctively, how to address. I suppose this is &amp;quot;experience&amp;quot; and is what I&#39;m paid the medium dollars for. One such problem I&#39;ve solved at least a dozen times over the years is updating a bunch of data in a database from an external source. This, as it turns out, can be a great source of poor performance if you don&#39;t know how to address it. Let&#39;s dig into my approach.&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Debug PHP Inside A Container with VSCode</title>
-    <link href="https://westerndevs.com/_/Debugging-php-in-container/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/Debugging-php-in-container/</id>
-    <published>2019-07-05T23:00:00.000Z</published>
-    <updated>2021-05-10T17:41:13.681Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>Sometimes good things happen to bad people and sometimes bad things happen to good people. I'll let you decide which one me developing a PHP application is. Maybe it is a bit of a mixture. This particular PHP app was a bit long in the tooth (what PHP app isn't) and ran on full VMs. My first operation was was to get it running inside a docker container because I couldn't be sure that my Windows development environment would be representative of production, then I wanted to be able to debug it. This is the story of how to do that.</p><a id="more"></a><p>Fortunately, I had some instructions on how to set up the VMs based on CentOS. Ah the good old days when installation instructions were written in word documents. The setup was a pretty standard LAMP stack and translated okay to a docker container.</p><p><img src="https://blog.simontimms.com/images/phpincontainer/lamp_stack.jpg" alt="LAMP stack - Linux, Apache, MySQL and PHP/Perl/Python"></p><p>Running the application was one thing, but I decided that what I really needed was the ability to attach a debugger to my PHP process. The PHP process inside the container. We are living in an age were VS Code is pretty amazing and it didn't fail to fulfill that promise this time. A recently announced feature in VS Code is the ability to split the front and back end of the editor. The persistence and language engines can run on a different machine from the user interface. In effect you're attaching to a remote sharing session except that the other end is inside the container.</p><p>Mind blown.</p><p>To set it up for PHP took a little bit it work. The first thing I did was install the xdebug extension for PHP. This I did by adding some lines to my Dockerfile.</p><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##### debugging environment #####</span></span><br><span class="line"><span class="comment"># install pecl</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> yum -y install php-pear git</span></span><br><span class="line"><span class="comment"># specific version of xdebug for the ancient php we're running</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> pecl install xdebug-2.2.4</span></span><br><span class="line"><span class="comment"># add module to loaded modules</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> <span class="built_in">echo</span> <span class="string">'zend_extension=/usr/lib64/php/modules/xdebug.so'</span> &gt;&gt; /etc/php.d/xdebug.ini</span></span><br><span class="line"><span class="comment"># set up the environment</span></span><br><span class="line"><span class="keyword">ENV</span> XDEBUG_CONFIG <span class="string">"remote_host=localhost remote_port=9000 remote_enable=1"</span></span><br></pre></td></tr></table></figure><p>This installs xdebug and tells it to connect to the development environment found on port 9000 which is going to be the VS Code back-end running in the container. You can connect to any host using this so if you needed to debug on some remote machine you could have xdebug connect to your local machine no problem.</p><p>Next I set up a <code>launch.json</code> in VS Code's <code>.vscode</code> directory which allowed VS Code to start debugging by listening to port 9000.</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"version"</span>: <span class="string">"0.2.0"</span>,</span><br><span class="line">    <span class="attr">"configurations"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"name"</span>: <span class="string">"Listen for XDebug"</span>,</span><br><span class="line">            <span class="attr">"type"</span>: <span class="string">"php"</span>,</span><br><span class="line">            <span class="attr">"request"</span>: <span class="string">"launch"</span>,</span><br><span class="line">            <span class="attr">"port"</span>: <span class="number">9000</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>Finally I created a <code>.devcontainer/devcontainer.json</code> file which gives the remote extensions in VS Code knowledge of how to start up a container for development.</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"name"</span>: <span class="string">"Portal"</span>,</span><br><span class="line">    <span class="attr">"image"</span>: <span class="string">"portal"</span>,</span><br><span class="line">    <span class="attr">"appPort"</span>: [<span class="string">"8080:80"</span>],</span><br><span class="line">    <span class="attr">"extensions"</span>: [</span><br><span class="line">        <span class="string">"felixfbecker.php-debug"</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">"postCreateCommand"</span>: <span class="string">"git config --global core.autocrlf true"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>The container is to forward port 80 to my localhost 8080 so that I can use the web browser to connect to the site. Inside the container I want the debugger extension installed so I list it under extensions. Any additional extensions like <code>bmewburn.vscode-intelephense-client</code> could also be listed here. Finally because I'm running on Windows and copying the source code over to a Linux image I run a command to change the line endings in git.</p><p>The last step is to install the Remote Development extensions which is what allows VS Code to be split between machines. Once it is installed you'll be prompted to reopen the folder inside a container.</p><p><img src="https://blog.simontimms.com/images/phpincontainer/launch_in_container.png" alt="The prompt when you open VS Code"></p><p>If you click reopen in container VS code restarts with the back end running in the container. You can tell by looking at the bottom left corner of the editor.</p><p><img src="https://blog.simontimms.com/images/phpincontainer/in_container.png" alt="Showing you're in a container"></p><p>With that all set up I was able to add break points and actually intercept calls to the PHP code.</p><p><img src="https://blog.simontimms.com/images/phpincontainer/at_breakpoint.png" alt="Hitting a breakpoint"></p><p>Super-cool!</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Sometimes good things happen to bad people and sometimes bad things happen to good people. I&#39;ll let you decide which one me developing a PHP application is. Maybe it is a bit of a mixture. This particular PHP app was a bit long in the tooth (what PHP app isn&#39;t) and ran on full VMs. My first operation was was to get it running inside a docker container because I couldn&#39;t be sure that my Windows development environment would be representative of production, then I wanted to be able to debug it. This is the story of how to do that.&lt;/p&gt;
     
     </summary>
     
