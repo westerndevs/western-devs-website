@@ -1,5 +1,5 @@
 ---
-title:  Importing a backup into azure 
+title:  Importing an Encrypted Backup into Azure Managed SQL
 authorId: simon_timms
 date: 2021-05-18
 originalurl: https://blog.simontimms.com/2021/05/18/importing-tde-encrypted-backup
