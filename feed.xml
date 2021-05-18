@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2021-05-18T20:04:45.804Z</updated>
+  <updated>2021-05-18T20:23:03.907Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://westerndevs.com/_/importing-tde-encrypted-backup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/importing-tde-encrypted-backup/</id>
     <published>2021-05-18T04:00:00.000Z</published>
-    <updated>2021-05-18T20:04:45.804Z</updated>
+    <updated>2021-05-18T20:23:03.907Z</updated>
 	<author>
 	
 	  
@@ -31,7 +31,7 @@
 	  <uri>https://westerndevs.com</uri>
 	</author>
     
-    <content type="html"><![CDATA[<p>Let's say you're moving an encrypted backup into Azure. The encryption was set up like this</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> CERTIFICATE BackupKey   </span><br><span class="line">   ENCRYPTION <span class="keyword">BY</span> <span class="keyword">PASSWORD</span> = <span class="string">'a password that''s really strong here'</span>  </span><br><span class="line">   <span class="keyword">WITH</span> SUBJECT = <span class="string">'test1backup'</span>,   </span><br><span class="line">   EXPIRY_DATE = <span class="string">'20220101'</span>;  </span><br><span class="line">GO</span><br></pre></td></tr></table></figure><p>Now we need to export this certificate which can be done with</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">BACKUP</span> CERTIFICATE BackupKey <span class="keyword">TO</span> <span class="keyword">FILE</span> = <span class="string">'c:\temp\backupkey.cer'</span></span><br><span class="line"><span class="keyword">WITH</span> <span class="keyword">PRIVATE</span> <span class="keyword">KEY</span> (</span><br><span class="line"><span class="keyword">FILE</span> = <span class="string">'c:\temp\backupkey.pvk'</span>,</span><br><span class="line">DECRYPTION <span class="keyword">BY</span> <span class="keyword">PASSWORD</span> = <span class="string">'a password that''s really strong here'</span>,</span><br><span class="line">ENCRYPTION <span class="keyword">BY</span> <span class="keyword">PASSWORD</span> = <span class="string">'A strong password for the certificate'</span> )</span><br></pre></td></tr></table></figure><p>Now we have two file which contain the public and private keys. We need to combine these into something that Azure Key Vault can understand and this something is a .pfx file. There is a tool called <code>pvk2pfx</code> which can be used for this task and it is found in the Windows Enterprise Driver Kit https://docs.microsoft.com/en-us/windows-hardware/drivers/download-the-wdk. It is also installed as part of visual studio. On my machine it was in <code>C:\Program Files (x86)\Windows Kits\10\bin\10.0.17763.0\x86\pvk2pfx.exe</code></p><p>Run this command to combine them</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&amp; <span class="string">"C:\Program Files (x86)\Windows Kits\10\bin\10.0.17763.0\x86\pvk2pfx.exe"</span> <span class="literal">-pvk</span> C:\temp\backupkey.pvk <span class="literal">-pi</span> <span class="string">'A strong password for the certificate'</span> <span class="literal">-spc</span> C:\temp\backupkey.cer <span class="literal">-pfx</span> c:\temp\backupkey.pfx</span><br></pre></td></tr></table></figure><p>Next up we need to import this key into azure keyvault. This can be done using the GUI or the command line tools. Everybody likes a pretty picture so let's use the Portal. Click into the key vault and then under certificates<img src="/images/2021-05-18-importing-tde-encrypted-backup.md/2021-05-18-14-00-09.png" alt=""></p><p>Then click on <code>Generate/Import</code> and fill in the form there selecting the <code>.pfx</code> file created above.<img src="/images/2021-05-18-importing-tde-encrypted-backup.md/2021-05-18-14-00-09.png" alt=""></p><p>The password will be the same one you used when exporting from SQL server. Once the certificate is imported it should be available to anybody or any application with access to certificates in key vault.</p><p>You can open up SQL Server Management Studio and in there add a new certificate selecting the certificate from the Key Vault connection</p><p><img src="/images/2021-05-18-importing-tde-encrypted-backup.md/2021-05-18-14-00-09.png" alt=""></p>]]></content>
+    <content type="html"><![CDATA[<p>Let's say you're moving an encrypted backup into Azure. The encryption was set up like this</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> CERTIFICATE BackupKey   </span><br><span class="line">   ENCRYPTION <span class="keyword">BY</span> <span class="keyword">PASSWORD</span> = <span class="string">'a password that''s really strong here'</span>  </span><br><span class="line">   <span class="keyword">WITH</span> SUBJECT = <span class="string">'test1backup'</span>,   </span><br><span class="line">   EXPIRY_DATE = <span class="string">'20220101'</span>;  </span><br><span class="line">GO</span><br></pre></td></tr></table></figure><p>Now we need to export this certificate which can be done with</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">BACKUP</span> CERTIFICATE BackupKey <span class="keyword">TO</span> <span class="keyword">FILE</span> = <span class="string">'c:\temp\backupkey.cer'</span></span><br><span class="line"><span class="keyword">WITH</span> <span class="keyword">PRIVATE</span> <span class="keyword">KEY</span> (</span><br><span class="line"><span class="keyword">FILE</span> = <span class="string">'c:\temp\backupkey.pvk'</span>,</span><br><span class="line">DECRYPTION <span class="keyword">BY</span> <span class="keyword">PASSWORD</span> = <span class="string">'a password that''s really strong here'</span>,</span><br><span class="line">ENCRYPTION <span class="keyword">BY</span> <span class="keyword">PASSWORD</span> = <span class="string">'A strong password for the certificate'</span> )</span><br></pre></td></tr></table></figure><p>Now we have two file which contain the public and private keys. We need to combine these into something that Azure Key Vault can understand and this something is a .pfx file. There is a tool called <code>pvk2pfx</code> which can be used for this task and it is found in the Windows Enterprise Driver Kit https://docs.microsoft.com/en-us/windows-hardware/drivers/download-the-wdk. It is also installed as part of visual studio. On my machine it was in <code>C:\Program Files (x86)\Windows Kits\10\bin\10.0.17763.0\x86\pvk2pfx.exe</code></p><p>Run this command to combine them</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&amp; <span class="string">"C:\Program Files (x86)\Windows Kits\10\bin\10.0.17763.0\x86\pvk2pfx.exe"</span> <span class="literal">-pvk</span> C:\temp\backupkey.pvk <span class="literal">-pi</span> <span class="string">'A strong password for the certificate'</span> <span class="literal">-spc</span> C:\temp\backupkey.cer <span class="literal">-pfx</span> c:\temp\backupkey.pfx</span><br></pre></td></tr></table></figure><p>Next up we need to import this key into azure keyvault. This can be done using the GUI or the command line tools. Everybody likes a pretty picture so let's use the Portal. Click into the key vault and then under certificates<img src="/images/2021-05-18-importing-tde-encrypted-backup.md/2021-05-18-14-00-09.png" alt="">)</p><p>Then click on <code>Generate/Import</code> and fill in the form there selecting the <code>.pfx</code> file created above.<img src="/images/2021-05-18-importing-tde-encrypted-backup.md/2021-05-18-12-55-32.png" alt="">)</p><p>The password will be the same one you used when exporting from SQL server. Once the certificate is imported it should be available to anybody or any application with access to certificates in key vault.</p><p>You can open up SQL Server Management Studio and in there add a new certificate selecting the certificate from the Key Vault connection</p><p><img src="/images/2021-05-18-importing-tde-encrypted-backup.md/2021-05-18-13-58-27.png" alt="">)</p>]]></content>
     
     <summary type="html">
     
@@ -48,7 +48,7 @@
     <link href="https://westerndevs.com/_/jq/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/jq/</id>
     <published>2021-05-11T04:00:00.000Z</published>
-    <updated>2021-05-18T20:04:45.804Z</updated>
+    <updated>2021-05-18T20:23:03.907Z</updated>
 	<author>
 	
 	  
@@ -74,7 +74,7 @@
     <link href="https://westerndevs.com/_/creating-a-shortcut/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/creating-a-shortcut/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-05-18T20:04:45.804Z</updated>
+    <updated>2021-05-18T20:23:03.907Z</updated>
 	<author>
 	
 	  
@@ -84,7 +84,7 @@
 	  <uri>https://westerndevs.com</uri>
 	</author>
     
-    <content type="html"><![CDATA[<p>You can't really create a shortcut in powershell directly but you can using the windows script host from powershell. For instance here is how you would create a new desktop icon to log the current user off.</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$WshShell</span> = <span class="built_in">New-Object</span> <span class="literal">-comObject</span> WScript.Shell</span><br><span class="line"><span class="variable">$Shortcut</span> = <span class="variable">$WshShell</span>.CreateShortcut(<span class="string">"<span class="variable">$home</span>\Desktop\LogOff.lnk"</span>)</span><br><span class="line"><span class="variable">$Shortcut</span>.TargetPath=<span class="string">"C:\Windows\System32\shutdown.exe"</span></span><br><span class="line"><span class="variable">$Shortcut</span>.Arguments=<span class="string">"/l"</span></span><br><span class="line"><span class="variable">$Shortcut</span>.IconLocation=<span class="string">"C:\windows\system32\Shell32.dll,44"</span></span><br><span class="line"><span class="variable">$Shortcut</span>.Save()</span><br></pre></td></tr></table></figure><p>The icon here is taken from the long list of icons in <code>Shell32.dll</code> in this case it is the little orange key icon. These icons are going to be refreshed soon so your mileage may vary on them. I found the right icon by just google image searching <code>shell32.dll icon</code> and found a picture of some of the index numbers. They were 1 indexed so I had to subtract 1</p><p><img src="/images/2021-05-10-creating-a-shortcut.md/2021-05-10-11-39-21.png" alt=""></p>]]></content>
+    <content type="html"><![CDATA[<p>You can't really create a shortcut in powershell directly but you can using the windows script host from powershell. For instance here is how you would create a new desktop icon to log the current user off.</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$WshShell</span> = <span class="built_in">New-Object</span> <span class="literal">-comObject</span> WScript.Shell</span><br><span class="line"><span class="variable">$Shortcut</span> = <span class="variable">$WshShell</span>.CreateShortcut(<span class="string">"<span class="variable">$home</span>\Desktop\LogOff.lnk"</span>)</span><br><span class="line"><span class="variable">$Shortcut</span>.TargetPath=<span class="string">"C:\Windows\System32\shutdown.exe"</span></span><br><span class="line"><span class="variable">$Shortcut</span>.Arguments=<span class="string">"/l"</span></span><br><span class="line"><span class="variable">$Shortcut</span>.IconLocation=<span class="string">"C:\windows\system32\Shell32.dll,44"</span></span><br><span class="line"><span class="variable">$Shortcut</span>.Save()</span><br></pre></td></tr></table></figure><p>The icon here is taken from the long list of icons in <code>Shell32.dll</code> in this case it is the little orange key icon. These icons are going to be refreshed soon so your mileage may vary on them. I found the right icon by just google image searching <code>shell32.dll icon</code> and found a picture of some of the index numbers. They were 1 indexed so I had to subtract 1</p><p><img src="/images/2021-05-10-creating-a-shortcut.md/2021-05-10-11-39-21.png" alt="">)</p>]]></content>
     
     <summary type="html">
     
@@ -100,7 +100,7 @@
     <link href="https://westerndevs.com/_/set-timezone/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-timezone/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-05-18T20:04:45.808Z</updated>
+    <updated>2021-05-18T20:23:03.911Z</updated>
 	<author>
 	
 	  
@@ -127,7 +127,7 @@
     <link href="https://westerndevs.com/_/download-file/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/download-file/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-18T20:04:45.804Z</updated>
+    <updated>2021-05-18T20:23:03.907Z</updated>
 	<author>
 	
 	  
@@ -154,7 +154,7 @@
     <link href="https://westerndevs.com/_/drop-existing-index/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/drop-existing-index/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-18T20:04:45.804Z</updated>
+    <updated>2021-05-18T20:23:03.907Z</updated>
 	<author>
 	
 	  
@@ -180,7 +180,7 @@
     <link href="https://westerndevs.com/_/function-appinsights/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/function-appinsights/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-18T20:04:45.804Z</updated>
+    <updated>2021-05-18T20:23:03.907Z</updated>
 	<author>
 	
 	  
@@ -206,7 +206,7 @@
     <link href="https://westerndevs.com/_/query-collections-in-big-table/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/query-collections-in-big-table/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-18T20:04:45.808Z</updated>
+    <updated>2021-05-18T20:23:03.911Z</updated>
 	<author>
 	
 	  
@@ -216,7 +216,7 @@
 	  <uri>https://westerndevs.com</uri>
 	</author>
     
-    <content type="html"><![CDATA[<p>Firebase can feed its data to bigtable and then you can run queries there. The syntax is SQL like but not quite because they have internal record types. So for the data that is fed across from firebase you get a structure that looks like</p><p><img src="/images/2021-03-05-query-collections-in-big-table.md/2021-03-05-10-39-05.png" alt=""></p><p>You can see that event_params and user_properties are these kind of collection things. The easiest way to deal with them is to flatten the structure and internally join the table against itself</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> r.event_name, p.key, p.value <span class="keyword">FROM</span> <span class="string">`pocketgeek-auto.analytics_258213689.events_intraday_20210305`</span> r <span class="keyword">cross</span> <span class="keyword">join</span> <span class="keyword">unnest</span>(r.event_params) <span class="keyword">as</span> p <span class="keyword">where</span> <span class="keyword">key</span> = <span class="string">'DealerName'</span></span><br></pre></td></tr></table></figure><p>This gets you a dataset like</p><p><img src="/images/2021-03-05-query-collections-in-big-table.md/2021-03-05-10-39-05.png" alt=""></p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> r.event_name, p.key, p.value <span class="keyword">FROM</span> <span class="string">`pocketgeek-auto.analytics_258213689.events_intraday_20210305`</span> r <span class="keyword">cross</span> <span class="keyword">join</span> <span class="keyword">unnest</span>(r.event_params) <span class="keyword">as</span> p <span class="keyword">where</span> <span class="keyword">key</span> = <span class="string">'DealerName'</span> <span class="keyword">and</span> p.value.string_value &lt;&gt; <span class="string">'none'</span></span><br></pre></td></tr></table></figure><p>is probably even better with the filter</p>]]></content>
+    <content type="html"><![CDATA[<p>Firebase can feed its data to bigtable and then you can run queries there. The syntax is SQL like but not quite because they have internal record types. So for the data that is fed across from firebase you get a structure that looks like</p><p><img src="/images/2021-03-05-query-collections-in-big-table.md/2021-03-05-10-39-05.png" alt="">)</p><p>You can see that event_params and user_properties are these kind of collection things. The easiest way to deal with them is to flatten the structure and internally join the table against itself</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> r.event_name, p.key, p.value <span class="keyword">FROM</span> <span class="string">`pocketgeek-auto.analytics_258213689.events_intraday_20210305`</span> r <span class="keyword">cross</span> <span class="keyword">join</span> <span class="keyword">unnest</span>(r.event_params) <span class="keyword">as</span> p <span class="keyword">where</span> <span class="keyword">key</span> = <span class="string">'DealerName'</span></span><br></pre></td></tr></table></figure><p>This gets you a dataset like</p><p><img src="/images/2021-03-05-query-collections-in-big-table.md/2021-03-05-10-41-21.png" alt="">)</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> r.event_name, p.key, p.value <span class="keyword">FROM</span> <span class="string">`pocketgeek-auto.analytics_258213689.events_intraday_20210305`</span> r <span class="keyword">cross</span> <span class="keyword">join</span> <span class="keyword">unnest</span>(r.event_params) <span class="keyword">as</span> p <span class="keyword">where</span> <span class="keyword">key</span> = <span class="string">'DealerName'</span> <span class="keyword">and</span> p.value.string_value &lt;&gt; <span class="string">'none'</span></span><br></pre></td></tr></table></figure><p>is probably even better with the filter</p>]]></content>
     
     <summary type="html">
     
@@ -232,7 +232,7 @@
     <link href="https://westerndevs.com/_/set-env-variable/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-env-variable/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-18T20:04:45.808Z</updated>
+    <updated>2021-05-18T20:23:03.911Z</updated>
 	<author>
 	
 	  
@@ -259,7 +259,7 @@
     <link href="https://westerndevs.com/_/terminal-buffer/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/terminal-buffer/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-18T20:04:45.808Z</updated>
+    <updated>2021-05-18T20:23:03.911Z</updated>
 	<author>
 	
 	  
@@ -269,7 +269,7 @@
 	  <uri>https://westerndevs.com</uri>
 	</author>
     
-    <content type="html"><![CDATA[<p>Got something in your terminal which is producing more output than you can scroll back through (I'm looking at you <code>terraform plan</code>)? You can adjust the setting in preferences:</p><p><img src="/images/2021-04-29-terminal-buffer.md/2021-04-29-15-04-52.png" alt=""></p>]]></content>
+    <content type="html"><![CDATA[<p>Got something in your terminal which is producing more output than you can scroll back through (I'm looking at you <code>terraform plan</code>)? You can adjust the setting in preferences:</p><p><img src="/images/2021-04-29-terminal-buffer.md/2021-04-29-15-04-52.png" alt="">)</p>]]></content>
     
     <summary type="html">
     
@@ -285,7 +285,7 @@
     <link href="https://westerndevs.com/_/xdt-transforms/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/xdt-transforms/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-18T20:04:45.812Z</updated>
+    <updated>2021-05-18T20:23:03.911Z</updated>
 	<author>
 	
 	  
@@ -295,7 +295,7 @@
 	  <uri>https://westerndevs.com</uri>
 	</author>
     
-    <content type="html"><![CDATA[<p>You can apply little transforms by just writing XML transformation on configuration files. For instance here is one for adding a section to the <code>system.web</code> section of the configuration file</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span> <span class="attr">xmlns:xdt</span>=<span class="string">"http://schemas.microsoft.com/XML-Document-Transform"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">system.web</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">machineKey</span> <span class="attr">xdt:Transform</span>=<span class="string">"Insert"</span> <span class="attr">decryptionKey</span>=<span class="string">"abc"</span> <span class="attr">validationKey</span>=<span class="string">"def"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">system.web</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure><p>Here is one for removing an attribute</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span> <span class="attr">xmlns:xdt</span>=<span class="string">"http://schemas.microsoft.com/XML-Document-Transform"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">system.web</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">compilation</span> <span class="attr">xdt:Transform</span>=<span class="string">"RemoveAttributes(debug)"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">system.web</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure><p>How about changing an attribute based on matching the key?</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span> <span class="attr">xmlns:xdt</span>=<span class="string">"http://schemas.microsoft.com/XML-Document-Transform"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">appSettings</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">add</span> <span class="attr">key</span>"<span class="attr">MaxUsers</span>" <span class="attr">value</span>=<span class="string">"3"</span> <span class="attr">xdt:Transform</span>=<span class="string">"SetAttributes"</span> <span class="attr">xdt:Locator</span>=<span class="string">"Match(key)"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">appSettings</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure><p>If you happen to be using Octopus Deploy they have a feature you can add to your IIS deployment task to run these transformations</p><p><img src="/images/2021-05-06-xdt-transforms.md/2021-05-06-13-34-59.png" alt=""></p><h2>Testing</h2><p>There is a great little online testing tool at https://elmah.io/tools/webconfig-transformation-tester/ where you can plug in random things until you get them working.</p>]]></content>
+    <content type="html"><![CDATA[<p>You can apply little transforms by just writing XML transformation on configuration files. For instance here is one for adding a section to the <code>system.web</code> section of the configuration file</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span> <span class="attr">xmlns:xdt</span>=<span class="string">"http://schemas.microsoft.com/XML-Document-Transform"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">system.web</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">machineKey</span> <span class="attr">xdt:Transform</span>=<span class="string">"Insert"</span> <span class="attr">decryptionKey</span>=<span class="string">"abc"</span> <span class="attr">validationKey</span>=<span class="string">"def"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">system.web</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure><p>Here is one for removing an attribute</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span> <span class="attr">xmlns:xdt</span>=<span class="string">"http://schemas.microsoft.com/XML-Document-Transform"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">system.web</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">compilation</span> <span class="attr">xdt:Transform</span>=<span class="string">"RemoveAttributes(debug)"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">system.web</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure><p>How about changing an attribute based on matching the key?</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span> <span class="attr">xmlns:xdt</span>=<span class="string">"http://schemas.microsoft.com/XML-Document-Transform"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">appSettings</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">add</span> <span class="attr">key</span>"<span class="attr">MaxUsers</span>" <span class="attr">value</span>=<span class="string">"3"</span> <span class="attr">xdt:Transform</span>=<span class="string">"SetAttributes"</span> <span class="attr">xdt:Locator</span>=<span class="string">"Match(key)"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">appSettings</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure><p>If you happen to be using Octopus Deploy they have a feature you can add to your IIS deployment task to run these transformations</p><p><img src="/images/2021-05-06-xdt-transforms.md/2021-05-06-13-34-59.png" alt="">)</p><h2>Testing</h2><p>There is a great little online testing tool at https://elmah.io/tools/webconfig-transformation-tester/ where you can plug in random things until you get them working.</p>]]></content>
     
     <summary type="html">
     
@@ -311,7 +311,7 @@
     <link href="https://westerndevs.com/_/Advent-Of-Code-Day03/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Advent-Of-Code-Day03/</id>
     <published>2020-12-04T00:00:00.000Z</published>
-    <updated>2021-05-18T20:04:45.804Z</updated>
+    <updated>2021-05-18T20:23:03.903Z</updated>
 	<author>
 	
 	  
@@ -337,7 +337,7 @@
     <link href="https://westerndevs.com/_/Advent-Of-Code-Day02/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Advent-Of-Code-Day02/</id>
     <published>2020-12-02T22:00:00.000Z</published>
-    <updated>2021-05-18T20:04:45.804Z</updated>
+    <updated>2021-05-18T20:23:03.903Z</updated>
 	<author>
 	
 	  
@@ -363,7 +363,7 @@
     <link href="https://westerndevs.com/_/Advent-Of-Code-Day01/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Advent-Of-Code-Day01/</id>
     <published>2020-12-01T05:00:00.000Z</published>
-    <updated>2021-05-18T20:04:45.804Z</updated>
+    <updated>2021-05-18T20:23:03.903Z</updated>
 	<author>
 	
 	  
@@ -389,7 +389,7 @@
     <link href="https://westerndevs.com/_/Advent-Of-Code-Intro/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Advent-Of-Code-Intro/</id>
     <published>2020-11-24T19:00:00.000Z</published>
-    <updated>2021-05-18T20:04:45.804Z</updated>
+    <updated>2021-05-18T20:23:03.903Z</updated>
 	<author>
 	
 	  
@@ -415,7 +415,7 @@
     <link href="https://westerndevs.com/_/serverless-sql-azure-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/serverless-sql-azure-terraform/</id>
     <published>2020-11-18T19:00:00.000Z</published>
-    <updated>2021-05-18T20:04:45.804Z</updated>
+    <updated>2021-05-18T20:23:03.903Z</updated>
 	<author>
 	
 	  
@@ -441,7 +441,7 @@
     <link href="https://westerndevs.com/devops/from-travis-ci-to-github-actions/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devops/from-travis-ci-to-github-actions/</id>
     <published>2020-11-10T23:36:00.000Z</published>
-    <updated>2021-05-18T20:04:45.804Z</updated>
+    <updated>2021-05-18T20:23:03.903Z</updated>
 	<author>
 	
 	  
@@ -479,7 +479,7 @@
     <link href="https://westerndevs.com/_/cross-database-procs/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cross-database-procs/</id>
     <published>2020-11-09T19:00:00.000Z</published>
-    <updated>2021-05-18T20:04:45.804Z</updated>
+    <updated>2021-05-18T20:23:03.903Z</updated>
 	<author>
 	
 	  
@@ -505,7 +505,7 @@
     <link href="https://westerndevs.com/devlog/out-the-door/out-the-door-post-jam-update/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/out-the-door/out-the-door-post-jam-update/</id>
     <published>2020-11-09T14:00:00.000Z</published>
-    <updated>2021-05-18T20:04:45.804Z</updated>
+    <updated>2021-05-18T20:23:03.903Z</updated>
 	<author>
 	
 	  
@@ -547,7 +547,7 @@
     <link href="https://westerndevs.com/_/processor-limits/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/processor-limits/</id>
     <published>2020-11-05T20:00:00.000Z</published>
-    <updated>2021-05-18T20:04:45.800Z</updated>
+    <updated>2021-05-18T20:23:03.903Z</updated>
 	<author>
 	
 	  
