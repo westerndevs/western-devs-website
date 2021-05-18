@@ -5,7 +5,7 @@
   <link href="/feeds/simon_timms" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2021-05-11T16:43:48.568Z</updated>
+  <updated>2021-05-18T20:04:45.804Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Importing a backup into azure</title>
+    <link href="https://westerndevs.com/_/importing-tde-encrypted-backup/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/importing-tde-encrypted-backup/</id>
+    <published>2021-05-18T04:00:00.000Z</published>
+    <updated>2021-05-18T20:04:45.804Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>Let's say you're moving an encrypted backup into Azure. The encryption was set up like this</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> CERTIFICATE BackupKey   </span><br><span class="line">   ENCRYPTION <span class="keyword">BY</span> <span class="keyword">PASSWORD</span> = <span class="string">'a password that''s really strong here'</span>  </span><br><span class="line">   <span class="keyword">WITH</span> SUBJECT = <span class="string">'test1backup'</span>,   </span><br><span class="line">   EXPIRY_DATE = <span class="string">'20220101'</span>;  </span><br><span class="line">GO</span><br></pre></td></tr></table></figure><p>Now we need to export this certificate which can be done with</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">BACKUP</span> CERTIFICATE BackupKey <span class="keyword">TO</span> <span class="keyword">FILE</span> = <span class="string">'c:\temp\backupkey.cer'</span></span><br><span class="line"><span class="keyword">WITH</span> <span class="keyword">PRIVATE</span> <span class="keyword">KEY</span> (</span><br><span class="line"><span class="keyword">FILE</span> = <span class="string">'c:\temp\backupkey.pvk'</span>,</span><br><span class="line">DECRYPTION <span class="keyword">BY</span> <span class="keyword">PASSWORD</span> = <span class="string">'a password that''s really strong here'</span>,</span><br><span class="line">ENCRYPTION <span class="keyword">BY</span> <span class="keyword">PASSWORD</span> = <span class="string">'A strong password for the certificate'</span> )</span><br></pre></td></tr></table></figure><p>Now we have two file which contain the public and private keys. We need to combine these into something that Azure Key Vault can understand and this something is a .pfx file. There is a tool called <code>pvk2pfx</code> which can be used for this task and it is found in the Windows Enterprise Driver Kit https://docs.microsoft.com/en-us/windows-hardware/drivers/download-the-wdk. It is also installed as part of visual studio. On my machine it was in <code>C:\Program Files (x86)\Windows Kits\10\bin\10.0.17763.0\x86\pvk2pfx.exe</code></p><p>Run this command to combine them</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&amp; <span class="string">"C:\Program Files (x86)\Windows Kits\10\bin\10.0.17763.0\x86\pvk2pfx.exe"</span> <span class="literal">-pvk</span> C:\temp\backupkey.pvk <span class="literal">-pi</span> <span class="string">'A strong password for the certificate'</span> <span class="literal">-spc</span> C:\temp\backupkey.cer <span class="literal">-pfx</span> c:\temp\backupkey.pfx</span><br></pre></td></tr></table></figure><p>Next up we need to import this key into azure keyvault. This can be done using the GUI or the command line tools. Everybody likes a pretty picture so let's use the Portal. Click into the key vault and then under certificates<img src="/images/2021-05-18-importing-tde-encrypted-backup.md/2021-05-18-14-00-09.png" alt=""></p><p>Then click on <code>Generate/Import</code> and fill in the form there selecting the <code>.pfx</code> file created above.<img src="/images/2021-05-18-importing-tde-encrypted-backup.md/2021-05-18-14-00-09.png" alt=""></p><p>The password will be the same one you used when exporting from SQL server. Once the certificate is imported it should be available to anybody or any application with access to certificates in key vault.</p><p>You can open up SQL Server Management Studio and in there add a new certificate selecting the certificate from the Key Vault connection</p><p><img src="/images/2021-05-18-importing-tde-encrypted-backup.md/2021-05-18-14-00-09.png" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Let&#39;s say you&#39;re moving an encrypted backup into Azure. The encryption was set up like this&lt;/p&gt;
+&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">JQ</title>
     <link href="https://westerndevs.com/_/jq/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/jq/</id>
     <published>2021-05-11T04:00:00.000Z</published>
-    <updated>2021-05-11T16:43:48.568Z</updated>
+    <updated>2021-05-18T20:04:45.804Z</updated>
 	<author>
 	
 	  
@@ -47,7 +74,7 @@
     <link href="https://westerndevs.com/_/creating-a-shortcut/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/creating-a-shortcut/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-05-11T16:43:48.564Z</updated>
+    <updated>2021-05-18T20:04:45.804Z</updated>
 	<author>
 	
 	  
@@ -73,7 +100,7 @@
     <link href="https://westerndevs.com/_/set-timezone/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-timezone/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-05-11T16:43:48.572Z</updated>
+    <updated>2021-05-18T20:04:45.808Z</updated>
 	<author>
 	
 	  
@@ -100,7 +127,7 @@
     <link href="https://westerndevs.com/_/download-file/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/download-file/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-11T16:43:48.568Z</updated>
+    <updated>2021-05-18T20:04:45.804Z</updated>
 	<author>
 	
 	  
@@ -127,7 +154,7 @@
     <link href="https://westerndevs.com/_/drop-existing-index/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/drop-existing-index/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-11T16:43:48.568Z</updated>
+    <updated>2021-05-18T20:04:45.804Z</updated>
 	<author>
 	
 	  
@@ -153,7 +180,7 @@
     <link href="https://westerndevs.com/_/function-appinsights/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/function-appinsights/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-11T16:43:48.568Z</updated>
+    <updated>2021-05-18T20:04:45.804Z</updated>
 	<author>
 	
 	  
@@ -179,7 +206,7 @@
     <link href="https://westerndevs.com/_/query-collections-in-big-table/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/query-collections-in-big-table/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-11T16:43:48.568Z</updated>
+    <updated>2021-05-18T20:04:45.808Z</updated>
 	<author>
 	
 	  
@@ -205,7 +232,7 @@
     <link href="https://westerndevs.com/_/set-env-variable/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-env-variable/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-11T16:43:48.572Z</updated>
+    <updated>2021-05-18T20:04:45.808Z</updated>
 	<author>
 	
 	  
@@ -232,7 +259,7 @@
     <link href="https://westerndevs.com/_/terminal-buffer/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/terminal-buffer/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-11T16:43:48.572Z</updated>
+    <updated>2021-05-18T20:04:45.808Z</updated>
 	<author>
 	
 	  
@@ -258,7 +285,7 @@
     <link href="https://westerndevs.com/_/xdt-transforms/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/xdt-transforms/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-11T16:43:48.572Z</updated>
+    <updated>2021-05-18T20:04:45.812Z</updated>
 	<author>
 	
 	  
@@ -284,7 +311,7 @@
     <link href="https://westerndevs.com/_/serverless-sql-azure-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/serverless-sql-azure-terraform/</id>
     <published>2020-11-18T19:00:00.000Z</published>
-    <updated>2021-05-11T16:43:48.564Z</updated>
+    <updated>2021-05-18T20:04:45.804Z</updated>
 	<author>
 	
 	  
@@ -310,7 +337,7 @@
     <link href="https://westerndevs.com/_/cross-database-procs/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cross-database-procs/</id>
     <published>2020-11-09T19:00:00.000Z</published>
-    <updated>2021-05-11T16:43:48.564Z</updated>
+    <updated>2021-05-18T20:04:45.804Z</updated>
 	<author>
 	
 	  
@@ -336,7 +363,7 @@
     <link href="https://westerndevs.com/_/processor-limits/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/processor-limits/</id>
     <published>2020-11-05T20:00:00.000Z</published>
-    <updated>2021-05-11T16:43:48.564Z</updated>
+    <updated>2021-05-18T20:04:45.800Z</updated>
 	<author>
 	
 	  
@@ -362,7 +389,7 @@
     <link href="https://westerndevs.com/_/elasticquery/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/elasticquery/</id>
     <published>2020-11-05T19:00:00.000Z</published>
-    <updated>2021-05-11T16:43:48.564Z</updated>
+    <updated>2021-05-18T20:04:45.800Z</updated>
 	<author>
 	
 	  
@@ -388,7 +415,7 @@
     <link href="https://westerndevs.com/_/typescript-definition/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/typescript-definition/</id>
     <published>2020-09-28T18:00:00.000Z</published>
-    <updated>2021-05-11T16:43:48.564Z</updated>
+    <updated>2021-05-18T20:04:45.800Z</updated>
 	<author>
 	
 	  
@@ -414,7 +441,7 @@
     <link href="https://westerndevs.com/_/flutter-tests-with-native/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/flutter-tests-with-native/</id>
     <published>2020-04-01T14:00:00.000Z</published>
-    <updated>2021-05-11T16:43:48.560Z</updated>
+    <updated>2021-05-18T20:04:45.800Z</updated>
 	<author>
 	
 	  
@@ -440,7 +467,7 @@
     <link href="https://westerndevs.com/_/find-webforms-errors-with-precompilation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/find-webforms-errors-with-precompilation/</id>
     <published>2020-04-01T00:00:00.000Z</published>
-    <updated>2021-05-11T16:43:48.560Z</updated>
+    <updated>2021-05-18T20:04:45.800Z</updated>
 	<author>
 	
 	  
@@ -468,7 +495,7 @@
     <link href="https://westerndevs.com/_/Allow-hosted-agent-through-firewall/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Allow-hosted-agent-through-firewall/</id>
     <published>2020-01-10T14:00:00.000Z</published>
-    <updated>2021-05-11T16:43:48.560Z</updated>
+    <updated>2021-05-18T20:04:45.800Z</updated>
 	<author>
 	
 	  
@@ -494,7 +521,7 @@
     <link href="https://westerndevs.com/_/UNION-vs-UNION-ALL/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/UNION-vs-UNION-ALL/</id>
     <published>2019-12-30T14:00:00.000Z</published>
-    <updated>2021-05-11T16:43:48.560Z</updated>
+    <updated>2021-05-18T20:04:45.800Z</updated>
 	<author>
 	
 	  
@@ -510,32 +537,6 @@
     
       &lt;p&gt;I really dislike database queries which are slow for no apparent reason. I ran into one of those today. It queries over a few thousands of well indexed rows and returned a handful, perhaps 3, records. Time to do this? 33 seconds. Well that&#39;s no good for anybody. Digging into the query I found that it actually used a &lt;code&gt;UNION&lt;/code&gt; to join 3 sets of similar data together. I go by the rule of thumb that SQL operations which treat data as sets and do things with that in mind are efficient. I&#39;m not sure where I read that but it has stuck with me over the years.  What it suggests is that you should avoid doing things like looping over rows or calling functions on masses of data.&lt;/p&gt;
 &lt;p&gt;As it turns out there are actually two different &lt;code&gt;UNION&lt;/code&gt; operators in SQL Server: &lt;code&gt;UNION&lt;/code&gt; and &lt;code&gt;UNION ALL&lt;/code&gt;. They differ in how they handle duplicate entries. &lt;code&gt;UNION&lt;/code&gt; will check each entry to ensure that it exists in the output only one time.&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Bulk Load and Merge Pattern</title>
-    <link href="https://westerndevs.com/_/bulk-load-and-merge/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/bulk-load-and-merge/</id>
-    <published>2019-10-12T04:00:00.000Z</published>
-    <updated>2021-05-11T16:43:48.560Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>The more years you spend programming the more you run into situations you've run into before. Situations you now know, instinctively, how to address. I suppose this is &quot;experience&quot; and is what I'm paid the medium dollars for. One such problem I've solved at least a dozen times over the years is updating a bunch of data in a database from an external source. This, as it turns out, can be a great source of poor performance if you don't know how to address it. Let's dig into my approach.</p><a id="more"></a><p>To start with let's give some examples of the problem</p><ul><li>update a database with the result of a web service call</li><li>load an Excel workbook or CSV file into the database</li><li>synchronize an external data source with your own cache in a database</li></ul><p>The approach that I commonly see people take is to get the records to load into the database and loop over them, checking them against existing records. It looks something like</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Update</span>(<span class="params">DbContext context, IEnumerable&lt;ExternalData&gt; toLoad</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">foreach</span>(<span class="keyword">var</span> record <span class="keyword">in</span> toLoad)&#123;</span><br><span class="line">        <span class="keyword">var</span> dbRecord = context.Find(record.Id);</span><br><span class="line">        <span class="keyword">if</span>(dbRecord != <span class="literal">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            dbRecord.Field1 = record.Field1;</span><br><span class="line">            ...</span><br><span class="line">            context.Save(dbRecord);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            context.Add(record);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>This is a pretty logical approach. Any existing record is updated, any new record is inserted. Problem is that you're running 2 database operations for every record that comes in. Try to load 10k records and all of a sudden you're in for a world of hurt. It gets even scarier if you're running all this inside a transaction which might live a minute or two. Operations like this are likely to be subject to lock escalation up to table locks which is certainly not something you want.</p><h1>Bulk Loading</h1><p>Way back in my university days we had a database class which was so popular the professor taught 2 sessions back to back. This professor was famous for wearing brown sweaters no matter the time of year. Because we had two sessions every day I'd grab somebody from the previous class and ask what the class covered that day.</p><p>On this day the professor was talking about bulk loading, it was the subject of some of his research. I asked a fellow in the previous class what they covered</p><p>&quot;Bulk loading and how much faster it is than regular inserts&quot;</p><p>&quot;Oh yeah? How much faster?&quot;</p><p>&quot;312 times, I think it was&quot;</p><p>So down into the basement I trudged, into the windowless class room. The class started and the professor asked</p><p>&quot;How many times faster do you think bulk loading is?&quot;</p><p>He sat back, waiting for the ridiculous answers, comfortable in the knowledge that he'd spend the last month writing paper on exactly this subject.</p><p>&quot;312 times, sir&quot; I answered</p><p>He was flabbergasted that somebody would know this. He'd just spent the last month figuring out that exact number. Eventually I let him off the hook and told him where I'd found out his precise number but not until I span him some story about how Donald Kunth was my uncle.</p><p>Anyway the point of this story is that I'm a better person now and that bulk loading is way faster than doing individual inserts. When loading data into the database I like to load the data into a bulk loading table instead of directly into the destination table. That provides a staging area where changes can be made.</p><p>In C# the bulk loading API is a bit <a href="https://blogs.msdn.microsoft.com/nikhilsi/2008/06/11/bulk-insert-into-sql-from-c-app/" target="_blank" rel="noopener">comically dated</a> and relies on data tables. There are some nice wrappers for it including <a href="https://dapper-plus.net/bulk-insert" target="_blank" rel="noopener">dapper-plus</a>. Using bulk copy speeds up loading substantially, perhaps not 312 times but I've certainly seen 50-100x. This reduces the chances that the transaction will run for a long time and having it run against a non-production table makes things even less likely to be problematic.</p><p>With the data loaded we can now merge it into the live data, for this we can make use of merge.</p><h1>Merge Statement</h1><p>I have a long list of features that SQL server is, frustratingly, missing. On that list is a simple upsert statement where you can tell the database what to do if there is a conflict. Both <a href="http://www.postgresqltutorial.com/postgresql-upsert/" target="_blank" rel="noopener">Postgresql</a> and <a href="https://www.techbeamers.com/mysql-upsert/" target="_blank" rel="noopener">MySQL</a> have a nice syntax for upsert. On SQL Server you have to wade through the complex <code>MERGE</code> statement. The <a href="https://docs.microsoft.com/en-us/sql/t-sql/statements/merge-transact-sql?view=sql-server-ver15" target="_blank" rel="noopener">documentation</a> for <code>MERGE</code> has on off the longest grammars for a statement I've ever seen; as you would expect for such a powerful a command.</p><p>A very simple example looks like this</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">MERGE</span> HotelRooms <span class="keyword">AS</span> target  </span><br><span class="line">    <span class="keyword">USING</span> (<span class="keyword">SELECT</span> @roomNumber, @occupants <span class="keyword">from</span> bulkLoadHotelRooms) <span class="keyword">AS</span> <span class="keyword">source</span> (roomNumber, occupants)  </span><br><span class="line">    <span class="keyword">ON</span> (target.roomNumber = source.roomNumber)  </span><br><span class="line">    <span class="keyword">WHEN</span> <span class="keyword">MATCHED</span> <span class="keyword">THEN</span></span><br><span class="line">        <span class="keyword">UPDATE</span> <span class="keyword">SET</span> <span class="keyword">Name</span> = source.occupants  </span><br><span class="line">    <span class="keyword">WHEN</span> <span class="keyword">NOT</span> <span class="keyword">MATCHED</span> <span class="keyword">THEN</span>  </span><br><span class="line">        <span class="keyword">INSERT</span> (roomNumber, occupants)  </span><br><span class="line">        <span class="keyword">VALUES</span> (source.roomNumber, source.occupants)</span><br></pre></td></tr></table></figure><p>This will insert records into the table <code>HotelRooms</code> from the bulk load table <code>BulkLoadHotelRooms</code> matching them on the room number (the <code>MATCHED</code> clause). If there is already a room number there then the occupants are updated (the <code>NOT MATCHED</code> clause). Not shown here there is also the ability to delete records which aren't in the target table. Also not shown are about 10 more clauses. The documentation is certainly worthwhile reading.</p><h1>Wrapping Up</h1><p>Bulk loading and merging is the best approach I've found so far to load data into a database. I've loaded millions of records on dozens of projects using this approach. If there is a better way that you've found, I'd love to hear about it.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;The more years you spend programming the more you run into situations you&#39;ve run into before. Situations you now know, instinctively, how to address. I suppose this is &amp;quot;experience&amp;quot; and is what I&#39;m paid the medium dollars for. One such problem I&#39;ve solved at least a dozen times over the years is updating a bunch of data in a database from an external source. This, as it turns out, can be a great source of poor performance if you don&#39;t know how to address it. Let&#39;s dig into my approach.&lt;/p&gt;
     
     </summary>
     
