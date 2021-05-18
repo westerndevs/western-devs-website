@@ -37,13 +37,13 @@ Run this command to combine them
 ```
 
 Next up we need to import this key into azure keyvault. This can be done using the GUI or the command line tools. Everybody likes a pretty picture so let's use the Portal. Click into the key vault and then under certificates
-![](/images/2021-05-18-importing-tde-encrypted-backup.md/2021-05-18-14-00-09.png)
+![](/images/2021-05-18-importing-tde-encrypted-backup.md/2021-05-18-14-00-09.png))
 
 Then click on `Generate/Import` and fill in the form there selecting the `.pfx` file created above.
-![](/images/2021-05-18-importing-tde-encrypted-backup.md/2021-05-18-14-00-09.png)
+![](/images/2021-05-18-importing-tde-encrypted-backup.md/2021-05-18-12-55-32.png))
 
 The password will be the same one you used when exporting from SQL server. Once the certificate is imported it should be available to anybody or any application with access to certificates in key vault.
 
 You can open up SQL Server Management Studio and in there add a new certificate selecting the certificate from the Key Vault connection
 
-![](/images/2021-05-18-importing-tde-encrypted-backup.md/2021-05-18-14-00-09.png)
+![](/images/2021-05-18-importing-tde-encrypted-backup.md/2021-05-18-13-58-27.png))

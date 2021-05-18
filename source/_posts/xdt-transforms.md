@@ -44,7 +44,7 @@ How about changing an attribute based on matching the key?
 
 If you happen to be using Octopus Deploy they have a feature you can add to your IIS deployment task to run these transformations
 
-![](/images/2021-05-06-xdt-transforms.md/2021-05-06-13-34-59.png)
+![](/images/2021-05-06-xdt-transforms.md/2021-05-06-13-34-59.png))
 
 ## Testing
 

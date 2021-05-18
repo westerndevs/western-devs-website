@@ -21,4 +21,4 @@ $Shortcut.Save()
 
 The icon here is taken from the long list of icons in `Shell32.dll` in this case it is the little orange key icon. These icons are going to be refreshed soon so your mileage may vary on them. I found the right icon by just google image searching `shell32.dll icon` and found a picture of some of the index numbers. They were 1 indexed so I had to subtract 1
 
-![](/images/2021-05-10-creating-a-shortcut.md/2021-05-10-11-39-21.png)
+![](/images/2021-05-10-creating-a-shortcut.md/2021-05-10-11-39-21.png))
