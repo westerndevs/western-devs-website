@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2021-05-18T20:24:37.788Z</updated>
+  <updated>2021-05-19T18:20:12.693Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Advanced Web Application Firewall Rules in Azure with Terraform</title>
+    <link href="https://westerndevs.com/_/advanced-waf-rules-in-terraform/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/advanced-waf-rules-in-terraform/</id>
+    <published>2021-05-19T04:00:00.000Z</published>
+    <updated>2021-05-19T18:20:12.693Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>If you're creating an Application Gateway in Terraform for Azure you're using this resource <code>azurerm_application_gateway</code>. This resource allows for some basic configuration of the Web Application Firewall through the <code>waf_configuration</code> block. However the configuration there is very limited and basically restricted to turning it off and on and choosing the base rule set. If you want a custom rule then you need to break off the rules into a separate <code>azurerm_web_application_firewall_policy</code>. This can then be referenced back in the <code>azurerm_application_gateway</code> through the <code>firewall_policy_id</code></p><p>You can use the advanced rules to set up things like Geographic restrictions. For instance this set of rules will block everything but requests from Canada and the US.</p><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### Web application firewall settings</span></span><br><span class="line">resource <span class="string">"azurerm_web_application_firewall_policy"</span> <span class="string">"appfirewall"</span> &#123;</span><br><span class="line">  <span class="attr">name</span>                = local.basename</span><br><span class="line">  <span class="attr">resource_group_name</span> = var.resource_group_name</span><br><span class="line">  <span class="attr">location</span>            = var.resource_group_location</span><br><span class="line"></span><br><span class="line">  custom_rules &#123;</span><br><span class="line">    <span class="attr">name</span>      = <span class="string">"OnlyUSandCanada"</span></span><br><span class="line">    <span class="attr">priority</span>  = <span class="number">1</span></span><br><span class="line">    <span class="attr">rule_type</span> = <span class="string">"MatchRule"</span></span><br><span class="line"></span><br><span class="line">    match_conditions &#123;</span><br><span class="line">      match_variables &#123;</span><br><span class="line">        <span class="attr">variable_name</span> = <span class="string">"RemoteAddr"</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="attr">operator</span>           = <span class="string">"GeoMatch"</span></span><br><span class="line">      <span class="attr">negation_condition</span> = <span class="literal">true</span></span><br><span class="line">      <span class="attr">match_values</span>       = [<span class="string">"CA"</span>, <span class="string">"US"</span>]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="attr">action</span> = <span class="string">"Block"</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  policy_settings &#123;</span><br><span class="line">    <span class="attr">enabled</span> = <span class="literal">true</span></span><br><span class="line">    <span class="attr">mode</span>    = <span class="string">"Detection"</span></span><br><span class="line">    <span class="comment"># Global parameters</span></span><br><span class="line">    <span class="attr">request_body_check</span>          = <span class="literal">true</span></span><br><span class="line">    <span class="attr">max_request_body_size_in_kb</span> = <span class="number">128</span></span><br><span class="line">    <span class="attr">file_upload_limit_in_mb</span>     = <span class="number">100</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;If you&#39;re creating an Application Gateway in Terraform for Azure you&#39;re using this resource &lt;code&gt;azurerm_application_gateway&lt;/code&gt;. Thi
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Importing an Encrypted Backup into Azure Managed SQL</title>
     <link href="https://westerndevs.com/_/importing-tde-encrypted-backup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/importing-tde-encrypted-backup/</id>
     <published>2021-05-18T04:00:00.000Z</published>
-    <updated>2021-05-18T20:24:37.788Z</updated>
+    <updated>2021-05-19T18:20:12.697Z</updated>
 	<author>
 	
 	  
@@ -48,7 +74,7 @@
     <link href="https://westerndevs.com/_/jq/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/jq/</id>
     <published>2021-05-11T04:00:00.000Z</published>
-    <updated>2021-05-18T20:24:37.792Z</updated>
+    <updated>2021-05-19T18:20:12.697Z</updated>
 	<author>
 	
 	  
@@ -74,7 +100,7 @@
     <link href="https://westerndevs.com/_/creating-a-shortcut/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/creating-a-shortcut/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-05-18T20:24:37.788Z</updated>
+    <updated>2021-05-19T18:20:12.693Z</updated>
 	<author>
 	
 	  
@@ -100,7 +126,7 @@
     <link href="https://westerndevs.com/_/set-timezone/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-timezone/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-05-18T20:24:37.792Z</updated>
+    <updated>2021-05-19T18:20:12.697Z</updated>
 	<author>
 	
 	  
@@ -127,7 +153,7 @@
     <link href="https://westerndevs.com/_/download-file/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/download-file/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-18T20:24:37.788Z</updated>
+    <updated>2021-05-19T18:20:12.693Z</updated>
 	<author>
 	
 	  
@@ -154,7 +180,7 @@
     <link href="https://westerndevs.com/_/drop-existing-index/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/drop-existing-index/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-18T20:24:37.788Z</updated>
+    <updated>2021-05-19T18:20:12.693Z</updated>
 	<author>
 	
 	  
@@ -180,7 +206,7 @@
     <link href="https://westerndevs.com/_/function-appinsights/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/function-appinsights/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-18T20:24:37.788Z</updated>
+    <updated>2021-05-19T18:20:12.693Z</updated>
 	<author>
 	
 	  
@@ -206,7 +232,7 @@
     <link href="https://westerndevs.com/_/query-collections-in-big-table/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/query-collections-in-big-table/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-18T20:24:37.792Z</updated>
+    <updated>2021-05-19T18:20:12.697Z</updated>
 	<author>
 	
 	  
@@ -232,7 +258,7 @@
     <link href="https://westerndevs.com/_/set-env-variable/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-env-variable/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-18T20:24:37.792Z</updated>
+    <updated>2021-05-19T18:20:12.697Z</updated>
 	<author>
 	
 	  
@@ -259,7 +285,7 @@
     <link href="https://westerndevs.com/_/terminal-buffer/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/terminal-buffer/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-18T20:24:37.792Z</updated>
+    <updated>2021-05-19T18:20:12.697Z</updated>
 	<author>
 	
 	  
@@ -285,7 +311,7 @@
     <link href="https://westerndevs.com/_/xdt-transforms/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/xdt-transforms/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-18T20:24:37.796Z</updated>
+    <updated>2021-05-19T18:20:12.701Z</updated>
 	<author>
 	
 	  
@@ -311,7 +337,7 @@
     <link href="https://westerndevs.com/_/Advent-Of-Code-Day03/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Advent-Of-Code-Day03/</id>
     <published>2020-12-04T00:00:00.000Z</published>
-    <updated>2021-05-18T20:24:37.788Z</updated>
+    <updated>2021-05-19T18:20:12.693Z</updated>
 	<author>
 	
 	  
@@ -337,7 +363,7 @@
     <link href="https://westerndevs.com/_/Advent-Of-Code-Day02/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Advent-Of-Code-Day02/</id>
     <published>2020-12-02T22:00:00.000Z</published>
-    <updated>2021-05-18T20:24:37.788Z</updated>
+    <updated>2021-05-19T18:20:12.693Z</updated>
 	<author>
 	
 	  
@@ -363,7 +389,7 @@
     <link href="https://westerndevs.com/_/Advent-Of-Code-Day01/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Advent-Of-Code-Day01/</id>
     <published>2020-12-01T05:00:00.000Z</published>
-    <updated>2021-05-18T20:24:37.788Z</updated>
+    <updated>2021-05-19T18:20:12.693Z</updated>
 	<author>
 	
 	  
@@ -389,7 +415,7 @@
     <link href="https://westerndevs.com/_/Advent-Of-Code-Intro/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Advent-Of-Code-Intro/</id>
     <published>2020-11-24T19:00:00.000Z</published>
-    <updated>2021-05-18T20:24:37.788Z</updated>
+    <updated>2021-05-19T18:20:12.693Z</updated>
 	<author>
 	
 	  
@@ -415,7 +441,7 @@
     <link href="https://westerndevs.com/_/serverless-sql-azure-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/serverless-sql-azure-terraform/</id>
     <published>2020-11-18T19:00:00.000Z</published>
-    <updated>2021-05-18T20:24:37.788Z</updated>
+    <updated>2021-05-19T18:20:12.693Z</updated>
 	<author>
 	
 	  
@@ -441,7 +467,7 @@
     <link href="https://westerndevs.com/devops/from-travis-ci-to-github-actions/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devops/from-travis-ci-to-github-actions/</id>
     <published>2020-11-10T23:36:00.000Z</published>
-    <updated>2021-05-18T20:24:37.788Z</updated>
+    <updated>2021-05-19T18:20:12.693Z</updated>
 	<author>
 	
 	  
@@ -479,7 +505,7 @@
     <link href="https://westerndevs.com/_/cross-database-procs/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cross-database-procs/</id>
     <published>2020-11-09T19:00:00.000Z</published>
-    <updated>2021-05-18T20:24:37.788Z</updated>
+    <updated>2021-05-19T18:20:12.693Z</updated>
 	<author>
 	
 	  
@@ -505,7 +531,7 @@
     <link href="https://westerndevs.com/devlog/out-the-door/out-the-door-post-jam-update/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/out-the-door/out-the-door-post-jam-update/</id>
     <published>2020-11-09T14:00:00.000Z</published>
-    <updated>2021-05-18T20:24:37.788Z</updated>
+    <updated>2021-05-19T18:20:12.693Z</updated>
 	<author>
 	
 	  
@@ -539,32 +565,6 @@
       <category term="game design" scheme="https://westerndevs.com/tags/game-design/"/>
     
       <category term="out the door" scheme="https://westerndevs.com/tags/out-the-door/"/>
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Azure Processor Limits</title>
-    <link href="https://westerndevs.com/_/processor-limits/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/processor-limits/</id>
-    <published>2020-11-05T20:00:00.000Z</published>
-    <updated>2021-05-18T20:24:37.788Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>Ran into a fun little quirk in Azure today. We wanted to allocate a pretty beefy machine, an M32ms. Problem was that for the region we were looking at it wasn't showing up on our list of VM sizes. We checked and there were certainly VMs of that size available in the region we just couldn't see them. So we ran the command</p><figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">az </span><span class="string">vm </span><span class="built_in">list-usage</span> <span class="built_in">--location</span> <span class="string">"westus"</span> <span class="built_in">--output</span> <span class="string">table</span></span><br></pre></td></tr></table></figure><p>And that returned a bunch of information about the quota limits we had in place. Sure enough in there we had</p><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Name</span>                               <span class="keyword">Current</span> <span class="keyword">Value</span>   <span class="keyword">Limit</span></span><br><span class="line">Standard MS <span class="keyword">Family</span> vCPUs           <span class="number">0</span>               <span class="number">0</span></span><br></pre></td></tr></table></figure><p>We opened a support request to increase the quota on that CPU. We also had a weirdly low limit on CPUs in the region</p><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Total Regional vCPUs               <span class="number">0</span>               <span class="number">10</span></span><br></pre></td></tr></table></figure><p>Which support fixed for us too and we were then able to create the VM we were looking for.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Ran into a fun little quirk in Azure today. We wanted to allocate a pretty beefy machine, an M32ms. Problem was that for the region we we
-    
-    </summary>
-    
     
   </entry>
   

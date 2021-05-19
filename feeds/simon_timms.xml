@@ -5,7 +5,7 @@
   <link href="/feeds/simon_timms" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2021-05-18T20:24:37.788Z</updated>
+  <updated>2021-05-19T18:20:12.693Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Advanced Web Application Firewall Rules in Azure with Terraform</title>
+    <link href="https://westerndevs.com/_/advanced-waf-rules-in-terraform/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/advanced-waf-rules-in-terraform/</id>
+    <published>2021-05-19T04:00:00.000Z</published>
+    <updated>2021-05-19T18:20:12.693Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>If you're creating an Application Gateway in Terraform for Azure you're using this resource <code>azurerm_application_gateway</code>. This resource allows for some basic configuration of the Web Application Firewall through the <code>waf_configuration</code> block. However the configuration there is very limited and basically restricted to turning it off and on and choosing the base rule set. If you want a custom rule then you need to break off the rules into a separate <code>azurerm_web_application_firewall_policy</code>. This can then be referenced back in the <code>azurerm_application_gateway</code> through the <code>firewall_policy_id</code></p><p>You can use the advanced rules to set up things like Geographic restrictions. For instance this set of rules will block everything but requests from Canada and the US.</p><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### Web application firewall settings</span></span><br><span class="line">resource <span class="string">"azurerm_web_application_firewall_policy"</span> <span class="string">"appfirewall"</span> &#123;</span><br><span class="line">  <span class="attr">name</span>                = local.basename</span><br><span class="line">  <span class="attr">resource_group_name</span> = var.resource_group_name</span><br><span class="line">  <span class="attr">location</span>            = var.resource_group_location</span><br><span class="line"></span><br><span class="line">  custom_rules &#123;</span><br><span class="line">    <span class="attr">name</span>      = <span class="string">"OnlyUSandCanada"</span></span><br><span class="line">    <span class="attr">priority</span>  = <span class="number">1</span></span><br><span class="line">    <span class="attr">rule_type</span> = <span class="string">"MatchRule"</span></span><br><span class="line"></span><br><span class="line">    match_conditions &#123;</span><br><span class="line">      match_variables &#123;</span><br><span class="line">        <span class="attr">variable_name</span> = <span class="string">"RemoteAddr"</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="attr">operator</span>           = <span class="string">"GeoMatch"</span></span><br><span class="line">      <span class="attr">negation_condition</span> = <span class="literal">true</span></span><br><span class="line">      <span class="attr">match_values</span>       = [<span class="string">"CA"</span>, <span class="string">"US"</span>]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="attr">action</span> = <span class="string">"Block"</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  policy_settings &#123;</span><br><span class="line">    <span class="attr">enabled</span> = <span class="literal">true</span></span><br><span class="line">    <span class="attr">mode</span>    = <span class="string">"Detection"</span></span><br><span class="line">    <span class="comment"># Global parameters</span></span><br><span class="line">    <span class="attr">request_body_check</span>          = <span class="literal">true</span></span><br><span class="line">    <span class="attr">max_request_body_size_in_kb</span> = <span class="number">128</span></span><br><span class="line">    <span class="attr">file_upload_limit_in_mb</span>     = <span class="number">100</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;If you&#39;re creating an Application Gateway in Terraform for Azure you&#39;re using this resource &lt;code&gt;azurerm_application_gateway&lt;/code&gt;. Thi
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Importing an Encrypted Backup into Azure Managed SQL</title>
     <link href="https://westerndevs.com/_/importing-tde-encrypted-backup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/importing-tde-encrypted-backup/</id>
     <published>2021-05-18T04:00:00.000Z</published>
-    <updated>2021-05-18T20:24:37.788Z</updated>
+    <updated>2021-05-19T18:20:12.697Z</updated>
 	<author>
 	
 	  
@@ -48,7 +74,7 @@
     <link href="https://westerndevs.com/_/jq/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/jq/</id>
     <published>2021-05-11T04:00:00.000Z</published>
-    <updated>2021-05-18T20:24:37.792Z</updated>
+    <updated>2021-05-19T18:20:12.697Z</updated>
 	<author>
 	
 	  
@@ -74,7 +100,7 @@
     <link href="https://westerndevs.com/_/creating-a-shortcut/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/creating-a-shortcut/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-05-18T20:24:37.788Z</updated>
+    <updated>2021-05-19T18:20:12.693Z</updated>
 	<author>
 	
 	  
@@ -100,7 +126,7 @@
     <link href="https://westerndevs.com/_/set-timezone/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-timezone/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-05-18T20:24:37.792Z</updated>
+    <updated>2021-05-19T18:20:12.697Z</updated>
 	<author>
 	
 	  
@@ -127,7 +153,7 @@
     <link href="https://westerndevs.com/_/download-file/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/download-file/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-18T20:24:37.788Z</updated>
+    <updated>2021-05-19T18:20:12.693Z</updated>
 	<author>
 	
 	  
@@ -154,7 +180,7 @@
     <link href="https://westerndevs.com/_/drop-existing-index/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/drop-existing-index/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-18T20:24:37.788Z</updated>
+    <updated>2021-05-19T18:20:12.693Z</updated>
 	<author>
 	
 	  
@@ -180,7 +206,7 @@
     <link href="https://westerndevs.com/_/function-appinsights/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/function-appinsights/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-18T20:24:37.788Z</updated>
+    <updated>2021-05-19T18:20:12.693Z</updated>
 	<author>
 	
 	  
@@ -206,7 +232,7 @@
     <link href="https://westerndevs.com/_/query-collections-in-big-table/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/query-collections-in-big-table/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-18T20:24:37.792Z</updated>
+    <updated>2021-05-19T18:20:12.697Z</updated>
 	<author>
 	
 	  
@@ -232,7 +258,7 @@
     <link href="https://westerndevs.com/_/set-env-variable/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-env-variable/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-18T20:24:37.792Z</updated>
+    <updated>2021-05-19T18:20:12.697Z</updated>
 	<author>
 	
 	  
@@ -259,7 +285,7 @@
     <link href="https://westerndevs.com/_/terminal-buffer/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/terminal-buffer/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-18T20:24:37.792Z</updated>
+    <updated>2021-05-19T18:20:12.697Z</updated>
 	<author>
 	
 	  
@@ -285,7 +311,7 @@
     <link href="https://westerndevs.com/_/xdt-transforms/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/xdt-transforms/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-18T20:24:37.796Z</updated>
+    <updated>2021-05-19T18:20:12.701Z</updated>
 	<author>
 	
 	  
@@ -311,7 +337,7 @@
     <link href="https://westerndevs.com/_/serverless-sql-azure-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/serverless-sql-azure-terraform/</id>
     <published>2020-11-18T19:00:00.000Z</published>
-    <updated>2021-05-18T20:24:37.788Z</updated>
+    <updated>2021-05-19T18:20:12.693Z</updated>
 	<author>
 	
 	  
@@ -337,7 +363,7 @@
     <link href="https://westerndevs.com/_/cross-database-procs/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cross-database-procs/</id>
     <published>2020-11-09T19:00:00.000Z</published>
-    <updated>2021-05-18T20:24:37.788Z</updated>
+    <updated>2021-05-19T18:20:12.693Z</updated>
 	<author>
 	
 	  
@@ -363,7 +389,7 @@
     <link href="https://westerndevs.com/_/processor-limits/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/processor-limits/</id>
     <published>2020-11-05T20:00:00.000Z</published>
-    <updated>2021-05-18T20:24:37.788Z</updated>
+    <updated>2021-05-19T18:20:12.693Z</updated>
 	<author>
 	
 	  
@@ -389,7 +415,7 @@
     <link href="https://westerndevs.com/_/elasticquery/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/elasticquery/</id>
     <published>2020-11-05T19:00:00.000Z</published>
-    <updated>2021-05-18T20:24:37.788Z</updated>
+    <updated>2021-05-19T18:20:12.693Z</updated>
 	<author>
 	
 	  
@@ -415,7 +441,7 @@
     <link href="https://westerndevs.com/_/typescript-definition/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/typescript-definition/</id>
     <published>2020-09-28T18:00:00.000Z</published>
-    <updated>2021-05-18T20:24:37.788Z</updated>
+    <updated>2021-05-19T18:20:12.693Z</updated>
 	<author>
 	
 	  
@@ -441,7 +467,7 @@
     <link href="https://westerndevs.com/_/flutter-tests-with-native/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/flutter-tests-with-native/</id>
     <published>2020-04-01T14:00:00.000Z</published>
-    <updated>2021-05-18T20:24:37.784Z</updated>
+    <updated>2021-05-19T18:20:12.689Z</updated>
 	<author>
 	
 	  
@@ -467,7 +493,7 @@
     <link href="https://westerndevs.com/_/find-webforms-errors-with-precompilation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/find-webforms-errors-with-precompilation/</id>
     <published>2020-04-01T00:00:00.000Z</published>
-    <updated>2021-05-18T20:24:37.784Z</updated>
+    <updated>2021-05-19T18:20:12.689Z</updated>
 	<author>
 	
 	  
@@ -495,7 +521,7 @@
     <link href="https://westerndevs.com/_/Allow-hosted-agent-through-firewall/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Allow-hosted-agent-through-firewall/</id>
     <published>2020-01-10T14:00:00.000Z</published>
-    <updated>2021-05-18T20:24:37.784Z</updated>
+    <updated>2021-05-19T18:20:12.689Z</updated>
 	<author>
 	
 	  
@@ -510,33 +536,6 @@
     <summary type="html">
     
       &lt;p&gt;I have an on-premise (well in a third party data center but close enough) database which I&#39;d like to update via a build in a hosted agent on Azure. We&#39;ve done this before in Jenkins by just allowing a specific IP address through the firewall. However we&#39;re in the process of moving to DevOps for this build. Unfortunately, the hosted build agents don&#39;t have entirely predictable IP addresses. Every week Microsoft publishes a list of all the IP addresses in Azure. It is a huge json document and for our region (Central Canada) there are about 40 IP addresses ranges the build agent could be in. We want an automated way to update our firewall rules based on this list.&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">UNION vs. UNION ALL in SQL Server</title>
-    <link href="https://westerndevs.com/_/UNION-vs-UNION-ALL/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/UNION-vs-UNION-ALL/</id>
-    <published>2019-12-30T14:00:00.000Z</published>
-    <updated>2021-05-18T20:24:37.784Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>I really dislike database queries which are slow for no apparent reason. I ran into one of those today. It queries over a few thousands of well indexed rows and returned a handful, perhaps 3, records. Time to do this? 33 seconds. Well that's no good for anybody. Digging into the query I found that it actually used a <code>UNION</code> to join 3 sets of similar data together. I go by the rule of thumb that SQL operations which treat data as sets and do things with that in mind are efficient. I'm not sure where I read that but it has stuck with me over the years.  What it suggests is that you should avoid doing things like looping over rows or calling functions on masses of data.</p><p>As it turns out there are actually two different <code>UNION</code> operators in SQL Server: <code>UNION</code> and <code>UNION ALL</code>. They differ in how they handle duplicate entries. <code>UNION</code> will check each entry to ensure that it exists in the output only one time.</p><a id="more"></a><p>So if you had results like</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> a</span><br><span class="line"></span><br><span class="line"><span class="keyword">ID</span>     <span class="keyword">Name</span></span><br><span class="line"> <span class="number">1</span>     Bob</span><br><span class="line"> <span class="number">2</span>     Jane</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> b</span><br><span class="line"></span><br><span class="line"><span class="keyword">ID</span>     <span class="keyword">Name</span></span><br><span class="line"> <span class="number">3</span>     Sally</span><br><span class="line"> <span class="number">2</span>     Jane</span><br></pre></td></tr></table></figure><p>The result of running</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> a</span><br><span class="line"><span class="keyword">union</span> </span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> b</span><br><span class="line"></span><br><span class="line"><span class="keyword">ID</span>     <span class="keyword">Name</span></span><br><span class="line"> <span class="number">1</span>     Bob</span><br><span class="line"> <span class="number">3</span>     Sally</span><br><span class="line"> <span class="number">2</span>     Jane</span><br></pre></td></tr></table></figure><p>Here the duplicate record 2 is only returned once. On the other hand <code>UNION ALL</code> will assume that the result sets are already unique and return whatever it is given</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> a</span><br><span class="line"><span class="keyword">union</span> <span class="keyword">all</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> b</span><br><span class="line"></span><br><span class="line"><span class="keyword">ID</span>     <span class="keyword">Name</span></span><br><span class="line"> <span class="number">1</span>     Bob</span><br><span class="line"> <span class="number">2</span>     Jane</span><br><span class="line"> <span class="number">3</span>     Sally</span><br><span class="line"> <span class="number">2</span>     Jane</span><br></pre></td></tr></table></figure><p><code>UNION ALL</code> is, as a result of not doing this duplicate check, far faster than <code>UNION</code>. On the data sets I tried the savings were between 40% and 95%. It isn't always the right answer but is another tool on your toolbelt.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;I really dislike database queries which are slow for no apparent reason. I ran into one of those today. It queries over a few thousands of well indexed rows and returned a handful, perhaps 3, records. Time to do this? 33 seconds. Well that&#39;s no good for anybody. Digging into the query I found that it actually used a &lt;code&gt;UNION&lt;/code&gt; to join 3 sets of similar data together. I go by the rule of thumb that SQL operations which treat data as sets and do things with that in mind are efficient. I&#39;m not sure where I read that but it has stuck with me over the years.  What it suggests is that you should avoid doing things like looping over rows or calling functions on masses of data.&lt;/p&gt;
-&lt;p&gt;As it turns out there are actually two different &lt;code&gt;UNION&lt;/code&gt; operators in SQL Server: &lt;code&gt;UNION&lt;/code&gt; and &lt;code&gt;UNION ALL&lt;/code&gt;. They differ in how they handle duplicate entries. &lt;code&gt;UNION&lt;/code&gt; will check each entry to ensure that it exists in the output only one time.&lt;/p&gt;
     
     </summary>
     
