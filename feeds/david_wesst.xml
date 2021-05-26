@@ -5,7 +5,7 @@
   <link href="/feeds/david_wesst" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2021-05-26T14:57:48.748Z</updated>
+  <updated>2021-05-26T21:38:03.627Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,47 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Lucky Number v7</title>
+    <link href="https://westerndevs.com/technology/inner-monologue/lucky-number-v7/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/technology/inner-monologue/lucky-number-v7/</id>
+    <published>2021-05-24T16:00:00.000Z</published>
+    <updated>2021-05-26T21:38:03.627Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>I fixed up my blog-website-thingy again. I'm calling this v7, although I'm pretty sure there are a few incarnations of the site that were lost early on in my years, but v7 seems about right for the content I'm sharing here. In any case-- I thought I'd share the &quot;why&quot; around the new website revamp and how I think a project like this is just what I need.</p><h1>Why did you stop blogging, anyway?</h1><p>I've been thinking a lot about that lately, and the reason I stopped was that I didn't have a reason to do it anymore.</p><p>I started blogging because I was told that it was one of the things I <em>should be doing</em> and had to <em>keep doing</em> to get (and stay) in the Microsoft MVP program as a Front End Web Development MVP (formerly known as the Internet Explorer MVP program). Once I decided to leave the Front End Web Dev stuff behind to make way for my passion for video games and stuff, why should I bother blogging?</p><p>And so that was that. I stopped blogging and made way for all the video game development effort I could muster! Sure, there was the occassional link to a YouTube video or a little tech problem that I've solved on the side, but for the most part, it was dead.</p><p>0 commercial games later, and a few false restarts I'm back on the blog and the website...again.</p><h1>So why bother starting it up again?</h1><p>Well, I stopped because I gave up my reason to do so. I am starting because I found a reason: I want to share and learn.</p><p>Let's break that down a little:</p><h2>&quot;I want to&quot;</h2><p>That is probably the most important part of the whole reason. I want to make content. I'm feeling the need to do it. Maybe its habit or nostalgia for the days where creating content was part of keeping my professional status, either way it's something I like to do and the blog is a lightweight and easy way to do that.</p><h2>&quot;share&quot;</h2><p>Thinking back to when I blogged regularly as part of my MVP contribution, I didn't realize how much of a platform I had to share stories, advice, how-tos and whatever else. It really was quite the reach, and quite a privilege. My experience and work has changed a lot, but there is a still a lot to share for others.</p><p>The big difference this time around is that I'm not worried about whether or not it fits &quot;my career goals&quot; or my &quot;professional focus&quot;.  It's really about me putting my thoughts together in a cohesive way that might help someone reflect and make a decision. In getting v7 of the website ready <em>I was that &quot;someone&quot;</em> and looking over all my old posts confirmed that this is a good idea.</p><p>But, even if you (or me) don't find my posts helpful in the long or short term, that's okay. It feels good to get a post out there. There's a gratifying feeling that comes with putting a post together that helps me, and that makes it worth it too.</p><h2>&quot;learn&quot;</h2><p>As cliché as it sounds, I'm a life long learner. Content creation and management is something that keeps coming up in my side projects, and yet I've never taken the time to properly learn and understand how to do it. It's not about the marketing side, but rather what it means to contribute, learn, and engage with your audience as a solo content creator.</p><p>Plus, there are these weird &quot;little problems&quot; I've always had in my years of creating content with with MVP program. I'm hoping that with fresh eyes and new experiences with me, I can tackle these problems with a different perspective that I have in the past.</p><p>Ultimately, there is a lot to unpack here-- but assuming I keep this going, I'll continue to share what I learn, which will lead to more sharing and then more learning and...you see how this is good thing? :)</p><h2>The Point</h2><p>Scott Hanselman shared this idea <a href="https://www.hanselman.com/blog/do-they-deserve-the-gift-of-your-keystrokes" target="_blank" rel="noopener">(reference)</a> of valuing your effort in helping through your keystrokes (I'm greatly paraphrasing the idea). I spend time helping others one-on-one, but it's usually the same stories, ideas, thought patterns, and so on that people find helpful. This website and blog is my chance to share new things and old with a fresh perspective, one that is owned and driven by my values and ideas and not those of my employer or community.</p><p>Maybe its selfish to think this is a good idea, but that's fine because it's my website, my blog, and my idea that I think is good.</p><p>And if I think it's good, then that's a start.</p><p>Thanks for playing. ~ DW</p>]]></content>
+    
+    <summary type="html">
+    
+      I fixed up my blog-website-thingy again. I&#39;m calling this v7, although I&#39;m pretty sure there are a few incarnations of the site that were lost early on in my years, but v7 seems about right for the content I&#39;m sharing here. In any case-- I thought I&#39;d share the &quot;why&quot; around the new website revamp and how I think a project like this is just what I need.
+    
+    </summary>
+    
+      <category term="technology" scheme="https://westerndevs.com/categories/technology/"/>
+    
+      <category term="inner monologue" scheme="https://westerndevs.com/categories/technology/inner-monologue/"/>
+    
+    
+      <category term="blog" scheme="https://westerndevs.com/tags/blog/"/>
+    
+      <category term="website" scheme="https://westerndevs.com/tags/website/"/>
+    
+      <category term="graphql" scheme="https://westerndevs.com/tags/graphql/"/>
+    
+  </entry>
+  
+  <entry>
     <title type="html">From Travis CI to GitHub Actions (and GitHub Pages)</title>
     <link href="https://westerndevs.com/devops/from-travis-ci-to-github-actions/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devops/from-travis-ci-to-github-actions/</id>
     <published>2020-11-10T23:36:00.000Z</published>
-    <updated>2021-05-26T14:57:48.748Z</updated>
+    <updated>2021-05-26T21:38:03.627Z</updated>
 	<author>
 	
 	  
@@ -59,7 +95,7 @@
     <link href="https://westerndevs.com/devlog/out-the-door/out-the-door-post-jam-update/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/out-the-door/out-the-door-post-jam-update/</id>
     <published>2020-11-09T14:00:00.000Z</published>
-    <updated>2021-05-26T14:57:48.748Z</updated>
+    <updated>2021-05-26T21:38:03.627Z</updated>
 	<author>
 	
 	  
@@ -101,7 +137,7 @@
     <link href="https://westerndevs.com/devlog/a-solo-gamejam-experience-ld47/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/a-solo-gamejam-experience-ld47/</id>
     <published>2020-10-23T13:00:00.000Z</published>
-    <updated>2021-05-26T14:57:48.748Z</updated>
+    <updated>2021-05-26T21:38:03.627Z</updated>
 	<author>
 	
 	  
@@ -141,7 +177,7 @@
     <link href="https://westerndevs.com/devlog/game-portfolio-review-2020/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/game-portfolio-review-2020/</id>
     <published>2020-09-18T13:00:00.000Z</published>
-    <updated>2021-05-26T14:57:48.748Z</updated>
+    <updated>2021-05-26T21:38:03.627Z</updated>
 	<author>
 	
 	  
@@ -181,7 +217,7 @@
     <link href="https://westerndevs.com/devlog/little-shop-of-wall-street-01-release-notes/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/little-shop-of-wall-street-01-release-notes/</id>
     <published>2020-07-02T15:13:00.000Z</published>
-    <updated>2021-05-26T14:57:48.748Z</updated>
+    <updated>2021-05-26T21:38:03.627Z</updated>
 	<author>
 	
 	  
@@ -219,7 +255,7 @@
     <link href="https://westerndevs.com/Game-Design/How-GitHub-Makes-Game-Making-Easier-For-NonCoders/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Game-Design/How-GitHub-Makes-Game-Making-Easier-For-NonCoders/</id>
     <published>2020-02-19T20:48:36.000Z</published>
-    <updated>2021-05-26T14:57:48.744Z</updated>
+    <updated>2021-05-26T21:38:03.627Z</updated>
 	<author>
 	
 	  
@@ -255,7 +291,7 @@
     <link href="https://westerndevs.com/Devlog/Jan-2020-Devlog/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Devlog/Jan-2020-Devlog/</id>
     <published>2020-02-04T21:03:24.000Z</published>
-    <updated>2021-05-26T14:57:48.744Z</updated>
+    <updated>2021-05-26T21:38:03.627Z</updated>
 	<author>
 	
 	  
@@ -291,7 +327,7 @@
     <link href="https://westerndevs.com/Game-Development/Where-To-Find-Your-Gamedev-Community/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Game-Development/Where-To-Find-Your-Gamedev-Community/</id>
     <published>2020-01-21T11:09:00.000Z</published>
-    <updated>2021-05-26T14:57:48.744Z</updated>
+    <updated>2021-05-26T21:38:03.627Z</updated>
 	<author>
 	
 	  
@@ -329,7 +365,7 @@
     <link href="https://westerndevs.com/_/No-Cost-Game-Design-Toolbox/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/No-Cost-Game-Design-Toolbox/</id>
     <published>2020-01-13T21:51:04.000Z</published>
-    <updated>2021-05-26T14:57:48.744Z</updated>
+    <updated>2021-05-26T21:38:03.627Z</updated>
 	<author>
 	
 	  
@@ -365,7 +401,7 @@
     <link href="https://westerndevs.com/Game-Development/gameoff2019-gamejam-devlog/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Game-Development/gameoff2019-gamejam-devlog/</id>
     <published>2019-11-26T14:57:00.000Z</published>
-    <updated>2021-05-26T14:57:48.744Z</updated>
+    <updated>2021-05-26T21:38:03.627Z</updated>
 	<author>
 	
 	  
@@ -395,7 +431,7 @@
     <link href="https://westerndevs.com/_/streaming-code-and-games-on-mixer/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/streaming-code-and-games-on-mixer/</id>
     <published>2018-09-27T17:55:42.000Z</published>
-    <updated>2021-05-26T14:57:48.744Z</updated>
+    <updated>2021-05-26T21:38:03.623Z</updated>
 	<author>
 	
 	  
@@ -421,7 +457,7 @@
     <link href="https://westerndevs.com/Development/f12-chooser-is-dev-tool-thing/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Development/f12-chooser-is-dev-tool-thing/</id>
     <published>2018-03-28T17:10:00.000Z</published>
-    <updated>2021-05-26T14:57:48.744Z</updated>
+    <updated>2021-05-26T21:38:03.623Z</updated>
 	<author>
 	
 	  
@@ -457,7 +493,7 @@
     <link href="https://westerndevs.com/Development/typescript-or-javascript/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Development/typescript-or-javascript/</id>
     <published>2018-03-15T15:40:00.000Z</published>
-    <updated>2021-05-26T14:57:48.744Z</updated>
+    <updated>2021-05-26T21:38:03.623Z</updated>
 	<author>
 	
 	  
@@ -489,7 +525,7 @@
     <link href="https://westerndevs.com/Development/crowdsourcing-docs-is-cool/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Development/crowdsourcing-docs-is-cool/</id>
     <published>2018-03-13T13:40:00.000Z</published>
-    <updated>2021-05-26T14:57:48.740Z</updated>
+    <updated>2021-05-26T21:38:03.623Z</updated>
 	<author>
 	
 	  
@@ -521,7 +557,7 @@
     <link href="https://westerndevs.com/web/websummit-wsl/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/web/websummit-wsl/</id>
     <published>2017-09-20T22:35:00.000Z</published>
-    <updated>2021-05-26T14:57:48.740Z</updated>
+    <updated>2021-05-26T21:38:03.623Z</updated>
 	<author>
 	
 	  
@@ -559,7 +595,7 @@
     <link href="https://westerndevs.com/web/websummit-sonar/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/web/websummit-sonar/</id>
     <published>2017-09-19T22:35:00.000Z</published>
-    <updated>2021-05-26T14:57:48.740Z</updated>
+    <updated>2021-05-26T21:38:03.623Z</updated>
 	<author>
 	
 	  
@@ -595,7 +631,7 @@
     <link href="https://westerndevs.com/web/websummit-pwa/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/web/websummit-pwa/</id>
     <published>2017-09-18T23:35:00.000Z</published>
-    <updated>2021-05-26T14:57:48.740Z</updated>
+    <updated>2021-05-26T21:38:03.623Z</updated>
 	<author>
 	
 	  
@@ -631,7 +667,7 @@
     <link href="https://westerndevs.com/java/posh-gvm/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/java/posh-gvm/</id>
     <published>2017-08-17T14:00:00.000Z</published>
-    <updated>2021-05-26T14:57:48.740Z</updated>
+    <updated>2021-05-26T21:38:03.623Z</updated>
 	<author>
 	
 	  
@@ -669,7 +705,7 @@
     <link href="https://westerndevs.com/java/jabba/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/java/jabba/</id>
     <published>2017-08-16T13:35:00.000Z</published>
-    <updated>2021-05-26T14:57:48.740Z</updated>
+    <updated>2021-05-26T21:38:03.623Z</updated>
 	<author>
 	
 	  
@@ -697,44 +733,6 @@
       <category term="java" scheme="https://westerndevs.com/tags/java/"/>
     
       <category term="jabba" scheme="https://westerndevs.com/tags/jabba/"/>
-    
-  </entry>
-  
-  <entry>
-    <title type="html">NVS, the Node Version Manger for Everyone</title>
-    <link href="https://westerndevs.com/javascript/nvs/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/javascript/nvs/</id>
-    <published>2017-08-15T16:35:00.000Z</published>
-    <updated>2021-05-26T14:57:48.740Z</updated>
-	<author>
-	
-	  
-	  <name>David Wesst</name>
-	  <email>questions@davidwesst.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>Here's another dev thing I use: <a href="https://github.com/jasongin/nvs" target="_blank" rel="noopener">NVS</a>, a cross-platform Node version manager that works for Windows.</p><p>It's no secret that I like JavaScript, which includes <a href="nodejs.org/">Node</a>. The history of Node releases has been fast, furious, and <a href="https://stackoverflow.com/questions/27309412/what-is-the-difference-between-node-js-and-io-js" target="_blank" rel="noopener">somewhat turbulent</a> which led to a lot of different versions of Node being released. Manually managing the version of Node in you development enviornment is painful, just like it is for Java. For the Linux and Unix people, there was <a href="https://github.com/creationix/nvm" target="_blank" rel="noopener">nvm</a> and <a href="https://github.com/tj/n" target="_blank" rel="noopener">n</a>, but nothing really comparable for Windows.</p><p>Until NVS that is.</p><h2>What does it do?</h2><p>The Node Version Switcher switches versions of Node in environment. So, if you need to jump from 4.8.4 to 6.11.1, no problem. Just a quick <code>nvs add 6.11.1</code> and <code>nvs use 6.11.1</code> and you're ready to go.</p><p>No downloading binaries. No changing environment variables.</p><h2>Using NVS</h2><p>Although supported on <a href="https://github.com/jasongin/nvs#mac-linux" target="_blank" rel="noopener">OSX and Linux</a>, I'm going to focus on Windows as that is the environment where I use it the most.</p><p>You have two different installtion options on Windows, the first being a traditional installer file that you can download from <a href="https://github.com/jasongin/nvs/releases" target="_blank" rel="noopener">the release page</a> for the project.</p><p>The second is using <a href="https://github.com/jasongin/nvs/blob/master/doc/SETUP.md#manual-setup---powershell" target="_blank" rel="noopener">Powershell</a> or the good old fashioned <a href="https://github.com/jasongin/nvs/blob/master/doc/SETUP.md#manual-setup---command-prompt" target="_blank" rel="noopener">command line</a>, both of which are described on the <a href="https://github.com/jasongin/nvs/blob/master/doc/SETUP.md" target="_blank" rel="noopener">setup page</a> for the project.</p><p>NVS even supported Bash for Windows, which is pretty great for those Linux-y Windows people, although it requires a few manual configuration steps.</p><p>Once you get things installed, you can run <code>nvs</code> and go through the interactive menu goodness to get your favourite flavour of Node installed.</p><p><img src="https://davidwesst.blob.core.windows.net/blog/nvs/nvs-menu.gif" alt="NVS Interactive Console Menu" title="NVS Consle Menu in Action"></p><p>I really dig this interactive command line menu, which was created by the NVS author for NVS, and eventually turned into it's own library called <a href="https://github.com/jasongin/console-menu" target="_blank" rel="noopener">console-menu</a>. But that is post for another time.</p><h3>Won't this conflict with my installed version of Node?</h3><p>Not from my experience.</p><p>When I started with NVS, I had a version of Node installed, but I ended up uninstalling just to simplify my development environment. I kept forgetting that I had a base installation of Node installed. This confusion would result in me running <code>node --version</code> only to get a conflicting version number than the one I would see in my Windows Application list, and get me triaging an issue that didn't exist.</p><p>Plus, NVS provides a feature to set a default version of using the <code>nvs link</code> command.</p><h3>What about the global packages I've installed?</h3><p>In the case where you install a package globally using a certain version of Node, when you switch to a different version, you could face some problems. More specifically, around code features available in Node based on what version of Node you've installed, or around the nested dependencies that get installed as part of a package your project needs.</p><p>Not an issue, as NVS provides the <code>migrate</code> command to move packages, global or otherwise from one version of Node to another.</p><h3>But what about my weird, custom Node versions?</h3><p>No issue, because you can point to whatever directory you want as source for Node binaries using the <a href="https://github.com/jasongin/nvs/blob/master/doc/ALIAS.md#aliasing-directories" target="_blank" rel="noopener">aliasing capabilities</a>.</p><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">C:<span class="tag">\<span class="name">Users</span></span><span class="tag">\<span class="name">dw</span></span><span class="tag">\<span class="name">src</span></span><span class="tag">\<span class="name">_</span></span>scratch</span><br><span class="line">&gt; node --version</span><br><span class="line">v8.1.4</span><br><span class="line"></span><br><span class="line">C:<span class="tag">\<span class="name">Users</span></span><span class="tag">\<span class="name">dw</span></span><span class="tag">\<span class="name">src</span></span><span class="tag">\<span class="name">_</span></span>scratch</span><br><span class="line">&gt; nvs use chakracore/8.1.2</span><br><span class="line">PATH -= <span class="formula">$env:LOCALAPPDATA<span class="tag">\<span class="name">nvs</span></span><span class="tag">\<span class="name">chakracore</span></span><span class="tag">\</span>8.1.4<span class="tag">\<span class="name">x</span></span>64</span></span><br><span class="line"><span class="formula">PATH += $</span>env:LOCALAPPDATA<span class="tag">\<span class="name">nvs</span></span><span class="tag">\<span class="name">chakracore</span></span><span class="tag">\</span>8.1.2<span class="tag">\<span class="name">x</span></span>64</span><br><span class="line"></span><br><span class="line">C:<span class="tag">\<span class="name">Users</span></span><span class="tag">\<span class="name">dw</span></span><span class="tag">\<span class="name">src</span></span><span class="tag">\<span class="name">_</span></span>scratch</span><br><span class="line">&gt; node --version</span><br><span class="line">v8.1.2</span><br></pre></td></tr></table></figure><h2>What makes it cool?</h2><p>It's cross-platform, so that's pretty awesome. But, there's more stuff that I haven't touched on in this post.</p><p>For example, there is bundled integration with <a href="https://github.com/jasongin/nvs#vs-code-support" target="_blank" rel="noopener">Visual Studio Code</a> which is a huge cross-platform bonus for me. VS Code is my editor of choice, and considering that it too is cross-platform, this is pretty great.</p><p>Other coolness to note would be things like <a href="https://github.com/jasongin/nvs#aliases" target="_blank" rel="noopener">aliasing</a> and <a href="">automatic directory swtiching</a>(https://github.com/jasongin/nvs#automatic-switching-per-directory). Not to mention that it supports <a href="https://github.com/nodejs/node-chakracore">ChrakraCore</a>, making it easy to turn it on for all your <a href="https://github.com/nodejs/node-chakracore#time-travel-debugging" target="_blank" rel="noopener">Time Travel Debugging</a> needs.</p><p>All of that is icing on a delicious dev tool cake.</p><h2>What are the drawbacks?</h2><p>Honestly, I'm not sure. I haven't found any so far, so that counts for something.</p><hr><p>At the end of the day NVS does the job, and it does the job well. Plus, it comes with a bunch of cool extras that can make your Node development experience even more smooth.</p>]]></content>
-    
-    <summary type="html">
-    
-      Here&#39;s another dev thing I use: NVS, or the Node Version Switcher. It works on Windows and it&#39;s great.
-    
-    </summary>
-    
-      <category term="javascript" scheme="https://westerndevs.com/categories/javascript/"/>
-    
-    
-      <category term="javascript" scheme="https://westerndevs.com/tags/javascript/"/>
-    
-      <category term="node" scheme="https://westerndevs.com/tags/node/"/>
-    
-      <category term="powershell" scheme="https://westerndevs.com/tags/powershell/"/>
-    
-      <category term="nvs" scheme="https://westerndevs.com/tags/nvs/"/>
-    
-      <category term="version manager" scheme="https://westerndevs.com/tags/version-manager/"/>
     
   </entry>
   

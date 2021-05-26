@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2021-05-26T14:57:48.752Z</updated>
+  <updated>2021-05-26T21:38:03.627Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,47 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Lucky Number v7</title>
+    <link href="https://westerndevs.com/technology/inner-monologue/lucky-number-v7/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/technology/inner-monologue/lucky-number-v7/</id>
+    <published>2021-05-24T16:00:00.000Z</published>
+    <updated>2021-05-26T21:38:03.627Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>I fixed up my blog-website-thingy again. I'm calling this v7, although I'm pretty sure there are a few incarnations of the site that were lost early on in my years, but v7 seems about right for the content I'm sharing here. In any case-- I thought I'd share the &quot;why&quot; around the new website revamp and how I think a project like this is just what I need.</p><h1>Why did you stop blogging, anyway?</h1><p>I've been thinking a lot about that lately, and the reason I stopped was that I didn't have a reason to do it anymore.</p><p>I started blogging because I was told that it was one of the things I <em>should be doing</em> and had to <em>keep doing</em> to get (and stay) in the Microsoft MVP program as a Front End Web Development MVP (formerly known as the Internet Explorer MVP program). Once I decided to leave the Front End Web Dev stuff behind to make way for my passion for video games and stuff, why should I bother blogging?</p><p>And so that was that. I stopped blogging and made way for all the video game development effort I could muster! Sure, there was the occassional link to a YouTube video or a little tech problem that I've solved on the side, but for the most part, it was dead.</p><p>0 commercial games later, and a few false restarts I'm back on the blog and the website...again.</p><h1>So why bother starting it up again?</h1><p>Well, I stopped because I gave up my reason to do so. I am starting because I found a reason: I want to share and learn.</p><p>Let's break that down a little:</p><h2>&quot;I want to&quot;</h2><p>That is probably the most important part of the whole reason. I want to make content. I'm feeling the need to do it. Maybe its habit or nostalgia for the days where creating content was part of keeping my professional status, either way it's something I like to do and the blog is a lightweight and easy way to do that.</p><h2>&quot;share&quot;</h2><p>Thinking back to when I blogged regularly as part of my MVP contribution, I didn't realize how much of a platform I had to share stories, advice, how-tos and whatever else. It really was quite the reach, and quite a privilege. My experience and work has changed a lot, but there is a still a lot to share for others.</p><p>The big difference this time around is that I'm not worried about whether or not it fits &quot;my career goals&quot; or my &quot;professional focus&quot;.  It's really about me putting my thoughts together in a cohesive way that might help someone reflect and make a decision. In getting v7 of the website ready <em>I was that &quot;someone&quot;</em> and looking over all my old posts confirmed that this is a good idea.</p><p>But, even if you (or me) don't find my posts helpful in the long or short term, that's okay. It feels good to get a post out there. There's a gratifying feeling that comes with putting a post together that helps me, and that makes it worth it too.</p><h2>&quot;learn&quot;</h2><p>As cliché as it sounds, I'm a life long learner. Content creation and management is something that keeps coming up in my side projects, and yet I've never taken the time to properly learn and understand how to do it. It's not about the marketing side, but rather what it means to contribute, learn, and engage with your audience as a solo content creator.</p><p>Plus, there are these weird &quot;little problems&quot; I've always had in my years of creating content with with MVP program. I'm hoping that with fresh eyes and new experiences with me, I can tackle these problems with a different perspective that I have in the past.</p><p>Ultimately, there is a lot to unpack here-- but assuming I keep this going, I'll continue to share what I learn, which will lead to more sharing and then more learning and...you see how this is good thing? :)</p><h2>The Point</h2><p>Scott Hanselman shared this idea <a href="https://www.hanselman.com/blog/do-they-deserve-the-gift-of-your-keystrokes" target="_blank" rel="noopener">(reference)</a> of valuing your effort in helping through your keystrokes (I'm greatly paraphrasing the idea). I spend time helping others one-on-one, but it's usually the same stories, ideas, thought patterns, and so on that people find helpful. This website and blog is my chance to share new things and old with a fresh perspective, one that is owned and driven by my values and ideas and not those of my employer or community.</p><p>Maybe its selfish to think this is a good idea, but that's fine because it's my website, my blog, and my idea that I think is good.</p><p>And if I think it's good, then that's a start.</p><p>Thanks for playing. ~ DW</p>]]></content>
+    
+    <summary type="html">
+    
+      I fixed up my blog-website-thingy again. I&#39;m calling this v7, although I&#39;m pretty sure there are a few incarnations of the site that were lost early on in my years, but v7 seems about right for the content I&#39;m sharing here. In any case-- I thought I&#39;d share the &quot;why&quot; around the new website revamp and how I think a project like this is just what I need.
+    
+    </summary>
+    
+      <category term="technology" scheme="https://westerndevs.com/categories/technology/"/>
+    
+      <category term="inner monologue" scheme="https://westerndevs.com/categories/technology/inner-monologue/"/>
+    
+    
+      <category term="blog" scheme="https://westerndevs.com/tags/blog/"/>
+    
+      <category term="website" scheme="https://westerndevs.com/tags/website/"/>
+    
+      <category term="graphql" scheme="https://westerndevs.com/tags/graphql/"/>
+    
+  </entry>
+  
+  <entry>
     <title type="html">Using Durable Entities</title>
     <link href="https://westerndevs.com/_/durable-entities/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/durable-entities/</id>
     <published>2021-05-20T04:00:00.000Z</published>
-    <updated>2021-05-26T14:57:48.752Z</updated>
+    <updated>2021-05-26T21:38:03.631Z</updated>
 	<author>
 	
 	  
@@ -47,7 +83,7 @@
     <link href="https://westerndevs.com/_/advanced-waf-rules-in-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/advanced-waf-rules-in-terraform/</id>
     <published>2021-05-19T04:00:00.000Z</published>
-    <updated>2021-05-26T14:57:48.748Z</updated>
+    <updated>2021-05-26T21:38:03.627Z</updated>
 	<author>
 	
 	  
@@ -73,7 +109,7 @@
     <link href="https://westerndevs.com/_/importing-tde-encrypted-backup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/importing-tde-encrypted-backup/</id>
     <published>2021-05-18T04:00:00.000Z</published>
-    <updated>2021-05-26T14:57:48.752Z</updated>
+    <updated>2021-05-26T21:38:03.631Z</updated>
 	<author>
 	
 	  
@@ -100,7 +136,7 @@
     <link href="https://westerndevs.com/_/jq/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/jq/</id>
     <published>2021-05-11T04:00:00.000Z</published>
-    <updated>2021-05-26T14:57:48.752Z</updated>
+    <updated>2021-05-26T21:38:03.631Z</updated>
 	<author>
 	
 	  
@@ -126,7 +162,7 @@
     <link href="https://westerndevs.com/_/creating-a-shortcut/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/creating-a-shortcut/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-05-26T14:57:48.748Z</updated>
+    <updated>2021-05-26T21:38:03.631Z</updated>
 	<author>
 	
 	  
@@ -152,7 +188,7 @@
     <link href="https://westerndevs.com/_/set-timezone/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-timezone/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-05-26T14:57:48.752Z</updated>
+    <updated>2021-05-26T21:38:03.635Z</updated>
 	<author>
 	
 	  
@@ -179,7 +215,7 @@
     <link href="https://westerndevs.com/_/download-file/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/download-file/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-26T14:57:48.752Z</updated>
+    <updated>2021-05-26T21:38:03.631Z</updated>
 	<author>
 	
 	  
@@ -206,7 +242,7 @@
     <link href="https://westerndevs.com/_/drop-existing-index/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/drop-existing-index/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-26T14:57:48.752Z</updated>
+    <updated>2021-05-26T21:38:03.631Z</updated>
 	<author>
 	
 	  
@@ -232,7 +268,7 @@
     <link href="https://westerndevs.com/_/function-appinsights/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/function-appinsights/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-26T14:57:48.752Z</updated>
+    <updated>2021-05-26T21:38:03.631Z</updated>
 	<author>
 	
 	  
@@ -258,7 +294,7 @@
     <link href="https://westerndevs.com/_/query-collections-in-big-table/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/query-collections-in-big-table/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-26T14:57:48.752Z</updated>
+    <updated>2021-05-26T21:38:03.635Z</updated>
 	<author>
 	
 	  
@@ -284,7 +320,7 @@
     <link href="https://westerndevs.com/_/set-env-variable/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-env-variable/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-26T14:57:48.752Z</updated>
+    <updated>2021-05-26T21:38:03.635Z</updated>
 	<author>
 	
 	  
@@ -311,7 +347,7 @@
     <link href="https://westerndevs.com/_/terminal-buffer/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/terminal-buffer/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-26T14:57:48.756Z</updated>
+    <updated>2021-05-26T21:38:03.635Z</updated>
 	<author>
 	
 	  
@@ -337,7 +373,7 @@
     <link href="https://westerndevs.com/_/xdt-transforms/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/xdt-transforms/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-26T14:57:48.756Z</updated>
+    <updated>2021-05-26T21:38:03.635Z</updated>
 	<author>
 	
 	  
@@ -363,7 +399,7 @@
     <link href="https://westerndevs.com/_/Advent-Of-Code-Day03/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Advent-Of-Code-Day03/</id>
     <published>2020-12-04T00:00:00.000Z</published>
-    <updated>2021-05-26T14:57:48.748Z</updated>
+    <updated>2021-05-26T21:38:03.627Z</updated>
 	<author>
 	
 	  
@@ -389,7 +425,7 @@
     <link href="https://westerndevs.com/_/Advent-Of-Code-Day02/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Advent-Of-Code-Day02/</id>
     <published>2020-12-02T22:00:00.000Z</published>
-    <updated>2021-05-26T14:57:48.748Z</updated>
+    <updated>2021-05-26T21:38:03.627Z</updated>
 	<author>
 	
 	  
@@ -415,7 +451,7 @@
     <link href="https://westerndevs.com/_/Advent-Of-Code-Day01/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Advent-Of-Code-Day01/</id>
     <published>2020-12-01T05:00:00.000Z</published>
-    <updated>2021-05-26T14:57:48.748Z</updated>
+    <updated>2021-05-26T21:38:03.627Z</updated>
 	<author>
 	
 	  
@@ -441,7 +477,7 @@
     <link href="https://westerndevs.com/_/Advent-Of-Code-Intro/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Advent-Of-Code-Intro/</id>
     <published>2020-11-24T19:00:00.000Z</published>
-    <updated>2021-05-26T14:57:48.748Z</updated>
+    <updated>2021-05-26T21:38:03.627Z</updated>
 	<author>
 	
 	  
@@ -467,7 +503,7 @@
     <link href="https://westerndevs.com/_/serverless-sql-azure-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/serverless-sql-azure-terraform/</id>
     <published>2020-11-18T19:00:00.000Z</published>
-    <updated>2021-05-26T14:57:48.748Z</updated>
+    <updated>2021-05-26T21:38:03.627Z</updated>
 	<author>
 	
 	  
@@ -493,7 +529,7 @@
     <link href="https://westerndevs.com/devops/from-travis-ci-to-github-actions/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devops/from-travis-ci-to-github-actions/</id>
     <published>2020-11-10T23:36:00.000Z</published>
-    <updated>2021-05-26T14:57:48.748Z</updated>
+    <updated>2021-05-26T21:38:03.627Z</updated>
 	<author>
 	
 	  
@@ -523,32 +559,6 @@
       <category term="continuous integration" scheme="https://westerndevs.com/tags/continuous-integration/"/>
     
       <category term="continuous deployment" scheme="https://westerndevs.com/tags/continuous-deployment/"/>
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Running Stored Procedures Across Databases in Azure</title>
-    <link href="https://westerndevs.com/_/cross-database-procs/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/cross-database-procs/</id>
-    <published>2020-11-09T19:00:00.000Z</published>
-    <updated>2021-05-26T14:57:48.748Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>In a <a href="https://blog.simontimms.com/2020/11/05/2020-11-05-cross-database-queries/" target="_blank" rel="noopener">previous article</a> I talked about how to run queries across database instances on Azure using ElasticQuery. One of the limitations I talked about was the in ability to update data in the source database. Well that isn't entirely accurate. You can do it if you make use of stored procedures.</p><a id="more"></a><p>Running a stored proc on a remote database is a little bit weird looking but once you get your head around that then it is perfectly usable. Let's go back to the same example we used before with a products database an an orders database. In the products database let's add a stored procedure to add a new product and return the count of products.</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">procedure</span> addProduct</span><br><span class="line"> @item <span class="keyword">nvarchar</span>(<span class="number">50</span>)</span><br><span class="line"><span class="keyword">as</span></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Products(<span class="keyword">name</span>) <span class="keyword">values</span>(@item);</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">count</span>(*) cnt <span class="keyword">from</span> products;</span><br><span class="line">go</span><br></pre></td></tr></table></figure><p>Now over in our orders database we can use our existing database connection to call this stored proc</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sp_execute_remote ProductsSource, </span><br><span class="line">                  N'addProduct @item', </span><br><span class="line">                  @params = N'@item nvarchar(50)', </span><br><span class="line">                  @item = 'long sleeved shirts';</span><br></pre></td></tr></table></figure><p>At first glance this is a little confusing so let's break it down.</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sp_execute_remote ProductsSource,</span><br></pre></td></tr></table></figure><p>This line instructs that we want to run a stored procedure and that it should use the ProductsSource data connection.</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">N'addProduct @item',</span><br></pre></td></tr></table></figure><p>This line lists the stored proc to run and the parameters to pass to it. You'll notice that it is a NVarchar string passed as a single parameter.</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@params = N'@item nvarchar(50)',</span><br></pre></td></tr></table></figure><p>This line lists all the parameters to pass and their type. If you have multiple then you'd comma separate them here: <code>N'@item nvarchar(50), @price number(10,2)'</code></p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@item</span> = <span class="string">'long sleeved shirts'</span>;</span><br></pre></td></tr></table></figure><p>This final line is an args-style array of the values for the parameters. Again if you had a second parameter you'd pass it in as separate item here <code>@item = 'long sleeved shirts', @price=10.99</code></p><p>Running this command gets us something like</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cnt  <span class="variable">$ShardName</span></span><br><span class="line">6  [<span class="attribute">DataSource</span>=testias.database.windows.net <span class="attribute">Database</span>=testias]</span><br></pre></td></tr></table></figure><p>You'll notice that nifty ShardName colum which tells you about the source. This is because you can use a shard map to execute the stored procedure against lots of shards at once.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;In a &lt;a href=&quot;https://blog.simontimms.com/2020/11/05/2020-11-05-cross-database-queries/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;previous article&lt;/a&gt; I talked about how to run queries across database instances on Azure using ElasticQuery. One of the limitations I talked about was the in ability to update data in the source database. Well that isn&#39;t entirely accurate. You can do it if you make use of stored procedures.&lt;/p&gt;
-    
-    </summary>
-    
     
   </entry>
   
