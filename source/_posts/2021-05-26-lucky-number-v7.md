@@ -11,7 +11,7 @@ tags:
 - graphql
 excerpt: I fixed up my blog-website-thingy again. I'm calling this v7, although I'm pretty sure there are a few incarnations of the site that were lost early on in my years, but v7 seems about right for the content I'm sharing here. In any case-- I thought I'd share the "why" around the new website revamp and how I think a project like this is just what I need.
 authorId: david_wesst
-originalUrl: https://www.davidwesst.com/blog/lucky-number-v7/
+originalurl: https://www.davidwesst.com/blog/lucky-number-v7/
 ---
 
 I fixed up my blog-website-thingy again. I'm calling this v7, although I'm pretty sure there are a few incarnations of the site that were lost early on in my years, but v7 seems about right for the content I'm sharing here. In any case-- I thought I'd share the "why" around the new website revamp and how I think a project like this is just what I need.
