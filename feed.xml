@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2021-05-26T21:38:03.627Z</updated>
+  <updated>2021-06-03T14:55:36.065Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Sequences</title>
+    <link href="https://westerndevs.com/_/sequence/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/sequence/</id>
+    <published>2021-06-03T04:00:00.000Z</published>
+    <updated>2021-06-03T14:55:36.065Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>Sequences are a handy feature in SQL server which provide an increasing, unique number. You wouldn't typically use them directly but might use them under the covers in an <code>identity</code>. However from time to time they are useful when you need numbers but your primary key is a <code>uniqueidentifier</code> or you need two different ways of numbering records. I've been using them to associate records in a table into groups.</p><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">SEQUENCE</span> Seq_PermitNumber </span><br><span class="line">    <span class="keyword">start</span> <span class="keyword">with</span> <span class="number">1</span> </span><br><span class="line">    <span class="keyword">increment</span> <span class="keyword">by</span> <span class="number">1</span></span><br></pre></td></tr></table></figure><p>You can then use them like this</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> tblManualPayment </span><br><span class="line">   <span class="keyword">set</span> PermitNumber = <span class="keyword">next</span> <span class="keyword">value</span> <span class="keyword">for</span> Seq_PermitNumber </span><br><span class="line"> <span class="keyword">where</span> PermitNumber <span class="keyword">is</span> <span class="literal">null</span></span><br></pre></td></tr></table></figure><p>This will give each record a unique permit number.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Sequences are a handy feature in SQL server which provide an increasing, unique number. You wouldn&#39;t typically use them directly but migh
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Lucky Number v7</title>
     <link href="https://westerndevs.com/technology/inner-monologue/lucky-number-v7/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/technology/inner-monologue/lucky-number-v7/</id>
     <published>2021-05-24T16:00:00.000Z</published>
-    <updated>2021-05-26T21:38:03.627Z</updated>
+    <updated>2021-06-03T14:55:36.057Z</updated>
 	<author>
 	
 	  
@@ -57,7 +83,7 @@
     <link href="https://westerndevs.com/_/durable-entities/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/durable-entities/</id>
     <published>2021-05-20T04:00:00.000Z</published>
-    <updated>2021-05-26T21:38:03.631Z</updated>
+    <updated>2021-06-03T14:55:36.061Z</updated>
 	<author>
 	
 	  
@@ -83,7 +109,7 @@
     <link href="https://westerndevs.com/_/advanced-waf-rules-in-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/advanced-waf-rules-in-terraform/</id>
     <published>2021-05-19T04:00:00.000Z</published>
-    <updated>2021-05-26T21:38:03.627Z</updated>
+    <updated>2021-06-03T14:55:36.057Z</updated>
 	<author>
 	
 	  
@@ -109,7 +135,7 @@
     <link href="https://westerndevs.com/_/importing-tde-encrypted-backup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/importing-tde-encrypted-backup/</id>
     <published>2021-05-18T04:00:00.000Z</published>
-    <updated>2021-05-26T21:38:03.631Z</updated>
+    <updated>2021-06-03T14:55:36.061Z</updated>
 	<author>
 	
 	  
@@ -136,7 +162,7 @@
     <link href="https://westerndevs.com/_/jq/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/jq/</id>
     <published>2021-05-11T04:00:00.000Z</published>
-    <updated>2021-05-26T21:38:03.631Z</updated>
+    <updated>2021-06-03T14:55:36.061Z</updated>
 	<author>
 	
 	  
@@ -162,7 +188,7 @@
     <link href="https://westerndevs.com/_/creating-a-shortcut/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/creating-a-shortcut/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-05-26T21:38:03.631Z</updated>
+    <updated>2021-06-03T14:55:36.057Z</updated>
 	<author>
 	
 	  
@@ -188,7 +214,7 @@
     <link href="https://westerndevs.com/_/set-timezone/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-timezone/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-05-26T21:38:03.635Z</updated>
+    <updated>2021-06-03T14:55:36.065Z</updated>
 	<author>
 	
 	  
@@ -215,7 +241,7 @@
     <link href="https://westerndevs.com/_/download-file/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/download-file/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-26T21:38:03.631Z</updated>
+    <updated>2021-06-03T14:55:36.061Z</updated>
 	<author>
 	
 	  
@@ -242,7 +268,7 @@
     <link href="https://westerndevs.com/_/drop-existing-index/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/drop-existing-index/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-26T21:38:03.631Z</updated>
+    <updated>2021-06-03T14:55:36.061Z</updated>
 	<author>
 	
 	  
@@ -268,7 +294,7 @@
     <link href="https://westerndevs.com/_/function-appinsights/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/function-appinsights/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-26T21:38:03.631Z</updated>
+    <updated>2021-06-03T14:55:36.061Z</updated>
 	<author>
 	
 	  
@@ -294,7 +320,7 @@
     <link href="https://westerndevs.com/_/query-collections-in-big-table/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/query-collections-in-big-table/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-26T21:38:03.635Z</updated>
+    <updated>2021-06-03T14:55:36.061Z</updated>
 	<author>
 	
 	  
@@ -320,7 +346,7 @@
     <link href="https://westerndevs.com/_/set-env-variable/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-env-variable/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-26T21:38:03.635Z</updated>
+    <updated>2021-06-03T14:55:36.065Z</updated>
 	<author>
 	
 	  
@@ -347,7 +373,7 @@
     <link href="https://westerndevs.com/_/terminal-buffer/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/terminal-buffer/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-26T21:38:03.635Z</updated>
+    <updated>2021-06-03T14:55:36.065Z</updated>
 	<author>
 	
 	  
@@ -373,7 +399,7 @@
     <link href="https://westerndevs.com/_/xdt-transforms/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/xdt-transforms/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-05-26T21:38:03.635Z</updated>
+    <updated>2021-06-03T14:55:36.065Z</updated>
 	<author>
 	
 	  
@@ -399,7 +425,7 @@
     <link href="https://westerndevs.com/_/Advent-Of-Code-Day03/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Advent-Of-Code-Day03/</id>
     <published>2020-12-04T00:00:00.000Z</published>
-    <updated>2021-05-26T21:38:03.627Z</updated>
+    <updated>2021-06-03T14:55:36.057Z</updated>
 	<author>
 	
 	  
@@ -425,7 +451,7 @@
     <link href="https://westerndevs.com/_/Advent-Of-Code-Day02/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Advent-Of-Code-Day02/</id>
     <published>2020-12-02T22:00:00.000Z</published>
-    <updated>2021-05-26T21:38:03.627Z</updated>
+    <updated>2021-06-03T14:55:36.057Z</updated>
 	<author>
 	
 	  
@@ -451,7 +477,7 @@
     <link href="https://westerndevs.com/_/Advent-Of-Code-Day01/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Advent-Of-Code-Day01/</id>
     <published>2020-12-01T05:00:00.000Z</published>
-    <updated>2021-05-26T21:38:03.627Z</updated>
+    <updated>2021-06-03T14:55:36.057Z</updated>
 	<author>
 	
 	  
@@ -477,7 +503,7 @@
     <link href="https://westerndevs.com/_/Advent-Of-Code-Intro/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Advent-Of-Code-Intro/</id>
     <published>2020-11-24T19:00:00.000Z</published>
-    <updated>2021-05-26T21:38:03.627Z</updated>
+    <updated>2021-06-03T14:55:36.057Z</updated>
 	<author>
 	
 	  
@@ -503,7 +529,7 @@
     <link href="https://westerndevs.com/_/serverless-sql-azure-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/serverless-sql-azure-terraform/</id>
     <published>2020-11-18T19:00:00.000Z</published>
-    <updated>2021-05-26T21:38:03.627Z</updated>
+    <updated>2021-06-03T14:55:36.057Z</updated>
 	<author>
 	
 	  
@@ -521,44 +547,6 @@
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title type="html">From Travis CI to GitHub Actions (and GitHub Pages)</title>
-    <link href="https://westerndevs.com/devops/from-travis-ci-to-github-actions/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/devops/from-travis-ci-to-github-actions/</id>
-    <published>2020-11-10T23:36:00.000Z</published>
-    <updated>2021-05-26T21:38:03.627Z</updated>
-	<author>
-	
-	  
-	  <name>David Wesst</name>
-	  <email>questions@davidwesst.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>We recently migrated the continuous integration and deployment workflow for the Western Devs website from Travis CI to GitHub Actions. These are the steps I followed to get it done.</p><a id="more"></a><p>Travis CI <a href="https://blog.travis-ci.com/2020-11-02-travis-ci-new-billing" target="_blank" rel="noopener">announced a new pricing model</a> that <em>could</em> have impact on open source projects that are using Travis for continuous integration and/or deployment. For static websites, like the <a href="https://westerndevs.com">Western Devs website</a> or <a href="https://www.davidwesst.com" target="_blank" rel="noopener">personal website</a>, this could result in getting some unforeseen costs. With that in mind, we decided to take the plunge an migrate away from Travis and over to <a href="https://docs.github.com/en/free-pro-team@latest/actions" target="_blank" rel="noopener">GitHub Actions</a> as they provide CI and CD workflows free for open source projects.</p><h2>TL;DR; -- Just show me the code</h2><p>Fine. <a href="https://github.com/westerndevs/western-devs-website/blob/master/.github/workflows/ci-cd.yml" target="_blank" rel="noopener">Here is is</a>. It is open source after all.</p><p>But just to be clear, this isn't a tutorial on how to code this up, rather its a walkthrough on what it took to get our <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> based static site from Travis to GitHub Actions.</p><h2>Start with Mapping Out Your Workflow</h2><p>And I mean <em>workflow</em> and not just the build.</p><p>For the Western Devs, our workflow goes like this:</p><ol><li>Commit a change to the code (i.e. a new blog post)</li><li>Build the website</li><li>If master branch build is successful, deploy the build to production</li><li>Notify the Western Devs of the build result in Slack</li></ol><p>GitHub workflow provides everything we need to do this, and I'll walk you through the code, which you can see for yourself in <a href="https://github.com/westerndevs/western-devs-website/blob/master/.github/workflows/ci-cd.yml" target="_blank" rel="noopener">here in our GitHub repo</a>.</p><h3>1. Commit a change to the code (i.e. a new blog post)</h3><p>This is our trigger to start the workflow. That is represented by the <code>on</code> section of the YAML. In our case, we want to trigger the workflow every time there is a pull request created for the master branch, a push to the master branch (i.e. a merge), or a push to any other feature (ft) or hotfix (hf) branches.</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="attr">name:</span> <span class="string">CI/CD</span></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">master</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ft/*</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">hf/*</span></span><br><span class="line">  <span class="attr">pull_request:</span></span><br><span class="line">    <span class="attr">branches:</span> <span class="string">[</span> <span class="string">master</span> <span class="string">]</span></span><br></pre></td></tr></table></figure><p>Now we have a workflow that will trigger when we want to. Next, we need to actually build the website.</p><h3>2. Build the website</h3><p>Our build is exceptionally simple-- just generate the site, and if the generation is successful, the build was successful. To do this, we create a <code>build</code> job that handles the work.</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">Build</span> <span class="string">and</span> <span class="string">Deploy</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span> <span class="comment"># checkout the source code</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/setup-node@v1</span> <span class="comment"># setup the environment</span></span><br><span class="line">      <span class="attr">with:</span></span><br><span class="line">        <span class="attr">node-version:</span> <span class="number">12</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">run:</span> <span class="string">npm</span> <span class="string">install</span> <span class="comment"># setup dependencies</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">run:</span> <span class="string">npm</span> <span class="string">run</span> <span class="string">build</span> <span class="comment"># run the build command</span></span><br></pre></td></tr></table></figure><p>The first two steps are using GitHub Actions provided by GitHub themselves. This pulls our source code and the sets up the Node environment that we need to build the website. Once that is done, we  <code>run</code> steps to run shell commands to install our project specific dependendies and run the build script itself.</p><p>The scripts have been defined in our <a href="https://github.com/westerndevs/western-devs-website/blob/master/package.json" target="_blank" rel="noopener">project <code>package.json</code> file</a> and are used by the developers to build the site locally as well.</p><h3>3. If master branch build is successful, deploy the build to production</h3><p>If we are talking about the master branch, we want to do a deployment if it is successful. For this step, we added a conditional expression using the <code>github</code> context that is provided to all actions. You can learn more about context and expressions for GitHub Actions in the <a href="https://docs.github.com/en/free-pro-team@latest/actions/reference/context-and-expression-syntax-for-github-actions#about-contexts-and-expressions" target="_blank" rel="noopener">GitHub Docs here</a>.</p><p>You might also see that were using an encrypted secret using the <code>secret.GITHUB_TOKEN</code> expression. All repositories have this feature in the settings section of the repo, and you can learn more about <a href="https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets" target="_blank" rel="noopener">creating encrypted secrets for a repository here</a> in the GitHub docs.</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Deploy</span> <span class="string">to</span> <span class="string">GitHub</span> <span class="string">Pages</span></span><br><span class="line">  <span class="attr">if:</span> <span class="string">github.ref</span> <span class="string">==</span> <span class="string">'refs/heads/master'</span></span><br><span class="line">  <span class="attr">uses:</span> <span class="string">peaceiris/actions-gh-pages@v3</span></span><br><span class="line">  <span class="attr">with:</span></span><br><span class="line">    <span class="attr">github_token:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.GITHUB_TOKEN</span> <span class="string">&#125;&#125;</span></span><br><span class="line">    <span class="attr">cname:</span> <span class="string">westerndevs.com</span></span><br><span class="line">    <span class="attr">commit_message:</span> <span class="string">$&#123;&#123;</span> <span class="string">github.event.head_commit.message</span> <span class="string">&#125;&#125;</span></span><br></pre></td></tr></table></figure><h4>BONUS: Free hosting with GitHub Pages</h4><p>In our case, our deployment target is <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> which provides free hosting and SSL certificates for open source static sites sites like ours.</p><p>We decided to take this opportunity to consilate everything under the GitHub umbrella because it saved us a couple of bucks, and now everything we need to manage the site is in one spot rather than spread across multiple cloud services.</p><h3>4. Notify the Western Devs of the build result in Slack</h3><p>Originally, we had forgotten this step and started to feel it right away. So an issue was created and I put a solution in place in about 15 minutes, thanks to someone else doing all the heavy lifting and publishing their work to the <a href="https://github.com/marketplace?type=actions" target="_blank" rel="noopener">GitHub Actions Marketplace</a>.</p><p>Slack supports incoming webhooks, even for for free workspaces. I set that up by following the <a href="https://api.slack.com/messaging/webhooks" target="_blank" rel="noopener">Slack documentation</a>, created another secret in our repository and voila, we were back in business wih the notifications.</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Notify</span> <span class="string">Slack</span></span><br><span class="line">  <span class="attr">if:</span> <span class="string">always()</span></span><br><span class="line">  <span class="attr">uses:</span> <span class="string">8398a7/action-slack@v3</span></span><br><span class="line">  <span class="attr">with:</span></span><br><span class="line">    <span class="attr">status:</span> <span class="string">$&#123;&#123;</span> <span class="string">job.status</span> <span class="string">&#125;&#125;</span></span><br><span class="line">    <span class="attr">fields:</span> <span class="string">repo,message,commit,author,action,eventName,ref,workflow,job,took</span> <span class="comment"># selectable (default: repo,message)</span></span><br><span class="line">  <span class="attr">env:</span></span><br><span class="line">    <span class="attr">SLACK_WEBHOOK_URL:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.SLACK_WEBHOOK_URL</span> <span class="string">&#125;&#125;</span> <span class="comment"># required</span></span><br></pre></td></tr></table></figure><h2>Conclusion</h2><p>The combination of GitHub Actions and GitHub Pages provides every developer with the opportunity to get a taste of DevOps while actually producing something they can show off to their peers and community. Travis CI is, and will continue to be, a great CI/CD solution for developers...but if you're looking for a one-stop-shop for source control, workflow, and hosting. You can't really go wrong with GitHub.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;We recently migrated the continuous integration and deployment workflow for the Western Devs website from Travis CI to GitHub Actions. These are the steps I followed to get it done.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="devops" scheme="https://westerndevs.com/categories/devops/"/>
-    
-    
-      <category term="github actions" scheme="https://westerndevs.com/tags/github-actions/"/>
-    
-      <category term="github workflow" scheme="https://westerndevs.com/tags/github-workflow/"/>
-    
-      <category term="travis ci" scheme="https://westerndevs.com/tags/travis-ci/"/>
-    
-      <category term="continuous integration" scheme="https://westerndevs.com/tags/continuous-integration/"/>
-    
-      <category term="continuous deployment" scheme="https://westerndevs.com/tags/continuous-deployment/"/>
     
   </entry>
   
