@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2021-06-03T15:26:53.708Z</updated>
+  <updated>2021-06-07T15:49:42.894Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Add user to role in sql server</title>
+    <link href="https://westerndevs.com/_/add-user-to-role/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/add-user-to-role/</id>
+    <published>2021-06-07T04:00:00.000Z</published>
+    <updated>2021-06-07T15:49:42.894Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>This can be done with</p><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sp_addrolemember</span> <span class="variable">@rolename</span> = <span class="string">'role'</span>, <span class="variable">@membername</span> = <span class="string">'security_account'</span></span><br></pre></td></tr></table></figure><p>example</p><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sp_addrolemember</span> <span class="variable">@rolename</span> = <span class="string">'db_owner'</span>, <span class="variable">@membername</span> = <span class="string">'evil_hacker_account'</span></span><br></pre></td></tr></table></figure><p>another example</p><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sp_addrolemember</span> <span class="variable">@rolename</span> = <span class="string">'db_datareader'</span>, <span class="variable">@membername</span> = <span class="string">'datafactory'</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;This can be done with&lt;/p&gt;
+&lt;figure class=&quot;highlight nginx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;t
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">My Secret Addiction to Likes</title>
     <link href="https://westerndevs.com/inner-monologue/my-secret-addiction-to-likes/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/inner-monologue/my-secret-addiction-to-likes/</id>
     <published>2021-06-03T16:00:00.000Z</published>
-    <updated>2021-06-03T15:26:53.708Z</updated>
+    <updated>2021-06-07T15:49:42.890Z</updated>
 	<author>
 	
 	  
@@ -59,7 +86,7 @@
     <link href="https://westerndevs.com/_/sequence/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/sequence/</id>
     <published>2021-06-03T04:00:00.000Z</published>
-    <updated>2021-06-03T15:26:53.716Z</updated>
+    <updated>2021-06-07T15:49:42.898Z</updated>
 	<author>
 	
 	  
@@ -85,7 +112,7 @@
     <link href="https://westerndevs.com/technology/inner-monologue/lucky-number-v7/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/technology/inner-monologue/lucky-number-v7/</id>
     <published>2021-05-24T16:00:00.000Z</published>
-    <updated>2021-06-03T15:26:53.708Z</updated>
+    <updated>2021-06-07T15:49:42.890Z</updated>
 	<author>
 	
 	  
@@ -121,7 +148,7 @@
     <link href="https://westerndevs.com/_/durable-entities/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/durable-entities/</id>
     <published>2021-05-20T04:00:00.000Z</published>
-    <updated>2021-06-03T15:26:53.712Z</updated>
+    <updated>2021-06-07T15:49:42.894Z</updated>
 	<author>
 	
 	  
@@ -147,7 +174,7 @@
     <link href="https://westerndevs.com/_/advanced-waf-rules-in-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/advanced-waf-rules-in-terraform/</id>
     <published>2021-05-19T04:00:00.000Z</published>
-    <updated>2021-06-03T15:26:53.708Z</updated>
+    <updated>2021-06-07T15:49:42.894Z</updated>
 	<author>
 	
 	  
@@ -173,7 +200,7 @@
     <link href="https://westerndevs.com/_/importing-tde-encrypted-backup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/importing-tde-encrypted-backup/</id>
     <published>2021-05-18T04:00:00.000Z</published>
-    <updated>2021-06-03T15:26:53.712Z</updated>
+    <updated>2021-06-07T15:49:42.894Z</updated>
 	<author>
 	
 	  
@@ -200,7 +227,7 @@
     <link href="https://westerndevs.com/_/jq/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/jq/</id>
     <published>2021-05-11T04:00:00.000Z</published>
-    <updated>2021-06-03T15:26:53.712Z</updated>
+    <updated>2021-06-07T15:49:42.894Z</updated>
 	<author>
 	
 	  
@@ -226,7 +253,7 @@
     <link href="https://westerndevs.com/_/creating-a-shortcut/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/creating-a-shortcut/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-06-03T15:26:53.708Z</updated>
+    <updated>2021-06-07T15:49:42.894Z</updated>
 	<author>
 	
 	  
@@ -252,7 +279,7 @@
     <link href="https://westerndevs.com/_/set-timezone/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-timezone/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-06-03T15:26:53.716Z</updated>
+    <updated>2021-06-07T15:49:42.898Z</updated>
 	<author>
 	
 	  
@@ -279,7 +306,7 @@
     <link href="https://westerndevs.com/_/download-file/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/download-file/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-03T15:26:53.708Z</updated>
+    <updated>2021-06-07T15:49:42.894Z</updated>
 	<author>
 	
 	  
@@ -306,7 +333,7 @@
     <link href="https://westerndevs.com/_/drop-existing-index/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/drop-existing-index/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-03T15:26:53.712Z</updated>
+    <updated>2021-06-07T15:49:42.894Z</updated>
 	<author>
 	
 	  
@@ -332,7 +359,7 @@
     <link href="https://westerndevs.com/_/function-appinsights/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/function-appinsights/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-03T15:26:53.712Z</updated>
+    <updated>2021-06-07T15:49:42.894Z</updated>
 	<author>
 	
 	  
@@ -358,7 +385,7 @@
     <link href="https://westerndevs.com/_/query-collections-in-big-table/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/query-collections-in-big-table/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-03T15:26:53.712Z</updated>
+    <updated>2021-06-07T15:49:42.898Z</updated>
 	<author>
 	
 	  
@@ -384,7 +411,7 @@
     <link href="https://westerndevs.com/_/set-env-variable/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-env-variable/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-03T15:26:53.716Z</updated>
+    <updated>2021-06-07T15:49:42.898Z</updated>
 	<author>
 	
 	  
@@ -411,7 +438,7 @@
     <link href="https://westerndevs.com/_/terminal-buffer/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/terminal-buffer/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-03T15:26:53.716Z</updated>
+    <updated>2021-06-07T15:49:42.898Z</updated>
 	<author>
 	
 	  
@@ -437,7 +464,7 @@
     <link href="https://westerndevs.com/_/xdt-transforms/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/xdt-transforms/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-03T15:26:53.716Z</updated>
+    <updated>2021-06-07T15:49:42.902Z</updated>
 	<author>
 	
 	  
@@ -463,7 +490,7 @@
     <link href="https://westerndevs.com/_/Advent-Of-Code-Day03/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Advent-Of-Code-Day03/</id>
     <published>2020-12-04T00:00:00.000Z</published>
-    <updated>2021-06-03T15:26:53.708Z</updated>
+    <updated>2021-06-07T15:49:42.890Z</updated>
 	<author>
 	
 	  
@@ -489,7 +516,7 @@
     <link href="https://westerndevs.com/_/Advent-Of-Code-Day02/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Advent-Of-Code-Day02/</id>
     <published>2020-12-02T22:00:00.000Z</published>
-    <updated>2021-06-03T15:26:53.708Z</updated>
+    <updated>2021-06-07T15:49:42.890Z</updated>
 	<author>
 	
 	  
@@ -515,7 +542,7 @@
     <link href="https://westerndevs.com/_/Advent-Of-Code-Day01/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Advent-Of-Code-Day01/</id>
     <published>2020-12-01T05:00:00.000Z</published>
-    <updated>2021-06-03T15:26:53.708Z</updated>
+    <updated>2021-06-07T15:49:42.890Z</updated>
 	<author>
 	
 	  
@@ -530,32 +557,6 @@
     <summary type="html">
     
       &lt;p&gt;There was a slight hiccup with the Advent Of Code site going down right at launch today.  Within about 5-6 minutes they had solved the problem, and the site author gave a couple comments about it on reddit:&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Advent of Code 2020 - C# Framework</title>
-    <link href="https://westerndevs.com/_/Advent-Of-Code-Intro/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/Advent-Of-Code-Intro/</id>
-    <published>2020-11-24T19:00:00.000Z</published>
-    <updated>2021-06-03T15:26:53.708Z</updated>
-	<author>
-	
-	  
-	  <name>Dylan Smith</name>
-	  <email>optikal@shaw.ca</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p><a href="https://adventofcode.com/" target="_blank" rel="noopener">Advent Of Code 2020</a> is just around the corner.  This year my hope is to create a short video after solving each day to show off my solution.  Here's an intro video where I walk-through the framework/GUI I've created where I write and run my code.</p><a id="more"></a><iframe width="560" height="315" src="https://www.youtube.com/embed/BDeR8KBJnv0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;https://adventofcode.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Advent Of Code 2020&lt;/a&gt; is just around the corner.  This year my hope is to create a short video after solving each day to show off my solution.  Here&#39;s an intro video where I walk-through the framework/GUI I&#39;ve created where I write and run my code.&lt;/p&gt;
     
     </summary>
     

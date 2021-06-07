@@ -5,7 +5,7 @@
   <link href="/feeds/simon_timms" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2021-06-03T15:26:53.716Z</updated>
+  <updated>2021-06-07T15:49:42.894Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Add user to role in sql server</title>
+    <link href="https://westerndevs.com/_/add-user-to-role/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/add-user-to-role/</id>
+    <published>2021-06-07T04:00:00.000Z</published>
+    <updated>2021-06-07T15:49:42.894Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>This can be done with</p><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sp_addrolemember</span> <span class="variable">@rolename</span> = <span class="string">'role'</span>, <span class="variable">@membername</span> = <span class="string">'security_account'</span></span><br></pre></td></tr></table></figure><p>example</p><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sp_addrolemember</span> <span class="variable">@rolename</span> = <span class="string">'db_owner'</span>, <span class="variable">@membername</span> = <span class="string">'evil_hacker_account'</span></span><br></pre></td></tr></table></figure><p>another example</p><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sp_addrolemember</span> <span class="variable">@rolename</span> = <span class="string">'db_datareader'</span>, <span class="variable">@membername</span> = <span class="string">'datafactory'</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;This can be done with&lt;/p&gt;
+&lt;figure class=&quot;highlight nginx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;t
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Sequences</title>
     <link href="https://westerndevs.com/_/sequence/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/sequence/</id>
     <published>2021-06-03T04:00:00.000Z</published>
-    <updated>2021-06-03T15:26:53.716Z</updated>
+    <updated>2021-06-07T15:49:42.898Z</updated>
 	<author>
 	
 	  
@@ -47,7 +74,7 @@
     <link href="https://westerndevs.com/_/durable-entities/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/durable-entities/</id>
     <published>2021-05-20T04:00:00.000Z</published>
-    <updated>2021-06-03T15:26:53.712Z</updated>
+    <updated>2021-06-07T15:49:42.894Z</updated>
 	<author>
 	
 	  
@@ -73,7 +100,7 @@
     <link href="https://westerndevs.com/_/advanced-waf-rules-in-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/advanced-waf-rules-in-terraform/</id>
     <published>2021-05-19T04:00:00.000Z</published>
-    <updated>2021-06-03T15:26:53.708Z</updated>
+    <updated>2021-06-07T15:49:42.894Z</updated>
 	<author>
 	
 	  
@@ -99,7 +126,7 @@
     <link href="https://westerndevs.com/_/importing-tde-encrypted-backup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/importing-tde-encrypted-backup/</id>
     <published>2021-05-18T04:00:00.000Z</published>
-    <updated>2021-06-03T15:26:53.712Z</updated>
+    <updated>2021-06-07T15:49:42.894Z</updated>
 	<author>
 	
 	  
@@ -126,7 +153,7 @@
     <link href="https://westerndevs.com/_/jq/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/jq/</id>
     <published>2021-05-11T04:00:00.000Z</published>
-    <updated>2021-06-03T15:26:53.712Z</updated>
+    <updated>2021-06-07T15:49:42.894Z</updated>
 	<author>
 	
 	  
@@ -152,7 +179,7 @@
     <link href="https://westerndevs.com/_/creating-a-shortcut/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/creating-a-shortcut/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-06-03T15:26:53.708Z</updated>
+    <updated>2021-06-07T15:49:42.894Z</updated>
 	<author>
 	
 	  
@@ -178,7 +205,7 @@
     <link href="https://westerndevs.com/_/set-timezone/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-timezone/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-06-03T15:26:53.716Z</updated>
+    <updated>2021-06-07T15:49:42.898Z</updated>
 	<author>
 	
 	  
@@ -205,7 +232,7 @@
     <link href="https://westerndevs.com/_/download-file/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/download-file/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-03T15:26:53.708Z</updated>
+    <updated>2021-06-07T15:49:42.894Z</updated>
 	<author>
 	
 	  
@@ -232,7 +259,7 @@
     <link href="https://westerndevs.com/_/drop-existing-index/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/drop-existing-index/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-03T15:26:53.712Z</updated>
+    <updated>2021-06-07T15:49:42.894Z</updated>
 	<author>
 	
 	  
@@ -258,7 +285,7 @@
     <link href="https://westerndevs.com/_/function-appinsights/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/function-appinsights/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-03T15:26:53.712Z</updated>
+    <updated>2021-06-07T15:49:42.894Z</updated>
 	<author>
 	
 	  
@@ -284,7 +311,7 @@
     <link href="https://westerndevs.com/_/query-collections-in-big-table/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/query-collections-in-big-table/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-03T15:26:53.712Z</updated>
+    <updated>2021-06-07T15:49:42.898Z</updated>
 	<author>
 	
 	  
@@ -310,7 +337,7 @@
     <link href="https://westerndevs.com/_/set-env-variable/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-env-variable/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-03T15:26:53.716Z</updated>
+    <updated>2021-06-07T15:49:42.898Z</updated>
 	<author>
 	
 	  
@@ -337,7 +364,7 @@
     <link href="https://westerndevs.com/_/terminal-buffer/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/terminal-buffer/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-03T15:26:53.716Z</updated>
+    <updated>2021-06-07T15:49:42.898Z</updated>
 	<author>
 	
 	  
@@ -363,7 +390,7 @@
     <link href="https://westerndevs.com/_/xdt-transforms/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/xdt-transforms/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-03T15:26:53.716Z</updated>
+    <updated>2021-06-07T15:49:42.902Z</updated>
 	<author>
 	
 	  
@@ -389,7 +416,7 @@
     <link href="https://westerndevs.com/_/serverless-sql-azure-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/serverless-sql-azure-terraform/</id>
     <published>2020-11-18T19:00:00.000Z</published>
-    <updated>2021-06-03T15:26:53.708Z</updated>
+    <updated>2021-06-07T15:49:42.890Z</updated>
 	<author>
 	
 	  
@@ -415,7 +442,7 @@
     <link href="https://westerndevs.com/_/cross-database-procs/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cross-database-procs/</id>
     <published>2020-11-09T19:00:00.000Z</published>
-    <updated>2021-06-03T15:26:53.708Z</updated>
+    <updated>2021-06-07T15:49:42.890Z</updated>
 	<author>
 	
 	  
@@ -441,7 +468,7 @@
     <link href="https://westerndevs.com/_/processor-limits/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/processor-limits/</id>
     <published>2020-11-05T20:00:00.000Z</published>
-    <updated>2021-06-03T15:26:53.708Z</updated>
+    <updated>2021-06-07T15:49:42.890Z</updated>
 	<author>
 	
 	  
@@ -467,7 +494,7 @@
     <link href="https://westerndevs.com/_/elasticquery/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/elasticquery/</id>
     <published>2020-11-05T19:00:00.000Z</published>
-    <updated>2021-06-03T15:26:53.708Z</updated>
+    <updated>2021-06-07T15:49:42.890Z</updated>
 	<author>
 	
 	  
@@ -493,7 +520,7 @@
     <link href="https://westerndevs.com/_/typescript-definition/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/typescript-definition/</id>
     <published>2020-09-28T18:00:00.000Z</published>
-    <updated>2021-06-03T15:26:53.708Z</updated>
+    <updated>2021-06-07T15:49:42.890Z</updated>
 	<author>
 	
 	  
@@ -508,32 +535,6 @@
     <summary type="html">
     
       If you&#39;re missing expected functions in your TypeScript app the problem might be an incorrect target
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Flutter unit testing with native channels</title>
-    <link href="https://westerndevs.com/_/flutter-tests-with-native/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/flutter-tests-with-native/</id>
-    <published>2020-04-01T14:00:00.000Z</published>
-    <updated>2021-06-03T15:26:53.704Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>Today I was digging through some unit tests in our flutter project that seemed to be failing on my machine but not necessarily in other places like our build pipeline. The problem was that we had some calls to async methods which were not being awaited properly. I fixed those up and they uncovered a bunch of more serious problems in our tests. We were calling out to validate a phone number with libphonenumber and now we were actually awaiting the call properly we saw this error</p><a id="more"></a><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[master ≡ +0 ~2 -0 !]&gt; flutter <span class="built_in">test</span></span><br><span class="line">00:03 +27 -1: <span class="built_in">test</span>\unit\providers\create_account_provider_test.dart: Real mobile number - is valid [E]</span><br><span class="line">  MissingPluginException(No implementation found <span class="keyword">for</span> method isValidPhoneNumber on channel codeheadlabs.com/libphonenumber)</span><br><span class="line">  package:blah/providers/create_account_provider.dart 101:9  CreateAccountProvider.setMobileNumber</span><br><span class="line"></span><br><span class="line">00:03 +28 -2: <span class="built_in">test</span>\unit\providers\create_account_provider_test.dart: Valid state <span class="keyword">if</span> properties are valid [E]</span><br><span class="line">  MissingPluginException(No implementation found <span class="keyword">for</span> method isValidPhoneNumber on channel codeheadlabs.com/libphonenumber)</span><br><span class="line">  package:blah/providers/create_account_provider.dart 101:9  CreateAccountProvider.setMobileNumber</span><br></pre></td></tr></table></figure><p>As it turns out libphonenumber is actually a native implementation wrapped up with flutter. To communicate with this native code isn't possible in a test environment so it needs to be mocked. This can be done by mocking the channel.</p><p>In the setUp() for the unit tests I added a call to setMockMethodCallHandler like so</p><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> _channel = <span class="keyword">const</span> MethodChannel(<span class="string">'codeheadlabs.com/libphonenumber'</span>);</span><br><span class="line">setUp(() <span class="keyword">async</span> &#123;</span><br><span class="line">_channel.setMockMethodCallHandler((MethodCall methodCall) <span class="keyword">async</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;);  </span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">tearDown(()&#123;</span><br><span class="line">_channel.setMockMethodCallHandler(<span class="keyword">null</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>With this call in place I was able to run the test without issue.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Today I was digging through some unit tests in our flutter project that seemed to be failing on my machine but not necessarily in other places like our build pipeline. The problem was that we had some calls to async methods which were not being awaited properly. I fixed those up and they uncovered a bunch of more serious problems in our tests. We were calling out to validate a phone number with libphonenumber and now we were actually awaiting the call properly we saw this error&lt;/p&gt;
     
     </summary>
     
