@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="Western Devs">
 <meta property="og:description" content="You&#39;d like to think that in 2021 installing a font would involve just copying it and some advanced AI system would notice it and install it on Windows. Again the future has failed us. Let&#39;s say you ha">
 <meta property="article:published_time" content="2021-06-11T04:00:00.000Z">
-<meta property="article:modified_time" content="2021-06-11T20:56:17.531Z">
+<meta property="article:modified_time" content="2021-06-11T20:58:05.763Z">
 <meta property="article:author" content="Western Devs">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:creator" content="@westerndevs">
@@ -111,7 +111,8 @@
 <p>Here is a script that will copy over all the fonts in the current directory.</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="string">"Install fonts"</span></span><br><span class="line"><span class="variable">$fonts</span> = (<span class="built_in">New-Object</span> <span class="literal">-ComObject</span> Shell.Application).Namespace(<span class="number">0</span>x14)</span><br><span class="line"><span class="keyword">foreach</span> (<span class="variable">$file</span> <span class="keyword">in</span> gci *.ttf)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable">$fileName</span> = <span class="variable">$file</span>.Name</span><br><span class="line">    <span class="keyword">if</span> (<span class="operator">-not</span>(<span class="built_in">Test-Path</span> <span class="literal">-Path</span> <span class="string">"C:\Windows\fonts\<span class="variable">$fileName</span>"</span> )) &#123;</span><br><span class="line">        echo <span class="variable">$fileName</span></span><br><span class="line">        dir <span class="variable">$file</span> | %&#123; <span class="variable">$fonts</span>.CopyHere(<span class="variable">$_</span>.fullname) &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">cp *.ttf c:\windows\fonts\</span><br></pre></td></tr></table></figure>
 <p>The fonts don't seem to get installed using the same file name as they arrive with so that last <code>cp</code> line puts the original files in the fonts directory so you can run this script multiple times and it will just install the new fonts. If you wanted to get cool you could check for a checksum and install fonts where the checksum doesn't match. Don't both trying to use <code>CopyHere</code> with the flag <code>0x14</code> thinking it will overwrite fonts. That doesn't work for the font directory.</p>
-
+<p>If you want to check and see which fonts are visible to .NET on the system then you can try</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="built_in">void</span>] [<span class="type">System.Reflection.Assembly</span>]::LoadWithPartialName(<span class="string">"System.Drawing"</span>)</span><br><span class="line">(<span class="built_in">New-Object</span> System.Drawing.Text.InstalledFontCollection).Families</span><br></pre></td></tr></table></figure>
 	        </div>
 
             

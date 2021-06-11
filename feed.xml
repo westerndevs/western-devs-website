@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2021-06-11T20:56:17.531Z</updated>
+  <updated>2021-06-11T20:58:05.763Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://westerndevs.com/_/installing-fonts/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/installing-fonts/</id>
     <published>2021-06-11T04:00:00.000Z</published>
-    <updated>2021-06-11T20:56:17.531Z</updated>
+    <updated>2021-06-11T20:58:05.763Z</updated>
 	<author>
 	
 	  
@@ -31,7 +31,7 @@
 	  <uri>https://westerndevs.com</uri>
 	</author>
     
-    <content type="html"><![CDATA[<p>You'd like to think that in 2021 installing a font would involve just copying it and some advanced AI system would notice it and install it on Windows. Again the future has failed us.</p><p>Let's say you have a folder of TTF fonts you need installing. Just copying them to the <code>c:\windows\fonts</code> directory won't work. You need to copy them with a magic COM command that is probably left over from when file names in Windows looked like <code>PROGRA~1</code>. I've seen some scripts which add the font to the windows registry but I didn't have much luck getting them to work and they feel fragile should Microsoft ever update font handling (ha!).</p><p>Here is a script that will copy over all the fonts in the current directory.</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="string">"Install fonts"</span></span><br><span class="line"><span class="variable">$fonts</span> = (<span class="built_in">New-Object</span> <span class="literal">-ComObject</span> Shell.Application).Namespace(<span class="number">0</span>x14)</span><br><span class="line"><span class="keyword">foreach</span> (<span class="variable">$file</span> <span class="keyword">in</span> gci *.ttf)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable">$fileName</span> = <span class="variable">$file</span>.Name</span><br><span class="line">    <span class="keyword">if</span> (<span class="operator">-not</span>(<span class="built_in">Test-Path</span> <span class="literal">-Path</span> <span class="string">"C:\Windows\fonts\<span class="variable">$fileName</span>"</span> )) &#123;</span><br><span class="line">        echo <span class="variable">$fileName</span></span><br><span class="line">        dir <span class="variable">$file</span> | %&#123; <span class="variable">$fonts</span>.CopyHere(<span class="variable">$_</span>.fullname) &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">cp *.ttf c:\windows\fonts\</span><br></pre></td></tr></table></figure><p>The fonts don't seem to get installed using the same file name as they arrive with so that last <code>cp</code> line puts the original files in the fonts directory so you can run this script multiple times and it will just install the new fonts. If you wanted to get cool you could check for a checksum and install fonts where the checksum doesn't match. Don't both trying to use <code>CopyHere</code> with the flag <code>0x14</code> thinking it will overwrite fonts. That doesn't work for the font directory.</p>]]></content>
+    <content type="html"><![CDATA[<p>You'd like to think that in 2021 installing a font would involve just copying it and some advanced AI system would notice it and install it on Windows. Again the future has failed us.</p><p>Let's say you have a folder of TTF fonts you need installing. Just copying them to the <code>c:\windows\fonts</code> directory won't work. You need to copy them with a magic COM command that is probably left over from when file names in Windows looked like <code>PROGRA~1</code>. I've seen some scripts which add the font to the windows registry but I didn't have much luck getting them to work and they feel fragile should Microsoft ever update font handling (ha!).</p><p>Here is a script that will copy over all the fonts in the current directory.</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="string">"Install fonts"</span></span><br><span class="line"><span class="variable">$fonts</span> = (<span class="built_in">New-Object</span> <span class="literal">-ComObject</span> Shell.Application).Namespace(<span class="number">0</span>x14)</span><br><span class="line"><span class="keyword">foreach</span> (<span class="variable">$file</span> <span class="keyword">in</span> gci *.ttf)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable">$fileName</span> = <span class="variable">$file</span>.Name</span><br><span class="line">    <span class="keyword">if</span> (<span class="operator">-not</span>(<span class="built_in">Test-Path</span> <span class="literal">-Path</span> <span class="string">"C:\Windows\fonts\<span class="variable">$fileName</span>"</span> )) &#123;</span><br><span class="line">        echo <span class="variable">$fileName</span></span><br><span class="line">        dir <span class="variable">$file</span> | %&#123; <span class="variable">$fonts</span>.CopyHere(<span class="variable">$_</span>.fullname) &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">cp *.ttf c:\windows\fonts\</span><br></pre></td></tr></table></figure><p>The fonts don't seem to get installed using the same file name as they arrive with so that last <code>cp</code> line puts the original files in the fonts directory so you can run this script multiple times and it will just install the new fonts. If you wanted to get cool you could check for a checksum and install fonts where the checksum doesn't match. Don't both trying to use <code>CopyHere</code> with the flag <code>0x14</code> thinking it will overwrite fonts. That doesn't work for the font directory.</p><p>If you want to check and see which fonts are visible to .NET on the system then you can try</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="built_in">void</span>] [<span class="type">System.Reflection.Assembly</span>]::LoadWithPartialName(<span class="string">"System.Drawing"</span>)</span><br><span class="line">(<span class="built_in">New-Object</span> System.Drawing.Text.InstalledFontCollection).Families</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
@@ -47,7 +47,7 @@
     <link href="https://westerndevs.com/_/Azure-service-bus-transports/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Azure-service-bus-transports/</id>
     <published>2021-06-07T04:00:00.000Z</published>
-    <updated>2021-06-11T20:56:17.531Z</updated>
+    <updated>2021-06-11T20:58:05.759Z</updated>
 	<author>
 	
 	  
@@ -78,7 +78,7 @@
     <link href="https://westerndevs.com/_/add-user-to-role/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/add-user-to-role/</id>
     <published>2021-06-07T04:00:00.000Z</published>
-    <updated>2021-06-11T20:56:17.531Z</updated>
+    <updated>2021-06-11T20:58:05.759Z</updated>
 	<author>
 	
 	  
@@ -105,7 +105,7 @@
     <link href="https://westerndevs.com/inner-monologue/my-secret-addiction-to-likes/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/inner-monologue/my-secret-addiction-to-likes/</id>
     <published>2021-06-03T16:00:00.000Z</published>
-    <updated>2021-06-11T20:56:17.531Z</updated>
+    <updated>2021-06-11T20:58:05.759Z</updated>
 	<author>
 	
 	  
@@ -143,7 +143,7 @@
     <link href="https://westerndevs.com/_/sequence/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/sequence/</id>
     <published>2021-06-03T04:00:00.000Z</published>
-    <updated>2021-06-11T20:56:17.535Z</updated>
+    <updated>2021-06-11T20:58:05.767Z</updated>
 	<author>
 	
 	  
@@ -169,7 +169,7 @@
     <link href="https://westerndevs.com/technology/inner-monologue/lucky-number-v7/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/technology/inner-monologue/lucky-number-v7/</id>
     <published>2021-05-24T16:00:00.000Z</published>
-    <updated>2021-06-11T20:56:17.531Z</updated>
+    <updated>2021-06-11T20:58:05.759Z</updated>
 	<author>
 	
 	  
@@ -205,7 +205,7 @@
     <link href="https://westerndevs.com/_/durable-entities/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/durable-entities/</id>
     <published>2021-05-20T04:00:00.000Z</published>
-    <updated>2021-06-11T20:56:17.531Z</updated>
+    <updated>2021-06-11T20:58:05.763Z</updated>
 	<author>
 	
 	  
@@ -231,7 +231,7 @@
     <link href="https://westerndevs.com/_/advanced-waf-rules-in-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/advanced-waf-rules-in-terraform/</id>
     <published>2021-05-19T04:00:00.000Z</published>
-    <updated>2021-06-11T20:56:17.531Z</updated>
+    <updated>2021-06-11T20:58:05.759Z</updated>
 	<author>
 	
 	  
@@ -257,7 +257,7 @@
     <link href="https://westerndevs.com/_/importing-tde-encrypted-backup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/importing-tde-encrypted-backup/</id>
     <published>2021-05-18T04:00:00.000Z</published>
-    <updated>2021-06-11T20:56:17.531Z</updated>
+    <updated>2021-06-11T20:58:05.763Z</updated>
 	<author>
 	
 	  
@@ -284,7 +284,7 @@
     <link href="https://westerndevs.com/_/jq/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/jq/</id>
     <published>2021-05-11T04:00:00.000Z</published>
-    <updated>2021-06-11T20:56:17.531Z</updated>
+    <updated>2021-06-11T20:58:05.763Z</updated>
 	<author>
 	
 	  
@@ -310,7 +310,7 @@
     <link href="https://westerndevs.com/_/creating-a-shortcut/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/creating-a-shortcut/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-06-11T20:56:17.531Z</updated>
+    <updated>2021-06-11T20:58:05.763Z</updated>
 	<author>
 	
 	  
@@ -336,7 +336,7 @@
     <link href="https://westerndevs.com/_/set-timezone/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-timezone/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-06-11T20:56:17.535Z</updated>
+    <updated>2021-06-11T20:58:05.767Z</updated>
 	<author>
 	
 	  
@@ -363,7 +363,7 @@
     <link href="https://westerndevs.com/_/download-file/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/download-file/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-11T20:56:17.531Z</updated>
+    <updated>2021-06-11T20:58:05.763Z</updated>
 	<author>
 	
 	  
@@ -390,7 +390,7 @@
     <link href="https://westerndevs.com/_/drop-existing-index/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/drop-existing-index/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-11T20:56:17.531Z</updated>
+    <updated>2021-06-11T20:58:05.763Z</updated>
 	<author>
 	
 	  
@@ -416,7 +416,7 @@
     <link href="https://westerndevs.com/_/function-appinsights/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/function-appinsights/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-11T20:56:17.531Z</updated>
+    <updated>2021-06-11T20:58:05.763Z</updated>
 	<author>
 	
 	  
@@ -442,7 +442,7 @@
     <link href="https://westerndevs.com/_/query-collections-in-big-table/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/query-collections-in-big-table/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-11T20:56:17.535Z</updated>
+    <updated>2021-06-11T20:58:05.767Z</updated>
 	<author>
 	
 	  
@@ -468,7 +468,7 @@
     <link href="https://westerndevs.com/_/set-env-variable/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-env-variable/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-11T20:56:17.535Z</updated>
+    <updated>2021-06-11T20:58:05.767Z</updated>
 	<author>
 	
 	  
@@ -495,7 +495,7 @@
     <link href="https://westerndevs.com/_/terminal-buffer/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/terminal-buffer/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-11T20:56:17.535Z</updated>
+    <updated>2021-06-11T20:58:05.767Z</updated>
 	<author>
 	
 	  
@@ -521,7 +521,7 @@
     <link href="https://westerndevs.com/_/xdt-transforms/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/xdt-transforms/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-11T20:56:17.539Z</updated>
+    <updated>2021-06-11T20:58:05.767Z</updated>
 	<author>
 	
 	  
@@ -547,7 +547,7 @@
     <link href="https://westerndevs.com/_/Advent-Of-Code-Day03/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Advent-Of-Code-Day03/</id>
     <published>2020-12-04T00:00:00.000Z</published>
-    <updated>2021-06-11T20:56:17.531Z</updated>
+    <updated>2021-06-11T20:58:05.759Z</updated>
 	<author>
 	
 	  
