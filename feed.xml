@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2021-06-11T20:58:05.763Z</updated>
+  <updated>2021-06-16T15:23:38.370Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Quick Noda Time Conversions</title>
+    <link href="https://westerndevs.com/_/noda-time/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/noda-time/</id>
+    <published>2021-06-16T04:00:00.000Z</published>
+    <updated>2021-06-16T15:23:38.370Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>Noda time makes working with timezones, well not a snap but better than dental surgery.</p><h2>Convert a DateTime and TzDB Timezone to UTC</h2><p>A TzDB timezone is one that looks like <code>America/Edmonton</code> or, one might presume <code>Mars/OlympusMons</code></p><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">DateTimeZone timezone = DateTimeZoneProviders.Tzdb.<span class="constructor">GetZoneOrNull(<span class="params">timezoneId</span>)</span>;</span><br><span class="line">ZoneLocalMappingResolver customResolver = Resolvers.<span class="constructor">CreateMappingResolver(Resolvers.ReturnLater, Resolvers.ReturnStartOfIntervalAfter)</span>;</span><br><span class="line">var localDateTime = LocalDateTime.<span class="constructor">FromDateTime(<span class="params">dateTime</span>)</span>;</span><br><span class="line">var zonedDateTime = timezone.<span class="constructor">ResolveLocal(<span class="params">localDateTime</span>, <span class="params">customResolver</span>)</span>;</span><br><span class="line">return zonedDateTime.<span class="constructor">ToDateTimeUtc()</span>;</span><br></pre></td></tr></table></figure><h2>Convert from a UTC to a zoned DateTime</h2><figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">var</span> local = <span class="keyword">new</span> LocalDateTime(dateTime.<span class="built_in">Year</span>, dateTime.<span class="built_in">Month</span>, dateTime.<span class="built_in">Day</span>, dateTime.<span class="built_in">Hour</span>, dateTime.<span class="built_in">Minute</span>, dateTime.<span class="built_in">Second</span>);</span><br><span class="line"><span class="keyword">var</span> tz = DateTimeZoneProviders.Tzdb[timeZoneID];</span><br><span class="line"><span class="keyword">return</span> local.InZoneLeniently(tz);</span><br></pre></td></tr></table></figure><p>But be careful with this one because it might produce weird results around time change periods. If you want to avoid ambiguity or at least throw an exception for it consider <code>InZoneStrictly</code></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Noda time makes working with timezones, well not a snap but better than dental surgery.&lt;/p&gt;
+&lt;h2&gt;Convert a DateTime and TzDB Timezone to U
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Installing Fonts on Windows with Powershell</title>
     <link href="https://westerndevs.com/_/installing-fonts/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/installing-fonts/</id>
     <published>2021-06-11T04:00:00.000Z</published>
-    <updated>2021-06-11T20:58:05.763Z</updated>
+    <updated>2021-06-16T15:23:38.366Z</updated>
 	<author>
 	
 	  
@@ -47,7 +74,7 @@
     <link href="https://westerndevs.com/_/Azure-service-bus-transports/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Azure-service-bus-transports/</id>
     <published>2021-06-07T04:00:00.000Z</published>
-    <updated>2021-06-11T20:58:05.759Z</updated>
+    <updated>2021-06-16T15:23:38.366Z</updated>
 	<author>
 	
 	  
@@ -78,7 +105,7 @@
     <link href="https://westerndevs.com/_/add-user-to-role/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/add-user-to-role/</id>
     <published>2021-06-07T04:00:00.000Z</published>
-    <updated>2021-06-11T20:58:05.759Z</updated>
+    <updated>2021-06-16T15:23:38.366Z</updated>
 	<author>
 	
 	  
@@ -105,7 +132,7 @@
     <link href="https://westerndevs.com/inner-monologue/my-secret-addiction-to-likes/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/inner-monologue/my-secret-addiction-to-likes/</id>
     <published>2021-06-03T16:00:00.000Z</published>
-    <updated>2021-06-11T20:58:05.759Z</updated>
+    <updated>2021-06-16T15:23:38.366Z</updated>
 	<author>
 	
 	  
@@ -143,7 +170,7 @@
     <link href="https://westerndevs.com/_/sequence/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/sequence/</id>
     <published>2021-06-03T04:00:00.000Z</published>
-    <updated>2021-06-11T20:58:05.767Z</updated>
+    <updated>2021-06-16T15:23:38.370Z</updated>
 	<author>
 	
 	  
@@ -169,7 +196,7 @@
     <link href="https://westerndevs.com/technology/inner-monologue/lucky-number-v7/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/technology/inner-monologue/lucky-number-v7/</id>
     <published>2021-05-24T16:00:00.000Z</published>
-    <updated>2021-06-11T20:58:05.759Z</updated>
+    <updated>2021-06-16T15:23:38.366Z</updated>
 	<author>
 	
 	  
@@ -205,7 +232,7 @@
     <link href="https://westerndevs.com/_/durable-entities/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/durable-entities/</id>
     <published>2021-05-20T04:00:00.000Z</published>
-    <updated>2021-06-11T20:58:05.763Z</updated>
+    <updated>2021-06-16T15:23:38.366Z</updated>
 	<author>
 	
 	  
@@ -231,7 +258,7 @@
     <link href="https://westerndevs.com/_/advanced-waf-rules-in-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/advanced-waf-rules-in-terraform/</id>
     <published>2021-05-19T04:00:00.000Z</published>
-    <updated>2021-06-11T20:58:05.759Z</updated>
+    <updated>2021-06-16T15:23:38.366Z</updated>
 	<author>
 	
 	  
@@ -257,7 +284,7 @@
     <link href="https://westerndevs.com/_/importing-tde-encrypted-backup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/importing-tde-encrypted-backup/</id>
     <published>2021-05-18T04:00:00.000Z</published>
-    <updated>2021-06-11T20:58:05.763Z</updated>
+    <updated>2021-06-16T15:23:38.366Z</updated>
 	<author>
 	
 	  
@@ -284,7 +311,7 @@
     <link href="https://westerndevs.com/_/jq/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/jq/</id>
     <published>2021-05-11T04:00:00.000Z</published>
-    <updated>2021-06-11T20:58:05.763Z</updated>
+    <updated>2021-06-16T15:23:38.366Z</updated>
 	<author>
 	
 	  
@@ -310,7 +337,7 @@
     <link href="https://westerndevs.com/_/creating-a-shortcut/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/creating-a-shortcut/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-06-11T20:58:05.763Z</updated>
+    <updated>2021-06-16T15:23:38.366Z</updated>
 	<author>
 	
 	  
@@ -336,7 +363,7 @@
     <link href="https://westerndevs.com/_/set-timezone/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-timezone/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-06-11T20:58:05.767Z</updated>
+    <updated>2021-06-16T15:23:38.370Z</updated>
 	<author>
 	
 	  
@@ -363,7 +390,7 @@
     <link href="https://westerndevs.com/_/download-file/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/download-file/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-11T20:58:05.763Z</updated>
+    <updated>2021-06-16T15:23:38.366Z</updated>
 	<author>
 	
 	  
@@ -390,7 +417,7 @@
     <link href="https://westerndevs.com/_/drop-existing-index/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/drop-existing-index/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-11T20:58:05.763Z</updated>
+    <updated>2021-06-16T15:23:38.366Z</updated>
 	<author>
 	
 	  
@@ -416,7 +443,7 @@
     <link href="https://westerndevs.com/_/function-appinsights/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/function-appinsights/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-11T20:58:05.763Z</updated>
+    <updated>2021-06-16T15:23:38.366Z</updated>
 	<author>
 	
 	  
@@ -442,7 +469,7 @@
     <link href="https://westerndevs.com/_/query-collections-in-big-table/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/query-collections-in-big-table/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-11T20:58:05.767Z</updated>
+    <updated>2021-06-16T15:23:38.370Z</updated>
 	<author>
 	
 	  
@@ -468,7 +495,7 @@
     <link href="https://westerndevs.com/_/set-env-variable/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-env-variable/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-11T20:58:05.767Z</updated>
+    <updated>2021-06-16T15:23:38.370Z</updated>
 	<author>
 	
 	  
@@ -495,7 +522,7 @@
     <link href="https://westerndevs.com/_/terminal-buffer/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/terminal-buffer/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-11T20:58:05.767Z</updated>
+    <updated>2021-06-16T15:23:38.370Z</updated>
 	<author>
 	
 	  
@@ -521,7 +548,7 @@
     <link href="https://westerndevs.com/_/xdt-transforms/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/xdt-transforms/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-11T20:58:05.767Z</updated>
+    <updated>2021-06-16T15:23:38.374Z</updated>
 	<author>
 	
 	  
@@ -536,32 +563,6 @@
     <summary type="html">
     
       &lt;p&gt;You can apply little transforms by just writing XML transformation on configuration files. For instance here is one for adding a section 
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Advent of Code 2020 - Day 3</title>
-    <link href="https://westerndevs.com/_/Advent-Of-Code-Day03/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/Advent-Of-Code-Day03/</id>
-    <published>2020-12-04T00:00:00.000Z</published>
-    <updated>2021-06-11T20:58:05.759Z</updated>
-	<author>
-	
-	  
-	  <name>Dylan Smith</name>
-	  <email>optikal@shaw.ca</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>Day 3 Solution.  Some infinite char grids, int overflows, and a new Multiply() method;</p><a id="more"></a><h2>Previous Posts</h2><ul><li><a href="https://www.westerndevs.com/_/Advent-Of-Code-Intro/" target="_blank" rel="noopener">Intro</a></li><li><a href="https://www.westerndevs.com/_/Advent-Of-Code-Day01/" target="_blank" rel="noopener">Day 1</a></li><li><a href="https://www.westerndevs.com/_/Advent-Of-Code-Day02/" target="_blank" rel="noopener">Day 2</a></li></ul><p>My code can be found <a href="https://github.com/dylan-smith/AdventOfCode2020/blob/master/src/Days/Day03.cs" target="_blank" rel="noopener">here on GitHub</a></p><p>Here's quick walkthrough of my final solution:</p><iframe width="560" height="315" src="https://www.youtube.com/embed/ChP5A3RmSjA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Day 3 Solution.  Some infinite char grids, int overflows, and a new Multiply() method;&lt;/p&gt;
     
     </summary>
     

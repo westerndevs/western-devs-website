@@ -5,7 +5,7 @@
   <link href="/feeds/simon_timms" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2021-06-11T20:58:05.763Z</updated>
+  <updated>2021-06-16T15:23:38.370Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Quick Noda Time Conversions</title>
+    <link href="https://westerndevs.com/_/noda-time/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/noda-time/</id>
+    <published>2021-06-16T04:00:00.000Z</published>
+    <updated>2021-06-16T15:23:38.370Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>Noda time makes working with timezones, well not a snap but better than dental surgery.</p><h2>Convert a DateTime and TzDB Timezone to UTC</h2><p>A TzDB timezone is one that looks like <code>America/Edmonton</code> or, one might presume <code>Mars/OlympusMons</code></p><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">DateTimeZone timezone = DateTimeZoneProviders.Tzdb.<span class="constructor">GetZoneOrNull(<span class="params">timezoneId</span>)</span>;</span><br><span class="line">ZoneLocalMappingResolver customResolver = Resolvers.<span class="constructor">CreateMappingResolver(Resolvers.ReturnLater, Resolvers.ReturnStartOfIntervalAfter)</span>;</span><br><span class="line">var localDateTime = LocalDateTime.<span class="constructor">FromDateTime(<span class="params">dateTime</span>)</span>;</span><br><span class="line">var zonedDateTime = timezone.<span class="constructor">ResolveLocal(<span class="params">localDateTime</span>, <span class="params">customResolver</span>)</span>;</span><br><span class="line">return zonedDateTime.<span class="constructor">ToDateTimeUtc()</span>;</span><br></pre></td></tr></table></figure><h2>Convert from a UTC to a zoned DateTime</h2><figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">var</span> local = <span class="keyword">new</span> LocalDateTime(dateTime.<span class="built_in">Year</span>, dateTime.<span class="built_in">Month</span>, dateTime.<span class="built_in">Day</span>, dateTime.<span class="built_in">Hour</span>, dateTime.<span class="built_in">Minute</span>, dateTime.<span class="built_in">Second</span>);</span><br><span class="line"><span class="keyword">var</span> tz = DateTimeZoneProviders.Tzdb[timeZoneID];</span><br><span class="line"><span class="keyword">return</span> local.InZoneLeniently(tz);</span><br></pre></td></tr></table></figure><p>But be careful with this one because it might produce weird results around time change periods. If you want to avoid ambiguity or at least throw an exception for it consider <code>InZoneStrictly</code></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Noda time makes working with timezones, well not a snap but better than dental surgery.&lt;/p&gt;
+&lt;h2&gt;Convert a DateTime and TzDB Timezone to U
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Installing Fonts on Windows with Powershell</title>
     <link href="https://westerndevs.com/_/installing-fonts/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/installing-fonts/</id>
     <published>2021-06-11T04:00:00.000Z</published>
-    <updated>2021-06-11T20:58:05.763Z</updated>
+    <updated>2021-06-16T15:23:38.366Z</updated>
 	<author>
 	
 	  
@@ -47,7 +74,7 @@
     <link href="https://westerndevs.com/_/Azure-service-bus-transports/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Azure-service-bus-transports/</id>
     <published>2021-06-07T04:00:00.000Z</published>
-    <updated>2021-06-11T20:58:05.759Z</updated>
+    <updated>2021-06-16T15:23:38.366Z</updated>
 	<author>
 	
 	  
@@ -78,7 +105,7 @@
     <link href="https://westerndevs.com/_/add-user-to-role/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/add-user-to-role/</id>
     <published>2021-06-07T04:00:00.000Z</published>
-    <updated>2021-06-11T20:58:05.759Z</updated>
+    <updated>2021-06-16T15:23:38.366Z</updated>
 	<author>
 	
 	  
@@ -105,7 +132,7 @@
     <link href="https://westerndevs.com/_/sequence/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/sequence/</id>
     <published>2021-06-03T04:00:00.000Z</published>
-    <updated>2021-06-11T20:58:05.767Z</updated>
+    <updated>2021-06-16T15:23:38.370Z</updated>
 	<author>
 	
 	  
@@ -131,7 +158,7 @@
     <link href="https://westerndevs.com/_/durable-entities/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/durable-entities/</id>
     <published>2021-05-20T04:00:00.000Z</published>
-    <updated>2021-06-11T20:58:05.763Z</updated>
+    <updated>2021-06-16T15:23:38.366Z</updated>
 	<author>
 	
 	  
@@ -157,7 +184,7 @@
     <link href="https://westerndevs.com/_/advanced-waf-rules-in-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/advanced-waf-rules-in-terraform/</id>
     <published>2021-05-19T04:00:00.000Z</published>
-    <updated>2021-06-11T20:58:05.759Z</updated>
+    <updated>2021-06-16T15:23:38.366Z</updated>
 	<author>
 	
 	  
@@ -183,7 +210,7 @@
     <link href="https://westerndevs.com/_/importing-tde-encrypted-backup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/importing-tde-encrypted-backup/</id>
     <published>2021-05-18T04:00:00.000Z</published>
-    <updated>2021-06-11T20:58:05.763Z</updated>
+    <updated>2021-06-16T15:23:38.366Z</updated>
 	<author>
 	
 	  
@@ -210,7 +237,7 @@
     <link href="https://westerndevs.com/_/jq/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/jq/</id>
     <published>2021-05-11T04:00:00.000Z</published>
-    <updated>2021-06-11T20:58:05.763Z</updated>
+    <updated>2021-06-16T15:23:38.366Z</updated>
 	<author>
 	
 	  
@@ -236,7 +263,7 @@
     <link href="https://westerndevs.com/_/creating-a-shortcut/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/creating-a-shortcut/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-06-11T20:58:05.763Z</updated>
+    <updated>2021-06-16T15:23:38.366Z</updated>
 	<author>
 	
 	  
@@ -262,7 +289,7 @@
     <link href="https://westerndevs.com/_/set-timezone/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-timezone/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-06-11T20:58:05.767Z</updated>
+    <updated>2021-06-16T15:23:38.370Z</updated>
 	<author>
 	
 	  
@@ -289,7 +316,7 @@
     <link href="https://westerndevs.com/_/download-file/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/download-file/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-11T20:58:05.763Z</updated>
+    <updated>2021-06-16T15:23:38.366Z</updated>
 	<author>
 	
 	  
@@ -316,7 +343,7 @@
     <link href="https://westerndevs.com/_/drop-existing-index/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/drop-existing-index/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-11T20:58:05.763Z</updated>
+    <updated>2021-06-16T15:23:38.366Z</updated>
 	<author>
 	
 	  
@@ -342,7 +369,7 @@
     <link href="https://westerndevs.com/_/function-appinsights/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/function-appinsights/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-11T20:58:05.763Z</updated>
+    <updated>2021-06-16T15:23:38.366Z</updated>
 	<author>
 	
 	  
@@ -368,7 +395,7 @@
     <link href="https://westerndevs.com/_/query-collections-in-big-table/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/query-collections-in-big-table/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-11T20:58:05.767Z</updated>
+    <updated>2021-06-16T15:23:38.370Z</updated>
 	<author>
 	
 	  
@@ -394,7 +421,7 @@
     <link href="https://westerndevs.com/_/set-env-variable/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-env-variable/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-11T20:58:05.767Z</updated>
+    <updated>2021-06-16T15:23:38.370Z</updated>
 	<author>
 	
 	  
@@ -421,7 +448,7 @@
     <link href="https://westerndevs.com/_/terminal-buffer/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/terminal-buffer/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-11T20:58:05.767Z</updated>
+    <updated>2021-06-16T15:23:38.370Z</updated>
 	<author>
 	
 	  
@@ -447,7 +474,7 @@
     <link href="https://westerndevs.com/_/xdt-transforms/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/xdt-transforms/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-11T20:58:05.767Z</updated>
+    <updated>2021-06-16T15:23:38.374Z</updated>
 	<author>
 	
 	  
@@ -473,7 +500,7 @@
     <link href="https://westerndevs.com/_/serverless-sql-azure-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/serverless-sql-azure-terraform/</id>
     <published>2020-11-18T19:00:00.000Z</published>
-    <updated>2021-06-11T20:58:05.759Z</updated>
+    <updated>2021-06-16T15:23:38.366Z</updated>
 	<author>
 	
 	  
@@ -499,7 +526,7 @@
     <link href="https://westerndevs.com/_/cross-database-procs/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cross-database-procs/</id>
     <published>2020-11-09T19:00:00.000Z</published>
-    <updated>2021-06-11T20:58:05.759Z</updated>
+    <updated>2021-06-16T15:23:38.366Z</updated>
 	<author>
 	
 	  
@@ -514,32 +541,6 @@
     <summary type="html">
     
       &lt;p&gt;In a &lt;a href=&quot;https://blog.simontimms.com/2020/11/05/2020-11-05-cross-database-queries/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;previous article&lt;/a&gt; I talked about how to run queries across database instances on Azure using ElasticQuery. One of the limitations I talked about was the in ability to update data in the source database. Well that isn&#39;t entirely accurate. You can do it if you make use of stored procedures.&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Azure Processor Limits</title>
-    <link href="https://westerndevs.com/_/processor-limits/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/processor-limits/</id>
-    <published>2020-11-05T20:00:00.000Z</published>
-    <updated>2021-06-11T20:58:05.759Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>Ran into a fun little quirk in Azure today. We wanted to allocate a pretty beefy machine, an M32ms. Problem was that for the region we were looking at it wasn't showing up on our list of VM sizes. We checked and there were certainly VMs of that size available in the region we just couldn't see them. So we ran the command</p><figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">az </span><span class="string">vm </span><span class="built_in">list-usage</span> <span class="built_in">--location</span> <span class="string">"westus"</span> <span class="built_in">--output</span> <span class="string">table</span></span><br></pre></td></tr></table></figure><p>And that returned a bunch of information about the quota limits we had in place. Sure enough in there we had</p><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Name</span>                               <span class="keyword">Current</span> <span class="keyword">Value</span>   <span class="keyword">Limit</span></span><br><span class="line">Standard MS <span class="keyword">Family</span> vCPUs           <span class="number">0</span>               <span class="number">0</span></span><br></pre></td></tr></table></figure><p>We opened a support request to increase the quota on that CPU. We also had a weirdly low limit on CPUs in the region</p><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Total Regional vCPUs               <span class="number">0</span>               <span class="number">10</span></span><br></pre></td></tr></table></figure><p>Which support fixed for us too and we were then able to create the VM we were looking for.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Ran into a fun little quirk in Azure today. We wanted to allocate a pretty beefy machine, an M32ms. Problem was that for the region we we
     
     </summary>
     
