@@ -5,7 +5,7 @@
   <link href="/feeds/simon_timms" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2021-06-16T15:23:38.370Z</updated>
+  <updated>2021-06-17T15:11:05.793Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,40 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Getting started with Storybook and Vue</title>
+    <link href="https://westerndevs.com/_/storybook/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/storybook/</id>
+    <published>2021-06-17T04:00:00.000Z</published>
+    <updated>2021-06-17T15:11:05.793Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<ol><li><p>Starting with an empty folder you can run</p> <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">npx</span> <span class="built_in">sb</span> init</span><br></pre></td></tr></table></figure></li><li><p>During the addition you'll be prompted for the template type - select vue</p></li><li><p>If this is brand new then you'll need to install vue. The template assumes you have it installed already.</p> <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> vue vue-<span class="keyword">template</span>-compiler</span><br></pre></td></tr></table></figure></li><li><p>Run storybook with</p> <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">run</span><span class="bash"> storybook</span></span><br></pre></td></tr></table></figure></li></ol><p>This will get storybook running and you'll be presented with the browser interface for it<img src="/images/2021-04-27-storybook.md/2021-04-27-12-17-47.png" alt="">)</p><h2>Adding Vuetify</h2><ol><li><p>In the project install vuetify</p><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> vuetify</span><br></pre></td></tr></table></figure></li><li><p>In the <code>.storybook</code> folder add a <code>preview-head.html</code> file. This will be included in the project template. Set the content to</p> <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;link <span class="attribute">href</span>=<span class="string">"https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css"</span> <span class="attribute">rel</span>=<span class="string">"stylesheet"</span>&gt;</span><br><span class="line">&lt;link <span class="attribute">href</span>=<span class="string">"https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css"</span> <span class="attribute">rel</span>=<span class="string">"stylesheet"</span>&gt;</span><br></pre></td></tr></table></figure></li><li><p>In the <code>.storybook</code> folder add to the <code>preview.js</code> and include</p> <figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; addDecorator &#125; <span class="keyword">from</span> <span class="string">'@storybook/vue'</span>;</span><br><span class="line"><span class="keyword">import</span> vuetify <span class="keyword">from</span> <span class="string">'./vuetify_storybook'</span>;</span><br><span class="line"></span><br><span class="line">addDecorator(<span class="function"><span class="params">()</span> =&gt;</span> (&#123;</span><br><span class="line">vuetify,</span><br><span class="line">template: `</span><br><span class="line"><span class="javascript">    &lt;v-app&gt;</span></span><br><span class="line"><span class="javascript">    &lt;v-main&gt;</span></span><br><span class="line"><span class="javascript">        &lt;v-container fluid &gt;</span></span><br><span class="line"><span class="javascript">        &lt;story/&gt;</span></span><br><span class="line"><span class="javascript">        &lt;<span class="regexp">/v-container&gt;</span></span></span><br><span class="line"><span class="javascript">    &lt;<span class="regexp">/v-main&gt;</span></span></span><br><span class="line"><span class="javascript">    &lt;<span class="regexp">/v-app&gt;</span></span></span><br><span class="line"><span class="javascript">    </span>`,</span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure><p>This will add vuetify wrapping to the project. You can now just go ahead and us the components in your .vue files. Here is an example:</p> <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">v-text-field</span> <span class="attr">dense</span> <span class="attr">label</span>=<span class="string">"User name"</span> <span class="attr">hint</span>=<span class="string">"You can use your email"</span>&gt;</span><span class="tag">&lt;/<span class="name">v-text-field</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">v-text-field</span> <span class="attr">dense</span> <span class="attr">label</span>=<span class="string">"Password"</span> <span class="attr">hint</span>=<span class="string">"You need to use upper case and lower case"</span>&gt;</span><span class="tag">&lt;/<span class="name">v-text-field</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="built_in">module</span>.exports = &#123;</span></span><br><span class="line"><span class="actionscript">    data: <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="actionscript">        userName: <span class="literal">null</span>,</span></span><br><span class="line"><span class="actionscript">        password: <span class="literal">null</span>,</span></span><br><span class="line"><span class="actionscript">        rememberMe: <span class="literal">false</span>,</span></span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;,</span><br><span class="line">    computed: &#123;</span><br><span class="line"><span class="actionscript">        isValid: <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">return</span> <span class="literal">true</span>;</span></span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure><h2>Networking</h2><p>If you're using a service layer then you an shim that in to prevent making network calls. However that might not be what you want to do so you can instead shim in something to intercept all network calls. This can be done using the mock service worker addon https://storybook.js.org/addons/msw-storybook-addon</p><p>To get it working install it</p> <figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> i -D msw msw-storybook-addon</span><br></pre></td></tr></table></figure><p>Then to the preview.js file you can add a hook for it</p> <figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; initializeWorker, mswDecorator &#125; <span class="keyword">from</span> <span class="string">'msw-storybook-addon'</span>;</span><br><span class="line"></span><br><span class="line">initializeWorker();</span><br><span class="line">addDecorator(mswDecorator);</span><br></pre></td></tr></table></figure></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Starting with an empty folder you can run&lt;/p&gt;
+ &lt;figure class=&quot;highlight armasm&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Quick Noda Time Conversions</title>
     <link href="https://westerndevs.com/_/noda-time/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/noda-time/</id>
     <published>2021-06-16T04:00:00.000Z</published>
-    <updated>2021-06-16T15:23:38.370Z</updated>
+    <updated>2021-06-17T15:11:05.789Z</updated>
 	<author>
 	
 	  
@@ -48,7 +77,7 @@
     <link href="https://westerndevs.com/_/installing-fonts/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/installing-fonts/</id>
     <published>2021-06-11T04:00:00.000Z</published>
-    <updated>2021-06-16T15:23:38.366Z</updated>
+    <updated>2021-06-17T15:11:05.789Z</updated>
 	<author>
 	
 	  
@@ -74,7 +103,7 @@
     <link href="https://westerndevs.com/_/Azure-service-bus-transports/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Azure-service-bus-transports/</id>
     <published>2021-06-07T04:00:00.000Z</published>
-    <updated>2021-06-16T15:23:38.366Z</updated>
+    <updated>2021-06-17T15:11:05.785Z</updated>
 	<author>
 	
 	  
@@ -105,7 +134,7 @@
     <link href="https://westerndevs.com/_/add-user-to-role/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/add-user-to-role/</id>
     <published>2021-06-07T04:00:00.000Z</published>
-    <updated>2021-06-16T15:23:38.366Z</updated>
+    <updated>2021-06-17T15:11:05.785Z</updated>
 	<author>
 	
 	  
@@ -132,7 +161,7 @@
     <link href="https://westerndevs.com/_/sequence/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/sequence/</id>
     <published>2021-06-03T04:00:00.000Z</published>
-    <updated>2021-06-16T15:23:38.370Z</updated>
+    <updated>2021-06-17T15:11:05.793Z</updated>
 	<author>
 	
 	  
@@ -158,7 +187,7 @@
     <link href="https://westerndevs.com/_/durable-entities/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/durable-entities/</id>
     <published>2021-05-20T04:00:00.000Z</published>
-    <updated>2021-06-16T15:23:38.366Z</updated>
+    <updated>2021-06-17T15:11:05.789Z</updated>
 	<author>
 	
 	  
@@ -184,7 +213,7 @@
     <link href="https://westerndevs.com/_/advanced-waf-rules-in-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/advanced-waf-rules-in-terraform/</id>
     <published>2021-05-19T04:00:00.000Z</published>
-    <updated>2021-06-16T15:23:38.366Z</updated>
+    <updated>2021-06-17T15:11:05.785Z</updated>
 	<author>
 	
 	  
@@ -210,7 +239,7 @@
     <link href="https://westerndevs.com/_/importing-tde-encrypted-backup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/importing-tde-encrypted-backup/</id>
     <published>2021-05-18T04:00:00.000Z</published>
-    <updated>2021-06-16T15:23:38.366Z</updated>
+    <updated>2021-06-17T15:11:05.789Z</updated>
 	<author>
 	
 	  
@@ -237,7 +266,7 @@
     <link href="https://westerndevs.com/_/jq/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/jq/</id>
     <published>2021-05-11T04:00:00.000Z</published>
-    <updated>2021-06-16T15:23:38.366Z</updated>
+    <updated>2021-06-17T15:11:05.789Z</updated>
 	<author>
 	
 	  
@@ -263,7 +292,7 @@
     <link href="https://westerndevs.com/_/creating-a-shortcut/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/creating-a-shortcut/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-06-16T15:23:38.366Z</updated>
+    <updated>2021-06-17T15:11:05.789Z</updated>
 	<author>
 	
 	  
@@ -289,7 +318,7 @@
     <link href="https://westerndevs.com/_/set-timezone/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-timezone/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-06-16T15:23:38.370Z</updated>
+    <updated>2021-06-17T15:11:05.793Z</updated>
 	<author>
 	
 	  
@@ -316,7 +345,7 @@
     <link href="https://westerndevs.com/_/download-file/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/download-file/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-16T15:23:38.366Z</updated>
+    <updated>2021-06-17T15:11:05.789Z</updated>
 	<author>
 	
 	  
@@ -343,7 +372,7 @@
     <link href="https://westerndevs.com/_/drop-existing-index/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/drop-existing-index/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-16T15:23:38.366Z</updated>
+    <updated>2021-06-17T15:11:05.789Z</updated>
 	<author>
 	
 	  
@@ -369,7 +398,7 @@
     <link href="https://westerndevs.com/_/function-appinsights/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/function-appinsights/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-16T15:23:38.366Z</updated>
+    <updated>2021-06-17T15:11:05.789Z</updated>
 	<author>
 	
 	  
@@ -395,7 +424,7 @@
     <link href="https://westerndevs.com/_/query-collections-in-big-table/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/query-collections-in-big-table/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-16T15:23:38.370Z</updated>
+    <updated>2021-06-17T15:11:05.789Z</updated>
 	<author>
 	
 	  
@@ -421,7 +450,7 @@
     <link href="https://westerndevs.com/_/set-env-variable/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-env-variable/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-16T15:23:38.370Z</updated>
+    <updated>2021-06-17T15:11:05.793Z</updated>
 	<author>
 	
 	  
@@ -448,7 +477,7 @@
     <link href="https://westerndevs.com/_/terminal-buffer/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/terminal-buffer/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-16T15:23:38.370Z</updated>
+    <updated>2021-06-17T15:11:05.793Z</updated>
 	<author>
 	
 	  
@@ -474,7 +503,7 @@
     <link href="https://westerndevs.com/_/xdt-transforms/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/xdt-transforms/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-16T15:23:38.374Z</updated>
+    <updated>2021-06-17T15:11:05.793Z</updated>
 	<author>
 	
 	  
@@ -500,7 +529,7 @@
     <link href="https://westerndevs.com/_/serverless-sql-azure-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/serverless-sql-azure-terraform/</id>
     <published>2020-11-18T19:00:00.000Z</published>
-    <updated>2021-06-16T15:23:38.366Z</updated>
+    <updated>2021-06-17T15:11:05.785Z</updated>
 	<author>
 	
 	  
@@ -515,32 +544,6 @@
     <summary type="html">
     
       &lt;p&gt;I&#39;m pretty big on the SQL Azure Serverless SKU. It allows you to scale databases up and down automatically within a band of between 0.75 and 40 vCores on Gen5 hardware. It also supports auto-pausing which can shut down the entire database during periods of inactivity. I&#39;m provisioning a bunch of databases for a client and we&#39;re not sure what performance tier is going to be needed. Eventually we may move to an elastic pool but initially we wanted to allocate the databases in a serverless configuration so we can ascertain a performance envelope. We wanted to allocate the resources in a terraform template but had a little trouble figuring it out.&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Running Stored Procedures Across Databases in Azure</title>
-    <link href="https://westerndevs.com/_/cross-database-procs/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/cross-database-procs/</id>
-    <published>2020-11-09T19:00:00.000Z</published>
-    <updated>2021-06-16T15:23:38.366Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>In a <a href="https://blog.simontimms.com/2020/11/05/2020-11-05-cross-database-queries/" target="_blank" rel="noopener">previous article</a> I talked about how to run queries across database instances on Azure using ElasticQuery. One of the limitations I talked about was the in ability to update data in the source database. Well that isn't entirely accurate. You can do it if you make use of stored procedures.</p><a id="more"></a><p>Running a stored proc on a remote database is a little bit weird looking but once you get your head around that then it is perfectly usable. Let's go back to the same example we used before with a products database an an orders database. In the products database let's add a stored procedure to add a new product and return the count of products.</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">procedure</span> addProduct</span><br><span class="line"> @item <span class="keyword">nvarchar</span>(<span class="number">50</span>)</span><br><span class="line"><span class="keyword">as</span></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Products(<span class="keyword">name</span>) <span class="keyword">values</span>(@item);</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">count</span>(*) cnt <span class="keyword">from</span> products;</span><br><span class="line">go</span><br></pre></td></tr></table></figure><p>Now over in our orders database we can use our existing database connection to call this stored proc</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sp_execute_remote ProductsSource, </span><br><span class="line">                  N'addProduct @item', </span><br><span class="line">                  @params = N'@item nvarchar(50)', </span><br><span class="line">                  @item = 'long sleeved shirts';</span><br></pre></td></tr></table></figure><p>At first glance this is a little confusing so let's break it down.</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sp_execute_remote ProductsSource,</span><br></pre></td></tr></table></figure><p>This line instructs that we want to run a stored procedure and that it should use the ProductsSource data connection.</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">N'addProduct @item',</span><br></pre></td></tr></table></figure><p>This line lists the stored proc to run and the parameters to pass to it. You'll notice that it is a NVarchar string passed as a single parameter.</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@params = N'@item nvarchar(50)',</span><br></pre></td></tr></table></figure><p>This line lists all the parameters to pass and their type. If you have multiple then you'd comma separate them here: <code>N'@item nvarchar(50), @price number(10,2)'</code></p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@item</span> = <span class="string">'long sleeved shirts'</span>;</span><br></pre></td></tr></table></figure><p>This final line is an args-style array of the values for the parameters. Again if you had a second parameter you'd pass it in as separate item here <code>@item = 'long sleeved shirts', @price=10.99</code></p><p>Running this command gets us something like</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cnt  <span class="variable">$ShardName</span></span><br><span class="line">6  [<span class="attribute">DataSource</span>=testias.database.windows.net <span class="attribute">Database</span>=testias]</span><br></pre></td></tr></table></figure><p>You'll notice that nifty ShardName colum which tells you about the source. This is because you can use a shard map to execute the stored procedure against lots of shards at once.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;In a &lt;a href=&quot;https://blog.simontimms.com/2020/11/05/2020-11-05-cross-database-queries/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;previous article&lt;/a&gt; I talked about how to run queries across database instances on Azure using ElasticQuery. One of the limitations I talked about was the in ability to update data in the source database. Well that isn&#39;t entirely accurate. You can do it if you make use of stored procedures.&lt;/p&gt;
     
     </summary>
     
