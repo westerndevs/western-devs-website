@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Azure Automation | Western Devs</title>
+  <meta name="description" content="Azure Automation is a service that allows running small scripts to do automation of tasks inside azure. For instance if you want to scale a database up and down depending on the time of day this is an">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Azure Automation">
+<meta property="og:url" content="https://westerndevs.com/_/azure-automation/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="Azure Automation is a service that allows running small scripts to do automation of tasks inside azure. For instance if you want to scale a database up and down depending on the time of day this is an">
+<meta property="og:image" content="https://westerndevs.com/images/2021-06-24-azure-automation.md/2021-06-24-07-05-52.png">
+<meta property="og:image" content="https://westerndevs.com/images/2021-06-24-azure-automation.md/2021-06-24-07-11-22.png">
+<meta property="article:published_time" content="2021-06-24T04:00:00.000Z">
+<meta property="article:modified_time" content="2021-06-24T13:53:51.887Z">
+<meta property="article:author" content="Western Devs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://westerndevs.com/images/2021-06-24-azure-automation.md/2021-06-24-07-05-52.png">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">JUN</div>
+    <div class="ListLrgDateDay">24</div>
+    <div class="ListLrgDateYear">2021</div>
+  </div>
+  <h2>Azure Automation</h2>
+</div>
+
+		    
+
+<p class="TXTsm">ORIGINALLY POSTED TO: <a href="https://blog.simontimms.com/2021/06/24/azure-automation" target="_blank" rel="noopener" class='originalurl'>https://blog.simontimms.com/2021/06/24/azure-automation</a></p>
+
+
+
+			<div id="mainPostContent">
+	        <p>Azure Automation is a service that allows running small scripts to do automation of tasks inside azure. For instance if you want to scale a database up and down depending on the time of day this is an ideal place to do it.</p>
+<p>There are basically 3 concepts in it</p>
+<ol>
+<li>Runbook - a script that you write and publish from within Azure Automation. The supported languages include Python (2 and 3!) and powershell. There is also a graphical builder which basically just run powershell commandlets
+<img src="/images/2021-06-24-azure-automation.md/2021-06-24-07-05-52.png" alt="">)</li>
+<li>Jobs - executions of the runbook. These can take parameters and pass them off to a runbook. The job logs what it is doing but the logging is a bit sketchy. You should consider reviewing the json output to see exactly what went wrong with your job instead of relying on the UI.</li>
+<li>Schedule - You can kick off a job at any point in time using a schedule. Schedules allow passing parameters to the jobs.</li>
+</ol>
+<h2>Powershell Gotchas</h2>
+<p>For some reason, likely the typical Microsoft support of legacy software, the Azure modules included in powershell by default are the old AzureRM ones and not the newer, more awesome Az modules. You can go to the module gallery to install more modules
+<img src="/images/2021-06-24-azure-automation.md/2021-06-24-07-11-22.png" alt="">)
+However, little problem with that is that the module installation process doesn't handle dependencies so if you want to install something like Az.Sql which relies on Az.Account then you need to go install Az.Account first. The installation takes way longer than you'd logically expect so I sure hope you don't need to install something like Az proper which has 40 dependencies.</p>
+<h2>Example Script</h2>
+<p>This script will scale a database to the desired level</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">Param</span>(</span><br><span class="line"> [<span class="built_in">string</span>]<span class="variable">$ResourceGroupName</span>,</span><br><span class="line"> [<span class="built_in">string</span>]<span class="variable">$ServerName</span>,</span><br><span class="line"> [<span class="built_in">string</span>]<span class="variable">$DatabaseName</span>,</span><br><span class="line"> [<span class="built_in">string</span>]<span class="variable">$TargetEdition</span>,</span><br><span class="line"> [<span class="built_in">string</span>]<span class="variable">$TargetServiceObjective</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="variable">$connectionName</span> = <span class="string">"AzureRunAsConnection"</span></span><br><span class="line"><span class="keyword">try</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment"># Get the connection "AzureRunAsConnection "</span></span><br><span class="line">    <span class="variable">$servicePrincipalConnection</span>=<span class="built_in">Get-AutomationConnection</span> <span class="literal">-Name</span> <span class="variable">$connectionName</span>         </span><br><span class="line"></span><br><span class="line">    <span class="string">"Logging in to Azure..."</span></span><br><span class="line">    <span class="built_in">Connect-AzAccount</span> `</span><br><span class="line">        <span class="literal">-ServicePrincipal</span> `</span><br><span class="line">        <span class="literal">-TenantId</span> <span class="variable">$servicePrincipalConnection</span>.TenantId `</span><br><span class="line">        <span class="literal">-ApplicationId</span> <span class="variable">$servicePrincipalConnection</span>.ApplicationId `</span><br><span class="line">        <span class="literal">-CertificateThumbprint</span> <span class="variable">$servicePrincipalConnection</span>.CertificateThumbprint </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="variable">$servicePrincipalConnection</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="variable">$ErrorMessage</span> = <span class="string">"Connection <span class="variable">$connectionName</span> not found."</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="variable">$ErrorMessage</span></span><br><span class="line">    &#125; <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">Write-Error</span> <span class="literal">-Message</span> <span class="variable">$_</span>.Exception</span><br><span class="line">        <span class="keyword">throw</span> <span class="variable">$_</span>.Exception</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">echo <span class="string">"Scaling the database"</span></span><br><span class="line"><span class="built_in">Set-AzSqlDatabase</span> <span class="literal">-ResourceGroupName</span> <span class="variable">$ResourceGroupName</span> <span class="literal">-DatabaseName</span> <span class="variable">$DatabaseName</span> <span class="literal">-ServerName</span> <span class="variable">$ServerName</span> <span class="literal">-Edition</span> <span class="variable">$TargetEdition</span> <span class="literal">-RequestedServiceObjectiveName</span> <span class="variable">$TargetServiceObjective</span></span><br><span class="line">echo <span class="string">"Scaling complete"</span></span><br></pre></td></tr></table></figure>
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/simon_timms">
+				
+					<img src='/images/avatars/simon.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/simon_timms">Simon Timms</a></h2>
+			
+			<a href="mailto:stimms@gmail.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://blog.simontimms.com/" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/stimms" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/stimms" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			
+ 			<a href="/feeds/simon_timms.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/_/azure-automation/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'simon_timms');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

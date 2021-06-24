@@ -5,7 +5,7 @@
   <link href="/feeds/simon_timms" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2021-06-18T02:19:16.275Z</updated>
+  <updated>2021-06-24T13:53:51.887Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Azure Automation</title>
+    <link href="https://westerndevs.com/_/azure-automation/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/azure-automation/</id>
+    <published>2021-06-24T04:00:00.000Z</published>
+    <updated>2021-06-24T13:53:51.887Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>Azure Automation is a service that allows running small scripts to do automation of tasks inside azure. For instance if you want to scale a database up and down depending on the time of day this is an ideal place to do it.</p><p>There are basically 3 concepts in it</p><ol><li>Runbook - a script that you write and publish from within Azure Automation. The supported languages include Python (2 and 3!) and powershell. There is also a graphical builder which basically just run powershell commandlets<img src="/images/2021-06-24-azure-automation.md/2021-06-24-07-05-52.png" alt="">)</li><li>Jobs - executions of the runbook. These can take parameters and pass them off to a runbook. The job logs what it is doing but the logging is a bit sketchy. You should consider reviewing the json output to see exactly what went wrong with your job instead of relying on the UI.</li><li>Schedule - You can kick off a job at any point in time using a schedule. Schedules allow passing parameters to the jobs.</li></ol><h2>Powershell Gotchas</h2><p>For some reason, likely the typical Microsoft support of legacy software, the Azure modules included in powershell by default are the old AzureRM ones and not the newer, more awesome Az modules. You can go to the module gallery to install more modules<img src="/images/2021-06-24-azure-automation.md/2021-06-24-07-11-22.png" alt="">)However, little problem with that is that the module installation process doesn't handle dependencies so if you want to install something like Az.Sql which relies on Az.Account then you need to go install Az.Account first. The installation takes way longer than you'd logically expect so I sure hope you don't need to install something like Az proper which has 40 dependencies.</p><h2>Example Script</h2><p>This script will scale a database to the desired level</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">Param</span>(</span><br><span class="line"> [<span class="built_in">string</span>]<span class="variable">$ResourceGroupName</span>,</span><br><span class="line"> [<span class="built_in">string</span>]<span class="variable">$ServerName</span>,</span><br><span class="line"> [<span class="built_in">string</span>]<span class="variable">$DatabaseName</span>,</span><br><span class="line"> [<span class="built_in">string</span>]<span class="variable">$TargetEdition</span>,</span><br><span class="line"> [<span class="built_in">string</span>]<span class="variable">$TargetServiceObjective</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="variable">$connectionName</span> = <span class="string">"AzureRunAsConnection"</span></span><br><span class="line"><span class="keyword">try</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment"># Get the connection "AzureRunAsConnection "</span></span><br><span class="line">    <span class="variable">$servicePrincipalConnection</span>=<span class="built_in">Get-AutomationConnection</span> <span class="literal">-Name</span> <span class="variable">$connectionName</span>         </span><br><span class="line"></span><br><span class="line">    <span class="string">"Logging in to Azure..."</span></span><br><span class="line">    <span class="built_in">Connect-AzAccount</span> `</span><br><span class="line">        <span class="literal">-ServicePrincipal</span> `</span><br><span class="line">        <span class="literal">-TenantId</span> <span class="variable">$servicePrincipalConnection</span>.TenantId `</span><br><span class="line">        <span class="literal">-ApplicationId</span> <span class="variable">$servicePrincipalConnection</span>.ApplicationId `</span><br><span class="line">        <span class="literal">-CertificateThumbprint</span> <span class="variable">$servicePrincipalConnection</span>.CertificateThumbprint </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="variable">$servicePrincipalConnection</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="variable">$ErrorMessage</span> = <span class="string">"Connection <span class="variable">$connectionName</span> not found."</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="variable">$ErrorMessage</span></span><br><span class="line">    &#125; <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">Write-Error</span> <span class="literal">-Message</span> <span class="variable">$_</span>.Exception</span><br><span class="line">        <span class="keyword">throw</span> <span class="variable">$_</span>.Exception</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">echo <span class="string">"Scaling the database"</span></span><br><span class="line"><span class="built_in">Set-AzSqlDatabase</span> <span class="literal">-ResourceGroupName</span> <span class="variable">$ResourceGroupName</span> <span class="literal">-DatabaseName</span> <span class="variable">$DatabaseName</span> <span class="literal">-ServerName</span> <span class="variable">$ServerName</span> <span class="literal">-Edition</span> <span class="variable">$TargetEdition</span> <span class="literal">-RequestedServiceObjectiveName</span> <span class="variable">$TargetServiceObjective</span></span><br><span class="line">echo <span class="string">"Scaling complete"</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Azure Automation is a service that allows running small scripts to do automation of tasks inside azure. For instance if you want to scale
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Getting started with Storybook and Vue</title>
     <link href="https://westerndevs.com/_/storybook/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storybook/</id>
     <published>2021-06-17T04:00:00.000Z</published>
-    <updated>2021-06-18T02:19:16.275Z</updated>
+    <updated>2021-06-24T13:53:51.895Z</updated>
 	<author>
 	
 	  
@@ -50,7 +76,7 @@
     <link href="https://westerndevs.com/_/noda-time/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/noda-time/</id>
     <published>2021-06-16T04:00:00.000Z</published>
-    <updated>2021-06-18T02:19:16.275Z</updated>
+    <updated>2021-06-24T13:53:51.891Z</updated>
 	<author>
 	
 	  
@@ -77,7 +103,7 @@
     <link href="https://westerndevs.com/_/installing-fonts/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/installing-fonts/</id>
     <published>2021-06-11T04:00:00.000Z</published>
-    <updated>2021-06-18T02:19:16.271Z</updated>
+    <updated>2021-06-24T13:53:51.891Z</updated>
 	<author>
 	
 	  
@@ -103,7 +129,7 @@
     <link href="https://westerndevs.com/_/Azure-service-bus-transports/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Azure-service-bus-transports/</id>
     <published>2021-06-07T04:00:00.000Z</published>
-    <updated>2021-06-18T02:19:16.271Z</updated>
+    <updated>2021-06-24T13:53:51.887Z</updated>
 	<author>
 	
 	  
@@ -134,7 +160,7 @@
     <link href="https://westerndevs.com/_/add-user-to-role/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/add-user-to-role/</id>
     <published>2021-06-07T04:00:00.000Z</published>
-    <updated>2021-06-18T02:19:16.271Z</updated>
+    <updated>2021-06-24T13:53:51.887Z</updated>
 	<author>
 	
 	  
@@ -161,7 +187,7 @@
     <link href="https://westerndevs.com/_/sequence/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/sequence/</id>
     <published>2021-06-03T04:00:00.000Z</published>
-    <updated>2021-06-18T02:19:16.275Z</updated>
+    <updated>2021-06-24T13:53:51.895Z</updated>
 	<author>
 	
 	  
@@ -187,7 +213,7 @@
     <link href="https://westerndevs.com/_/durable-entities/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/durable-entities/</id>
     <published>2021-05-20T04:00:00.000Z</published>
-    <updated>2021-06-18T02:19:16.271Z</updated>
+    <updated>2021-06-24T13:53:51.891Z</updated>
 	<author>
 	
 	  
@@ -213,7 +239,7 @@
     <link href="https://westerndevs.com/_/advanced-waf-rules-in-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/advanced-waf-rules-in-terraform/</id>
     <published>2021-05-19T04:00:00.000Z</published>
-    <updated>2021-06-18T02:19:16.271Z</updated>
+    <updated>2021-06-24T13:53:51.887Z</updated>
 	<author>
 	
 	  
@@ -239,7 +265,7 @@
     <link href="https://westerndevs.com/_/importing-tde-encrypted-backup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/importing-tde-encrypted-backup/</id>
     <published>2021-05-18T04:00:00.000Z</published>
-    <updated>2021-06-18T02:19:16.271Z</updated>
+    <updated>2021-06-24T13:53:51.891Z</updated>
 	<author>
 	
 	  
@@ -266,7 +292,7 @@
     <link href="https://westerndevs.com/_/jq/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/jq/</id>
     <published>2021-05-11T04:00:00.000Z</published>
-    <updated>2021-06-18T02:19:16.271Z</updated>
+    <updated>2021-06-24T13:53:51.891Z</updated>
 	<author>
 	
 	  
@@ -292,7 +318,7 @@
     <link href="https://westerndevs.com/_/creating-a-shortcut/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/creating-a-shortcut/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-06-18T02:19:16.271Z</updated>
+    <updated>2021-06-24T13:53:51.891Z</updated>
 	<author>
 	
 	  
@@ -318,7 +344,7 @@
     <link href="https://westerndevs.com/_/set-timezone/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-timezone/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-06-18T02:19:16.275Z</updated>
+    <updated>2021-06-24T13:53:51.895Z</updated>
 	<author>
 	
 	  
@@ -345,7 +371,7 @@
     <link href="https://westerndevs.com/_/download-file/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/download-file/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-18T02:19:16.271Z</updated>
+    <updated>2021-06-24T13:53:51.891Z</updated>
 	<author>
 	
 	  
@@ -372,7 +398,7 @@
     <link href="https://westerndevs.com/_/drop-existing-index/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/drop-existing-index/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-18T02:19:16.271Z</updated>
+    <updated>2021-06-24T13:53:51.891Z</updated>
 	<author>
 	
 	  
@@ -398,7 +424,7 @@
     <link href="https://westerndevs.com/_/function-appinsights/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/function-appinsights/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-18T02:19:16.271Z</updated>
+    <updated>2021-06-24T13:53:51.891Z</updated>
 	<author>
 	
 	  
@@ -424,7 +450,7 @@
     <link href="https://westerndevs.com/_/query-collections-in-big-table/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/query-collections-in-big-table/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-18T02:19:16.275Z</updated>
+    <updated>2021-06-24T13:53:51.895Z</updated>
 	<author>
 	
 	  
@@ -450,7 +476,7 @@
     <link href="https://westerndevs.com/_/set-env-variable/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-env-variable/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-18T02:19:16.275Z</updated>
+    <updated>2021-06-24T13:53:51.895Z</updated>
 	<author>
 	
 	  
@@ -477,7 +503,7 @@
     <link href="https://westerndevs.com/_/terminal-buffer/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/terminal-buffer/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-18T02:19:16.275Z</updated>
+    <updated>2021-06-24T13:53:51.895Z</updated>
 	<author>
 	
 	  
@@ -503,7 +529,7 @@
     <link href="https://westerndevs.com/_/xdt-transforms/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/xdt-transforms/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-18T02:19:16.279Z</updated>
+    <updated>2021-06-24T13:53:51.899Z</updated>
 	<author>
 	
 	  
@@ -518,32 +544,6 @@
     <summary type="html">
     
       &lt;p&gt;You can apply little transforms by just writing XML transformation on configuration files. For instance here is one for adding a section 
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Allocating a Serverless Database in SQL Azure</title>
-    <link href="https://westerndevs.com/_/serverless-sql-azure-terraform/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/serverless-sql-azure-terraform/</id>
-    <published>2020-11-18T19:00:00.000Z</published>
-    <updated>2021-06-18T02:19:16.271Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>I'm pretty big on the SQL Azure Serverless SKU. It allows you to scale databases up and down automatically within a band of between 0.75 and 40 vCores on Gen5 hardware. It also supports auto-pausing which can shut down the entire database during periods of inactivity. I'm provisioning a bunch of databases for a client and we're not sure what performance tier is going to be needed. Eventually we may move to an elastic pool but initially we wanted to allocate the databases in a serverless configuration so we can ascertain a performance envelope. We wanted to allocate the resources in a terraform template but had a little trouble figuring it out.</p><a id="more"></a><p>Traditionally we've been using the resource <code>azurerm_sql_database</code> for our databases but this provider is starting to be deprecated in favour of <code>azurerm_mssql_database</code> which has better support for some of the more modern concept in SQL Azure. The <a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mssql_database#state" target="_blank" rel="noopener">documentation</a> is pretty good for it but while there was a <code>min_capacity</code> we couldn't find an equivalent <code>max_capacity</code>. Turns out you can set the max capacity using the SKU. So we had something like</p><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">resource <span class="string">"azurerm_mssql_database"</span> <span class="string">"database"</span> &#123;</span><br><span class="line">  <span class="attr">name</span>                        = var.database_name</span><br><span class="line">  <span class="attr">server_id</span>                   = var.database_server_id</span><br><span class="line">  <span class="attr">max_size_gb</span>                 = var.database_max_size_gb</span><br><span class="line">  <span class="attr">auto_pause_delay_in_minutes</span> = -<span class="number">1</span></span><br><span class="line">  <span class="attr">min_capacity</span>                = <span class="number">1</span></span><br><span class="line">  <span class="attr">sku_name</span>                    = <span class="string">"GP_S_Gen5_6"</span></span><br><span class="line">  <span class="attr">tags</span> = &#123;</span><br><span class="line">    <span class="attr">environment</span> = var.prefix</span><br><span class="line">  &#125;</span><br><span class="line">  short_term_retention_policy &#123;</span><br><span class="line">    <span class="attr">retention_days</span> = <span class="number">14</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>This allocates a database with a capacity of between 1 and 6 vCPU that has auto pause disabled. The S in the GP_S_Gen5_6 stands for serverless and the 6 denotes the maximum capacity.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;I&#39;m pretty big on the SQL Azure Serverless SKU. It allows you to scale databases up and down automatically within a band of between 0.75 and 40 vCores on Gen5 hardware. It also supports auto-pausing which can shut down the entire database during periods of inactivity. I&#39;m provisioning a bunch of databases for a client and we&#39;re not sure what performance tier is going to be needed. Eventually we may move to an elastic pool but initially we wanted to allocate the databases in a serverless configuration so we can ascertain a performance envelope. We wanted to allocate the resources in a terraform template but had a little trouble figuring it out.&lt;/p&gt;
     
     </summary>
     
