@@ -38,7 +38,25 @@ This will get storybook running and you'll be presented with the browser interfa
     <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
     ```
-3. In the `.storybook` folder add to the `preview.js` and include 
+
+3. Create a new file called `vuetify_storybook.js` and add to it 
+
+```javascript
+import Vue from 'vue';
+import Vuetify from 'vuetify'; // loads all components
+import 'vuetify/dist/vuetify.min.css'; // all the css for components
+import en from 'vuetify/es5/locale/en';
+
+Vue.use(Vuetify);
+
+export default new Vuetify({
+    lang: {
+        locales: { en },
+        current: 'en'
+    }
+});
+```
+4. In the `.storybook` folder add to the `preview.js` and include 
 
     ```
     import { addDecorator } from '@storybook/vue';
