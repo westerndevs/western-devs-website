@@ -1,6 +1,7 @@
   <head>
   <% 
-  var title = page.title; 
+  var title = page.title;
+  var originalurl = page.originalurl;
   %>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title><% if (title){ %><%= title %> | <% } %><%= config.title%></title>
@@ -20,6 +21,9 @@
     <meta name="revisit-after" content="15 days">
     <meta name="robots" content="all">
     <meta name="MSSmartTagsPreventParsing" content="true">
+  <% if (originalurl) { %>
+    <link rel="canonical" href="<%- originalurl %>">
+  <% } %>
   <% if (theme.rss){ %>
     <link rel="alternate" href="<%- theme.rss %>" title="<%= config.title %>" type="application/atom+xml">
   <% } %>
