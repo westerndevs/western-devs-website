@@ -13,11 +13,8 @@ excerpt: "It's true! I read a book about it and everything. Let me breakdown the
 originalurl: https://www.davidwesst.com/blog/i-can-teach-your-dog-quantum-physics/
 authorId: david_wesst
 ---
----
 
-
-social_image: "./physics_dog_resized.jpg"
----
+![A hand holding the book "How to teach physics to your dog" by Chad Orzel]("/images/2021-06-28-i-can-teach-your-dog-quantum-physics/physics_dog_resized.jpg")
 
 Okay fine. Maybe I can't teach your dog quantum physics, but this book taught _me_ something about quantum so that's something, right?
 
