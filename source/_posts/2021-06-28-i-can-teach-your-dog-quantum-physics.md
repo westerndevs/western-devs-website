@@ -14,7 +14,7 @@ originalurl: https://www.davidwesst.com/blog/i-can-teach-your-dog-quantum-physic
 authorId: david_wesst
 ---
 
-![A hand holding the book "How to teach physics to your dog" by Chad Orzel]("/images/2021-06-28-i-can-teach-your-dog-quantum-physics/physics_dog_resized.jpg")
+![A hand holding the book How to teach physics to your dog by Chad Orzel](/images/2021-06-28-i-can-teach-your-dog-quantum-physics/physics_dog_resized.jpg)
 
 Okay fine. Maybe I can't teach your dog quantum physics, but this book taught _me_ something about quantum so that's something, right?
 
