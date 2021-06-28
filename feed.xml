@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2021-06-28T13:11:52.105Z</updated>
+  <updated>2021-06-28T14:26:38.844Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,49 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">I Can Teach Your Dog Quantum Physics</title>
+    <link href="https://westerndevs.com/finding-inspiration/i-can-teach-your-dog-quantum-physics/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/finding-inspiration/i-can-teach-your-dog-quantum-physics/</id>
+    <published>2021-06-28T16:00:00.000Z</published>
+    <updated>2021-06-28T14:26:38.844Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p><img src="/images/2021-06-28-i-can-teach-your-dog-quantum-physics/physics_dog_resized.jpg" alt="A hand holding the book How to teach physics to your dog by Chad Orzel"></p><p>Okay fine. Maybe I can't teach your dog quantum physics, but this book taught <em>me</em> something about quantum so that's something, right?</p><p>I finished <em>How to Teach Physics to your Dog</em> by Chad Orzel as I continue to dive deeper into my quest in understanding in quantum computing. This book was recommended by Mark Russonovich at the end of his Microsoft Ignite 2019 talked called <em>Quantum computing: Computing with a probabilistic universe with Mark Russinovich</em> at Microsoft Ignite 2019. You can watch at this link at the Microsoft Ignite site: <a href="https://myignite.microsoft.com/archives/IG19-BRK4011" target="_blank" rel="noopener">LINK</a>.</p><p>In short, it's pretty good.</p><p>It's solid way to understand some of the core of quantum mechanics that make quantum computing possible. It goes deeper just defining concepts like superposition, entanglement, and QED, but it also gets into a bit of the math and the history side of the concepts.</p><h1>The Highlights</h1><p>Now, I'm no book scientist and as such, I'm not going to worry about trying to put together a fancy book review that rates my experience. Instead, I thought it would be a good idea to highlight the parts of the book that made it a good read, and you can figure out the rest on your own.</p><h2>Dog Conversations</h2><p>Orzel jumps between explaining a concept traditionally to having a conversation with his dog (hense the title).</p><p>The style is kinda silly, which is something of a fresh take for explaining science, but it works surprisingly well.</p><p>Outside of helping to simplify some of the more complicated or mind bending points of quantum mechanics, or lightens the mood and makes it less of a &quot;physics book&quot; and more of a &quot;story about physics&quot;.</p><h2>A story that teaches you about physics</h2><p>I think the best part about the book is how it builds on each topic, chapter by chapter.</p><p>It reads like a story, where each chapter prepares you for the next until you finally hit the big wrap up on entanglement and QED, or quantum electrodynamics, along with a chapter on what to look for when people are trying to abuse quantum physics to push their own non-scientific agenda of making a quick buck.</p><h2>Mathy, but not too mathy</h2><p>Physics is math. That's just how it is, and this book does a great job of introducing us to the math, but not dwelling or depending on it. I appreciated that, especially near the end of the book where ideas like QED start to really bend your mind.</p><p>I appreciated how they didn't shy away from it and used the conversations with the dog to help bring it down to a &quot;not too mathy&quot; way. Keeps the reader in check and reminds them that this isn't just philosophy, but <em>real science</em>.</p><h1>TL;DR; / Conclusion</h1><p>This book set me up with a solid foundation on the physics that make quantum computing possible, which was the whole reason for reading it. It's &quot;learning through story and conversation&quot; approach that doesn't shy away from maths (but doesn't dwell on them) makes it an easier read than one might think.</p><p>Recommended for those interesting in understanding the <em>science</em> (not magic) of quantum physics that make quantum computing a real life thing.</p>]]></content>
+    
+    <summary type="html">
+    
+      It&#39;s true! I read a book about it and everything. Let me breakdown the highlights of this book that does a pretty good job of explaining the physics behind quantum computing.
+    
+    </summary>
+    
+      <category term="finding inspiration" scheme="https://westerndevs.com/categories/finding-inspiration/"/>
+    
+    
+      <category term="quantum computing" scheme="https://westerndevs.com/tags/quantum-computing/"/>
+    
+      <category term="quantum physics" scheme="https://westerndevs.com/tags/quantum-physics/"/>
+    
+      <category term="finding inspiration" scheme="https://westerndevs.com/tags/finding-inspiration/"/>
+    
+      <category term="book" scheme="https://westerndevs.com/tags/book/"/>
+    
+      <category term="Mark Russinovich" scheme="https://westerndevs.com/tags/Mark-Russinovich/"/>
+    
+  </entry>
+  
+  <entry>
     <title type="html">Azure Automation</title>
     <link href="https://westerndevs.com/_/azure-automation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-automation/</id>
     <published>2021-06-24T04:00:00.000Z</published>
-    <updated>2021-06-28T13:11:52.105Z</updated>
+    <updated>2021-06-28T14:26:38.844Z</updated>
 	<author>
 	
 	  
@@ -47,7 +85,7 @@
     <link href="https://westerndevs.com/inner-monologue/what-value-does-making-content-bring-to-me/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/inner-monologue/what-value-does-making-content-bring-to-me/</id>
     <published>2021-06-17T16:00:00.000Z</published>
-    <updated>2021-06-28T13:11:52.105Z</updated>
+    <updated>2021-06-28T14:26:38.844Z</updated>
 	<author>
 	
 	  
@@ -85,7 +123,7 @@
     <link href="https://westerndevs.com/_/storybook/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storybook/</id>
     <published>2021-06-17T04:00:00.000Z</published>
-    <updated>2021-06-28T13:11:52.109Z</updated>
+    <updated>2021-06-28T14:26:38.848Z</updated>
 	<author>
 	
 	  
@@ -114,7 +152,7 @@
     <link href="https://westerndevs.com/_/noda-time/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/noda-time/</id>
     <published>2021-06-16T04:00:00.000Z</published>
-    <updated>2021-06-28T13:11:52.109Z</updated>
+    <updated>2021-06-28T14:26:38.848Z</updated>
 	<author>
 	
 	  
@@ -141,7 +179,7 @@
     <link href="https://westerndevs.com/_/installing-fonts/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/installing-fonts/</id>
     <published>2021-06-11T04:00:00.000Z</published>
-    <updated>2021-06-28T13:11:52.105Z</updated>
+    <updated>2021-06-28T14:26:38.848Z</updated>
 	<author>
 	
 	  
@@ -167,7 +205,7 @@
     <link href="https://westerndevs.com/_/Azure-service-bus-transports/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Azure-service-bus-transports/</id>
     <published>2021-06-07T04:00:00.000Z</published>
-    <updated>2021-06-28T13:11:52.105Z</updated>
+    <updated>2021-06-28T14:26:38.844Z</updated>
 	<author>
 	
 	  
@@ -198,7 +236,7 @@
     <link href="https://westerndevs.com/_/add-user-to-role/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/add-user-to-role/</id>
     <published>2021-06-07T04:00:00.000Z</published>
-    <updated>2021-06-28T13:11:52.105Z</updated>
+    <updated>2021-06-28T14:26:38.844Z</updated>
 	<author>
 	
 	  
@@ -225,7 +263,7 @@
     <link href="https://westerndevs.com/inner-monologue/my-secret-addiction-to-likes/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/inner-monologue/my-secret-addiction-to-likes/</id>
     <published>2021-06-03T16:00:00.000Z</published>
-    <updated>2021-06-28T13:11:52.105Z</updated>
+    <updated>2021-06-28T14:26:38.844Z</updated>
 	<author>
 	
 	  
@@ -263,7 +301,7 @@
     <link href="https://westerndevs.com/_/sequence/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/sequence/</id>
     <published>2021-06-03T04:00:00.000Z</published>
-    <updated>2021-06-28T13:11:52.109Z</updated>
+    <updated>2021-06-28T14:26:38.848Z</updated>
 	<author>
 	
 	  
@@ -289,7 +327,7 @@
     <link href="https://westerndevs.com/technology/inner-monologue/lucky-number-v7/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/technology/inner-monologue/lucky-number-v7/</id>
     <published>2021-05-24T16:00:00.000Z</published>
-    <updated>2021-06-28T13:11:52.105Z</updated>
+    <updated>2021-06-28T14:26:38.844Z</updated>
 	<author>
 	
 	  
@@ -325,7 +363,7 @@
     <link href="https://westerndevs.com/_/durable-entities/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/durable-entities/</id>
     <published>2021-05-20T04:00:00.000Z</published>
-    <updated>2021-06-28T13:11:52.105Z</updated>
+    <updated>2021-06-28T14:26:38.844Z</updated>
 	<author>
 	
 	  
@@ -351,7 +389,7 @@
     <link href="https://westerndevs.com/_/advanced-waf-rules-in-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/advanced-waf-rules-in-terraform/</id>
     <published>2021-05-19T04:00:00.000Z</published>
-    <updated>2021-06-28T13:11:52.105Z</updated>
+    <updated>2021-06-28T14:26:38.844Z</updated>
 	<author>
 	
 	  
@@ -377,7 +415,7 @@
     <link href="https://westerndevs.com/_/importing-tde-encrypted-backup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/importing-tde-encrypted-backup/</id>
     <published>2021-05-18T04:00:00.000Z</published>
-    <updated>2021-06-28T13:11:52.105Z</updated>
+    <updated>2021-06-28T14:26:38.844Z</updated>
 	<author>
 	
 	  
@@ -404,7 +442,7 @@
     <link href="https://westerndevs.com/_/jq/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/jq/</id>
     <published>2021-05-11T04:00:00.000Z</published>
-    <updated>2021-06-28T13:11:52.105Z</updated>
+    <updated>2021-06-28T14:26:38.848Z</updated>
 	<author>
 	
 	  
@@ -430,7 +468,7 @@
     <link href="https://westerndevs.com/_/creating-a-shortcut/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/creating-a-shortcut/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-06-28T13:11:52.105Z</updated>
+    <updated>2021-06-28T14:26:38.844Z</updated>
 	<author>
 	
 	  
@@ -456,7 +494,7 @@
     <link href="https://westerndevs.com/_/set-timezone/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-timezone/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-06-28T13:11:52.109Z</updated>
+    <updated>2021-06-28T14:26:38.848Z</updated>
 	<author>
 	
 	  
@@ -483,7 +521,7 @@
     <link href="https://westerndevs.com/_/download-file/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/download-file/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-28T13:11:52.105Z</updated>
+    <updated>2021-06-28T14:26:38.844Z</updated>
 	<author>
 	
 	  
@@ -510,7 +548,7 @@
     <link href="https://westerndevs.com/_/drop-existing-index/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/drop-existing-index/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-28T13:11:52.105Z</updated>
+    <updated>2021-06-28T14:26:38.844Z</updated>
 	<author>
 	
 	  
@@ -536,7 +574,7 @@
     <link href="https://westerndevs.com/_/function-appinsights/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/function-appinsights/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-28T13:11:52.105Z</updated>
+    <updated>2021-06-28T14:26:38.844Z</updated>
 	<author>
 	
 	  
@@ -551,32 +589,6 @@
     <summary type="html">
     
       &lt;p&gt;Looks like by default functions log at the &lt;code&gt;info&lt;/code&gt; level. To change the level you can use set the application setting &lt;code&gt;Azu
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Query BigTable Events</title>
-    <link href="https://westerndevs.com/_/query-collections-in-big-table/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/query-collections-in-big-table/</id>
-    <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-28T13:11:52.109Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>Firebase can feed its data to bigtable and then you can run queries there. The syntax is SQL like but not quite because they have internal record types. So for the data that is fed across from firebase you get a structure that looks like</p><p><img src="/images/2021-03-05-query-collections-in-big-table.md/2021-03-05-10-39-05.png" alt="">)</p><p>You can see that event_params and user_properties are these kind of collection things. The easiest way to deal with them is to flatten the structure and internally join the table against itself</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> r.event_name, p.key, p.value <span class="keyword">FROM</span> <span class="string">`pocketgeek-auto.analytics_258213689.events_intraday_20210305`</span> r <span class="keyword">cross</span> <span class="keyword">join</span> <span class="keyword">unnest</span>(r.event_params) <span class="keyword">as</span> p <span class="keyword">where</span> <span class="keyword">key</span> = <span class="string">'DealerName'</span></span><br></pre></td></tr></table></figure><p>This gets you a dataset like</p><p><img src="/images/2021-03-05-query-collections-in-big-table.md/2021-03-05-10-41-21.png" alt="">)</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> r.event_name, p.key, p.value <span class="keyword">FROM</span> <span class="string">`pocketgeek-auto.analytics_258213689.events_intraday_20210305`</span> r <span class="keyword">cross</span> <span class="keyword">join</span> <span class="keyword">unnest</span>(r.event_params) <span class="keyword">as</span> p <span class="keyword">where</span> <span class="keyword">key</span> = <span class="string">'DealerName'</span> <span class="keyword">and</span> p.value.string_value &lt;&gt; <span class="string">'none'</span></span><br></pre></td></tr></table></figure><p>is probably even better with the filter</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Firebase can feed its data to bigtable and then you can run queries there. The syntax is SQL like but not quite because they have interna
     
     </summary>
     

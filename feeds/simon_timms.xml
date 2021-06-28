@@ -5,7 +5,7 @@
   <link href="/feeds/simon_timms" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2021-06-28T13:11:52.105Z</updated>
+  <updated>2021-06-28T14:26:38.844Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://westerndevs.com/_/azure-automation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-automation/</id>
     <published>2021-06-24T04:00:00.000Z</published>
-    <updated>2021-06-28T13:11:52.105Z</updated>
+    <updated>2021-06-28T14:26:38.844Z</updated>
 	<author>
 	
 	  
@@ -47,7 +47,7 @@
     <link href="https://westerndevs.com/_/storybook/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storybook/</id>
     <published>2021-06-17T04:00:00.000Z</published>
-    <updated>2021-06-28T13:11:52.109Z</updated>
+    <updated>2021-06-28T14:26:38.848Z</updated>
 	<author>
 	
 	  
@@ -76,7 +76,7 @@
     <link href="https://westerndevs.com/_/noda-time/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/noda-time/</id>
     <published>2021-06-16T04:00:00.000Z</published>
-    <updated>2021-06-28T13:11:52.109Z</updated>
+    <updated>2021-06-28T14:26:38.848Z</updated>
 	<author>
 	
 	  
@@ -103,7 +103,7 @@
     <link href="https://westerndevs.com/_/installing-fonts/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/installing-fonts/</id>
     <published>2021-06-11T04:00:00.000Z</published>
-    <updated>2021-06-28T13:11:52.105Z</updated>
+    <updated>2021-06-28T14:26:38.848Z</updated>
 	<author>
 	
 	  
@@ -129,7 +129,7 @@
     <link href="https://westerndevs.com/_/Azure-service-bus-transports/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Azure-service-bus-transports/</id>
     <published>2021-06-07T04:00:00.000Z</published>
-    <updated>2021-06-28T13:11:52.105Z</updated>
+    <updated>2021-06-28T14:26:38.844Z</updated>
 	<author>
 	
 	  
@@ -160,7 +160,7 @@
     <link href="https://westerndevs.com/_/add-user-to-role/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/add-user-to-role/</id>
     <published>2021-06-07T04:00:00.000Z</published>
-    <updated>2021-06-28T13:11:52.105Z</updated>
+    <updated>2021-06-28T14:26:38.844Z</updated>
 	<author>
 	
 	  
@@ -187,7 +187,7 @@
     <link href="https://westerndevs.com/_/sequence/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/sequence/</id>
     <published>2021-06-03T04:00:00.000Z</published>
-    <updated>2021-06-28T13:11:52.109Z</updated>
+    <updated>2021-06-28T14:26:38.848Z</updated>
 	<author>
 	
 	  
@@ -213,7 +213,7 @@
     <link href="https://westerndevs.com/_/durable-entities/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/durable-entities/</id>
     <published>2021-05-20T04:00:00.000Z</published>
-    <updated>2021-06-28T13:11:52.105Z</updated>
+    <updated>2021-06-28T14:26:38.844Z</updated>
 	<author>
 	
 	  
@@ -239,7 +239,7 @@
     <link href="https://westerndevs.com/_/advanced-waf-rules-in-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/advanced-waf-rules-in-terraform/</id>
     <published>2021-05-19T04:00:00.000Z</published>
-    <updated>2021-06-28T13:11:52.105Z</updated>
+    <updated>2021-06-28T14:26:38.844Z</updated>
 	<author>
 	
 	  
@@ -265,7 +265,7 @@
     <link href="https://westerndevs.com/_/importing-tde-encrypted-backup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/importing-tde-encrypted-backup/</id>
     <published>2021-05-18T04:00:00.000Z</published>
-    <updated>2021-06-28T13:11:52.105Z</updated>
+    <updated>2021-06-28T14:26:38.844Z</updated>
 	<author>
 	
 	  
@@ -292,7 +292,7 @@
     <link href="https://westerndevs.com/_/jq/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/jq/</id>
     <published>2021-05-11T04:00:00.000Z</published>
-    <updated>2021-06-28T13:11:52.105Z</updated>
+    <updated>2021-06-28T14:26:38.848Z</updated>
 	<author>
 	
 	  
@@ -318,7 +318,7 @@
     <link href="https://westerndevs.com/_/creating-a-shortcut/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/creating-a-shortcut/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-06-28T13:11:52.105Z</updated>
+    <updated>2021-06-28T14:26:38.844Z</updated>
 	<author>
 	
 	  
@@ -344,7 +344,7 @@
     <link href="https://westerndevs.com/_/set-timezone/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-timezone/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-06-28T13:11:52.109Z</updated>
+    <updated>2021-06-28T14:26:38.848Z</updated>
 	<author>
 	
 	  
@@ -371,7 +371,7 @@
     <link href="https://westerndevs.com/_/download-file/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/download-file/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-28T13:11:52.105Z</updated>
+    <updated>2021-06-28T14:26:38.844Z</updated>
 	<author>
 	
 	  
@@ -398,7 +398,7 @@
     <link href="https://westerndevs.com/_/drop-existing-index/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/drop-existing-index/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-28T13:11:52.105Z</updated>
+    <updated>2021-06-28T14:26:38.844Z</updated>
 	<author>
 	
 	  
@@ -424,7 +424,7 @@
     <link href="https://westerndevs.com/_/function-appinsights/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/function-appinsights/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-28T13:11:52.105Z</updated>
+    <updated>2021-06-28T14:26:38.844Z</updated>
 	<author>
 	
 	  
@@ -450,7 +450,7 @@
     <link href="https://westerndevs.com/_/query-collections-in-big-table/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/query-collections-in-big-table/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-28T13:11:52.109Z</updated>
+    <updated>2021-06-28T14:26:38.848Z</updated>
 	<author>
 	
 	  
@@ -476,7 +476,7 @@
     <link href="https://westerndevs.com/_/set-env-variable/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-env-variable/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-28T13:11:52.109Z</updated>
+    <updated>2021-06-28T14:26:38.848Z</updated>
 	<author>
 	
 	  
@@ -503,7 +503,7 @@
     <link href="https://westerndevs.com/_/terminal-buffer/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/terminal-buffer/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-28T13:11:52.109Z</updated>
+    <updated>2021-06-28T14:26:38.848Z</updated>
 	<author>
 	
 	  
@@ -529,7 +529,7 @@
     <link href="https://westerndevs.com/_/xdt-transforms/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/xdt-transforms/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-06-28T13:11:52.113Z</updated>
+    <updated>2021-06-28T14:26:38.852Z</updated>
 	<author>
 	
 	  
