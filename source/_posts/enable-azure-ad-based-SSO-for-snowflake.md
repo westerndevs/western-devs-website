@@ -3,6 +3,7 @@ title:  Enable SSO for Snowflake using Azure AD
 # Azure Side
 # Snowflake Side
  Automatic Provisioning 
+ Gotchas!
 authorId: simon_timms
 date: 2021-07-06
 originalurl: https://blog.simontimms.com/2021/07/06/enable-azure-ad-based-SSO-for-snowflake
@@ -75,3 +76,8 @@ Test the connection and ensure that it can connect properly. With that done you'
 
 
 
+
+
+The biggest one here is that the snowflake key used in automatic provisioning only has a lifespan of 6 months. It is almost certainly going to break horribly at that time. You should mitigate this by having the sync job email you if it fails. This can be done in the settings page in Azure
+
+![](/images/2021-07-06-enable-azure-ad-based-SSO-for-snowflake.md/2021-07-06-16-06-05.png))
