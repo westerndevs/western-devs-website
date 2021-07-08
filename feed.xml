@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2021-07-06T22:07:25.862Z</updated>
+  <updated>2021-07-08T23:07:06.888Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Enable TeamCity Symbol Server</title>
+    <link href="https://westerndevs.com/_/enable-symbol-server/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/enable-symbol-server/</id>
+    <published>2021-07-08T04:00:00.000Z</published>
+    <updated>2021-07-08T23:07:06.888Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>First off a symbol server is a server which stores the symbols from a built binary so you don't have to ship out PDB files with your compiled code to be able to debug it. You can hook up visual studio to search a symbol server when you're debugging so that you can drop into code for something like a shared nuget package. Teamcity, as it turns out, has a plugin to support being a symbol server. Here is how you get started with it:</p><ol><li>Install the symbol server plugin by going to Administration &gt; plugins &gt; Browse plugins repository and search for <code>symbol</code></li><li>On your build agents install the windows debugging tools which are shipped as part of the Windows SDK. For windows 10 you can grab it here: https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk/ During the install you'll be prompted for which components you want to install and you can just turn off everything but the debugging tools.</li><li>Remember to restart your build agents so they can register the debugging tools as being installed. You can check by going to the build agent in teamcity. Click on parameters<img src="/images/2021-07-08-enable-symbol-server.md/2021-07-08-16-29-31.png" alt="">)In there, at the bottom, you should find an entry for the debugger<img src="/images/2021-07-08-enable-symbol-server.md/2021-07-08-16-29-59.png" alt="">)</li><li>In the projects you want symbols for enable the symbol server feature<img src="/images/2021-07-08-enable-symbol-server.md/2021-07-08-16-31-20.png" alt="">)</li><li>In the build artifacts you need to ensure that both the PDB and the associated EXE or DLL are selected as artifacts.<img src="/images/2021-07-08-enable-symbol-server.md/2021-07-08-16-32-51.png" alt="">)</li></ol><p>That's pretty much it. In your build now you should see a few log messages to let you know that the symbol server indexing is working<img src="/images/2021-07-08-enable-symbol-server.md/2021-07-08-16-45-53.png" alt="">)</p><p>Now you can hook up Visual Studio to use this by going into settings and searching for <code>symbols</code> then paste the URL of the teamcity server with <code>/app/symbols</code> at the end of it into the box<img src="/images/2021-07-08-enable-symbol-server.md/2021-07-08-16-49-54.png" alt="">)</p><p>Now when you're debugging in visual studio you'll have access to the symbols.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;First off a symbol server is a server which stores the symbols from a built binary so you don&#39;t have to ship out PDB files with your comp
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">I Can Teach Your Dog Quantum Physics</title>
     <link href="https://westerndevs.com/finding-inspiration/i-can-teach-your-dog-quantum-physics/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/finding-inspiration/i-can-teach-your-dog-quantum-physics/</id>
     <published>2021-06-28T16:00:00.000Z</published>
-    <updated>2021-07-06T22:07:25.862Z</updated>
+    <updated>2021-07-08T23:07:06.884Z</updated>
 	<author>
 	
 	  
@@ -59,7 +85,7 @@
     <link href="https://westerndevs.com/_/azure-automation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-automation/</id>
     <published>2021-06-24T04:00:00.000Z</published>
-    <updated>2021-07-06T22:07:25.862Z</updated>
+    <updated>2021-07-08T23:07:06.884Z</updated>
 	<author>
 	
 	  
@@ -85,7 +111,7 @@
     <link href="https://westerndevs.com/inner-monologue/what-value-does-making-content-bring-to-me/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/inner-monologue/what-value-does-making-content-bring-to-me/</id>
     <published>2021-06-17T16:00:00.000Z</published>
-    <updated>2021-07-06T22:07:25.862Z</updated>
+    <updated>2021-07-08T23:07:06.884Z</updated>
 	<author>
 	
 	  
@@ -123,7 +149,7 @@
     <link href="https://westerndevs.com/_/storybook/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storybook/</id>
     <published>2021-06-17T04:00:00.000Z</published>
-    <updated>2021-07-06T22:07:25.870Z</updated>
+    <updated>2021-07-08T23:07:06.892Z</updated>
 	<author>
 	
 	  
@@ -152,7 +178,7 @@
     <link href="https://westerndevs.com/_/noda-time/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/noda-time/</id>
     <published>2021-06-16T04:00:00.000Z</published>
-    <updated>2021-07-06T22:07:25.866Z</updated>
+    <updated>2021-07-08T23:07:06.888Z</updated>
 	<author>
 	
 	  
@@ -179,7 +205,7 @@
     <link href="https://westerndevs.com/_/installing-fonts/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/installing-fonts/</id>
     <published>2021-06-11T04:00:00.000Z</published>
-    <updated>2021-07-06T22:07:25.866Z</updated>
+    <updated>2021-07-08T23:07:06.888Z</updated>
 	<author>
 	
 	  
@@ -205,7 +231,7 @@
     <link href="https://westerndevs.com/_/Azure-service-bus-transports/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Azure-service-bus-transports/</id>
     <published>2021-06-07T04:00:00.000Z</published>
-    <updated>2021-07-06T22:07:25.862Z</updated>
+    <updated>2021-07-08T23:07:06.884Z</updated>
 	<author>
 	
 	  
@@ -236,7 +262,7 @@
     <link href="https://westerndevs.com/_/add-user-to-role/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/add-user-to-role/</id>
     <published>2021-06-07T04:00:00.000Z</published>
-    <updated>2021-07-06T22:07:25.862Z</updated>
+    <updated>2021-07-08T23:07:06.884Z</updated>
 	<author>
 	
 	  
@@ -263,7 +289,7 @@
     <link href="https://westerndevs.com/inner-monologue/my-secret-addiction-to-likes/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/inner-monologue/my-secret-addiction-to-likes/</id>
     <published>2021-06-03T16:00:00.000Z</published>
-    <updated>2021-07-06T22:07:25.862Z</updated>
+    <updated>2021-07-08T23:07:06.884Z</updated>
 	<author>
 	
 	  
@@ -301,7 +327,7 @@
     <link href="https://westerndevs.com/_/sequence/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/sequence/</id>
     <published>2021-06-03T04:00:00.000Z</published>
-    <updated>2021-07-06T22:07:25.870Z</updated>
+    <updated>2021-07-08T23:07:06.892Z</updated>
 	<author>
 	
 	  
@@ -327,7 +353,7 @@
     <link href="https://westerndevs.com/technology/inner-monologue/lucky-number-v7/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/technology/inner-monologue/lucky-number-v7/</id>
     <published>2021-05-24T16:00:00.000Z</published>
-    <updated>2021-07-06T22:07:25.862Z</updated>
+    <updated>2021-07-08T23:07:06.884Z</updated>
 	<author>
 	
 	  
@@ -363,7 +389,7 @@
     <link href="https://westerndevs.com/_/durable-entities/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/durable-entities/</id>
     <published>2021-05-20T04:00:00.000Z</published>
-    <updated>2021-07-06T22:07:25.866Z</updated>
+    <updated>2021-07-08T23:07:06.888Z</updated>
 	<author>
 	
 	  
@@ -389,7 +415,7 @@
     <link href="https://westerndevs.com/_/advanced-waf-rules-in-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/advanced-waf-rules-in-terraform/</id>
     <published>2021-05-19T04:00:00.000Z</published>
-    <updated>2021-07-06T22:07:25.862Z</updated>
+    <updated>2021-07-08T23:07:06.884Z</updated>
 	<author>
 	
 	  
@@ -415,7 +441,7 @@
     <link href="https://westerndevs.com/_/importing-tde-encrypted-backup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/importing-tde-encrypted-backup/</id>
     <published>2021-05-18T04:00:00.000Z</published>
-    <updated>2021-07-06T22:07:25.866Z</updated>
+    <updated>2021-07-08T23:07:06.888Z</updated>
 	<author>
 	
 	  
@@ -442,7 +468,7 @@
     <link href="https://westerndevs.com/_/jq/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/jq/</id>
     <published>2021-05-11T04:00:00.000Z</published>
-    <updated>2021-07-06T22:07:25.866Z</updated>
+    <updated>2021-07-08T23:07:06.888Z</updated>
 	<author>
 	
 	  
@@ -468,7 +494,7 @@
     <link href="https://westerndevs.com/_/creating-a-shortcut/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/creating-a-shortcut/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-07-06T22:07:25.866Z</updated>
+    <updated>2021-07-08T23:07:06.888Z</updated>
 	<author>
 	
 	  
@@ -494,7 +520,7 @@
     <link href="https://westerndevs.com/_/set-timezone/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-timezone/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-07-06T22:07:25.870Z</updated>
+    <updated>2021-07-08T23:07:06.892Z</updated>
 	<author>
 	
 	  
@@ -521,7 +547,7 @@
     <link href="https://westerndevs.com/_/download-file/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/download-file/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-07-06T22:07:25.866Z</updated>
+    <updated>2021-07-08T23:07:06.888Z</updated>
 	<author>
 	
 	  
@@ -548,7 +574,7 @@
     <link href="https://westerndevs.com/_/drop-existing-index/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/drop-existing-index/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-07-06T22:07:25.866Z</updated>
+    <updated>2021-07-08T23:07:06.888Z</updated>
 	<author>
 	
 	  
@@ -563,32 +589,6 @@
     <summary type="html">
     
       &lt;p&gt;Of course the SQL server syntax for this doesn&#39;t quite jive with what I want but you can use the clause &lt;code&gt;WITH (DROP_EXISTING = ON)&lt;/
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Logging in Functions</title>
-    <link href="https://westerndevs.com/_/function-appinsights/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/function-appinsights/</id>
-    <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-07-06T22:07:25.866Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>Looks like by default functions log at the <code>info</code> level. To change the level you can use set the application setting <code>AzureFunctionsJobHost__logging__LogLevel__Default</code> to some other value like <code>Error</code> or <code>Info</code>.</p><p>If you want to disable adaptive sampling then that can be done in the host.json</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"2.0"</span>,</span><br><span class="line">  <span class="attr">"extensions"</span>: &#123;</span><br><span class="line">    <span class="attr">"queues"</span>: &#123;</span><br><span class="line">      <span class="attr">"maxPollingInterval"</span>: <span class="string">"00:00:05"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"logging"</span>: &#123;</span><br><span class="line">    <span class="attr">"logLevel"</span>: &#123;</span><br><span class="line">      <span class="attr">"default"</span>: <span class="string">"Information"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"applicationInsights"</span>: &#123;</span><br><span class="line">      <span class="attr">"samplingSettings"</span>: &#123;</span><br><span class="line">        <span class="attr">"isEnabled"</span>: <span class="literal">false</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"functionTimeout"</span>: <span class="string">"00:10:00"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>In this example adaptive sampling is turned off so you get every log message.</p><p>A thing to note is that if you crank down logging to Error you won't see the invocations at all in the portal but they're still running.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Looks like by default functions log at the &lt;code&gt;info&lt;/code&gt; level. To change the level you can use set the application setting &lt;code&gt;Azu
     
     </summary>
     
