@@ -1,12 +1,12 @@
 ---
-title: # Deploying App Settings to an Azure Static Web App
+title:  Deploying App Settings to an Azure Static Web App
 authorId: simon_timms
 date: 2021-07-26
 originalurl: https://blog.simontimms.com/2021/07/26/static-app-settings
 mode: public
 ---
 
-## Deploying App Settings to an Azure Static Web App
+
 
 Static web apps are pretty cool but certain parts of them feel like they are still a little raw. It is a newish product so I can understand that. I just wish the things that didn't get attention were something other that devops things. That's mostly because I'm so big on builds and repeatable processes. Being able to set app setting is one of the things I think falls through the cracks. 
 

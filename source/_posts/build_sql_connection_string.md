@@ -1,12 +1,12 @@
 ---
-title: # Building an SQL Azure Connection String using terraform
+title:  Building an SQL Azure Connection String using terraform
 authorId: simon_timms
 date: 2021-07-26
 originalurl: https://blog.simontimms.com/2021/07/26/build_sql_connection_string
 mode: public
 ---
 
-## Building an SQL Azure Connection String using terraform
+
 
 If you provision a database using terraform you often find that you need to get that connection string into app settings or key vault or something like that. To do that you first need to build it because the outputs from the database resource don't include it. 
 
