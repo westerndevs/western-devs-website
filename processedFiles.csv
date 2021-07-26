@@ -1,4 +1,5 @@
 docs/work/azure/function-appinsights.md,2021-05-08
+docs/work/azure/static-app-settings.md,2021-07-26
 docs/work/azure/durable-entities.md,2021-05-20
 docs/work/azure/Azure-service-bus-transports.md,2021-06-07
 docs/work/azure/azure-automation.md,2021-06-24
@@ -17,6 +18,7 @@ docs/work/sql/sequence.md,2021-06-03
 docs/work/gcp/query-collections-in-big-table.md,2021-05-08
 docs/work/NET/xdt-transforms.md,2021-05-08
 docs/work/NET/noda-time.md,2021-06-16
+docs/work/terraform/build_sql_connection_string.md,2021-07-26
 docs/work/powershell/set-timezone.md,2021-05-10
 docs/work/powershell/download-file.md,2021-05-08
 docs/work/powershell/set-env-variable.md,2021-05-08
