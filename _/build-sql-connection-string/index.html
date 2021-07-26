@@ -4,15 +4,15 @@
   <head>
   
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>build-sql-connection-string | Western Devs</title>
-  <meta name="description" content="Building an SQL Azure Connection String using terraform If you provision a database using terraform you often find that you need to get that connection string into app settings or key vault or somethi">
+    <title>Building an SQL Azure Connection String using terraform | Western Devs</title>
+  <meta name="description" content="If you provision a database using terraform you often find that you need to get that connection string into app settings or key vault or something like that. To do that you first need to build it beca">
 <meta property="og:type" content="article">
-<meta property="og:title" content="build-sql-connection-string">
+<meta property="og:title" content="Building an SQL Azure Connection String using terraform">
 <meta property="og:url" content="https://westerndevs.com/_/build-sql-connection-string/index.html">
 <meta property="og:site_name" content="Western Devs">
-<meta property="og:description" content="Building an SQL Azure Connection String using terraform If you provision a database using terraform you often find that you need to get that connection string into app settings or key vault or somethi">
+<meta property="og:description" content="If you provision a database using terraform you often find that you need to get that connection string into app settings or key vault or something like that. To do that you first need to build it beca">
 <meta property="article:published_time" content="2021-07-26T04:00:00.000Z">
-<meta property="article:modified_time" content="2021-07-26T14:23:04.014Z">
+<meta property="article:modified_time" content="2021-07-26T14:25:57.729Z">
 <meta property="article:author" content="Western Devs">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:creator" content="@westerndevs">
@@ -99,7 +99,7 @@
     <div class="ListLrgDateDay">26</div>
     <div class="ListLrgDateYear">2021</div>
   </div>
-  <h2>build-sql-connection-string</h2>
+  <h2>Building an SQL Azure Connection String using terraform</h2>
 </div>
 
 		    
@@ -109,8 +109,7 @@
 
 
 			<div id="mainPostContent">
-	        <h2>Building an SQL Azure Connection String using terraform</h2>
-<p>If you provision a database using terraform you often find that you need to get that connection string into app settings or key vault or something like that. To do that you first need to build it because the outputs from the database resource don't include it.</p>
+	        <p>If you provision a database using terraform you often find that you need to get that connection string into app settings or key vault or something like that. To do that you first need to build it because the outputs from the database resource don't include it.</p>
 <p>From the database you want to export</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">output "database_name" &#123;</span><br><span class="line">  value = azurerm_sql_database.database.name</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Then when you actually build the string you want something like this:</p>

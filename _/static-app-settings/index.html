@@ -4,15 +4,15 @@
   <head>
   
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>static-app-settings | Western Devs</title>
-  <meta name="description" content="Deploying App Settings to an Azure Static Web App Static web apps are pretty cool but certain parts of them feel like they are still a little raw. It is a newish product so I can understand that. I ju">
+    <title>Deploying App Settings to an Azure Static Web App | Western Devs</title>
+  <meta name="description" content="Static web apps are pretty cool but certain parts of them feel like they are still a little raw. It is a newish product so I can understand that. I just wish the things that didn&#39;t get attention were">
 <meta property="og:type" content="article">
-<meta property="og:title" content="static-app-settings">
+<meta property="og:title" content="Deploying App Settings to an Azure Static Web App">
 <meta property="og:url" content="https://westerndevs.com/_/static-app-settings/index.html">
 <meta property="og:site_name" content="Western Devs">
-<meta property="og:description" content="Deploying App Settings to an Azure Static Web App Static web apps are pretty cool but certain parts of them feel like they are still a little raw. It is a newish product so I can understand that. I ju">
+<meta property="og:description" content="Static web apps are pretty cool but certain parts of them feel like they are still a little raw. It is a newish product so I can understand that. I just wish the things that didn&#39;t get attention were">
 <meta property="article:published_time" content="2021-07-26T04:00:00.000Z">
-<meta property="article:modified_time" content="2021-07-26T14:23:04.022Z">
+<meta property="article:modified_time" content="2021-07-26T14:25:57.741Z">
 <meta property="article:author" content="Western Devs">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:creator" content="@westerndevs">
@@ -99,7 +99,7 @@
     <div class="ListLrgDateDay">26</div>
     <div class="ListLrgDateYear">2021</div>
   </div>
-  <h2>static-app-settings</h2>
+  <h2>Deploying App Settings to an Azure Static Web App</h2>
 </div>
 
 		    
@@ -109,8 +109,7 @@
 
 
 			<div id="mainPostContent">
-	        <h2>Deploying App Settings to an Azure Static Web App</h2>
-<p>Static web apps are pretty cool but certain parts of them feel like they are still a little raw. It is a newish product so I can understand that. I just wish the things that didn't get attention were something other that devops things. That's mostly because I'm so big on builds and repeatable processes. Being able to set app setting is one of the things I think falls through the cracks.</p>
+	        <p>Static web apps are pretty cool but certain parts of them feel like they are still a little raw. It is a newish product so I can understand that. I just wish the things that didn't get attention were something other that devops things. That's mostly because I'm so big on builds and repeatable processes. Being able to set app setting is one of the things I think falls through the cracks.</p>
 <p>The <a href="https://docs.microsoft.com/en-us/azure/static-web-apps/application-settings#:~:text=%20Using%20the%20Azure%20portal%20%201%20Navigate,7%20Click%20OK.%208%20Click%20Save.%20More%20" target="_blank" rel="noopener">docs</a> for statics web apps suggests two different ways of setting app settings. First through the portal which we can ignore right out the gate because it is manual. The second is through an <code>az</code> command that actually just exercises a REST endpoint. No Arm support, no terraform support, no bicep support, no azure powershell support... a long way to go.</p>
 <p>The az command takes in a specially formatted json file. My databse and connection string variables are set up as outputs from my terraform. Once I have them imported into my Azure DevOps build pipeline I use powershell to build the template file like so:</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$temp</span> = gc api/api/local.settings.template.json | <span class="built_in">ConvertFrom-Json</span></span><br><span class="line"><span class="variable">$temp</span>.properties.STORAGE_CONNECTION_STRING = <span class="string">"<span class="variable">$</span>(terraformOutput.storage_connection_string)"</span></span><br><span class="line"><span class="variable">$temp</span>.properties.DATABASE_CONNECTION_STRING = <span class="string">"<span class="variable">$</span>(terraformOutput.database_connection_string)"</span></span><br><span class="line"><span class="variable">$temp</span> | <span class="built_in">ConvertTo-json</span> &gt; api/api/local.settings.template.json</span><br></pre></td></tr></table></figure>

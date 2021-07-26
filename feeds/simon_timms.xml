@@ -5,7 +5,7 @@
   <link href="/feeds/simon_timms" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2021-07-26T14:23:04.014Z</updated>
+  <updated>2021-07-26T14:25:57.729Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title type="html">build-sql-connection-string</title>
+    <title type="html">Building an SQL Azure Connection String using terraform</title>
     <link href="https://westerndevs.com/_/build-sql-connection-string/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/build-sql-connection-string/</id>
     <published>2021-07-26T04:00:00.000Z</published>
-    <updated>2021-07-26T14:23:04.014Z</updated>
+    <updated>2021-07-26T14:25:57.729Z</updated>
 	<author>
 	
 	  
@@ -31,12 +31,11 @@
 	  <uri>https://westerndevs.com</uri>
 	</author>
     
-    <content type="html"><![CDATA[<h2>Building an SQL Azure Connection String using terraform</h2><p>If you provision a database using terraform you often find that you need to get that connection string into app settings or key vault or something like that. To do that you first need to build it because the outputs from the database resource don't include it.</p><p>From the database you want to export</p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">output "database_name" &#123;</span><br><span class="line">  value = azurerm_sql_database.database.name</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>Then when you actually build the string you want something like this:</p><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">database_connection_string</span>    = <span class="string">"Server=tcp:<span class="variable">$&#123;module.database.name&#125;</span>.database.windows.net,1433;Initial Catalog=<span class="variable">$&#123;module.database.database_name&#125;</span>;Persist Security Info=False;User ID=<span class="variable">$&#123;var.database_user&#125;</span>;Password=<span class="variable">$&#123;var.database_password&#125;</span>;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"</span></span><br></pre></td></tr></table></figure><p>Then you can push this to KeyVault or an App Service directly.</p>]]></content>
+    <content type="html"><![CDATA[<p>If you provision a database using terraform you often find that you need to get that connection string into app settings or key vault or something like that. To do that you first need to build it because the outputs from the database resource don't include it.</p><p>From the database you want to export</p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">output "database_name" &#123;</span><br><span class="line">  value = azurerm_sql_database.database.name</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>Then when you actually build the string you want something like this:</p><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">database_connection_string</span>    = <span class="string">"Server=tcp:<span class="variable">$&#123;module.database.name&#125;</span>.database.windows.net,1433;Initial Catalog=<span class="variable">$&#123;module.database.database_name&#125;</span>;Persist Security Info=False;User ID=<span class="variable">$&#123;var.database_user&#125;</span>;Password=<span class="variable">$&#123;var.database_password&#125;</span>;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"</span></span><br></pre></td></tr></table></figure><p>Then you can push this to KeyVault or an App Service directly.</p>]]></content>
     
     <summary type="html">
     
-      &lt;h2&gt;Building an SQL Azure Connection String using terraform&lt;/h2&gt;
-&lt;p&gt;If you provision a database using terraform you often find that you need
+      &lt;p&gt;If you provision a database using terraform you often find that you need to get that connection string into app settings or key vault or 
     
     </summary>
     
@@ -44,11 +43,11 @@
   </entry>
   
   <entry>
-    <title type="html">static-app-settings</title>
+    <title type="html">Deploying App Settings to an Azure Static Web App</title>
     <link href="https://westerndevs.com/_/static-app-settings/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/static-app-settings/</id>
     <published>2021-07-26T04:00:00.000Z</published>
-    <updated>2021-07-26T14:23:04.022Z</updated>
+    <updated>2021-07-26T14:25:57.741Z</updated>
 	<author>
 	
 	  
@@ -58,12 +57,11 @@
 	  <uri>https://westerndevs.com</uri>
 	</author>
     
-    <content type="html"><![CDATA[<h2>Deploying App Settings to an Azure Static Web App</h2><p>Static web apps are pretty cool but certain parts of them feel like they are still a little raw. It is a newish product so I can understand that. I just wish the things that didn't get attention were something other that devops things. That's mostly because I'm so big on builds and repeatable processes. Being able to set app setting is one of the things I think falls through the cracks.</p><p>The <a href="https://docs.microsoft.com/en-us/azure/static-web-apps/application-settings#:~:text=%20Using%20the%20Azure%20portal%20%201%20Navigate,7%20Click%20OK.%208%20Click%20Save.%20More%20" target="_blank" rel="noopener">docs</a> for statics web apps suggests two different ways of setting app settings. First through the portal which we can ignore right out the gate because it is manual. The second is through an <code>az</code> command that actually just exercises a REST endpoint. No Arm support, no terraform support, no bicep support, no azure powershell support... a long way to go.</p><p>The az command takes in a specially formatted json file. My databse and connection string variables are set up as outputs from my terraform. Once I have them imported into my Azure DevOps build pipeline I use powershell to build the template file like so:</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$temp</span> = gc api/api/local.settings.template.json | <span class="built_in">ConvertFrom-Json</span></span><br><span class="line"><span class="variable">$temp</span>.properties.STORAGE_CONNECTION_STRING = <span class="string">"<span class="variable">$</span>(terraformOutput.storage_connection_string)"</span></span><br><span class="line"><span class="variable">$temp</span>.properties.DATABASE_CONNECTION_STRING = <span class="string">"<span class="variable">$</span>(terraformOutput.database_connection_string)"</span></span><br><span class="line"><span class="variable">$temp</span> | <span class="built_in">ConvertTo-json</span> &gt; api/api/local.settings.template.json</span><br></pre></td></tr></table></figure><p>Now this needs to be passed up to azure using the <code>AzureCLI</code> task</p><pre><code class="language-yaml">  - task: AzureCLI@2    inputs:    azureSubscription: 'Azure Sub'    scriptType: 'pscore'    scriptLocation: 'inlineScript'    inlineScript: |        gc api/api/local.settings.template.json        az rest --method put --headers &quot;Content-Type=application/json&quot; --uri &quot;/subscriptions/6da8d6e6-41f1-xxxx-xxxx-xxxxxxxx/resourceGroups/dev-portal/providers/Microsoft.Web/staticSites/dev-portal/config/functionappsettings?api-version=2019-12-01-preview&quot; --body @api/api/local.settings.template.json</code></pre>]]></content>
+    <content type="html"><![CDATA[<p>Static web apps are pretty cool but certain parts of them feel like they are still a little raw. It is a newish product so I can understand that. I just wish the things that didn't get attention were something other that devops things. That's mostly because I'm so big on builds and repeatable processes. Being able to set app setting is one of the things I think falls through the cracks.</p><p>The <a href="https://docs.microsoft.com/en-us/azure/static-web-apps/application-settings#:~:text=%20Using%20the%20Azure%20portal%20%201%20Navigate,7%20Click%20OK.%208%20Click%20Save.%20More%20" target="_blank" rel="noopener">docs</a> for statics web apps suggests two different ways of setting app settings. First through the portal which we can ignore right out the gate because it is manual. The second is through an <code>az</code> command that actually just exercises a REST endpoint. No Arm support, no terraform support, no bicep support, no azure powershell support... a long way to go.</p><p>The az command takes in a specially formatted json file. My databse and connection string variables are set up as outputs from my terraform. Once I have them imported into my Azure DevOps build pipeline I use powershell to build the template file like so:</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$temp</span> = gc api/api/local.settings.template.json | <span class="built_in">ConvertFrom-Json</span></span><br><span class="line"><span class="variable">$temp</span>.properties.STORAGE_CONNECTION_STRING = <span class="string">"<span class="variable">$</span>(terraformOutput.storage_connection_string)"</span></span><br><span class="line"><span class="variable">$temp</span>.properties.DATABASE_CONNECTION_STRING = <span class="string">"<span class="variable">$</span>(terraformOutput.database_connection_string)"</span></span><br><span class="line"><span class="variable">$temp</span> | <span class="built_in">ConvertTo-json</span> &gt; api/api/local.settings.template.json</span><br></pre></td></tr></table></figure><p>Now this needs to be passed up to azure using the <code>AzureCLI</code> task</p><pre><code class="language-yaml">  - task: AzureCLI@2    inputs:    azureSubscription: 'Azure Sub'    scriptType: 'pscore'    scriptLocation: 'inlineScript'    inlineScript: |        gc api/api/local.settings.template.json        az rest --method put --headers &quot;Content-Type=application/json&quot; --uri &quot;/subscriptions/6da8d6e6-41f1-xxxx-xxxx-xxxxxxxx/resourceGroups/dev-portal/providers/Microsoft.Web/staticSites/dev-portal/config/functionappsettings?api-version=2019-12-01-preview&quot; --body @api/api/local.settings.template.json</code></pre>]]></content>
     
     <summary type="html">
     
-      &lt;h2&gt;Deploying App Settings to an Azure Static Web App&lt;/h2&gt;
-&lt;p&gt;Static web apps are pretty cool but certain parts of them feel like they are s
+      &lt;p&gt;Static web apps are pretty cool but certain parts of them feel like they are still a little raw. It is a newish product so I can understa
     
     </summary>
     
@@ -75,7 +73,7 @@
     <link href="https://westerndevs.com/_/vetur-cant-file-files/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/vetur-cant-file-files/</id>
     <published>2021-07-24T04:00:00.000Z</published>
-    <updated>2021-07-26T14:23:04.022Z</updated>
+    <updated>2021-07-26T14:25:57.741Z</updated>
 	<author>
 	
 	  
@@ -101,7 +99,7 @@
     <link href="https://westerndevs.com/_/enable-symbol-server/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/enable-symbol-server/</id>
     <published>2021-07-08T04:00:00.000Z</published>
-    <updated>2021-07-26T14:23:04.018Z</updated>
+    <updated>2021-07-26T14:25:57.733Z</updated>
 	<author>
 	
 	  
@@ -127,7 +125,7 @@
     <link href="https://westerndevs.com/_/azure-automation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-automation/</id>
     <published>2021-06-24T04:00:00.000Z</published>
-    <updated>2021-07-26T14:23:04.014Z</updated>
+    <updated>2021-07-26T14:25:57.729Z</updated>
 	<author>
 	
 	  
@@ -153,7 +151,7 @@
     <link href="https://westerndevs.com/_/storybook/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storybook/</id>
     <published>2021-06-17T04:00:00.000Z</published>
-    <updated>2021-07-26T14:23:04.022Z</updated>
+    <updated>2021-07-26T14:25:57.741Z</updated>
 	<author>
 	
 	  
@@ -182,7 +180,7 @@
     <link href="https://westerndevs.com/_/noda-time/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/noda-time/</id>
     <published>2021-06-16T04:00:00.000Z</published>
-    <updated>2021-07-26T14:23:04.018Z</updated>
+    <updated>2021-07-26T14:25:57.733Z</updated>
 	<author>
 	
 	  
@@ -209,7 +207,7 @@
     <link href="https://westerndevs.com/_/installing-fonts/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/installing-fonts/</id>
     <published>2021-06-11T04:00:00.000Z</published>
-    <updated>2021-07-26T14:23:04.018Z</updated>
+    <updated>2021-07-26T14:25:57.733Z</updated>
 	<author>
 	
 	  
@@ -235,7 +233,7 @@
     <link href="https://westerndevs.com/_/Azure-service-bus-transports/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Azure-service-bus-transports/</id>
     <published>2021-06-07T04:00:00.000Z</published>
-    <updated>2021-07-26T14:23:04.014Z</updated>
+    <updated>2021-07-26T14:25:57.729Z</updated>
 	<author>
 	
 	  
@@ -266,7 +264,7 @@
     <link href="https://westerndevs.com/_/add-user-to-role/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/add-user-to-role/</id>
     <published>2021-06-07T04:00:00.000Z</published>
-    <updated>2021-07-26T14:23:04.014Z</updated>
+    <updated>2021-07-26T14:25:57.729Z</updated>
 	<author>
 	
 	  
@@ -293,7 +291,7 @@
     <link href="https://westerndevs.com/_/sequence/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/sequence/</id>
     <published>2021-06-03T04:00:00.000Z</published>
-    <updated>2021-07-26T14:23:04.022Z</updated>
+    <updated>2021-07-26T14:25:57.741Z</updated>
 	<author>
 	
 	  
@@ -319,7 +317,7 @@
     <link href="https://westerndevs.com/_/durable-entities/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/durable-entities/</id>
     <published>2021-05-20T04:00:00.000Z</published>
-    <updated>2021-07-26T14:23:04.018Z</updated>
+    <updated>2021-07-26T14:25:57.733Z</updated>
 	<author>
 	
 	  
@@ -345,7 +343,7 @@
     <link href="https://westerndevs.com/_/advanced-waf-rules-in-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/advanced-waf-rules-in-terraform/</id>
     <published>2021-05-19T04:00:00.000Z</published>
-    <updated>2021-07-26T14:23:04.014Z</updated>
+    <updated>2021-07-26T14:25:57.729Z</updated>
 	<author>
 	
 	  
@@ -371,7 +369,7 @@
     <link href="https://westerndevs.com/_/importing-tde-encrypted-backup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/importing-tde-encrypted-backup/</id>
     <published>2021-05-18T04:00:00.000Z</published>
-    <updated>2021-07-26T14:23:04.018Z</updated>
+    <updated>2021-07-26T14:25:57.733Z</updated>
 	<author>
 	
 	  
@@ -398,7 +396,7 @@
     <link href="https://westerndevs.com/_/jq/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/jq/</id>
     <published>2021-05-11T04:00:00.000Z</published>
-    <updated>2021-07-26T14:23:04.018Z</updated>
+    <updated>2021-07-26T14:25:57.733Z</updated>
 	<author>
 	
 	  
@@ -424,7 +422,7 @@
     <link href="https://westerndevs.com/_/creating-a-shortcut/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/creating-a-shortcut/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-07-26T14:23:04.014Z</updated>
+    <updated>2021-07-26T14:25:57.733Z</updated>
 	<author>
 	
 	  
@@ -450,7 +448,7 @@
     <link href="https://westerndevs.com/_/set-timezone/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-timezone/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-07-26T14:23:04.022Z</updated>
+    <updated>2021-07-26T14:25:57.741Z</updated>
 	<author>
 	
 	  
@@ -477,7 +475,7 @@
     <link href="https://westerndevs.com/_/download-file/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/download-file/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-07-26T14:23:04.018Z</updated>
+    <updated>2021-07-26T14:25:57.733Z</updated>
 	<author>
 	
 	  
@@ -504,7 +502,7 @@
     <link href="https://westerndevs.com/_/drop-existing-index/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/drop-existing-index/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-07-26T14:23:04.018Z</updated>
+    <updated>2021-07-26T14:25:57.733Z</updated>
 	<author>
 	
 	  
@@ -530,7 +528,7 @@
     <link href="https://westerndevs.com/_/function-appinsights/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/function-appinsights/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-07-26T14:23:04.018Z</updated>
+    <updated>2021-07-26T14:25:57.733Z</updated>
 	<author>
 	
 	  
