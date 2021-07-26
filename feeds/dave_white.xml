@@ -5,7 +5,7 @@
   <link href="/feeds/dave_white" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2021-07-24T14:16:34.010Z</updated>
+  <updated>2021-07-26T14:23:04.014Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://westerndevs.com/kubernetes/kubernetes-my-journey/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/kubernetes/kubernetes-my-journey/</id>
     <published>2020-05-22T17:00:00.000Z</published>
-    <updated>2021-07-24T14:16:34.010Z</updated>
+    <updated>2021-07-26T14:23:04.014Z</updated>
 	<author>
 	
 	  
@@ -52,7 +52,7 @@
     <link href="https://westerndevs.com/kubernetes/kubernetes-my-journey-part-1/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-1/</id>
     <published>2020-05-22T16:00:00.000Z</published>
-    <updated>2021-07-24T14:16:34.010Z</updated>
+    <updated>2021-07-26T14:23:04.010Z</updated>
 	<author>
 	
 	  
@@ -84,7 +84,7 @@
     <link href="https://westerndevs.com/kubernetes/kubernetes-my-journey-part-2/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-2/</id>
     <published>2020-05-22T15:00:00.000Z</published>
-    <updated>2021-07-24T14:16:34.010Z</updated>
+    <updated>2021-07-26T14:23:04.010Z</updated>
 	<author>
 	
 	  
@@ -116,7 +116,7 @@
     <link href="https://westerndevs.com/kubernetes/kubernetes-my-journey-part-3/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-3/</id>
     <published>2020-05-22T14:00:00.000Z</published>
-    <updated>2021-07-24T14:16:34.010Z</updated>
+    <updated>2021-07-26T14:23:04.010Z</updated>
 	<author>
 	
 	  
@@ -148,7 +148,7 @@
     <link href="https://westerndevs.com/kubernetes/kubernetes-my-journey-part-4/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-4/</id>
     <published>2020-05-22T13:00:00.000Z</published>
-    <updated>2021-07-24T14:16:34.010Z</updated>
+    <updated>2021-07-26T14:23:04.010Z</updated>
 	<author>
 	
 	  
@@ -180,7 +180,7 @@
     <link href="https://westerndevs.com/kubernetes/kubernetes-my-journey-part-5a/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-5a/</id>
     <published>2020-05-22T12:00:00.000Z</published>
-    <updated>2021-07-24T14:16:34.010Z</updated>
+    <updated>2021-07-26T14:23:04.010Z</updated>
 	<author>
 	
 	  
@@ -212,7 +212,7 @@
     <link href="https://westerndevs.com/kubernetes/kubernetes-my-journey-part-5b/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-5b/</id>
     <published>2020-05-22T11:00:00.000Z</published>
-    <updated>2021-07-24T14:16:34.010Z</updated>
+    <updated>2021-07-26T14:23:04.014Z</updated>
 	<author>
 	
 	  
@@ -244,7 +244,7 @@
     <link href="https://westerndevs.com/kubernetes/kubernetes-my-journey-part-6/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-6/</id>
     <published>2020-05-22T10:00:00.000Z</published>
-    <updated>2021-07-24T14:16:34.010Z</updated>
+    <updated>2021-07-26T14:23:04.014Z</updated>
 	<author>
 	
 	  
@@ -276,7 +276,7 @@
     <link href="https://westerndevs.com/kubernetes/kubernetes-my-journey-part-7a/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-7a/</id>
     <published>2020-05-22T09:00:00.000Z</published>
-    <updated>2021-07-24T14:16:34.010Z</updated>
+    <updated>2021-07-26T14:23:04.014Z</updated>
 	<author>
 	
 	  
@@ -308,7 +308,7 @@
     <link href="https://westerndevs.com/kubernetes/kubernetes-my-journey-part-7b/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-7b/</id>
     <published>2020-05-22T08:00:00.000Z</published>
-    <updated>2021-07-24T14:16:34.010Z</updated>
+    <updated>2021-07-26T14:23:04.014Z</updated>
 	<author>
 	
 	  
@@ -340,7 +340,7 @@
     <link href="https://westerndevs.com/kubernetes/kubernetes-my-journey-part-8/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-8/</id>
     <published>2020-05-22T07:00:00.000Z</published>
-    <updated>2021-07-24T14:16:34.010Z</updated>
+    <updated>2021-07-26T14:23:04.014Z</updated>
 	<author>
 	
 	  
@@ -372,7 +372,7 @@
     <link href="https://westerndevs.com/kubernetes/kubernetes-my-journey-part-9/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-9/</id>
     <published>2020-05-22T06:00:00.000Z</published>
-    <updated>2021-07-24T14:16:34.010Z</updated>
+    <updated>2021-07-26T14:23:04.014Z</updated>
 	<author>
 	
 	  
@@ -404,7 +404,7 @@
     <link href="https://westerndevs.com/kubernetes/kubernetes-my-journey-part-10/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-10/</id>
     <published>2020-05-22T05:00:00.000Z</published>
-    <updated>2021-07-24T14:16:34.010Z</updated>
+    <updated>2021-07-26T14:23:04.010Z</updated>
 	<author>
 	
 	  
@@ -436,7 +436,7 @@
     <link href="https://westerndevs.com/Kanban/Kanban_Helps_Scrum_with_Emergent_Work/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Kanban/Kanban_Helps_Scrum_with_Emergent_Work/</id>
     <published>2017-07-14T16:00:00.000Z</published>
-    <updated>2021-07-24T14:16:34.006Z</updated>
+    <updated>2021-07-26T14:23:04.006Z</updated>
 	<author>
 	
 	  
@@ -474,7 +474,7 @@
     <link href="https://westerndevs.com/Kanban/Scrum_for_Kanban_Teams/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Kanban/Scrum_for_Kanban_Teams/</id>
     <published>2017-07-14T16:00:00.000Z</published>
-    <updated>2021-07-24T14:16:34.006Z</updated>
+    <updated>2021-07-26T14:23:04.006Z</updated>
 	<author>
 	
 	  
@@ -510,7 +510,7 @@
     <link href="https://westerndevs.com/Kanban/Scrum_with_WIP_Limits/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Kanban/Scrum_with_WIP_Limits/</id>
     <published>2017-07-07T00:00:00.000Z</published>
-    <updated>2021-07-24T14:16:34.006Z</updated>
+    <updated>2021-07-26T14:23:04.006Z</updated>
 	<author>
 	
 	  
@@ -546,7 +546,7 @@
     <link href="https://westerndevs.com/Kanban/Nothing_in_Kanban_Prevents_Scrum/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Kanban/Nothing_in_Kanban_Prevents_Scrum/</id>
     <published>2017-07-02T00:00:00.000Z</published>
-    <updated>2021-07-24T14:16:34.006Z</updated>
+    <updated>2021-07-26T14:23:04.006Z</updated>
 	<author>
 	
 	  
@@ -582,7 +582,7 @@
     <link href="https://westerndevs.com/Kanban/Kanban_and_Scrum_Together/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Kanban/Kanban_and_Scrum_Together/</id>
     <published>2017-06-30T00:00:00.000Z</published>
-    <updated>2021-07-24T14:16:34.006Z</updated>
+    <updated>2021-07-26T14:23:04.006Z</updated>
 	<author>
 	
 	  
@@ -618,7 +618,7 @@
     <link href="https://westerndevs.com/Community/Hour-of-Code-Challenge-Completed/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Community/Hour-of-Code-Challenge-Completed/</id>
     <published>2016-12-14T00:00:00.000Z</published>
-    <updated>2021-07-24T14:16:34.006Z</updated>
+    <updated>2021-07-26T14:23:04.006Z</updated>
 	<author>
 	
 	  
@@ -652,7 +652,7 @@
     <link href="https://westerndevs.com/Community/Hour-of-Code-Challenge/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Community/Hour-of-Code-Challenge/</id>
     <published>2016-09-23T23:55:48.000Z</published>
-    <updated>2021-07-24T14:16:34.002Z</updated>
+    <updated>2021-07-26T14:23:04.002Z</updated>
 	<author>
 	
 	  

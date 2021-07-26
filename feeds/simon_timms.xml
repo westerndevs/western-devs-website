@@ -5,7 +5,7 @@
   <link href="/feeds/simon_timms" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2021-07-24T14:16:34.022Z</updated>
+  <updated>2021-07-26T14:23:04.014Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,65 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">build-sql-connection-string</title>
+    <link href="https://westerndevs.com/_/build-sql-connection-string/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/build-sql-connection-string/</id>
+    <published>2021-07-26T04:00:00.000Z</published>
+    <updated>2021-07-26T14:23:04.014Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<h2>Building an SQL Azure Connection String using terraform</h2><p>If you provision a database using terraform you often find that you need to get that connection string into app settings or key vault or something like that. To do that you first need to build it because the outputs from the database resource don't include it.</p><p>From the database you want to export</p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">output "database_name" &#123;</span><br><span class="line">  value = azurerm_sql_database.database.name</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>Then when you actually build the string you want something like this:</p><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">database_connection_string</span>    = <span class="string">"Server=tcp:<span class="variable">$&#123;module.database.name&#125;</span>.database.windows.net,1433;Initial Catalog=<span class="variable">$&#123;module.database.database_name&#125;</span>;Persist Security Info=False;User ID=<span class="variable">$&#123;var.database_user&#125;</span>;Password=<span class="variable">$&#123;var.database_password&#125;</span>;MultipleActiveResultSets=True;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"</span></span><br></pre></td></tr></table></figure><p>Then you can push this to KeyVault or an App Service directly.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2&gt;Building an SQL Azure Connection String using terraform&lt;/h2&gt;
+&lt;p&gt;If you provision a database using terraform you often find that you need
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title type="html">static-app-settings</title>
+    <link href="https://westerndevs.com/_/static-app-settings/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/static-app-settings/</id>
+    <published>2021-07-26T04:00:00.000Z</published>
+    <updated>2021-07-26T14:23:04.022Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<h2>Deploying App Settings to an Azure Static Web App</h2><p>Static web apps are pretty cool but certain parts of them feel like they are still a little raw. It is a newish product so I can understand that. I just wish the things that didn't get attention were something other that devops things. That's mostly because I'm so big on builds and repeatable processes. Being able to set app setting is one of the things I think falls through the cracks.</p><p>The <a href="https://docs.microsoft.com/en-us/azure/static-web-apps/application-settings#:~:text=%20Using%20the%20Azure%20portal%20%201%20Navigate,7%20Click%20OK.%208%20Click%20Save.%20More%20" target="_blank" rel="noopener">docs</a> for statics web apps suggests two different ways of setting app settings. First through the portal which we can ignore right out the gate because it is manual. The second is through an <code>az</code> command that actually just exercises a REST endpoint. No Arm support, no terraform support, no bicep support, no azure powershell support... a long way to go.</p><p>The az command takes in a specially formatted json file. My databse and connection string variables are set up as outputs from my terraform. Once I have them imported into my Azure DevOps build pipeline I use powershell to build the template file like so:</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$temp</span> = gc api/api/local.settings.template.json | <span class="built_in">ConvertFrom-Json</span></span><br><span class="line"><span class="variable">$temp</span>.properties.STORAGE_CONNECTION_STRING = <span class="string">"<span class="variable">$</span>(terraformOutput.storage_connection_string)"</span></span><br><span class="line"><span class="variable">$temp</span>.properties.DATABASE_CONNECTION_STRING = <span class="string">"<span class="variable">$</span>(terraformOutput.database_connection_string)"</span></span><br><span class="line"><span class="variable">$temp</span> | <span class="built_in">ConvertTo-json</span> &gt; api/api/local.settings.template.json</span><br></pre></td></tr></table></figure><p>Now this needs to be passed up to azure using the <code>AzureCLI</code> task</p><pre><code class="language-yaml">  - task: AzureCLI@2    inputs:    azureSubscription: 'Azure Sub'    scriptType: 'pscore'    scriptLocation: 'inlineScript'    inlineScript: |        gc api/api/local.settings.template.json        az rest --method put --headers &quot;Content-Type=application/json&quot; --uri &quot;/subscriptions/6da8d6e6-41f1-xxxx-xxxx-xxxxxxxx/resourceGroups/dev-portal/providers/Microsoft.Web/staticSites/dev-portal/config/functionappsettings?api-version=2019-12-01-preview&quot; --body @api/api/local.settings.template.json</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2&gt;Deploying App Settings to an Azure Static Web App&lt;/h2&gt;
+&lt;p&gt;Static web apps are pretty cool but certain parts of them feel like they are s
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Vetur Warnings in Azure Static Web App</title>
     <link href="https://westerndevs.com/_/vetur-cant-file-files/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/vetur-cant-file-files/</id>
     <published>2021-07-24T04:00:00.000Z</published>
-    <updated>2021-07-24T14:16:34.022Z</updated>
+    <updated>2021-07-26T14:23:04.022Z</updated>
 	<author>
 	
 	  
@@ -47,7 +101,7 @@
     <link href="https://westerndevs.com/_/enable-symbol-server/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/enable-symbol-server/</id>
     <published>2021-07-08T04:00:00.000Z</published>
-    <updated>2021-07-24T14:16:34.014Z</updated>
+    <updated>2021-07-26T14:23:04.018Z</updated>
 	<author>
 	
 	  
@@ -73,7 +127,7 @@
     <link href="https://westerndevs.com/_/azure-automation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-automation/</id>
     <published>2021-06-24T04:00:00.000Z</published>
-    <updated>2021-07-24T14:16:34.014Z</updated>
+    <updated>2021-07-26T14:23:04.014Z</updated>
 	<author>
 	
 	  
@@ -99,7 +153,7 @@
     <link href="https://westerndevs.com/_/storybook/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storybook/</id>
     <published>2021-06-17T04:00:00.000Z</published>
-    <updated>2021-07-24T14:16:34.018Z</updated>
+    <updated>2021-07-26T14:23:04.022Z</updated>
 	<author>
 	
 	  
@@ -128,7 +182,7 @@
     <link href="https://westerndevs.com/_/noda-time/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/noda-time/</id>
     <published>2021-06-16T04:00:00.000Z</published>
-    <updated>2021-07-24T14:16:34.018Z</updated>
+    <updated>2021-07-26T14:23:04.018Z</updated>
 	<author>
 	
 	  
@@ -155,7 +209,7 @@
     <link href="https://westerndevs.com/_/installing-fonts/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/installing-fonts/</id>
     <published>2021-06-11T04:00:00.000Z</published>
-    <updated>2021-07-24T14:16:34.014Z</updated>
+    <updated>2021-07-26T14:23:04.018Z</updated>
 	<author>
 	
 	  
@@ -181,7 +235,7 @@
     <link href="https://westerndevs.com/_/Azure-service-bus-transports/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Azure-service-bus-transports/</id>
     <published>2021-06-07T04:00:00.000Z</published>
-    <updated>2021-07-24T14:16:34.014Z</updated>
+    <updated>2021-07-26T14:23:04.014Z</updated>
 	<author>
 	
 	  
@@ -212,7 +266,7 @@
     <link href="https://westerndevs.com/_/add-user-to-role/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/add-user-to-role/</id>
     <published>2021-06-07T04:00:00.000Z</published>
-    <updated>2021-07-24T14:16:34.014Z</updated>
+    <updated>2021-07-26T14:23:04.014Z</updated>
 	<author>
 	
 	  
@@ -239,7 +293,7 @@
     <link href="https://westerndevs.com/_/sequence/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/sequence/</id>
     <published>2021-06-03T04:00:00.000Z</published>
-    <updated>2021-07-24T14:16:34.018Z</updated>
+    <updated>2021-07-26T14:23:04.022Z</updated>
 	<author>
 	
 	  
@@ -265,7 +319,7 @@
     <link href="https://westerndevs.com/_/durable-entities/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/durable-entities/</id>
     <published>2021-05-20T04:00:00.000Z</published>
-    <updated>2021-07-24T14:16:34.014Z</updated>
+    <updated>2021-07-26T14:23:04.018Z</updated>
 	<author>
 	
 	  
@@ -291,7 +345,7 @@
     <link href="https://westerndevs.com/_/advanced-waf-rules-in-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/advanced-waf-rules-in-terraform/</id>
     <published>2021-05-19T04:00:00.000Z</published>
-    <updated>2021-07-24T14:16:34.014Z</updated>
+    <updated>2021-07-26T14:23:04.014Z</updated>
 	<author>
 	
 	  
@@ -317,7 +371,7 @@
     <link href="https://westerndevs.com/_/importing-tde-encrypted-backup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/importing-tde-encrypted-backup/</id>
     <published>2021-05-18T04:00:00.000Z</published>
-    <updated>2021-07-24T14:16:34.014Z</updated>
+    <updated>2021-07-26T14:23:04.018Z</updated>
 	<author>
 	
 	  
@@ -344,7 +398,7 @@
     <link href="https://westerndevs.com/_/jq/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/jq/</id>
     <published>2021-05-11T04:00:00.000Z</published>
-    <updated>2021-07-24T14:16:34.014Z</updated>
+    <updated>2021-07-26T14:23:04.018Z</updated>
 	<author>
 	
 	  
@@ -370,7 +424,7 @@
     <link href="https://westerndevs.com/_/creating-a-shortcut/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/creating-a-shortcut/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-07-24T14:16:34.014Z</updated>
+    <updated>2021-07-26T14:23:04.014Z</updated>
 	<author>
 	
 	  
@@ -396,7 +450,7 @@
     <link href="https://westerndevs.com/_/set-timezone/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-timezone/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-07-24T14:16:34.018Z</updated>
+    <updated>2021-07-26T14:23:04.022Z</updated>
 	<author>
 	
 	  
@@ -423,7 +477,7 @@
     <link href="https://westerndevs.com/_/download-file/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/download-file/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-07-24T14:16:34.014Z</updated>
+    <updated>2021-07-26T14:23:04.018Z</updated>
 	<author>
 	
 	  
@@ -450,7 +504,7 @@
     <link href="https://westerndevs.com/_/drop-existing-index/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/drop-existing-index/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-07-24T14:16:34.014Z</updated>
+    <updated>2021-07-26T14:23:04.018Z</updated>
 	<author>
 	
 	  
@@ -476,7 +530,7 @@
     <link href="https://westerndevs.com/_/function-appinsights/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/function-appinsights/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-07-24T14:16:34.014Z</updated>
+    <updated>2021-07-26T14:23:04.018Z</updated>
 	<author>
 	
 	  
@@ -491,59 +545,6 @@
     <summary type="html">
     
       &lt;p&gt;Looks like by default functions log at the &lt;code&gt;info&lt;/code&gt; level. To change the level you can use set the application setting &lt;code&gt;Azu
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Query BigTable Events</title>
-    <link href="https://westerndevs.com/_/query-collections-in-big-table/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/query-collections-in-big-table/</id>
-    <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-07-24T14:16:34.018Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>Firebase can feed its data to bigtable and then you can run queries there. The syntax is SQL like but not quite because they have internal record types. So for the data that is fed across from firebase you get a structure that looks like</p><p><img src="/images/2021-03-05-query-collections-in-big-table.md/2021-03-05-10-39-05.png" alt="">)</p><p>You can see that event_params and user_properties are these kind of collection things. The easiest way to deal with them is to flatten the structure and internally join the table against itself</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> r.event_name, p.key, p.value <span class="keyword">FROM</span> <span class="string">`pocketgeek-auto.analytics_258213689.events_intraday_20210305`</span> r <span class="keyword">cross</span> <span class="keyword">join</span> <span class="keyword">unnest</span>(r.event_params) <span class="keyword">as</span> p <span class="keyword">where</span> <span class="keyword">key</span> = <span class="string">'DealerName'</span></span><br></pre></td></tr></table></figure><p>This gets you a dataset like</p><p><img src="/images/2021-03-05-query-collections-in-big-table.md/2021-03-05-10-41-21.png" alt="">)</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> r.event_name, p.key, p.value <span class="keyword">FROM</span> <span class="string">`pocketgeek-auto.analytics_258213689.events_intraday_20210305`</span> r <span class="keyword">cross</span> <span class="keyword">join</span> <span class="keyword">unnest</span>(r.event_params) <span class="keyword">as</span> p <span class="keyword">where</span> <span class="keyword">key</span> = <span class="string">'DealerName'</span> <span class="keyword">and</span> p.value.string_value &lt;&gt; <span class="string">'none'</span></span><br></pre></td></tr></table></figure><p>is probably even better with the filter</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Firebase can feed its data to bigtable and then you can run queries there. The syntax is SQL like but not quite because they have interna
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Setting a persistent environment variable</title>
-    <link href="https://westerndevs.com/_/set-env-variable/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/set-env-variable/</id>
-    <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-07-24T14:16:34.018Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>If you want to set a variable but you want it to live forever then you can use</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="type">System.Environment</span>]::SetEnvironmentVariable(<span class="string">"JAVA_HOME"</span>, <span class="string">"c:\program files\openjdk\jdk-13.0.2"</span>, <span class="string">"Machine"</span>)</span><br></pre></td></tr></table></figure><p>That last argument can take on the values {<code>Process</code>, <code>User</code>, <code>Machine</code>}</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;If you want to set a variable but you want it to live forever then you can use&lt;/p&gt;
-&lt;figure class=&quot;highlight powershell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td cl
     
     </summary>
     
