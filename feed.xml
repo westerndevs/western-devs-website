@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2021-07-26T14:25:57.729Z</updated>
+  <updated>2021-07-29T19:19:28.063Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Storybook IFrame 404</title>
+    <link href="https://westerndevs.com/_/storybook-iframe-404/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/storybook-iframe-404/</id>
+    <published>2021-07-29T04:00:00.000Z</published>
+    <updated>2021-07-29T19:19:28.063Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>If you're running into a 404 on the IFrame on storybook the mostly likely cause is that your directory path to where storybook is contains some encoded characters. In this case we had a project called <code>Agent%20Portal</code> on disk. Renaming it to just <code>AgentPortal</code> fixed up storybook right away.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;If you&#39;re running into a 404 on the IFrame on storybook the mostly likely cause is that your directory path to where storybook is contain
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Building an SQL Azure Connection String using terraform</title>
     <link href="https://westerndevs.com/_/build-sql-connection-string/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/build-sql-connection-string/</id>
     <published>2021-07-26T04:00:00.000Z</published>
-    <updated>2021-07-26T14:25:57.729Z</updated>
+    <updated>2021-07-29T19:19:28.055Z</updated>
 	<author>
 	
 	  
@@ -47,7 +73,7 @@
     <link href="https://westerndevs.com/_/static-app-settings/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/static-app-settings/</id>
     <published>2021-07-26T04:00:00.000Z</published>
-    <updated>2021-07-26T14:25:57.741Z</updated>
+    <updated>2021-07-29T19:19:28.059Z</updated>
 	<author>
 	
 	  
@@ -73,7 +99,7 @@
     <link href="https://westerndevs.com/_/vetur-cant-file-files/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/vetur-cant-file-files/</id>
     <published>2021-07-24T04:00:00.000Z</published>
-    <updated>2021-07-26T14:25:57.741Z</updated>
+    <updated>2021-07-29T19:19:28.063Z</updated>
 	<author>
 	
 	  
@@ -99,7 +125,7 @@
     <link href="https://westerndevs.com/_/enable-symbol-server/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/enable-symbol-server/</id>
     <published>2021-07-08T04:00:00.000Z</published>
-    <updated>2021-07-26T14:25:57.733Z</updated>
+    <updated>2021-07-29T19:19:28.055Z</updated>
 	<author>
 	
 	  
@@ -125,7 +151,7 @@
     <link href="https://westerndevs.com/finding-inspiration/i-can-teach-your-dog-quantum-physics/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/finding-inspiration/i-can-teach-your-dog-quantum-physics/</id>
     <published>2021-06-28T16:00:00.000Z</published>
-    <updated>2021-07-26T14:25:57.729Z</updated>
+    <updated>2021-07-29T19:19:28.055Z</updated>
 	<author>
 	
 	  
@@ -163,7 +189,7 @@
     <link href="https://westerndevs.com/_/azure-automation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-automation/</id>
     <published>2021-06-24T04:00:00.000Z</published>
-    <updated>2021-07-26T14:25:57.729Z</updated>
+    <updated>2021-07-29T19:19:28.055Z</updated>
 	<author>
 	
 	  
@@ -189,7 +215,7 @@
     <link href="https://westerndevs.com/inner-monologue/what-value-does-making-content-bring-to-me/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/inner-monologue/what-value-does-making-content-bring-to-me/</id>
     <published>2021-06-17T16:00:00.000Z</published>
-    <updated>2021-07-26T14:25:57.729Z</updated>
+    <updated>2021-07-29T19:19:28.055Z</updated>
 	<author>
 	
 	  
@@ -227,7 +253,7 @@
     <link href="https://westerndevs.com/_/storybook/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storybook/</id>
     <published>2021-06-17T04:00:00.000Z</published>
-    <updated>2021-07-26T14:25:57.741Z</updated>
+    <updated>2021-07-29T19:19:28.063Z</updated>
 	<author>
 	
 	  
@@ -256,7 +282,7 @@
     <link href="https://westerndevs.com/_/noda-time/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/noda-time/</id>
     <published>2021-06-16T04:00:00.000Z</published>
-    <updated>2021-07-26T14:25:57.733Z</updated>
+    <updated>2021-07-29T19:19:28.059Z</updated>
 	<author>
 	
 	  
@@ -283,7 +309,7 @@
     <link href="https://westerndevs.com/_/installing-fonts/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/installing-fonts/</id>
     <published>2021-06-11T04:00:00.000Z</published>
-    <updated>2021-07-26T14:25:57.733Z</updated>
+    <updated>2021-07-29T19:19:28.055Z</updated>
 	<author>
 	
 	  
@@ -309,7 +335,7 @@
     <link href="https://westerndevs.com/_/Azure-service-bus-transports/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Azure-service-bus-transports/</id>
     <published>2021-06-07T04:00:00.000Z</published>
-    <updated>2021-07-26T14:25:57.729Z</updated>
+    <updated>2021-07-29T19:19:28.055Z</updated>
 	<author>
 	
 	  
@@ -340,7 +366,7 @@
     <link href="https://westerndevs.com/_/add-user-to-role/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/add-user-to-role/</id>
     <published>2021-06-07T04:00:00.000Z</published>
-    <updated>2021-07-26T14:25:57.729Z</updated>
+    <updated>2021-07-29T19:19:28.055Z</updated>
 	<author>
 	
 	  
@@ -367,7 +393,7 @@
     <link href="https://westerndevs.com/inner-monologue/my-secret-addiction-to-likes/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/inner-monologue/my-secret-addiction-to-likes/</id>
     <published>2021-06-03T16:00:00.000Z</published>
-    <updated>2021-07-26T14:25:57.729Z</updated>
+    <updated>2021-07-29T19:19:28.051Z</updated>
 	<author>
 	
 	  
@@ -405,7 +431,7 @@
     <link href="https://westerndevs.com/_/sequence/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/sequence/</id>
     <published>2021-06-03T04:00:00.000Z</published>
-    <updated>2021-07-26T14:25:57.741Z</updated>
+    <updated>2021-07-29T19:19:28.059Z</updated>
 	<author>
 	
 	  
@@ -431,7 +457,7 @@
     <link href="https://westerndevs.com/technology/inner-monologue/lucky-number-v7/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/technology/inner-monologue/lucky-number-v7/</id>
     <published>2021-05-24T16:00:00.000Z</published>
-    <updated>2021-07-26T14:25:57.729Z</updated>
+    <updated>2021-07-29T19:19:28.051Z</updated>
 	<author>
 	
 	  
@@ -467,7 +493,7 @@
     <link href="https://westerndevs.com/_/durable-entities/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/durable-entities/</id>
     <published>2021-05-20T04:00:00.000Z</published>
-    <updated>2021-07-26T14:25:57.733Z</updated>
+    <updated>2021-07-29T19:19:28.055Z</updated>
 	<author>
 	
 	  
@@ -493,7 +519,7 @@
     <link href="https://westerndevs.com/_/advanced-waf-rules-in-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/advanced-waf-rules-in-terraform/</id>
     <published>2021-05-19T04:00:00.000Z</published>
-    <updated>2021-07-26T14:25:57.729Z</updated>
+    <updated>2021-07-29T19:19:28.055Z</updated>
 	<author>
 	
 	  
@@ -519,7 +545,7 @@
     <link href="https://westerndevs.com/_/importing-tde-encrypted-backup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/importing-tde-encrypted-backup/</id>
     <published>2021-05-18T04:00:00.000Z</published>
-    <updated>2021-07-26T14:25:57.733Z</updated>
+    <updated>2021-07-29T19:19:28.055Z</updated>
 	<author>
 	
 	  
@@ -546,7 +572,7 @@
     <link href="https://westerndevs.com/_/jq/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/jq/</id>
     <published>2021-05-11T04:00:00.000Z</published>
-    <updated>2021-07-26T14:25:57.733Z</updated>
+    <updated>2021-07-29T19:19:28.055Z</updated>
 	<author>
 	
 	  
@@ -561,32 +587,6 @@
     <summary type="html">
     
       &lt;p&gt;This is a really nice tool for manipulating JSON on the command line. The syntax is, however, esoteric like you would not believe. Here a
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Creating a Shortcut in Powershell</title>
-    <link href="https://westerndevs.com/_/creating-a-shortcut/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/creating-a-shortcut/</id>
-    <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-07-26T14:25:57.733Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>You can't really create a shortcut in powershell directly but you can using the windows script host from powershell. For instance here is how you would create a new desktop icon to log the current user off.</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$WshShell</span> = <span class="built_in">New-Object</span> <span class="literal">-comObject</span> WScript.Shell</span><br><span class="line"><span class="variable">$Shortcut</span> = <span class="variable">$WshShell</span>.CreateShortcut(<span class="string">"<span class="variable">$home</span>\Desktop\LogOff.lnk"</span>)</span><br><span class="line"><span class="variable">$Shortcut</span>.TargetPath=<span class="string">"C:\Windows\System32\shutdown.exe"</span></span><br><span class="line"><span class="variable">$Shortcut</span>.Arguments=<span class="string">"/l"</span></span><br><span class="line"><span class="variable">$Shortcut</span>.IconLocation=<span class="string">"C:\windows\system32\Shell32.dll,44"</span></span><br><span class="line"><span class="variable">$Shortcut</span>.Save()</span><br></pre></td></tr></table></figure><p>The icon here is taken from the long list of icons in <code>Shell32.dll</code> in this case it is the little orange key icon. These icons are going to be refreshed soon so your mileage may vary on them. I found the right icon by just google image searching <code>shell32.dll icon</code> and found a picture of some of the index numbers. They were 1 indexed so I had to subtract 1</p><p><img src="/images/2021-05-10-creating-a-shortcut.md/2021-05-10-11-39-21.png" alt="">)</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;You can&#39;t really create a shortcut in powershell directly but you can using the windows script host from powershell. For instance here is
     
     </summary>
     

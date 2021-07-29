@@ -5,7 +5,7 @@
   <link href="/feeds/simon_timms" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2021-07-26T14:25:57.729Z</updated>
+  <updated>2021-07-29T19:19:28.063Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Storybook IFrame 404</title>
+    <link href="https://westerndevs.com/_/storybook-iframe-404/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/storybook-iframe-404/</id>
+    <published>2021-07-29T04:00:00.000Z</published>
+    <updated>2021-07-29T19:19:28.063Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>If you're running into a 404 on the IFrame on storybook the mostly likely cause is that your directory path to where storybook is contains some encoded characters. In this case we had a project called <code>Agent%20Portal</code> on disk. Renaming it to just <code>AgentPortal</code> fixed up storybook right away.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;If you&#39;re running into a 404 on the IFrame on storybook the mostly likely cause is that your directory path to where storybook is contain
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Building an SQL Azure Connection String using terraform</title>
     <link href="https://westerndevs.com/_/build-sql-connection-string/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/build-sql-connection-string/</id>
     <published>2021-07-26T04:00:00.000Z</published>
-    <updated>2021-07-26T14:25:57.729Z</updated>
+    <updated>2021-07-29T19:19:28.055Z</updated>
 	<author>
 	
 	  
@@ -47,7 +73,7 @@
     <link href="https://westerndevs.com/_/static-app-settings/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/static-app-settings/</id>
     <published>2021-07-26T04:00:00.000Z</published>
-    <updated>2021-07-26T14:25:57.741Z</updated>
+    <updated>2021-07-29T19:19:28.059Z</updated>
 	<author>
 	
 	  
@@ -73,7 +99,7 @@
     <link href="https://westerndevs.com/_/vetur-cant-file-files/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/vetur-cant-file-files/</id>
     <published>2021-07-24T04:00:00.000Z</published>
-    <updated>2021-07-26T14:25:57.741Z</updated>
+    <updated>2021-07-29T19:19:28.063Z</updated>
 	<author>
 	
 	  
@@ -99,7 +125,7 @@
     <link href="https://westerndevs.com/_/enable-symbol-server/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/enable-symbol-server/</id>
     <published>2021-07-08T04:00:00.000Z</published>
-    <updated>2021-07-26T14:25:57.733Z</updated>
+    <updated>2021-07-29T19:19:28.055Z</updated>
 	<author>
 	
 	  
@@ -125,7 +151,7 @@
     <link href="https://westerndevs.com/_/azure-automation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-automation/</id>
     <published>2021-06-24T04:00:00.000Z</published>
-    <updated>2021-07-26T14:25:57.729Z</updated>
+    <updated>2021-07-29T19:19:28.055Z</updated>
 	<author>
 	
 	  
@@ -151,7 +177,7 @@
     <link href="https://westerndevs.com/_/storybook/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storybook/</id>
     <published>2021-06-17T04:00:00.000Z</published>
-    <updated>2021-07-26T14:25:57.741Z</updated>
+    <updated>2021-07-29T19:19:28.063Z</updated>
 	<author>
 	
 	  
@@ -180,7 +206,7 @@
     <link href="https://westerndevs.com/_/noda-time/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/noda-time/</id>
     <published>2021-06-16T04:00:00.000Z</published>
-    <updated>2021-07-26T14:25:57.733Z</updated>
+    <updated>2021-07-29T19:19:28.059Z</updated>
 	<author>
 	
 	  
@@ -207,7 +233,7 @@
     <link href="https://westerndevs.com/_/installing-fonts/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/installing-fonts/</id>
     <published>2021-06-11T04:00:00.000Z</published>
-    <updated>2021-07-26T14:25:57.733Z</updated>
+    <updated>2021-07-29T19:19:28.055Z</updated>
 	<author>
 	
 	  
@@ -233,7 +259,7 @@
     <link href="https://westerndevs.com/_/Azure-service-bus-transports/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Azure-service-bus-transports/</id>
     <published>2021-06-07T04:00:00.000Z</published>
-    <updated>2021-07-26T14:25:57.729Z</updated>
+    <updated>2021-07-29T19:19:28.055Z</updated>
 	<author>
 	
 	  
@@ -264,7 +290,7 @@
     <link href="https://westerndevs.com/_/add-user-to-role/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/add-user-to-role/</id>
     <published>2021-06-07T04:00:00.000Z</published>
-    <updated>2021-07-26T14:25:57.729Z</updated>
+    <updated>2021-07-29T19:19:28.055Z</updated>
 	<author>
 	
 	  
@@ -291,7 +317,7 @@
     <link href="https://westerndevs.com/_/sequence/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/sequence/</id>
     <published>2021-06-03T04:00:00.000Z</published>
-    <updated>2021-07-26T14:25:57.741Z</updated>
+    <updated>2021-07-29T19:19:28.059Z</updated>
 	<author>
 	
 	  
@@ -317,7 +343,7 @@
     <link href="https://westerndevs.com/_/durable-entities/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/durable-entities/</id>
     <published>2021-05-20T04:00:00.000Z</published>
-    <updated>2021-07-26T14:25:57.733Z</updated>
+    <updated>2021-07-29T19:19:28.055Z</updated>
 	<author>
 	
 	  
@@ -343,7 +369,7 @@
     <link href="https://westerndevs.com/_/advanced-waf-rules-in-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/advanced-waf-rules-in-terraform/</id>
     <published>2021-05-19T04:00:00.000Z</published>
-    <updated>2021-07-26T14:25:57.729Z</updated>
+    <updated>2021-07-29T19:19:28.055Z</updated>
 	<author>
 	
 	  
@@ -369,7 +395,7 @@
     <link href="https://westerndevs.com/_/importing-tde-encrypted-backup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/importing-tde-encrypted-backup/</id>
     <published>2021-05-18T04:00:00.000Z</published>
-    <updated>2021-07-26T14:25:57.733Z</updated>
+    <updated>2021-07-29T19:19:28.055Z</updated>
 	<author>
 	
 	  
@@ -396,7 +422,7 @@
     <link href="https://westerndevs.com/_/jq/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/jq/</id>
     <published>2021-05-11T04:00:00.000Z</published>
-    <updated>2021-07-26T14:25:57.733Z</updated>
+    <updated>2021-07-29T19:19:28.055Z</updated>
 	<author>
 	
 	  
@@ -422,7 +448,7 @@
     <link href="https://westerndevs.com/_/creating-a-shortcut/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/creating-a-shortcut/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-07-26T14:25:57.733Z</updated>
+    <updated>2021-07-29T19:19:28.055Z</updated>
 	<author>
 	
 	  
@@ -448,7 +474,7 @@
     <link href="https://westerndevs.com/_/set-timezone/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-timezone/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-07-26T14:25:57.741Z</updated>
+    <updated>2021-07-29T19:19:28.059Z</updated>
 	<author>
 	
 	  
@@ -475,7 +501,7 @@
     <link href="https://westerndevs.com/_/download-file/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/download-file/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-07-26T14:25:57.733Z</updated>
+    <updated>2021-07-29T19:19:28.055Z</updated>
 	<author>
 	
 	  
@@ -502,7 +528,7 @@
     <link href="https://westerndevs.com/_/drop-existing-index/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/drop-existing-index/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-07-26T14:25:57.733Z</updated>
+    <updated>2021-07-29T19:19:28.055Z</updated>
 	<author>
 	
 	  
@@ -517,32 +543,6 @@
     <summary type="html">
     
       &lt;p&gt;Of course the SQL server syntax for this doesn&#39;t quite jive with what I want but you can use the clause &lt;code&gt;WITH (DROP_EXISTING = ON)&lt;/
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Logging in Functions</title>
-    <link href="https://westerndevs.com/_/function-appinsights/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/function-appinsights/</id>
-    <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-07-26T14:25:57.733Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>Looks like by default functions log at the <code>info</code> level. To change the level you can use set the application setting <code>AzureFunctionsJobHost__logging__LogLevel__Default</code> to some other value like <code>Error</code> or <code>Info</code>.</p><p>If you want to disable adaptive sampling then that can be done in the host.json</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"2.0"</span>,</span><br><span class="line">  <span class="attr">"extensions"</span>: &#123;</span><br><span class="line">    <span class="attr">"queues"</span>: &#123;</span><br><span class="line">      <span class="attr">"maxPollingInterval"</span>: <span class="string">"00:00:05"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"logging"</span>: &#123;</span><br><span class="line">    <span class="attr">"logLevel"</span>: &#123;</span><br><span class="line">      <span class="attr">"default"</span>: <span class="string">"Information"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"applicationInsights"</span>: &#123;</span><br><span class="line">      <span class="attr">"samplingSettings"</span>: &#123;</span><br><span class="line">        <span class="attr">"isEnabled"</span>: <span class="literal">false</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"functionTimeout"</span>: <span class="string">"00:10:00"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>In this example adaptive sampling is turned off so you get every log message.</p><p>A thing to note is that if you crank down logging to Error you won't see the invocations at all in the portal but they're still running.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Looks like by default functions log at the &lt;code&gt;info&lt;/code&gt; level. To change the level you can use set the application setting &lt;code&gt;Azu
     
     </summary>
     
