@@ -5,7 +5,7 @@
   <link href="/feeds/simon_timms" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2021-07-29T19:19:28.063Z</updated>
+  <updated>2021-07-30T03:29:04.193Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Stop Terraform Managing State for a Resource</title>
+    <link href="https://westerndevs.com/_/stop-managing-resource/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/stop-managing-resource/</id>
+    <published>2021-07-30T04:00:00.000Z</published>
+    <updated>2021-07-30T03:29:04.193Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>Say you want to keep a resource but you want to stop terraform from managing it. You can ask terraform to update its state to forget about it. In my case I want terraform to forget it managing my Azure Static Web App because Terraform doesn't support all the options I need and will clobber the app.</p><p>I can run this</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">terraform state rm <span class="string">"azurerm_static_site.agentportal"</span></span><br></pre></td></tr></table></figure><p>If I decide to start managing the state again I can just run a terraform import to manage it again.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Say you want to keep a resource but you want to stop terraform from managing it. You can ask terraform to update its state to forget abou
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Storybook IFrame 404</title>
     <link href="https://westerndevs.com/_/storybook-iframe-404/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storybook-iframe-404/</id>
     <published>2021-07-29T04:00:00.000Z</published>
-    <updated>2021-07-29T19:19:28.063Z</updated>
+    <updated>2021-07-30T03:29:04.193Z</updated>
 	<author>
 	
 	  
@@ -47,7 +73,7 @@
     <link href="https://westerndevs.com/_/build-sql-connection-string/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/build-sql-connection-string/</id>
     <published>2021-07-26T04:00:00.000Z</published>
-    <updated>2021-07-29T19:19:28.055Z</updated>
+    <updated>2021-07-30T03:29:04.185Z</updated>
 	<author>
 	
 	  
@@ -73,7 +99,7 @@
     <link href="https://westerndevs.com/_/static-app-settings/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/static-app-settings/</id>
     <published>2021-07-26T04:00:00.000Z</published>
-    <updated>2021-07-29T19:19:28.059Z</updated>
+    <updated>2021-07-30T03:29:04.193Z</updated>
 	<author>
 	
 	  
@@ -99,7 +125,7 @@
     <link href="https://westerndevs.com/_/vetur-cant-file-files/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/vetur-cant-file-files/</id>
     <published>2021-07-24T04:00:00.000Z</published>
-    <updated>2021-07-29T19:19:28.063Z</updated>
+    <updated>2021-07-30T03:29:04.193Z</updated>
 	<author>
 	
 	  
@@ -125,7 +151,7 @@
     <link href="https://westerndevs.com/_/enable-symbol-server/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/enable-symbol-server/</id>
     <published>2021-07-08T04:00:00.000Z</published>
-    <updated>2021-07-29T19:19:28.055Z</updated>
+    <updated>2021-07-30T03:29:04.189Z</updated>
 	<author>
 	
 	  
@@ -151,7 +177,7 @@
     <link href="https://westerndevs.com/_/azure-automation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-automation/</id>
     <published>2021-06-24T04:00:00.000Z</published>
-    <updated>2021-07-29T19:19:28.055Z</updated>
+    <updated>2021-07-30T03:29:04.185Z</updated>
 	<author>
 	
 	  
@@ -177,7 +203,7 @@
     <link href="https://westerndevs.com/_/storybook/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storybook/</id>
     <published>2021-06-17T04:00:00.000Z</published>
-    <updated>2021-07-29T19:19:28.063Z</updated>
+    <updated>2021-07-30T03:29:04.193Z</updated>
 	<author>
 	
 	  
@@ -206,7 +232,7 @@
     <link href="https://westerndevs.com/_/noda-time/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/noda-time/</id>
     <published>2021-06-16T04:00:00.000Z</published>
-    <updated>2021-07-29T19:19:28.059Z</updated>
+    <updated>2021-07-30T03:29:04.189Z</updated>
 	<author>
 	
 	  
@@ -233,7 +259,7 @@
     <link href="https://westerndevs.com/_/installing-fonts/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/installing-fonts/</id>
     <published>2021-06-11T04:00:00.000Z</published>
-    <updated>2021-07-29T19:19:28.055Z</updated>
+    <updated>2021-07-30T03:29:04.189Z</updated>
 	<author>
 	
 	  
@@ -259,7 +285,7 @@
     <link href="https://westerndevs.com/_/Azure-service-bus-transports/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Azure-service-bus-transports/</id>
     <published>2021-06-07T04:00:00.000Z</published>
-    <updated>2021-07-29T19:19:28.055Z</updated>
+    <updated>2021-07-30T03:29:04.185Z</updated>
 	<author>
 	
 	  
@@ -290,7 +316,7 @@
     <link href="https://westerndevs.com/_/add-user-to-role/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/add-user-to-role/</id>
     <published>2021-06-07T04:00:00.000Z</published>
-    <updated>2021-07-29T19:19:28.055Z</updated>
+    <updated>2021-07-30T03:29:04.185Z</updated>
 	<author>
 	
 	  
@@ -317,7 +343,7 @@
     <link href="https://westerndevs.com/_/sequence/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/sequence/</id>
     <published>2021-06-03T04:00:00.000Z</published>
-    <updated>2021-07-29T19:19:28.059Z</updated>
+    <updated>2021-07-30T03:29:04.193Z</updated>
 	<author>
 	
 	  
@@ -343,7 +369,7 @@
     <link href="https://westerndevs.com/_/durable-entities/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/durable-entities/</id>
     <published>2021-05-20T04:00:00.000Z</published>
-    <updated>2021-07-29T19:19:28.055Z</updated>
+    <updated>2021-07-30T03:29:04.189Z</updated>
 	<author>
 	
 	  
@@ -369,7 +395,7 @@
     <link href="https://westerndevs.com/_/advanced-waf-rules-in-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/advanced-waf-rules-in-terraform/</id>
     <published>2021-05-19T04:00:00.000Z</published>
-    <updated>2021-07-29T19:19:28.055Z</updated>
+    <updated>2021-07-30T03:29:04.185Z</updated>
 	<author>
 	
 	  
@@ -395,7 +421,7 @@
     <link href="https://westerndevs.com/_/importing-tde-encrypted-backup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/importing-tde-encrypted-backup/</id>
     <published>2021-05-18T04:00:00.000Z</published>
-    <updated>2021-07-29T19:19:28.055Z</updated>
+    <updated>2021-07-30T03:29:04.189Z</updated>
 	<author>
 	
 	  
@@ -422,7 +448,7 @@
     <link href="https://westerndevs.com/_/jq/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/jq/</id>
     <published>2021-05-11T04:00:00.000Z</published>
-    <updated>2021-07-29T19:19:28.055Z</updated>
+    <updated>2021-07-30T03:29:04.189Z</updated>
 	<author>
 	
 	  
@@ -448,7 +474,7 @@
     <link href="https://westerndevs.com/_/creating-a-shortcut/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/creating-a-shortcut/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-07-29T19:19:28.055Z</updated>
+    <updated>2021-07-30T03:29:04.189Z</updated>
 	<author>
 	
 	  
@@ -474,7 +500,7 @@
     <link href="https://westerndevs.com/_/set-timezone/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-timezone/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-07-29T19:19:28.059Z</updated>
+    <updated>2021-07-30T03:29:04.193Z</updated>
 	<author>
 	
 	  
@@ -501,7 +527,7 @@
     <link href="https://westerndevs.com/_/download-file/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/download-file/</id>
     <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-07-29T19:19:28.055Z</updated>
+    <updated>2021-07-30T03:29:04.189Z</updated>
 	<author>
 	
 	  
@@ -517,32 +543,6 @@
     
       &lt;p&gt;Here is a quick way to download a file in powershell:&lt;/p&gt;
 &lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;l
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Create or Update Index</title>
-    <link href="https://westerndevs.com/_/drop-existing-index/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/drop-existing-index/</id>
-    <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-07-29T19:19:28.055Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>Of course the SQL server syntax for this doesn't quite jive with what I want but you can use the clause <code>WITH (DROP_EXISTING = ON)</code> to have SQL server handle updating an existing index keeping the old index live until the new version is ready. You use it like</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> NONCLUSTERED <span class="keyword">INDEX</span> idxMonthlyParkers_vendor_expiry_issue</span><br><span class="line"><span class="keyword">ON</span> [dbo].[tblParkers] ([VendorId],[LotTimezoneExpiryDate],[LotTimezoneIssueDate])</span><br><span class="line"><span class="keyword">INCLUDE</span> ([HangTagCode],[FirstName],[LastName])</span><br><span class="line"> <span class="keyword">WITH</span> (DROP_EXISTING = <span class="keyword">ON</span>)</span><br></pre></td></tr></table></figure><p>However that will throw an error if the index doesn't exist (of course) so you need to wrap it with an <code>if</code></p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">if exists (<span class="keyword">SELECT</span> * </span><br><span class="line"><span class="keyword">FROM</span> sys.indexes </span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">name</span>=<span class="string">'idxMonthlyParkers_vendor_expiry_issue'</span> <span class="keyword">AND</span> object_id = OBJECT_ID(<span class="string">'dbo.tblMonthlyParker'</span>))</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">    <span class="keyword">CREATE</span> NONCLUSTERED <span class="keyword">INDEX</span> idxMonthlyParkers_vendor_expiry_issue</span><br><span class="line">    <span class="keyword">ON</span> [dbo].[tblParkers] ([VendorId],[LotTimezoneExpiryDate],[LotTimezoneIssueDate])</span><br><span class="line">    <span class="keyword">INCLUDE</span> ([HangTagCode],[FirstName],[LastName])</span><br><span class="line">    <span class="keyword">WITH</span> (DROP_EXISTING = <span class="keyword">ON</span>)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">else</span> </span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">    <span class="keyword">CREATE</span> NONCLUSTERED <span class="keyword">INDEX</span> idxMonthlyParkers_vendor_expiry_issue</span><br><span class="line">    <span class="keyword">ON</span> [dbo].[tblParkers] ([VendorId],[LotTimezoneExpiryDate],[LotTimezoneIssueDate])</span><br><span class="line">    <span class="keyword">INCLUDE</span> ([HangTagCode],[FirstName],[LastName])</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Of course the SQL server syntax for this doesn&#39;t quite jive with what I want but you can use the clause &lt;code&gt;WITH (DROP_EXISTING = ON)&lt;/
     
     </summary>
     

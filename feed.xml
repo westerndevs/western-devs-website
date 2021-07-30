@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2021-07-29T19:19:28.063Z</updated>
+  <updated>2021-07-30T03:29:04.193Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Stop Terraform Managing State for a Resource</title>
+    <link href="https://westerndevs.com/_/stop-managing-resource/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/stop-managing-resource/</id>
+    <published>2021-07-30T04:00:00.000Z</published>
+    <updated>2021-07-30T03:29:04.193Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>Say you want to keep a resource but you want to stop terraform from managing it. You can ask terraform to update its state to forget about it. In my case I want terraform to forget it managing my Azure Static Web App because Terraform doesn't support all the options I need and will clobber the app.</p><p>I can run this</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">terraform state rm <span class="string">"azurerm_static_site.agentportal"</span></span><br></pre></td></tr></table></figure><p>If I decide to start managing the state again I can just run a terraform import to manage it again.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Say you want to keep a resource but you want to stop terraform from managing it. You can ask terraform to update its state to forget abou
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Storybook IFrame 404</title>
     <link href="https://westerndevs.com/_/storybook-iframe-404/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storybook-iframe-404/</id>
     <published>2021-07-29T04:00:00.000Z</published>
-    <updated>2021-07-29T19:19:28.063Z</updated>
+    <updated>2021-07-30T03:29:04.193Z</updated>
 	<author>
 	
 	  
@@ -47,7 +73,7 @@
     <link href="https://westerndevs.com/_/build-sql-connection-string/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/build-sql-connection-string/</id>
     <published>2021-07-26T04:00:00.000Z</published>
-    <updated>2021-07-29T19:19:28.055Z</updated>
+    <updated>2021-07-30T03:29:04.185Z</updated>
 	<author>
 	
 	  
@@ -73,7 +99,7 @@
     <link href="https://westerndevs.com/_/static-app-settings/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/static-app-settings/</id>
     <published>2021-07-26T04:00:00.000Z</published>
-    <updated>2021-07-29T19:19:28.059Z</updated>
+    <updated>2021-07-30T03:29:04.193Z</updated>
 	<author>
 	
 	  
@@ -99,7 +125,7 @@
     <link href="https://westerndevs.com/_/vetur-cant-file-files/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/vetur-cant-file-files/</id>
     <published>2021-07-24T04:00:00.000Z</published>
-    <updated>2021-07-29T19:19:28.063Z</updated>
+    <updated>2021-07-30T03:29:04.193Z</updated>
 	<author>
 	
 	  
@@ -125,7 +151,7 @@
     <link href="https://westerndevs.com/_/enable-symbol-server/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/enable-symbol-server/</id>
     <published>2021-07-08T04:00:00.000Z</published>
-    <updated>2021-07-29T19:19:28.055Z</updated>
+    <updated>2021-07-30T03:29:04.189Z</updated>
 	<author>
 	
 	  
@@ -151,7 +177,7 @@
     <link href="https://westerndevs.com/finding-inspiration/i-can-teach-your-dog-quantum-physics/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/finding-inspiration/i-can-teach-your-dog-quantum-physics/</id>
     <published>2021-06-28T16:00:00.000Z</published>
-    <updated>2021-07-29T19:19:28.055Z</updated>
+    <updated>2021-07-30T03:29:04.185Z</updated>
 	<author>
 	
 	  
@@ -189,7 +215,7 @@
     <link href="https://westerndevs.com/_/azure-automation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-automation/</id>
     <published>2021-06-24T04:00:00.000Z</published>
-    <updated>2021-07-29T19:19:28.055Z</updated>
+    <updated>2021-07-30T03:29:04.185Z</updated>
 	<author>
 	
 	  
@@ -215,7 +241,7 @@
     <link href="https://westerndevs.com/inner-monologue/what-value-does-making-content-bring-to-me/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/inner-monologue/what-value-does-making-content-bring-to-me/</id>
     <published>2021-06-17T16:00:00.000Z</published>
-    <updated>2021-07-29T19:19:28.055Z</updated>
+    <updated>2021-07-30T03:29:04.185Z</updated>
 	<author>
 	
 	  
@@ -253,7 +279,7 @@
     <link href="https://westerndevs.com/_/storybook/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storybook/</id>
     <published>2021-06-17T04:00:00.000Z</published>
-    <updated>2021-07-29T19:19:28.063Z</updated>
+    <updated>2021-07-30T03:29:04.193Z</updated>
 	<author>
 	
 	  
@@ -282,7 +308,7 @@
     <link href="https://westerndevs.com/_/noda-time/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/noda-time/</id>
     <published>2021-06-16T04:00:00.000Z</published>
-    <updated>2021-07-29T19:19:28.059Z</updated>
+    <updated>2021-07-30T03:29:04.189Z</updated>
 	<author>
 	
 	  
@@ -309,7 +335,7 @@
     <link href="https://westerndevs.com/_/installing-fonts/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/installing-fonts/</id>
     <published>2021-06-11T04:00:00.000Z</published>
-    <updated>2021-07-29T19:19:28.055Z</updated>
+    <updated>2021-07-30T03:29:04.189Z</updated>
 	<author>
 	
 	  
@@ -335,7 +361,7 @@
     <link href="https://westerndevs.com/_/Azure-service-bus-transports/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Azure-service-bus-transports/</id>
     <published>2021-06-07T04:00:00.000Z</published>
-    <updated>2021-07-29T19:19:28.055Z</updated>
+    <updated>2021-07-30T03:29:04.185Z</updated>
 	<author>
 	
 	  
@@ -366,7 +392,7 @@
     <link href="https://westerndevs.com/_/add-user-to-role/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/add-user-to-role/</id>
     <published>2021-06-07T04:00:00.000Z</published>
-    <updated>2021-07-29T19:19:28.055Z</updated>
+    <updated>2021-07-30T03:29:04.185Z</updated>
 	<author>
 	
 	  
@@ -393,7 +419,7 @@
     <link href="https://westerndevs.com/inner-monologue/my-secret-addiction-to-likes/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/inner-monologue/my-secret-addiction-to-likes/</id>
     <published>2021-06-03T16:00:00.000Z</published>
-    <updated>2021-07-29T19:19:28.051Z</updated>
+    <updated>2021-07-30T03:29:04.185Z</updated>
 	<author>
 	
 	  
@@ -431,7 +457,7 @@
     <link href="https://westerndevs.com/_/sequence/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/sequence/</id>
     <published>2021-06-03T04:00:00.000Z</published>
-    <updated>2021-07-29T19:19:28.059Z</updated>
+    <updated>2021-07-30T03:29:04.193Z</updated>
 	<author>
 	
 	  
@@ -457,7 +483,7 @@
     <link href="https://westerndevs.com/technology/inner-monologue/lucky-number-v7/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/technology/inner-monologue/lucky-number-v7/</id>
     <published>2021-05-24T16:00:00.000Z</published>
-    <updated>2021-07-29T19:19:28.051Z</updated>
+    <updated>2021-07-30T03:29:04.185Z</updated>
 	<author>
 	
 	  
@@ -493,7 +519,7 @@
     <link href="https://westerndevs.com/_/durable-entities/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/durable-entities/</id>
     <published>2021-05-20T04:00:00.000Z</published>
-    <updated>2021-07-29T19:19:28.055Z</updated>
+    <updated>2021-07-30T03:29:04.189Z</updated>
 	<author>
 	
 	  
@@ -519,7 +545,7 @@
     <link href="https://westerndevs.com/_/advanced-waf-rules-in-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/advanced-waf-rules-in-terraform/</id>
     <published>2021-05-19T04:00:00.000Z</published>
-    <updated>2021-07-29T19:19:28.055Z</updated>
+    <updated>2021-07-30T03:29:04.185Z</updated>
 	<author>
 	
 	  
@@ -545,7 +571,7 @@
     <link href="https://westerndevs.com/_/importing-tde-encrypted-backup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/importing-tde-encrypted-backup/</id>
     <published>2021-05-18T04:00:00.000Z</published>
-    <updated>2021-07-29T19:19:28.055Z</updated>
+    <updated>2021-07-30T03:29:04.189Z</updated>
 	<author>
 	
 	  
@@ -561,32 +587,6 @@
     
       &lt;p&gt;Let&#39;s say you&#39;re moving an encrypted backup into Azure. The encryption was set up like this&lt;/p&gt;
 &lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">JQ</title>
-    <link href="https://westerndevs.com/_/jq/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/jq/</id>
-    <published>2021-05-11T04:00:00.000Z</published>
-    <updated>2021-07-29T19:19:28.055Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>This is a really nice tool for manipulating JSON on the command line. The syntax is, however, esoteric like you would not believe. Here are some cheats to help out</p><p>If you have an array and want to take just the object at a specific index</p><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.[<span class="number">3</span>]</span><br></pre></td></tr></table></figure><p>which returns the 3rd element</p><p>If you want to extract a value from an array of objects then you can use</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.<span class="selector-attr">[]</span><span class="selector-class">.LicensePlate</span></span><br></pre></td></tr></table></figure><p>This works for multiple levels too so if you have nested objects you can</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.<span class="selector-attr">[]</span><span class="selector-class">.LicensePlate</span><span class="selector-class">.Province</span></span><br></pre></td></tr></table></figure><p>Given an array where you want to filter it then you can use this</p><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ .[] | select( .LicensePlate | contains(<span class="string">"PM184J"</span>)) ]</span><br></pre></td></tr></table></figure><p>To select a single field you could then do</p><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ .[] | <span class="type">select</span>( .LicensePlate | <span class="type">contains</span>(<span class="string">"PM184J"</span>)) ] |  <span class="type">map</span>( .LicensePlate)</span><br></pre></td></tr></table></figure><p>If you want multiple fields built back into an object do</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="attribute">LicensePlate</span>: .[].LicensePlate, EndTime: .[].EndTime&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;This is a really nice tool for manipulating JSON on the command line. The syntax is, however, esoteric like you would not believe. Here a
     
     </summary>
     
