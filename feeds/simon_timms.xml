@@ -5,7 +5,7 @@
   <link href="/feeds/simon_timms" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2021-07-30T03:29:04.193Z</updated>
+  <updated>2021-08-13T03:26:11.409Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Which Key to use for Managed Identity in Keyvault</title>
+    <link href="https://westerndevs.com/_/appliation-key-for-keyvault/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/appliation-key-for-keyvault/</id>
+    <published>2021-08-13T04:00:00.000Z</published>
+    <updated>2021-08-13T03:26:11.409Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>I have a terraform deployment which runs in azure pipeline. Azure pipelines is connected to Azure via a service connection. This service connection is registered as an application in the Azure AD of the Azure account. The problem I constantly run into is that I can't remember which id from the application should be granted keyvault access so the build pipeline can read and write to keyvault.</p><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">resource <span class="string">"azurerm_key_vault_access_policy"</span> <span class="string">"terraformaccess"</span> &#123;</span><br><span class="line">  <span class="attr">key_vault_id</span> = azurerm_key_vault.keyvault.id</span><br><span class="line"></span><br><span class="line">  <span class="attr">tenant_id</span> = local.tenant_id</span><br><span class="line">  <span class="attr">object_id</span> = ???????????????????</span><br><span class="line"></span><br><span class="line">  <span class="attr">key_permissions</span> = [</span><br><span class="line">    <span class="string">"Get"</span>,</span><br><span class="line">    <span class="string">"Create"</span>,</span><br><span class="line">    <span class="string">"List"</span>,</span><br><span class="line">    <span class="string">"Update"</span>,</span><br><span class="line">    <span class="string">"Verify"</span>,</span><br><span class="line">    <span class="string">"Delete"</span>,</span><br><span class="line">    <span class="string">"WrapKey"</span>,</span><br><span class="line">    <span class="string">"UnwrapKey"</span></span><br><span class="line">  ]</span><br><span class="line"></span><br><span class="line">  <span class="attr">secret_permissions</span> = [</span><br><span class="line">    <span class="string">"Get"</span>,</span><br><span class="line">    <span class="string">"List"</span>,</span><br><span class="line">    <span class="string">"Set"</span></span><br><span class="line">  ]</span><br><span class="line"></span><br><span class="line">  <span class="attr">storage_permissions</span> = [</span><br><span class="line">    <span class="string">"Get"</span>,</span><br><span class="line">    <span class="string">"List"</span>,</span><br><span class="line">    <span class="string">"Set"</span>,</span><br><span class="line">    <span class="string">"Update"</span></span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>Maybe the value is in the portal somewhere:</p><p><img src="/images/2021-08-12-appliation-key-for-keyvault.md/2021-08-12-21-21-51.png" alt="">)</p><p>Nope.</p><p>It seems to be findable by doing either</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Login<span class="literal">-AzureRmAccount</span> <span class="literal">-SubscriptionId</span> &lt;your subscription id&gt;;</span><br><span class="line"><span class="variable">$spn</span>=(<span class="built_in">Get-AzureRmADServicePrincipal</span> <span class="literal">-SPN</span> &lt;the application id&gt;);</span><br><span class="line">echo <span class="variable">$spn</span>.Id</span><br></pre></td></tr></table></figure><p>or</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">az ad sp list --spn &lt;the application id&gt;</span><br></pre></td></tr></table></figure><p>Then look for <code>ObjectId</code></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;I have a terraform deployment which runs in azure pipeline. Azure pipelines is connected to Azure via a service connection. This service 
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Stop Terraform Managing State for a Resource</title>
     <link href="https://westerndevs.com/_/stop-managing-resource/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/stop-managing-resource/</id>
     <published>2021-07-30T04:00:00.000Z</published>
-    <updated>2021-07-30T03:29:04.193Z</updated>
+    <updated>2021-08-13T03:26:11.413Z</updated>
 	<author>
 	
 	  
@@ -47,7 +73,7 @@
     <link href="https://westerndevs.com/_/storybook-iframe-404/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storybook-iframe-404/</id>
     <published>2021-07-29T04:00:00.000Z</published>
-    <updated>2021-07-30T03:29:04.193Z</updated>
+    <updated>2021-08-13T03:26:11.413Z</updated>
 	<author>
 	
 	  
@@ -73,7 +99,7 @@
     <link href="https://westerndevs.com/_/build-sql-connection-string/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/build-sql-connection-string/</id>
     <published>2021-07-26T04:00:00.000Z</published>
-    <updated>2021-07-30T03:29:04.185Z</updated>
+    <updated>2021-08-13T03:26:11.409Z</updated>
 	<author>
 	
 	  
@@ -99,7 +125,7 @@
     <link href="https://westerndevs.com/_/static-app-settings/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/static-app-settings/</id>
     <published>2021-07-26T04:00:00.000Z</published>
-    <updated>2021-07-30T03:29:04.193Z</updated>
+    <updated>2021-08-13T03:26:11.413Z</updated>
 	<author>
 	
 	  
@@ -125,7 +151,7 @@
     <link href="https://westerndevs.com/_/vetur-cant-file-files/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/vetur-cant-file-files/</id>
     <published>2021-07-24T04:00:00.000Z</published>
-    <updated>2021-07-30T03:29:04.193Z</updated>
+    <updated>2021-08-13T03:26:11.417Z</updated>
 	<author>
 	
 	  
@@ -151,7 +177,7 @@
     <link href="https://westerndevs.com/_/enable-symbol-server/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/enable-symbol-server/</id>
     <published>2021-07-08T04:00:00.000Z</published>
-    <updated>2021-07-30T03:29:04.189Z</updated>
+    <updated>2021-08-13T03:26:11.409Z</updated>
 	<author>
 	
 	  
@@ -177,7 +203,7 @@
     <link href="https://westerndevs.com/_/azure-automation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-automation/</id>
     <published>2021-06-24T04:00:00.000Z</published>
-    <updated>2021-07-30T03:29:04.185Z</updated>
+    <updated>2021-08-13T03:26:11.409Z</updated>
 	<author>
 	
 	  
@@ -203,7 +229,7 @@
     <link href="https://westerndevs.com/_/storybook/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storybook/</id>
     <published>2021-06-17T04:00:00.000Z</published>
-    <updated>2021-07-30T03:29:04.193Z</updated>
+    <updated>2021-08-13T03:26:11.413Z</updated>
 	<author>
 	
 	  
@@ -232,7 +258,7 @@
     <link href="https://westerndevs.com/_/noda-time/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/noda-time/</id>
     <published>2021-06-16T04:00:00.000Z</published>
-    <updated>2021-07-30T03:29:04.189Z</updated>
+    <updated>2021-08-13T03:26:11.413Z</updated>
 	<author>
 	
 	  
@@ -259,7 +285,7 @@
     <link href="https://westerndevs.com/_/installing-fonts/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/installing-fonts/</id>
     <published>2021-06-11T04:00:00.000Z</published>
-    <updated>2021-07-30T03:29:04.189Z</updated>
+    <updated>2021-08-13T03:26:11.413Z</updated>
 	<author>
 	
 	  
@@ -285,7 +311,7 @@
     <link href="https://westerndevs.com/_/Azure-service-bus-transports/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Azure-service-bus-transports/</id>
     <published>2021-06-07T04:00:00.000Z</published>
-    <updated>2021-07-30T03:29:04.185Z</updated>
+    <updated>2021-08-13T03:26:11.409Z</updated>
 	<author>
 	
 	  
@@ -316,7 +342,7 @@
     <link href="https://westerndevs.com/_/add-user-to-role/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/add-user-to-role/</id>
     <published>2021-06-07T04:00:00.000Z</published>
-    <updated>2021-07-30T03:29:04.185Z</updated>
+    <updated>2021-08-13T03:26:11.409Z</updated>
 	<author>
 	
 	  
@@ -343,7 +369,7 @@
     <link href="https://westerndevs.com/_/sequence/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/sequence/</id>
     <published>2021-06-03T04:00:00.000Z</published>
-    <updated>2021-07-30T03:29:04.193Z</updated>
+    <updated>2021-08-13T03:26:11.413Z</updated>
 	<author>
 	
 	  
@@ -369,7 +395,7 @@
     <link href="https://westerndevs.com/_/durable-entities/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/durable-entities/</id>
     <published>2021-05-20T04:00:00.000Z</published>
-    <updated>2021-07-30T03:29:04.189Z</updated>
+    <updated>2021-08-13T03:26:11.409Z</updated>
 	<author>
 	
 	  
@@ -395,7 +421,7 @@
     <link href="https://westerndevs.com/_/advanced-waf-rules-in-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/advanced-waf-rules-in-terraform/</id>
     <published>2021-05-19T04:00:00.000Z</published>
-    <updated>2021-07-30T03:29:04.185Z</updated>
+    <updated>2021-08-13T03:26:11.409Z</updated>
 	<author>
 	
 	  
@@ -421,7 +447,7 @@
     <link href="https://westerndevs.com/_/importing-tde-encrypted-backup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/importing-tde-encrypted-backup/</id>
     <published>2021-05-18T04:00:00.000Z</published>
-    <updated>2021-07-30T03:29:04.189Z</updated>
+    <updated>2021-08-13T03:26:11.413Z</updated>
 	<author>
 	
 	  
@@ -448,7 +474,7 @@
     <link href="https://westerndevs.com/_/jq/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/jq/</id>
     <published>2021-05-11T04:00:00.000Z</published>
-    <updated>2021-07-30T03:29:04.189Z</updated>
+    <updated>2021-08-13T03:26:11.413Z</updated>
 	<author>
 	
 	  
@@ -474,7 +500,7 @@
     <link href="https://westerndevs.com/_/creating-a-shortcut/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/creating-a-shortcut/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-07-30T03:29:04.189Z</updated>
+    <updated>2021-08-13T03:26:11.409Z</updated>
 	<author>
 	
 	  
@@ -500,7 +526,7 @@
     <link href="https://westerndevs.com/_/set-timezone/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-timezone/</id>
     <published>2021-05-10T04:00:00.000Z</published>
-    <updated>2021-07-30T03:29:04.193Z</updated>
+    <updated>2021-08-13T03:26:11.413Z</updated>
 	<author>
 	
 	  
@@ -516,33 +542,6 @@
     
       &lt;p&gt;This is pretty easy.&lt;/p&gt;
 &lt;figure class=&quot;highlight powershell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/t
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Download a file in powershell</title>
-    <link href="https://westerndevs.com/_/download-file/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/download-file/</id>
-    <published>2021-05-08T04:00:00.000Z</published>
-    <updated>2021-07-30T03:29:04.189Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>Here is a quick way to download a file in powershell:</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Invoke-WebRequest -Uri <span class="tag">&lt;<span class="name">source</span>&gt;</span> -OutFile <span class="tag">&lt;<span class="name">destination</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Here is a quick way to download a file in powershell:&lt;/p&gt;
-&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;l
     
     </summary>
     
