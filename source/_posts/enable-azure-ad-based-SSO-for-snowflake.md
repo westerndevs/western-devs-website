@@ -1,18 +1,14 @@
 ---
 title:  Enable SSO for Snowflake using Azure AD
-# Azure Side
-# Snowflake Side
- Automatic Provisioning 
- Gotchas!
 authorId: simon_timms
 date: 2021-07-06
 originalurl: https://blog.simontimms.com/2021/07/06/enable-azure-ad-based-SSO-for-snowflake
 mode: public
 ---
 
-
-
 So you want to enable single sign on for you AD users to Snowflake? There are a bunch of good reasons to do this: it makes managing users easier, deleting a user in AD deletes them in snowflake so you don't have a laundry list of places to delete a user when users leave. 
+
+<!-- more -->
 
 The process is a 2 sided thing: setting up the Snowflake integration on the AD side and then letting Snowflake know where to authenticate its users. 
 
