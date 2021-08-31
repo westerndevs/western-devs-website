@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2021-08-18T21:12:42.241Z</updated>
+  <updated>2021-08-31T19:21:52.697Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,63 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">SQL Mail</title>
+    <link href="https://westerndevs.com/_/enable-database-mail/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/enable-database-mail/</id>
+    <published>2021-08-31T04:00:00.000Z</published>
+    <updated>2021-08-31T19:21:52.697Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>Did you know you can hook up your SQL server (or Managed SQL on Azure) to an SMTP server and use it to send email. Terrible idea? Yes, probably. I really encourage people not to build business logic that might require creating an email into stored procs.  Required for legacy code? Yes, certainly.</p><p>You first need to tell SQL server how to talk to the mail server. This is done using the <code>sysmail_add_Account_sp</code></p><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">EXECUTE</span> msdb.dbo.sysmail_add_account_sp</span><br><span class="line">    <span class="variable">@account_name</span> = <span class="string">'Database Mail Account'</span>,</span><br><span class="line">    <span class="variable">@description</span> = <span class="string">'SQL Server Notification Service'</span>,</span><br><span class="line">    <span class="variable">@email_address</span> = <span class="string">'SQLServer<span class="variable">@somedomain</span>.com'</span>,</span><br><span class="line">    <span class="variable">@replyto_address</span> = <span class="string">'SQLServer<span class="variable">@somedomain</span>.com'</span>,</span><br><span class="line">    <span class="variable">@display_name</span> = <span class="string">'Database Mail Profile'</span>,</span><br><span class="line">    <span class="variable">@mailserver_name</span> = <span class="string">'smtp.office365.com'</span>,</span><br><span class="line">    <span class="variable">@port</span> = <span class="number">587</span>,</span><br><span class="line"><span class="variable">@username</span> = <span class="string">'SQLServer<span class="variable">@somedomain</span>.com'</span>,</span><br><span class="line"><span class="variable">@password</span> = <span class="string">'totallynotourpassword'</span>,</span><br><span class="line"><span class="variable">@enable_ssl</span> = <span class="number">1</span>;</span><br></pre></td></tr></table></figure><p>With that in place you can set up a mail profile to use it</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">SELECT @sequence_number = COALESCE(MAX(profile_id),1) <span class="keyword">FROM</span> msdb.dbo.sysmail_profile;</span><br><span class="line"></span><br><span class="line">-- Create a mail profile</span><br><span class="line">EXECUTE msdb.dbo.sysmail_add_profile_sp</span><br><span class="line">    @profile_name = <span class="string">'Database Mail Profile'</span>,</span><br><span class="line">    @description = <span class="string">'Sends email from the db'</span>;</span><br><span class="line">                              </span><br><span class="line">-- <span class="builtin-name">Add</span> the account <span class="keyword">to</span> the profile</span><br><span class="line">EXECUTE msdb.dbo.sysmail_add_profileaccount_sp</span><br><span class="line">    @profile_name = <span class="string">'Database Mail Profile'</span>,</span><br><span class="line">    @account_name = <span class="string">'Database Mail Account'</span>,</span><br><span class="line">    @sequence_number = @sequence_number;</span><br><span class="line">                              </span><br><span class="line">-- Grant access <span class="keyword">to</span> the<span class="built_in"> profile </span><span class="keyword">to</span> the DBMailUsers role</span><br><span class="line">EXECUTE msdb.dbo.sysmail_add_principalprofile_sp</span><br><span class="line">    @profile_name = <span class="string">'Database Mail Profile'</span>,</span><br><span class="line">    @principal_id = 0,</span><br><span class="line">    @is_default = 1 ;</span><br></pre></td></tr></table></figure><p>You can then make use of <code>sp_send_dbmail</code> to send email</p><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">EXEC</span> msdb.dbo.[sp_send_dbmail]</span><br><span class="line">    <span class="variable">@profile_name</span> = <span class="string">'Database Mail Profile'</span>,</span><br><span class="line">    <span class="variable">@recipients</span> = <span class="string">'simon.timms<span class="variable">@somedomain</span>.com'</span>,</span><br><span class="line">    <span class="variable">@subject</span> = <span class="string">'Testing db email'</span>,</span><br><span class="line">    <span class="variable">@body</span> = <span class="string">'Hello friend, I'</span>m testing the database mail<span class="string">'</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Did you know you can hook up your SQL server (or Managed SQL on Azure) to an SMTP server and use it to send email. Terrible idea? Yes, pr
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title type="html">Reauthenticate with Nuget</title>
+    <link href="https://westerndevs.com/_/reauth-nuget/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/reauth-nuget/</id>
+    <published>2021-08-31T04:00:00.000Z</published>
+    <updated>2021-08-31T19:21:52.701Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>If you have a private nuget feed authenticated with a password chances are your password will eventually expire or change. For some reason Visual Studio and perhaps nuget under the covers aggressively caches that password and doesn't prompt you when the password doesn't work anymore. To change the password the easiest approach I've found is to use the nuget.exe command line tool and run</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c:\temp\nuget.exe sources <span class="keyword">update</span> -<span class="keyword">Name</span> <span class="string">"Teamcity"</span> -<span class="keyword">Source</span> <span class="string">"https://private.nuget.feed.com/httpAuth/app/nuget/feed/_Root/SomeThing/v2"</span> -UserName <span class="string">"simon.timms"</span> -<span class="keyword">Password</span> <span class="string">"Thisisactuallymypassword,no,really"</span></span><br><span class="line">C:\temp\nuget.exe <span class="keyword">list</span> -<span class="keyword">Source</span> teamcity</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;If you have a private nuget feed authenticated with a password chances are your password will eventually expire or change. For some reaso
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Which Key to use for Managed Identity in Keyvault</title>
     <link href="https://westerndevs.com/_/appliation-key-for-keyvault/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/appliation-key-for-keyvault/</id>
     <published>2021-08-13T04:00:00.000Z</published>
-    <updated>2021-08-18T21:12:42.241Z</updated>
+    <updated>2021-08-31T19:21:52.697Z</updated>
 	<author>
 	
 	  
@@ -47,7 +99,7 @@
     <link href="https://westerndevs.com/_/stop-managing-resource/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/stop-managing-resource/</id>
     <published>2021-07-30T04:00:00.000Z</published>
-    <updated>2021-08-18T21:12:42.249Z</updated>
+    <updated>2021-08-31T19:21:52.701Z</updated>
 	<author>
 	
 	  
@@ -73,7 +125,7 @@
     <link href="https://westerndevs.com/_/storybook-iframe-404/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storybook-iframe-404/</id>
     <published>2021-07-29T04:00:00.000Z</published>
-    <updated>2021-08-18T21:12:42.249Z</updated>
+    <updated>2021-08-31T19:21:52.705Z</updated>
 	<author>
 	
 	  
@@ -99,7 +151,7 @@
     <link href="https://westerndevs.com/_/build-sql-connection-string/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/build-sql-connection-string/</id>
     <published>2021-07-26T04:00:00.000Z</published>
-    <updated>2021-08-18T21:12:42.241Z</updated>
+    <updated>2021-08-31T19:21:52.697Z</updated>
 	<author>
 	
 	  
@@ -125,7 +177,7 @@
     <link href="https://westerndevs.com/_/static-app-settings/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/static-app-settings/</id>
     <published>2021-07-26T04:00:00.000Z</published>
-    <updated>2021-08-18T21:12:42.249Z</updated>
+    <updated>2021-08-31T19:21:52.701Z</updated>
 	<author>
 	
 	  
@@ -151,7 +203,7 @@
     <link href="https://westerndevs.com/_/vetur-cant-file-files/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/vetur-cant-file-files/</id>
     <published>2021-07-24T04:00:00.000Z</published>
-    <updated>2021-08-18T21:12:42.249Z</updated>
+    <updated>2021-08-31T19:21:52.705Z</updated>
 	<author>
 	
 	  
@@ -177,7 +229,7 @@
     <link href="https://westerndevs.com/_/enable-symbol-server/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/enable-symbol-server/</id>
     <published>2021-07-08T04:00:00.000Z</published>
-    <updated>2021-08-18T21:12:42.245Z</updated>
+    <updated>2021-08-31T19:21:52.697Z</updated>
 	<author>
 	
 	  
@@ -199,11 +251,37 @@
   </entry>
   
   <entry>
+    <title type="html">Enable SSO for Snowflake using Azure AD</title>
+    <link href="https://westerndevs.com/_/enable-azure-ad-based-SSO-for-snowflake/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/enable-azure-ad-based-SSO-for-snowflake/</id>
+    <published>2021-07-06T04:00:00.000Z</published>
+    <updated>2021-08-31T19:21:52.697Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>So you want to enable single sign on for you AD users to Snowflake? There are a bunch of good reasons to do this: it makes managing users easier, deleting a user in AD deletes them in snowflake so you don't have a laundry list of places to delete a user when users leave.</p><p>The process is a 2 sided thing: setting up the Snowflake integration on the AD side and then letting Snowflake know where to authenticate its users.</p><h2>Azure Side</h2><ol><li>Go to azure AD and click on <code>Enterprise Applications</code> on the left hand side<img src="/images/2021-07-05-enable-azure-ad-based-SSO-for-snowflake.md/2021-07-05-12-25-20.png" alt="">)</li><li>Click <code>New Application</code> and search for Snowflake select it and create it</li><li>In there set up the links to your Snowflake tenant for single sign on by selecting Single sign-on on the left</li><li>Fill in the URLs for your snowflake instance. The only thing that you really need to pay attention to is that you're using the snowflake name on your already created snowflake instance.<img src="/images/2021-07-05-enable-azure-ad-based-SSO-for-snowflake.md/2021-07-05-12-28-33.png" alt="">)</li><li>Download the Base64 Certificate from the SAML Signing Certificate section</li><li>Assign a test user to the snowflake integration by clicking on users and groups and adding an existing user</li></ol><h2>Snowflake Side</h2><ol><li>Run this query in snowflake. It adds a saml identity provider and then set up single sign on</li></ol><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="keyword">role</span> accountadmin;</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">account</span> <span class="keyword">set</span> saml_identity_provider = <span class="string">'&#123;</span></span><br><span class="line"><span class="string">"certificate": "&lt;Paste the content of downloaded certificate from Azure portal&gt;",</span></span><br><span class="line"><span class="string">"ssoUrl":"&lt;Login URL value which you have copied from the Azure portal, something like https://login.microsoftonline.com/44xxxx25-xxxx-415b-bedc-xxxxxxxxxxxxxx/saml2&gt;",</span></span><br><span class="line"><span class="string">"type":"custom",</span></span><br><span class="line"><span class="string">"label":"AzureAD"</span></span><br><span class="line"><span class="string">&#125;'</span>;</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">account</span> <span class="keyword">set</span> sso_login_page = <span class="literal">TRUE</span>;</span><br></pre></td></tr></table></figure><ol start="2"><li>Hook up the user you created earlier in AD</li></ol><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> simon_timms <span class="keyword">PASSWORD</span> = <span class="string">''</span> LOGIN_NAME = <span class="string">'user@somedomain.com'</span> DISPLAY_NAME = <span class="string">'Simon Timms'</span>;</span><br></pre></td></tr></table></figure><p>You should now be able to log in with your AD account. Open up an incognito tab and go to your snowflake instance. In there click on the SSO option and enter your AD credentials.</p><h2>Automatic Provisioning</h2><p>Obviously it sucks to provision the users manually in snowflake so you can have AD sync changes over to it. To do this start with snowflake. You'll need to create a user who can provision users.</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">or</span> <span class="keyword">replace</span> <span class="keyword">role</span> aad_provisioner;</span><br><span class="line"><span class="keyword">grant</span> <span class="keyword">create</span> <span class="keyword">user</span> <span class="keyword">on</span> <span class="keyword">account</span> <span class="keyword">to</span> <span class="keyword">role</span> aad_provisioner;</span><br><span class="line"><span class="keyword">grant</span> <span class="keyword">create</span> <span class="keyword">role</span> <span class="keyword">on</span> <span class="keyword">account</span> <span class="keyword">to</span> <span class="keyword">role</span> aad_provisioner;</span><br><span class="line"><span class="keyword">grant</span> <span class="keyword">role</span> aad_provisioner <span class="keyword">to</span> <span class="keyword">role</span> accountadmin;</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">or</span> <span class="keyword">replace</span> <span class="keyword">security</span> integration aad_provisioning</span><br><span class="line">    <span class="keyword">type</span> = scim</span><br><span class="line">    scim_client = <span class="string">'azure'</span></span><br><span class="line">    run_as_role = <span class="string">'AAD_PROVISIONER'</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">system</span>$generate_scim_access_token(<span class="string">'AAD_PROVISIONING'</span>);</span><br></pre></td></tr></table></figure><p>This should give you a long key which you should copy.</p><p><img src="/images/2021-07-06-enable-azure-ad-based-SSO-for-snowflake.md/2021-07-06-15-59-43.png" alt="">)</p><p>Go back to the AD app and click on Provisioning. In there change over to automatic provisioning. Enter the key in the <code>Secret Token</code> field and in the <code>Tenant Url</code> field enter your usual URL but this time with <code>/scim/v2</code> on the end of it.</p><p>Test the connection and ensure that it can connect properly. With that done you'll need to turn provisioning status on</p><p><img src="/images/2021-07-06-enable-azure-ad-based-SSO-for-snowflake.md/2021-07-06-16-01-34.png" alt="">)</p><h2>Adding Users to the Sync</h2><p>If you want to add a new user to the synchronizing then go back to the snowflake app under Enterprise Applications in Azure AD. In there click on <code>Users and groups</code><img src="/images/2021-08-31-enable-azure-ad-based-SSO-for-snowflake.md/2021-08-31-13-17-47.png" alt="">)</p><p>Then on the add users and groups button. In there you can select your user and click <code>Assign</code>. That should be it. It may take a few minutes to sync. You can always check the status of the sync by going to the <code>Provisioning</code> item</p><h2>Gotchas!</h2><p>The biggest one here is that the snowflake key used in automatic provisioning only has a lifespan of 6 months. It is almost certainly going to break horribly at that time. You should mitigate this by having the sync job email you if it fails. This can be done in the settings page in Azure</p><p><img src="/images/2021-07-06-enable-azure-ad-based-SSO-for-snowflake.md/2021-07-06-16-06-05.png" alt="">)</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;So you want to enable single sign on for you AD users to Snowflake? There are a bunch of good reasons to do this: it makes managing users
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">I Can Teach Your Dog Quantum Physics</title>
     <link href="https://westerndevs.com/finding-inspiration/i-can-teach-your-dog-quantum-physics/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/finding-inspiration/i-can-teach-your-dog-quantum-physics/</id>
     <published>2021-06-28T16:00:00.000Z</published>
-    <updated>2021-08-18T21:12:42.241Z</updated>
+    <updated>2021-08-31T19:21:52.697Z</updated>
 	<author>
 	
 	  
@@ -241,7 +319,7 @@
     <link href="https://westerndevs.com/_/azure-automation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-automation/</id>
     <published>2021-06-24T04:00:00.000Z</published>
-    <updated>2021-08-18T21:12:42.241Z</updated>
+    <updated>2021-08-31T19:21:52.697Z</updated>
 	<author>
 	
 	  
@@ -267,7 +345,7 @@
     <link href="https://westerndevs.com/inner-monologue/what-value-does-making-content-bring-to-me/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/inner-monologue/what-value-does-making-content-bring-to-me/</id>
     <published>2021-06-17T16:00:00.000Z</published>
-    <updated>2021-08-18T21:12:42.241Z</updated>
+    <updated>2021-08-31T19:21:52.697Z</updated>
 	<author>
 	
 	  
@@ -305,7 +383,7 @@
     <link href="https://westerndevs.com/_/storybook/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storybook/</id>
     <published>2021-06-17T04:00:00.000Z</published>
-    <updated>2021-08-18T21:12:42.249Z</updated>
+    <updated>2021-08-31T19:21:52.705Z</updated>
 	<author>
 	
 	  
@@ -334,7 +412,7 @@
     <link href="https://westerndevs.com/_/noda-time/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/noda-time/</id>
     <published>2021-06-16T04:00:00.000Z</published>
-    <updated>2021-08-18T21:12:42.245Z</updated>
+    <updated>2021-08-31T19:21:52.701Z</updated>
 	<author>
 	
 	  
@@ -361,7 +439,7 @@
     <link href="https://westerndevs.com/_/installing-fonts/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/installing-fonts/</id>
     <published>2021-06-11T04:00:00.000Z</published>
-    <updated>2021-08-18T21:12:42.245Z</updated>
+    <updated>2021-08-31T19:21:52.701Z</updated>
 	<author>
 	
 	  
@@ -387,7 +465,7 @@
     <link href="https://westerndevs.com/_/Azure-service-bus-transports/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Azure-service-bus-transports/</id>
     <published>2021-06-07T04:00:00.000Z</published>
-    <updated>2021-08-18T21:12:42.241Z</updated>
+    <updated>2021-08-31T19:21:52.697Z</updated>
 	<author>
 	
 	  
@@ -418,7 +496,7 @@
     <link href="https://westerndevs.com/_/add-user-to-role/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/add-user-to-role/</id>
     <published>2021-06-07T04:00:00.000Z</published>
-    <updated>2021-08-18T21:12:42.241Z</updated>
+    <updated>2021-08-31T19:21:52.697Z</updated>
 	<author>
 	
 	  
@@ -445,7 +523,7 @@
     <link href="https://westerndevs.com/inner-monologue/my-secret-addiction-to-likes/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/inner-monologue/my-secret-addiction-to-likes/</id>
     <published>2021-06-03T16:00:00.000Z</published>
-    <updated>2021-08-18T21:12:42.241Z</updated>
+    <updated>2021-08-31T19:21:52.697Z</updated>
 	<author>
 	
 	  
@@ -483,7 +561,7 @@
     <link href="https://westerndevs.com/_/sequence/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/sequence/</id>
     <published>2021-06-03T04:00:00.000Z</published>
-    <updated>2021-08-18T21:12:42.249Z</updated>
+    <updated>2021-08-31T19:21:52.701Z</updated>
 	<author>
 	
 	  
@@ -498,94 +576,6 @@
     <summary type="html">
     
       &lt;p&gt;Sequences are a handy feature in SQL server which provide an increasing, unique number. You wouldn&#39;t typically use them directly but migh
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Lucky Number v7</title>
-    <link href="https://westerndevs.com/technology/inner-monologue/lucky-number-v7/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/technology/inner-monologue/lucky-number-v7/</id>
-    <published>2021-05-24T16:00:00.000Z</published>
-    <updated>2021-08-18T21:12:42.241Z</updated>
-	<author>
-	
-	  
-	  <name>David Wesst</name>
-	  <email>questions@davidwesst.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>I fixed up my blog-website-thingy again. I'm calling this v7, although I'm pretty sure there are a few incarnations of the site that were lost early on in my years, but v7 seems about right for the content I'm sharing here. In any case-- I thought I'd share the &quot;why&quot; around the new website revamp and how I think a project like this is just what I need.</p><h1>Why did you stop blogging, anyway?</h1><p>I've been thinking a lot about that lately, and the reason I stopped was that I didn't have a reason to do it anymore.</p><p>I started blogging because I was told that it was one of the things I <em>should be doing</em> and had to <em>keep doing</em> to get (and stay) in the Microsoft MVP program as a Front End Web Development MVP (formerly known as the Internet Explorer MVP program). Once I decided to leave the Front End Web Dev stuff behind to make way for my passion for video games and stuff, why should I bother blogging?</p><p>And so that was that. I stopped blogging and made way for all the video game development effort I could muster! Sure, there was the occassional link to a YouTube video or a little tech problem that I've solved on the side, but for the most part, it was dead.</p><p>0 commercial games later, and a few false restarts I'm back on the blog and the website...again.</p><h1>So why bother starting it up again?</h1><p>Well, I stopped because I gave up my reason to do so. I am starting because I found a reason: I want to share and learn.</p><p>Let's break that down a little:</p><h2>&quot;I want to&quot;</h2><p>That is probably the most important part of the whole reason. I want to make content. I'm feeling the need to do it. Maybe its habit or nostalgia for the days where creating content was part of keeping my professional status, either way it's something I like to do and the blog is a lightweight and easy way to do that.</p><h2>&quot;share&quot;</h2><p>Thinking back to when I blogged regularly as part of my MVP contribution, I didn't realize how much of a platform I had to share stories, advice, how-tos and whatever else. It really was quite the reach, and quite a privilege. My experience and work has changed a lot, but there is a still a lot to share for others.</p><p>The big difference this time around is that I'm not worried about whether or not it fits &quot;my career goals&quot; or my &quot;professional focus&quot;.  It's really about me putting my thoughts together in a cohesive way that might help someone reflect and make a decision. In getting v7 of the website ready <em>I was that &quot;someone&quot;</em> and looking over all my old posts confirmed that this is a good idea.</p><p>But, even if you (or me) don't find my posts helpful in the long or short term, that's okay. It feels good to get a post out there. There's a gratifying feeling that comes with putting a post together that helps me, and that makes it worth it too.</p><h2>&quot;learn&quot;</h2><p>As cliché as it sounds, I'm a life long learner. Content creation and management is something that keeps coming up in my side projects, and yet I've never taken the time to properly learn and understand how to do it. It's not about the marketing side, but rather what it means to contribute, learn, and engage with your audience as a solo content creator.</p><p>Plus, there are these weird &quot;little problems&quot; I've always had in my years of creating content with with MVP program. I'm hoping that with fresh eyes and new experiences with me, I can tackle these problems with a different perspective that I have in the past.</p><p>Ultimately, there is a lot to unpack here-- but assuming I keep this going, I'll continue to share what I learn, which will lead to more sharing and then more learning and...you see how this is good thing? :)</p><h2>The Point</h2><p>Scott Hanselman shared this idea <a href="https://www.hanselman.com/blog/do-they-deserve-the-gift-of-your-keystrokes" target="_blank" rel="noopener">(reference)</a> of valuing your effort in helping through your keystrokes (I'm greatly paraphrasing the idea). I spend time helping others one-on-one, but it's usually the same stories, ideas, thought patterns, and so on that people find helpful. This website and blog is my chance to share new things and old with a fresh perspective, one that is owned and driven by my values and ideas and not those of my employer or community.</p><p>Maybe its selfish to think this is a good idea, but that's fine because it's my website, my blog, and my idea that I think is good.</p><p>And if I think it's good, then that's a start.</p><p>Thanks for playing. ~ DW</p>]]></content>
-    
-    <summary type="html">
-    
-      I fixed up my blog-website-thingy again. I&#39;m calling this v7, although I&#39;m pretty sure there are a few incarnations of the site that were lost early on in my years, but v7 seems about right for the content I&#39;m sharing here. In any case-- I thought I&#39;d share the &quot;why&quot; around the new website revamp and how I think a project like this is just what I need.
-    
-    </summary>
-    
-      <category term="technology" scheme="https://westerndevs.com/categories/technology/"/>
-    
-      <category term="inner monologue" scheme="https://westerndevs.com/categories/technology/inner-monologue/"/>
-    
-    
-      <category term="blog" scheme="https://westerndevs.com/tags/blog/"/>
-    
-      <category term="website" scheme="https://westerndevs.com/tags/website/"/>
-    
-      <category term="graphql" scheme="https://westerndevs.com/tags/graphql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Using Durable Entities</title>
-    <link href="https://westerndevs.com/_/durable-entities/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/durable-entities/</id>
-    <published>2021-05-20T04:00:00.000Z</published>
-    <updated>2021-08-18T21:12:42.245Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>Durable entities are basically blobs of state that are stored somewhere (probably table storage). You can retrieve them and signal them with changes. They can be tied directly into standard Azure functions.</p><p>You build one as pretty much a POCO that looks like</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">JsonObject(MemberSerialization.OptIn)</span>]</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">DuplicatePreventor</span></span><br><span class="line">&#123;</span><br><span class="line">    [<span class="meta">JsonProperty(<span class="meta-string">"value"</span>)</span>]</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> CurrentValue &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Add</span>(<span class="params"><span class="keyword">int</span> amount</span>)</span> =&gt; <span class="keyword">this</span>.CurrentValue += amount;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Reset</span>(<span class="params"></span>)</span> =&gt; <span class="keyword">this</span>.CurrentValue = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">Get</span>(<span class="params"></span>)</span> =&gt; <span class="keyword">this</span>.CurrentValue;</span><br><span class="line"></span><br><span class="line">    [<span class="meta">FunctionName(nameof(DuplicatePreventor))</span>]</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Task <span class="title">Run</span>(<span class="params">[EntityTrigger] IDurableEntityContext ctx</span>)</span></span><br><span class="line"><span class="function"></span>        =&gt; ctx.DispatchAsync&lt;DuplicatePreventor&gt;();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>In this example there is one piece of state: the CurrentValue. You can retrieve it using the Get() function. Add and Reset are other signals you can send to the state.</p><p>Using it in a function involves adding a client to the signature of the function like so</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">FunctionName(<span class="meta-string">"ShopifyPurchaseWebhook"</span>)</span>]</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">async</span> Task&lt;IActionResult&gt; <span class="title">Run</span>(<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">    [HttpTrigger(AuthorizationLevel.Function, <span class="string">"post"</span>, Route = <span class="literal">null</span></span>)] HttpRequest req,</span></span><br><span class="line"><span class="function">    [DurableClient] IDurableEntityClient client,</span></span><br><span class="line"><span class="function">    ILogger log)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">        ...</span><br><span class="line">&#125;</span><br><span class="line">```            </span><br><span class="line"></span><br><span class="line">Once you have the client you can retrieve an existing state <span class="keyword">by</span> specifying an entityId and then getting it <span class="keyword">from</span> the client</span><br><span class="line">```csharp</span><br><span class="line"><span class="keyword">var</span> entityId = <span class="keyword">new</span> EntityId(<span class="keyword">nameof</span>(DuplicatePreventer), webhook.order_number.ToString());</span><br><span class="line"><span class="keyword">var</span> duplicationPreventionEntity = <span class="keyword">await</span> client.ReadEntityStateAsync&lt;DuplicatePreventer&gt;(entityId);</span><br></pre></td></tr></table></figure><p>This gets you back a wrapper which includes properties like <code>EntityExists</code> and <code>EntityState</code>.</p><p>You can signal changes in the entity through an unfortunate interface that looks like</p><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">await client.<span class="constructor">SignalEntityAsync(<span class="params">entityId</span>, <span class="string">"Add"</span>, 1)</span>;</span><br></pre></td></tr></table></figure><p>That's right, strings are back in style.</p><h2>Gotchas</h2><p>If you create the durable entity in your function and then request it's value you at once you won't get the correct value - you just get null. I'd bet they are using some sort of outbox model that only sends data updates at the end of the function execution.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Durable entities are basically blobs of state that are stored somewhere (probably table storage). You can retrieve them and signal them w
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Advanced Web Application Firewall Rules in Azure with Terraform</title>
-    <link href="https://westerndevs.com/_/advanced-waf-rules-in-terraform/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/advanced-waf-rules-in-terraform/</id>
-    <published>2021-05-19T04:00:00.000Z</published>
-    <updated>2021-08-18T21:12:42.241Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>If you're creating an Application Gateway in Terraform for Azure you're using this resource <code>azurerm_application_gateway</code>. This resource allows for some basic configuration of the Web Application Firewall through the <code>waf_configuration</code> block. However the configuration there is very limited and basically restricted to turning it off and on and choosing the base rule set. If you want a custom rule then you need to break off the rules into a separate <code>azurerm_web_application_firewall_policy</code>. This can then be referenced back in the <code>azurerm_application_gateway</code> through the <code>firewall_policy_id</code></p><p>You can use the advanced rules to set up things like Geographic restrictions. For instance this set of rules will block everything but requests from Canada and the US.</p><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### Web application firewall settings</span></span><br><span class="line">resource <span class="string">"azurerm_web_application_firewall_policy"</span> <span class="string">"appfirewall"</span> &#123;</span><br><span class="line">  <span class="attr">name</span>                = local.basename</span><br><span class="line">  <span class="attr">resource_group_name</span> = var.resource_group_name</span><br><span class="line">  <span class="attr">location</span>            = var.resource_group_location</span><br><span class="line"></span><br><span class="line">  custom_rules &#123;</span><br><span class="line">    <span class="attr">name</span>      = <span class="string">"OnlyUSandCanada"</span></span><br><span class="line">    <span class="attr">priority</span>  = <span class="number">1</span></span><br><span class="line">    <span class="attr">rule_type</span> = <span class="string">"MatchRule"</span></span><br><span class="line"></span><br><span class="line">    match_conditions &#123;</span><br><span class="line">      match_variables &#123;</span><br><span class="line">        <span class="attr">variable_name</span> = <span class="string">"RemoteAddr"</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="attr">operator</span>           = <span class="string">"GeoMatch"</span></span><br><span class="line">      <span class="attr">negation_condition</span> = <span class="literal">true</span></span><br><span class="line">      <span class="attr">match_values</span>       = [<span class="string">"CA"</span>, <span class="string">"US"</span>]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="attr">action</span> = <span class="string">"Block"</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  policy_settings &#123;</span><br><span class="line">    <span class="attr">enabled</span> = <span class="literal">true</span></span><br><span class="line">    <span class="attr">mode</span>    = <span class="string">"Detection"</span></span><br><span class="line">    <span class="comment"># Global parameters</span></span><br><span class="line">    <span class="attr">request_body_check</span>          = <span class="literal">true</span></span><br><span class="line">    <span class="attr">max_request_body_size_in_kb</span> = <span class="number">128</span></span><br><span class="line">    <span class="attr">file_upload_limit_in_mb</span>     = <span class="number">100</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;If you&#39;re creating an Application Gateway in Terraform for Azure you&#39;re using this resource &lt;code&gt;azurerm_application_gateway&lt;/code&gt;. Thi
     
     </summary>
     

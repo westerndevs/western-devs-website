@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Enable SSO for Snowflake using Azure AD | Western Devs</title>
+  <meta name="description" content="So you want to enable single sign on for you AD users to Snowflake? There are a bunch of good reasons to do this: it makes managing users easier, deleting a user in AD deletes them in snowflake so you">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Enable SSO for Snowflake using Azure AD">
+<meta property="og:url" content="https://westerndevs.com/_/enable-azure-ad-based-SSO-for-snowflake/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="So you want to enable single sign on for you AD users to Snowflake? There are a bunch of good reasons to do this: it makes managing users easier, deleting a user in AD deletes them in snowflake so you">
+<meta property="og:image" content="https://westerndevs.com/images/2021-07-05-enable-azure-ad-based-SSO-for-snowflake.md/2021-07-05-12-25-20.png">
+<meta property="og:image" content="https://westerndevs.com/images/2021-07-05-enable-azure-ad-based-SSO-for-snowflake.md/2021-07-05-12-28-33.png">
+<meta property="og:image" content="https://westerndevs.com/images/2021-07-06-enable-azure-ad-based-SSO-for-snowflake.md/2021-07-06-15-59-43.png">
+<meta property="og:image" content="https://westerndevs.com/images/2021-07-06-enable-azure-ad-based-SSO-for-snowflake.md/2021-07-06-16-01-34.png">
+<meta property="og:image" content="https://westerndevs.com/images/2021-08-31-enable-azure-ad-based-SSO-for-snowflake.md/2021-08-31-13-17-47.png">
+<meta property="og:image" content="https://westerndevs.com/images/2021-07-06-enable-azure-ad-based-SSO-for-snowflake.md/2021-07-06-16-06-05.png">
+<meta property="article:published_time" content="2021-07-06T04:00:00.000Z">
+<meta property="article:modified_time" content="2021-08-31T19:21:52.697Z">
+<meta property="article:author" content="Western Devs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://westerndevs.com/images/2021-07-05-enable-azure-ad-based-SSO-for-snowflake.md/2021-07-05-12-25-20.png">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="canonical" href="https://blog.simontimms.com/2021/07/06/enable-azure-ad-based-SSO-for-snowflake">
+  
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">JUL</div>
+    <div class="ListLrgDateDay">6</div>
+    <div class="ListLrgDateYear">2021</div>
+  </div>
+  <h2>Enable SSO for Snowflake using Azure AD</h2>
+</div>
+
+		    
+
+<p class="TXTsm">ORIGINALLY POSTED TO: <a href="https://blog.simontimms.com/2021/07/06/enable-azure-ad-based-SSO-for-snowflake" target="_blank" rel="noopener" class='originalurl'>https://blog.simontimms.com/2021/07/06/enable-azure-ad-based-SSO-for-snowflake</a></p>
+
+
+
+			<div id="mainPostContent">
+	        <p>So you want to enable single sign on for you AD users to Snowflake? There are a bunch of good reasons to do this: it makes managing users easier, deleting a user in AD deletes them in snowflake so you don't have a laundry list of places to delete a user when users leave.</p>
+<p>The process is a 2 sided thing: setting up the Snowflake integration on the AD side and then letting Snowflake know where to authenticate its users.</p>
+<h2>Azure Side</h2>
+<ol>
+<li>Go to azure AD and click on <code>Enterprise Applications</code> on the left hand side
+<img src="/images/2021-07-05-enable-azure-ad-based-SSO-for-snowflake.md/2021-07-05-12-25-20.png" alt="">)</li>
+<li>Click <code>New Application</code> and search for Snowflake select it and create it</li>
+<li>In there set up the links to your Snowflake tenant for single sign on by selecting Single sign-on on the left</li>
+<li>Fill in the URLs for your snowflake instance. The only thing that you really need to pay attention to is that you're using the snowflake name on your already created snowflake instance.
+<img src="/images/2021-07-05-enable-azure-ad-based-SSO-for-snowflake.md/2021-07-05-12-28-33.png" alt="">)</li>
+<li>Download the Base64 Certificate from the SAML Signing Certificate section</li>
+<li>Assign a test user to the snowflake integration by clicking on users and groups and adding an existing user</li>
+</ol>
+<h2>Snowflake Side</h2>
+<ol>
+<li>Run this query in snowflake. It adds a saml identity provider and then set up single sign on</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="keyword">role</span> accountadmin;</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">account</span> <span class="keyword">set</span> saml_identity_provider = <span class="string">'&#123;</span></span><br><span class="line"><span class="string">"certificate": "&lt;Paste the content of downloaded certificate from Azure portal&gt;",</span></span><br><span class="line"><span class="string">"ssoUrl":"&lt;Login URL value which you have copied from the Azure portal, something like https://login.microsoftonline.com/44xxxx25-xxxx-415b-bedc-xxxxxxxxxxxxxx/saml2&gt;",</span></span><br><span class="line"><span class="string">"type":"custom",</span></span><br><span class="line"><span class="string">"label":"AzureAD"</span></span><br><span class="line"><span class="string">&#125;'</span>;</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">account</span> <span class="keyword">set</span> sso_login_page = <span class="literal">TRUE</span>;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>Hook up the user you created earlier in AD</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> simon_timms <span class="keyword">PASSWORD</span> = <span class="string">''</span> LOGIN_NAME = <span class="string">'user@somedomain.com'</span> DISPLAY_NAME = <span class="string">'Simon Timms'</span>;</span><br></pre></td></tr></table></figure>
+<p>You should now be able to log in with your AD account. Open up an incognito tab and go to your snowflake instance. In there click on the SSO option and enter your AD credentials.</p>
+<h2>Automatic Provisioning</h2>
+<p>Obviously it sucks to provision the users manually in snowflake so you can have AD sync changes over to it. To do this start with snowflake. You'll need to create a user who can provision users.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">or</span> <span class="keyword">replace</span> <span class="keyword">role</span> aad_provisioner;</span><br><span class="line"><span class="keyword">grant</span> <span class="keyword">create</span> <span class="keyword">user</span> <span class="keyword">on</span> <span class="keyword">account</span> <span class="keyword">to</span> <span class="keyword">role</span> aad_provisioner;</span><br><span class="line"><span class="keyword">grant</span> <span class="keyword">create</span> <span class="keyword">role</span> <span class="keyword">on</span> <span class="keyword">account</span> <span class="keyword">to</span> <span class="keyword">role</span> aad_provisioner;</span><br><span class="line"><span class="keyword">grant</span> <span class="keyword">role</span> aad_provisioner <span class="keyword">to</span> <span class="keyword">role</span> accountadmin;</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">or</span> <span class="keyword">replace</span> <span class="keyword">security</span> integration aad_provisioning</span><br><span class="line">    <span class="keyword">type</span> = scim</span><br><span class="line">    scim_client = <span class="string">'azure'</span></span><br><span class="line">    run_as_role = <span class="string">'AAD_PROVISIONER'</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">system</span>$generate_scim_access_token(<span class="string">'AAD_PROVISIONING'</span>);</span><br></pre></td></tr></table></figure>
+<p>This should give you a long key which you should copy.</p>
+<p><img src="/images/2021-07-06-enable-azure-ad-based-SSO-for-snowflake.md/2021-07-06-15-59-43.png" alt="">)</p>
+<p>Go back to the AD app and click on Provisioning. In there change over to automatic provisioning. Enter the key in the <code>Secret Token</code> field and in the <code>Tenant Url</code> field enter your usual URL but this time with <code>/scim/v2</code> on the end of it.</p>
+<p>Test the connection and ensure that it can connect properly. With that done you'll need to turn provisioning status on</p>
+<p><img src="/images/2021-07-06-enable-azure-ad-based-SSO-for-snowflake.md/2021-07-06-16-01-34.png" alt="">)</p>
+<h2>Adding Users to the Sync</h2>
+<p>If you want to add a new user to the synchronizing then go back to the snowflake app under Enterprise Applications in Azure AD. In there click on <code>Users and groups</code>
+<img src="/images/2021-08-31-enable-azure-ad-based-SSO-for-snowflake.md/2021-08-31-13-17-47.png" alt="">)</p>
+<p>Then on the add users and groups button. In there you can select your user and click <code>Assign</code>. That should be it. It may take a few minutes to sync. You can always check the status of the sync by going to the <code>Provisioning</code> item</p>
+<h2>Gotchas!</h2>
+<p>The biggest one here is that the snowflake key used in automatic provisioning only has a lifespan of 6 months. It is almost certainly going to break horribly at that time. You should mitigate this by having the sync job email you if it fails. This can be done in the settings page in Azure</p>
+<p><img src="/images/2021-07-06-enable-azure-ad-based-SSO-for-snowflake.md/2021-07-06-16-06-05.png" alt="">)</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/simon_timms">
+				
+					<img src='/images/avatars/simon.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/simon_timms">Simon Timms</a></h2>
+			
+			<a href="mailto:stimms@gmail.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://blog.simontimms.com/" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/stimms" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/stimms" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			
+ 			<a href="/feeds/simon_timms.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/_/enable-azure-ad-based-SSO-for-snowflake/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'simon_timms');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>
