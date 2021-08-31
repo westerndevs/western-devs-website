@@ -2,8 +2,9 @@
 title:  Enable SSO for Snowflake using Azure AD
 # Azure Side
 # Snowflake Side
- Automatic Provisioning 
- Gotchas!
+# Automatic Provisioning 
+# Adding Users to the Sync
+# Gotchas!
 authorId: simon_timms
 date: 2021-07-06
 originalurl: https://blog.simontimms.com/2021/07/06/enable-azure-ad-based-SSO-for-snowflake
@@ -49,7 +50,7 @@ CREATE USER simon_timms PASSWORD = '' LOGIN_NAME = 'user@somedomain.com' DISPLAY
 
 You should now be able to log in with your AD account. Open up an incognito tab and go to your snowflake instance. In there click on the SSO option and enter your AD credentials. 
 
-
+## Automatic Provisioning 
 
 Obviously it sucks to provision the users manually in snowflake so you can have AD sync changes over to it. To do this start with snowflake. You'll need to create a user who can provision users.
 
@@ -74,9 +75,15 @@ Test the connection and ensure that it can connect properly. With that done you'
 
 ![](/images/2021-07-06-enable-azure-ad-based-SSO-for-snowflake.md/2021-07-06-16-01-34.png))
 
+## Adding Users to the Sync
+
+If you want to add a new user to the synchronizing then go back to the snowflake app under Enterprise Applications in Azure AD. In there click on `Users and groups`
+![](/images/2021-08-31-enable-azure-ad-based-SSO-for-snowflake.md/2021-08-31-13-17-47.png))
+
+Then on the add users and groups button. In there you can select your user and click `Assign`. That should be it. It may take a few minutes to sync. You can always check the status of the sync by going to the `Provisioning` item
 
 
-
+## Gotchas!
 
 The biggest one here is that the snowflake key used in automatic provisioning only has a lifespan of 6 months. It is almost certainly going to break horribly at that time. You should mitigate this by having the sync job email you if it fails. This can be done in the settings page in Azure
 
