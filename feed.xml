@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2021-09-08T15:00:14.395Z</updated>
+  <updated>2021-09-17T22:01:28.043Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Filtering Datatables</title>
+    <link href="https://westerndevs.com/_/datatable-filtering/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/datatable-filtering/</id>
+    <published>2021-09-17T04:00:00.000Z</published>
+    <updated>2021-09-17T22:01:28.043Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>Years back there was this crazy way of dealing with data in .NET called a DataSet. DataSets contained DataTables which contained a combination of DataRows and DataColumns. It was all loosely typed and keyed with strings. Basically a database inside of your process. Even when they were cool I felt uncomfortable using them. Because I sometimes maintain legacy code I run into these monstrosities.</p><p>Today's problem was that I needed to filter the contents of a table before bulk loading it. You can actually do simple filtering using a quasi-SQL like</p><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">var</span> dataRows = existingDataTable.<span class="keyword">Select</span>(<span class="string">"UserName = 'simon'"</span>)</span><br></pre></td></tr></table></figure><p>This gives you back a collection of DataRows which I guess you could inset back into the table after clearing it of rows. To make this useful there is an extension method called <code>CopyToDataTable</code> in <code>System.Data.DataExtension</code> (be sure to include the dll for this). Using that you can get back a full data table</p><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">var</span> dataTable = existingDataTable.<span class="keyword">Select</span>(<span class="string">"UserName = 'simon'"</span>).CopyToDataTable();</span><br></pre></td></tr></table></figure><p>In that same package, though, is a much better tool for filtering: converting the table to an IEnumerable. You still need to use some magic strings but that's somewhat unavoidable in data tables.</p><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var dt = existingDataTable.<span class="constructor">AsEnumerable()</span></span><br><span class="line">                    .<span class="constructor">Where(<span class="params">r</span> =&gt; <span class="params">r</span>.Field&lt;String&gt;(<span class="string">"UserName"</span>)</span><span class="operator"> == </span><span class="string">"Simon"</span>).<span class="constructor">CopyToDataTable()</span>;</span><br></pre></td></tr></table></figure><p>You can also do more advanced things like checking to see if something is a GUID</p><figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dt = existingDataTable.AsEnumerable()</span><br><span class="line">                    .Where(<span class="function"><span class="params">r</span> =&gt;</span> <span class="built_in">Guid</span>.TryParse(r.Field&lt;String&gt;(<span class="string">"Id"</span>), out <span class="keyword">var</span> _)).CopyToDataTable();</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Years back there was this crazy way of dealing with data in .NET called a DataSet. DataSets contained DataTables which contained a combin
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">SQL Mail</title>
     <link href="https://westerndevs.com/_/enable-database-mail/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/enable-database-mail/</id>
     <published>2021-08-31T04:00:00.000Z</published>
-    <updated>2021-09-08T15:00:14.395Z</updated>
+    <updated>2021-09-17T22:01:28.043Z</updated>
 	<author>
 	
 	  
@@ -47,7 +73,7 @@
     <link href="https://westerndevs.com/_/reauth-nuget/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/reauth-nuget/</id>
     <published>2021-08-31T04:00:00.000Z</published>
-    <updated>2021-09-08T15:00:14.399Z</updated>
+    <updated>2021-09-17T22:01:28.047Z</updated>
 	<author>
 	
 	  
@@ -73,7 +99,7 @@
     <link href="https://westerndevs.com/_/appliation-key-for-keyvault/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/appliation-key-for-keyvault/</id>
     <published>2021-08-13T04:00:00.000Z</published>
-    <updated>2021-09-08T15:00:14.395Z</updated>
+    <updated>2021-09-17T22:01:28.043Z</updated>
 	<author>
 	
 	  
@@ -99,7 +125,7 @@
     <link href="https://westerndevs.com/_/stop-managing-resource/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/stop-managing-resource/</id>
     <published>2021-07-30T04:00:00.000Z</published>
-    <updated>2021-09-08T15:00:14.399Z</updated>
+    <updated>2021-09-17T22:01:28.047Z</updated>
 	<author>
 	
 	  
@@ -125,7 +151,7 @@
     <link href="https://westerndevs.com/_/storybook-iframe-404/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storybook-iframe-404/</id>
     <published>2021-07-29T04:00:00.000Z</published>
-    <updated>2021-09-08T15:00:14.399Z</updated>
+    <updated>2021-09-17T22:01:28.047Z</updated>
 	<author>
 	
 	  
@@ -151,7 +177,7 @@
     <link href="https://westerndevs.com/_/build-sql-connection-string/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/build-sql-connection-string/</id>
     <published>2021-07-26T04:00:00.000Z</published>
-    <updated>2021-09-08T15:00:14.395Z</updated>
+    <updated>2021-09-17T22:01:28.043Z</updated>
 	<author>
 	
 	  
@@ -177,7 +203,7 @@
     <link href="https://westerndevs.com/_/static-app-settings/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/static-app-settings/</id>
     <published>2021-07-26T04:00:00.000Z</published>
-    <updated>2021-09-08T15:00:14.399Z</updated>
+    <updated>2021-09-17T22:01:28.047Z</updated>
 	<author>
 	
 	  
@@ -203,7 +229,7 @@
     <link href="https://westerndevs.com/_/vetur-cant-file-files/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/vetur-cant-file-files/</id>
     <published>2021-07-24T04:00:00.000Z</published>
-    <updated>2021-09-08T15:00:14.403Z</updated>
+    <updated>2021-09-17T22:01:28.051Z</updated>
 	<author>
 	
 	  
@@ -229,7 +255,7 @@
     <link href="https://westerndevs.com/_/enable-symbol-server/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/enable-symbol-server/</id>
     <published>2021-07-08T04:00:00.000Z</published>
-    <updated>2021-09-08T15:00:14.395Z</updated>
+    <updated>2021-09-17T22:01:28.043Z</updated>
 	<author>
 	
 	  
@@ -255,7 +281,7 @@
     <link href="https://westerndevs.com/_/enable-azure-ad-based-SSO-for-snowflake/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/enable-azure-ad-based-SSO-for-snowflake/</id>
     <published>2021-07-06T04:00:00.000Z</published>
-    <updated>2021-09-08T15:00:14.395Z</updated>
+    <updated>2021-09-17T22:01:28.043Z</updated>
 	<author>
 	
 	  
@@ -281,7 +307,7 @@
     <link href="https://westerndevs.com/finding-inspiration/i-can-teach-your-dog-quantum-physics/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/finding-inspiration/i-can-teach-your-dog-quantum-physics/</id>
     <published>2021-06-28T16:00:00.000Z</published>
-    <updated>2021-09-08T15:00:14.395Z</updated>
+    <updated>2021-09-17T22:01:28.039Z</updated>
 	<author>
 	
 	  
@@ -319,7 +345,7 @@
     <link href="https://westerndevs.com/_/azure-automation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-automation/</id>
     <published>2021-06-24T04:00:00.000Z</published>
-    <updated>2021-09-08T15:00:14.395Z</updated>
+    <updated>2021-09-17T22:01:28.043Z</updated>
 	<author>
 	
 	  
@@ -345,7 +371,7 @@
     <link href="https://westerndevs.com/inner-monologue/what-value-does-making-content-bring-to-me/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/inner-monologue/what-value-does-making-content-bring-to-me/</id>
     <published>2021-06-17T16:00:00.000Z</published>
-    <updated>2021-09-08T15:00:14.395Z</updated>
+    <updated>2021-09-17T22:01:28.039Z</updated>
 	<author>
 	
 	  
@@ -383,7 +409,7 @@
     <link href="https://westerndevs.com/_/storybook/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storybook/</id>
     <published>2021-06-17T04:00:00.000Z</published>
-    <updated>2021-09-08T15:00:14.399Z</updated>
+    <updated>2021-09-17T22:01:28.047Z</updated>
 	<author>
 	
 	  
@@ -412,7 +438,7 @@
     <link href="https://westerndevs.com/_/noda-time/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/noda-time/</id>
     <published>2021-06-16T04:00:00.000Z</published>
-    <updated>2021-09-08T15:00:14.399Z</updated>
+    <updated>2021-09-17T22:01:28.047Z</updated>
 	<author>
 	
 	  
@@ -439,7 +465,7 @@
     <link href="https://westerndevs.com/_/installing-fonts/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/installing-fonts/</id>
     <published>2021-06-11T04:00:00.000Z</published>
-    <updated>2021-09-08T15:00:14.399Z</updated>
+    <updated>2021-09-17T22:01:28.043Z</updated>
 	<author>
 	
 	  
@@ -465,7 +491,7 @@
     <link href="https://westerndevs.com/_/Azure-service-bus-transports/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Azure-service-bus-transports/</id>
     <published>2021-06-07T04:00:00.000Z</published>
-    <updated>2021-09-08T15:00:14.395Z</updated>
+    <updated>2021-09-17T22:01:28.039Z</updated>
 	<author>
 	
 	  
@@ -496,7 +522,7 @@
     <link href="https://westerndevs.com/_/add-user-to-role/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/add-user-to-role/</id>
     <published>2021-06-07T04:00:00.000Z</published>
-    <updated>2021-09-08T15:00:14.395Z</updated>
+    <updated>2021-09-17T22:01:28.043Z</updated>
 	<author>
 	
 	  
@@ -523,7 +549,7 @@
     <link href="https://westerndevs.com/inner-monologue/my-secret-addiction-to-likes/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/inner-monologue/my-secret-addiction-to-likes/</id>
     <published>2021-06-03T16:00:00.000Z</published>
-    <updated>2021-09-08T15:00:14.395Z</updated>
+    <updated>2021-09-17T22:01:28.039Z</updated>
 	<author>
 	
 	  
@@ -553,32 +579,6 @@
       <category term="analytics" scheme="https://westerndevs.com/tags/analytics/"/>
     
       <category term="acceptance" scheme="https://westerndevs.com/tags/acceptance/"/>
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Sequences</title>
-    <link href="https://westerndevs.com/_/sequence/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/sequence/</id>
-    <published>2021-06-03T04:00:00.000Z</published>
-    <updated>2021-09-08T15:00:14.399Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>Sequences are a handy feature in SQL server which provide an increasing, unique number. You wouldn't typically use them directly but might use them under the covers in an <code>identity</code>. However from time to time they are useful when you need numbers but your primary key is a <code>uniqueidentifier</code> or you need two different ways of numbering records. I've been using them to associate records in a table into groups.</p><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">SEQUENCE</span> Seq_PermitNumber </span><br><span class="line">    <span class="keyword">start</span> <span class="keyword">with</span> <span class="number">1</span> </span><br><span class="line">    <span class="keyword">increment</span> <span class="keyword">by</span> <span class="number">1</span></span><br></pre></td></tr></table></figure><p>You can then use them like this</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> tblManualPayment </span><br><span class="line">   <span class="keyword">set</span> PermitNumber = <span class="keyword">next</span> <span class="keyword">value</span> <span class="keyword">for</span> Seq_PermitNumber </span><br><span class="line"> <span class="keyword">where</span> PermitNumber <span class="keyword">is</span> <span class="literal">null</span></span><br></pre></td></tr></table></figure><p>This will give each record a unique permit number.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Sequences are a handy feature in SQL server which provide an increasing, unique number. You wouldn&#39;t typically use them directly but migh
-    
-    </summary>
-    
     
   </entry>
   

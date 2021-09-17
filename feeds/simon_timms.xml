@@ -5,7 +5,7 @@
   <link href="/feeds/simon_timms" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2021-09-08T15:00:14.395Z</updated>
+  <updated>2021-09-17T22:01:28.043Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Filtering Datatables</title>
+    <link href="https://westerndevs.com/_/datatable-filtering/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/datatable-filtering/</id>
+    <published>2021-09-17T04:00:00.000Z</published>
+    <updated>2021-09-17T22:01:28.043Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>Years back there was this crazy way of dealing with data in .NET called a DataSet. DataSets contained DataTables which contained a combination of DataRows and DataColumns. It was all loosely typed and keyed with strings. Basically a database inside of your process. Even when they were cool I felt uncomfortable using them. Because I sometimes maintain legacy code I run into these monstrosities.</p><p>Today's problem was that I needed to filter the contents of a table before bulk loading it. You can actually do simple filtering using a quasi-SQL like</p><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">var</span> dataRows = existingDataTable.<span class="keyword">Select</span>(<span class="string">"UserName = 'simon'"</span>)</span><br></pre></td></tr></table></figure><p>This gives you back a collection of DataRows which I guess you could inset back into the table after clearing it of rows. To make this useful there is an extension method called <code>CopyToDataTable</code> in <code>System.Data.DataExtension</code> (be sure to include the dll for this). Using that you can get back a full data table</p><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">var</span> dataTable = existingDataTable.<span class="keyword">Select</span>(<span class="string">"UserName = 'simon'"</span>).CopyToDataTable();</span><br></pre></td></tr></table></figure><p>In that same package, though, is a much better tool for filtering: converting the table to an IEnumerable. You still need to use some magic strings but that's somewhat unavoidable in data tables.</p><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var dt = existingDataTable.<span class="constructor">AsEnumerable()</span></span><br><span class="line">                    .<span class="constructor">Where(<span class="params">r</span> =&gt; <span class="params">r</span>.Field&lt;String&gt;(<span class="string">"UserName"</span>)</span><span class="operator"> == </span><span class="string">"Simon"</span>).<span class="constructor">CopyToDataTable()</span>;</span><br></pre></td></tr></table></figure><p>You can also do more advanced things like checking to see if something is a GUID</p><figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dt = existingDataTable.AsEnumerable()</span><br><span class="line">                    .Where(<span class="function"><span class="params">r</span> =&gt;</span> <span class="built_in">Guid</span>.TryParse(r.Field&lt;String&gt;(<span class="string">"Id"</span>), out <span class="keyword">var</span> _)).CopyToDataTable();</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Years back there was this crazy way of dealing with data in .NET called a DataSet. DataSets contained DataTables which contained a combin
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">SQL Mail</title>
     <link href="https://westerndevs.com/_/enable-database-mail/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/enable-database-mail/</id>
     <published>2021-08-31T04:00:00.000Z</published>
-    <updated>2021-09-08T15:00:14.395Z</updated>
+    <updated>2021-09-17T22:01:28.043Z</updated>
 	<author>
 	
 	  
@@ -47,7 +73,7 @@
     <link href="https://westerndevs.com/_/reauth-nuget/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/reauth-nuget/</id>
     <published>2021-08-31T04:00:00.000Z</published>
-    <updated>2021-09-08T15:00:14.399Z</updated>
+    <updated>2021-09-17T22:01:28.047Z</updated>
 	<author>
 	
 	  
@@ -73,7 +99,7 @@
     <link href="https://westerndevs.com/_/appliation-key-for-keyvault/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/appliation-key-for-keyvault/</id>
     <published>2021-08-13T04:00:00.000Z</published>
-    <updated>2021-09-08T15:00:14.395Z</updated>
+    <updated>2021-09-17T22:01:28.043Z</updated>
 	<author>
 	
 	  
@@ -99,7 +125,7 @@
     <link href="https://westerndevs.com/_/stop-managing-resource/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/stop-managing-resource/</id>
     <published>2021-07-30T04:00:00.000Z</published>
-    <updated>2021-09-08T15:00:14.399Z</updated>
+    <updated>2021-09-17T22:01:28.047Z</updated>
 	<author>
 	
 	  
@@ -125,7 +151,7 @@
     <link href="https://westerndevs.com/_/storybook-iframe-404/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storybook-iframe-404/</id>
     <published>2021-07-29T04:00:00.000Z</published>
-    <updated>2021-09-08T15:00:14.399Z</updated>
+    <updated>2021-09-17T22:01:28.047Z</updated>
 	<author>
 	
 	  
@@ -151,7 +177,7 @@
     <link href="https://westerndevs.com/_/build-sql-connection-string/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/build-sql-connection-string/</id>
     <published>2021-07-26T04:00:00.000Z</published>
-    <updated>2021-09-08T15:00:14.395Z</updated>
+    <updated>2021-09-17T22:01:28.043Z</updated>
 	<author>
 	
 	  
@@ -177,7 +203,7 @@
     <link href="https://westerndevs.com/_/static-app-settings/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/static-app-settings/</id>
     <published>2021-07-26T04:00:00.000Z</published>
-    <updated>2021-09-08T15:00:14.399Z</updated>
+    <updated>2021-09-17T22:01:28.047Z</updated>
 	<author>
 	
 	  
@@ -203,7 +229,7 @@
     <link href="https://westerndevs.com/_/vetur-cant-file-files/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/vetur-cant-file-files/</id>
     <published>2021-07-24T04:00:00.000Z</published>
-    <updated>2021-09-08T15:00:14.403Z</updated>
+    <updated>2021-09-17T22:01:28.051Z</updated>
 	<author>
 	
 	  
@@ -229,7 +255,7 @@
     <link href="https://westerndevs.com/_/enable-symbol-server/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/enable-symbol-server/</id>
     <published>2021-07-08T04:00:00.000Z</published>
-    <updated>2021-09-08T15:00:14.395Z</updated>
+    <updated>2021-09-17T22:01:28.043Z</updated>
 	<author>
 	
 	  
@@ -255,7 +281,7 @@
     <link href="https://westerndevs.com/_/enable-azure-ad-based-SSO-for-snowflake/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/enable-azure-ad-based-SSO-for-snowflake/</id>
     <published>2021-07-06T04:00:00.000Z</published>
-    <updated>2021-09-08T15:00:14.395Z</updated>
+    <updated>2021-09-17T22:01:28.043Z</updated>
 	<author>
 	
 	  
@@ -281,7 +307,7 @@
     <link href="https://westerndevs.com/_/azure-automation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-automation/</id>
     <published>2021-06-24T04:00:00.000Z</published>
-    <updated>2021-09-08T15:00:14.395Z</updated>
+    <updated>2021-09-17T22:01:28.043Z</updated>
 	<author>
 	
 	  
@@ -307,7 +333,7 @@
     <link href="https://westerndevs.com/_/storybook/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storybook/</id>
     <published>2021-06-17T04:00:00.000Z</published>
-    <updated>2021-09-08T15:00:14.399Z</updated>
+    <updated>2021-09-17T22:01:28.047Z</updated>
 	<author>
 	
 	  
@@ -336,7 +362,7 @@
     <link href="https://westerndevs.com/_/noda-time/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/noda-time/</id>
     <published>2021-06-16T04:00:00.000Z</published>
-    <updated>2021-09-08T15:00:14.399Z</updated>
+    <updated>2021-09-17T22:01:28.047Z</updated>
 	<author>
 	
 	  
@@ -363,7 +389,7 @@
     <link href="https://westerndevs.com/_/installing-fonts/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/installing-fonts/</id>
     <published>2021-06-11T04:00:00.000Z</published>
-    <updated>2021-09-08T15:00:14.399Z</updated>
+    <updated>2021-09-17T22:01:28.043Z</updated>
 	<author>
 	
 	  
@@ -389,7 +415,7 @@
     <link href="https://westerndevs.com/_/Azure-service-bus-transports/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Azure-service-bus-transports/</id>
     <published>2021-06-07T04:00:00.000Z</published>
-    <updated>2021-09-08T15:00:14.395Z</updated>
+    <updated>2021-09-17T22:01:28.039Z</updated>
 	<author>
 	
 	  
@@ -420,7 +446,7 @@
     <link href="https://westerndevs.com/_/add-user-to-role/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/add-user-to-role/</id>
     <published>2021-06-07T04:00:00.000Z</published>
-    <updated>2021-09-08T15:00:14.395Z</updated>
+    <updated>2021-09-17T22:01:28.043Z</updated>
 	<author>
 	
 	  
@@ -447,7 +473,7 @@
     <link href="https://westerndevs.com/_/sequence/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/sequence/</id>
     <published>2021-06-03T04:00:00.000Z</published>
-    <updated>2021-09-08T15:00:14.399Z</updated>
+    <updated>2021-09-17T22:01:28.047Z</updated>
 	<author>
 	
 	  
@@ -473,7 +499,7 @@
     <link href="https://westerndevs.com/_/durable-entities/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/durable-entities/</id>
     <published>2021-05-20T04:00:00.000Z</published>
-    <updated>2021-09-08T15:00:14.395Z</updated>
+    <updated>2021-09-17T22:01:28.043Z</updated>
 	<author>
 	
 	  
@@ -499,7 +525,7 @@
     <link href="https://westerndevs.com/_/advanced-waf-rules-in-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/advanced-waf-rules-in-terraform/</id>
     <published>2021-05-19T04:00:00.000Z</published>
-    <updated>2021-09-08T15:00:14.395Z</updated>
+    <updated>2021-09-17T22:01:28.043Z</updated>
 	<author>
 	
 	  
@@ -514,33 +540,6 @@
     <summary type="html">
     
       &lt;p&gt;If you&#39;re creating an Application Gateway in Terraform for Azure you&#39;re using this resource &lt;code&gt;azurerm_application_gateway&lt;/code&gt;. Thi
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Importing an Encrypted Backup into Azure Managed SQL</title>
-    <link href="https://westerndevs.com/_/importing-tde-encrypted-backup/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/importing-tde-encrypted-backup/</id>
-    <published>2021-05-18T04:00:00.000Z</published>
-    <updated>2021-09-08T15:00:14.395Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>Let's say you're moving an encrypted backup into Azure. The encryption was set up like this</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> CERTIFICATE BackupKey   </span><br><span class="line">   ENCRYPTION <span class="keyword">BY</span> <span class="keyword">PASSWORD</span> = <span class="string">'a password that''s really strong here'</span>  </span><br><span class="line">   <span class="keyword">WITH</span> SUBJECT = <span class="string">'test1backup'</span>,   </span><br><span class="line">   EXPIRY_DATE = <span class="string">'20220101'</span>;  </span><br><span class="line">GO</span><br></pre></td></tr></table></figure><p>Now we need to export this certificate which can be done with</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">BACKUP</span> CERTIFICATE BackupKey <span class="keyword">TO</span> <span class="keyword">FILE</span> = <span class="string">'c:\temp\backupkey.cer'</span></span><br><span class="line"><span class="keyword">WITH</span> <span class="keyword">PRIVATE</span> <span class="keyword">KEY</span> (</span><br><span class="line"><span class="keyword">FILE</span> = <span class="string">'c:\temp\backupkey.pvk'</span>,</span><br><span class="line">DECRYPTION <span class="keyword">BY</span> <span class="keyword">PASSWORD</span> = <span class="string">'a password that''s really strong here'</span>,</span><br><span class="line">ENCRYPTION <span class="keyword">BY</span> <span class="keyword">PASSWORD</span> = <span class="string">'A strong password for the certificate'</span> )</span><br></pre></td></tr></table></figure><p>Now we have two file which contain the public and private keys. We need to combine these into something that Azure Key Vault can understand and this something is a .pfx file. There is a tool called <code>pvk2pfx</code> which can be used for this task and it is found in the Windows Enterprise Driver Kit https://docs.microsoft.com/en-us/windows-hardware/drivers/download-the-wdk. It is also installed as part of visual studio. On my machine it was in <code>C:\Program Files (x86)\Windows Kits\10\bin\10.0.17763.0\x86\pvk2pfx.exe</code></p><p>Run this command to combine them</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&amp; <span class="string">"C:\Program Files (x86)\Windows Kits\10\bin\10.0.17763.0\x86\pvk2pfx.exe"</span> <span class="literal">-pvk</span> C:\temp\backupkey.pvk <span class="literal">-pi</span> <span class="string">'A strong password for the certificate'</span> <span class="literal">-spc</span> C:\temp\backupkey.cer <span class="literal">-pfx</span> c:\temp\backupkey.pfx</span><br></pre></td></tr></table></figure><p>Next up we need to import this key into azure keyvault. This can be done using the GUI or the command line tools. Everybody likes a pretty picture so let's use the Portal. Click into the key vault and then under certificates<img src="/images/2021-05-18-importing-tde-encrypted-backup.md/2021-05-18-14-00-09.png" alt="">)</p><p>Then click on <code>Generate/Import</code> and fill in the form there selecting the <code>.pfx</code> file created above.<img src="/images/2021-05-18-importing-tde-encrypted-backup.md/2021-05-18-12-55-32.png" alt="">)</p><p>The password will be the same one you used when exporting from SQL server. Once the certificate is imported it should be available to anybody or any application with access to certificates in key vault.</p><p>You can open up SQL Server Management Studio and in there add a new certificate selecting the certificate from the Key Vault connection</p><p><img src="/images/2021-05-18-importing-tde-encrypted-backup.md/2021-05-18-13-58-27.png" alt="">)</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Let&#39;s say you&#39;re moving an encrypted backup into Azure. The encryption was set up like this&lt;/p&gt;
-&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;
     
     </summary>
     
