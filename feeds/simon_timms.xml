@@ -5,7 +5,7 @@
   <link href="/feeds/simon_timms" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2021-10-05T17:17:01.610Z</updated>
+  <updated>2021-10-05T17:27:06.801Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://westerndevs.com/_/azure-isolated-functions-config/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-isolated-functions-config/</id>
     <published>2021-10-05T04:00:00.000Z</published>
-    <updated>2021-10-05T17:17:01.610Z</updated>
+    <updated>2021-10-05T17:27:06.801Z</updated>
 	<author>
 	
 	  
@@ -43,11 +43,11 @@
   </entry>
   
   <entry>
-    <title type="html">fibonacci</title>
+    <title type="html">Closed form FibonaCCI</title>
     <link href="https://westerndevs.com/_/fibonacci/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/fibonacci/</id>
     <published>2021-10-05T04:00:00.000Z</published>
-    <updated>2021-10-05T17:17:01.614Z</updated>
+    <updated>2021-10-05T17:27:06.801Z</updated>
 	<author>
 	
 	  
@@ -57,7 +57,7 @@
 	  <uri>https://westerndevs.com</uri>
 	</author>
     
-    <content type="html"><![CDATA[<p>A favorite programming test question is the Fibonacci sequence. This is defined as either <code>1 1 2 3 5...</code> or <code>0 1 1 2 3 5...</code> depending on what you feel fib of 0 is. In either case fibonacci is the sum of the two previous terms. So fib(10) = fib(9) + fib(8). The reason this is a programming test favorite is because it forces people to think about recursion and even memoization for performance.</p><p>There is however a shortcut for this and that is to use the closed form which uses the golden ratio. We have two interesting values called Phi and phi with the former being the golden ratio and the latter being a value observed in nature for leaf dispersions.</p><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Phi = (<span class="number">1</span> + root(<span class="number">5</span>))/<span class="number">2</span></span><br><span class="line">phi = (<span class="number">1</span>-root(<span class="number">5</span>))/<span class="number">2</span></span><br></pre></td></tr></table></figure><p>We can use this to create Binet's formula (Jacques Philippe Marie Binet was a French mathematician born in 1786, although this formula is named for him it was really discovered by fellow French mathematician Abraham do Moivre a century earlier)</p><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fib(<span class="built_in">n</span>) = (<span class="built_in">Phi</span>^<span class="built_in">n</span> - <span class="built_in">phi</span>^<span class="built_in">n</span>)/(<span class="built_in">Phi</span> - <span class="built_in">phi</span>)</span><br></pre></td></tr></table></figure><p>In code we can do</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">double</span> Phi = (<span class="number">1</span> + Math.Pow(<span class="number">5</span>,<span class="number">.5</span>))/<span class="number">2</span>;</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">double</span> phi = (<span class="number">1</span> - Math.Pow(<span class="number">5</span>,<span class="number">.5</span>))/<span class="number">2</span>;</span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">ulong</span>[] <span class="title">generateFibonaccisClosed</span>(<span class="params"><span class="keyword">int</span> n</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">ulong</span>[] fib = <span class="keyword">new</span> <span class="keyword">ulong</span>[n];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        fib[i] = (<span class="keyword">ulong</span>)((Math.Pow(Phi, i)-Math.Pow(phi, i))/(Phi - phi));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> fib;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>The advantage here is that the closed form is constant time, constant memory and uses only about 3 64-bit values (fewer if you calculate phi and Phi as you go). It's certainly a lot of fun to break out in a programming test.</p>]]></content>
+    <content type="html"><![CDATA[<p>A favorite programming test question is the Fibonacci sequence. This is defined as either <code>1 1 2 3 5...</code> or <code>0 1 1 2 3 5...</code> depending on what you feel fib of 0 is. In either case fibonacci is the sum of the two previous terms. So fib(10) = fib(9) + fib(8). The reason this is a programming test favorite is because it forces people to think about recursion and even memoization for performance.</p><p>There is however a shortcut for this and that is to use the closed form which uses the golden ratio. We have two interesting values called Phi and phi with the former being the golden ratio and the latter being a value observed in nature for leaf dispersions.</p><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Phi = (<span class="number">1</span> + root(<span class="number">5</span>))/<span class="number">2</span></span><br><span class="line">phi = (<span class="number">1</span>-root(<span class="number">5</span>))/<span class="number">2</span></span><br></pre></td></tr></table></figure><p>We can use this to create Binet's formula (Jacques Philippe Marie Binet was a French mathematician born in 1786, although this formula is named for him it was really discovered by fellow French mathematician Abraham do Moivre a century earlier)</p><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fib(<span class="built_in">n</span>) = (<span class="built_in">Phi</span>^<span class="built_in">n</span> - <span class="built_in">phi</span>^<span class="built_in">n</span>)/(<span class="built_in">Phi</span> - <span class="built_in">phi</span>)</span><br></pre></td></tr></table></figure><p>In code we can do the following to generate all the fib numbers up to n</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">double</span> Phi = (<span class="number">1</span> + Math.Pow(<span class="number">5</span>,<span class="number">.5</span>))/<span class="number">2</span>;</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">double</span> phi = (<span class="number">1</span> - Math.Pow(<span class="number">5</span>,<span class="number">.5</span>))/<span class="number">2</span>;</span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">ulong</span>[] <span class="title">generateFibonaccisClosed</span>(<span class="params"><span class="keyword">int</span> n</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">ulong</span>[] fib = <span class="keyword">new</span> <span class="keyword">ulong</span>[n];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        fib[i] = (<span class="keyword">ulong</span>)((Math.Pow(Phi, i)-Math.Pow(phi, i))/(Phi - phi));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> fib;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>The advantage here is that the closed form is constant time, constant memory and uses only about 3 64-bit values (fewer if you calculate phi and Phi as you go). It's certainly a lot of fun to break out in a programming test.</p>]]></content>
     
     <summary type="html">
     
@@ -73,7 +73,7 @@
     <link href="https://westerndevs.com/_/datatable-filtering/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/datatable-filtering/</id>
     <published>2021-09-17T04:00:00.000Z</published>
-    <updated>2021-10-05T17:17:01.614Z</updated>
+    <updated>2021-10-05T17:27:06.801Z</updated>
 	<author>
 	
 	  
@@ -99,7 +99,7 @@
     <link href="https://westerndevs.com/_/enable-database-mail/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/enable-database-mail/</id>
     <published>2021-08-31T04:00:00.000Z</published>
-    <updated>2021-10-05T17:17:01.614Z</updated>
+    <updated>2021-10-05T17:27:06.801Z</updated>
 	<author>
 	
 	  
@@ -125,7 +125,7 @@
     <link href="https://westerndevs.com/_/reauth-nuget/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/reauth-nuget/</id>
     <published>2021-08-31T04:00:00.000Z</published>
-    <updated>2021-10-05T17:17:01.618Z</updated>
+    <updated>2021-10-05T17:27:06.805Z</updated>
 	<author>
 	
 	  
@@ -151,7 +151,7 @@
     <link href="https://westerndevs.com/_/appliation-key-for-keyvault/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/appliation-key-for-keyvault/</id>
     <published>2021-08-13T04:00:00.000Z</published>
-    <updated>2021-10-05T17:17:01.610Z</updated>
+    <updated>2021-10-05T17:27:06.801Z</updated>
 	<author>
 	
 	  
@@ -177,7 +177,7 @@
     <link href="https://westerndevs.com/_/stop-managing-resource/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/stop-managing-resource/</id>
     <published>2021-07-30T04:00:00.000Z</published>
-    <updated>2021-10-05T17:17:01.618Z</updated>
+    <updated>2021-10-05T17:27:06.805Z</updated>
 	<author>
 	
 	  
@@ -203,7 +203,7 @@
     <link href="https://westerndevs.com/_/storybook-iframe-404/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storybook-iframe-404/</id>
     <published>2021-07-29T04:00:00.000Z</published>
-    <updated>2021-10-05T17:17:01.618Z</updated>
+    <updated>2021-10-05T17:27:06.805Z</updated>
 	<author>
 	
 	  
@@ -229,7 +229,7 @@
     <link href="https://westerndevs.com/_/build-sql-connection-string/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/build-sql-connection-string/</id>
     <published>2021-07-26T04:00:00.000Z</published>
-    <updated>2021-10-05T17:17:01.610Z</updated>
+    <updated>2021-10-05T17:27:06.801Z</updated>
 	<author>
 	
 	  
@@ -255,7 +255,7 @@
     <link href="https://westerndevs.com/_/static-app-settings/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/static-app-settings/</id>
     <published>2021-07-26T04:00:00.000Z</published>
-    <updated>2021-10-05T17:17:01.618Z</updated>
+    <updated>2021-10-05T17:27:06.805Z</updated>
 	<author>
 	
 	  
@@ -281,7 +281,7 @@
     <link href="https://westerndevs.com/_/vetur-cant-file-files/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/vetur-cant-file-files/</id>
     <published>2021-07-24T04:00:00.000Z</published>
-    <updated>2021-10-05T17:17:01.618Z</updated>
+    <updated>2021-10-05T17:27:06.809Z</updated>
 	<author>
 	
 	  
@@ -307,7 +307,7 @@
     <link href="https://westerndevs.com/_/enable-symbol-server/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/enable-symbol-server/</id>
     <published>2021-07-08T04:00:00.000Z</published>
-    <updated>2021-10-05T17:17:01.614Z</updated>
+    <updated>2021-10-05T17:27:06.801Z</updated>
 	<author>
 	
 	  
@@ -333,7 +333,7 @@
     <link href="https://westerndevs.com/_/enable-azure-ad-based-SSO-for-snowflake/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/enable-azure-ad-based-SSO-for-snowflake/</id>
     <published>2021-07-06T04:00:00.000Z</published>
-    <updated>2021-10-05T17:17:01.614Z</updated>
+    <updated>2021-10-05T17:27:06.801Z</updated>
 	<author>
 	
 	  
@@ -359,7 +359,7 @@
     <link href="https://westerndevs.com/_/azure-automation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-automation/</id>
     <published>2021-06-24T04:00:00.000Z</published>
-    <updated>2021-10-05T17:17:01.610Z</updated>
+    <updated>2021-10-05T17:27:06.801Z</updated>
 	<author>
 	
 	  
@@ -385,7 +385,7 @@
     <link href="https://westerndevs.com/_/storybook/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storybook/</id>
     <published>2021-06-17T04:00:00.000Z</published>
-    <updated>2021-10-05T17:17:01.618Z</updated>
+    <updated>2021-10-05T17:27:06.805Z</updated>
 	<author>
 	
 	  
@@ -414,7 +414,7 @@
     <link href="https://westerndevs.com/_/noda-time/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/noda-time/</id>
     <published>2021-06-16T04:00:00.000Z</published>
-    <updated>2021-10-05T17:17:01.614Z</updated>
+    <updated>2021-10-05T17:27:06.805Z</updated>
 	<author>
 	
 	  
@@ -441,7 +441,7 @@
     <link href="https://westerndevs.com/_/installing-fonts/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/installing-fonts/</id>
     <published>2021-06-11T04:00:00.000Z</published>
-    <updated>2021-10-05T17:17:01.614Z</updated>
+    <updated>2021-10-05T17:27:06.801Z</updated>
 	<author>
 	
 	  
@@ -467,7 +467,7 @@
     <link href="https://westerndevs.com/_/Azure-service-bus-transports/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Azure-service-bus-transports/</id>
     <published>2021-06-07T04:00:00.000Z</published>
-    <updated>2021-10-05T17:17:01.610Z</updated>
+    <updated>2021-10-05T17:27:06.797Z</updated>
 	<author>
 	
 	  
@@ -498,7 +498,7 @@
     <link href="https://westerndevs.com/_/add-user-to-role/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/add-user-to-role/</id>
     <published>2021-06-07T04:00:00.000Z</published>
-    <updated>2021-10-05T17:17:01.610Z</updated>
+    <updated>2021-10-05T17:27:06.797Z</updated>
 	<author>
 	
 	  
@@ -525,7 +525,7 @@
     <link href="https://westerndevs.com/_/sequence/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/sequence/</id>
     <published>2021-06-03T04:00:00.000Z</published>
-    <updated>2021-10-05T17:17:01.618Z</updated>
+    <updated>2021-10-05T17:27:06.805Z</updated>
 	<author>
 	
 	  

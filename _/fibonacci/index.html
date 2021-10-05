@@ -4,15 +4,15 @@
   <head>
   
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>fibonacci | Western Devs</title>
+    <title>Closed form FibonaCCI | Western Devs</title>
   <meta name="description" content="A favorite programming test question is the Fibonacci sequence. This is defined as either 1 1 2 3 5... or 0 1 1 2 3 5... depending on what you feel fib of 0 is. In either case fibonacci is the sum of">
 <meta property="og:type" content="article">
-<meta property="og:title" content="fibonacci">
+<meta property="og:title" content="Closed form FibonaCCI">
 <meta property="og:url" content="https://westerndevs.com/_/fibonacci/index.html">
 <meta property="og:site_name" content="Western Devs">
 <meta property="og:description" content="A favorite programming test question is the Fibonacci sequence. This is defined as either 1 1 2 3 5... or 0 1 1 2 3 5... depending on what you feel fib of 0 is. In either case fibonacci is the sum of">
 <meta property="article:published_time" content="2021-10-05T04:00:00.000Z">
-<meta property="article:modified_time" content="2021-10-05T17:17:01.614Z">
+<meta property="article:modified_time" content="2021-10-05T17:27:06.801Z">
 <meta property="article:author" content="Western Devs">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:creator" content="@westerndevs">
@@ -99,7 +99,7 @@
     <div class="ListLrgDateDay">5</div>
     <div class="ListLrgDateYear">2021</div>
   </div>
-  <h2>fibonacci</h2>
+  <h2>Closed form FibonaCCI</h2>
 </div>
 
 		    
@@ -114,7 +114,7 @@
 <figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Phi = (<span class="number">1</span> + root(<span class="number">5</span>))/<span class="number">2</span></span><br><span class="line">phi = (<span class="number">1</span>-root(<span class="number">5</span>))/<span class="number">2</span></span><br></pre></td></tr></table></figure>
 <p>We can use this to create Binet's formula (Jacques Philippe Marie Binet was a French mathematician born in 1786, although this formula is named for him it was really discovered by fellow French mathematician Abraham do Moivre a century earlier)</p>
 <figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fib(<span class="built_in">n</span>) = (<span class="built_in">Phi</span>^<span class="built_in">n</span> - <span class="built_in">phi</span>^<span class="built_in">n</span>)/(<span class="built_in">Phi</span> - <span class="built_in">phi</span>)</span><br></pre></td></tr></table></figure>
-<p>In code we can do</p>
+<p>In code we can do the following to generate all the fib numbers up to n</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">double</span> Phi = (<span class="number">1</span> + Math.Pow(<span class="number">5</span>,<span class="number">.5</span>))/<span class="number">2</span>;</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">double</span> phi = (<span class="number">1</span> - Math.Pow(<span class="number">5</span>,<span class="number">.5</span>))/<span class="number">2</span>;</span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">ulong</span>[] <span class="title">generateFibonaccisClosed</span>(<span class="params"><span class="keyword">int</span> n</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">ulong</span>[] fib = <span class="keyword">new</span> <span class="keyword">ulong</span>[n];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        fib[i] = (<span class="keyword">ulong</span>)((Math.Pow(Phi, i)-Math.Pow(phi, i))/(Phi - phi));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> fib;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>The advantage here is that the closed form is constant time, constant memory and uses only about 3 64-bit values (fewer if you calculate phi and Phi as you go). It's certainly a lot of fun to break out in a programming test.</p>
 
