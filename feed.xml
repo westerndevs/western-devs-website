@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2021-09-17T22:01:28.043Z</updated>
+  <updated>2021-10-05T17:17:01.610Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,63 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Configuration in Azure Isolated Functions</title>
+    <link href="https://westerndevs.com/_/azure-isolated-functions-config/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/azure-isolated-functions-config/</id>
+    <published>2021-10-05T04:00:00.000Z</published>
+    <updated>2021-10-05T17:17:01.610Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>This is all done in the Program.cs. If you want to use the IOptions pattern which, let's face it, everybody does. Then you can start with creating your configuration classes (I like more than one so config for different parts of the app remain logical distinct). These are POCOs</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">AuthConfiguration</span></span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> TenantId &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> ClientId &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> ClientSecret &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> RedirectUrl &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>Then set this up in the host builder</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> host = <span class="keyword">new</span> HostBuilder()</span><br><span class="line">            .ConfigureFunctionsWorkerDefaults()</span><br><span class="line">            .ConfigureServices(container =&gt;</span><br><span class="line">            &#123;</span><br><span class="line">                container.AddOptions&lt;AuthConfiguration&gt;().Configure&lt;IConfiguration&gt;((settings, config) =&gt;</span><br><span class="line">                &#123;</span><br><span class="line">                    config.Bind(settings);</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;)</span><br><span class="line">            .Build();</span><br></pre></td></tr></table></figure><p>If this looks familiar it's because it totally is! All of this uses the generic .NET host so this same sort of pattern should work in most .NET apps now.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;This is all done in the Program.cs. If you want to use the IOptions pattern which, let&#39;s face it, everybody does. Then you can start with
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title type="html">fibonacci</title>
+    <link href="https://westerndevs.com/_/fibonacci/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/fibonacci/</id>
+    <published>2021-10-05T04:00:00.000Z</published>
+    <updated>2021-10-05T17:17:01.614Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>A favorite programming test question is the Fibonacci sequence. This is defined as either <code>1 1 2 3 5...</code> or <code>0 1 1 2 3 5...</code> depending on what you feel fib of 0 is. In either case fibonacci is the sum of the two previous terms. So fib(10) = fib(9) + fib(8). The reason this is a programming test favorite is because it forces people to think about recursion and even memoization for performance.</p><p>There is however a shortcut for this and that is to use the closed form which uses the golden ratio. We have two interesting values called Phi and phi with the former being the golden ratio and the latter being a value observed in nature for leaf dispersions.</p><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Phi = (<span class="number">1</span> + root(<span class="number">5</span>))/<span class="number">2</span></span><br><span class="line">phi = (<span class="number">1</span>-root(<span class="number">5</span>))/<span class="number">2</span></span><br></pre></td></tr></table></figure><p>We can use this to create Binet's formula (Jacques Philippe Marie Binet was a French mathematician born in 1786, although this formula is named for him it was really discovered by fellow French mathematician Abraham do Moivre a century earlier)</p><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fib(<span class="built_in">n</span>) = (<span class="built_in">Phi</span>^<span class="built_in">n</span> - <span class="built_in">phi</span>^<span class="built_in">n</span>)/(<span class="built_in">Phi</span> - <span class="built_in">phi</span>)</span><br></pre></td></tr></table></figure><p>In code we can do</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">double</span> Phi = (<span class="number">1</span> + Math.Pow(<span class="number">5</span>,<span class="number">.5</span>))/<span class="number">2</span>;</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">double</span> phi = (<span class="number">1</span> - Math.Pow(<span class="number">5</span>,<span class="number">.5</span>))/<span class="number">2</span>;</span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">ulong</span>[] <span class="title">generateFibonaccisClosed</span>(<span class="params"><span class="keyword">int</span> n</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">ulong</span>[] fib = <span class="keyword">new</span> <span class="keyword">ulong</span>[n];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        fib[i] = (<span class="keyword">ulong</span>)((Math.Pow(Phi, i)-Math.Pow(phi, i))/(Phi - phi));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> fib;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>The advantage here is that the closed form is constant time, constant memory and uses only about 3 64-bit values (fewer if you calculate phi and Phi as you go). It's certainly a lot of fun to break out in a programming test.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;A favorite programming test question is the Fibonacci sequence. This is defined as either &lt;code&gt;1 1 2 3 5...&lt;/code&gt; or &lt;code&gt;0 1 1 2 3 5.
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Filtering Datatables</title>
     <link href="https://westerndevs.com/_/datatable-filtering/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/datatable-filtering/</id>
     <published>2021-09-17T04:00:00.000Z</published>
-    <updated>2021-09-17T22:01:28.043Z</updated>
+    <updated>2021-10-05T17:17:01.614Z</updated>
 	<author>
 	
 	  
@@ -47,7 +99,7 @@
     <link href="https://westerndevs.com/_/enable-database-mail/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/enable-database-mail/</id>
     <published>2021-08-31T04:00:00.000Z</published>
-    <updated>2021-09-17T22:01:28.043Z</updated>
+    <updated>2021-10-05T17:17:01.614Z</updated>
 	<author>
 	
 	  
@@ -73,7 +125,7 @@
     <link href="https://westerndevs.com/_/reauth-nuget/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/reauth-nuget/</id>
     <published>2021-08-31T04:00:00.000Z</published>
-    <updated>2021-09-17T22:01:28.047Z</updated>
+    <updated>2021-10-05T17:17:01.618Z</updated>
 	<author>
 	
 	  
@@ -99,7 +151,7 @@
     <link href="https://westerndevs.com/_/appliation-key-for-keyvault/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/appliation-key-for-keyvault/</id>
     <published>2021-08-13T04:00:00.000Z</published>
-    <updated>2021-09-17T22:01:28.043Z</updated>
+    <updated>2021-10-05T17:17:01.610Z</updated>
 	<author>
 	
 	  
@@ -125,7 +177,7 @@
     <link href="https://westerndevs.com/_/stop-managing-resource/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/stop-managing-resource/</id>
     <published>2021-07-30T04:00:00.000Z</published>
-    <updated>2021-09-17T22:01:28.047Z</updated>
+    <updated>2021-10-05T17:17:01.618Z</updated>
 	<author>
 	
 	  
@@ -151,7 +203,7 @@
     <link href="https://westerndevs.com/_/storybook-iframe-404/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storybook-iframe-404/</id>
     <published>2021-07-29T04:00:00.000Z</published>
-    <updated>2021-09-17T22:01:28.047Z</updated>
+    <updated>2021-10-05T17:17:01.618Z</updated>
 	<author>
 	
 	  
@@ -177,7 +229,7 @@
     <link href="https://westerndevs.com/_/build-sql-connection-string/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/build-sql-connection-string/</id>
     <published>2021-07-26T04:00:00.000Z</published>
-    <updated>2021-09-17T22:01:28.043Z</updated>
+    <updated>2021-10-05T17:17:01.610Z</updated>
 	<author>
 	
 	  
@@ -203,7 +255,7 @@
     <link href="https://westerndevs.com/_/static-app-settings/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/static-app-settings/</id>
     <published>2021-07-26T04:00:00.000Z</published>
-    <updated>2021-09-17T22:01:28.047Z</updated>
+    <updated>2021-10-05T17:17:01.618Z</updated>
 	<author>
 	
 	  
@@ -229,7 +281,7 @@
     <link href="https://westerndevs.com/_/vetur-cant-file-files/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/vetur-cant-file-files/</id>
     <published>2021-07-24T04:00:00.000Z</published>
-    <updated>2021-09-17T22:01:28.051Z</updated>
+    <updated>2021-10-05T17:17:01.618Z</updated>
 	<author>
 	
 	  
@@ -255,7 +307,7 @@
     <link href="https://westerndevs.com/_/enable-symbol-server/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/enable-symbol-server/</id>
     <published>2021-07-08T04:00:00.000Z</published>
-    <updated>2021-09-17T22:01:28.043Z</updated>
+    <updated>2021-10-05T17:17:01.614Z</updated>
 	<author>
 	
 	  
@@ -281,7 +333,7 @@
     <link href="https://westerndevs.com/_/enable-azure-ad-based-SSO-for-snowflake/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/enable-azure-ad-based-SSO-for-snowflake/</id>
     <published>2021-07-06T04:00:00.000Z</published>
-    <updated>2021-09-17T22:01:28.043Z</updated>
+    <updated>2021-10-05T17:17:01.614Z</updated>
 	<author>
 	
 	  
@@ -307,7 +359,7 @@
     <link href="https://westerndevs.com/finding-inspiration/i-can-teach-your-dog-quantum-physics/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/finding-inspiration/i-can-teach-your-dog-quantum-physics/</id>
     <published>2021-06-28T16:00:00.000Z</published>
-    <updated>2021-09-17T22:01:28.039Z</updated>
+    <updated>2021-10-05T17:17:01.610Z</updated>
 	<author>
 	
 	  
@@ -345,7 +397,7 @@
     <link href="https://westerndevs.com/_/azure-automation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-automation/</id>
     <published>2021-06-24T04:00:00.000Z</published>
-    <updated>2021-09-17T22:01:28.043Z</updated>
+    <updated>2021-10-05T17:17:01.610Z</updated>
 	<author>
 	
 	  
@@ -371,7 +423,7 @@
     <link href="https://westerndevs.com/inner-monologue/what-value-does-making-content-bring-to-me/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/inner-monologue/what-value-does-making-content-bring-to-me/</id>
     <published>2021-06-17T16:00:00.000Z</published>
-    <updated>2021-09-17T22:01:28.039Z</updated>
+    <updated>2021-10-05T17:17:01.610Z</updated>
 	<author>
 	
 	  
@@ -409,7 +461,7 @@
     <link href="https://westerndevs.com/_/storybook/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storybook/</id>
     <published>2021-06-17T04:00:00.000Z</published>
-    <updated>2021-09-17T22:01:28.047Z</updated>
+    <updated>2021-10-05T17:17:01.618Z</updated>
 	<author>
 	
 	  
@@ -438,7 +490,7 @@
     <link href="https://westerndevs.com/_/noda-time/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/noda-time/</id>
     <published>2021-06-16T04:00:00.000Z</published>
-    <updated>2021-09-17T22:01:28.047Z</updated>
+    <updated>2021-10-05T17:17:01.614Z</updated>
 	<author>
 	
 	  
@@ -465,7 +517,7 @@
     <link href="https://westerndevs.com/_/installing-fonts/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/installing-fonts/</id>
     <published>2021-06-11T04:00:00.000Z</published>
-    <updated>2021-09-17T22:01:28.043Z</updated>
+    <updated>2021-10-05T17:17:01.614Z</updated>
 	<author>
 	
 	  
@@ -491,7 +543,7 @@
     <link href="https://westerndevs.com/_/Azure-service-bus-transports/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/Azure-service-bus-transports/</id>
     <published>2021-06-07T04:00:00.000Z</published>
-    <updated>2021-09-17T22:01:28.039Z</updated>
+    <updated>2021-10-05T17:17:01.610Z</updated>
 	<author>
 	
 	  
@@ -514,71 +566,6 @@
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Add user to role in sql server</title>
-    <link href="https://westerndevs.com/_/add-user-to-role/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/add-user-to-role/</id>
-    <published>2021-06-07T04:00:00.000Z</published>
-    <updated>2021-09-17T22:01:28.043Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>This can be done with</p><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sp_addrolemember</span> <span class="variable">@rolename</span> = <span class="string">'role'</span>, <span class="variable">@membername</span> = <span class="string">'security_account'</span></span><br></pre></td></tr></table></figure><p>example</p><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sp_addrolemember</span> <span class="variable">@rolename</span> = <span class="string">'db_owner'</span>, <span class="variable">@membername</span> = <span class="string">'evil_hacker_account'</span></span><br></pre></td></tr></table></figure><p>another example</p><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sp_addrolemember</span> <span class="variable">@rolename</span> = <span class="string">'db_datareader'</span>, <span class="variable">@membername</span> = <span class="string">'datafactory'</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;This can be done with&lt;/p&gt;
-&lt;figure class=&quot;highlight nginx&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;t
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">My Secret Addiction to Likes</title>
-    <link href="https://westerndevs.com/inner-monologue/my-secret-addiction-to-likes/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/inner-monologue/my-secret-addiction-to-likes/</id>
-    <published>2021-06-03T16:00:00.000Z</published>
-    <updated>2021-09-17T22:01:28.039Z</updated>
-	<author>
-	
-	  
-	  <name>David Wesst</name>
-	  <email>questions@davidwesst.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>I decided to take a month off of contributing to social media. More specifically Twitter and YouTube, but Facebook and Instagram as well. That single month has turned into just over three months now, and I learned a few things about myself and how I think my return to <em>some</em> social media will be a good thing.</p><h1>Where it started...</h1><p>I'm a millennial. Which means, I've been doing social media since before it was called &quot;social media&quot;. I got onto Twitter very early on, I needed a university email address to create my Facebook account, and YouTube...well, it wasn't owned by Google.</p><p>The point being is that social media has been a part of my entire adult life. I actually can't rememberof a time in my professional life that someone wasn't telling me that my social media presence or &quot;brand&quot; had the ability to propel my career forward, if I played my tweets just right.</p><p>It is probably that every job I had in tech was surrounded by marketing people, but I developed this bizarre obsession over &quot;my brand&quot; or &quot;persona&quot; that I portrayed to the online world. For years I have gone through exercises about how to build followers, read the analytics, all on a mission to appear professional.</p><p>It wasn't a fruitless venture. I'm pretty sure my blog and Twitter account secured my many MVP awards. What I wasn't expecting was the dependency this obsession created, which was this weird addiction to &quot;likes&quot;.</p><h1>&quot;Likes&quot; = Validation</h1><p>You see, the MVP program was how I validated doing all the extra work on keeping up with technology. I love tech, I really really do, but had someone not pointed me in the direction of building a brand around JavaScript and/or Front-End Web Dev, I probably never would have gone down that road. As I built up that persona, th more likes and engagement I got, and the more likely the MVP Program would notice me. Eventually they did notice me and <em>TA-DA</em>, I became a Microsoft MVP.</p><p>The MVP Award was where I think this all started. It was a reward for being so...professional or knowledgable or hard-working in my B-time or whatever. I loved it and somehow rationalized that people get directly rewarded for their side efforts. I suppose that is sort of true, depending on how to define the term &quot;reward&quot;, but in general I don't think it's as big of a perk as the MVP Award and all the benefits that come with it.</p><p>As the years went by, I started to expect that sort of reward for my effort and equated with validation and started to <em>need</em> it in order feel like I was succeeding as a technology professional.</p><p>Then, I decided to let go of the MVP Award and chase my dreams.</p><h1>Validation Withdrawl</h1><p>This is the part in the story where I started chase my game development hopes and dreams. It started out well, but not long after doing some game development streams on Mixer (yeah, remember Mixer?) and some blog posts, I started to feel uneasy about my ability and my &quot;success&quot; as a technology professional.</p><p>Building an expertise takes time and effort. It takes even more time and effort when you day job doesn't care or need that expertise, and you have a new family to take care of. I kept getting caught up on how long it would take for me to &quot;become a professional&quot; or whatever. I kept checking my different social media analytics and started focusing a lot of time and energy on making game development content rather than actual games.</p><p>I resarched marketing techniques, read social media management guides, and started learning how to promote my &quot;dream game&quot; before I had even really done anything other than a couple of game jams. I checked the &quot;likes&quot; multiple times a day and tried to figure out how to maximize the reach of my content, continuing to get in the way of building an actual commercial video game, but searching (somewhat desperately) for that acknowledgement through likes, thumbs up, post engagement, and views.</p><p>It kept coming and going, but it would always block my progress on whatever project I was working on. My game jams were about the content I produced, not the game itself. After a jam, I would share and talk about &quot;the next steps&quot; and all the planning I was doing instead of <em>actually doing</em> something with the project. No matter how much time I spent, there wasn't enough to both &quot;share to the community&quot; and build a game.</p><p>It was an old habit that needed to go away, and so earlier this year I just stopped sharing on social media.</p><p>That break was supposed last about month. That was about three months ago.</p><h1>Realization and Return</h1><p>In my three month break, I looked inward and thought about what I've done with social media over...well, most of my professional life. I've decided that it's time to start figuring out how or if I should return to the social networks, but I'm taking it slow and flipping the script on my social media shares.</p><p>Rather than measuring my successwith likes and views, I'm looking at the social platforms as ways for me to grow personally and professionally. I'm asking myself two questions:</p><ol><li>What does my contribution do for the reader/viewer/you?</li><li>What does my contribution do for me?</li></ol><p>Does v7 of my website coincide with this? It sure does.</p><p>I'll elaborate further another day, but just writing this post helps me reflect on my own story. It feels honest and healthy to write all this down and I'm creating content for both  <em>me</em> and the readers. I share not only because I crave validation, but also think that my sharing my experience might help others learn something.</p><p>This is site and blog is the start. It has a purpose for both my personal and professional growth and so it is alive again.</p><h2>Aren't you just going to obsess over the analytics again?</h2><p>I don't think so. I have analytics enabled on the site, but I have purpose for this: to learn. More specifically, I want to learn about what analytics can teach me about my audience. It's not just about views and the likes, a but what the readers (and players) are telling me through their engagement.</p><p>Plus-- whether I like it or not, analytics plays a critical role in decision making these days. I see it in my day job, and I see it in game development. Either way, it's probably having some literacy around the different kinds of analytics out there can't hurt me.</p><p>The trick is not wrapping success around the metrics.</p><h1>Next Steps</h1><p>I think it's going to be YouTube and other video content like livestreams. I really enjoy making my little movies, and with the pandemic in full swing, it's hampered my ability to practice my presentation skills at conferences with an audience. Between platforms like YouTube, LinkedIn, Twitch , and even Discord, there are some good opportunities to sharpen my video presentation skills.</p><p>If I'm being honest, I can't see Twitter or Facebook making a comeback in my day-to-day life. Possibly a place to echo posts or share activity, but I'm just not feeling the &quot;hot takes&quot; nature that comes with Twitter and Facebook. As for Instagram...I'm still undecided. I don't have a lot of pictures to share behind the scenes, but again-- never say never.</p><p>Regardless of where I share content, the website will be hub and the question will the same: What does sharing do to help me grow personally and/or professionally?</p><p>Thanks for playing. ~ DW</p><hr><p><em>Photo Credit</em></p><p>Photo by <a href="https://unsplash.com/@neonbrand?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="_blank" rel="noopener">NeONBRAND</a> on <a href="https://unsplash.com/s/photos/likes?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="_blank" rel="noopener">Unsplash</a></p>]]></content>
-    
-    <summary type="html">
-    
-      I decided to take a month off of contributing to social media. More specifically Twitter and YouTube, but Facebook and Instagram as well. That single month has turned into just over three months now, and I learned a few things about myself and how I think my return to some social media will be a good thing.
-    
-    </summary>
-    
-      <category term="inner monologue" scheme="https://westerndevs.com/categories/inner-monologue/"/>
-    
-    
-      <category term="social media" scheme="https://westerndevs.com/tags/social-media/"/>
-    
-      <category term="twitter" scheme="https://westerndevs.com/tags/twitter/"/>
-    
-      <category term="youtube" scheme="https://westerndevs.com/tags/youtube/"/>
-    
-      <category term="analytics" scheme="https://westerndevs.com/tags/analytics/"/>
-    
-      <category term="acceptance" scheme="https://westerndevs.com/tags/acceptance/"/>
     
   </entry>
   
