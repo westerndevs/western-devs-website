@@ -1,10 +1,12 @@
 ---
-title: 
+title:  Closed form FibonaCCI
 authorId: simon_timms
 date: 2021-10-05
 originalurl: https://blog.simontimms.com/2021/10/05/fibonacci
 mode: public
 ---
+
+
 
 A favorite programming test question is the Fibonacci sequence. This is defined as either `1 1 2 3 5...` or `0 1 1 2 3 5...` depending on what you feel fib of 0 is. In either case fibonacci is the sum of the two previous terms. So fib(10) = fib(9) + fib(8). The reason this is a programming test favorite is because it forces people to think about recursion and even memoization for performance. 
 
@@ -21,7 +23,7 @@ We can use this to create Binet's formula (Jacques Philippe Marie Binet was a Fr
 fib(n) = (Phi^n - phi^n)/(Phi - phi)
 ```
 
-In code we can do 
+In code we can do the following to generate all the fib numbers up to n
 
 ```csharp
 static double Phi = (1 + Math.Pow(5,.5))/2;
