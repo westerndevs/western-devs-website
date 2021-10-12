@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2021-10-05T17:37:32.716Z</updated>
+  <updated>2021-10-12T17:30:09.165Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Running Serverless Offline with a Self-Signed SSL Certificate</title>
+    <link href="https://westerndevs.com/_/serverless-offline-https/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/serverless-offline-https/</id>
+    <published>2021-10-12T04:00:00.000Z</published>
+    <updated>2021-10-12T17:30:09.165Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>If you find yourself in need of running serverless locally using <a href="https://www.serverless.com/plugins/serverless-offline/" target="_blank" rel="noopener">serverless offline</a> and you want an SSL certificate then fear not, it's not all that difficult. First you'll need an SSL certificate. For our purposes you we're going to use a self-signed certificate. This will cause browsers to complain but for local testing it isn't typically a big problem.</p><h2>Generate a Cert Using OpenSSL</h2><p>You should install OpenSSL (or one of the more secure alternatives like <a href="https://www.libressl.org/" target="_blank" rel="noopener">LibreSSL</a>) and then run</p><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -newkey rsa:<span class="number">2048</span> -nodes -keyout key.pem -x509 -days <span class="number">365</span> -<span class="keyword">out</span> cert.pem</span><br></pre></td></tr></table></figure><p>This will prompt you for a bunch of information about your organization. You can put anything you want in most of those fields but do pay attention to the <code>Common Name</code> field which needs to hold the value of <code>localhost</code>.</p><p>These are the answers I gave</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Country Name (2 letter code) [AU]:US</span><br><span class="line">State <span class="keyword">or</span> Province Name (full name) [Some-State]:TX</span><br><span class="line">Locality Name (eg, city) []:Austin</span><br><span class="line">Organization Name (eg, company) [Internet Widgits Pty Ltd]:Inventive</span><br><span class="line">Organizational Unit Name (eg, section) []:</span><br><span class="line">Common Name (e.g.<span class="built_in"> server </span>FQDN <span class="keyword">or</span> YOUR name) []:localhost</span><br><span class="line">Email<span class="built_in"> Address </span>[]:</span><br></pre></td></tr></table></figure><p>You should now have a <code>cert.perm</code> and a <code>key.pem</code> in your local directory. Copy these into a <code>cert</code> folder at the root of your serverless project.</p><h2>Running with the Certificate</h2><p>Now you need to tell serverless where to find your certificate. You can either run with the flag</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--httpsProtocol cert</span></span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">or <span class="keyword">update</span> your <span class="string">`serverless.yml`</span> <span class="keyword">to</span> <span class="keyword">include</span> the cert <span class="keyword">directory</span></span><br></pre></td></tr></table></figure><p>custom:serverless-offline:httpsProtocol: &quot;cert&quot;...</p><pre><code>## GotchasIf you're seeing a warning about an invalid certificate then check that you're accessing serverless via `localhost` and not `127.0.0.1` or `0.0.0.0`. SSL works with domain names so you need to use one, even if it is just `localhost`.</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;If you find yourself in need of running serverless locally using &lt;a href=&quot;https://www.serverless.com/plugins/serverless-offline/&quot; target=
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Configuration in Azure Isolated Functions</title>
     <link href="https://westerndevs.com/_/azure-isolated-functions-config/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-isolated-functions-config/</id>
     <published>2021-10-05T04:00:00.000Z</published>
-    <updated>2021-10-05T17:37:32.716Z</updated>
+    <updated>2021-10-12T17:30:09.157Z</updated>
 	<author>
 	
 	  
@@ -47,7 +73,7 @@
     <link href="https://westerndevs.com/_/fibonacci/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/fibonacci/</id>
     <published>2021-10-05T04:00:00.000Z</published>
-    <updated>2021-10-05T17:37:32.716Z</updated>
+    <updated>2021-10-12T17:30:09.157Z</updated>
 	<author>
 	
 	  
@@ -73,7 +99,7 @@
     <link href="https://westerndevs.com/_/datatable-filtering/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/datatable-filtering/</id>
     <published>2021-09-17T04:00:00.000Z</published>
-    <updated>2021-10-05T17:37:32.716Z</updated>
+    <updated>2021-10-12T17:30:09.157Z</updated>
 	<author>
 	
 	  
@@ -99,7 +125,7 @@
     <link href="https://westerndevs.com/_/enable-database-mail/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/enable-database-mail/</id>
     <published>2021-08-31T04:00:00.000Z</published>
-    <updated>2021-10-05T17:37:32.716Z</updated>
+    <updated>2021-10-12T17:30:09.157Z</updated>
 	<author>
 	
 	  
@@ -125,7 +151,7 @@
     <link href="https://westerndevs.com/_/reauth-nuget/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/reauth-nuget/</id>
     <published>2021-08-31T04:00:00.000Z</published>
-    <updated>2021-10-05T17:37:32.720Z</updated>
+    <updated>2021-10-12T17:30:09.165Z</updated>
 	<author>
 	
 	  
@@ -151,7 +177,7 @@
     <link href="https://westerndevs.com/_/appliation-key-for-keyvault/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/appliation-key-for-keyvault/</id>
     <published>2021-08-13T04:00:00.000Z</published>
-    <updated>2021-10-05T17:37:32.716Z</updated>
+    <updated>2021-10-12T17:30:09.157Z</updated>
 	<author>
 	
 	  
@@ -177,7 +203,7 @@
     <link href="https://westerndevs.com/_/stop-managing-resource/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/stop-managing-resource/</id>
     <published>2021-07-30T04:00:00.000Z</published>
-    <updated>2021-10-05T17:37:32.720Z</updated>
+    <updated>2021-10-12T17:30:09.165Z</updated>
 	<author>
 	
 	  
@@ -203,7 +229,7 @@
     <link href="https://westerndevs.com/_/storybook-iframe-404/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storybook-iframe-404/</id>
     <published>2021-07-29T04:00:00.000Z</published>
-    <updated>2021-10-05T17:37:32.720Z</updated>
+    <updated>2021-10-12T17:30:09.165Z</updated>
 	<author>
 	
 	  
@@ -229,7 +255,7 @@
     <link href="https://westerndevs.com/_/build-sql-connection-string/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/build-sql-connection-string/</id>
     <published>2021-07-26T04:00:00.000Z</published>
-    <updated>2021-10-05T17:37:32.716Z</updated>
+    <updated>2021-10-12T17:30:09.157Z</updated>
 	<author>
 	
 	  
@@ -255,7 +281,7 @@
     <link href="https://westerndevs.com/_/static-app-settings/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/static-app-settings/</id>
     <published>2021-07-26T04:00:00.000Z</published>
-    <updated>2021-10-05T17:37:32.720Z</updated>
+    <updated>2021-10-12T17:30:09.165Z</updated>
 	<author>
 	
 	  
@@ -281,7 +307,7 @@
     <link href="https://westerndevs.com/_/vetur-cant-file-files/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/vetur-cant-file-files/</id>
     <published>2021-07-24T04:00:00.000Z</published>
-    <updated>2021-10-05T17:37:32.724Z</updated>
+    <updated>2021-10-12T17:30:09.165Z</updated>
 	<author>
 	
 	  
@@ -307,7 +333,7 @@
     <link href="https://westerndevs.com/_/enable-symbol-server/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/enable-symbol-server/</id>
     <published>2021-07-08T04:00:00.000Z</published>
-    <updated>2021-10-05T17:37:32.716Z</updated>
+    <updated>2021-10-12T17:30:09.157Z</updated>
 	<author>
 	
 	  
@@ -333,7 +359,7 @@
     <link href="https://westerndevs.com/_/enable-azure-ad-based-SSO-for-snowflake/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/enable-azure-ad-based-SSO-for-snowflake/</id>
     <published>2021-07-06T04:00:00.000Z</published>
-    <updated>2021-10-05T17:37:32.716Z</updated>
+    <updated>2021-10-12T17:30:09.157Z</updated>
 	<author>
 	
 	  
@@ -359,7 +385,7 @@
     <link href="https://westerndevs.com/finding-inspiration/i-can-teach-your-dog-quantum-physics/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/finding-inspiration/i-can-teach-your-dog-quantum-physics/</id>
     <published>2021-06-28T16:00:00.000Z</published>
-    <updated>2021-10-05T17:37:32.716Z</updated>
+    <updated>2021-10-12T17:30:09.153Z</updated>
 	<author>
 	
 	  
@@ -397,7 +423,7 @@
     <link href="https://westerndevs.com/_/azure-automation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-automation/</id>
     <published>2021-06-24T04:00:00.000Z</published>
-    <updated>2021-10-05T17:37:32.716Z</updated>
+    <updated>2021-10-12T17:30:09.157Z</updated>
 	<author>
 	
 	  
@@ -423,7 +449,7 @@
     <link href="https://westerndevs.com/inner-monologue/what-value-does-making-content-bring-to-me/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/inner-monologue/what-value-does-making-content-bring-to-me/</id>
     <published>2021-06-17T16:00:00.000Z</published>
-    <updated>2021-10-05T17:37:32.716Z</updated>
+    <updated>2021-10-12T17:30:09.153Z</updated>
 	<author>
 	
 	  
@@ -461,7 +487,7 @@
     <link href="https://westerndevs.com/_/storybook/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storybook/</id>
     <published>2021-06-17T04:00:00.000Z</published>
-    <updated>2021-10-05T17:37:32.720Z</updated>
+    <updated>2021-10-12T17:30:09.165Z</updated>
 	<author>
 	
 	  
@@ -490,7 +516,7 @@
     <link href="https://westerndevs.com/_/noda-time/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/noda-time/</id>
     <published>2021-06-16T04:00:00.000Z</published>
-    <updated>2021-10-05T17:37:32.720Z</updated>
+    <updated>2021-10-12T17:30:09.165Z</updated>
 	<author>
 	
 	  
@@ -517,7 +543,7 @@
     <link href="https://westerndevs.com/_/installing-fonts/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/installing-fonts/</id>
     <published>2021-06-11T04:00:00.000Z</published>
-    <updated>2021-10-05T17:37:32.720Z</updated>
+    <updated>2021-10-12T17:30:09.157Z</updated>
 	<author>
 	
 	  
@@ -532,37 +558,6 @@
     <summary type="html">
     
       &lt;p&gt;You&#39;d like to think that in 2021 installing a font would involve just copying it and some advanced AI system would notice it and install 
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Transport for Azure Service Bus</title>
-    <link href="https://westerndevs.com/_/Azure-service-bus-transports/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/Azure-service-bus-transports/</id>
-    <published>2021-06-07T04:00:00.000Z</published>
-    <updated>2021-10-05T17:37:32.716Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>There are two transport mechanisms for service bus</p><ul><li>AQMP</li><li>AQMP over web sockets</li></ul><p>The default is to use plain AQMP but this uses port 5671. Often times this port may be blocked by firewalls. You can switch over to using the websocket based version which uses port 443 - much more commonly open already on firewalls.</p><h2>.NET Code</h2><p>You just need to update the <code>TransportType</code> in the service bus set up</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var<span class="built_in"> client </span>= new ServiceBusClient(Configuration[<span class="string">"ServiceBusConnection"</span>], new ServiceBusClientOptions</span><br><span class="line">&#123;</span><br><span class="line">    TransportType = ServiceBusTransportType.AmqpWebSockets</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><h2>Azure Functions</h2><p>The simplest way of getting websockets to work on functions is to update the connection string to mention it</p><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">Endpoint</span>=sb://someendpoint.servicebus.windows.net/<span class="comment">;SharedAccessKeyName=SenderPolicy;SharedAccessKey=asecretkey;TransportType=AmqpWebSockets</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;There are two transport mechanisms for service bus&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;AQMP&lt;/li&gt;
-&lt;li&gt;AQMP over web sockets&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The default is to use p
     
     </summary>
     
