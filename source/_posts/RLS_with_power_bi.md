@@ -1,12 +1,12 @@
 ---
-title: # Using RLS in Power BI Embedded
+title:  Using RLS in Power BI Embedded
 authorId: simon_timms
 date: 2021-10-22
 originalurl: https://blog.simontimms.com/2021/10/22/RLS_with_power_bi
 mode: public
 ---
 
-## Using RLS in Power BI Embedded
+
 
 Power BI is a funny animal. On some levels it is a logical successor to SSRS but on other levels it is a totally different beast. One of the ways it differs greatly from SSRS is in handling parameters, especially secure parameters. When embedding an SSRS report you could specify the parameter value in a secure fashion and then now show the selector to end users.
 
