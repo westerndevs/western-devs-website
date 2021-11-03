@@ -14,5 +14,3 @@ You're ready to start. Launch the site locally with:
 > npm run server
 
 Then navigate to `http://localhost:4000`.
-
-(dummy change to trigger build)
