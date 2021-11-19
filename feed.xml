@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2021-11-14T21:04:30.748Z</updated>
+  <updated>2021-11-19T13:34:14.557Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Choosing Power BI</title>
+    <link href="https://westerndevs.com/_/choosing-power-bi/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/choosing-power-bi/</id>
+    <published>2021-11-19T05:00:00.000Z</published>
+    <updated>2021-11-19T13:34:14.557Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>If you're a developer and you're looking for a solution for reporting in your application then Power BI might be the right choice for you. However, there are tradeoffs that are worth considering before you dig in too much.</p><h2>What is it?</h2><p>The GitHub copilot I have running while writing this wants me to say that &quot;Power BI is a platform for creating and managing data-driven reports. It's a powerful tool that allows you to create reports that are easy to understand and use.&quot; That sounds an awful lot like a sentence that an AI trained on Microsoft marketing data would say. It isn't entirely inaccurate. For me Power BI is a combination for two different reporting tools which are pretty different from one another. The first is the one you see in all the marketing literature: Dashboard reports. These are nifty looking reports that are largely driven by visuals like maps or charts. Users can easily drill into aspects of the data by clicking on the charts or tables to filter the data and drill in. These reports aren't great for people who like to see the underlying data and draw their own conclusions.</p><p>The second report type is Paginated Reports. These reports are basically a complete migration of the older SQL Server Reporting Services (SSRS) reports. There is limited support for cool graphics but if you need an Excel like view of the data then they are great. I've run into a few cases in the past where I've tried to convince users that they cannot possibly want a 90 page report and that they should use the dashboard report. But frequently users do legitimately want to print 90 pages and go at the report with a highlighter. One of my favorite sayings for these situations is that as a developer I make suggestions and users make decisions.</p><p>The desktop based tools for building these reports are all pretty good. The dashboard report tool in particular is excellent. It may be that your users don't need to use online reporting and that providing them with a database connection and a copy of Power BI Desktop will be a good solution. The added advantage there is that the desktop tools are free to use. If you have a read only replica of your database then letting users develop their own reports doesn't have much of a downside other than having to support people as they learn the system. A cool idea is to build projections or views inside your database to handle the complex joins in your data and remove that burden from the users.</p><p>If you want to embed the reports in your application there is facility for doing that through a JavaScript API. You do need to jump through some hoops to authenticate and generate tokens but that's a lot easier than developing your own HTML based reports. There aren't a whole lot of examples out there for how to do embeddeding and you will need to spend some time learning the security models.</p><p>The alternative to all this is to use one of the myriad of other reporting tools that are available. I've used Telerik Reporting quite a lot in the past and I can confidently say it is &quot;not terrible&quot;. That's about as high of praise as you're going to get from me for a reporting tool.</p><h2>Cost</h2><p>As with anything Microsoft the pricing for all this is convoluted and contently changing. This is my current understanding of it but  you can likely get a better deal and understanding by talking to your sales representative.</p><ul><li>Power BI Desktop: Free as in beer</li><li>Power BI Pro: Let's you run dashboard reports online and embed them in your application (note that this doesn't' let you embed paginated reports) $9.99/month a users</li><li>Power BI Premium per user: This lets you run dashboard reports online and embed them in your application and also run paginated reprots (note I didn't say embed paginated reports) $20/month a user</li><li>Power BI Premium per capacity: Run and embed both report types. Open for as many users as you have. $4995/month. Yikes, that price sure jumps up</li></ul><p>Being able to embed paginated reports was the killer feature for me that took the reporting cost from very reasonable to very expensive.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;If you&#39;re a developer and you&#39;re looking for a solution for reporting in your application then Power BI might be the right choice for you
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">App Services on VNET</title>
     <link href="https://westerndevs.com/_/app-services-on-vnet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/app-services-on-vnet/</id>
     <published>2021-11-14T05:00:00.000Z</published>
-    <updated>2021-11-14T21:04:30.748Z</updated>
+    <updated>2021-11-19T13:34:14.557Z</updated>
 	<author>
 	
 	  
@@ -47,7 +73,7 @@
     <link href="https://westerndevs.com/_/ngrok-aspnet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ngrok-aspnet/</id>
     <published>2021-10-25T04:00:00.000Z</published>
-    <updated>2021-11-14T21:04:30.752Z</updated>
+    <updated>2021-11-19T13:34:14.561Z</updated>
 	<author>
 	
 	  
@@ -74,7 +100,7 @@
     <link href="https://westerndevs.com/_/pandas-read-tsv/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/pandas-read-tsv/</id>
     <published>2021-10-25T04:00:00.000Z</published>
-    <updated>2021-11-14T21:04:30.752Z</updated>
+    <updated>2021-11-19T13:34:14.561Z</updated>
 	<author>
 	
 	  
@@ -101,7 +127,7 @@
     <link href="https://westerndevs.com/_/RLS-with-power-bi/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/RLS-with-power-bi/</id>
     <published>2021-10-22T04:00:00.000Z</published>
-    <updated>2021-11-14T21:04:30.748Z</updated>
+    <updated>2021-11-19T13:34:14.557Z</updated>
 	<author>
 	
 	  
@@ -127,7 +153,7 @@
     <link href="https://westerndevs.com/_/matplotlib-cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/matplotlib-cheat-sheet/</id>
     <published>2021-10-22T04:00:00.000Z</published>
-    <updated>2021-11-14T21:04:30.752Z</updated>
+    <updated>2021-11-19T13:34:14.561Z</updated>
 	<author>
 	
 	  
@@ -155,7 +181,7 @@
     <link href="https://westerndevs.com/_/pandas-cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/pandas-cheat-sheet/</id>
     <published>2021-10-22T04:00:00.000Z</published>
-    <updated>2021-11-14T21:04:30.752Z</updated>
+    <updated>2021-11-19T13:34:14.561Z</updated>
 	<author>
 	
 	  
@@ -184,7 +210,7 @@
     <link href="https://westerndevs.com/_/serverless-offline-https/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/serverless-offline-https/</id>
     <published>2021-10-12T04:00:00.000Z</published>
-    <updated>2021-11-14T21:04:30.752Z</updated>
+    <updated>2021-11-19T13:34:14.565Z</updated>
 	<author>
 	
 	  
@@ -210,7 +236,7 @@
     <link href="https://westerndevs.com/_/azure-isolated-functions-config/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-isolated-functions-config/</id>
     <published>2021-10-05T04:00:00.000Z</published>
-    <updated>2021-11-14T21:04:30.748Z</updated>
+    <updated>2021-11-19T13:34:14.557Z</updated>
 	<author>
 	
 	  
@@ -236,7 +262,7 @@
     <link href="https://westerndevs.com/_/fibonacci/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/fibonacci/</id>
     <published>2021-10-05T04:00:00.000Z</published>
-    <updated>2021-11-14T21:04:30.748Z</updated>
+    <updated>2021-11-19T13:34:14.561Z</updated>
 	<author>
 	
 	  
@@ -262,7 +288,7 @@
     <link href="https://westerndevs.com/_/datatable-filtering/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/datatable-filtering/</id>
     <published>2021-09-17T04:00:00.000Z</published>
-    <updated>2021-11-14T21:04:30.748Z</updated>
+    <updated>2021-11-19T13:34:14.561Z</updated>
 	<author>
 	
 	  
@@ -288,7 +314,7 @@
     <link href="https://westerndevs.com/_/enable-database-mail/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/enable-database-mail/</id>
     <published>2021-08-31T04:00:00.000Z</published>
-    <updated>2021-11-14T21:04:30.748Z</updated>
+    <updated>2021-11-19T13:34:14.561Z</updated>
 	<author>
 	
 	  
@@ -314,7 +340,7 @@
     <link href="https://westerndevs.com/_/reauth-nuget/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/reauth-nuget/</id>
     <published>2021-08-31T04:00:00.000Z</published>
-    <updated>2021-11-14T21:04:30.752Z</updated>
+    <updated>2021-11-19T13:34:14.565Z</updated>
 	<author>
 	
 	  
@@ -340,7 +366,7 @@
     <link href="https://westerndevs.com/_/appliation-key-for-keyvault/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/appliation-key-for-keyvault/</id>
     <published>2021-08-13T04:00:00.000Z</published>
-    <updated>2021-11-14T21:04:30.748Z</updated>
+    <updated>2021-11-19T13:34:14.557Z</updated>
 	<author>
 	
 	  
@@ -366,7 +392,7 @@
     <link href="https://westerndevs.com/_/stop-managing-resource/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/stop-managing-resource/</id>
     <published>2021-07-30T04:00:00.000Z</published>
-    <updated>2021-11-14T21:04:30.752Z</updated>
+    <updated>2021-11-19T13:34:14.565Z</updated>
 	<author>
 	
 	  
@@ -392,7 +418,7 @@
     <link href="https://westerndevs.com/_/storybook-iframe-404/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storybook-iframe-404/</id>
     <published>2021-07-29T04:00:00.000Z</published>
-    <updated>2021-11-14T21:04:30.752Z</updated>
+    <updated>2021-11-19T13:34:14.565Z</updated>
 	<author>
 	
 	  
@@ -418,7 +444,7 @@
     <link href="https://westerndevs.com/_/build-sql-connection-string/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/build-sql-connection-string/</id>
     <published>2021-07-26T04:00:00.000Z</published>
-    <updated>2021-11-14T21:04:30.748Z</updated>
+    <updated>2021-11-19T13:34:14.557Z</updated>
 	<author>
 	
 	  
@@ -444,7 +470,7 @@
     <link href="https://westerndevs.com/_/static-app-settings/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/static-app-settings/</id>
     <published>2021-07-26T04:00:00.000Z</published>
-    <updated>2021-11-14T21:04:30.752Z</updated>
+    <updated>2021-11-19T13:34:14.565Z</updated>
 	<author>
 	
 	  
@@ -470,7 +496,7 @@
     <link href="https://westerndevs.com/_/vetur-cant-file-files/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/vetur-cant-file-files/</id>
     <published>2021-07-24T04:00:00.000Z</published>
-    <updated>2021-11-14T21:04:30.756Z</updated>
+    <updated>2021-11-19T13:34:14.565Z</updated>
 	<author>
 	
 	  
@@ -496,7 +522,7 @@
     <link href="https://westerndevs.com/_/enable-symbol-server/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/enable-symbol-server/</id>
     <published>2021-07-08T04:00:00.000Z</published>
-    <updated>2021-11-14T21:04:30.748Z</updated>
+    <updated>2021-11-19T13:34:14.561Z</updated>
 	<author>
 	
 	  
@@ -511,32 +537,6 @@
     <summary type="html">
     
       &lt;p&gt;First off a symbol server is a server which stores the symbols from a built binary so you don&#39;t have to ship out PDB files with your comp
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Enable SSO for Snowflake using Azure AD</title>
-    <link href="https://westerndevs.com/_/enable-azure-ad-based-SSO-for-snowflake/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/enable-azure-ad-based-SSO-for-snowflake/</id>
-    <published>2021-07-06T04:00:00.000Z</published>
-    <updated>2021-11-14T21:04:30.748Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>So you want to enable single sign on for you AD users to Snowflake? There are a bunch of good reasons to do this: it makes managing users easier, deleting a user in AD deletes them in snowflake so you don't have a laundry list of places to delete a user when users leave.</p><p>The process is a 2 sided thing: setting up the Snowflake integration on the AD side and then letting Snowflake know where to authenticate its users.</p><h2>Azure Side</h2><ol><li>Go to azure AD and click on <code>Enterprise Applications</code> on the left hand side<img src="/images/2021-07-05-enable-azure-ad-based-SSO-for-snowflake.md/2021-07-05-12-25-20.png" alt="">)</li><li>Click <code>New Application</code> and search for Snowflake select it and create it</li><li>In there set up the links to your Snowflake tenant for single sign on by selecting Single sign-on on the left</li><li>Fill in the URLs for your snowflake instance. The only thing that you really need to pay attention to is that you're using the snowflake name on your already created snowflake instance.<img src="/images/2021-07-05-enable-azure-ad-based-SSO-for-snowflake.md/2021-07-05-12-28-33.png" alt="">)</li><li>Download the Base64 Certificate from the SAML Signing Certificate section</li><li>Assign a test user to the snowflake integration by clicking on users and groups and adding an existing user</li></ol><h2>Snowflake Side</h2><ol><li>Run this query in snowflake. It adds a saml identity provider and then set up single sign on</li></ol><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="keyword">role</span> accountadmin;</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">account</span> <span class="keyword">set</span> saml_identity_provider = <span class="string">'&#123;</span></span><br><span class="line"><span class="string">"certificate": "&lt;Paste the content of downloaded certificate from Azure portal&gt;",</span></span><br><span class="line"><span class="string">"ssoUrl":"&lt;Login URL value which you have copied from the Azure portal, something like https://login.microsoftonline.com/44xxxx25-xxxx-415b-bedc-xxxxxxxxxxxxxx/saml2&gt;",</span></span><br><span class="line"><span class="string">"type":"custom",</span></span><br><span class="line"><span class="string">"label":"AzureAD"</span></span><br><span class="line"><span class="string">&#125;'</span>;</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">account</span> <span class="keyword">set</span> sso_login_page = <span class="literal">TRUE</span>;</span><br></pre></td></tr></table></figure><ol start="2"><li>Hook up the user you created earlier in AD</li></ol><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> simon_timms <span class="keyword">PASSWORD</span> = <span class="string">''</span> LOGIN_NAME = <span class="string">'user@somedomain.com'</span> DISPLAY_NAME = <span class="string">'Simon Timms'</span>;</span><br></pre></td></tr></table></figure><p>You should now be able to log in with your AD account. Open up an incognito tab and go to your snowflake instance. In there click on the SSO option and enter your AD credentials.</p><h2>Automatic Provisioning</h2><p>Obviously it sucks to provision the users manually in snowflake so you can have AD sync changes over to it. To do this start with snowflake. You'll need to create a user who can provision users.</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">or</span> <span class="keyword">replace</span> <span class="keyword">role</span> aad_provisioner;</span><br><span class="line"><span class="keyword">grant</span> <span class="keyword">create</span> <span class="keyword">user</span> <span class="keyword">on</span> <span class="keyword">account</span> <span class="keyword">to</span> <span class="keyword">role</span> aad_provisioner;</span><br><span class="line"><span class="keyword">grant</span> <span class="keyword">create</span> <span class="keyword">role</span> <span class="keyword">on</span> <span class="keyword">account</span> <span class="keyword">to</span> <span class="keyword">role</span> aad_provisioner;</span><br><span class="line"><span class="keyword">grant</span> <span class="keyword">role</span> aad_provisioner <span class="keyword">to</span> <span class="keyword">role</span> accountadmin;</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">or</span> <span class="keyword">replace</span> <span class="keyword">security</span> integration aad_provisioning</span><br><span class="line">    <span class="keyword">type</span> = scim</span><br><span class="line">    scim_client = <span class="string">'azure'</span></span><br><span class="line">    run_as_role = <span class="string">'AAD_PROVISIONER'</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">system</span>$generate_scim_access_token(<span class="string">'AAD_PROVISIONING'</span>);</span><br></pre></td></tr></table></figure><p>This should give you a long key which you should copy.</p><p><img src="/images/2021-07-06-enable-azure-ad-based-SSO-for-snowflake.md/2021-07-06-15-59-43.png" alt="">)</p><p>Go back to the AD app and click on Provisioning. In there change over to automatic provisioning. Enter the key in the <code>Secret Token</code> field and in the <code>Tenant Url</code> field enter your usual URL but this time with <code>/scim/v2</code> on the end of it.</p><p>Test the connection and ensure that it can connect properly. With that done you'll need to turn provisioning status on</p><p><img src="/images/2021-07-06-enable-azure-ad-based-SSO-for-snowflake.md/2021-07-06-16-01-34.png" alt="">)</p><h2>Adding Users to the Sync</h2><p>If you want to add a new user to the synchronizing then go back to the snowflake app under Enterprise Applications in Azure AD. In there click on <code>Users and groups</code><img src="/images/2021-08-31-enable-azure-ad-based-SSO-for-snowflake.md/2021-08-31-13-17-47.png" alt="">)</p><p>Then on the add users and groups button. In there you can select your user and click <code>Assign</code>. That should be it. It may take a few minutes to sync. You can always check the status of the sync by going to the <code>Provisioning</code> item</p><h2>Gotchas!</h2><p>The biggest one here is that the snowflake key used in automatic provisioning only has a lifespan of 6 months. It is almost certainly going to break horribly at that time. You should mitigate this by having the sync job email you if it fails. This can be done in the settings page in Azure</p><p><img src="/images/2021-07-06-enable-azure-ad-based-SSO-for-snowflake.md/2021-07-06-16-06-05.png" alt="">)</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;So you want to enable single sign on for you AD users to Snowflake? There are a bunch of good reasons to do this: it makes managing users
     
     </summary>
     
