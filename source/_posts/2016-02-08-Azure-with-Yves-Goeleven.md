@@ -8,6 +8,7 @@ podcast:
   length: '21:56'
   filesize: 21061896
   libsynId: 4135263
+  anchorFmId: Azure-with-Yves-Goeleven-evqdhc
 participants:
   - kyle_baley
   - donald_belcham

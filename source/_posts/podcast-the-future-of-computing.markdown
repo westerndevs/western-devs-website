@@ -11,6 +11,7 @@ podcast:
     length: "50:01"
     filesize: 48022352
     libsynId: 4001183
+    anchorFmId: The-Future-of-Computing-evqdi4
 participants:
     - kyle_baley
     - dylan_smith

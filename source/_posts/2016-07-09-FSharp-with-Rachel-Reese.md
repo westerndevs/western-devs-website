@@ -8,6 +8,7 @@ podcast:
   length: '38:15'
   filesize: 36722849
   libsynId: 4488105
+  anchorFmId: Functional-Programming-and-F-with-Rachel-Reese-evqdi5
 participants:
   - simon_timms
   - amir_barylko

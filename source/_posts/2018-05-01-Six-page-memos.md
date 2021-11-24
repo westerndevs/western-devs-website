@@ -8,6 +8,7 @@ podcast:
   length: '36:51'
   filesize: 27362220
   libsynId: 6545481
+  anchorFmId: Starting-meetings-with-six-page-memos-evqdhe
 participants:
   - simon_timms
   - david_wesst

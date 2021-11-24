@@ -11,6 +11,7 @@ podcast:
     length: "48:07"
     filesize: 57742198
     libsynId: 5292005
+    anchorFmId: The-Repository-Pattern-evqdj5
 participants:
     - dave_paquette
     - amir_barylko

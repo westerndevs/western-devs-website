@@ -8,6 +8,7 @@ podcast:
   length: '39:14'
   filesize: 37658214
   libsynId: 4251678
+  anchorFmId: Diabetes-technology-evqdhm
 participants:
   - donald_belcham
   - james_chambers

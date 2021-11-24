@@ -8,6 +8,7 @@ podcast:
   length: '41:48'
   filesize: 40120834
   libsynId: 4488015
+  anchorFmId: Mobile-Apps-and-Xamarin-evqdht
 participants:
   - kyle_baley
   - tom_opgenorth

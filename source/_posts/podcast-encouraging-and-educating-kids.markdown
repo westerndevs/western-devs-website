@@ -11,6 +11,7 @@ podcast:
     length: "45:43"
     filesize: 43892503
     libsynId: 3982707
+    anchorFmId: Encouraging-and-Educating-Kids-evqdhq
 participants:
     - kyle_baley
     - amir_barylko

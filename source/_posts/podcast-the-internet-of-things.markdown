@@ -11,6 +11,7 @@ podcast:
     length: "45:57"
     filesize: 55153989
     libsynId: 5291974
+    anchorFmId: The-Internet-of-Things-evqdim
 participants:
     - dave_paquette
     - amir_barylko

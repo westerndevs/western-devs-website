@@ -8,6 +8,7 @@ podcast:
   length: '42:02'
   filesize: 38458238
   libsynId: 5325631
+  anchorFmId: Transparency-evqdj1
 participants:
   - kyle_baley
   - donald_belcham

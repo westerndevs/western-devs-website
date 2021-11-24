@@ -8,6 +8,7 @@ podcast:
   length: '20:19'
   filesize: 19512125
   libsynId: 4146532
+  anchorFmId: Getting-Started-in-Open-Source-with-Adam-Ralph-evqdhd
 participants:
   - kyle_baley
   - donald_belcham
