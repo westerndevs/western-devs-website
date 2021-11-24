@@ -8,7 +8,7 @@ podcast:
   filename: westerndevs-name.mp3
   length: '50:01'
   filesize: 48022352
-  libsynId: 4001183
+  anchorFmId: anchor-fm-id
 participants:
   - author_id
   - author_id
