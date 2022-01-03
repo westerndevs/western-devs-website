@@ -1,6 +1,5 @@
 ---
 title:  Installing VSFTP from source
-define VSF_BUILD_SSL
 authorId: simon_timms
 date: 2021-09-08
 originalurl: https://blog.simontimms.com/2021/09/08/vsftpd
@@ -21,7 +20,7 @@ cd vsftpd-3.0.5
 Now you're going to need to edit the `builddefs.h` specifically you want to enable SSL with 
 
 ```
-#define VSF_BUILD_SSL
+ #define VSF_BUILD_SSL
 ```
 
 You may need to install the open ssl headers
