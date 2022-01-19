@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2022-01-19T05:05:30.187Z</updated>
+  <updated>2022-01-19T13:24:55.476Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://westerndevs.com/_/hash-nil/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/hash-nil/</id>
     <published>2021-11-24T05:00:00.000Z</published>
-    <updated>2022-01-19T05:05:30.187Z</updated>
+    <updated>2022-01-19T13:24:55.476Z</updated>
 	<author>
 	
 	  
@@ -47,7 +47,7 @@
     <link href="https://westerndevs.com/_/choosing-power-bi/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/choosing-power-bi/</id>
     <published>2021-11-19T05:00:00.000Z</published>
-    <updated>2022-01-19T05:05:30.183Z</updated>
+    <updated>2022-01-19T13:24:55.476Z</updated>
 	<author>
 	
 	  
@@ -73,7 +73,7 @@
     <link href="https://westerndevs.com/_/app-services-on-vnet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/app-services-on-vnet/</id>
     <published>2021-11-14T05:00:00.000Z</published>
-    <updated>2022-01-19T05:05:30.183Z</updated>
+    <updated>2022-01-19T13:24:55.472Z</updated>
 	<author>
 	
 	  
@@ -99,7 +99,7 @@
     <link href="https://westerndevs.com/_/ngrok-aspnet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ngrok-aspnet/</id>
     <published>2021-10-25T04:00:00.000Z</published>
-    <updated>2022-01-19T05:05:30.187Z</updated>
+    <updated>2022-01-19T13:24:55.476Z</updated>
 	<author>
 	
 	  
@@ -126,7 +126,7 @@
     <link href="https://westerndevs.com/_/pandas-read-tsv/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/pandas-read-tsv/</id>
     <published>2021-10-25T04:00:00.000Z</published>
-    <updated>2022-01-19T05:05:30.187Z</updated>
+    <updated>2022-01-19T13:24:55.480Z</updated>
 	<author>
 	
 	  
@@ -153,7 +153,7 @@
     <link href="https://westerndevs.com/_/RLS-with-power-bi/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/RLS-with-power-bi/</id>
     <published>2021-10-22T04:00:00.000Z</published>
-    <updated>2022-01-19T05:05:30.183Z</updated>
+    <updated>2022-01-19T13:24:55.472Z</updated>
 	<author>
 	
 	  
@@ -179,7 +179,7 @@
     <link href="https://westerndevs.com/_/matplotlib-cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/matplotlib-cheat-sheet/</id>
     <published>2021-10-22T04:00:00.000Z</published>
-    <updated>2022-01-19T05:05:30.187Z</updated>
+    <updated>2022-01-19T13:24:55.476Z</updated>
 	<author>
 	
 	  
@@ -207,7 +207,7 @@
     <link href="https://westerndevs.com/_/pandas-cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/pandas-cheat-sheet/</id>
     <published>2021-10-22T04:00:00.000Z</published>
-    <updated>2022-01-19T05:05:30.187Z</updated>
+    <updated>2022-01-19T13:24:55.480Z</updated>
 	<author>
 	
 	  
@@ -236,7 +236,7 @@
     <link href="https://westerndevs.com/_/serverless-offline-https/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/serverless-offline-https/</id>
     <published>2021-10-12T04:00:00.000Z</published>
-    <updated>2022-01-19T05:05:30.187Z</updated>
+    <updated>2022-01-19T13:24:55.480Z</updated>
 	<author>
 	
 	  
@@ -262,7 +262,7 @@
     <link href="https://westerndevs.com/_/azure-isolated-functions-config/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-isolated-functions-config/</id>
     <published>2021-10-05T04:00:00.000Z</published>
-    <updated>2022-01-19T05:05:30.183Z</updated>
+    <updated>2022-01-19T13:24:55.476Z</updated>
 	<author>
 	
 	  
@@ -288,7 +288,7 @@
     <link href="https://westerndevs.com/_/fibonacci/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/fibonacci/</id>
     <published>2021-10-05T04:00:00.000Z</published>
-    <updated>2022-01-19T05:05:30.187Z</updated>
+    <updated>2022-01-19T13:24:55.476Z</updated>
 	<author>
 	
 	  
@@ -314,7 +314,7 @@
     <link href="https://westerndevs.com/_/datatable-filtering/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/datatable-filtering/</id>
     <published>2021-09-17T04:00:00.000Z</published>
-    <updated>2022-01-19T05:05:30.183Z</updated>
+    <updated>2022-01-19T13:24:55.476Z</updated>
 	<author>
 	
 	  
@@ -340,7 +340,7 @@
     <link href="https://westerndevs.com/_/vsftpd/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/vsftpd/</id>
     <published>2021-09-08T04:00:00.000Z</published>
-    <updated>2022-01-19T05:05:30.191Z</updated>
+    <updated>2022-01-19T13:24:55.480Z</updated>
 	<author>
 	
 	  
@@ -366,7 +366,7 @@
     <link href="https://westerndevs.com/_/enable-database-mail/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/enable-database-mail/</id>
     <published>2021-08-31T04:00:00.000Z</published>
-    <updated>2022-01-19T05:05:30.187Z</updated>
+    <updated>2022-01-19T13:24:55.476Z</updated>
 	<author>
 	
 	  
@@ -392,7 +392,7 @@
     <link href="https://westerndevs.com/_/reauth-nuget/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/reauth-nuget/</id>
     <published>2021-08-31T04:00:00.000Z</published>
-    <updated>2022-01-19T05:05:30.187Z</updated>
+    <updated>2022-01-19T13:24:55.480Z</updated>
 	<author>
 	
 	  
@@ -418,7 +418,7 @@
     <link href="https://westerndevs.com/_/appliation-key-for-keyvault/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/appliation-key-for-keyvault/</id>
     <published>2021-08-13T04:00:00.000Z</published>
-    <updated>2022-01-19T05:05:30.183Z</updated>
+    <updated>2022-01-19T13:24:55.476Z</updated>
 	<author>
 	
 	  
@@ -444,7 +444,7 @@
     <link href="https://westerndevs.com/_/stop-managing-resource/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/stop-managing-resource/</id>
     <published>2021-07-30T04:00:00.000Z</published>
-    <updated>2022-01-19T05:05:30.191Z</updated>
+    <updated>2022-01-19T13:24:55.480Z</updated>
 	<author>
 	
 	  
@@ -470,7 +470,7 @@
     <link href="https://westerndevs.com/_/storybook-iframe-404/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storybook-iframe-404/</id>
     <published>2021-07-29T04:00:00.000Z</published>
-    <updated>2022-01-19T05:05:30.191Z</updated>
+    <updated>2022-01-19T13:24:55.480Z</updated>
 	<author>
 	
 	  
@@ -496,7 +496,7 @@
     <link href="https://westerndevs.com/_/build-sql-connection-string/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/build-sql-connection-string/</id>
     <published>2021-07-26T04:00:00.000Z</published>
-    <updated>2022-01-19T05:05:30.183Z</updated>
+    <updated>2022-01-19T13:24:55.476Z</updated>
 	<author>
 	
 	  
@@ -522,7 +522,7 @@
     <link href="https://westerndevs.com/_/static-app-settings/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/static-app-settings/</id>
     <published>2021-07-26T04:00:00.000Z</published>
-    <updated>2022-01-19T05:05:30.191Z</updated>
+    <updated>2022-01-19T13:24:55.480Z</updated>
 	<author>
 	
 	  

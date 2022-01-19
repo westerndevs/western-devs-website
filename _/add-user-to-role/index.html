@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="Western Devs">
 <meta property="og:description" content="This can be done with 1sp_addrolemember @rolename &#x3D; &#39;role&#39;, @membername &#x3D; &#39;security_account&#39; example 1sp_addrolemember @rolename &#x3D; &#39;db_owner&#39;, @membername &#x3D; &#39;evil_hacker_account&#39; another example 1sp_a">
 <meta property="article:published_time" content="2021-06-07T04:00:00.000Z">
-<meta property="article:modified_time" content="2022-01-19T05:05:30.183Z">
+<meta property="article:modified_time" content="2022-01-19T13:24:55.472Z">
 <meta property="article:author" content="Western Devs">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:creator" content="@westerndevs">
@@ -115,6 +115,19 @@
 <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sp_addrolemember</span> <span class="variable">@rolename</span> = <span class="string">'db_owner'</span>, <span class="variable">@membername</span> = <span class="string">'evil_hacker_account'</span></span><br></pre></td></tr></table></figure>
 <p>another example</p>
 <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sp_addrolemember</span> <span class="variable">@rolename</span> = <span class="string">'db_datareader'</span>, <span class="variable">@membername</span> = <span class="string">'datafactory'</span></span><br></pre></td></tr></table></figure>
+<p>and another</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sp_addrolemember</span> <span class="variable">@rolename</span> = <span class="string">'db_datawriter'</span>, <span class="variable">@membername</span> = <span class="string">'asca_webapp'</span></span><br></pre></td></tr></table></figure>
+<p>Built in database roles are</p>
+<p><strong>db_owner</strong> Members of the db_owner fixed database role can perform all configuration and maintenance activities on the database, and can also drop the database in SQL Server. (In SQL Database and Azure Synapse, some maintenance activities require server-level permissions and cannot be performed by db_owners.)
+<strong>db_securityadmin</strong> Members of the db_securityadmin fixed database role can modify role membership for custom roles only and manage permissions. Members of this role can potentially elevate their privileges and their actions should be monitored.
+<strong>db_accessadmin</strong> Members of the db_accessadmin fixed database role can add or remove access to the database for Windows logins, Windows groups, and SQL Server logins.
+<strong>db_backupoperator</strong> Members of the db_backupoperator fixed database role can back up the database.
+<strong>db_ddladmin</strong> Members of the db_ddladmin fixed database role can run any Data Definition Language (DDL) command in a database.
+<strong>db_datawriter</strong> Members of the db_datawriter fixed database role can add, delete, or change data in all user tables.
+<strong>db_datareader</strong> Members of the db_datareader fixed database role can read all data from all user tables and views. User objects can exist in any schema except sys and INFORMATION_SCHEMA.</p>
+<p><strong>db_denydatawriter</strong> Members of the db_denydatawriter fixed database role cannot add, modify, or delete any data in the user tables within a database.</p>
+<p><strong>db_denydatareader</strong> Members of the db_denydatareader fixed database role cannot read any data from the user tables and views within a database.</p>
+
 	        </div>
 
             
