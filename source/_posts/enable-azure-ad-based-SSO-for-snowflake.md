@@ -88,3 +88,12 @@ Then on the add users and groups button. In there you can select your user and c
 The biggest one here is that the snowflake key used in automatic provisioning only has a lifespan of 6 months. It is almost certainly going to break horribly at that time. You should mitigate this by having the sync job email you if it fails. This can be done in the settings page in Azure
 
 ![](/images/2021-07-06-enable-azure-ad-based-SSO-for-snowflake.md/2021-07-06-16-06-05.png))
+
+To get a new token you'll need to log into snowflake and run the following query
+
+```
+select system$generate_scim_access_token('AAD_PROVISIONING');
+```
+
+This will generate a new token and you'll need to copy it back into Azure. A gotcha inside a gotcha here is that running this command can only be done as ACCOUNTADMIN so you need to select that here: 
+![](/images/2022-01-27-enable-azure-ad-based-SSO-for-snowflake.md/2022-01-27-09-33-56.png))
