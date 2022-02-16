@@ -5,7 +5,7 @@
   <link href="/feeds/kyle_baley" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2022-01-27T16:36:13.275Z</updated>
+  <updated>2022-02-16T21:42:11.435Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://westerndevs.com/bash/Go-just-big-enough-for-your-needs-or-go-home/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/bash/Go-just-big-enough-for-your-needs-or-go-home/</id>
     <published>2020-05-18T19:42:18.000Z</published>
-    <updated>2022-01-27T16:36:13.275Z</updated>
+    <updated>2022-02-16T21:42:11.435Z</updated>
 	<author>
 	
 	  
@@ -55,7 +55,7 @@
     <link href="https://westerndevs.com/career/I-regret-nothing/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/career/I-regret-nothing/</id>
     <published>2016-05-08T17:46:59.000Z</published>
-    <updated>2022-01-27T16:36:13.267Z</updated>
+    <updated>2022-02-16T21:42:11.423Z</updated>
 	<author>
 	
 	  
@@ -83,7 +83,7 @@
     <link href="https://westerndevs.com/conferences/Prairie-Dev-Con-2016-Presentation-Materials/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/conferences/Prairie-Dev-Con-2016-Presentation-Materials/</id>
     <published>2016-04-18T20:14:02.000Z</published>
-    <updated>2022-01-27T16:36:13.267Z</updated>
+    <updated>2022-02-16T21:42:11.423Z</updated>
 	<author>
 	
 	  
@@ -111,7 +111,7 @@
     <link href="https://westerndevs.com/communication/Why-can-t-you-just/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/communication/Why-can-t-you-just/</id>
     <published>2016-01-27T21:09:57.000Z</published>
-    <updated>2022-01-27T16:36:13.267Z</updated>
+    <updated>2022-02-16T21:42:11.423Z</updated>
 	<author>
 	
 	  
@@ -141,7 +141,7 @@
     <link href="https://westerndevs.com/jekyll/hexo/Migrating-from-Jekyll-to-Hexo-Part-2/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/jekyll/hexo/Migrating-from-Jekyll-to-Hexo-Part-2/</id>
     <published>2015-12-28T00:43:32.000Z</published>
-    <updated>2022-01-27T16:36:13.263Z</updated>
+    <updated>2022-02-16T21:42:11.419Z</updated>
 	<author>
 	
 	  
@@ -171,7 +171,7 @@
     <link href="https://westerndevs.com/jekyll/hexo/Migrating-from-Jekyll-to-Hexo/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/jekyll/hexo/Migrating-from-Jekyll-to-Hexo/</id>
     <published>2015-12-22T19:00:42.000Z</published>
-    <updated>2022-01-27T16:36:13.263Z</updated>
+    <updated>2022-02-16T21:42:11.419Z</updated>
 	<author>
 	
 	  
@@ -201,7 +201,7 @@
     <link href="https://westerndevs.com/_/testing-with-data/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/testing-with-data/</id>
     <published>2015-11-20T00:02:10.000Z</published>
-    <updated>2022-01-27T16:36:13.287Z</updated>
+    <updated>2022-02-16T21:42:11.443Z</updated>
 	<author>
 	
 	  
@@ -227,7 +227,7 @@
     <link href="https://westerndevs.com/_/running-a-net-app-against-postgres-database-in-docker/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/running-a-net-app-against-postgres-database-in-docker/</id>
     <published>2015-10-25T21:24:14.000Z</published>
-    <updated>2022-01-27T16:36:13.283Z</updated>
+    <updated>2022-02-16T21:42:11.443Z</updated>
 	<author>
 	
 	  
@@ -253,7 +253,7 @@
     <link href="https://westerndevs.com/_/windows-server-containers-are-coming-whether-you-like-it-or-not/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/windows-server-containers-are-coming-whether-you-like-it-or-not/</id>
     <published>2015-08-31T19:01:20.000Z</published>
-    <updated>2022-01-27T16:36:13.287Z</updated>
+    <updated>2022-02-16T21:42:11.447Z</updated>
 	<author>
 	
 	  
@@ -279,7 +279,7 @@
     <link href="https://westerndevs.com/_/docker-and-western-devs/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/docker-and-western-devs/</id>
     <published>2015-08-24T00:38:59.000Z</published>
-    <updated>2022-01-27T16:36:13.279Z</updated>
+    <updated>2022-02-16T21:42:11.439Z</updated>
 	<author>
 	
 	  
@@ -305,7 +305,7 @@
     <link href="https://westerndevs.com/_/psa-setting-up-containers-in-a-vm-in-windows-server-2016-tech-preview-3/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/psa-setting-up-containers-in-a-vm-in-windows-server-2016-tech-preview-3/</id>
     <published>2015-08-20T00:38:59.000Z</published>
-    <updated>2022-01-27T16:36:13.283Z</updated>
+    <updated>2022-02-16T21:42:11.443Z</updated>
 	<author>
 	
 	  
@@ -331,7 +331,7 @@
     <link href="https://westerndevs.com/_/docker-is-coming-whether-you-like-it-or-not/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/docker-is-coming-whether-you-like-it-or-not/</id>
     <published>2015-08-04T16:31:10.000Z</published>
-    <updated>2022-01-27T16:36:13.279Z</updated>
+    <updated>2022-02-16T21:42:11.439Z</updated>
 	<author>
 	
 	  
@@ -358,7 +358,7 @@
     <link href="https://westerndevs.com/_/microservices-or-how-to-spread-the-love/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/microservices-or-how-to-spread-the-love/</id>
     <published>2015-07-15T05:01:19.000Z</published>
-    <updated>2022-01-27T16:36:13.283Z</updated>
+    <updated>2022-02-16T21:42:11.443Z</updated>
 	<author>
 	
 	  
@@ -384,7 +384,7 @@
     <link href="https://westerndevs.com/_/outside-the-shack-or-how-to-be-a-gigolo/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/outside-the-shack-or-how-to-be-a-gigolo/</id>
     <published>2015-07-06T05:11:15.000Z</published>
-    <updated>2022-01-27T16:36:13.283Z</updated>
+    <updated>2022-02-16T21:42:11.443Z</updated>
 	<author>
 	
 	  
@@ -410,7 +410,7 @@
     <link href="https://westerndevs.com/_/on-ui-testing/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/on-ui-testing/</id>
     <published>2015-06-30T12:09:05.000Z</published>
-    <updated>2022-01-27T16:36:13.283Z</updated>
+    <updated>2022-02-16T21:42:11.443Z</updated>
 	<author>
 	
 	  
