@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2022-03-18T16:31:46.205Z</updated>
+  <updated>2022-04-04T13:12:58.599Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Redis Cheat Sheet</title>
+    <link href="https://westerndevs.com/_/cheat-sheet/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/cheat-sheet/</id>
+    <published>2022-04-04T04:00:00.000Z</published>
+    <updated>2022-04-04T13:12:58.599Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<h2>Running in Docker</h2><p>Quickly get started with</p><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name somename -p <span class="number">6379</span>:<span class="number">6379</span> redis</span><br></pre></td></tr></table></figure><h2>Connection</h2><p>The simplest connection string is to use <code>localhost</code> which just connects to the localhost on port 6379.</p><h2>Querying</h2><p>Redis is a really simple server to which you can just telnet (or use the redis-cli) to run commands.</p><p><strong>List All Keys</strong></p><p>This might not be a great idea against a prod server with lots of keys</p><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">keys</span> *</span><br></pre></td></tr></table></figure><p><strong>Get key type</strong></p><p>Redis supports a bunch of different data primatives like a simple key value, a list, a hash, a zset, ... to find the type of a key use <code>type</code></p><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> <span class="type">HereForElizabethAnneSlovak</span></span><br><span class="line"><span class="type">+zset</span></span><br></pre></td></tr></table></figure><p><strong>Set key value</strong></p><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> blah <span class="comment">7</span></span><br></pre></td></tr></table></figure><p>This works for updates too</p><p><strong>Get key value</strong></p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">get</span> blah</span><br></pre></td></tr></table></figure><p><strong>Get everything in a zset</strong></p><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZRANGE <span class="string">"id"</span> <span class="number">0</span> <span class="number">-1</span></span><br></pre></td></tr></table></figure><p><strong>Count everything in a zset</strong></p><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zcount HereForjohnrufuscolginjr. -<span class="literal">inf</span> +<span class="literal">inf</span></span><br></pre></td></tr></table></figure><p><strong>Get the first thing in a zset</strong></p><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZRANGE <span class="string">"id"</span> <span class="number">0</span> <span class="number">0</span></span><br></pre></td></tr></table></figure><p><strong>Get everything in a set</strong></p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">SMEMBERS HereFeedHashTags</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2&gt;Running in Docker&lt;/h2&gt;
+&lt;p&gt;Quickly get started with&lt;/p&gt;
+&lt;figure class=&quot;highlight angelscript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span cl
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Fixing VS Code Rubocop Issues</title>
     <link href="https://westerndevs.com/_/rubocop-issue/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/rubocop-issue/</id>
     <published>2022-03-18T04:00:00.000Z</published>
-    <updated>2022-03-18T16:31:46.205Z</updated>
+    <updated>2022-04-04T13:12:58.603Z</updated>
 	<author>
 	
 	  
@@ -48,7 +76,7 @@
     <link href="https://westerndevs.com/_/fsevents-optional-dependencies/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/fsevents-optional-dependencies/</id>
     <published>2022-03-16T04:00:00.000Z</published>
-    <updated>2022-03-18T16:31:46.201Z</updated>
+    <updated>2022-04-04T13:12:58.603Z</updated>
 	<author>
 	
 	  
@@ -74,7 +102,7 @@
     <link href="https://westerndevs.com/_/backblaze-exclude-node-modules/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/backblaze-exclude-node-modules/</id>
     <published>2022-02-20T05:00:00.000Z</published>
-    <updated>2022-03-18T16:31:46.201Z</updated>
+    <updated>2022-04-04T13:12:58.599Z</updated>
 	<author>
 	
 	  
@@ -100,7 +128,7 @@
     <link href="https://westerndevs.com/_/parsing-vue-router-parameters/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/parsing-vue-router-parameters/</id>
     <published>2022-02-18T05:00:00.000Z</published>
-    <updated>2022-03-18T16:31:46.205Z</updated>
+    <updated>2022-04-04T13:12:58.603Z</updated>
 	<author>
 	
 	  
@@ -126,7 +154,7 @@
     <link href="https://westerndevs.com/_/install-azfileshybrid-powershell/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/install-azfileshybrid-powershell/</id>
     <published>2022-02-16T05:00:00.000Z</published>
-    <updated>2022-03-18T16:31:46.205Z</updated>
+    <updated>2022-04-04T13:12:58.603Z</updated>
 	<author>
 	
 	  
@@ -152,7 +180,7 @@
     <link href="https://westerndevs.com/_/purge-cdn-in-devops/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/purge-cdn-in-devops/</id>
     <published>2022-01-27T05:00:00.000Z</published>
-    <updated>2022-03-18T16:31:46.205Z</updated>
+    <updated>2022-04-04T13:12:58.603Z</updated>
 	<author>
 	
 	  
@@ -179,7 +207,7 @@
     <link href="https://westerndevs.com/_/hash-nil/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/hash-nil/</id>
     <published>2021-11-24T05:00:00.000Z</published>
-    <updated>2022-03-18T16:31:46.205Z</updated>
+    <updated>2022-04-04T13:12:58.603Z</updated>
 	<author>
 	
 	  
@@ -205,7 +233,7 @@
     <link href="https://westerndevs.com/_/choosing-power-bi/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/choosing-power-bi/</id>
     <published>2021-11-19T05:00:00.000Z</published>
-    <updated>2022-03-18T16:31:46.201Z</updated>
+    <updated>2022-04-04T13:12:58.599Z</updated>
 	<author>
 	
 	  
@@ -231,7 +259,7 @@
     <link href="https://westerndevs.com/_/app-services-on-vnet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/app-services-on-vnet/</id>
     <published>2021-11-14T05:00:00.000Z</published>
-    <updated>2022-03-18T16:31:46.201Z</updated>
+    <updated>2022-04-04T13:12:58.599Z</updated>
 	<author>
 	
 	  
@@ -257,7 +285,7 @@
     <link href="https://westerndevs.com/_/ngrok-aspnet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ngrok-aspnet/</id>
     <published>2021-10-25T04:00:00.000Z</published>
-    <updated>2022-03-18T16:31:46.205Z</updated>
+    <updated>2022-04-04T13:12:58.603Z</updated>
 	<author>
 	
 	  
@@ -284,7 +312,7 @@
     <link href="https://westerndevs.com/_/pandas-read-tsv/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/pandas-read-tsv/</id>
     <published>2021-10-25T04:00:00.000Z</published>
-    <updated>2022-03-18T16:31:46.205Z</updated>
+    <updated>2022-04-04T13:12:58.603Z</updated>
 	<author>
 	
 	  
@@ -311,7 +339,7 @@
     <link href="https://westerndevs.com/_/RLS-with-power-bi/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/RLS-with-power-bi/</id>
     <published>2021-10-22T04:00:00.000Z</published>
-    <updated>2022-03-18T16:31:46.201Z</updated>
+    <updated>2022-04-04T13:12:58.599Z</updated>
 	<author>
 	
 	  
@@ -337,7 +365,7 @@
     <link href="https://westerndevs.com/_/matplotlib-cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/matplotlib-cheat-sheet/</id>
     <published>2021-10-22T04:00:00.000Z</published>
-    <updated>2022-03-18T16:31:46.205Z</updated>
+    <updated>2022-04-04T13:12:58.603Z</updated>
 	<author>
 	
 	  
@@ -365,7 +393,7 @@
     <link href="https://westerndevs.com/_/pandas-cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/pandas-cheat-sheet/</id>
     <published>2021-10-22T04:00:00.000Z</published>
-    <updated>2022-03-18T16:31:46.205Z</updated>
+    <updated>2022-04-04T13:12:58.603Z</updated>
 	<author>
 	
 	  
@@ -394,7 +422,7 @@
     <link href="https://westerndevs.com/_/serverless-offline-https/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/serverless-offline-https/</id>
     <published>2021-10-12T04:00:00.000Z</published>
-    <updated>2022-03-18T16:31:46.205Z</updated>
+    <updated>2022-04-04T13:12:58.607Z</updated>
 	<author>
 	
 	  
@@ -420,7 +448,7 @@
     <link href="https://westerndevs.com/_/azure-isolated-functions-config/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-isolated-functions-config/</id>
     <published>2021-10-05T04:00:00.000Z</published>
-    <updated>2022-03-18T16:31:46.201Z</updated>
+    <updated>2022-04-04T13:12:58.599Z</updated>
 	<author>
 	
 	  
@@ -446,7 +474,7 @@
     <link href="https://westerndevs.com/_/fibonacci/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/fibonacci/</id>
     <published>2021-10-05T04:00:00.000Z</published>
-    <updated>2022-03-18T16:31:46.201Z</updated>
+    <updated>2022-04-04T13:12:58.603Z</updated>
 	<author>
 	
 	  
@@ -472,7 +500,7 @@
     <link href="https://westerndevs.com/_/datatable-filtering/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/datatable-filtering/</id>
     <published>2021-09-17T04:00:00.000Z</published>
-    <updated>2022-03-18T16:31:46.201Z</updated>
+    <updated>2022-04-04T13:12:58.599Z</updated>
 	<author>
 	
 	  
@@ -498,7 +526,7 @@
     <link href="https://westerndevs.com/_/vsftpd/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/vsftpd/</id>
     <published>2021-09-08T04:00:00.000Z</published>
-    <updated>2022-03-18T16:31:46.209Z</updated>
+    <updated>2022-04-04T13:12:58.607Z</updated>
 	<author>
 	
 	  
@@ -513,32 +541,6 @@
     <summary type="html">
     
       &lt;p&gt;The 3.0.3 version of VSFTP seems to have an exploit against it so you should update to 3.0.5. However at the current time that has not be
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">SQL Mail</title>
-    <link href="https://westerndevs.com/_/enable-database-mail/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/enable-database-mail/</id>
-    <published>2021-08-31T04:00:00.000Z</published>
-    <updated>2022-03-18T16:31:46.201Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>Did you know you can hook up your SQL server (or Managed SQL on Azure) to an SMTP server and use it to send email. Terrible idea? Yes, probably. I really encourage people not to build business logic that might require creating an email into stored procs.  Required for legacy code? Yes, certainly.</p><p>You first need to tell SQL server how to talk to the mail server. This is done using the <code>sysmail_add_Account_sp</code></p><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">EXECUTE</span> msdb.dbo.sysmail_add_account_sp</span><br><span class="line">    <span class="variable">@account_name</span> = <span class="string">'Database Mail Account'</span>,</span><br><span class="line">    <span class="variable">@description</span> = <span class="string">'SQL Server Notification Service'</span>,</span><br><span class="line">    <span class="variable">@email_address</span> = <span class="string">'SQLServer<span class="variable">@somedomain</span>.com'</span>,</span><br><span class="line">    <span class="variable">@replyto_address</span> = <span class="string">'SQLServer<span class="variable">@somedomain</span>.com'</span>,</span><br><span class="line">    <span class="variable">@display_name</span> = <span class="string">'Database Mail Profile'</span>,</span><br><span class="line">    <span class="variable">@mailserver_name</span> = <span class="string">'smtp.office365.com'</span>,</span><br><span class="line">    <span class="variable">@port</span> = <span class="number">587</span>,</span><br><span class="line"><span class="variable">@username</span> = <span class="string">'SQLServer<span class="variable">@somedomain</span>.com'</span>,</span><br><span class="line"><span class="variable">@password</span> = <span class="string">'totallynotourpassword'</span>,</span><br><span class="line"><span class="variable">@enable_ssl</span> = <span class="number">1</span>;</span><br></pre></td></tr></table></figure><p>With that in place you can set up a mail profile to use it</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">SELECT @sequence_number = COALESCE(MAX(profile_id),1) <span class="keyword">FROM</span> msdb.dbo.sysmail_profile;</span><br><span class="line"></span><br><span class="line">-- Create a mail profile</span><br><span class="line">EXECUTE msdb.dbo.sysmail_add_profile_sp</span><br><span class="line">    @profile_name = <span class="string">'Database Mail Profile'</span>,</span><br><span class="line">    @description = <span class="string">'Sends email from the db'</span>;</span><br><span class="line">                              </span><br><span class="line">-- <span class="builtin-name">Add</span> the account <span class="keyword">to</span> the profile</span><br><span class="line">EXECUTE msdb.dbo.sysmail_add_profileaccount_sp</span><br><span class="line">    @profile_name = <span class="string">'Database Mail Profile'</span>,</span><br><span class="line">    @account_name = <span class="string">'Database Mail Account'</span>,</span><br><span class="line">    @sequence_number = @sequence_number;</span><br><span class="line">                              </span><br><span class="line">-- Grant access <span class="keyword">to</span> the<span class="built_in"> profile </span><span class="keyword">to</span> the DBMailUsers role</span><br><span class="line">EXECUTE msdb.dbo.sysmail_add_principalprofile_sp</span><br><span class="line">    @profile_name = <span class="string">'Database Mail Profile'</span>,</span><br><span class="line">    @principal_id = 0,</span><br><span class="line">    @is_default = 1 ;</span><br></pre></td></tr></table></figure><p>You can then make use of <code>sp_send_dbmail</code> to send email</p><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">EXEC</span> msdb.dbo.[sp_send_dbmail]</span><br><span class="line">    <span class="variable">@profile_name</span> = <span class="string">'Database Mail Profile'</span>,</span><br><span class="line">    <span class="variable">@recipients</span> = <span class="string">'simon.timms<span class="variable">@somedomain</span>.com'</span>,</span><br><span class="line">    <span class="variable">@subject</span> = <span class="string">'Testing db email'</span>,</span><br><span class="line">    <span class="variable">@body</span> = <span class="string">'Hello friend, I'</span>m testing the database mail<span class="string">'</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Did you know you can hook up your SQL server (or Managed SQL on Azure) to an SMTP server and use it to send email. Terrible idea? Yes, pr
     
     </summary>
     
