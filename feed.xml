@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2022-04-07T14:21:18.811Z</updated>
+  <updated>2022-04-07T14:41:14.172Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://westerndevs.com/_/azure-functions-error/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-functions-error/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2022-04-07T14:21:18.811Z</updated>
+    <updated>2022-04-07T14:41:14.172Z</updated>
 	<author>
 	
 	  
@@ -43,11 +43,37 @@
   </entry>
   
   <entry>
+    <title type="html">Which SQL Hosting Option is Right for Me?</title>
+    <link href="https://westerndevs.com/_/which-sql-server-edition/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/which-sql-server-edition/</id>
+    <published>2022-04-07T04:00:00.000Z</published>
+    <updated>2022-04-07T14:41:14.180Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>There are a bunch of different ways to host SQL Server workloads on Azure. Answering some questions about how you use SQL server can help guide us to picking the right option for you.</p><p>The 3 options for hosting we're considering are</p><ol><li>SQL Azure - https://azure.microsoft.com/en-us/products/azure-sql/database/#overview</li><li>Azure SQL Managed Instance - https://azure.microsoft.com/en-us/products/azure-sql/managed-instance/</li><li>SQL Server on VM - https://azure.microsoft.com/en-us/services/virtual-machines/sql-server/#overview</li></ol><p>I've listed these in my order of preference. I'd rather push people to a more managed solution than a less managed one. There is a huge shortage of SQL server skills out there so if you can take a more managed approach then you're less likely to run into problems that require you finding an SQL expert. I frequently say to companies that they're not in the business of managing SQL server but in the business of building whatever widgets they build. Unless there is a real need don't waste company resources building custom solutions when you can buy a 90% solution off the shelf.</p><p>When I talk with companies about migrating their existing workloads to the cloud from on premise SQL servers I find myself asking these questions:</p><ol><li>Does your solution use cross database joins?</li><li>Does your solution make use of the SQL Agent to run jobs?</li><li>Does your solution use FILESTREAM to access files on disk?</li><li>Does your solution require fine tuning of availability groups?</li><li>Does your solution require SQL logins from <code>CERTIFICATE</code>, <code>ASYMMETRIC KEY</code> or <code>SID</code>?</li><li>Do you need to make use of a compatibility level below 100?</li><li>Do you need to make use of database mirroring?</li><li>Does your solution need to start and stop job scheduling?</li><li>Are you making use of SQL Server Reporting Services (SSRS)?</li><li>Are you using xp_cmdshell anywhere in your application (https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql?view=sql-server-ver15)</li></ol><p>If the answer to any of the first 3 questions is <code>yes</code> then they can't easily use SQL Azure* and should set the baseline to a managed instance. If the answer to any of the rest of the questions is <code>yes</code> then they should set the baseline to a VM running a full on version of SQL Server. Only if the answer to all these questions is <code>no</code> is SQL Azure the best solution.</p><ul><li>Cross database joins and SQL Agent can be replaced by Elastic Query and Elastic Jobs but neither one is an easy drop in replacement so I typically don't bother directing people to them for time constrained migrations.</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;There are a bunch of different ways to host SQL Server workloads on Azure. Answering some questions about how you use SQL server can help
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Redis Cheat Sheet</title>
     <link href="https://westerndevs.com/_/cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cheat-sheet/</id>
     <published>2022-04-04T04:00:00.000Z</published>
-    <updated>2022-04-07T14:21:18.815Z</updated>
+    <updated>2022-04-07T14:41:14.172Z</updated>
 	<author>
 	
 	  
@@ -75,7 +101,7 @@
     <link href="https://westerndevs.com/_/rubocop-issue/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/rubocop-issue/</id>
     <published>2022-03-18T04:00:00.000Z</published>
-    <updated>2022-04-07T14:21:18.819Z</updated>
+    <updated>2022-04-07T14:41:14.176Z</updated>
 	<author>
 	
 	  
@@ -102,7 +128,7 @@
     <link href="https://westerndevs.com/_/fsevents-optional-dependencies/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/fsevents-optional-dependencies/</id>
     <published>2022-03-16T04:00:00.000Z</published>
-    <updated>2022-04-07T14:21:18.815Z</updated>
+    <updated>2022-04-07T14:41:14.172Z</updated>
 	<author>
 	
 	  
@@ -128,7 +154,7 @@
     <link href="https://westerndevs.com/_/backblaze-exclude-node-modules/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/backblaze-exclude-node-modules/</id>
     <published>2022-02-20T05:00:00.000Z</published>
-    <updated>2022-04-07T14:21:18.811Z</updated>
+    <updated>2022-04-07T14:41:14.172Z</updated>
 	<author>
 	
 	  
@@ -154,7 +180,7 @@
     <link href="https://westerndevs.com/_/parsing-vue-router-parameters/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/parsing-vue-router-parameters/</id>
     <published>2022-02-18T05:00:00.000Z</published>
-    <updated>2022-04-07T14:21:18.819Z</updated>
+    <updated>2022-04-07T14:41:14.176Z</updated>
 	<author>
 	
 	  
@@ -180,7 +206,7 @@
     <link href="https://westerndevs.com/_/install-azfileshybrid-powershell/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/install-azfileshybrid-powershell/</id>
     <published>2022-02-16T05:00:00.000Z</published>
-    <updated>2022-04-07T14:21:18.815Z</updated>
+    <updated>2022-04-07T14:41:14.172Z</updated>
 	<author>
 	
 	  
@@ -206,7 +232,7 @@
     <link href="https://westerndevs.com/_/purge-cdn-in-devops/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/purge-cdn-in-devops/</id>
     <published>2022-01-27T05:00:00.000Z</published>
-    <updated>2022-04-07T14:21:18.819Z</updated>
+    <updated>2022-04-07T14:41:14.176Z</updated>
 	<author>
 	
 	  
@@ -233,7 +259,7 @@
     <link href="https://westerndevs.com/_/hash-nil/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/hash-nil/</id>
     <published>2021-11-24T05:00:00.000Z</published>
-    <updated>2022-04-07T14:21:18.815Z</updated>
+    <updated>2022-04-07T14:41:14.172Z</updated>
 	<author>
 	
 	  
@@ -259,7 +285,7 @@
     <link href="https://westerndevs.com/_/choosing-power-bi/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/choosing-power-bi/</id>
     <published>2021-11-19T05:00:00.000Z</published>
-    <updated>2022-04-07T14:21:18.815Z</updated>
+    <updated>2022-04-07T14:41:14.172Z</updated>
 	<author>
 	
 	  
@@ -285,7 +311,7 @@
     <link href="https://westerndevs.com/_/app-services-on-vnet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/app-services-on-vnet/</id>
     <published>2021-11-14T05:00:00.000Z</published>
-    <updated>2022-04-07T14:21:18.811Z</updated>
+    <updated>2022-04-07T14:41:14.172Z</updated>
 	<author>
 	
 	  
@@ -311,7 +337,7 @@
     <link href="https://westerndevs.com/_/ngrok-aspnet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ngrok-aspnet/</id>
     <published>2021-10-25T04:00:00.000Z</published>
-    <updated>2022-04-07T14:21:18.819Z</updated>
+    <updated>2022-04-07T14:41:14.176Z</updated>
 	<author>
 	
 	  
@@ -338,7 +364,7 @@
     <link href="https://westerndevs.com/_/pandas-read-tsv/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/pandas-read-tsv/</id>
     <published>2021-10-25T04:00:00.000Z</published>
-    <updated>2022-04-07T14:21:18.819Z</updated>
+    <updated>2022-04-07T14:41:14.176Z</updated>
 	<author>
 	
 	  
@@ -365,7 +391,7 @@
     <link href="https://westerndevs.com/_/RLS-with-power-bi/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/RLS-with-power-bi/</id>
     <published>2021-10-22T04:00:00.000Z</published>
-    <updated>2022-04-07T14:21:18.811Z</updated>
+    <updated>2022-04-07T14:41:14.168Z</updated>
 	<author>
 	
 	  
@@ -391,7 +417,7 @@
     <link href="https://westerndevs.com/_/matplotlib-cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/matplotlib-cheat-sheet/</id>
     <published>2021-10-22T04:00:00.000Z</published>
-    <updated>2022-04-07T14:21:18.815Z</updated>
+    <updated>2022-04-07T14:41:14.172Z</updated>
 	<author>
 	
 	  
@@ -419,7 +445,7 @@
     <link href="https://westerndevs.com/_/pandas-cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/pandas-cheat-sheet/</id>
     <published>2021-10-22T04:00:00.000Z</published>
-    <updated>2022-04-07T14:21:18.819Z</updated>
+    <updated>2022-04-07T14:41:14.176Z</updated>
 	<author>
 	
 	  
@@ -448,7 +474,7 @@
     <link href="https://westerndevs.com/_/serverless-offline-https/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/serverless-offline-https/</id>
     <published>2021-10-12T04:00:00.000Z</published>
-    <updated>2022-04-07T14:21:18.819Z</updated>
+    <updated>2022-04-07T14:41:14.176Z</updated>
 	<author>
 	
 	  
@@ -474,7 +500,7 @@
     <link href="https://westerndevs.com/_/azure-isolated-functions-config/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-isolated-functions-config/</id>
     <published>2021-10-05T04:00:00.000Z</published>
-    <updated>2022-04-07T14:21:18.811Z</updated>
+    <updated>2022-04-07T14:41:14.172Z</updated>
 	<author>
 	
 	  
@@ -500,7 +526,7 @@
     <link href="https://westerndevs.com/_/fibonacci/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/fibonacci/</id>
     <published>2021-10-05T04:00:00.000Z</published>
-    <updated>2022-04-07T14:21:18.815Z</updated>
+    <updated>2022-04-07T14:41:14.172Z</updated>
 	<author>
 	
 	  
@@ -515,32 +541,6 @@
     <summary type="html">
     
       &lt;p&gt;A favorite programming test question is the Fibonacci sequence. This is defined as either &lt;code&gt;1 1 2 3 5...&lt;/code&gt; or &lt;code&gt;0 1 1 2 3 5.
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Filtering Datatables</title>
-    <link href="https://westerndevs.com/_/datatable-filtering/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/datatable-filtering/</id>
-    <published>2021-09-17T04:00:00.000Z</published>
-    <updated>2022-04-07T14:21:18.815Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>Years back there was this crazy way of dealing with data in .NET called a DataSet. DataSets contained DataTables which contained a combination of DataRows and DataColumns. It was all loosely typed and keyed with strings. Basically a database inside of your process. Even when they were cool I felt uncomfortable using them. Because I sometimes maintain legacy code I run into these monstrosities.</p><p>Today's problem was that I needed to filter the contents of a table before bulk loading it. You can actually do simple filtering using a quasi-SQL like</p><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">var</span> dataRows = existingDataTable.<span class="keyword">Select</span>(<span class="string">"UserName = 'simon'"</span>)</span><br></pre></td></tr></table></figure><p>This gives you back a collection of DataRows which I guess you could inset back into the table after clearing it of rows. To make this useful there is an extension method called <code>CopyToDataTable</code> in <code>System.Data.DataExtension</code> (be sure to include the dll for this). Using that you can get back a full data table</p><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">var</span> dataTable = existingDataTable.<span class="keyword">Select</span>(<span class="string">"UserName = 'simon'"</span>).CopyToDataTable();</span><br></pre></td></tr></table></figure><p>In that same package, though, is a much better tool for filtering: converting the table to an IEnumerable. You still need to use some magic strings but that's somewhat unavoidable in data tables.</p><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var dt = existingDataTable.<span class="constructor">AsEnumerable()</span></span><br><span class="line">                    .<span class="constructor">Where(<span class="params">r</span> =&gt; <span class="params">r</span>.Field&lt;String&gt;(<span class="string">"UserName"</span>)</span><span class="operator"> == </span><span class="string">"Simon"</span>).<span class="constructor">CopyToDataTable()</span>;</span><br></pre></td></tr></table></figure><p>You can also do more advanced things like checking to see if something is a GUID</p><figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dt = existingDataTable.AsEnumerable()</span><br><span class="line">                    .Where(<span class="function"><span class="params">r</span> =&gt;</span> <span class="built_in">Guid</span>.TryParse(r.Field&lt;String&gt;(<span class="string">"Id"</span>), out <span class="keyword">var</span> _)).CopyToDataTable();</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Years back there was this crazy way of dealing with data in .NET called a DataSet. DataSets contained DataTables which contained a combin
     
     </summary>
     
