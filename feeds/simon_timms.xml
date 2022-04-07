@@ -5,7 +5,7 @@
   <link href="/feeds/simon_timms" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2022-04-04T13:12:58.599Z</updated>
+  <updated>2022-04-07T14:21:18.811Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Azure Functions Provider Error</title>
+    <link href="https://westerndevs.com/_/azure-functions-error/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/azure-functions-error/</id>
+    <published>2022-04-07T04:00:00.000Z</published>
+    <updated>2022-04-07T14:21:18.811Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>I started up a previously working Azure functions project today that I hadn't touched in a week. It failed to start with an error like this</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A host <span class="builtin-name">error</span> has occurred during startup operation <span class="string">'b59ba8b8-f264-4274-a9eb-e17ba0e02ed8'</span>.</span><br><span class="line">api: Could <span class="keyword">not</span> load file <span class="keyword">or</span> assembly <span class="string">'Microsoft.Extensions.Options, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60'</span>. The<span class="built_in"> system </span>cannot <span class="builtin-name">find</span> the file specified.</span><br><span class="line">Value cannot be <span class="literal">null</span>. (Parameter <span class="string">'provider'</span>)</span><br></pre></td></tr></table></figure><p>This is the sort of error that terrifies me. Something is wrong but who knows what. No changes in git and an infinity of generic errors on google for <code>Could not load file or assembly</code>. Eventually after some digging it seems like I might be suffering from some corrupted tooling (some hints about that here: https://github.com/Azure/azure-functions-core-tools/issues/2232). I was able to fix mine by downloading the latest version of the tooling from https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=v4%2Cwindows%2Ccsharp%2Cportal%2Cbash</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;I started up a previously working Azure functions project today that I hadn&#39;t touched in a week. It failed to start with an error like th
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Redis Cheat Sheet</title>
     <link href="https://westerndevs.com/_/cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cheat-sheet/</id>
     <published>2022-04-04T04:00:00.000Z</published>
-    <updated>2022-04-04T13:12:58.599Z</updated>
+    <updated>2022-04-07T14:21:18.815Z</updated>
 	<author>
 	
 	  
@@ -49,7 +75,7 @@
     <link href="https://westerndevs.com/_/rubocop-issue/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/rubocop-issue/</id>
     <published>2022-03-18T04:00:00.000Z</published>
-    <updated>2022-04-04T13:12:58.603Z</updated>
+    <updated>2022-04-07T14:21:18.819Z</updated>
 	<author>
 	
 	  
@@ -76,7 +102,7 @@
     <link href="https://westerndevs.com/_/fsevents-optional-dependencies/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/fsevents-optional-dependencies/</id>
     <published>2022-03-16T04:00:00.000Z</published>
-    <updated>2022-04-04T13:12:58.603Z</updated>
+    <updated>2022-04-07T14:21:18.815Z</updated>
 	<author>
 	
 	  
@@ -102,7 +128,7 @@
     <link href="https://westerndevs.com/_/backblaze-exclude-node-modules/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/backblaze-exclude-node-modules/</id>
     <published>2022-02-20T05:00:00.000Z</published>
-    <updated>2022-04-04T13:12:58.599Z</updated>
+    <updated>2022-04-07T14:21:18.811Z</updated>
 	<author>
 	
 	  
@@ -128,7 +154,7 @@
     <link href="https://westerndevs.com/_/parsing-vue-router-parameters/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/parsing-vue-router-parameters/</id>
     <published>2022-02-18T05:00:00.000Z</published>
-    <updated>2022-04-04T13:12:58.603Z</updated>
+    <updated>2022-04-07T14:21:18.819Z</updated>
 	<author>
 	
 	  
@@ -154,7 +180,7 @@
     <link href="https://westerndevs.com/_/install-azfileshybrid-powershell/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/install-azfileshybrid-powershell/</id>
     <published>2022-02-16T05:00:00.000Z</published>
-    <updated>2022-04-04T13:12:58.603Z</updated>
+    <updated>2022-04-07T14:21:18.815Z</updated>
 	<author>
 	
 	  
@@ -180,7 +206,7 @@
     <link href="https://westerndevs.com/_/purge-cdn-in-devops/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/purge-cdn-in-devops/</id>
     <published>2022-01-27T05:00:00.000Z</published>
-    <updated>2022-04-04T13:12:58.603Z</updated>
+    <updated>2022-04-07T14:21:18.819Z</updated>
 	<author>
 	
 	  
@@ -207,7 +233,7 @@
     <link href="https://westerndevs.com/_/hash-nil/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/hash-nil/</id>
     <published>2021-11-24T05:00:00.000Z</published>
-    <updated>2022-04-04T13:12:58.603Z</updated>
+    <updated>2022-04-07T14:21:18.815Z</updated>
 	<author>
 	
 	  
@@ -233,7 +259,7 @@
     <link href="https://westerndevs.com/_/choosing-power-bi/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/choosing-power-bi/</id>
     <published>2021-11-19T05:00:00.000Z</published>
-    <updated>2022-04-04T13:12:58.599Z</updated>
+    <updated>2022-04-07T14:21:18.815Z</updated>
 	<author>
 	
 	  
@@ -259,7 +285,7 @@
     <link href="https://westerndevs.com/_/app-services-on-vnet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/app-services-on-vnet/</id>
     <published>2021-11-14T05:00:00.000Z</published>
-    <updated>2022-04-04T13:12:58.599Z</updated>
+    <updated>2022-04-07T14:21:18.811Z</updated>
 	<author>
 	
 	  
@@ -285,7 +311,7 @@
     <link href="https://westerndevs.com/_/ngrok-aspnet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ngrok-aspnet/</id>
     <published>2021-10-25T04:00:00.000Z</published>
-    <updated>2022-04-04T13:12:58.603Z</updated>
+    <updated>2022-04-07T14:21:18.819Z</updated>
 	<author>
 	
 	  
@@ -312,7 +338,7 @@
     <link href="https://westerndevs.com/_/pandas-read-tsv/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/pandas-read-tsv/</id>
     <published>2021-10-25T04:00:00.000Z</published>
-    <updated>2022-04-04T13:12:58.603Z</updated>
+    <updated>2022-04-07T14:21:18.819Z</updated>
 	<author>
 	
 	  
@@ -339,7 +365,7 @@
     <link href="https://westerndevs.com/_/RLS-with-power-bi/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/RLS-with-power-bi/</id>
     <published>2021-10-22T04:00:00.000Z</published>
-    <updated>2022-04-04T13:12:58.599Z</updated>
+    <updated>2022-04-07T14:21:18.811Z</updated>
 	<author>
 	
 	  
@@ -365,7 +391,7 @@
     <link href="https://westerndevs.com/_/matplotlib-cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/matplotlib-cheat-sheet/</id>
     <published>2021-10-22T04:00:00.000Z</published>
-    <updated>2022-04-04T13:12:58.603Z</updated>
+    <updated>2022-04-07T14:21:18.815Z</updated>
 	<author>
 	
 	  
@@ -393,7 +419,7 @@
     <link href="https://westerndevs.com/_/pandas-cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/pandas-cheat-sheet/</id>
     <published>2021-10-22T04:00:00.000Z</published>
-    <updated>2022-04-04T13:12:58.603Z</updated>
+    <updated>2022-04-07T14:21:18.819Z</updated>
 	<author>
 	
 	  
@@ -422,7 +448,7 @@
     <link href="https://westerndevs.com/_/serverless-offline-https/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/serverless-offline-https/</id>
     <published>2021-10-12T04:00:00.000Z</published>
-    <updated>2022-04-04T13:12:58.607Z</updated>
+    <updated>2022-04-07T14:21:18.819Z</updated>
 	<author>
 	
 	  
@@ -448,7 +474,7 @@
     <link href="https://westerndevs.com/_/azure-isolated-functions-config/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-isolated-functions-config/</id>
     <published>2021-10-05T04:00:00.000Z</published>
-    <updated>2022-04-04T13:12:58.599Z</updated>
+    <updated>2022-04-07T14:21:18.811Z</updated>
 	<author>
 	
 	  
@@ -474,7 +500,7 @@
     <link href="https://westerndevs.com/_/fibonacci/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/fibonacci/</id>
     <published>2021-10-05T04:00:00.000Z</published>
-    <updated>2022-04-04T13:12:58.603Z</updated>
+    <updated>2022-04-07T14:21:18.815Z</updated>
 	<author>
 	
 	  
@@ -500,7 +526,7 @@
     <link href="https://westerndevs.com/_/datatable-filtering/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/datatable-filtering/</id>
     <published>2021-09-17T04:00:00.000Z</published>
-    <updated>2022-04-04T13:12:58.599Z</updated>
+    <updated>2022-04-07T14:21:18.815Z</updated>
 	<author>
 	
 	  
@@ -515,32 +541,6 @@
     <summary type="html">
     
       &lt;p&gt;Years back there was this crazy way of dealing with data in .NET called a DataSet. DataSets contained DataTables which contained a combin
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Installing VSFTP from source</title>
-    <link href="https://westerndevs.com/_/vsftpd/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/vsftpd/</id>
-    <published>2021-09-08T04:00:00.000Z</published>
-    <updated>2022-04-04T13:12:58.607Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>The 3.0.3 version of VSFTP seems to have an exploit against it so you should update to 3.0.5. However at the current time that has not been released in Debian upstream so we get to compile it ourselves!</p><p>First get and decompress the source</p><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https:<span class="comment">//security.appspot.com/downloads/vsftpd-3.0.5.tar.gz</span></span><br><span class="line">tar xvf vsftpd<span class="number">-3.0</span><span class="number">.5</span>.tar.gz</span><br><span class="line">cd vsftpd<span class="number">-3.0</span><span class="number">.5</span></span><br></pre></td></tr></table></figure><p>Now you're going to need to edit the <code>builddefs.h</code> specifically you want to enable SSL with</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> VSF_BUILD_SSL</span></span><br></pre></td></tr></table></figure><p>You may need to install the open ssl headers</p><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt <span class="keyword">install</span> libssl-dev</span><br></pre></td></tr></table></figure><p>Next run a standard make/make install</p><figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">make</span></span><br><span class="line"><span class="built_in">make</span> install</span><br></pre></td></tr></table></figure><p>That should be it. If you're replacing an apt sourced vsftpd then remember to uninstall that and you will have to update the init.d script to point at the new one which is in <code>/usr/local/sbin</code> instead of <code>/usr/sbin</code>. You could also change the install prefix but I like <code>local</code> better.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;The 3.0.3 version of VSFTP seems to have an exploit against it so you should update to 3.0.5. However at the current time that has not be
     
     </summary>
     
