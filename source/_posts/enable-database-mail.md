@@ -12,7 +12,7 @@ Did you know you can hook up your SQL server (or Managed SQL on Azure) to an SMT
 
 You first need to tell SQL server how to talk to the mail server. This is done using the `sysmail_add_Account_sp`
 
-```
+```sql
 EXECUTE msdb.dbo.sysmail_add_account_sp
     @account_name = 'Database Mail Account',
     @description = 'SQL Server Notification Service',
@@ -28,7 +28,7 @@ EXECUTE msdb.dbo.sysmail_add_account_sp
 
 With that in place you can set up a mail profile to use it
 
-```
+```sql
 SELECT @sequence_number = COALESCE(MAX(profile_id),1) FROM msdb.dbo.sysmail_profile;
 
 -- Create a mail profile
@@ -51,10 +51,22 @@ EXECUTE msdb.dbo.sysmail_add_principalprofile_sp
 
 You can then make use of `sp_send_dbmail` to send email
 
-```
+```sql
 EXEC msdb.dbo.[sp_send_dbmail]
     @profile_name = 'Database Mail Profile',
     @recipients = 'simon.timms@somedomain.com',
     @subject = 'Testing db email',
-    @body = 'Hello friend, I'm testing the database mail'
+    @body = 'Hello friend, I''m testing the database mail'
+```
+
+You can check the status of the sent email by querying 
+
+```
+select * from msdb.dbo.sysmail_allitems
+```
+
+If things fail then checking the event log may be helpful 
+
+```
+select * from msdb.dbo.sysmail_event_log 
 ```
