@@ -5,7 +5,7 @@
   <link href="/feeds/simon_timms" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2022-05-18T22:02:19.078Z</updated>
+  <updated>2022-05-30T17:34:52.114Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Consuming SOAP Services in .NET Core</title>
+    <link href="https://westerndevs.com/_/consuming-wsdl/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/consuming-wsdl/</id>
+    <published>2022-05-30T04:00:00.000Z</published>
+    <updated>2022-05-30T17:34:52.114Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>Today I ran into the need to consume an older SOAP web service in .NET Core. I was really fortunate in my timing because Core WCF was just released and it makes the whole process much easier.</p><p>Taking a step back for you youngsters out there SOAP was the service communication technology that existed before REST showed up with its JSON and ate everybody's lunch. SOAP is really just the name for the transport mechanism but I think most of us would refer to the whole method of invoking remote procedures over the web as <code>SOAP Web Services</code>. SOAP, or Simple Object Access Protocol, is an XML-based standard for serializing objects from various different languages in a way that Java could talk to .NET could talk to Python. Unlike JSON it was a pretty well thought out protocol and had standard representations of things like dates which JSON just kind of ignores.</p><p>Web services were closer to a remote method invocation in that you would call something like <code>GetUserId</code> rather than the RESTful approach of hitting an endpoint like <code>/Users/7</code> to get a user with Id 7. The endpoints which were provided by a Web Service were usually written down in a big long XML document called a WSDL which stands for Web Service Definition Language.</p><p>Web services gained a reputation for being very enterprisy and complex. There were a large number of additional standards defined around it which are commonly known as ws-*. These include such things as WS-Discovery, WS-Security, WS-Policy and, my personal favorite, the memorably named Web Single Sign-On Metadata Exchange Protocol.</p><h2>Core WCF</h2><p>In the last month we've seen the 1.0 release of <a href="https://devblogs.microsoft.com/dotnet/corewcf-v1-released/" target="_blank" rel="noopener">Core WCF</a> which I'm pretty certain I mocked at being a silly thing in which to invest resources. Tables have turned now I'm the one who needs it so thank to <a href="https://twitter.com/coolcsh" target="_blank" rel="noopener">Scott Hunter</a> or whoever it was that allocated resources to developing this.</p><p>To get started I needed to find the WSDLs for the services I wanted. This required a call to the support department of the company providing the services. The had a .NET library they pointed me to but it was compiled against .NET 4.5 so I wanted to refresh it. Fortunately the Core WCF release includes an updated <code>svcutil</code>. This tool will read a WSDL and generate service stubs in .NET for you.</p><p>I started with a new console project</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dotnet new console</span><br></pre></td></tr></table></figure><p>Then installed the dotnet-svcutil tool globally (you only need to do this once) and generated a service reference</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dotnet tool install --global dotnet-svcutil</span><br><span class="line">dotnet-svcutil --roll-forward LatestMajor https://energydataservices.ihsenergy.com/services/v2/searchservice.svc</span><br></pre></td></tr></table></figure><p>This updated my project's csproj file to include a whole whack of new library references</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Project</span> <span class="attr">Sdk</span>=<span class="string">"Microsoft.NET.Sdk"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">PropertyGroup</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">OutputType</span>&gt;</span>Exe<span class="tag">&lt;/<span class="name">OutputType</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">TargetFramework</span>&gt;</span>net6.0<span class="tag">&lt;/<span class="name">TargetFramework</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">RootNamespace</span>&gt;</span>wsdl_test<span class="tag">&lt;/<span class="name">RootNamespace</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ImplicitUsings</span>&gt;</span>enable<span class="tag">&lt;/<span class="name">ImplicitUsings</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Nullable</span>&gt;</span>enable<span class="tag">&lt;/<span class="name">Nullable</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">PropertyGroup</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ItemGroup</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">DotNetCliToolReference</span> <span class="attr">Include</span>=<span class="string">"dotnet-svcutil"</span> <span class="attr">Version</span>=<span class="string">"1.0.*"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ItemGroup</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ItemGroup</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">PackageReference</span> <span class="attr">Include</span>=<span class="string">"CoreWCF.Http"</span> <span class="attr">Version</span>=<span class="string">"1.0.0"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">PackageReference</span> <span class="attr">Include</span>=<span class="string">"CoreWCF.Primitives"</span> <span class="attr">Version</span>=<span class="string">"1.0.0"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Reference</span> <span class="attr">Include</span>=<span class="string">"System.ServiceModel"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">HintPath</span>&gt;</span>System.ServiceModel<span class="tag">&lt;/<span class="name">HintPath</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Reference</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ItemGroup</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ItemGroup</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">PackageReference</span> <span class="attr">Include</span>=<span class="string">"System.ServiceModel.Duplex"</span> <span class="attr">Version</span>=<span class="string">"4.8.*"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">PackageReference</span> <span class="attr">Include</span>=<span class="string">"System.ServiceModel.Http"</span> <span class="attr">Version</span>=<span class="string">"4.8.*"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">PackageReference</span> <span class="attr">Include</span>=<span class="string">"System.ServiceModel.NetTcp"</span> <span class="attr">Version</span>=<span class="string">"4.8.*"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">PackageReference</span> <span class="attr">Include</span>=<span class="string">"System.ServiceModel.Security"</span> <span class="attr">Version</span>=<span class="string">"4.8.*"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ItemGroup</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Project</span>&gt;</span></span><br></pre></td></tr></table></figure><p>It also generated a 13 000 line long service reference file in the project. Wowzers. I'm glad I don't have to write that fellow myself.</p><p>With that all generated I'm now able to call methods in that service by just doing</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> ServiceReference;</span><br><span class="line"><span class="keyword">var</span> client = <span class="keyword">new</span> SearchServiceClient();</span><br><span class="line"><span class="keyword">var</span> result = <span class="keyword">await</span> client.SomeMethodAsync();</span><br></pre></td></tr></table></figure><p>This example really only scratches the surface of what the new Core WCF brings to .NET Core. I certainly wouldn't want to develop new WCF services but for consuming existing ones or even updating existing ones then this library is going to be a great boost to productivity.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Today I ran into the need to consume an older SOAP web service in .NET Core. I was really fortunate in my timing because Core WCF was jus
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Azure Functions Provider Error</title>
     <link href="https://westerndevs.com/_/azure-functions-error/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-functions-error/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2022-05-18T22:02:19.078Z</updated>
+    <updated>2022-05-30T17:34:52.114Z</updated>
 	<author>
 	
 	  
@@ -47,7 +73,7 @@
     <link href="https://westerndevs.com/_/which-sql-server-edition/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/which-sql-server-edition/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2022-05-18T22:02:19.090Z</updated>
+    <updated>2022-05-30T17:34:52.122Z</updated>
 	<author>
 	
 	  
@@ -73,7 +99,7 @@
     <link href="https://westerndevs.com/_/cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cheat-sheet/</id>
     <published>2022-04-04T04:00:00.000Z</published>
-    <updated>2022-05-18T22:02:19.082Z</updated>
+    <updated>2022-05-30T17:34:52.114Z</updated>
 	<author>
 	
 	  
@@ -101,7 +127,7 @@
     <link href="https://westerndevs.com/_/rubocop-issue/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/rubocop-issue/</id>
     <published>2022-03-18T04:00:00.000Z</published>
-    <updated>2022-05-18T22:02:19.086Z</updated>
+    <updated>2022-05-30T17:34:52.122Z</updated>
 	<author>
 	
 	  
@@ -128,7 +154,7 @@
     <link href="https://westerndevs.com/_/fsevents-optional-dependencies/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/fsevents-optional-dependencies/</id>
     <published>2022-03-16T04:00:00.000Z</published>
-    <updated>2022-05-18T22:02:19.082Z</updated>
+    <updated>2022-05-30T17:34:52.118Z</updated>
 	<author>
 	
 	  
@@ -154,7 +180,7 @@
     <link href="https://westerndevs.com/_/backblaze-exclude-node-modules/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/backblaze-exclude-node-modules/</id>
     <published>2022-02-20T05:00:00.000Z</published>
-    <updated>2022-05-18T22:02:19.078Z</updated>
+    <updated>2022-05-30T17:34:52.114Z</updated>
 	<author>
 	
 	  
@@ -180,7 +206,7 @@
     <link href="https://westerndevs.com/_/parsing-vue-router-parameters/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/parsing-vue-router-parameters/</id>
     <published>2022-02-18T05:00:00.000Z</published>
-    <updated>2022-05-18T22:02:19.086Z</updated>
+    <updated>2022-05-30T17:34:52.118Z</updated>
 	<author>
 	
 	  
@@ -206,7 +232,7 @@
     <link href="https://westerndevs.com/_/install-azfileshybrid-powershell/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/install-azfileshybrid-powershell/</id>
     <published>2022-02-16T05:00:00.000Z</published>
-    <updated>2022-05-18T22:02:19.082Z</updated>
+    <updated>2022-05-30T17:34:52.118Z</updated>
 	<author>
 	
 	  
@@ -232,7 +258,7 @@
     <link href="https://westerndevs.com/_/purge-cdn-in-devops/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/purge-cdn-in-devops/</id>
     <published>2022-01-27T05:00:00.000Z</published>
-    <updated>2022-05-18T22:02:19.086Z</updated>
+    <updated>2022-05-30T17:34:52.118Z</updated>
 	<author>
 	
 	  
@@ -259,7 +285,7 @@
     <link href="https://westerndevs.com/_/hash-nil/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/hash-nil/</id>
     <published>2021-11-24T05:00:00.000Z</published>
-    <updated>2022-05-18T22:02:19.082Z</updated>
+    <updated>2022-05-30T17:34:52.118Z</updated>
 	<author>
 	
 	  
@@ -285,7 +311,7 @@
     <link href="https://westerndevs.com/_/choosing-power-bi/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/choosing-power-bi/</id>
     <published>2021-11-19T05:00:00.000Z</published>
-    <updated>2022-05-18T22:02:19.082Z</updated>
+    <updated>2022-05-30T17:34:52.114Z</updated>
 	<author>
 	
 	  
@@ -311,7 +337,7 @@
     <link href="https://westerndevs.com/_/app-services-on-vnet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/app-services-on-vnet/</id>
     <published>2021-11-14T05:00:00.000Z</published>
-    <updated>2022-05-18T22:02:19.078Z</updated>
+    <updated>2022-05-30T17:34:52.114Z</updated>
 	<author>
 	
 	  
@@ -337,7 +363,7 @@
     <link href="https://westerndevs.com/_/ngrok-aspnet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ngrok-aspnet/</id>
     <published>2021-10-25T04:00:00.000Z</published>
-    <updated>2022-05-18T22:02:19.082Z</updated>
+    <updated>2022-05-30T17:34:52.118Z</updated>
 	<author>
 	
 	  
@@ -364,7 +390,7 @@
     <link href="https://westerndevs.com/_/pandas-read-tsv/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/pandas-read-tsv/</id>
     <published>2021-10-25T04:00:00.000Z</published>
-    <updated>2022-05-18T22:02:19.086Z</updated>
+    <updated>2022-05-30T17:34:52.118Z</updated>
 	<author>
 	
 	  
@@ -391,7 +417,7 @@
     <link href="https://westerndevs.com/_/RLS-with-power-bi/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/RLS-with-power-bi/</id>
     <published>2021-10-22T04:00:00.000Z</published>
-    <updated>2022-05-18T22:02:19.078Z</updated>
+    <updated>2022-05-30T17:34:52.114Z</updated>
 	<author>
 	
 	  
@@ -417,7 +443,7 @@
     <link href="https://westerndevs.com/_/matplotlib-cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/matplotlib-cheat-sheet/</id>
     <published>2021-10-22T04:00:00.000Z</published>
-    <updated>2022-05-18T22:02:19.082Z</updated>
+    <updated>2022-05-30T17:34:52.118Z</updated>
 	<author>
 	
 	  
@@ -445,7 +471,7 @@
     <link href="https://westerndevs.com/_/pandas-cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/pandas-cheat-sheet/</id>
     <published>2021-10-22T04:00:00.000Z</published>
-    <updated>2022-05-18T22:02:19.086Z</updated>
+    <updated>2022-05-30T17:34:52.118Z</updated>
 	<author>
 	
 	  
@@ -474,7 +500,7 @@
     <link href="https://westerndevs.com/_/serverless-offline-https/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/serverless-offline-https/</id>
     <published>2021-10-12T04:00:00.000Z</published>
-    <updated>2022-05-18T22:02:19.086Z</updated>
+    <updated>2022-05-30T17:34:52.122Z</updated>
 	<author>
 	
 	  
@@ -500,7 +526,7 @@
     <link href="https://westerndevs.com/_/azure-isolated-functions-config/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-isolated-functions-config/</id>
     <published>2021-10-05T04:00:00.000Z</published>
-    <updated>2022-05-18T22:02:19.078Z</updated>
+    <updated>2022-05-30T17:34:52.114Z</updated>
 	<author>
 	
 	  
@@ -515,32 +541,6 @@
     <summary type="html">
     
       &lt;p&gt;This is all done in the Program.cs. If you want to use the IOptions pattern which, let&#39;s face it, everybody does. Then you can start with
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Closed form Fibonacci</title>
-    <link href="https://westerndevs.com/_/fibonacci/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/fibonacci/</id>
-    <published>2021-10-05T04:00:00.000Z</published>
-    <updated>2022-05-18T22:02:19.082Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>A favorite programming test question is the Fibonacci sequence. This is defined as either <code>1 1 2 3 5...</code> or <code>0 1 1 2 3 5...</code> depending on what you feel fib of 0 is. In either case fibonacci is the sum of the two previous terms. So fib(10) = fib(9) + fib(8). The reason this is a programming test favorite is because it forces people to think about recursion and even memoization for performance.</p><p>There is however a shortcut for this and that is to use the closed form which uses the golden ratio. We have two interesting values called Phi and phi with the former being the golden ratio and the latter being a value observed in nature for leaf dispersions.</p><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Phi = (<span class="number">1</span> + root(<span class="number">5</span>))/<span class="number">2</span></span><br><span class="line">phi = (<span class="number">1</span>-root(<span class="number">5</span>))/<span class="number">2</span></span><br></pre></td></tr></table></figure><p>We can use this to create Binet's formula (Jacques Philippe Marie Binet was a French mathematician born in 1786, although this formula is named for him it was really discovered by fellow French mathematician Abraham do Moivre a century earlier)</p><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fib(<span class="built_in">n</span>) = (<span class="built_in">Phi</span>^<span class="built_in">n</span> - <span class="built_in">phi</span>^<span class="built_in">n</span>)/(<span class="built_in">Phi</span> - <span class="built_in">phi</span>)</span><br></pre></td></tr></table></figure><p>In code we can do the following to generate all the fib numbers up to n</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">double</span> Phi = (<span class="number">1</span> + Math.Pow(<span class="number">5</span>,<span class="number">.5</span>))/<span class="number">2</span>;</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">double</span> phi = (<span class="number">1</span> - Math.Pow(<span class="number">5</span>,<span class="number">.5</span>))/<span class="number">2</span>;</span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">ulong</span>[] <span class="title">generateFibonaccisClosed</span>(<span class="params"><span class="keyword">int</span> n</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">ulong</span>[] fib = <span class="keyword">new</span> <span class="keyword">ulong</span>[n];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        fib[i] = (<span class="keyword">ulong</span>)((Math.Pow(Phi, i)-Math.Pow(phi, i))/(Phi - phi));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> fib;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>The advantage here is that the closed form is constant time, constant memory and uses only about 3 64-bit values (fewer if you calculate phi and Phi as you go). It's certainly a lot of fun to break out in a programming test.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;A favorite programming test question is the Fibonacci sequence. This is defined as either &lt;code&gt;1 1 2 3 5...&lt;/code&gt; or &lt;code&gt;0 1 1 2 3 5.
     
     </summary>
     
