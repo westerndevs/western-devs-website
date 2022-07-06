@@ -58,7 +58,9 @@ This functionality is designed to provide high level filters for data. A lot of 
 
 ![](/images/2021-10-22-RLS_with_power_bi.md/2021-10-22-15-59-46.png))
 
-This is a simplistic and somewhat tiresome approach to adding a role mapping. What if a new region like `SouthEast` is introduced? What isn't, perhaps, as clear is that DAX expression can contain dynamic functions like `UserName()` which make filtering more powerful. 
+This is a simplistic and somewhat tiresome approach to adding a role mapping. What if a new region like `SouthEast` is introduced? What isn't, perhaps, as clear is that DAX expression can contain dynamic functions like `UserName()` which make filtering more powerful. This `UserName()` will be bound to the effective identity passed in
+
+![](/images/2022-07-06-RLS_with_power_bi.md/2022-07-06-07-11-52.png))
 
 What I settled on for my filtering was to have a single role which I enforce at the embedded token generation level and then filter my data by the UserName() which I also set at the embedded token level. Because these are set at the embedded token generation time which occurs on the server I can be confident that I'm not providing a way for somebody to view data they shouldn't. 
 
@@ -72,7 +74,7 @@ var tokenRequest = new GenerateTokenRequestV2(
                     },
                     datasets: new List<GenerateTokenRequestV2Dataset> { new GenerateTokenRequestV2Dataset(report.DatasetId) },
                     identities: new List<EffectiveIdentity> { new EffectiveIdentity(user.ContactId.ToString(),
-                                                                roles: new List<string> { "ContactId" },
+                                                                roles: new List<string> { "Users" },
                                                                 datasets: new List<String>{report.DatasetId })
                     }
                 );
