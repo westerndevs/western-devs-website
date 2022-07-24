@@ -5,7 +5,7 @@
   <link href="/feeds/dave_paquette" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2022-07-06T13:53:44.997Z</updated>
+  <updated>2022-07-24T22:48:42.102Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://westerndevs.com/Azure/Azure-Functions/scaling-azure-functions-from-consumption-plan-to-premium-hosting-plan/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Azure/Azure-Functions/scaling-azure-functions-from-consumption-plan-to-premium-hosting-plan/</id>
     <published>2020-05-23T16:30:00.000Z</published>
-    <updated>2022-07-06T13:53:44.997Z</updated>
+    <updated>2022-07-24T22:48:42.102Z</updated>
 	<author>
 	
 	  
@@ -59,7 +59,7 @@
     <link href="https://westerndevs.com/Azure/deploying-a-static-site-to-azure-using-the-az-cli/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Azure/deploying-a-static-site-to-azure-using-the-az-cli/</id>
     <published>2020-05-10T22:30:00.000Z</published>
-    <updated>2022-07-06T13:53:44.993Z</updated>
+    <updated>2022-07-24T22:48:42.102Z</updated>
 	<author>
 	
 	  
@@ -93,7 +93,7 @@
     <link href="https://westerndevs.com/Application-Insights/enhancing-application-insights-request-telemetry/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Application-Insights/enhancing-application-insights-request-telemetry/</id>
     <published>2020-03-08T00:24:26.000Z</published>
-    <updated>2022-07-06T13:53:44.993Z</updated>
+    <updated>2022-07-24T22:48:42.102Z</updated>
 	<author>
 	
 	  
@@ -129,7 +129,7 @@
     <link href="https://westerndevs.com/Application-Insights/setting-cloud-role-name-in-application-insights/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Application-Insights/setting-cloud-role-name-in-application-insights/</id>
     <published>2020-02-06T00:59:38.000Z</published>
-    <updated>2022-07-06T13:53:44.993Z</updated>
+    <updated>2022-07-24T22:48:42.102Z</updated>
 	<author>
 	
 	  
@@ -165,7 +165,7 @@
     <link href="https://westerndevs.com/Application-Insights/getting-the-most-out-of-application-insights-for-net-core-apps/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Application-Insights/getting-the-most-out-of-application-insights-for-net-core-apps/</id>
     <published>2020-01-20T16:50:18.000Z</published>
-    <updated>2022-07-06T13:53:44.993Z</updated>
+    <updated>2022-07-24T22:48:42.102Z</updated>
 	<author>
 	
 	  
@@ -201,7 +201,7 @@
     <link href="https://westerndevs.com/Dapper/using-noda-time-with-dapper/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Dapper/using-noda-time-with-dapper/</id>
     <published>2019-03-28T00:00:00.000Z</published>
-    <updated>2022-07-06T13:53:44.993Z</updated>
+    <updated>2022-07-24T22:48:42.102Z</updated>
 	<author>
 	
 	  
@@ -239,7 +239,7 @@
     <link href="https://westerndevs.com/Entity-Framework-Core/using-noda-time-with-ef-core/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Entity-Framework-Core/using-noda-time-with-ef-core/</id>
     <published>2019-03-26T11:00:00.000Z</published>
-    <updated>2022-07-06T13:53:44.993Z</updated>
+    <updated>2022-07-24T22:48:42.102Z</updated>
 	<author>
 	
 	  
@@ -271,7 +271,7 @@
     <link href="https://westerndevs.com/Dapper/optimistic-concurrency-tracking-with-dapper-and-sql-server/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Dapper/optimistic-concurrency-tracking-with-dapper-and-sql-server/</id>
     <published>2019-03-20T13:45:36.000Z</published>
-    <updated>2022-07-06T13:53:44.993Z</updated>
+    <updated>2022-07-24T22:48:42.102Z</updated>
 	<author>
 	
 	  
@@ -307,7 +307,7 @@
     <link href="https://westerndevs.com/Dapper/managing-transactions-in-dapper/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Dapper/managing-transactions-in-dapper/</id>
     <published>2019-02-06T12:00:00.000Z</published>
-    <updated>2022-07-06T13:53:44.993Z</updated>
+    <updated>2022-07-24T22:48:42.098Z</updated>
 	<author>
 	
 	  
@@ -343,7 +343,7 @@
     <link href="https://westerndevs.com/Dapper/basic-insert-update-delete-with-dapper/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Dapper/basic-insert-update-delete-with-dapper/</id>
     <published>2019-02-04T12:00:00.000Z</published>
-    <updated>2022-07-06T13:53:44.993Z</updated>
+    <updated>2022-07-24T22:48:42.098Z</updated>
 	<author>
 	
 	  
@@ -379,7 +379,7 @@
     <link href="https://westerndevs.com/Dapper/paging-large-result-sets-with-dapper-and-sql-server/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Dapper/paging-large-result-sets-with-dapper-and-sql-server/</id>
     <published>2019-01-29T01:15:42.000Z</published>
-    <updated>2022-07-06T13:53:44.993Z</updated>
+    <updated>2022-07-24T22:48:42.098Z</updated>
 	<author>
 	
 	  
@@ -415,7 +415,7 @@
     <link href="https://westerndevs.com/ASP-NET/Vue-js/using-vue-as-a-drop-in-replacement-for-knockout-in-an-MVC-project/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/ASP-NET/Vue-js/using-vue-as-a-drop-in-replacement-for-knockout-in-an-MVC-project/</id>
     <published>2019-01-21T11:57:12.000Z</published>
-    <updated>2022-07-06T13:53:44.993Z</updated>
+    <updated>2022-07-24T22:48:42.098Z</updated>
 	<author>
 	
 	  
@@ -457,7 +457,7 @@
     <link href="https://westerndevs.com/Azure/installing-an-azure-web-app-site-extension-with-powershell/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Azure/installing-an-azure-web-app-site-extension-with-powershell/</id>
     <published>2018-11-14T00:43:50.000Z</published>
-    <updated>2022-07-06T13:53:44.993Z</updated>
+    <updated>2022-07-24T22:48:42.098Z</updated>
 	<author>
 	
 	  
@@ -495,7 +495,7 @@
     <link href="https://westerndevs.com/Dapper/loading-related-entities-many-to-one-part-2/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Dapper/loading-related-entities-many-to-one-part-2/</id>
     <published>2018-04-10T22:04:42.000Z</published>
-    <updated>2022-07-06T13:53:44.993Z</updated>
+    <updated>2022-07-24T22:48:42.098Z</updated>
 	<author>
 	
 	  
@@ -531,7 +531,7 @@
     <link href="https://westerndevs.com/Dapper/loading-related-entities-many-to-one/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Dapper/loading-related-entities-many-to-one/</id>
     <published>2018-02-07T05:00:00.000Z</published>
-    <updated>2022-07-06T13:53:44.993Z</updated>
+    <updated>2022-07-24T22:48:42.098Z</updated>
 	<author>
 	
 	  
@@ -567,7 +567,7 @@
     <link href="https://westerndevs.com/Dapper/using-stored-procedures-to-load-data-with-dapper/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Dapper/using-stored-procedures-to-load-data-with-dapper/</id>
     <published>2018-01-29T01:00:01.000Z</published>
-    <updated>2022-07-06T13:53:44.989Z</updated>
+    <updated>2022-07-24T22:48:42.098Z</updated>
 	<author>
 	
 	  
@@ -603,7 +603,7 @@
     <link href="https://westerndevs.com/Dapper/loading-an-object-graph-with-dapper/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Dapper/loading-an-object-graph-with-dapper/</id>
     <published>2018-01-23T02:30:00.000Z</published>
-    <updated>2022-07-06T13:53:44.989Z</updated>
+    <updated>2022-07-24T22:48:42.098Z</updated>
 	<author>
 	
 	  
@@ -639,7 +639,7 @@
     <link href="https://westerndevs.com/ASP-NET-Core/Tag-Helpers/authorize-resource-tag-helper/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/ASP-NET-Core/Tag-Helpers/authorize-resource-tag-helper/</id>
     <published>2017-11-29T01:30:00.000Z</published>
-    <updated>2022-07-06T13:53:44.989Z</updated>
+    <updated>2022-07-24T22:48:42.098Z</updated>
 	<author>
 	
 	  
@@ -677,7 +677,7 @@
     <link href="https://westerndevs.com/ASP-NET-Core/Tag-Helpers/authorize-tag-helper/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/ASP-NET-Core/Tag-Helpers/authorize-tag-helper/</id>
     <published>2017-11-05T19:38:30.000Z</published>
-    <updated>2022-07-06T13:53:44.989Z</updated>
+    <updated>2022-07-24T22:48:42.098Z</updated>
 	<author>
 	
 	  
@@ -715,7 +715,7 @@
     <link href="https://westerndevs.com/Development/integration-testing-with-entity-framework-core-and-sql-server/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Development/integration-testing-with-entity-framework-core-and-sql-server/</id>
     <published>2016-11-27T22:00:00.000Z</published>
-    <updated>2022-07-06T13:53:44.989Z</updated>
+    <updated>2022-07-24T22:48:42.094Z</updated>
 	<author>
 	
 	  
