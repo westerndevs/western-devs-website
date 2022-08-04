@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Debugging Azure Container Instance Startup | Western Devs</title>
+  <meta name="description" content="I have some container instances which are failing to start up properly and the logs in the portal are blank. This makes debugging them kind of difficult. On the command line running 1az container logs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Debugging Azure Container Instance Startup">
+<meta property="og:url" content="https://westerndevs.com/_/debug-azure-container-instances-startup/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="I have some container instances which are failing to start up properly and the logs in the portal are blank. This makes debugging them kind of difficult. On the command line running 1az container logs">
+<meta property="article:published_time" content="2022-08-04T04:00:00.000Z">
+<meta property="article:modified_time" content="2022-08-04T13:42:02.745Z">
+<meta property="article:author" content="Western Devs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="canonical" href="https://blog.simontimms.com/2022/08/04/debug_azure_container_instances_startup">
+  
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">AUG</div>
+    <div class="ListLrgDateDay">4</div>
+    <div class="ListLrgDateYear">2022</div>
+  </div>
+  <h2>Debugging Azure Container Instance Startup</h2>
+</div>
+
+		    
+
+<p class="TXTsm">ORIGINALLY POSTED TO: <a href="https://blog.simontimms.com/2022/08/04/debug_azure_container_instances_startup" target="_blank" rel="noopener" class='originalurl'>https://blog.simontimms.com/2022/08/04/debug_azure_container_instances_startup</a></p>
+
+
+
+			<div id="mainPostContent">
+	        <p>I have some container instances which are failing to start up properly and the logs in the portal are blank. This makes debugging them kind of difficult.</p>
+<p>On the command line running</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">az container logs -g &lt;resource group name&gt; -n &lt;container group name&gt; --container &lt;container name&gt;</span><br></pre></td></tr></table></figure>
+<p>Just gave me an output of <code>None</code>. Not useful either.</p>
+<p>Fortunately, you can attach directly to the logs streams coming out of the container which will give you a better idea of what is going on.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">az container attach -g &lt;resource group name&gt; -n &lt;container group name&gt; --container &lt;container name&gt;</span><br></pre></td></tr></table></figure>
+<p>This was able to give me output like</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Start</span> streaming <span class="keyword">logs</span>:</span><br><span class="line">/usr/<span class="keyword">local</span>/lib/python3<span class="number">.9</span>/site-packages/environ/environ.py:<span class="number">628</span>: UserWarning: /ric-api/core/.env doesn<span class="string">'t exist - if you'</span>re <span class="keyword">not</span> configuring your environment separately, <span class="keyword">create</span> one.</span><br><span class="line">  warnings.warn(</span><br><span class="line">Traceback (most recent <span class="keyword">call</span> <span class="keyword">last</span>):</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/usr/local/lib/python3.9/site-packages/environ/environ.py"</span>, line <span class="number">273</span>, <span class="keyword">in</span> get_value</span><br><span class="line">    <span class="keyword">value</span> = self.ENVIRON[<span class="keyword">var</span>]</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/usr/local/lib/python3.9/os.py"</span>, line <span class="number">679</span>, <span class="keyword">in</span> __getitem__</span><br><span class="line">    <span class="keyword">raise</span> KeyError(<span class="keyword">key</span>) <span class="keyword">from</span> <span class="keyword">None</span></span><br><span class="line">KeyError: <span class="string">'DB_PORT'</span></span><br><span class="line"></span><br><span class="line">During handling <span class="keyword">of</span> the above <span class="keyword">exception</span>, another <span class="keyword">exception</span> occurred:</span><br><span class="line"></span><br><span class="line">Traceback (most recent <span class="keyword">call</span> <span class="keyword">last</span>):</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/ric-api/manage.py"</span>, line <span class="number">22</span>, <span class="keyword">in</span> &lt;<span class="keyword">module</span>&gt;</span><br><span class="line">    <span class="keyword">main</span>()</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/ric-api/manage.py"</span>, line <span class="number">18</span>, <span class="keyword">in</span> <span class="keyword">main</span></span><br><span class="line">    execute_from_command_line(sys.argv)</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/usr/local/lib/python3.9/site-packages/django/core/management/__init__.py"</span>, line <span class="number">419</span>, <span class="keyword">in</span> execute_from_command_line</span><br><span class="line">    utility.execute()</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/usr/local/lib/python3.9/site-packages/django/core/management/__init__.py"</span>, line <span class="number">413</span>, <span class="keyword">in</span> <span class="keyword">execute</span></span><br><span class="line">    self.fetch_command(subcommand).run_from_argv(self.argv)</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/usr/local/lib/python3.9/site-packages/django/core/management/base.py"</span>, line <span class="number">354</span>, <span class="keyword">in</span> run_from_argv</span><br><span class="line">    self.execute(*args, **cmd_options)</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/usr/local/lib/python3.9/site-packages/django/core/management/commands/runserver.py"</span>, line <span class="number">61</span>, <span class="keyword">in</span> <span class="keyword">execute</span></span><br><span class="line">    super().execute(*args, **options)</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/usr/local/lib/python3.9/site-packages/django/core/management/base.py"</span>, line <span class="number">398</span>, <span class="keyword">in</span> <span class="keyword">execute</span></span><br><span class="line">    <span class="keyword">output</span> = self.handle(*args, **options)</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/usr/local/lib/python3.9/site-packages/django/core/management/commands/runserver.py"</span>, line <span class="number">68</span>, <span class="keyword">in</span> handle</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> settings.DEBUG <span class="keyword">and</span> <span class="keyword">not</span> settings.ALLOWED_HOSTS:</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/usr/local/lib/python3.9/site-packages/django/conf/__init__.py"</span>, line <span class="number">82</span>, <span class="keyword">in</span> __getattr__</span><br><span class="line">    self._setup(<span class="keyword">name</span>)</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/usr/local/lib/python3.9/site-packages/django/conf/__init__.py"</span>, line <span class="number">69</span>, <span class="keyword">in</span> _setup</span><br><span class="line">    self._wrapped = <span class="keyword">Settings</span>(settings_module)</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/usr/local/lib/python3.9/site-packages/django/conf/__init__.py"</span>, line <span class="number">170</span>, <span class="keyword">in</span> __init__</span><br><span class="line">    <span class="keyword">mod</span> = importlib.import_module(self.SETTINGS_MODULE)</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/usr/local/lib/python3.9/importlib/__init__.py"</span>, line <span class="number">127</span>, <span class="keyword">in</span> import_module</span><br><span class="line">    <span class="keyword">return</span> _bootstrap._gcd_import(<span class="keyword">name</span>[<span class="keyword">level</span>:], <span class="keyword">package</span>, <span class="keyword">level</span>)</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"&lt;frozen importlib._bootstrap&gt;"</span>, line <span class="number">1030</span>, <span class="keyword">in</span> _gcd_import</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"&lt;frozen importlib._bootstrap&gt;"</span>, line <span class="number">1007</span>, <span class="keyword">in</span> _find_and_load</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"&lt;frozen importlib._bootstrap&gt;"</span>, line <span class="number">986</span>, <span class="keyword">in</span> _find_and_load_unlocked</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"&lt;frozen importlib._bootstrap&gt;"</span>, line <span class="number">680</span>, <span class="keyword">in</span> _load_unlocked</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"&lt;frozen importlib._bootstrap_external&gt;"</span>, line <span class="number">850</span>, <span class="keyword">in</span> exec_module</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"&lt;frozen importlib._bootstrap&gt;"</span>, line <span class="number">228</span>, <span class="keyword">in</span> _call_with_frames_removed</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/ric-api/core/settings.py"</span>, line <span class="number">114</span>, <span class="keyword">in</span> &lt;<span class="keyword">module</span>&gt;</span><br><span class="line">    <span class="string">'PORT'</span>: env(<span class="string">'DB_PORT'</span>),</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/usr/local/lib/python3.9/site-packages/environ/environ.py"</span>, line <span class="number">123</span>, <span class="keyword">in</span> __call__</span><br><span class="line">    <span class="keyword">return</span> self.get_value(<span class="keyword">var</span>, <span class="keyword">cast</span>=<span class="keyword">cast</span>, <span class="keyword">default</span>=<span class="keyword">default</span>, parse_default=parse_default)</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/usr/local/lib/python3.9/site-packages/environ/environ.py"</span>, line <span class="number">277</span>, <span class="keyword">in</span> get_value</span><br><span class="line">    <span class="keyword">raise</span> ImproperlyConfigured(error_msg)</span><br><span class="line">django.core.exceptions.ImproperlyConfigured: <span class="keyword">Set</span> the DB_PORT environment <span class="keyword">variable</span></span><br><span class="line"><span class="number">2022</span><span class="number">-07</span><span class="number">-14</span>T14:<span class="number">37</span>:<span class="number">17.6003172</span>Z stderr F</span><br><span class="line"></span><br><span class="line"><span class="keyword">Exception</span> <span class="keyword">in</span> <span class="keyword">thread</span> <span class="keyword">Thread</span><span class="number">-1</span>:</span><br><span class="line">Traceback (most recent <span class="keyword">call</span> <span class="keyword">last</span>):</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"threading.py"</span>, line <span class="number">932</span>, <span class="keyword">in</span> _bootstrap_inner</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"threading.py"</span>, line <span class="number">870</span>, <span class="keyword">in</span> run</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"D:\a\1\s\build_scripts\windows\artifacts\cli\Lib\site-packages\azure/cli/command_modules/container/custom.py"</span>, line <span class="number">837</span>, <span class="keyword">in</span> _stream_container_events_and_logs</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"D:\a\1\s\build_scripts\windows\artifacts\cli\Lib\site-packages\azure/cli/command_modules/container/custom.py"</span>, line <span class="number">791</span>, <span class="keyword">in</span> _stream_logs</span><br><span class="line">AttributeError: <span class="string">'NoneType'</span> <span class="keyword">object</span> has <span class="keyword">no</span> <span class="keyword">attribute</span> <span class="string">'split'</span></span><br></pre></td></tr></table></figure>
+<p>Looks like I missed adding a <code>DB_PORT</code> to the environmental variables</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/simon_timms">
+				
+					<img src='/images/avatars/simon.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/simon_timms">Simon Timms</a></h2>
+			
+			<a href="mailto:stimms@gmail.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://blog.simontimms.com/" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/stimms" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/stimms" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			
+ 			<a href="/feeds/simon_timms.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/_/debug-azure-container-instances-startup/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'simon_timms');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

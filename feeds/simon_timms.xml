@@ -5,7 +5,7 @@
   <link href="/feeds/simon_timms" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2022-07-24T22:48:42.106Z</updated>
+  <updated>2022-08-04T13:42:02.745Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Debugging Azure Container Instance Startup</title>
+    <link href="https://westerndevs.com/_/debug-azure-container-instances-startup/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/debug-azure-container-instances-startup/</id>
+    <published>2022-08-04T04:00:00.000Z</published>
+    <updated>2022-08-04T13:42:02.745Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>I have some container instances which are failing to start up properly and the logs in the portal are blank. This makes debugging them kind of difficult.</p><p>On the command line running</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">az container logs -g &lt;resource group name&gt; -n &lt;container group name&gt; --container &lt;container name&gt;</span><br></pre></td></tr></table></figure><p>Just gave me an output of <code>None</code>. Not useful either.</p><p>Fortunately, you can attach directly to the logs streams coming out of the container which will give you a better idea of what is going on.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">az container attach -g &lt;resource group name&gt; -n &lt;container group name&gt; --container &lt;container name&gt;</span><br></pre></td></tr></table></figure><p>This was able to give me output like</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Start</span> streaming <span class="keyword">logs</span>:</span><br><span class="line">/usr/<span class="keyword">local</span>/lib/python3<span class="number">.9</span>/site-packages/environ/environ.py:<span class="number">628</span>: UserWarning: /ric-api/core/.env doesn<span class="string">'t exist - if you'</span>re <span class="keyword">not</span> configuring your environment separately, <span class="keyword">create</span> one.</span><br><span class="line">  warnings.warn(</span><br><span class="line">Traceback (most recent <span class="keyword">call</span> <span class="keyword">last</span>):</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/usr/local/lib/python3.9/site-packages/environ/environ.py"</span>, line <span class="number">273</span>, <span class="keyword">in</span> get_value</span><br><span class="line">    <span class="keyword">value</span> = self.ENVIRON[<span class="keyword">var</span>]</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/usr/local/lib/python3.9/os.py"</span>, line <span class="number">679</span>, <span class="keyword">in</span> __getitem__</span><br><span class="line">    <span class="keyword">raise</span> KeyError(<span class="keyword">key</span>) <span class="keyword">from</span> <span class="keyword">None</span></span><br><span class="line">KeyError: <span class="string">'DB_PORT'</span></span><br><span class="line"></span><br><span class="line">During handling <span class="keyword">of</span> the above <span class="keyword">exception</span>, another <span class="keyword">exception</span> occurred:</span><br><span class="line"></span><br><span class="line">Traceback (most recent <span class="keyword">call</span> <span class="keyword">last</span>):</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/ric-api/manage.py"</span>, line <span class="number">22</span>, <span class="keyword">in</span> &lt;<span class="keyword">module</span>&gt;</span><br><span class="line">    <span class="keyword">main</span>()</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/ric-api/manage.py"</span>, line <span class="number">18</span>, <span class="keyword">in</span> <span class="keyword">main</span></span><br><span class="line">    execute_from_command_line(sys.argv)</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/usr/local/lib/python3.9/site-packages/django/core/management/__init__.py"</span>, line <span class="number">419</span>, <span class="keyword">in</span> execute_from_command_line</span><br><span class="line">    utility.execute()</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/usr/local/lib/python3.9/site-packages/django/core/management/__init__.py"</span>, line <span class="number">413</span>, <span class="keyword">in</span> <span class="keyword">execute</span></span><br><span class="line">    self.fetch_command(subcommand).run_from_argv(self.argv)</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/usr/local/lib/python3.9/site-packages/django/core/management/base.py"</span>, line <span class="number">354</span>, <span class="keyword">in</span> run_from_argv</span><br><span class="line">    self.execute(*args, **cmd_options)</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/usr/local/lib/python3.9/site-packages/django/core/management/commands/runserver.py"</span>, line <span class="number">61</span>, <span class="keyword">in</span> <span class="keyword">execute</span></span><br><span class="line">    super().execute(*args, **options)</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/usr/local/lib/python3.9/site-packages/django/core/management/base.py"</span>, line <span class="number">398</span>, <span class="keyword">in</span> <span class="keyword">execute</span></span><br><span class="line">    <span class="keyword">output</span> = self.handle(*args, **options)</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/usr/local/lib/python3.9/site-packages/django/core/management/commands/runserver.py"</span>, line <span class="number">68</span>, <span class="keyword">in</span> handle</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> settings.DEBUG <span class="keyword">and</span> <span class="keyword">not</span> settings.ALLOWED_HOSTS:</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/usr/local/lib/python3.9/site-packages/django/conf/__init__.py"</span>, line <span class="number">82</span>, <span class="keyword">in</span> __getattr__</span><br><span class="line">    self._setup(<span class="keyword">name</span>)</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/usr/local/lib/python3.9/site-packages/django/conf/__init__.py"</span>, line <span class="number">69</span>, <span class="keyword">in</span> _setup</span><br><span class="line">    self._wrapped = <span class="keyword">Settings</span>(settings_module)</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/usr/local/lib/python3.9/site-packages/django/conf/__init__.py"</span>, line <span class="number">170</span>, <span class="keyword">in</span> __init__</span><br><span class="line">    <span class="keyword">mod</span> = importlib.import_module(self.SETTINGS_MODULE)</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/usr/local/lib/python3.9/importlib/__init__.py"</span>, line <span class="number">127</span>, <span class="keyword">in</span> import_module</span><br><span class="line">    <span class="keyword">return</span> _bootstrap._gcd_import(<span class="keyword">name</span>[<span class="keyword">level</span>:], <span class="keyword">package</span>, <span class="keyword">level</span>)</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"&lt;frozen importlib._bootstrap&gt;"</span>, line <span class="number">1030</span>, <span class="keyword">in</span> _gcd_import</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"&lt;frozen importlib._bootstrap&gt;"</span>, line <span class="number">1007</span>, <span class="keyword">in</span> _find_and_load</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"&lt;frozen importlib._bootstrap&gt;"</span>, line <span class="number">986</span>, <span class="keyword">in</span> _find_and_load_unlocked</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"&lt;frozen importlib._bootstrap&gt;"</span>, line <span class="number">680</span>, <span class="keyword">in</span> _load_unlocked</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"&lt;frozen importlib._bootstrap_external&gt;"</span>, line <span class="number">850</span>, <span class="keyword">in</span> exec_module</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"&lt;frozen importlib._bootstrap&gt;"</span>, line <span class="number">228</span>, <span class="keyword">in</span> _call_with_frames_removed</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/ric-api/core/settings.py"</span>, line <span class="number">114</span>, <span class="keyword">in</span> &lt;<span class="keyword">module</span>&gt;</span><br><span class="line">    <span class="string">'PORT'</span>: env(<span class="string">'DB_PORT'</span>),</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/usr/local/lib/python3.9/site-packages/environ/environ.py"</span>, line <span class="number">123</span>, <span class="keyword">in</span> __call__</span><br><span class="line">    <span class="keyword">return</span> self.get_value(<span class="keyword">var</span>, <span class="keyword">cast</span>=<span class="keyword">cast</span>, <span class="keyword">default</span>=<span class="keyword">default</span>, parse_default=parse_default)</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/usr/local/lib/python3.9/site-packages/environ/environ.py"</span>, line <span class="number">277</span>, <span class="keyword">in</span> get_value</span><br><span class="line">    <span class="keyword">raise</span> ImproperlyConfigured(error_msg)</span><br><span class="line">django.core.exceptions.ImproperlyConfigured: <span class="keyword">Set</span> the DB_PORT environment <span class="keyword">variable</span></span><br><span class="line"><span class="number">2022</span><span class="number">-07</span><span class="number">-14</span>T14:<span class="number">37</span>:<span class="number">17.6003172</span>Z stderr F</span><br><span class="line"></span><br><span class="line"><span class="keyword">Exception</span> <span class="keyword">in</span> <span class="keyword">thread</span> <span class="keyword">Thread</span><span class="number">-1</span>:</span><br><span class="line">Traceback (most recent <span class="keyword">call</span> <span class="keyword">last</span>):</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"threading.py"</span>, line <span class="number">932</span>, <span class="keyword">in</span> _bootstrap_inner</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"threading.py"</span>, line <span class="number">870</span>, <span class="keyword">in</span> run</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"D:\a\1\s\build_scripts\windows\artifacts\cli\Lib\site-packages\azure/cli/command_modules/container/custom.py"</span>, line <span class="number">837</span>, <span class="keyword">in</span> _stream_container_events_and_logs</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"D:\a\1\s\build_scripts\windows\artifacts\cli\Lib\site-packages\azure/cli/command_modules/container/custom.py"</span>, line <span class="number">791</span>, <span class="keyword">in</span> _stream_logs</span><br><span class="line">AttributeError: <span class="string">'NoneType'</span> <span class="keyword">object</span> has <span class="keyword">no</span> <span class="keyword">attribute</span> <span class="string">'split'</span></span><br></pre></td></tr></table></figure><p>Looks like I missed adding a <code>DB_PORT</code> to the environmental variables</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;I have some container instances which are failing to start up properly and the logs in the portal are blank. This makes debugging them ki
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Consuming SOAP Services in .NET Core</title>
     <link href="https://westerndevs.com/_/consuming-wsdl/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/consuming-wsdl/</id>
     <published>2022-05-30T04:00:00.000Z</published>
-    <updated>2022-07-24T22:48:42.106Z</updated>
+    <updated>2022-08-04T13:42:02.745Z</updated>
 	<author>
 	
 	  
@@ -47,7 +73,7 @@
     <link href="https://westerndevs.com/_/azure-functions-error/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-functions-error/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2022-07-24T22:48:42.106Z</updated>
+    <updated>2022-08-04T13:42:02.745Z</updated>
 	<author>
 	
 	  
@@ -73,7 +99,7 @@
     <link href="https://westerndevs.com/_/which-sql-server-edition/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/which-sql-server-edition/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2022-07-24T22:48:42.118Z</updated>
+    <updated>2022-08-04T13:42:02.753Z</updated>
 	<author>
 	
 	  
@@ -99,7 +125,7 @@
     <link href="https://westerndevs.com/_/cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cheat-sheet/</id>
     <published>2022-04-04T04:00:00.000Z</published>
-    <updated>2022-07-24T22:48:42.106Z</updated>
+    <updated>2022-08-04T13:42:02.745Z</updated>
 	<author>
 	
 	  
@@ -127,7 +153,7 @@
     <link href="https://westerndevs.com/_/rubocop-issue/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/rubocop-issue/</id>
     <published>2022-03-18T04:00:00.000Z</published>
-    <updated>2022-07-24T22:48:42.114Z</updated>
+    <updated>2022-08-04T13:42:02.753Z</updated>
 	<author>
 	
 	  
@@ -154,7 +180,7 @@
     <link href="https://westerndevs.com/_/fsevents-optional-dependencies/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/fsevents-optional-dependencies/</id>
     <published>2022-03-16T04:00:00.000Z</published>
-    <updated>2022-07-24T22:48:42.110Z</updated>
+    <updated>2022-08-04T13:42:02.749Z</updated>
 	<author>
 	
 	  
@@ -180,7 +206,7 @@
     <link href="https://westerndevs.com/_/backblaze-exclude-node-modules/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/backblaze-exclude-node-modules/</id>
     <published>2022-02-20T05:00:00.000Z</published>
-    <updated>2022-07-24T22:48:42.106Z</updated>
+    <updated>2022-08-04T13:42:02.745Z</updated>
 	<author>
 	
 	  
@@ -206,7 +232,7 @@
     <link href="https://westerndevs.com/_/parsing-vue-router-parameters/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/parsing-vue-router-parameters/</id>
     <published>2022-02-18T05:00:00.000Z</published>
-    <updated>2022-07-24T22:48:42.110Z</updated>
+    <updated>2022-08-04T13:42:02.749Z</updated>
 	<author>
 	
 	  
@@ -232,7 +258,7 @@
     <link href="https://westerndevs.com/_/install-azfileshybrid-powershell/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/install-azfileshybrid-powershell/</id>
     <published>2022-02-16T05:00:00.000Z</published>
-    <updated>2022-07-24T22:48:42.110Z</updated>
+    <updated>2022-08-04T13:42:02.749Z</updated>
 	<author>
 	
 	  
@@ -258,7 +284,7 @@
     <link href="https://westerndevs.com/_/purge-cdn-in-devops/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/purge-cdn-in-devops/</id>
     <published>2022-01-27T05:00:00.000Z</published>
-    <updated>2022-07-24T22:48:42.114Z</updated>
+    <updated>2022-08-04T13:42:02.749Z</updated>
 	<author>
 	
 	  
@@ -285,7 +311,7 @@
     <link href="https://westerndevs.com/_/hash-nil/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/hash-nil/</id>
     <published>2021-11-24T05:00:00.000Z</published>
-    <updated>2022-07-24T22:48:42.110Z</updated>
+    <updated>2022-08-04T13:42:02.749Z</updated>
 	<author>
 	
 	  
@@ -311,7 +337,7 @@
     <link href="https://westerndevs.com/_/choosing-power-bi/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/choosing-power-bi/</id>
     <published>2021-11-19T05:00:00.000Z</published>
-    <updated>2022-07-24T22:48:42.106Z</updated>
+    <updated>2022-08-04T13:42:02.745Z</updated>
 	<author>
 	
 	  
@@ -337,7 +363,7 @@
     <link href="https://westerndevs.com/_/app-services-on-vnet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/app-services-on-vnet/</id>
     <published>2021-11-14T05:00:00.000Z</published>
-    <updated>2022-07-24T22:48:42.106Z</updated>
+    <updated>2022-08-04T13:42:02.745Z</updated>
 	<author>
 	
 	  
@@ -363,7 +389,7 @@
     <link href="https://westerndevs.com/_/ngrok-aspnet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ngrok-aspnet/</id>
     <published>2021-10-25T04:00:00.000Z</published>
-    <updated>2022-07-24T22:48:42.110Z</updated>
+    <updated>2022-08-04T13:42:02.749Z</updated>
 	<author>
 	
 	  
@@ -390,7 +416,7 @@
     <link href="https://westerndevs.com/_/pandas-read-tsv/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/pandas-read-tsv/</id>
     <published>2021-10-25T04:00:00.000Z</published>
-    <updated>2022-07-24T22:48:42.110Z</updated>
+    <updated>2022-08-04T13:42:02.749Z</updated>
 	<author>
 	
 	  
@@ -417,7 +443,7 @@
     <link href="https://westerndevs.com/_/RLS-with-power-bi/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/RLS-with-power-bi/</id>
     <published>2021-10-22T04:00:00.000Z</published>
-    <updated>2022-07-24T22:48:42.106Z</updated>
+    <updated>2022-08-04T13:42:02.745Z</updated>
 	<author>
 	
 	  
@@ -443,7 +469,7 @@
     <link href="https://westerndevs.com/_/matplotlib-cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/matplotlib-cheat-sheet/</id>
     <published>2021-10-22T04:00:00.000Z</published>
-    <updated>2022-07-24T22:48:42.110Z</updated>
+    <updated>2022-08-04T13:42:02.749Z</updated>
 	<author>
 	
 	  
@@ -471,7 +497,7 @@
     <link href="https://westerndevs.com/_/pandas-cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/pandas-cheat-sheet/</id>
     <published>2021-10-22T04:00:00.000Z</published>
-    <updated>2022-07-24T22:48:42.110Z</updated>
+    <updated>2022-08-04T13:42:02.749Z</updated>
 	<author>
 	
 	  
@@ -500,7 +526,7 @@
     <link href="https://westerndevs.com/_/serverless-offline-https/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/serverless-offline-https/</id>
     <published>2021-10-12T04:00:00.000Z</published>
-    <updated>2022-07-24T22:48:42.114Z</updated>
+    <updated>2022-08-04T13:42:02.753Z</updated>
 	<author>
 	
 	  
@@ -515,32 +541,6 @@
     <summary type="html">
     
       &lt;p&gt;If you find yourself in need of running serverless locally using &lt;a href=&quot;https://www.serverless.com/plugins/serverless-offline/&quot; target=
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Configuration in Azure Isolated Functions</title>
-    <link href="https://westerndevs.com/_/azure-isolated-functions-config/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/azure-isolated-functions-config/</id>
-    <published>2021-10-05T04:00:00.000Z</published>
-    <updated>2022-07-24T22:48:42.106Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>This is all done in the Program.cs. If you want to use the IOptions pattern which, let's face it, everybody does. Then you can start with creating your configuration classes (I like more than one so config for different parts of the app remain logical distinct). These are POCOs</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">AuthConfiguration</span></span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> TenantId &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> ClientId &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> ClientSecret &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> RedirectUrl &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>Then set this up in the host builder</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> host = <span class="keyword">new</span> HostBuilder()</span><br><span class="line">            .ConfigureFunctionsWorkerDefaults()</span><br><span class="line">            .ConfigureServices(container =&gt;</span><br><span class="line">            &#123;</span><br><span class="line">                container.AddOptions&lt;AuthConfiguration&gt;().Configure&lt;IConfiguration&gt;((settings, config) =&gt;</span><br><span class="line">                &#123;</span><br><span class="line">                    config.Bind(settings);</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;)</span><br><span class="line">            .Build();</span><br></pre></td></tr></table></figure><p>If this looks familiar it's because it totally is! All of this uses the generic .NET host so this same sort of pattern should work in most .NET apps now.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;This is all done in the Program.cs. If you want to use the IOptions pattern which, let&#39;s face it, everybody does. Then you can start with
     
     </summary>
     
