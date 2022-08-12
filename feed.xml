@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2022-08-04T13:42:02.745Z</updated>
+  <updated>2022-08-12T03:03:30.851Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Registering Terraform Providers</title>
+    <link href="https://westerndevs.com/_/register-providers/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/register-providers/</id>
+    <published>2022-08-12T04:00:00.000Z</published>
+    <updated>2022-08-12T03:03:30.851Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>If you're setting up a new Terraform project on Azure you might find yourself needing to register providers if you're running with an identity that doesn't have wide ranging access to the subscription. I ran into this today with the error</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">│ Error: Error ensuring Resource Providers are registered.</span><br><span class="line">│ </span><br><span class="line">│ Terraform automatically attempts to register the Resource Providers it supports to</span><br><span class="line">│ ensure it's able to provision resources.</span><br><span class="line">│ </span><br><span class="line">│ If you don't have permission to register Resource Providers you may wish to <span class="keyword">use</span> the</span><br><span class="line">│ <span class="string">"skip_provider_registration"</span> flag <span class="keyword">in</span> the Provider <span class="keyword">block</span> <span class="keyword">to</span> <span class="keyword">disable</span> this functionality.</span><br><span class="line">│ </span><br><span class="line">│ Please note that <span class="keyword">if</span> you opt <span class="keyword">out</span> <span class="keyword">of</span> <span class="keyword">Resource</span> Provider Registration <span class="keyword">and</span> Terraform tries</span><br><span class="line">│ <span class="keyword">to</span> provision a <span class="keyword">resource</span> <span class="keyword">from</span> a <span class="keyword">Resource</span> Provider which <span class="keyword">is</span> unregistered, <span class="keyword">then</span> the <span class="keyword">errors</span></span><br><span class="line">│ may appear misleading - <span class="keyword">for</span> example:</span><br><span class="line">│ </span><br><span class="line">│ &gt; API <span class="keyword">version</span> <span class="number">2019</span>-XX-XX was <span class="keyword">not</span> <span class="keyword">found</span> <span class="keyword">for</span> Microsoft.Foo</span><br><span class="line">│ </span><br><span class="line">│ Could indicate either that the <span class="keyword">Resource</span> Provider <span class="string">"Microsoft.Foo"</span> requires registration,</span><br><span class="line">│ but this could also indicate that this Azure Region doesn<span class="string">'t support this API version.</span></span><br><span class="line"><span class="string">│ </span></span><br><span class="line"><span class="string">│ More information on the "skip_provider_registration" flag can be found here:</span></span><br><span class="line"><span class="string">│ https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs#skip_provider_registration</span></span><br><span class="line"><span class="string">│ </span></span><br><span class="line"><span class="string">│ Original Error: Cannnot register providers: Microsoft.StoragePool. Errors were: Cannot register provider Microsoft.StoragePool with Azure Resource Manager: resources.ProvidersClient#Register: Failure responding to request: StatusCode=403 -- Original Error: autorest/azure: Service returned an error. Status=403 Code="AuthorizationFailed" Message="The client '</span>************<span class="string">' with object id ''************'' does not have authorization to perform action '</span>Microsoft.StoragePool/<span class="keyword">register</span>/<span class="keyword">action</span><span class="string">' over scope '</span>/subscriptions<span class="comment">/***' or the scope is invalid. If access was recently granted, please refresh your credentials.".</span></span><br><span class="line"><span class="comment">│ </span></span><br><span class="line"><span class="comment">│   with provider["registry.terraform.io/hashicorp/azurerm"],</span></span><br><span class="line"><span class="comment">│   on environment.tf line 21, in provider "azurerm":</span></span><br><span class="line"><span class="comment">│   21: provider "azurerm" &#123;</span></span><br></pre></td></tr></table></figure><p>The account running terraform in my github actions pipeline is restricted to only have contributor over the resource group into which I'm deploying so it's unable to properly set up providers. Two things needed to fix it:</p><ol><li>Tell terraform to not try to register providers</li><li>Register the providers manually</li></ol><p>For 1 the provider block in the terraform file needs to be updated to look like</p><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  <span class="attribute">provider</span> <span class="string">"azurerm"</span> &#123;</span><br><span class="line">    <span class="section">features</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="attribute">skip_provider_registration</span> = <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>For 2 it requires logging into the azure portal and registering the providers manually. Go to the subscription and select <code>Resource Providers</code> then search for the one you need, select it and hit <code>Register</code>. In my case the provider was already registered and the problem was just Terraform's attempt to register it without sufficient permission.</p><p><img src="/images/2022-08-11-register_providers.md/2022-08-11-07-07-29.png" alt="">)</p><pre><code></code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;If you&#39;re setting up a new Terraform project on Azure you might find yourself needing to register providers if you&#39;re running with an ide
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Debugging Azure Container Instance Startup</title>
     <link href="https://westerndevs.com/_/debug-azure-container-instances-startup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/debug-azure-container-instances-startup/</id>
     <published>2022-08-04T04:00:00.000Z</published>
-    <updated>2022-08-04T13:42:02.745Z</updated>
+    <updated>2022-08-12T03:03:30.847Z</updated>
 	<author>
 	
 	  
@@ -47,7 +73,7 @@
     <link href="https://westerndevs.com/_/consuming-wsdl/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/consuming-wsdl/</id>
     <published>2022-05-30T04:00:00.000Z</published>
-    <updated>2022-08-04T13:42:02.745Z</updated>
+    <updated>2022-08-12T03:03:30.847Z</updated>
 	<author>
 	
 	  
@@ -73,7 +99,7 @@
     <link href="https://westerndevs.com/_/azure-functions-error/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-functions-error/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2022-08-04T13:42:02.745Z</updated>
+    <updated>2022-08-12T03:03:30.847Z</updated>
 	<author>
 	
 	  
@@ -99,7 +125,7 @@
     <link href="https://westerndevs.com/_/which-sql-server-edition/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/which-sql-server-edition/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2022-08-04T13:42:02.753Z</updated>
+    <updated>2022-08-12T03:03:30.855Z</updated>
 	<author>
 	
 	  
@@ -125,7 +151,7 @@
     <link href="https://westerndevs.com/_/cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cheat-sheet/</id>
     <published>2022-04-04T04:00:00.000Z</published>
-    <updated>2022-08-04T13:42:02.745Z</updated>
+    <updated>2022-08-12T03:03:30.847Z</updated>
 	<author>
 	
 	  
@@ -153,7 +179,7 @@
     <link href="https://westerndevs.com/_/rubocop-issue/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/rubocop-issue/</id>
     <published>2022-03-18T04:00:00.000Z</published>
-    <updated>2022-08-04T13:42:02.753Z</updated>
+    <updated>2022-08-12T03:03:30.851Z</updated>
 	<author>
 	
 	  
@@ -180,7 +206,7 @@
     <link href="https://westerndevs.com/_/fsevents-optional-dependencies/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/fsevents-optional-dependencies/</id>
     <published>2022-03-16T04:00:00.000Z</published>
-    <updated>2022-08-04T13:42:02.749Z</updated>
+    <updated>2022-08-12T03:03:30.847Z</updated>
 	<author>
 	
 	  
@@ -206,7 +232,7 @@
     <link href="https://westerndevs.com/_/backblaze-exclude-node-modules/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/backblaze-exclude-node-modules/</id>
     <published>2022-02-20T05:00:00.000Z</published>
-    <updated>2022-08-04T13:42:02.745Z</updated>
+    <updated>2022-08-12T03:03:30.847Z</updated>
 	<author>
 	
 	  
@@ -232,7 +258,7 @@
     <link href="https://westerndevs.com/_/parsing-vue-router-parameters/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/parsing-vue-router-parameters/</id>
     <published>2022-02-18T05:00:00.000Z</published>
-    <updated>2022-08-04T13:42:02.749Z</updated>
+    <updated>2022-08-12T03:03:30.851Z</updated>
 	<author>
 	
 	  
@@ -258,7 +284,7 @@
     <link href="https://westerndevs.com/_/install-azfileshybrid-powershell/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/install-azfileshybrid-powershell/</id>
     <published>2022-02-16T05:00:00.000Z</published>
-    <updated>2022-08-04T13:42:02.749Z</updated>
+    <updated>2022-08-12T03:03:30.847Z</updated>
 	<author>
 	
 	  
@@ -284,7 +310,7 @@
     <link href="https://westerndevs.com/_/purge-cdn-in-devops/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/purge-cdn-in-devops/</id>
     <published>2022-01-27T05:00:00.000Z</published>
-    <updated>2022-08-04T13:42:02.749Z</updated>
+    <updated>2022-08-12T03:03:30.851Z</updated>
 	<author>
 	
 	  
@@ -311,7 +337,7 @@
     <link href="https://westerndevs.com/_/hash-nil/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/hash-nil/</id>
     <published>2021-11-24T05:00:00.000Z</published>
-    <updated>2022-08-04T13:42:02.749Z</updated>
+    <updated>2022-08-12T03:03:30.847Z</updated>
 	<author>
 	
 	  
@@ -337,7 +363,7 @@
     <link href="https://westerndevs.com/_/choosing-power-bi/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/choosing-power-bi/</id>
     <published>2021-11-19T05:00:00.000Z</published>
-    <updated>2022-08-04T13:42:02.745Z</updated>
+    <updated>2022-08-12T03:03:30.847Z</updated>
 	<author>
 	
 	  
@@ -363,7 +389,7 @@
     <link href="https://westerndevs.com/_/app-services-on-vnet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/app-services-on-vnet/</id>
     <published>2021-11-14T05:00:00.000Z</published>
-    <updated>2022-08-04T13:42:02.745Z</updated>
+    <updated>2022-08-12T03:03:30.847Z</updated>
 	<author>
 	
 	  
@@ -389,7 +415,7 @@
     <link href="https://westerndevs.com/_/ngrok-aspnet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ngrok-aspnet/</id>
     <published>2021-10-25T04:00:00.000Z</published>
-    <updated>2022-08-04T13:42:02.749Z</updated>
+    <updated>2022-08-12T03:03:30.851Z</updated>
 	<author>
 	
 	  
@@ -416,7 +442,7 @@
     <link href="https://westerndevs.com/_/pandas-read-tsv/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/pandas-read-tsv/</id>
     <published>2021-10-25T04:00:00.000Z</published>
-    <updated>2022-08-04T13:42:02.749Z</updated>
+    <updated>2022-08-12T03:03:30.851Z</updated>
 	<author>
 	
 	  
@@ -443,7 +469,7 @@
     <link href="https://westerndevs.com/_/RLS-with-power-bi/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/RLS-with-power-bi/</id>
     <published>2021-10-22T04:00:00.000Z</published>
-    <updated>2022-08-04T13:42:02.745Z</updated>
+    <updated>2022-08-12T03:03:30.847Z</updated>
 	<author>
 	
 	  
@@ -469,7 +495,7 @@
     <link href="https://westerndevs.com/_/matplotlib-cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/matplotlib-cheat-sheet/</id>
     <published>2021-10-22T04:00:00.000Z</published>
-    <updated>2022-08-04T13:42:02.749Z</updated>
+    <updated>2022-08-12T03:03:30.851Z</updated>
 	<author>
 	
 	  
@@ -497,7 +523,7 @@
     <link href="https://westerndevs.com/_/pandas-cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/pandas-cheat-sheet/</id>
     <published>2021-10-22T04:00:00.000Z</published>
-    <updated>2022-08-04T13:42:02.749Z</updated>
+    <updated>2022-08-12T03:03:30.851Z</updated>
 	<author>
 	
 	  
@@ -515,32 +541,6 @@
 &lt;h2&gt;Read a file&lt;/h2&gt;
 &lt;p&gt;For CSV use&lt;/p&gt;
 &lt;figure class=&quot;highlight haskell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutte
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Running Serverless Offline with a Self-Signed SSL Certificate</title>
-    <link href="https://westerndevs.com/_/serverless-offline-https/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/serverless-offline-https/</id>
-    <published>2021-10-12T04:00:00.000Z</published>
-    <updated>2022-08-04T13:42:02.753Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>If you find yourself in need of running serverless locally using <a href="https://www.serverless.com/plugins/serverless-offline/" target="_blank" rel="noopener">serverless offline</a> and you want an SSL certificate then fear not, it's not all that difficult. First you'll need an SSL certificate. For our purposes you we're going to use a self-signed certificate. This will cause browsers to complain but for local testing it isn't typically a big problem.</p><h2>Generate a Cert Using OpenSSL</h2><p>You should install OpenSSL (or one of the more secure alternatives like <a href="https://www.libressl.org/" target="_blank" rel="noopener">LibreSSL</a>) and then run</p><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -newkey rsa:<span class="number">2048</span> -nodes -keyout key.pem -x509 -days <span class="number">365</span> -<span class="keyword">out</span> cert.pem</span><br></pre></td></tr></table></figure><p>This will prompt you for a bunch of information about your organization. You can put anything you want in most of those fields but do pay attention to the <code>Common Name</code> field which needs to hold the value of <code>localhost</code>.</p><p>These are the answers I gave</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Country Name (2 letter code) [AU]:US</span><br><span class="line">State <span class="keyword">or</span> Province Name (full name) [Some-State]:TX</span><br><span class="line">Locality Name (eg, city) []:Austin</span><br><span class="line">Organization Name (eg, company) [Internet Widgits Pty Ltd]:Inventive</span><br><span class="line">Organizational Unit Name (eg, section) []:</span><br><span class="line">Common Name (e.g.<span class="built_in"> server </span>FQDN <span class="keyword">or</span> YOUR name) []:localhost</span><br><span class="line">Email<span class="built_in"> Address </span>[]:</span><br></pre></td></tr></table></figure><p>You should now have a <code>cert.perm</code> and a <code>key.pem</code> in your local directory. Copy these into a <code>cert</code> folder at the root of your serverless project.</p><h2>Running with the Certificate</h2><p>Now you need to tell serverless where to find your certificate. You can either run with the flag</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--httpsProtocol cert</span></span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">or <span class="keyword">update</span> your <span class="string">`serverless.yml`</span> <span class="keyword">to</span> <span class="keyword">include</span> the cert <span class="keyword">directory</span></span><br></pre></td></tr></table></figure><p>custom:serverless-offline:httpsProtocol: &quot;cert&quot;...</p><pre><code>## GotchasIf you're seeing a warning about an invalid certificate then check that you're accessing serverless via `localhost` and not `127.0.0.1` or `0.0.0.0`. SSL works with domain names so you need to use one, even if it is just `localhost`.</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;If you find yourself in need of running serverless locally using &lt;a href=&quot;https://www.serverless.com/plugins/serverless-offline/&quot; target=
     
     </summary>
     
