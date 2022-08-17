@@ -30,7 +30,7 @@ As with anything Microsoft the pricing for all this is convoluted and contently 
 
 * Power BI Desktop: Free as in beer
 * Power BI Pro: Let's you run dashboard reports online and embed them in your application (note that this doesn't' let you embed paginated reports) $9.99/month a users
-* Power BI Premium per user: This lets you run dashboard reports online and embed them in your application and also run paginated reprots (note I didn't say embed paginated reports) $20/month a user
+* Power BI Premium per user: This lets you run dashboard reports online and embed them in your application and also run paginated reports (note I didn't say embed paginated reports) $20/month a user
 * Power BI Premium per capacity: Run and embed both report types. Open for as many users as you have. $4995/month. Yikes, that price sure jumps up
 
 Being able to embed paginated reports was the killer feature for me that took the reporting cost from very reasonable to very expensive. 
