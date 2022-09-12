@@ -5,7 +5,7 @@
   <link href="/feeds/simon_timms" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2022-08-17T03:07:47.125Z</updated>
+  <updated>2022-09-12T13:37:35.838Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://westerndevs.com/_/register-providers/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/register-providers/</id>
     <published>2022-08-12T04:00:00.000Z</published>
-    <updated>2022-08-17T03:07:47.125Z</updated>
+    <updated>2022-09-12T13:37:35.838Z</updated>
 	<author>
 	
 	  
@@ -47,7 +47,7 @@
     <link href="https://westerndevs.com/_/debug-azure-container-instances-startup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/debug-azure-container-instances-startup/</id>
     <published>2022-08-04T04:00:00.000Z</published>
-    <updated>2022-08-17T03:07:47.117Z</updated>
+    <updated>2022-09-12T13:37:35.834Z</updated>
 	<author>
 	
 	  
@@ -73,7 +73,7 @@
     <link href="https://westerndevs.com/_/consuming-wsdl/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/consuming-wsdl/</id>
     <published>2022-05-30T04:00:00.000Z</published>
-    <updated>2022-08-17T03:07:47.117Z</updated>
+    <updated>2022-09-12T13:37:35.834Z</updated>
 	<author>
 	
 	  
@@ -99,7 +99,7 @@
     <link href="https://westerndevs.com/_/azure-functions-error/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-functions-error/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2022-08-17T03:07:47.117Z</updated>
+    <updated>2022-09-12T13:37:35.830Z</updated>
 	<author>
 	
 	  
@@ -125,7 +125,7 @@
     <link href="https://westerndevs.com/_/which-sql-server-edition/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/which-sql-server-edition/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2022-08-17T03:07:47.129Z</updated>
+    <updated>2022-09-12T13:37:35.838Z</updated>
 	<author>
 	
 	  
@@ -151,7 +151,7 @@
     <link href="https://westerndevs.com/_/cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cheat-sheet/</id>
     <published>2022-04-04T04:00:00.000Z</published>
-    <updated>2022-08-17T03:07:47.117Z</updated>
+    <updated>2022-09-12T13:37:35.834Z</updated>
 	<author>
 	
 	  
@@ -161,7 +161,7 @@
 	  <uri>https://westerndevs.com</uri>
 	</author>
     
-    <content type="html"><![CDATA[<h2>Running in Docker</h2><p>Quickly get started with</p><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name somename -p <span class="number">6379</span>:<span class="number">6379</span> redis</span><br></pre></td></tr></table></figure><h2>Connection</h2><p>The simplest connection string is to use <code>localhost</code> which just connects to the localhost on port 6379.</p><h2>Querying</h2><p>Redis is a really simple server to which you can just telnet (or use the redis-cli) to run commands.</p><p><strong>List All Keys</strong></p><p>This might not be a great idea against a prod server with lots of keys</p><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">keys</span> *</span><br></pre></td></tr></table></figure><p><strong>Get key type</strong></p><p>Redis supports a bunch of different data primatives like a simple key value, a list, a hash, a zset, ... to find the type of a key use <code>type</code></p><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> <span class="type">HereForElizabethAnneSlovak</span></span><br><span class="line"><span class="type">+zset</span></span><br></pre></td></tr></table></figure><p><strong>Set key value</strong></p><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> blah <span class="comment">7</span></span><br></pre></td></tr></table></figure><p>This works for updates too</p><p><strong>Get key value</strong></p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">get</span> blah</span><br></pre></td></tr></table></figure><p><strong>Get everything in a zset</strong></p><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZRANGE <span class="string">"id"</span> <span class="number">0</span> <span class="number">-1</span></span><br></pre></td></tr></table></figure><p><strong>Count everything in a zset</strong></p><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zcount HereForjohnrufuscolginjr. -<span class="literal">inf</span> +<span class="literal">inf</span></span><br></pre></td></tr></table></figure><p><strong>Get the first thing in a zset</strong></p><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZRANGE <span class="string">"id"</span> <span class="number">0</span> <span class="number">0</span></span><br></pre></td></tr></table></figure><p><strong>Get everything in a set</strong></p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">SMEMBERS HereFeedHashTags</span></span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h2>Running in Docker</h2><p>Quickly get started with</p><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name somename -p <span class="number">6379</span>:<span class="number">6379</span> redis</span><br></pre></td></tr></table></figure><h2>Connection</h2><p>The simplest connection string is to use <code>localhost</code> which just connects to the localhost on port 6379.</p><h2>Querying</h2><p>Redis is a really simple server to which you can just telnet (or use the redis-cli) to run commands.</p><p><strong>List All Keys</strong></p><p>This might not be a great idea against a prod server with lots of keys</p><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">keys</span> *</span><br></pre></td></tr></table></figure><p><strong>Get key type</strong></p><p>Redis supports a bunch of different data primatives like a simple key value, a list, a hash, a zset, ... to find the type of a key use <code>type</code></p><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> <span class="type">HereForElizabethAnneSlovak</span></span><br><span class="line"><span class="type">+zset</span></span><br></pre></td></tr></table></figure><p><strong>Set key value</strong></p><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> blah <span class="comment">7</span></span><br></pre></td></tr></table></figure><p>This works for updates too</p><p><strong>Get key value</strong></p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">get</span> blah</span><br></pre></td></tr></table></figure><p><strong>Get everything in a zset</strong></p><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZRANGE <span class="string">"id"</span> <span class="number">0</span> <span class="number">-1</span></span><br></pre></td></tr></table></figure><p><strong>Count everything in a zset</strong></p><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zcount HereForjohnrufuscolginjr. -<span class="literal">inf</span> +<span class="literal">inf</span></span><br></pre></td></tr></table></figure><p><strong>Get the first thing in a zset</strong></p><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZRANGE <span class="string">"id"</span> <span class="number">0</span> <span class="number">0</span></span><br></pre></td></tr></table></figure><p><strong>Get everything in a set</strong></p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">SMEMBERS HereFeedHashTags</span></span><br></pre></td></tr></table></figure><p><strong>Clear out the whole database</strong></p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">FLUSHALL</span></span><br></pre></td></tr></table></figure><p><strong>Clear just the current db</strong></p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">FLUSHDB</span></span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
@@ -179,7 +179,7 @@
     <link href="https://westerndevs.com/_/rubocop-issue/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/rubocop-issue/</id>
     <published>2022-03-18T04:00:00.000Z</published>
-    <updated>2022-08-17T03:07:47.125Z</updated>
+    <updated>2022-09-12T13:37:35.838Z</updated>
 	<author>
 	
 	  
@@ -206,7 +206,7 @@
     <link href="https://westerndevs.com/_/fsevents-optional-dependencies/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/fsevents-optional-dependencies/</id>
     <published>2022-03-16T04:00:00.000Z</published>
-    <updated>2022-08-17T03:07:47.121Z</updated>
+    <updated>2022-09-12T13:37:35.834Z</updated>
 	<author>
 	
 	  
@@ -232,7 +232,7 @@
     <link href="https://westerndevs.com/_/backblaze-exclude-node-modules/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/backblaze-exclude-node-modules/</id>
     <published>2022-02-20T05:00:00.000Z</published>
-    <updated>2022-08-17T03:07:47.117Z</updated>
+    <updated>2022-09-12T13:37:35.830Z</updated>
 	<author>
 	
 	  
@@ -258,7 +258,7 @@
     <link href="https://westerndevs.com/_/parsing-vue-router-parameters/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/parsing-vue-router-parameters/</id>
     <published>2022-02-18T05:00:00.000Z</published>
-    <updated>2022-08-17T03:07:47.121Z</updated>
+    <updated>2022-09-12T13:37:35.834Z</updated>
 	<author>
 	
 	  
@@ -284,7 +284,7 @@
     <link href="https://westerndevs.com/_/install-azfileshybrid-powershell/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/install-azfileshybrid-powershell/</id>
     <published>2022-02-16T05:00:00.000Z</published>
-    <updated>2022-08-17T03:07:47.121Z</updated>
+    <updated>2022-09-12T13:37:35.834Z</updated>
 	<author>
 	
 	  
@@ -310,7 +310,7 @@
     <link href="https://westerndevs.com/_/purge-cdn-in-devops/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/purge-cdn-in-devops/</id>
     <published>2022-01-27T05:00:00.000Z</published>
-    <updated>2022-08-17T03:07:47.125Z</updated>
+    <updated>2022-09-12T13:37:35.838Z</updated>
 	<author>
 	
 	  
@@ -337,7 +337,7 @@
     <link href="https://westerndevs.com/_/hash-nil/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/hash-nil/</id>
     <published>2021-11-24T05:00:00.000Z</published>
-    <updated>2022-08-17T03:07:47.121Z</updated>
+    <updated>2022-09-12T13:37:35.834Z</updated>
 	<author>
 	
 	  
@@ -363,7 +363,7 @@
     <link href="https://westerndevs.com/_/choosing-power-bi/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/choosing-power-bi/</id>
     <published>2021-11-19T05:00:00.000Z</published>
-    <updated>2022-08-17T03:07:47.117Z</updated>
+    <updated>2022-09-12T13:37:35.834Z</updated>
 	<author>
 	
 	  
@@ -389,7 +389,7 @@
     <link href="https://westerndevs.com/_/app-services-on-vnet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/app-services-on-vnet/</id>
     <published>2021-11-14T05:00:00.000Z</published>
-    <updated>2022-08-17T03:07:47.117Z</updated>
+    <updated>2022-09-12T13:37:35.830Z</updated>
 	<author>
 	
 	  
@@ -415,7 +415,7 @@
     <link href="https://westerndevs.com/_/ngrok-aspnet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ngrok-aspnet/</id>
     <published>2021-10-25T04:00:00.000Z</published>
-    <updated>2022-08-17T03:07:47.121Z</updated>
+    <updated>2022-09-12T13:37:35.834Z</updated>
 	<author>
 	
 	  
@@ -442,7 +442,7 @@
     <link href="https://westerndevs.com/_/pandas-read-tsv/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/pandas-read-tsv/</id>
     <published>2021-10-25T04:00:00.000Z</published>
-    <updated>2022-08-17T03:07:47.121Z</updated>
+    <updated>2022-09-12T13:37:35.834Z</updated>
 	<author>
 	
 	  
@@ -469,7 +469,7 @@
     <link href="https://westerndevs.com/_/RLS-with-power-bi/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/RLS-with-power-bi/</id>
     <published>2021-10-22T04:00:00.000Z</published>
-    <updated>2022-08-17T03:07:47.117Z</updated>
+    <updated>2022-09-12T13:37:35.830Z</updated>
 	<author>
 	
 	  
@@ -495,7 +495,7 @@
     <link href="https://westerndevs.com/_/matplotlib-cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/matplotlib-cheat-sheet/</id>
     <published>2021-10-22T04:00:00.000Z</published>
-    <updated>2022-08-17T03:07:47.121Z</updated>
+    <updated>2022-09-12T13:37:35.834Z</updated>
 	<author>
 	
 	  
@@ -523,7 +523,7 @@
     <link href="https://westerndevs.com/_/pandas-cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/pandas-cheat-sheet/</id>
     <published>2021-10-22T04:00:00.000Z</published>
-    <updated>2022-08-17T03:07:47.121Z</updated>
+    <updated>2022-09-12T13:37:35.834Z</updated>
 	<author>
 	
 	  
