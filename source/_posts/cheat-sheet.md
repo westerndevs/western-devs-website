@@ -78,3 +78,15 @@ ZRANGE "id" 0 0
 ```
 SMEMBERS HereFeedHashTags
 ```
+
+**Clear out the whole database**
+
+```
+FLUSHALL
+```
+
+**Clear just the current db**
+
+```
+FLUSHDB
+```
