@@ -79,6 +79,24 @@ ZRANGE "id" 0 0
 SMEMBERS HereFeedHashTags
 ```
 
+**Get the first member of a list**
+
+```
+LPOP somekey
+```
+
+**Get the last member of a list**
+
+```
+RPOP somekey
+```
+
+**Get the contents of a hash** 
+
+```
+HGETALL somekey
+```
+
 **Clear out the whole database**
 
 ```
