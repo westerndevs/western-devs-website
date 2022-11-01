@@ -31,7 +31,7 @@ The history here without reading that link is basically that github are changing
   Problem was that the steps on which I was having trouble didn't obviously use the `set-output` command. 
   
   ```yml
-  ...
+ ...
 - name: Init Terraform
   run: terraform init 
 - name: Validate Terraform
