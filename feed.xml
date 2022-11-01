@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2022-11-01T12:58:25.109Z</updated>
+  <updated>2022-11-01T13:51:45.009Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://westerndevs.com/_/set-output-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-output-terraform/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2022-11-01T12:58:25.109Z</updated>
+    <updated>2022-11-01T13:51:45.009Z</updated>
 	<author>
 	
 	  
@@ -31,7 +31,7 @@
 	  <uri>https://westerndevs.com</uri>
 	</author>
     
-    <content type="html"><![CDATA[<p>I've got a build that is running terraform on github actions (I actually have loads of them) and I've been noticing that they are very chatty about warnings now.</p><p><img src="/images/2022-11-01-set-output-terraform.md/2022-11-01-06-46-18.png" alt="">)</p><p>The warning is</p><figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">The </span>`<span class="built_in">set-output`</span> <span class="string">command </span><span class="string">is </span><span class="string">deprecated </span><span class="string">and </span><span class="string">will </span><span class="string">be </span><span class="string">disabled </span><span class="string">soon.</span> <span class="string">Please </span><span class="string">upgrade </span><span class="string">to </span><span class="string">using </span><span class="string">Environment </span><span class="string">Files.</span> <span class="string">For </span><span class="string">more </span><span class="string">information </span><span class="string">see:</span> <span class="string">https:</span>//<span class="string">github.</span><span class="string">blog/</span><span class="string">changelog/</span><span class="string">2022-10-</span><span class="string">11-github-</span><span class="string">actions-deprecating-</span><span class="string">save-state-</span><span class="string">and-set-</span><span class="string">output-commands/</span></span><br></pre></td></tr></table></figure><p>The history here without reading that link is basically that github are changing how we push variables to the pipeline for use in later steps. There were some security implications with the old approach and the new approach should be better</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Save</span> <span class="string">variable</span></span><br><span class="line">  <span class="attr">run:</span> <span class="string">echo</span> <span class="string">"SOMENAME=PICKLE"</span> <span class="string">&gt;&gt;</span> <span class="string">$GITHUB_STATE</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Set</span> <span class="string">output</span></span><br><span class="line">  <span class="attr">run:</span> <span class="string">echo</span> <span class="string">"SOMENAME=PICKLE"</span> <span class="string">&gt;&gt;</span> <span class="string">$GITHUB_OUTPUT</span></span><br></pre></td></tr></table></figure><p>Problem was that the steps on which I was having trouble didn't obviously use the <code>set-output</code> command.</p>  <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">  <span class="string">...</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Init</span> <span class="string">Terraform</span></span><br><span class="line">  <span class="attr">run:</span> <span class="string">terraform</span> <span class="string">init</span> </span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Validate</span> <span class="string">Terraform</span></span><br><span class="line">  <span class="attr">run:</span> <span class="string">terraform</span> <span class="string">validate</span></span><br><span class="line"><span class="string">...</span></span><br></pre></td></tr></table></figure><p>I had to dig a bit to find out that it was actually the <code>terraform</code> command that was causing the problem. See as part of the build I install the terraform cli using the</p>  <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">HashiCorp</span> <span class="bullet">-</span> <span class="string">Setup</span> <span class="string">Terraform</span></span><br><span class="line">  <span class="attr">uses:</span> <span class="string">hashicorp/setup-terraform@v2.0.2</span></span><br><span class="line">  <span class="attr">with:</span></span><br><span class="line">      <span class="attr">terraform_version:</span> <span class="number">1.1</span><span class="number">.9</span></span><br><span class="line">      <span class="attr">terraform_wrapper:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure><p>Turns out that as of writing the latest version of the wrapper installed by the setup-terraform task makes use of an older version of the <code>@actions/core</code> package. This package is what is used to set the output and before version 1.10 it did so using <code>set-output</code>. A fix has been merged into the setup-terraform project but no update released yet.</p><p>For now I found that I had no need for the wrapper so I disabled it with</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">HashiCorp</span> <span class="bullet">-</span> <span class="string">Setup</span> <span class="string">Terraform</span></span><br><span class="line">  <span class="attr">uses:</span> <span class="string">hashicorp/setup-terraform@v2.0.2</span></span><br><span class="line">  <span class="attr">with:</span></span><br><span class="line">      <span class="attr">terraform_version:</span> <span class="number">1.1</span><span class="number">.9</span></span><br><span class="line">      <span class="attr">terraform_wrapper:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure><p>but for future readers if there is a more recent version of setup-terraform than 2.0.2 then you can update to that to remove the warnings. Now my build is clean</p><p><img src="/images/2022-11-01-set-output-terraform.md/2022-11-01-06-57-27.png" alt="">)</p>]]></content>
+    <content type="html"><![CDATA[<p>I've got a build that is running terraform on github actions (I actually have loads of them) and I've been noticing that they are very chatty about warnings now.</p><p><img src="/images/2022-11-01-set-output-terraform.md/2022-11-01-06-46-18.png" alt="">)</p><p>The warning is</p><figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">The </span>`<span class="built_in">set-output`</span> <span class="string">command </span><span class="string">is </span><span class="string">deprecated </span><span class="string">and </span><span class="string">will </span><span class="string">be </span><span class="string">disabled </span><span class="string">soon.</span> <span class="string">Please </span><span class="string">upgrade </span><span class="string">to </span><span class="string">using </span><span class="string">Environment </span><span class="string">Files.</span> <span class="string">For </span><span class="string">more </span><span class="string">information </span><span class="string">see:</span> <span class="string">https:</span>//<span class="string">github.</span><span class="string">blog/</span><span class="string">changelog/</span><span class="string">2022-10-</span><span class="string">11-github-</span><span class="string">actions-deprecating-</span><span class="string">save-state-</span><span class="string">and-set-</span><span class="string">output-commands/</span></span><br></pre></td></tr></table></figure><p>The history here without reading that link is basically that github are changing how we push variables to the pipeline for use in later steps. There were some security implications with the old approach and the new approach should be better</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Save</span> <span class="string">variable</span></span><br><span class="line">  <span class="attr">run:</span> <span class="string">echo</span> <span class="string">"SOMENAME=PICKLE"</span> <span class="string">&gt;&gt;</span> <span class="string">$GITHUB_STATE</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Set</span> <span class="string">output</span></span><br><span class="line">  <span class="attr">run:</span> <span class="string">echo</span> <span class="string">"SOMENAME=PICKLE"</span> <span class="string">&gt;&gt;</span> <span class="string">$GITHUB_OUTPUT</span></span><br></pre></td></tr></table></figure><p>Problem was that the steps on which I was having trouble didn't obviously use the <code>set-output</code> command.</p>  <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> <span class="string">...</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Init</span> <span class="string">Terraform</span></span><br><span class="line">  <span class="attr">run:</span> <span class="string">terraform</span> <span class="string">init</span> </span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Validate</span> <span class="string">Terraform</span></span><br><span class="line">  <span class="attr">run:</span> <span class="string">terraform</span> <span class="string">validate</span></span><br><span class="line"><span class="string">...</span></span><br></pre></td></tr></table></figure><p>I had to dig a bit to find out that it was actually the <code>terraform</code> command that was causing the problem. See as part of the build I install the terraform cli using the</p>  <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">HashiCorp</span> <span class="bullet">-</span> <span class="string">Setup</span> <span class="string">Terraform</span></span><br><span class="line">  <span class="attr">uses:</span> <span class="string">hashicorp/setup-terraform@v2.0.2</span></span><br><span class="line">  <span class="attr">with:</span></span><br><span class="line">      <span class="attr">terraform_version:</span> <span class="number">1.1</span><span class="number">.9</span></span><br><span class="line">      <span class="attr">terraform_wrapper:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure><p>Turns out that as of writing the latest version of the wrapper installed by the setup-terraform task makes use of an older version of the <code>@actions/core</code> package. This package is what is used to set the output and before version 1.10 it did so using <code>set-output</code>. A fix has been merged into the setup-terraform project but no update released yet.</p><p>For now I found that I had no need for the wrapper so I disabled it with</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">HashiCorp</span> <span class="bullet">-</span> <span class="string">Setup</span> <span class="string">Terraform</span></span><br><span class="line">  <span class="attr">uses:</span> <span class="string">hashicorp/setup-terraform@v2.0.2</span></span><br><span class="line">  <span class="attr">with:</span></span><br><span class="line">      <span class="attr">terraform_version:</span> <span class="number">1.1</span><span class="number">.9</span></span><br><span class="line">      <span class="attr">terraform_wrapper:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure><p>but for future readers if there is a more recent version of setup-terraform than 2.0.2 then you can update to that to remove the warnings. Now my build is clean</p><p><img src="/images/2022-11-01-set-output-terraform.md/2022-11-01-06-57-27.png" alt="">)</p>]]></content>
     
     <summary type="html">
     
@@ -43,11 +43,37 @@
   </entry>
   
   <entry>
+    <title type="html">My Theory of GitHub Actions and IaC</title>
+    <link href="https://westerndevs.com/_/theory-of-terraform-github-actions/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/theory-of-terraform-github-actions/</id>
+    <published>2022-11-01T04:00:00.000Z</published>
+    <updated>2022-11-01T13:51:45.009Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>I do all sorts of random work and one of those is helping out on some infrastructure deployments on Azure. Coming from a development background I'm allergic to clicking around inside an Azure website to configure things in a totally non-repeatable way. So I've been using Terraform to do the deployments. We have built up a pretty good history of using Terraform  - today I might use Pulumi instead but the actual tool isn't all that important as opposed to the theory.</p><p>What I'm looking to achieve is a number of things</p><ol><li>Make deployments easy for people to do</li><li>Make deployments repeatable - we should be able to us the same deployment scripts to set up a dev enviornment or recover from a disaster with minimal effort</li><li>Ensure that changes are reviewed before they are applied</li></ol><p>To meet these requirements a build pipeline in GitHub actions (or Azure DevOps, for that matter) is an ideal fit. We maintain our Terraform scripts in a repository. Typically we use one repository per resource group but your needs may vary around that. There isn't any monetary cost to having multiple repositories but there can be some cognitive load to remembering where the right repository is (more on that later).</p><h2>Source Code</h2><p>Changes to the infrastructure definition code are checked into a shared repository. Membership over this code is fairly relaxed. Developers and ops people can all make changes to the code. We strive to make use of normal code review approaches when checking in changes. We're not super rigorous about changes which are checked in because many of the people checking in changes have ops backgrounds and aren't all that well versed in the PR process. I want to make this as easy for them as possible so they aren't tempted to try to make changes directly in Azure.</p><p>In my experience there is a very strong temptation for people to abandon rigour when a change is needed at once to address a business need. We need to change a firewall rule - no time to review that let's just do it. I'm not saying that this is a good thing but it is a reality. Driving people to the Terraform needs to be easy. Having their ad-hoc changes overwritten by a Terraform deploy will also help drive the point home. Stick and carrot.</p><h2>Builds</h2><p>A typical build pipeline for us will include 3 stages.</p><p><img src="/images/2022-11-01-theory-of-terraform-github.-actions.md/2022-11-01-07-22-50.png" alt="">)</p><p>The build step runs on a checkin trigger. This will run an initial build step which validates the terraform scripts are syntactically correct and well linted. A small number of our builds stop here. Unlike application deployments we typically want these changes to be live right away or at most during some maintenance window shortly after the changes have been authored. That deployments are run close to the time the changes were authored helps with our lack of rigour around code reviews.</p><p>The next stage is to preview what changes will be performed by Terraform. This stage is gated such that it need somebody to actually approve it. It is low risk because no changes to made - we run a <code>terraform plan</code> and see what changes will be made. Reading over these changes is very helpful because we often catch unintended consequences here. Accidentally destroying and recreating a VM instead of renaming it? Caught here. Removing a tag that somebody manually applied to a resource and that should be preserved? Caught here.</p><p><img src="/images/2022-11-01-theory-of-terraform-github.-actions.md/2022-11-01-07-45-43.png" alt="">)</p><p>The final stage in the pipeline is to run the Terraform changes. This step is also gated to prevent us from deploying it without proper approvals. Depending on the environment we might need 2 approvals or at least one approval that isn't the person writing the change. More eyes on a change will catch problems more easily and also socialize changes so that it isn't a huge shock to the entire ops team that we now have a MySQL server in the enviornment or whatever it may be.</p><h2>Tags</h2><p>Most Azure resources support tagging. These are basically just labels that you can apply to resources. We use tags to help us organize our resources. We have a tag called <code>environment</code> which is used to indicate what environment the resource is in. We have a tag called <code>owner</code> which is used to indicate who owns the resource. We have a tag called <code>project</code> which is used to indicate what project the resource is associated with. But for these builds the most important tags are <code>IaC Technology</code> and <code>IaC Source</code>. The first is used to tell people that the resources are part of a Terraform deployment. The second is used to indicate where on GitHub the Terraform scripts are located. These tags make it really easy for people to find the Terraform scripts for a resource and get a change in place.</p><p><img src="/images/2022-11-01-theory-of-terraform-github.-actions.md/2022-11-01-07-33-43.png" alt="">)</p><h2>Permissions</h2><p>I mentioned earlier that we like to guide ops people to make enviornment changes in Terraform rather than directly in Azure. One of the approaches we take around that is to not grant owner or writer permissions to resources directly to people be they ops or dev. Instead we have a number of permission restricted service principals that are used to make changes to resources. These service principals are granted permissions to specific resource groups and these service principals are what's used in the pipeline to make the changes. This means that if somebody wants to make a change to a resource they need to go through the Terraform pipeline.</p><p>We keep the client id and secret in the secrets of the github pipeline</p><p><img src="/images/2022-11-01-theory-of-terraform-github.-actions.md/2022-11-01-07-42-51.png" alt="">)</p><p>In this example we just keep a single repository wide key because we only have one enviornment. We'd make use of enviornment specific secrets if we had more than one environment.</p><p>This approach has the added bonus of providing rip stops in the event that we leak some keys somewhere. At worst that service principal has access only to one resource group so an attacker is limited to being able to mess with that group and not escape to the larger enviornment.</p><h2>Achieving our Goals</h2><p>To my mind this approach is exactly how IaC was meant to be used. We have a single source of truth for our infrastructure. We can make changes to that infrastructure in a repeatable way. We can review those changes before they are applied. All this while keeping the barrier to entry low for people who are not familiar with the code review process.</p><h2>Future Steps</h2><p>We already make use of Terraform modules for most of our deployment but we're not doing a great job of reusing these modules from project to project. We're hoping to keep a library of these modules around which can help up standardize things. For instance our VM module doesn't just provision a VM - it sets up backups and uses a standardized source image.</p><p>I also really like the idea of using the build pipeline to annotate pull requests with the Terraform changes using https://github.com/marketplace/actions/terraform-pr-commenter. Surfacing this directly on the PR would save the reviewers the trouble of going through the pipeline to see what changes are being made. However it would be added friction for our ops team as they'd have to set up PRs.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;I do all sorts of random work and one of those is helping out on some infrastructure deployments on Azure. Coming from a development back
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Registering Terraform Providers</title>
     <link href="https://westerndevs.com/_/register-providers/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/register-providers/</id>
     <published>2022-08-12T04:00:00.000Z</published>
-    <updated>2022-11-01T12:58:25.109Z</updated>
+    <updated>2022-11-01T13:51:45.005Z</updated>
 	<author>
 	
 	  
@@ -73,7 +99,7 @@
     <link href="https://westerndevs.com/_/debug-azure-container-instances-startup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/debug-azure-container-instances-startup/</id>
     <published>2022-08-04T04:00:00.000Z</published>
-    <updated>2022-11-01T12:58:25.105Z</updated>
+    <updated>2022-11-01T13:51:45.001Z</updated>
 	<author>
 	
 	  
@@ -99,7 +125,7 @@
     <link href="https://westerndevs.com/_/consuming-wsdl/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/consuming-wsdl/</id>
     <published>2022-05-30T04:00:00.000Z</published>
-    <updated>2022-11-01T12:58:25.101Z</updated>
+    <updated>2022-11-01T13:51:45.001Z</updated>
 	<author>
 	
 	  
@@ -125,7 +151,7 @@
     <link href="https://westerndevs.com/_/azure-functions-error/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-functions-error/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2022-11-01T12:58:25.101Z</updated>
+    <updated>2022-11-01T13:51:45.001Z</updated>
 	<author>
 	
 	  
@@ -151,7 +177,7 @@
     <link href="https://westerndevs.com/_/which-sql-server-edition/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/which-sql-server-edition/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2022-11-01T12:58:25.109Z</updated>
+    <updated>2022-11-01T13:51:45.009Z</updated>
 	<author>
 	
 	  
@@ -177,7 +203,7 @@
     <link href="https://westerndevs.com/_/cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cheat-sheet/</id>
     <published>2022-04-04T04:00:00.000Z</published>
-    <updated>2022-11-01T12:58:25.101Z</updated>
+    <updated>2022-11-01T13:51:45.001Z</updated>
 	<author>
 	
 	  
@@ -205,7 +231,7 @@
     <link href="https://westerndevs.com/_/rubocop-issue/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/rubocop-issue/</id>
     <published>2022-03-18T04:00:00.000Z</published>
-    <updated>2022-11-01T12:58:25.109Z</updated>
+    <updated>2022-11-01T13:51:45.005Z</updated>
 	<author>
 	
 	  
@@ -232,7 +258,7 @@
     <link href="https://westerndevs.com/_/fsevents-optional-dependencies/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/fsevents-optional-dependencies/</id>
     <published>2022-03-16T04:00:00.000Z</published>
-    <updated>2022-11-01T12:58:25.105Z</updated>
+    <updated>2022-11-01T13:51:45.005Z</updated>
 	<author>
 	
 	  
@@ -258,7 +284,7 @@
     <link href="https://westerndevs.com/_/backblaze-exclude-node-modules/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/backblaze-exclude-node-modules/</id>
     <published>2022-02-20T05:00:00.000Z</published>
-    <updated>2022-11-01T12:58:25.101Z</updated>
+    <updated>2022-11-01T13:51:45.001Z</updated>
 	<author>
 	
 	  
@@ -284,7 +310,7 @@
     <link href="https://westerndevs.com/_/parsing-vue-router-parameters/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/parsing-vue-router-parameters/</id>
     <published>2022-02-18T05:00:00.000Z</published>
-    <updated>2022-11-01T12:58:25.105Z</updated>
+    <updated>2022-11-01T13:51:45.005Z</updated>
 	<author>
 	
 	  
@@ -310,7 +336,7 @@
     <link href="https://westerndevs.com/_/install-azfileshybrid-powershell/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/install-azfileshybrid-powershell/</id>
     <published>2022-02-16T05:00:00.000Z</published>
-    <updated>2022-11-01T12:58:25.105Z</updated>
+    <updated>2022-11-01T13:51:45.005Z</updated>
 	<author>
 	
 	  
@@ -336,7 +362,7 @@
     <link href="https://westerndevs.com/_/purge-cdn-in-devops/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/purge-cdn-in-devops/</id>
     <published>2022-01-27T05:00:00.000Z</published>
-    <updated>2022-11-01T12:58:25.109Z</updated>
+    <updated>2022-11-01T13:51:45.005Z</updated>
 	<author>
 	
 	  
@@ -363,7 +389,7 @@
     <link href="https://westerndevs.com/_/hash-nil/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/hash-nil/</id>
     <published>2021-11-24T05:00:00.000Z</published>
-    <updated>2022-11-01T12:58:25.105Z</updated>
+    <updated>2022-11-01T13:51:45.005Z</updated>
 	<author>
 	
 	  
@@ -389,7 +415,7 @@
     <link href="https://westerndevs.com/_/choosing-power-bi/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/choosing-power-bi/</id>
     <published>2021-11-19T05:00:00.000Z</published>
-    <updated>2022-11-01T12:58:25.101Z</updated>
+    <updated>2022-11-01T13:51:45.001Z</updated>
 	<author>
 	
 	  
@@ -415,7 +441,7 @@
     <link href="https://westerndevs.com/_/app-services-on-vnet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/app-services-on-vnet/</id>
     <published>2021-11-14T05:00:00.000Z</published>
-    <updated>2022-11-01T12:58:25.101Z</updated>
+    <updated>2022-11-01T13:51:45.001Z</updated>
 	<author>
 	
 	  
@@ -441,7 +467,7 @@
     <link href="https://westerndevs.com/_/ngrok-aspnet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ngrok-aspnet/</id>
     <published>2021-10-25T04:00:00.000Z</published>
-    <updated>2022-11-01T12:58:25.105Z</updated>
+    <updated>2022-11-01T13:51:45.005Z</updated>
 	<author>
 	
 	  
@@ -468,7 +494,7 @@
     <link href="https://westerndevs.com/_/pandas-read-tsv/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/pandas-read-tsv/</id>
     <published>2021-10-25T04:00:00.000Z</published>
-    <updated>2022-11-01T12:58:25.105Z</updated>
+    <updated>2022-11-01T13:51:45.005Z</updated>
 	<author>
 	
 	  
@@ -495,7 +521,7 @@
     <link href="https://westerndevs.com/_/RLS-with-power-bi/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/RLS-with-power-bi/</id>
     <published>2021-10-22T04:00:00.000Z</published>
-    <updated>2022-11-01T12:58:25.101Z</updated>
+    <updated>2022-11-01T13:51:45.001Z</updated>
 	<author>
 	
 	  
@@ -510,34 +536,6 @@
     <summary type="html">
     
       &lt;p&gt;Power BI is a funny animal. On some levels it is a logical successor to SSRS but on other levels it is a totally different beast. One of 
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Mathplotlib cheat sheet</title>
-    <link href="https://westerndevs.com/_/matplotlib-cheat-sheet/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/matplotlib-cheat-sheet/</id>
-    <published>2021-10-22T04:00:00.000Z</published>
-    <updated>2022-11-01T12:58:25.105Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>Part of an evolving cheat sheet</p><h2>Include the library</h2><figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br></pre></td></tr></table></figure><h2>Set the plot size to be larger</h2><figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.rcParams[<span class="string">'figure.figsize'</span>] = [<span class="number">30</span>, <span class="number">21</span>]</span><br></pre></td></tr></table></figure><h2>Set plot title</h2><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.<span class="built_in">title</span>("some <span class="built_in">title</span>)</span><br></pre></td></tr></table></figure><h2>Plot a line chart</h2><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plt.plot(filtered[<span class="string">'datetime'</span>], filtered[<span class="string">'totalsales'</span>], <span class="keyword">label</span><span class="bash">=<span class="string">"Sales Ingest"</span>)</span></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure><h2>Add Legend</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">plt</span><span class="selector-class">.legend</span>()</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Part of an evolving cheat sheet&lt;/p&gt;
-&lt;h2&gt;Include the library&lt;/h2&gt;
-&lt;figure class=&quot;highlight elm&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span c
     
     </summary>
     
