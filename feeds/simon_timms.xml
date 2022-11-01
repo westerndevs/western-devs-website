@@ -5,7 +5,7 @@
   <link href="/feeds/simon_timms" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2022-10-28T19:21:45.197Z</updated>
+  <updated>2022-11-01T12:58:25.109Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Dealing with Set-Output Depreciation Warnings in Terraform github-actions</title>
+    <link href="https://westerndevs.com/_/set-output-terraform/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/set-output-terraform/</id>
+    <published>2022-11-01T04:00:00.000Z</published>
+    <updated>2022-11-01T12:58:25.109Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>I've got a build that is running terraform on github actions (I actually have loads of them) and I've been noticing that they are very chatty about warnings now.</p><p><img src="/images/2022-11-01-set-output-terraform.md/2022-11-01-06-46-18.png" alt="">)</p><p>The warning is</p><figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">The </span>`<span class="built_in">set-output`</span> <span class="string">command </span><span class="string">is </span><span class="string">deprecated </span><span class="string">and </span><span class="string">will </span><span class="string">be </span><span class="string">disabled </span><span class="string">soon.</span> <span class="string">Please </span><span class="string">upgrade </span><span class="string">to </span><span class="string">using </span><span class="string">Environment </span><span class="string">Files.</span> <span class="string">For </span><span class="string">more </span><span class="string">information </span><span class="string">see:</span> <span class="string">https:</span>//<span class="string">github.</span><span class="string">blog/</span><span class="string">changelog/</span><span class="string">2022-10-</span><span class="string">11-github-</span><span class="string">actions-deprecating-</span><span class="string">save-state-</span><span class="string">and-set-</span><span class="string">output-commands/</span></span><br></pre></td></tr></table></figure><p>The history here without reading that link is basically that github are changing how we push variables to the pipeline for use in later steps. There were some security implications with the old approach and the new approach should be better</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Save</span> <span class="string">variable</span></span><br><span class="line">  <span class="attr">run:</span> <span class="string">echo</span> <span class="string">"SOMENAME=PICKLE"</span> <span class="string">&gt;&gt;</span> <span class="string">$GITHUB_STATE</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Set</span> <span class="string">output</span></span><br><span class="line">  <span class="attr">run:</span> <span class="string">echo</span> <span class="string">"SOMENAME=PICKLE"</span> <span class="string">&gt;&gt;</span> <span class="string">$GITHUB_OUTPUT</span></span><br></pre></td></tr></table></figure><p>Problem was that the steps on which I was having trouble didn't obviously use the <code>set-output</code> command.</p>  <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">  <span class="string">...</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Init</span> <span class="string">Terraform</span></span><br><span class="line">  <span class="attr">run:</span> <span class="string">terraform</span> <span class="string">init</span> </span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Validate</span> <span class="string">Terraform</span></span><br><span class="line">  <span class="attr">run:</span> <span class="string">terraform</span> <span class="string">validate</span></span><br><span class="line"><span class="string">...</span></span><br></pre></td></tr></table></figure><p>I had to dig a bit to find out that it was actually the <code>terraform</code> command that was causing the problem. See as part of the build I install the terraform cli using the</p>  <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">HashiCorp</span> <span class="bullet">-</span> <span class="string">Setup</span> <span class="string">Terraform</span></span><br><span class="line">  <span class="attr">uses:</span> <span class="string">hashicorp/setup-terraform@v2.0.2</span></span><br><span class="line">  <span class="attr">with:</span></span><br><span class="line">      <span class="attr">terraform_version:</span> <span class="number">1.1</span><span class="number">.9</span></span><br><span class="line">      <span class="attr">terraform_wrapper:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure><p>Turns out that as of writing the latest version of the wrapper installed by the setup-terraform task makes use of an older version of the <code>@actions/core</code> package. This package is what is used to set the output and before version 1.10 it did so using <code>set-output</code>. A fix has been merged into the setup-terraform project but no update released yet.</p><p>For now I found that I had no need for the wrapper so I disabled it with</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">HashiCorp</span> <span class="bullet">-</span> <span class="string">Setup</span> <span class="string">Terraform</span></span><br><span class="line">  <span class="attr">uses:</span> <span class="string">hashicorp/setup-terraform@v2.0.2</span></span><br><span class="line">  <span class="attr">with:</span></span><br><span class="line">      <span class="attr">terraform_version:</span> <span class="number">1.1</span><span class="number">.9</span></span><br><span class="line">      <span class="attr">terraform_wrapper:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure><p>but for future readers if there is a more recent version of setup-terraform than 2.0.2 then you can update to that to remove the warnings. Now my build is clean</p><p><img src="/images/2022-11-01-set-output-terraform.md/2022-11-01-06-57-27.png" alt="">)</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;I&#39;ve got a build that is running terraform on github actions (I actually have loads of them) and I&#39;ve been noticing that they are very ch
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Registering Terraform Providers</title>
     <link href="https://westerndevs.com/_/register-providers/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/register-providers/</id>
     <published>2022-08-12T04:00:00.000Z</published>
-    <updated>2022-10-28T19:21:45.197Z</updated>
+    <updated>2022-11-01T12:58:25.109Z</updated>
 	<author>
 	
 	  
@@ -47,7 +73,7 @@
     <link href="https://westerndevs.com/_/debug-azure-container-instances-startup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/debug-azure-container-instances-startup/</id>
     <published>2022-08-04T04:00:00.000Z</published>
-    <updated>2022-10-28T19:21:45.193Z</updated>
+    <updated>2022-11-01T12:58:25.105Z</updated>
 	<author>
 	
 	  
@@ -73,7 +99,7 @@
     <link href="https://westerndevs.com/_/consuming-wsdl/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/consuming-wsdl/</id>
     <published>2022-05-30T04:00:00.000Z</published>
-    <updated>2022-10-28T19:21:45.193Z</updated>
+    <updated>2022-11-01T12:58:25.101Z</updated>
 	<author>
 	
 	  
@@ -99,7 +125,7 @@
     <link href="https://westerndevs.com/_/azure-functions-error/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-functions-error/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2022-10-28T19:21:45.193Z</updated>
+    <updated>2022-11-01T12:58:25.101Z</updated>
 	<author>
 	
 	  
@@ -125,7 +151,7 @@
     <link href="https://westerndevs.com/_/which-sql-server-edition/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/which-sql-server-edition/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2022-10-28T19:21:45.201Z</updated>
+    <updated>2022-11-01T12:58:25.109Z</updated>
 	<author>
 	
 	  
@@ -151,7 +177,7 @@
     <link href="https://westerndevs.com/_/cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cheat-sheet/</id>
     <published>2022-04-04T04:00:00.000Z</published>
-    <updated>2022-10-28T19:21:45.193Z</updated>
+    <updated>2022-11-01T12:58:25.101Z</updated>
 	<author>
 	
 	  
@@ -179,7 +205,7 @@
     <link href="https://westerndevs.com/_/rubocop-issue/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/rubocop-issue/</id>
     <published>2022-03-18T04:00:00.000Z</published>
-    <updated>2022-10-28T19:21:45.197Z</updated>
+    <updated>2022-11-01T12:58:25.109Z</updated>
 	<author>
 	
 	  
@@ -206,7 +232,7 @@
     <link href="https://westerndevs.com/_/fsevents-optional-dependencies/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/fsevents-optional-dependencies/</id>
     <published>2022-03-16T04:00:00.000Z</published>
-    <updated>2022-10-28T19:21:45.193Z</updated>
+    <updated>2022-11-01T12:58:25.105Z</updated>
 	<author>
 	
 	  
@@ -232,7 +258,7 @@
     <link href="https://westerndevs.com/_/backblaze-exclude-node-modules/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/backblaze-exclude-node-modules/</id>
     <published>2022-02-20T05:00:00.000Z</published>
-    <updated>2022-10-28T19:21:45.193Z</updated>
+    <updated>2022-11-01T12:58:25.101Z</updated>
 	<author>
 	
 	  
@@ -258,7 +284,7 @@
     <link href="https://westerndevs.com/_/parsing-vue-router-parameters/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/parsing-vue-router-parameters/</id>
     <published>2022-02-18T05:00:00.000Z</published>
-    <updated>2022-10-28T19:21:45.197Z</updated>
+    <updated>2022-11-01T12:58:25.105Z</updated>
 	<author>
 	
 	  
@@ -284,7 +310,7 @@
     <link href="https://westerndevs.com/_/install-azfileshybrid-powershell/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/install-azfileshybrid-powershell/</id>
     <published>2022-02-16T05:00:00.000Z</published>
-    <updated>2022-10-28T19:21:45.197Z</updated>
+    <updated>2022-11-01T12:58:25.105Z</updated>
 	<author>
 	
 	  
@@ -310,7 +336,7 @@
     <link href="https://westerndevs.com/_/purge-cdn-in-devops/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/purge-cdn-in-devops/</id>
     <published>2022-01-27T05:00:00.000Z</published>
-    <updated>2022-10-28T19:21:45.197Z</updated>
+    <updated>2022-11-01T12:58:25.109Z</updated>
 	<author>
 	
 	  
@@ -337,7 +363,7 @@
     <link href="https://westerndevs.com/_/hash-nil/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/hash-nil/</id>
     <published>2021-11-24T05:00:00.000Z</published>
-    <updated>2022-10-28T19:21:45.197Z</updated>
+    <updated>2022-11-01T12:58:25.105Z</updated>
 	<author>
 	
 	  
@@ -363,7 +389,7 @@
     <link href="https://westerndevs.com/_/choosing-power-bi/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/choosing-power-bi/</id>
     <published>2021-11-19T05:00:00.000Z</published>
-    <updated>2022-10-28T19:21:45.193Z</updated>
+    <updated>2022-11-01T12:58:25.101Z</updated>
 	<author>
 	
 	  
@@ -389,7 +415,7 @@
     <link href="https://westerndevs.com/_/app-services-on-vnet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/app-services-on-vnet/</id>
     <published>2021-11-14T05:00:00.000Z</published>
-    <updated>2022-10-28T19:21:45.193Z</updated>
+    <updated>2022-11-01T12:58:25.101Z</updated>
 	<author>
 	
 	  
@@ -415,7 +441,7 @@
     <link href="https://westerndevs.com/_/ngrok-aspnet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ngrok-aspnet/</id>
     <published>2021-10-25T04:00:00.000Z</published>
-    <updated>2022-10-28T19:21:45.197Z</updated>
+    <updated>2022-11-01T12:58:25.105Z</updated>
 	<author>
 	
 	  
@@ -442,7 +468,7 @@
     <link href="https://westerndevs.com/_/pandas-read-tsv/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/pandas-read-tsv/</id>
     <published>2021-10-25T04:00:00.000Z</published>
-    <updated>2022-10-28T19:21:45.197Z</updated>
+    <updated>2022-11-01T12:58:25.105Z</updated>
 	<author>
 	
 	  
@@ -469,7 +495,7 @@
     <link href="https://westerndevs.com/_/RLS-with-power-bi/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/RLS-with-power-bi/</id>
     <published>2021-10-22T04:00:00.000Z</published>
-    <updated>2022-10-28T19:21:45.193Z</updated>
+    <updated>2022-11-01T12:58:25.101Z</updated>
 	<author>
 	
 	  
@@ -495,7 +521,7 @@
     <link href="https://westerndevs.com/_/matplotlib-cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/matplotlib-cheat-sheet/</id>
     <published>2021-10-22T04:00:00.000Z</published>
-    <updated>2022-10-28T19:21:45.197Z</updated>
+    <updated>2022-11-01T12:58:25.105Z</updated>
 	<author>
 	
 	  
@@ -512,35 +538,6 @@
       &lt;p&gt;Part of an evolving cheat sheet&lt;/p&gt;
 &lt;h2&gt;Include the library&lt;/h2&gt;
 &lt;figure class=&quot;highlight elm&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span c
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Pandas Cheat Sheet</title>
-    <link href="https://westerndevs.com/_/pandas-cheat-sheet/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/pandas-cheat-sheet/</id>
-    <published>2021-10-22T04:00:00.000Z</published>
-    <updated>2022-10-28T19:21:45.197Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>Part of an evolving cheat sheet</p><h2>Read a file</h2><p>For CSV use</p><figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">data</span> = pd.read_csv('<span class="title">data</span>.<span class="title">csv'</span>)</span></span><br></pre></td></tr></table></figure><p>For excel use</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_excel (<span class="string">r'./Detected as deleted from API data.xlsx'</span>)</span><br></pre></td></tr></table></figure><p>You might need to install a library for xlsx files</p><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip <span class="keyword">install</span> openpyxl</span><br></pre></td></tr></table></figure><h2>Get a summary of the data</h2><p>Numerical summaries</p><figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">data</span>.describe()</span></span><br></pre></td></tr></table></figure><p>Types of columns</p><figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">data</span>.dtypes</span></span><br></pre></td></tr></table></figure><h2>Create a new column from combining with another</h2><p>This adds up values in two columns</p><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">data</span>[<span class="string">"totalqueuelength"</span>] = <span class="keyword">data</span>[<span class="string">"Svc"</span>] + <span class="keyword">data</span>[<span class="string">"Svc Que"</span>]</span><br></pre></td></tr></table></figure><p>This converts a couple of columns that have the data and time to a single field and turns it into a date</p><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data<span class="literal">["<span class="identifier">datetime</span>"]</span> = pd.<span class="keyword">to</span><span class="constructor">_datetime(<span class="params">data</span>[<span class="string">"Date"</span>] + <span class="string">" "</span> + <span class="params">data</span>[<span class="string">"Time"</span>], <span class="params">format</span>='%<span class="params">m</span><span class="operator">/</span>%<span class="params">d</span><span class="operator">/</span>%Y %I:%M %<span class="params">p</span>')</span></span><br></pre></td></tr></table></figure><p>Check date formats at https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior</p><h2>Create a new column from a function</h2><figure class="highlight gml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df = df.assign(percent=lambda <span class="symbol">x</span>: <span class="number">100</span>* <span class="symbol">x</span>[<span class="string">'deleted on date'</span>] / <span class="symbol">x</span>[<span class="string">'total'</span>])</span><br></pre></td></tr></table></figure><h2>Binning</h2><p>You can bin the data by adding a new bin column to the dataframe</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">'binning'</span>] = pd.cut(df[<span class="string">'percent'</span>], <span class="number">5</span>) <span class="comment"># 5 bins based on the percent column</span></span><br></pre></td></tr></table></figure><h2>Average a column</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">df</span><span class="selector-attr">[<span class="string">'column'</span>]</span><span class="selector-class">.mean</span>()</span><br></pre></td></tr></table></figure><h2>Find row at an index</h2><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.iloc<span class="string">[[int(totalRecords * .95)]]</span> # Find the row at the <span class="number">95</span>th percentile</span><br></pre></td></tr></table></figure><h2>Filter data rows</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">data</span>.loc[(<span class="keyword">data</span>[<span class="string">'datetime'</span>] &gt; <span class="string">'2021-10-16'</span>)]</span><br></pre></td></tr></table></figure><h2>Sort</h2><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.sort<span class="constructor">_values(<span class="params">by</span>=['<span class="params">percent</span>'], <span class="params">ascending</span>=False)</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Part of an evolving cheat sheet&lt;/p&gt;
-&lt;h2&gt;Read a file&lt;/h2&gt;
-&lt;p&gt;For CSV use&lt;/p&gt;
-&lt;figure class=&quot;highlight haskell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutte
     
     </summary>
     
