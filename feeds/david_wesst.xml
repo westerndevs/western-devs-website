@@ -5,7 +5,7 @@
   <link href="/feeds/david_wesst" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2022-11-01T13:51:45.001Z</updated>
+  <updated>2022-11-02T13:37:20.371Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,45 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">How to fork (a repo) like a boss!</title>
+    <link href="https://westerndevs.com/_/how-to-fork-like-a-boss/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/how-to-fork-like-a-boss/</id>
+    <published>2022-11-02T21:00:00.000Z</published>
+    <updated>2022-11-02T13:37:20.371Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>My name is David Wesst and today I am going to teach you to fork like a boss! No special tools. No special creams. Just your clicking finger and a bit of confidence to use your coding skills.</p><p>Before I forked, I thought I forking wasn't for me. I thought, I am too old to fork, but man oh man was I wrong. But then came the day where a library I was using was missing a critical feature, and a quick search through the repository issues found <a href="https://github.com/solution-loisir/markdown-it-eleventy-img/issues/8" target="_blank" rel="noopener">that others were looking for that feature too</a>.</p><p><img src="/images/2022-11-02-how-to-fork-like-a-boss/gh-issue.jpg" alt="Screenshot of GitHub issue with title &amp;quot;Question about whether the relative path is base on current working dir or current md file?&amp;quot; with the first entry in the issue describing how their blog posts have images in the same directory as the post"></p><h2>Choosing to Fork</h2><p>This is the moment where I got to choose. I had a options for my next move:</p><ol><li>Add to the thread and hope for the best</li><li>Built my own solution from scratch</li><li>Take a look through the code and see if its forkable</li></ol><p>The first choice makes sense if you don't have the knowledge or skills.</p><p>The second choice feels easier, but that is only your fear of contributing getting the best of you. When you add to your codebase, you are adding more code to support in the long run and all comes with that.</p><p>The last choice might make you nervous of you haven't forked in a long time, but I assure you, if you can code, you can fork. So browse through the code and see if you can find the spot your forking can help.</p><h2>Defining Forkability</h2><p>This is very subjective, but when it comes to forkable projects for me, I look for the following things, in this order:</p><ol><li><code>CONTRIBUTING.md</code>, to give me a breakdown on how the community wants people to contribute</li><li>Tests, so I know I can mess around with the code without breaking existing functionality</li><li>Existing Issues and Pull Requests (PRs) to see what users, developers, and project owners are currently working on and their focus.</li></ol><p>In my recent contribution to <a href="https://github.com/solution-loisir/markdown-it-eleventy-img" target="_blank" rel="noopener">markdown-it-eleventy-img</a>, I went through the repo trying to figure out whether or not it was forkable. Although I didn't find a <code>CONTRIBUTING.md</code> (<a href="https://github.blog/2012-09-17-contributing-guidelines/" target="_blank" rel="noopener">but that could be a future PR</a>) but I found a set of tests, and even though I forgot in the moment, there was an existing issue from someone else about the same issue I was hoping to contribute!</p><p>And with that, I knew this project was forkable. So I pulled out my finger and clicked &quot;FORK&quot; like boss and coded up my solution, and <a href="https://github.com/solution-loisir/markdown-it-eleventy-img/pull/9" target="_blank" rel="noopener">submitted a PR</a>.</p><h2>Fork with Confidence and Respect</h2><p>If you look through the <a href="https://github.com/solution-loisir/markdown-it-eleventy-img/pull/9" target="_blank" rel="noopener">thread of the PR</a> you'll see that my solution went through a few iterations and changes after receiving feedback from the project owner.</p><p>This was a great conversation and it lead to a better solution implementation than my original submission, which made me exceptionally happy (and proud) of my contribution.</p><p>Even though it is volunteer labour, remember that both you AND the project owner/admins are choosing to spend their time reviewing and analyzing your work. Everyone is involved in the fork is investing time, and everyone should be treated with respect and as a professional.</p><p>Plus—this is a great opportunity to level-up your development soft skills. Enjoy yourself, but be timely and respect the investment everyone is making.</p><h2>Conclusion / TL;DR;</h2><p>To fork like a boss, all you need is a project ready for contributions, some confidence, and respect for others on the project:</p><ol><li>A <code>CONTRIBUTING.md</code></li><li>Tests</li><li>Existing Issues and Pull Requests (PRs)</li></ol><p>Thanks for playing.</p><p>~ DW</p>]]></content>
+    
+    <summary type="html">
+    
+      Everyone thinks about forking. It is a natural thing, yet how do get the job done and fork? I used to ask myself the same thing, until I learned these pro-tips and forked like a boss.
+    
+    </summary>
+    
+    
+      <category term="github" scheme="https://westerndevs.com/tags/github/"/>
+    
+      <category term="pull requests" scheme="https://westerndevs.com/tags/pull-requests/"/>
+    
+      <category term="contribution" scheme="https://westerndevs.com/tags/contribution/"/>
+    
+      <category term="open source" scheme="https://westerndevs.com/tags/open-source/"/>
+    
+  </entry>
+  
+  <entry>
     <title type="html">I Can Teach Your Dog Quantum Physics</title>
     <link href="https://westerndevs.com/finding-inspiration/i-can-teach-your-dog-quantum-physics/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/finding-inspiration/i-can-teach-your-dog-quantum-physics/</id>
     <published>2021-06-28T16:00:00.000Z</published>
-    <updated>2022-11-01T13:51:45.001Z</updated>
+    <updated>2022-11-02T13:37:20.371Z</updated>
 	<author>
 	
 	  
@@ -59,7 +93,7 @@
     <link href="https://westerndevs.com/inner-monologue/what-value-does-making-content-bring-to-me/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/inner-monologue/what-value-does-making-content-bring-to-me/</id>
     <published>2021-06-17T16:00:00.000Z</published>
-    <updated>2022-11-01T13:51:45.001Z</updated>
+    <updated>2022-11-02T13:37:20.371Z</updated>
 	<author>
 	
 	  
@@ -97,7 +131,7 @@
     <link href="https://westerndevs.com/inner-monologue/my-secret-addiction-to-likes/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/inner-monologue/my-secret-addiction-to-likes/</id>
     <published>2021-06-03T16:00:00.000Z</published>
-    <updated>2022-11-01T13:51:45.001Z</updated>
+    <updated>2022-11-02T13:37:20.371Z</updated>
 	<author>
 	
 	  
@@ -135,7 +169,7 @@
     <link href="https://westerndevs.com/technology/inner-monologue/lucky-number-v7/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/technology/inner-monologue/lucky-number-v7/</id>
     <published>2021-05-24T16:00:00.000Z</published>
-    <updated>2022-11-01T13:51:45.001Z</updated>
+    <updated>2022-11-02T13:37:20.371Z</updated>
 	<author>
 	
 	  
@@ -171,7 +205,7 @@
     <link href="https://westerndevs.com/devops/from-travis-ci-to-github-actions/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devops/from-travis-ci-to-github-actions/</id>
     <published>2020-11-10T23:36:00.000Z</published>
-    <updated>2022-11-01T13:51:45.001Z</updated>
+    <updated>2022-11-02T13:37:20.371Z</updated>
 	<author>
 	
 	  
@@ -209,7 +243,7 @@
     <link href="https://westerndevs.com/devlog/out-the-door/out-the-door-post-jam-update/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/out-the-door/out-the-door-post-jam-update/</id>
     <published>2020-11-09T14:00:00.000Z</published>
-    <updated>2022-11-01T13:51:45.001Z</updated>
+    <updated>2022-11-02T13:37:20.371Z</updated>
 	<author>
 	
 	  
@@ -251,7 +285,7 @@
     <link href="https://westerndevs.com/devlog/a-solo-gamejam-experience-ld47/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/a-solo-gamejam-experience-ld47/</id>
     <published>2020-10-23T13:00:00.000Z</published>
-    <updated>2022-11-01T13:51:44.997Z</updated>
+    <updated>2022-11-02T13:37:20.371Z</updated>
 	<author>
 	
 	  
@@ -291,7 +325,7 @@
     <link href="https://westerndevs.com/devlog/game-portfolio-review-2020/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/game-portfolio-review-2020/</id>
     <published>2020-09-18T13:00:00.000Z</published>
-    <updated>2022-11-01T13:51:44.997Z</updated>
+    <updated>2022-11-02T13:37:20.371Z</updated>
 	<author>
 	
 	  
@@ -331,7 +365,7 @@
     <link href="https://westerndevs.com/devlog/little-shop-of-wall-street-01-release-notes/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/little-shop-of-wall-street-01-release-notes/</id>
     <published>2020-07-02T15:13:00.000Z</published>
-    <updated>2022-11-01T13:51:44.997Z</updated>
+    <updated>2022-11-02T13:37:20.371Z</updated>
 	<author>
 	
 	  
@@ -369,7 +403,7 @@
     <link href="https://westerndevs.com/Game-Design/How-GitHub-Makes-Game-Making-Easier-For-NonCoders/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Game-Design/How-GitHub-Makes-Game-Making-Easier-For-NonCoders/</id>
     <published>2020-02-19T20:48:36.000Z</published>
-    <updated>2022-11-01T13:51:44.997Z</updated>
+    <updated>2022-11-02T13:37:20.371Z</updated>
 	<author>
 	
 	  
@@ -405,7 +439,7 @@
     <link href="https://westerndevs.com/Devlog/Jan-2020-Devlog/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Devlog/Jan-2020-Devlog/</id>
     <published>2020-02-04T21:03:24.000Z</published>
-    <updated>2022-11-01T13:51:44.997Z</updated>
+    <updated>2022-11-02T13:37:20.371Z</updated>
 	<author>
 	
 	  
@@ -441,7 +475,7 @@
     <link href="https://westerndevs.com/Game-Development/Where-To-Find-Your-Gamedev-Community/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Game-Development/Where-To-Find-Your-Gamedev-Community/</id>
     <published>2020-01-21T11:09:00.000Z</published>
-    <updated>2022-11-01T13:51:44.997Z</updated>
+    <updated>2022-11-02T13:37:20.371Z</updated>
 	<author>
 	
 	  
@@ -479,7 +513,7 @@
     <link href="https://westerndevs.com/_/No-Cost-Game-Design-Toolbox/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/No-Cost-Game-Design-Toolbox/</id>
     <published>2020-01-13T21:51:04.000Z</published>
-    <updated>2022-11-01T13:51:44.997Z</updated>
+    <updated>2022-11-02T13:37:20.371Z</updated>
 	<author>
 	
 	  
@@ -515,7 +549,7 @@
     <link href="https://westerndevs.com/Game-Development/gameoff2019-gamejam-devlog/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Game-Development/gameoff2019-gamejam-devlog/</id>
     <published>2019-11-26T14:57:00.000Z</published>
-    <updated>2022-11-01T13:51:44.997Z</updated>
+    <updated>2022-11-02T13:37:20.371Z</updated>
 	<author>
 	
 	  
@@ -545,7 +579,7 @@
     <link href="https://westerndevs.com/_/streaming-code-and-games-on-mixer/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/streaming-code-and-games-on-mixer/</id>
     <published>2018-09-27T17:55:42.000Z</published>
-    <updated>2022-11-01T13:51:44.993Z</updated>
+    <updated>2022-11-02T13:37:20.367Z</updated>
 	<author>
 	
 	  
@@ -571,7 +605,7 @@
     <link href="https://westerndevs.com/Development/f12-chooser-is-dev-tool-thing/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Development/f12-chooser-is-dev-tool-thing/</id>
     <published>2018-03-28T17:10:00.000Z</published>
-    <updated>2022-11-01T13:51:44.993Z</updated>
+    <updated>2022-11-02T13:37:20.367Z</updated>
 	<author>
 	
 	  
@@ -607,7 +641,7 @@
     <link href="https://westerndevs.com/Development/typescript-or-javascript/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Development/typescript-or-javascript/</id>
     <published>2018-03-15T15:40:00.000Z</published>
-    <updated>2022-11-01T13:51:44.993Z</updated>
+    <updated>2022-11-02T13:37:20.367Z</updated>
 	<author>
 	
 	  
@@ -639,7 +673,7 @@
     <link href="https://westerndevs.com/Development/crowdsourcing-docs-is-cool/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Development/crowdsourcing-docs-is-cool/</id>
     <published>2018-03-13T13:40:00.000Z</published>
-    <updated>2022-11-01T13:51:44.993Z</updated>
+    <updated>2022-11-02T13:37:20.367Z</updated>
 	<author>
 	
 	  
@@ -671,7 +705,7 @@
     <link href="https://westerndevs.com/web/websummit-wsl/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/web/websummit-wsl/</id>
     <published>2017-09-20T22:35:00.000Z</published>
-    <updated>2022-11-01T13:51:44.993Z</updated>
+    <updated>2022-11-02T13:37:20.367Z</updated>
 	<author>
 	
 	  
@@ -701,42 +735,6 @@
       <category term="windows subsystem for linux" scheme="https://westerndevs.com/tags/windows-subsystem-for-linux/"/>
     
       <category term="wsl" scheme="https://westerndevs.com/tags/wsl/"/>
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Sonar, the Linter I Never Knew I Wanted</title>
-    <link href="https://westerndevs.com/web/websummit-sonar/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/web/websummit-sonar/</id>
-    <published>2017-09-19T22:35:00.000Z</published>
-    <updated>2022-11-01T13:51:44.993Z</updated>
-	<author>
-	
-	  
-	  <name>David Wesst</name>
-	  <email>questions@davidwesst.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p><em>This is part of a series of posts capturing the highlights from my experience at the <a href="https://summit.microsoftedge.com/" target="_blank" rel="noopener">Microsoft Edge Web Summit 2017</a></em></p><p><img src="https://davidwesst.blob.core.windows.net/blog/websummit-sonar/sonar-bttf.png" alt="Nellie the Narwhal in the Back to the Future DeLorean"></p><p>Meet Nellie the Narwhal. Nellie is the official mascot for <a href="https://sonarwhal.com/" target="_blank" rel="noopener">Sonar</a>, the linting tool for the web. Nellie represents a tool that is long-overdue. It provides any web application the ability to verify they are meeting a high level of quality when it comes to their web applications, and catch any improvements to implement or common pitfalls to fix.</p><h2>What is Sonar?</h2><p>Sonar is a linting tool for the web. Plain and simple.</p><p>It provides command line linting tool, along with some rules, that prevent developers from making some common mistakes or pitfalls with their web applications. It covers things like security, accessbility, and progressive web applications, to name a few.</p><p>You can also create your own rules for the linter, allowing you to extend the tool to check your solutions for business specific requirements.</p><p>Oh, and it's been <a href="https://js.foundation/announcements/2017/06/22/sonar-js-foundation-welcomes-newest-project" target="_blank" rel="noopener">donated to the JS Foundation</a>, where Microsoft continues to contribute to it.</p><h2>Why do you want this?</h2><p>Because of devops, that's why.</p><p>This is a command line tool that can break a build if your site doesn't meet specific requirements. Personally, I'm happy about the security and accessiblity rules they provide, but being that <a href="http://www.westerndevs.com/web/websummit-pwa/" target="_blank" rel="noopener">I'm pretty focused on PWAs</a>, I'm sure that Sonar is going to help me write better PWAs than I would have done learning on my own.</p><p>Personally, I'm looking forward to breaking a build because I forgot to implement some accessibility rules. It will help me and my team learn some of these optimizations to make our web projects work best for everyone on any device.</p><h2>How can I start using it?</h2><p><img src="https://davidwesst.blob.core.windows.net/blog/websummit-sonar/sonar-in-action.gif" alt="Sonar running against WesternDevs.com showing lots of issues"></p><p>It's pretty easy: just install, initialize, and run it.</p><p>As you can see, there is work for us to do if we want to bring our blog up to the recommended specification provided by Sonar.</p><p>If you're looking to set a bar of quality, whether it be the recommended standard or just your own set of standards, Sonar is the tool that can make that happen.</p><hr><h2>Resources</h2><ul><li><a href="https://sonarwhal.com/" target="_blank" rel="noopener">Sonar</a></li><li><a href="https://js.foundation/" target="_blank" rel="noopener">JS Foundation</a></li></ul><h2>Image Credit</h2><ul><li><a href="https://github.com/sonarwhal/nellie" target="_blank" rel="noopener">Nellie's Photo Album | Back to the Future</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      Meet Nellie the Narwhal, the official mascot for Sonar, the linting tool for the web. Nellie represents a tool that is long-overdue. It provides any web application the ability to verify they are meeting a high level of quality when it comes to their web applications, and not miss any common mistakes.
-    
-    </summary>
-    
-      <category term="web" scheme="https://westerndevs.com/categories/web/"/>
-    
-    
-      <category term="devops" scheme="https://westerndevs.com/tags/devops/"/>
-    
-      <category term="microsoft-edge" scheme="https://westerndevs.com/tags/microsoft-edge/"/>
-    
-      <category term="sonar" scheme="https://westerndevs.com/tags/sonar/"/>
-    
-      <category term="accessibility" scheme="https://westerndevs.com/tags/accessibility/"/>
     
   </entry>
   

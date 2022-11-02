@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2022-11-01T13:51:45.009Z</updated>
+  <updated>2022-11-02T13:37:20.371Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,45 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">How to fork (a repo) like a boss!</title>
+    <link href="https://westerndevs.com/_/how-to-fork-like-a-boss/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/how-to-fork-like-a-boss/</id>
+    <published>2022-11-02T21:00:00.000Z</published>
+    <updated>2022-11-02T13:37:20.371Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>My name is David Wesst and today I am going to teach you to fork like a boss! No special tools. No special creams. Just your clicking finger and a bit of confidence to use your coding skills.</p><p>Before I forked, I thought I forking wasn't for me. I thought, I am too old to fork, but man oh man was I wrong. But then came the day where a library I was using was missing a critical feature, and a quick search through the repository issues found <a href="https://github.com/solution-loisir/markdown-it-eleventy-img/issues/8" target="_blank" rel="noopener">that others were looking for that feature too</a>.</p><p><img src="/images/2022-11-02-how-to-fork-like-a-boss/gh-issue.jpg" alt="Screenshot of GitHub issue with title &amp;quot;Question about whether the relative path is base on current working dir or current md file?&amp;quot; with the first entry in the issue describing how their blog posts have images in the same directory as the post"></p><h2>Choosing to Fork</h2><p>This is the moment where I got to choose. I had a options for my next move:</p><ol><li>Add to the thread and hope for the best</li><li>Built my own solution from scratch</li><li>Take a look through the code and see if its forkable</li></ol><p>The first choice makes sense if you don't have the knowledge or skills.</p><p>The second choice feels easier, but that is only your fear of contributing getting the best of you. When you add to your codebase, you are adding more code to support in the long run and all comes with that.</p><p>The last choice might make you nervous of you haven't forked in a long time, but I assure you, if you can code, you can fork. So browse through the code and see if you can find the spot your forking can help.</p><h2>Defining Forkability</h2><p>This is very subjective, but when it comes to forkable projects for me, I look for the following things, in this order:</p><ol><li><code>CONTRIBUTING.md</code>, to give me a breakdown on how the community wants people to contribute</li><li>Tests, so I know I can mess around with the code without breaking existing functionality</li><li>Existing Issues and Pull Requests (PRs) to see what users, developers, and project owners are currently working on and their focus.</li></ol><p>In my recent contribution to <a href="https://github.com/solution-loisir/markdown-it-eleventy-img" target="_blank" rel="noopener">markdown-it-eleventy-img</a>, I went through the repo trying to figure out whether or not it was forkable. Although I didn't find a <code>CONTRIBUTING.md</code> (<a href="https://github.blog/2012-09-17-contributing-guidelines/" target="_blank" rel="noopener">but that could be a future PR</a>) but I found a set of tests, and even though I forgot in the moment, there was an existing issue from someone else about the same issue I was hoping to contribute!</p><p>And with that, I knew this project was forkable. So I pulled out my finger and clicked &quot;FORK&quot; like boss and coded up my solution, and <a href="https://github.com/solution-loisir/markdown-it-eleventy-img/pull/9" target="_blank" rel="noopener">submitted a PR</a>.</p><h2>Fork with Confidence and Respect</h2><p>If you look through the <a href="https://github.com/solution-loisir/markdown-it-eleventy-img/pull/9" target="_blank" rel="noopener">thread of the PR</a> you'll see that my solution went through a few iterations and changes after receiving feedback from the project owner.</p><p>This was a great conversation and it lead to a better solution implementation than my original submission, which made me exceptionally happy (and proud) of my contribution.</p><p>Even though it is volunteer labour, remember that both you AND the project owner/admins are choosing to spend their time reviewing and analyzing your work. Everyone is involved in the fork is investing time, and everyone should be treated with respect and as a professional.</p><p>Plus—this is a great opportunity to level-up your development soft skills. Enjoy yourself, but be timely and respect the investment everyone is making.</p><h2>Conclusion / TL;DR;</h2><p>To fork like a boss, all you need is a project ready for contributions, some confidence, and respect for others on the project:</p><ol><li>A <code>CONTRIBUTING.md</code></li><li>Tests</li><li>Existing Issues and Pull Requests (PRs)</li></ol><p>Thanks for playing.</p><p>~ DW</p>]]></content>
+    
+    <summary type="html">
+    
+      Everyone thinks about forking. It is a natural thing, yet how do get the job done and fork? I used to ask myself the same thing, until I learned these pro-tips and forked like a boss.
+    
+    </summary>
+    
+    
+      <category term="github" scheme="https://westerndevs.com/tags/github/"/>
+    
+      <category term="pull requests" scheme="https://westerndevs.com/tags/pull-requests/"/>
+    
+      <category term="contribution" scheme="https://westerndevs.com/tags/contribution/"/>
+    
+      <category term="open source" scheme="https://westerndevs.com/tags/open-source/"/>
+    
+  </entry>
+  
+  <entry>
     <title type="html">Dealing with Set-Output Depreciation Warnings in Terraform github-actions</title>
     <link href="https://westerndevs.com/_/set-output-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-output-terraform/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2022-11-01T13:51:45.009Z</updated>
+    <updated>2022-11-02T13:37:20.379Z</updated>
 	<author>
 	
 	  
@@ -47,7 +81,7 @@
     <link href="https://westerndevs.com/_/theory-of-terraform-github-actions/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/theory-of-terraform-github-actions/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2022-11-01T13:51:45.009Z</updated>
+    <updated>2022-11-02T13:37:20.383Z</updated>
 	<author>
 	
 	  
@@ -73,7 +107,7 @@
     <link href="https://westerndevs.com/_/register-providers/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/register-providers/</id>
     <published>2022-08-12T04:00:00.000Z</published>
-    <updated>2022-11-01T13:51:45.005Z</updated>
+    <updated>2022-11-02T13:37:20.379Z</updated>
 	<author>
 	
 	  
@@ -99,7 +133,7 @@
     <link href="https://westerndevs.com/_/debug-azure-container-instances-startup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/debug-azure-container-instances-startup/</id>
     <published>2022-08-04T04:00:00.000Z</published>
-    <updated>2022-11-01T13:51:45.001Z</updated>
+    <updated>2022-11-02T13:37:20.375Z</updated>
 	<author>
 	
 	  
@@ -125,7 +159,7 @@
     <link href="https://westerndevs.com/_/consuming-wsdl/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/consuming-wsdl/</id>
     <published>2022-05-30T04:00:00.000Z</published>
-    <updated>2022-11-01T13:51:45.001Z</updated>
+    <updated>2022-11-02T13:37:20.375Z</updated>
 	<author>
 	
 	  
@@ -151,7 +185,7 @@
     <link href="https://westerndevs.com/_/azure-functions-error/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-functions-error/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2022-11-01T13:51:45.001Z</updated>
+    <updated>2022-11-02T13:37:20.375Z</updated>
 	<author>
 	
 	  
@@ -177,7 +211,7 @@
     <link href="https://westerndevs.com/_/which-sql-server-edition/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/which-sql-server-edition/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2022-11-01T13:51:45.009Z</updated>
+    <updated>2022-11-02T13:37:20.383Z</updated>
 	<author>
 	
 	  
@@ -203,7 +237,7 @@
     <link href="https://westerndevs.com/_/cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cheat-sheet/</id>
     <published>2022-04-04T04:00:00.000Z</published>
-    <updated>2022-11-01T13:51:45.001Z</updated>
+    <updated>2022-11-02T13:37:20.375Z</updated>
 	<author>
 	
 	  
@@ -231,7 +265,7 @@
     <link href="https://westerndevs.com/_/rubocop-issue/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/rubocop-issue/</id>
     <published>2022-03-18T04:00:00.000Z</published>
-    <updated>2022-11-01T13:51:45.005Z</updated>
+    <updated>2022-11-02T13:37:20.379Z</updated>
 	<author>
 	
 	  
@@ -258,7 +292,7 @@
     <link href="https://westerndevs.com/_/fsevents-optional-dependencies/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/fsevents-optional-dependencies/</id>
     <published>2022-03-16T04:00:00.000Z</published>
-    <updated>2022-11-01T13:51:45.005Z</updated>
+    <updated>2022-11-02T13:37:20.375Z</updated>
 	<author>
 	
 	  
@@ -284,7 +318,7 @@
     <link href="https://westerndevs.com/_/backblaze-exclude-node-modules/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/backblaze-exclude-node-modules/</id>
     <published>2022-02-20T05:00:00.000Z</published>
-    <updated>2022-11-01T13:51:45.001Z</updated>
+    <updated>2022-11-02T13:37:20.375Z</updated>
 	<author>
 	
 	  
@@ -310,7 +344,7 @@
     <link href="https://westerndevs.com/_/parsing-vue-router-parameters/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/parsing-vue-router-parameters/</id>
     <published>2022-02-18T05:00:00.000Z</published>
-    <updated>2022-11-01T13:51:45.005Z</updated>
+    <updated>2022-11-02T13:37:20.379Z</updated>
 	<author>
 	
 	  
@@ -336,7 +370,7 @@
     <link href="https://westerndevs.com/_/install-azfileshybrid-powershell/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/install-azfileshybrid-powershell/</id>
     <published>2022-02-16T05:00:00.000Z</published>
-    <updated>2022-11-01T13:51:45.005Z</updated>
+    <updated>2022-11-02T13:37:20.379Z</updated>
 	<author>
 	
 	  
@@ -362,7 +396,7 @@
     <link href="https://westerndevs.com/_/purge-cdn-in-devops/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/purge-cdn-in-devops/</id>
     <published>2022-01-27T05:00:00.000Z</published>
-    <updated>2022-11-01T13:51:45.005Z</updated>
+    <updated>2022-11-02T13:37:20.379Z</updated>
 	<author>
 	
 	  
@@ -389,7 +423,7 @@
     <link href="https://westerndevs.com/_/hash-nil/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/hash-nil/</id>
     <published>2021-11-24T05:00:00.000Z</published>
-    <updated>2022-11-01T13:51:45.005Z</updated>
+    <updated>2022-11-02T13:37:20.375Z</updated>
 	<author>
 	
 	  
@@ -415,7 +449,7 @@
     <link href="https://westerndevs.com/_/choosing-power-bi/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/choosing-power-bi/</id>
     <published>2021-11-19T05:00:00.000Z</published>
-    <updated>2022-11-01T13:51:45.001Z</updated>
+    <updated>2022-11-02T13:37:20.375Z</updated>
 	<author>
 	
 	  
@@ -441,7 +475,7 @@
     <link href="https://westerndevs.com/_/app-services-on-vnet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/app-services-on-vnet/</id>
     <published>2021-11-14T05:00:00.000Z</published>
-    <updated>2022-11-01T13:51:45.001Z</updated>
+    <updated>2022-11-02T13:37:20.375Z</updated>
 	<author>
 	
 	  
@@ -467,7 +501,7 @@
     <link href="https://westerndevs.com/_/ngrok-aspnet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ngrok-aspnet/</id>
     <published>2021-10-25T04:00:00.000Z</published>
-    <updated>2022-11-01T13:51:45.005Z</updated>
+    <updated>2022-11-02T13:37:20.379Z</updated>
 	<author>
 	
 	  
@@ -494,7 +528,7 @@
     <link href="https://westerndevs.com/_/pandas-read-tsv/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/pandas-read-tsv/</id>
     <published>2021-10-25T04:00:00.000Z</published>
-    <updated>2022-11-01T13:51:45.005Z</updated>
+    <updated>2022-11-02T13:37:20.379Z</updated>
 	<author>
 	
 	  
@@ -510,32 +544,6 @@
     
       &lt;p&gt;Pretty easy, just use the csv loader with a different record separator&lt;/p&gt;
 &lt;figure class=&quot;highlight reasonml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutte
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Using RLS in Power BI Embedded</title>
-    <link href="https://westerndevs.com/_/RLS-with-power-bi/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/RLS-with-power-bi/</id>
-    <published>2021-10-22T04:00:00.000Z</published>
-    <updated>2022-11-01T13:51:45.001Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>Power BI is a funny animal. On some levels it is a logical successor to SSRS but on other levels it is a totally different beast. One of the ways it differs greatly from SSRS is in handling parameters, especially secure parameters. When embedding an SSRS report you could specify the parameter value in a secure fashion and then now show the selector to end users.</p><p>In many cases there is a need to use row level security (RLS) to restrict the data that a user can see in Power BI. There are a myriad of ways to do this wrong and I think I've explored most of them over the last few days. There is also at least one way that works.</p><p>A tempting approach is to use a filter. These can be applied at render time in the browser by adding to the config when embedding the report.</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> config = &#123;</span><br><span class="line">      visualName: <span class="string">''</span>,</span><br><span class="line">      type: <span class="string">'report'</span>,</span><br><span class="line">      accessToken: token, </span><br><span class="line">      embedUrl: token.embedUrl,</span><br><span class="line">      tokenType: powerbi.models.TokenType.Embed,</span><br><span class="line">      permissions: permissions,</span><br><span class="line">      <span class="comment">// 👇 filters</span></span><br><span class="line">      filters: [</span><br><span class="line">        &#123;</span><br><span class="line">          $schema: <span class="string">"http://powerbi.com/product/schema#basic"</span>,</span><br><span class="line">          target: &#123;</span><br><span class="line">              table: <span class="string">"monthlyProducts"</span>,</span><br><span class="line">              column: <span class="string">"userId"</span></span><br><span class="line">          &#125;,</span><br><span class="line">          operator: <span class="string">"In"</span>,</span><br><span class="line">          values: [<span class="string">"stimms"</span>]</span><br><span class="line">        &#125;</span><br><span class="line">      ],</span><br><span class="line">      <span class="comment">// ☝️</span></span><br><span class="line">      settings: &#123;</span><br><span class="line">        panes: &#123;</span><br><span class="line">          filters: &#123;</span><br><span class="line">            visible: <span class="literal">true</span>,</span><br><span class="line">          &#125;,</span><br><span class="line">          pageNavigation: &#123;</span><br><span class="line">            visible: <span class="literal">true</span>,</span><br><span class="line">          &#125;,</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><p>This class of parameter is fine for providing filters that can be updated later by the user. However, it should not be used for parameters that require some degree of security like a user name. These parameters are easily changed and, unless your parameter are in some way cryptographically secure there is a good chance you're introducing a broken access control - <a href="https://owasp.org/Top10/A01_2021-Broken_Access_Control/" target="_blank" rel="noopener">#1</a> on the <a href="https://owasp.org/www-project-top-ten/" target="_blank" rel="noopener">OWASP top 10</a>.</p><p>Instead of this approach you can use the manage roles functionality in Power BI.</p><p><img src="/images/2021-10-22-RLS_with_power_bi.md/2021-10-22-15-55-31.png" alt="">)</p><p>This functionality is designed to provide high level filters for data. A lot of the examples I see are for things like restricting a user in the <code>East</code> region from seeing the data of a user in the <code>West</code> region. This is done by assigning a role to that user when generating the embedding token. Then you'd set up a role for each region (see 1) and apply a filter expression to your tables so the only records with a region of <code>East</code> would show up.</p><p><img src="/images/2021-10-22-RLS_with_power_bi.md/2021-10-22-15-59-46.png" alt="">)</p><p>This is a simplistic and somewhat tiresome approach to adding a role mapping. What if a new region like <code>SouthEast</code> is introduced? What isn't, perhaps, as clear is that DAX expression can contain dynamic functions like <code>UserName()</code> which make filtering more powerful. This <code>UserName()</code> will be bound to the effective identity passed in</p><p><img src="/images/2022-07-06-RLS_with_power_bi.md/2022-07-06-07-11-52.png" alt="">)</p><p>What I settled on for my filtering was to have a single role which I enforce at the embedded token generation level and then filter my data by the UserName() which I also set at the embedded token level. Because these are set at the embedded token generation time which occurs on the server I can be confident that I'm not providing a way for somebody to view data they shouldn't.</p><p>The code for generation looks like this:</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> tokenRequest = <span class="keyword">new</span> GenerateTokenRequestV2(</span><br><span class="line">                    reports: <span class="keyword">new</span> List&lt;GenerateTokenRequestV2Report&gt;</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="keyword">new</span> GenerateTokenRequestV2Report(reportId)</span><br><span class="line">                    &#125;,</span><br><span class="line">                    datasets: <span class="keyword">new</span> List&lt;GenerateTokenRequestV2Dataset&gt; &#123; <span class="keyword">new</span> GenerateTokenRequestV2Dataset(report.DatasetId) &#125;,</span><br><span class="line">                    identities: <span class="keyword">new</span> List&lt;EffectiveIdentity&gt; &#123; <span class="keyword">new</span> EffectiveIdentity(user.ContactId.ToString(),</span><br><span class="line">                                                                roles: <span class="keyword">new</span> List&lt;<span class="keyword">string</span>&gt; &#123; <span class="string">"Users"</span> &#125;,</span><br><span class="line">                                                                datasets: <span class="keyword">new</span> List&lt;String&gt;&#123;report.DatasetId &#125;)</span><br><span class="line">                    &#125;</span><br><span class="line">                );</span><br><span class="line"><span class="keyword">var</span> embedToken = <span class="keyword">await</span> client.EmbedToken.GenerateTokenAsync(tokenRequest);</span><br></pre></td></tr></table></figure><p>In this particular case the data I was returning from the database could be accessed by a number of different people depending on to which group they belonged. Initially I tried crossing the data against the user/group matrix but the cardinality of the resulting set was in the billions and totally overwhelmed both SQL Server and Power BI. Instead what I did was pull in the user/group matrix and the dataset that exposed the group id. In Power BI I did a merge of the datasets along with applying the row level filtering. This was necessary because, as far as I know, there is no way to pass the user name down to the actual query running against the server.</p><p>With all this in place I got good security and good performance. But, wow, did it take me a long time to get there.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Power BI is a funny animal. On some levels it is a logical successor to SSRS but on other levels it is a totally different beast. One of 
     
     </summary>
     
