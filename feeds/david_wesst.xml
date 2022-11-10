@@ -5,7 +5,7 @@
   <link href="/feeds/david_wesst" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2022-11-02T13:37:20.371Z</updated>
+  <updated>2022-11-10T21:58:58.063Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,51 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">How much is enough documentation?</title>
+    <link href="https://westerndevs.com/_/how-much-is-enough-documentation/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/how-much-is-enough-documentation/</id>
+    <published>2022-11-10T22:00:00.000Z</published>
+    <updated>2022-11-10T21:58:58.063Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>Documentation takes a lot of different forms. Decision requests, diagrams, and just plain ol' word filled documents. Historically speaking, I have been guilty of being that developer that loathed documentation, waited until the last minute, and usually produced something that won't provide much help when it is actually needed.</p><p>Being a solution architect during the day, I wanted to apply some of my new found skills (and appreciation) for documentation while <a href="https://github.com/davidwesst/website/blob/main/CHANGELOG.md" target="_blank" rel="noopener">working on v10 of my website</a>. Ultimately, documentation is <em>necessary</em>, even on personal projects. If I think back to my own experience with my own projects, they can end up sitting on the shelve for a long time. When go back to revisit it, other than analyzing my own code (on prototype stuff) can be a serious time sink to even get things in a running state without any decent documentation.</p><h2>What do you <em>need</em>?</h2><p>And I do mean <em>needed</em> not <em>wanted</em>. Everyone <em>wants</em> documentation of all kinds, but what does an audience of one (i.e., your future self) <em>need</em> to get the project back off the shelve and into working order?</p><p>Like any good solution architect, I started to read, learn, and figure out what others consider &quot;enough documentation&quot; or &quot;good documentation&quot;. I also spent time defining the problem I needed the documentation to solve, and landed on the following docs being &quot;enough&quot;.</p><h3>The README</h3><p>It might seem obvious but, I have read enough of my own empty or default <code>README.md</code> files to know that this is easily the most important piece of documentation you write. Without it, the project will require code analysis to figure out what it <em>actually</em> is, and that is never good.</p><p>There are a lot of great examples <code>README.md</code> files on GitHub to look at, but I would suggest you start simple if you're just getting off the ground. My take was to include system requirements and the steps to setup, build, and start the project for the developer.</p><p>When searching for info on this, I really like <a href="https://www.freecodecamp.org/news/how-to-write-a-good-readme-file/" target="_blank" rel="noopener">this article from Hillary Nyakundi</a> provided a great &quot;how-to&quot; on making a good <code>README.md</code>.</p><h3>Decisions (also known as ADs or Architecture Decisions)</h3><p>This is one I picked up from my day job being a Solution Architect in a large enterprise. Decisions you make along the way need to be documented, even if it is only for yourself.</p><p>The idea is to document decisions that will have a long term impact on your project. Decided to document decisions? That can be documented. Decided that you only want your project to run on Azure? That can be documented. Decided to design your solution around a specific pattern? That can be documented.</p><p>You can document as many or as few decisions as you want. In the case of my website project, <a href="https://github.com/davidwesst/website/tree/main/docs/decisions" target="_blank" rel="noopener">I documented a few core decisions early on</a> because I wanted to remember <em>why I built it this way</em>. Even though I am adding content regularly and tweaking features frequently enough, I could shelve the development at any point.</p><p>In terms of format, there are plenty of ways to document decisions and why it is important, but I am not going to spend time explaining that. Instead I would recommend reading <a href="https://adr.github.io" target="_blank" rel="noopener">how GitHub documents decisions</a>. That is where I started, and they have a great breakdown of the different format and tools that can support you, if you're inclined to get into the tooling.</p><p>For the website, I <a href="https://github.com/davidwesst/website/blob/main/docs/decisions/0001-decisions-with-madr.md" target="_blank" rel="noopener">decided to use MADR as my decision document template</a> and documented &quot;why&quot; I chose it as the first decision for the project and <a href="https://github.com/davidwesst/website/blob/main/docs/decisions/0001-decisions-with-madr.md" target="_blank" rel="noopener">documented it</a>.</p><h3>Diagrams</h3><p>The last bit of documentation I feel I <em>need</em> (although it is not as important as the previous two) are solution diagrams.</p><p>Just like decision documentation, this is something that can take a lot of different forms. Personally, I am not a huge fan of diving into UML or any of the traditional diagram styles. I like diagrams that present well to multiple audiences and explain <em>one thing</em> well.</p><p><img src="/images/2022-11-10-how-much-is-enough-documentation/website-solution-overview.png" alt="A solution diagram example from the website project"></p><p>The above diagram is one I created to explain how I setup all the pieces inside of Microsoft Azure to host my website. The diagram answers the question &quot;What is necessary to host your application?&quot; which goes beyond the code in my case.</p><p>There is no real format that I applied here, but I scoped it to focus on the Azure Infrastructure and service I needed to rebuild the solution in Azure from scratch. Almost like a high-level guide to explain all the different pieces that need to be setup and handled.</p><p>In regards to diagram formatting, although I did not use it in this example, the <a href="https://c4model.com" target="_blank" rel="noopener">C4 model</a> is something I have been messing around with to describe systems and projects in my day job. If you need a little direction, or are struggling to figure out &quot;how to diagram&quot; your project, it might be worth a look.</p><h3>Notable Mention: <code>CHANGELOG.md</code></h3><p>I wanted to highlight this, but also point out that it is definitely not required. A <code>CHANGELOG.md</code> allows you to document your progress.</p><p>I based <a href="https://github.com/davidwesst/website/blob/main/CHANGELOG.md" target="_blank" rel="noopener">my CHANGELOG file</a> off of the format described at <a href="https://keepachangelog.com/en/1.0.0/" target="_blank" rel="noopener">keepachangelog.com</a>. It forced me to take a bit of time (really, like 15 minutes or so) to reflect on my effort and appreciate the effort I have put into the project. Plus, it tells the story of how the project has evolved over time; which, just like the decisions, provides context on how things got to where they are.</p><h2>Conclusion / TL;DR;</h2><p>In short, the documentation I <em>need</em> (not <em>want</em>) consists of the following, with the following priority:</p><ol><li><code>README.md</code> (that at least says how to setup, build, and run the project)</li><li>Decisions (using <a href="https://adr.github.io" target="_blank" rel="noopener">MADR</a> or some other format of your choosing)</li><li>Solution Diagrams (that answer <em>one specific question</em>)</li><li><code>CHANGELOG.md</code> (not required, but provides more context and forces you to appreciate the effort you have put into your project)</li></ol><p>Thanks for playing.</p><p>~ DW</p>]]></content>
+    
+    <summary type="html">
+    
+      Documentation is important, but it takes a lot of time and if you are a solo developer, what documentation to you really need? Still, good docs can provide the context I forget after putting a project on the shelf, or explains how to fix something in older code I use, but haven&#39;t touched in a long time. So how much is &#39;enough&#39; documentation and what types of documentation do I need to invest in give my future self the the best value for the effort I put in?
+    
+    </summary>
+    
+    
+      <category term="madr" scheme="https://westerndevs.com/tags/madr/"/>
+    
+      <category term="c4-model" scheme="https://westerndevs.com/tags/c4-model/"/>
+    
+      <category term="decision" scheme="https://westerndevs.com/tags/decision/"/>
+    
+      <category term="diagram" scheme="https://westerndevs.com/tags/diagram/"/>
+    
+      <category term="documentation" scheme="https://westerndevs.com/tags/documentation/"/>
+    
+      <category term="README.md" scheme="https://westerndevs.com/tags/README-md/"/>
+    
+      <category term="CONTRIBUTING.md" scheme="https://westerndevs.com/tags/CONTRIBUTING-md/"/>
+    
+  </entry>
+  
+  <entry>
     <title type="html">How to fork (a repo) like a boss!</title>
     <link href="https://westerndevs.com/_/how-to-fork-like-a-boss/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/how-to-fork-like-a-boss/</id>
     <published>2022-11-02T21:00:00.000Z</published>
-    <updated>2022-11-02T13:37:20.371Z</updated>
+    <updated>2022-11-10T21:58:58.063Z</updated>
 	<author>
 	
 	  
@@ -55,7 +95,7 @@
     <link href="https://westerndevs.com/finding-inspiration/i-can-teach-your-dog-quantum-physics/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/finding-inspiration/i-can-teach-your-dog-quantum-physics/</id>
     <published>2021-06-28T16:00:00.000Z</published>
-    <updated>2022-11-02T13:37:20.371Z</updated>
+    <updated>2022-11-10T21:58:58.063Z</updated>
 	<author>
 	
 	  
@@ -93,7 +133,7 @@
     <link href="https://westerndevs.com/inner-monologue/what-value-does-making-content-bring-to-me/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/inner-monologue/what-value-does-making-content-bring-to-me/</id>
     <published>2021-06-17T16:00:00.000Z</published>
-    <updated>2022-11-02T13:37:20.371Z</updated>
+    <updated>2022-11-10T21:58:58.063Z</updated>
 	<author>
 	
 	  
@@ -131,7 +171,7 @@
     <link href="https://westerndevs.com/inner-monologue/my-secret-addiction-to-likes/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/inner-monologue/my-secret-addiction-to-likes/</id>
     <published>2021-06-03T16:00:00.000Z</published>
-    <updated>2022-11-02T13:37:20.371Z</updated>
+    <updated>2022-11-10T21:58:58.063Z</updated>
 	<author>
 	
 	  
@@ -169,7 +209,7 @@
     <link href="https://westerndevs.com/technology/inner-monologue/lucky-number-v7/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/technology/inner-monologue/lucky-number-v7/</id>
     <published>2021-05-24T16:00:00.000Z</published>
-    <updated>2022-11-02T13:37:20.371Z</updated>
+    <updated>2022-11-10T21:58:58.063Z</updated>
 	<author>
 	
 	  
@@ -205,7 +245,7 @@
     <link href="https://westerndevs.com/devops/from-travis-ci-to-github-actions/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devops/from-travis-ci-to-github-actions/</id>
     <published>2020-11-10T23:36:00.000Z</published>
-    <updated>2022-11-02T13:37:20.371Z</updated>
+    <updated>2022-11-10T21:58:58.063Z</updated>
 	<author>
 	
 	  
@@ -243,7 +283,7 @@
     <link href="https://westerndevs.com/devlog/out-the-door/out-the-door-post-jam-update/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/out-the-door/out-the-door-post-jam-update/</id>
     <published>2020-11-09T14:00:00.000Z</published>
-    <updated>2022-11-02T13:37:20.371Z</updated>
+    <updated>2022-11-10T21:58:58.063Z</updated>
 	<author>
 	
 	  
@@ -285,7 +325,7 @@
     <link href="https://westerndevs.com/devlog/a-solo-gamejam-experience-ld47/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/a-solo-gamejam-experience-ld47/</id>
     <published>2020-10-23T13:00:00.000Z</published>
-    <updated>2022-11-02T13:37:20.371Z</updated>
+    <updated>2022-11-10T21:58:58.063Z</updated>
 	<author>
 	
 	  
@@ -325,7 +365,7 @@
     <link href="https://westerndevs.com/devlog/game-portfolio-review-2020/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/game-portfolio-review-2020/</id>
     <published>2020-09-18T13:00:00.000Z</published>
-    <updated>2022-11-02T13:37:20.371Z</updated>
+    <updated>2022-11-10T21:58:58.063Z</updated>
 	<author>
 	
 	  
@@ -365,7 +405,7 @@
     <link href="https://westerndevs.com/devlog/little-shop-of-wall-street-01-release-notes/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/little-shop-of-wall-street-01-release-notes/</id>
     <published>2020-07-02T15:13:00.000Z</published>
-    <updated>2022-11-02T13:37:20.371Z</updated>
+    <updated>2022-11-10T21:58:58.063Z</updated>
 	<author>
 	
 	  
@@ -403,7 +443,7 @@
     <link href="https://westerndevs.com/Game-Design/How-GitHub-Makes-Game-Making-Easier-For-NonCoders/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Game-Design/How-GitHub-Makes-Game-Making-Easier-For-NonCoders/</id>
     <published>2020-02-19T20:48:36.000Z</published>
-    <updated>2022-11-02T13:37:20.371Z</updated>
+    <updated>2022-11-10T21:58:58.059Z</updated>
 	<author>
 	
 	  
@@ -439,7 +479,7 @@
     <link href="https://westerndevs.com/Devlog/Jan-2020-Devlog/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Devlog/Jan-2020-Devlog/</id>
     <published>2020-02-04T21:03:24.000Z</published>
-    <updated>2022-11-02T13:37:20.371Z</updated>
+    <updated>2022-11-10T21:58:58.059Z</updated>
 	<author>
 	
 	  
@@ -475,7 +515,7 @@
     <link href="https://westerndevs.com/Game-Development/Where-To-Find-Your-Gamedev-Community/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Game-Development/Where-To-Find-Your-Gamedev-Community/</id>
     <published>2020-01-21T11:09:00.000Z</published>
-    <updated>2022-11-02T13:37:20.371Z</updated>
+    <updated>2022-11-10T21:58:58.059Z</updated>
 	<author>
 	
 	  
@@ -513,7 +553,7 @@
     <link href="https://westerndevs.com/_/No-Cost-Game-Design-Toolbox/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/No-Cost-Game-Design-Toolbox/</id>
     <published>2020-01-13T21:51:04.000Z</published>
-    <updated>2022-11-02T13:37:20.371Z</updated>
+    <updated>2022-11-10T21:58:58.059Z</updated>
 	<author>
 	
 	  
@@ -549,7 +589,7 @@
     <link href="https://westerndevs.com/Game-Development/gameoff2019-gamejam-devlog/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Game-Development/gameoff2019-gamejam-devlog/</id>
     <published>2019-11-26T14:57:00.000Z</published>
-    <updated>2022-11-02T13:37:20.371Z</updated>
+    <updated>2022-11-10T21:58:58.059Z</updated>
 	<author>
 	
 	  
@@ -579,7 +619,7 @@
     <link href="https://westerndevs.com/_/streaming-code-and-games-on-mixer/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/streaming-code-and-games-on-mixer/</id>
     <published>2018-09-27T17:55:42.000Z</published>
-    <updated>2022-11-02T13:37:20.367Z</updated>
+    <updated>2022-11-10T21:58:58.059Z</updated>
 	<author>
 	
 	  
@@ -605,7 +645,7 @@
     <link href="https://westerndevs.com/Development/f12-chooser-is-dev-tool-thing/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Development/f12-chooser-is-dev-tool-thing/</id>
     <published>2018-03-28T17:10:00.000Z</published>
-    <updated>2022-11-02T13:37:20.367Z</updated>
+    <updated>2022-11-10T21:58:58.059Z</updated>
 	<author>
 	
 	  
@@ -641,7 +681,7 @@
     <link href="https://westerndevs.com/Development/typescript-or-javascript/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Development/typescript-or-javascript/</id>
     <published>2018-03-15T15:40:00.000Z</published>
-    <updated>2022-11-02T13:37:20.367Z</updated>
+    <updated>2022-11-10T21:58:58.059Z</updated>
 	<author>
 	
 	  
@@ -673,7 +713,7 @@
     <link href="https://westerndevs.com/Development/crowdsourcing-docs-is-cool/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Development/crowdsourcing-docs-is-cool/</id>
     <published>2018-03-13T13:40:00.000Z</published>
-    <updated>2022-11-02T13:37:20.367Z</updated>
+    <updated>2022-11-10T21:58:58.055Z</updated>
 	<author>
 	
 	  
@@ -697,44 +737,6 @@
       <category term="JavaScript" scheme="https://westerndevs.com/tags/JavaScript/"/>
     
       <category term="Documentation" scheme="https://westerndevs.com/tags/Documentation/"/>
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Windows Subsystem for Linux is Cool. No really, it is.</title>
-    <link href="https://westerndevs.com/web/websummit-wsl/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/web/websummit-wsl/</id>
-    <published>2017-09-20T22:35:00.000Z</published>
-    <updated>2022-11-02T13:37:20.367Z</updated>
-	<author>
-	
-	  
-	  <name>David Wesst</name>
-	  <email>questions@davidwesst.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p><em>This is part of a series of posts capturing the highlights from my experience at the <a href="https://summit.microsoftedge.com/" target="_blank" rel="noopener">Microsoft Edge Web Summit 2017</a></em></p><p><img src="https://davidwesst.blob.core.windows.net/blog/websummit-wsl/ubuntu-install.gif" alt="Installing Ubuntu on Windows 10 from the Windows Store"></p><p>With the Fall Creators Update for Windows 10, you can go to the Windows Store and install Linux.</p><p>Yeah, that's a thing now and it's pretty cool.</p><h2>What is the Windows Subsystem for Linux (WSL)?</h2><p>It's a new Windows feature that allows Linux distributions like Ubuntu and OpenSUSE to run inside of Windows. Essentially, this let's you run Linux-based command line applications against your files stored in Windows.</p><h2>Why is that cool?</h2><p>It's cool because a lot of the web runs on Linux, but many of us develop on Windows because the business runs on the Windows platform. This means that the dev tools you have installed to run your build and test your application are the Windows versions.</p><p>It might not seem like a big deal, but it's definitely a discrepancy. How are you expected to catch Linux issues before you deploy if you're running Windows? The WSL, that's how.</p><h2>Isn't this just CygWin?</h2><p>No, it's different.</p><p>According to the <a href="https://www.cygwin.com/" target="_blank" rel="noopener">CygWin homepage</a></p><blockquote><p>Cygwin is:</p><ul><li>a large collection of GNU and Open Source tools which provide functionality similar to a Linux distribution on Windows.</li><li>a DLL (cygwin1.dll) which provides substantial POSIX API functionality.</li></ul></blockquote><p>WSL, is a layer inside of Windows that allows actual Linux distributions to run against. Microsoft is providing the foundation for Linux distributions to build upon, and keeping their hands out of the tooling itself.</p><p>When you're using CygWin, you're not using a Linux distribution. You're using CygWin. With WSL, you're not using any Linux distributions unless you install them on top of the WSL. Once you do, you're using the tooling provided and build <em>for that Linux distribution</em>.</p><h2>Isn't this just Bash for Windows 10?</h2><p>No, it's also different.</p><p>Although I won't get into the weeds with it, Bash for Windows 10 was something of a precursor to the Ubuntu distribution that is in the Windows Store. Think of it as an Ubuntu for Windows preview.</p><p>Now, we're not limited to just Bash on Ubuntu. We can install OpenSUSE and run bash on that, and eventually Fedora, and probably other flavours of Linux as time goes on. So you can run two different or three different versions of Linux against the Windows filesystem at the same time, without needing a bunch of VMs running.</p><h2>Why don't I just run Linux?</h2><p>You totally can, this doesn't change that.</p><p>This is a dev tool, first and foremost. It's meant to (IMHO) provide developers a easier way to run Linux tools on Windows, with the resource boundaries and extra resource consumption of a virutal machine.</p><p>For example, if you're running Apache on your Linux-based web server, you no longer have to run Windows-based Apache. Rather, you can install the Linux version of Apache on Ubunut or whatever, adn directly against your Windows filesystem. No VM to prep, or system boundaries to cross. Just install and run it.</p><h2>How do I start?</h2><p>You can start by <a href="https://msdn.microsoft.com/en-us/commandline/wsl/install_guide" target="_blank" rel="noopener">installing the WSL on your Windows 10 machine</a>.</p><p>The Windows Store animation I showed at the beginning of this post is using an <a href="https://insider.windows.com/en-us/" target="_blank" rel="noopener">Insiders Build</a> of Fall Creators update for Windows 10. You can join the insiders program yourself learn about that <a href="https://insider.windows.com/en-us/" target="_blank" rel="noopener">here</a>.</p><p>Until the Fall Creators update, you can still start tinkering with Bash on Ubuntu for Windows 10 by following the <a href="https://msdn.microsoft.com/en-us/commandline/wsl/install_guide" target="_blank" rel="noopener">install instructions</a> provided earlier.</p><h2>Anything else?</h2><p>Yeah.</p><p>They are finally fixing the console window in Windows, so that's a thing too. Read about it on <a href="https://blogs.msdn.microsoft.com/commandline/" target="_blank" rel="noopener">the team's blog</a>.</p><hr><h2>Resources</h2><ul><li><a href="https://blogs.msdn.microsoft.com/commandline/" target="_blank" rel="noopener">Windows Command Line Tools Blog</a></li><li><a href="https://msdn.microsoft.com/en-us/commandline/wsl/install_guide" target="_blank" rel="noopener">Installing WSL Instructions</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      With the Fall Creators update of Windows 10, you can go to the Windows Store and install Linux. Yeah, that&#39;s a thing now and it&#39;s pretty cool.
-    
-    </summary>
-    
-      <category term="web" scheme="https://westerndevs.com/categories/web/"/>
-    
-    
-      <category term="microsoft-edge" scheme="https://westerndevs.com/tags/microsoft-edge/"/>
-    
-      <category term="f12" scheme="https://westerndevs.com/tags/f12/"/>
-    
-      <category term="linux" scheme="https://westerndevs.com/tags/linux/"/>
-    
-      <category term="windows subsystem for linux" scheme="https://westerndevs.com/tags/windows-subsystem-for-linux/"/>
-    
-      <category term="wsl" scheme="https://westerndevs.com/tags/wsl/"/>
     
   </entry>
   
