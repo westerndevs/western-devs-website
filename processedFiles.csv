@@ -21,6 +21,7 @@ docs/work/sql/which_sql_server_edition.md,2022-04-07
 docs/work/sql/sequence.md,2021-06-03
 docs/work/terraform/register_providers.md,2022-08-12
 docs/work/terraform/build_sql_connection_string.md,2021-07-26
+docs/work/terraform/azure-backus-protip.md,2022-11-11
 docs/work/terraform/stop-managing-resource.md,2021-07-30
 docs/work/csharp/datatable-filtering.md,2021-09-17
 docs/work/csharp/reauth-nuget.md,2021-08-31
