@@ -5,7 +5,7 @@
   <link href="/feeds/simon_timms" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2022-11-10T21:58:58.071Z</updated>
+  <updated>2022-11-11T15:53:21.770Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Removing Azure Backups in Terraform make note of the resource identifier</title>
+    <link href="https://westerndevs.com/_/azure-backus-protip/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/azure-backus-protip/</id>
+    <published>2022-11-11T05:00:00.000Z</published>
+    <updated>2022-11-11T15:53:21.770Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>If you have a VM backup in your Terraform state and need to get rid of it be aware that it is probably going to break your <a href="../github/theory-of-terraform-github.-actions.md">deployment pipeline</a>. The reason is that Terraform will delete the item but then find that the resource still there. This is because backup deletion takes a while (say 14 days). Eventually the backup will delete but not before Terraform times out.</p><p>The solution I'm using is to just go in an manually delete the backup from the terraform state to unblock my pipelines.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">terraform state list | grep &lt;name of your backup&gt;</span><br><span class="line"></span><br><span class="line">terraform state rm &lt;found resource identifier&gt;</span><br></pre></td></tr></table></figure><p>Editing Terraform state seems scary but it's not too bad after you do it a bit. Take backups!</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;If you have a VM backup in your Terraform state and need to get rid of it be aware that it is probably going to break your &lt;a href=&quot;../gi
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Dealing with Set-Output Depreciation Warnings in Terraform github-actions</title>
     <link href="https://westerndevs.com/_/set-output-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-output-terraform/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2022-11-10T21:58:58.071Z</updated>
+    <updated>2022-11-11T15:53:21.778Z</updated>
 	<author>
 	
 	  
@@ -47,7 +73,7 @@
     <link href="https://westerndevs.com/_/theory-of-terraform-github-actions/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/theory-of-terraform-github-actions/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2022-11-10T21:58:58.071Z</updated>
+    <updated>2022-11-11T15:53:21.778Z</updated>
 	<author>
 	
 	  
@@ -73,7 +99,7 @@
     <link href="https://westerndevs.com/_/register-providers/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/register-providers/</id>
     <published>2022-08-12T04:00:00.000Z</published>
-    <updated>2022-11-10T21:58:58.071Z</updated>
+    <updated>2022-11-11T15:53:21.774Z</updated>
 	<author>
 	
 	  
@@ -99,7 +125,7 @@
     <link href="https://westerndevs.com/_/debug-azure-container-instances-startup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/debug-azure-container-instances-startup/</id>
     <published>2022-08-04T04:00:00.000Z</published>
-    <updated>2022-11-10T21:58:58.067Z</updated>
+    <updated>2022-11-11T15:53:21.770Z</updated>
 	<author>
 	
 	  
@@ -125,7 +151,7 @@
     <link href="https://westerndevs.com/_/consuming-wsdl/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/consuming-wsdl/</id>
     <published>2022-05-30T04:00:00.000Z</published>
-    <updated>2022-11-10T21:58:58.063Z</updated>
+    <updated>2022-11-11T15:53:21.770Z</updated>
 	<author>
 	
 	  
@@ -151,7 +177,7 @@
     <link href="https://westerndevs.com/_/azure-functions-error/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-functions-error/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2022-11-10T21:58:58.063Z</updated>
+    <updated>2022-11-11T15:53:21.770Z</updated>
 	<author>
 	
 	  
@@ -177,7 +203,7 @@
     <link href="https://westerndevs.com/_/which-sql-server-edition/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/which-sql-server-edition/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2022-11-10T21:58:58.071Z</updated>
+    <updated>2022-11-11T15:53:21.778Z</updated>
 	<author>
 	
 	  
@@ -203,7 +229,7 @@
     <link href="https://westerndevs.com/_/cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cheat-sheet/</id>
     <published>2022-04-04T04:00:00.000Z</published>
-    <updated>2022-11-10T21:58:58.063Z</updated>
+    <updated>2022-11-11T15:53:21.770Z</updated>
 	<author>
 	
 	  
@@ -231,7 +257,7 @@
     <link href="https://westerndevs.com/_/rubocop-issue/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/rubocop-issue/</id>
     <published>2022-03-18T04:00:00.000Z</published>
-    <updated>2022-11-10T21:58:58.071Z</updated>
+    <updated>2022-11-11T15:53:21.774Z</updated>
 	<author>
 	
 	  
@@ -258,7 +284,7 @@
     <link href="https://westerndevs.com/_/fsevents-optional-dependencies/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/fsevents-optional-dependencies/</id>
     <published>2022-03-16T04:00:00.000Z</published>
-    <updated>2022-11-10T21:58:58.067Z</updated>
+    <updated>2022-11-11T15:53:21.774Z</updated>
 	<author>
 	
 	  
@@ -284,7 +310,7 @@
     <link href="https://westerndevs.com/_/backblaze-exclude-node-modules/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/backblaze-exclude-node-modules/</id>
     <published>2022-02-20T05:00:00.000Z</published>
-    <updated>2022-11-10T21:58:58.063Z</updated>
+    <updated>2022-11-11T15:53:21.770Z</updated>
 	<author>
 	
 	  
@@ -310,7 +336,7 @@
     <link href="https://westerndevs.com/_/parsing-vue-router-parameters/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/parsing-vue-router-parameters/</id>
     <published>2022-02-18T05:00:00.000Z</published>
-    <updated>2022-11-10T21:58:58.067Z</updated>
+    <updated>2022-11-11T15:53:21.774Z</updated>
 	<author>
 	
 	  
@@ -336,7 +362,7 @@
     <link href="https://westerndevs.com/_/install-azfileshybrid-powershell/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/install-azfileshybrid-powershell/</id>
     <published>2022-02-16T05:00:00.000Z</published>
-    <updated>2022-11-10T21:58:58.067Z</updated>
+    <updated>2022-11-11T15:53:21.774Z</updated>
 	<author>
 	
 	  
@@ -362,7 +388,7 @@
     <link href="https://westerndevs.com/_/purge-cdn-in-devops/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/purge-cdn-in-devops/</id>
     <published>2022-01-27T05:00:00.000Z</published>
-    <updated>2022-11-10T21:58:58.071Z</updated>
+    <updated>2022-11-11T15:53:21.774Z</updated>
 	<author>
 	
 	  
@@ -389,7 +415,7 @@
     <link href="https://westerndevs.com/_/hash-nil/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/hash-nil/</id>
     <published>2021-11-24T05:00:00.000Z</published>
-    <updated>2022-11-10T21:58:58.067Z</updated>
+    <updated>2022-11-11T15:53:21.774Z</updated>
 	<author>
 	
 	  
@@ -415,7 +441,7 @@
     <link href="https://westerndevs.com/_/choosing-power-bi/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/choosing-power-bi/</id>
     <published>2021-11-19T05:00:00.000Z</published>
-    <updated>2022-11-10T21:58:58.063Z</updated>
+    <updated>2022-11-11T15:53:21.770Z</updated>
 	<author>
 	
 	  
@@ -441,7 +467,7 @@
     <link href="https://westerndevs.com/_/app-services-on-vnet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/app-services-on-vnet/</id>
     <published>2021-11-14T05:00:00.000Z</published>
-    <updated>2022-11-10T21:58:58.063Z</updated>
+    <updated>2022-11-11T15:53:21.770Z</updated>
 	<author>
 	
 	  
@@ -467,7 +493,7 @@
     <link href="https://westerndevs.com/_/ngrok-aspnet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ngrok-aspnet/</id>
     <published>2021-10-25T04:00:00.000Z</published>
-    <updated>2022-11-10T21:58:58.067Z</updated>
+    <updated>2022-11-11T15:53:21.774Z</updated>
 	<author>
 	
 	  
@@ -494,7 +520,7 @@
     <link href="https://westerndevs.com/_/pandas-read-tsv/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/pandas-read-tsv/</id>
     <published>2021-10-25T04:00:00.000Z</published>
-    <updated>2022-11-10T21:58:58.067Z</updated>
+    <updated>2022-11-11T15:53:21.774Z</updated>
 	<author>
 	
 	  
@@ -510,32 +536,6 @@
     
       &lt;p&gt;Pretty easy, just use the csv loader with a different record separator&lt;/p&gt;
 &lt;figure class=&quot;highlight reasonml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutte
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Using RLS in Power BI Embedded</title>
-    <link href="https://westerndevs.com/_/RLS-with-power-bi/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/RLS-with-power-bi/</id>
-    <published>2021-10-22T04:00:00.000Z</published>
-    <updated>2022-11-10T21:58:58.063Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>Power BI is a funny animal. On some levels it is a logical successor to SSRS but on other levels it is a totally different beast. One of the ways it differs greatly from SSRS is in handling parameters, especially secure parameters. When embedding an SSRS report you could specify the parameter value in a secure fashion and then now show the selector to end users.</p><p>In many cases there is a need to use row level security (RLS) to restrict the data that a user can see in Power BI. There are a myriad of ways to do this wrong and I think I've explored most of them over the last few days. There is also at least one way that works.</p><p>A tempting approach is to use a filter. These can be applied at render time in the browser by adding to the config when embedding the report.</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> config = &#123;</span><br><span class="line">      visualName: <span class="string">''</span>,</span><br><span class="line">      type: <span class="string">'report'</span>,</span><br><span class="line">      accessToken: token, </span><br><span class="line">      embedUrl: token.embedUrl,</span><br><span class="line">      tokenType: powerbi.models.TokenType.Embed,</span><br><span class="line">      permissions: permissions,</span><br><span class="line">      <span class="comment">// 👇 filters</span></span><br><span class="line">      filters: [</span><br><span class="line">        &#123;</span><br><span class="line">          $schema: <span class="string">"http://powerbi.com/product/schema#basic"</span>,</span><br><span class="line">          target: &#123;</span><br><span class="line">              table: <span class="string">"monthlyProducts"</span>,</span><br><span class="line">              column: <span class="string">"userId"</span></span><br><span class="line">          &#125;,</span><br><span class="line">          operator: <span class="string">"In"</span>,</span><br><span class="line">          values: [<span class="string">"stimms"</span>]</span><br><span class="line">        &#125;</span><br><span class="line">      ],</span><br><span class="line">      <span class="comment">// ☝️</span></span><br><span class="line">      settings: &#123;</span><br><span class="line">        panes: &#123;</span><br><span class="line">          filters: &#123;</span><br><span class="line">            visible: <span class="literal">true</span>,</span><br><span class="line">          &#125;,</span><br><span class="line">          pageNavigation: &#123;</span><br><span class="line">            visible: <span class="literal">true</span>,</span><br><span class="line">          &#125;,</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><p>This class of parameter is fine for providing filters that can be updated later by the user. However, it should not be used for parameters that require some degree of security like a user name. These parameters are easily changed and, unless your parameter are in some way cryptographically secure there is a good chance you're introducing a broken access control - <a href="https://owasp.org/Top10/A01_2021-Broken_Access_Control/" target="_blank" rel="noopener">#1</a> on the <a href="https://owasp.org/www-project-top-ten/" target="_blank" rel="noopener">OWASP top 10</a>.</p><p>Instead of this approach you can use the manage roles functionality in Power BI.</p><p><img src="/images/2021-10-22-RLS_with_power_bi.md/2021-10-22-15-55-31.png" alt="">)</p><p>This functionality is designed to provide high level filters for data. A lot of the examples I see are for things like restricting a user in the <code>East</code> region from seeing the data of a user in the <code>West</code> region. This is done by assigning a role to that user when generating the embedding token. Then you'd set up a role for each region (see 1) and apply a filter expression to your tables so the only records with a region of <code>East</code> would show up.</p><p><img src="/images/2021-10-22-RLS_with_power_bi.md/2021-10-22-15-59-46.png" alt="">)</p><p>This is a simplistic and somewhat tiresome approach to adding a role mapping. What if a new region like <code>SouthEast</code> is introduced? What isn't, perhaps, as clear is that DAX expression can contain dynamic functions like <code>UserName()</code> which make filtering more powerful. This <code>UserName()</code> will be bound to the effective identity passed in</p><p><img src="/images/2022-07-06-RLS_with_power_bi.md/2022-07-06-07-11-52.png" alt="">)</p><p>What I settled on for my filtering was to have a single role which I enforce at the embedded token generation level and then filter my data by the UserName() which I also set at the embedded token level. Because these are set at the embedded token generation time which occurs on the server I can be confident that I'm not providing a way for somebody to view data they shouldn't.</p><p>The code for generation looks like this:</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> tokenRequest = <span class="keyword">new</span> GenerateTokenRequestV2(</span><br><span class="line">                    reports: <span class="keyword">new</span> List&lt;GenerateTokenRequestV2Report&gt;</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="keyword">new</span> GenerateTokenRequestV2Report(reportId)</span><br><span class="line">                    &#125;,</span><br><span class="line">                    datasets: <span class="keyword">new</span> List&lt;GenerateTokenRequestV2Dataset&gt; &#123; <span class="keyword">new</span> GenerateTokenRequestV2Dataset(report.DatasetId) &#125;,</span><br><span class="line">                    identities: <span class="keyword">new</span> List&lt;EffectiveIdentity&gt; &#123; <span class="keyword">new</span> EffectiveIdentity(user.ContactId.ToString(),</span><br><span class="line">                                                                roles: <span class="keyword">new</span> List&lt;<span class="keyword">string</span>&gt; &#123; <span class="string">"Users"</span> &#125;,</span><br><span class="line">                                                                datasets: <span class="keyword">new</span> List&lt;String&gt;&#123;report.DatasetId &#125;)</span><br><span class="line">                    &#125;</span><br><span class="line">                );</span><br><span class="line"><span class="keyword">var</span> embedToken = <span class="keyword">await</span> client.EmbedToken.GenerateTokenAsync(tokenRequest);</span><br></pre></td></tr></table></figure><p>In this particular case the data I was returning from the database could be accessed by a number of different people depending on to which group they belonged. Initially I tried crossing the data against the user/group matrix but the cardinality of the resulting set was in the billions and totally overwhelmed both SQL Server and Power BI. Instead what I did was pull in the user/group matrix and the dataset that exposed the group id. In Power BI I did a merge of the datasets along with applying the row level filtering. This was necessary because, as far as I know, there is no way to pass the user name down to the actual query running against the server.</p><p>With all this in place I got good security and good performance. But, wow, did it take me a long time to get there.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Power BI is a funny animal. On some levels it is a logical successor to SSRS but on other levels it is a totally different beast. One of 
     
     </summary>
     
