@@ -9,7 +9,7 @@ mode: public
 
 
 
-If you have a VM backup in your Terraform state and need to get rid of it be aware that it is probably going to break your [deployment pipeline](../github/theory-of-terraform-github.-actions.md). The reason is that Terraform will delete the item but then find that the resource still there. This is because backup deletion takes a while (say 14 days). Eventually the backup will delete but not before Terraform times out. 
+If you have a VM backup in your Terraform state and need to get rid of it be aware that it is probably going to break your [deployment pipeline](https://blog.simontimms.com/2022/11/01/theory-of-terraform-github.-actions/). The reason is that Terraform will delete the item but then find that the resource still there. This is because backup deletion takes a while (say 14 days). Eventually the backup will delete but not before Terraform times out. 
 
 The solution I'm using is to just go in an manually delete the backup from the terraform state to unblock my pipelines. 
 
