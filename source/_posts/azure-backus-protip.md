@@ -1,6 +1,5 @@
 ---
 title:  Removing Azure Backups in Terraform
- make note of the resource identifier
 authorId: simon_timms
 date: 2022-11-11
 originalurl: https://blog.simontimms.com/2022/11/11/azure-backus-protip
@@ -15,7 +14,7 @@ The solution I'm using is to just go in an manually delete the backup from the t
 
 ```bash
 terraform state list | grep <name of your backup>
-
+-- make note of the resource identifier --
 terraform state rm <found resource identifier>
 ```
 
