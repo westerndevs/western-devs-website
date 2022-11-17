@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2022-11-14T04:58:16.677Z</updated>
+  <updated>2022-11-17T15:17:14.420Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Bulk Insert SQL Geometry on .NET Core</title>
+    <link href="https://westerndevs.com/_/bulk-insert-sql-geometry/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/bulk-insert-sql-geometry/</id>
+    <published>2022-11-17T05:00:00.000Z</published>
+    <updated>2022-11-17T15:17:14.420Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>I have been updating an application from full framework to .NET 6 this week. One of the things this app does is bulk load data into SQL Server. Normally this works just fine but some of the data is geography data which requires a special package to be installed: <code>Microsoft.SqlServer.Types</code>. This package is owned by the SQL server team so, as you'd expect, it is ridiculously behind the times. Fortunately, they are working on updating it and it is now available for Netstandard 2.1 in a preview mode.</p><p>The steps I needed to take to update the app were:</p><ol><li>Install the preview package for <code>Microsoft.SqlServer.Types</code></li><li>Update the SQL client package from System.Data.SqlClient to Microsoft.Data.SqlClient</li></ol><p>After that the tests we had for inserting polygons worked just great. This has been a bit of a challenge over the years but I'm delighted that we're almost there. We just need a non-preview version of the types package and we should be good to go.</p><h2>Gotchas</h2><p>When I'd only done step 1 I ran into errors like</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">System.InvalidOperationException : The given value of<span class="built_in"> type </span>SqlGeometry <span class="keyword">from</span> the data source cannot be converted <span class="keyword">to</span><span class="built_in"> type </span>udt of the specified target column.</span><br><span class="line">---- System.ArgumentException : Specified<span class="built_in"> type </span>is <span class="keyword">not</span> registered on the target server. Microsoft.SqlServer.Types.SqlGeometry, Microsoft.SqlServer.Types, <span class="attribute">Version</span>=16.0.0.0, <span class="attribute">Culture</span>=neutral, <span class="attribute">PublicKeyToken</span>=89845dcd8080cc91.</span><br></pre></td></tr></table></figure><p>I went down a rabbit hole on that one before spotting a post from MVP Erik Jensen https://github.com/ErikEJ/EntityFramework6PowerTools/issues/103 which sent me in the right direction.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;I have been updating an application from full framework to .NET 6 this week. One of the things this app does is bulk load data into SQL S
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Removing Azure Backups in Terraform</title>
     <link href="https://westerndevs.com/_/azure-backus-protip/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-backus-protip/</id>
     <published>2022-11-11T05:00:00.000Z</published>
-    <updated>2022-11-14T04:58:16.677Z</updated>
+    <updated>2022-11-17T15:17:14.420Z</updated>
 	<author>
 	
 	  
@@ -47,7 +73,7 @@
     <link href="https://westerndevs.com/_/how-much-is-enough-documentation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/how-much-is-enough-documentation/</id>
     <published>2022-11-10T22:00:00.000Z</published>
-    <updated>2022-11-14T04:58:16.677Z</updated>
+    <updated>2022-11-17T15:17:14.416Z</updated>
 	<author>
 	
 	  
@@ -87,7 +113,7 @@
     <link href="https://westerndevs.com/_/how-to-fork-like-a-boss/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/how-to-fork-like-a-boss/</id>
     <published>2022-11-02T21:00:00.000Z</published>
-    <updated>2022-11-14T04:58:16.677Z</updated>
+    <updated>2022-11-17T15:17:14.416Z</updated>
 	<author>
 	
 	  
@@ -121,7 +147,7 @@
     <link href="https://westerndevs.com/_/set-output-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-output-terraform/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2022-11-14T04:58:16.685Z</updated>
+    <updated>2022-11-17T15:17:14.428Z</updated>
 	<author>
 	
 	  
@@ -147,7 +173,7 @@
     <link href="https://westerndevs.com/_/theory-of-terraform-github-actions/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/theory-of-terraform-github-actions/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2022-11-14T04:58:16.689Z</updated>
+    <updated>2022-11-17T15:17:14.428Z</updated>
 	<author>
 	
 	  
@@ -173,7 +199,7 @@
     <link href="https://westerndevs.com/_/register-providers/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/register-providers/</id>
     <published>2022-08-12T04:00:00.000Z</published>
-    <updated>2022-11-14T04:58:16.685Z</updated>
+    <updated>2022-11-17T15:17:14.424Z</updated>
 	<author>
 	
 	  
@@ -199,7 +225,7 @@
     <link href="https://westerndevs.com/_/debug-azure-container-instances-startup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/debug-azure-container-instances-startup/</id>
     <published>2022-08-04T04:00:00.000Z</published>
-    <updated>2022-11-14T04:58:16.681Z</updated>
+    <updated>2022-11-17T15:17:14.420Z</updated>
 	<author>
 	
 	  
@@ -225,7 +251,7 @@
     <link href="https://westerndevs.com/_/consuming-wsdl/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/consuming-wsdl/</id>
     <published>2022-05-30T04:00:00.000Z</published>
-    <updated>2022-11-14T04:58:16.681Z</updated>
+    <updated>2022-11-17T15:17:14.420Z</updated>
 	<author>
 	
 	  
@@ -251,7 +277,7 @@
     <link href="https://westerndevs.com/_/azure-functions-error/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-functions-error/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2022-11-14T04:58:16.677Z</updated>
+    <updated>2022-11-17T15:17:14.420Z</updated>
 	<author>
 	
 	  
@@ -277,7 +303,7 @@
     <link href="https://westerndevs.com/_/which-sql-server-edition/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/which-sql-server-edition/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2022-11-14T04:58:16.689Z</updated>
+    <updated>2022-11-17T15:17:14.428Z</updated>
 	<author>
 	
 	  
@@ -303,7 +329,7 @@
     <link href="https://westerndevs.com/_/cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cheat-sheet/</id>
     <published>2022-04-04T04:00:00.000Z</published>
-    <updated>2022-11-14T04:58:16.681Z</updated>
+    <updated>2022-11-17T15:17:14.420Z</updated>
 	<author>
 	
 	  
@@ -331,7 +357,7 @@
     <link href="https://westerndevs.com/_/rubocop-issue/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/rubocop-issue/</id>
     <published>2022-03-18T04:00:00.000Z</published>
-    <updated>2022-11-14T04:58:16.685Z</updated>
+    <updated>2022-11-17T15:17:14.428Z</updated>
 	<author>
 	
 	  
@@ -358,7 +384,7 @@
     <link href="https://westerndevs.com/_/fsevents-optional-dependencies/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/fsevents-optional-dependencies/</id>
     <published>2022-03-16T04:00:00.000Z</published>
-    <updated>2022-11-14T04:58:16.681Z</updated>
+    <updated>2022-11-17T15:17:14.424Z</updated>
 	<author>
 	
 	  
@@ -384,7 +410,7 @@
     <link href="https://westerndevs.com/_/backblaze-exclude-node-modules/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/backblaze-exclude-node-modules/</id>
     <published>2022-02-20T05:00:00.000Z</published>
-    <updated>2022-11-14T04:58:16.677Z</updated>
+    <updated>2022-11-17T15:17:14.420Z</updated>
 	<author>
 	
 	  
@@ -410,7 +436,7 @@
     <link href="https://westerndevs.com/_/parsing-vue-router-parameters/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/parsing-vue-router-parameters/</id>
     <published>2022-02-18T05:00:00.000Z</published>
-    <updated>2022-11-14T04:58:16.685Z</updated>
+    <updated>2022-11-17T15:17:14.424Z</updated>
 	<author>
 	
 	  
@@ -436,7 +462,7 @@
     <link href="https://westerndevs.com/_/install-azfileshybrid-powershell/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/install-azfileshybrid-powershell/</id>
     <published>2022-02-16T05:00:00.000Z</published>
-    <updated>2022-11-14T04:58:16.681Z</updated>
+    <updated>2022-11-17T15:17:14.424Z</updated>
 	<author>
 	
 	  
@@ -462,7 +488,7 @@
     <link href="https://westerndevs.com/_/purge-cdn-in-devops/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/purge-cdn-in-devops/</id>
     <published>2022-01-27T05:00:00.000Z</published>
-    <updated>2022-11-14T04:58:16.685Z</updated>
+    <updated>2022-11-17T15:17:14.424Z</updated>
 	<author>
 	
 	  
@@ -489,7 +515,7 @@
     <link href="https://westerndevs.com/_/hash-nil/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/hash-nil/</id>
     <published>2021-11-24T05:00:00.000Z</published>
-    <updated>2022-11-14T04:58:16.681Z</updated>
+    <updated>2022-11-17T15:17:14.424Z</updated>
 	<author>
 	
 	  
@@ -515,7 +541,7 @@
     <link href="https://westerndevs.com/_/choosing-power-bi/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/choosing-power-bi/</id>
     <published>2021-11-19T05:00:00.000Z</published>
-    <updated>2022-11-14T04:58:16.681Z</updated>
+    <updated>2022-11-17T15:17:14.420Z</updated>
 	<author>
 	
 	  
@@ -530,32 +556,6 @@
     <summary type="html">
     
       &lt;p&gt;If you&#39;re a developer and you&#39;re looking for a solution for reporting in your application then Power BI might be the right choice for you
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">App Services on VNET</title>
-    <link href="https://westerndevs.com/_/app-services-on-vnet/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/app-services-on-vnet/</id>
-    <published>2021-11-14T05:00:00.000Z</published>
-    <updated>2022-11-14T04:58:16.677Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>When setting up an app service, including azure functions,  you can have it reside on a vnet so it can access internal resources like a database. Often time though you'll run into some problems routing to the database, specifically because of DNS. There are some good tools for debugging the connection.</p><p>First off you'll need to open a console to the app service. I do this using the kudu tools but I think the console exposed directly on the portal works too. The standard tools can't run in the restricted environment provided. However there are a couple of tools you can use in their place.</p><p>NSLookup - &gt; nameresolver.exe - run it with <code>nameresolver.exe blah.com</code>ping -&gt; tcpping.exe - run it with <code>tcpping.exe blah.com:80</code></p><p>If you're seeing DNS issues you can override the DNS server with the variables <code>WEBSITE_DNS_SERVER</code> and <code>WEBSITE_DNS_ALT_SERVER</code>. These two are entered in the app service config settings</p><p>One of the most typical problems I've encountered is that the app service isn't routing requests properly unless you add the app setting <code>WEBSITE_VNET_ROUTE_ALL=1</code>.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;When setting up an app service, including azure functions,  you can have it reside on a vnet so it can access internal resources like a d
     
     </summary>
     
