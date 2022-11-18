@@ -5,7 +5,7 @@
   <link href="/feeds/david_wesst" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2022-11-17T15:17:14.416Z</updated>
+  <updated>2022-11-18T20:10:52.934Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,49 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Does GDPR Apply to Personal Websites?</title>
+    <link href="https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/</id>
+    <published>2022-11-19T01:10:07.083Z</published>
+    <updated>2022-11-18T20:10:52.934Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>A few weeks back, I <a href="https://github.com/davidwesst/website/releases/tag/v10.0.1" target="_blank" rel="noopener">released v10.0.1 of my website</a>. I use a static site generator to generate all the pages and publish it out into the internet for all the world to read. In that release, I added <a href="https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview" target="_blank" rel="noopener">Application Insights</a> to provide me with some performance data, but also to get a bit of usage data (for those willing to share it).</p><p>What I found odd was that all the links and articles I came across seemed to talk about things at a high-level (i.e. defining GDPR) or assumed I was working at a large scale (i.e. enterprise software), but nothing small projects like my personal website.</p><p>Still, I managed to draw some of my own conclusions on how to handle GDPR for my personal website and wanted to document them somewhere.</p><h2>DISCLAIMER: This is not legal advice</h2><p>I am not a lawyer, so this is just an opinion from a developer. As a rule of thumb, I avoid taking legal advice from random folks on the internet. If you take advice from this article, take that bit and keep it.</p><p>I hope others (like you) use this post to draw your own conclusions or how you want to proceed with your own plan for handling GDPR.</p><p>But if you want <em>real</em> advice. Get a lawyer and talk to them.</p><h2>Short Answer: Yes</h2><p>Yes, it does apply to your personal website <strong>if</strong> are tracking information about your users <strong>and</strong> you are developing your own website or application.</p><h3>Developing Your Own Website or Application</h3><p>I mean developing as it coding it, publishing that code, and hosting it somewhere like Microsoft Azure or GitHub Pages. If you are publishing your own code, GDPR may apply to you.</p><p>If you are using a third party tool or platform, like Facebook or LinkedIn to host your blog posts-- you appear to be in the clear. When you use a third-party platform, the <em>platform</em>, not you, is responsible for GDPR compliance.</p><p>Even if you think you are clear of GDPR responsibility, make sure that you trust your chosen platform to comply to GDPR and other regulatory bodies out there, as your site depends on it.</p><h3>Tracking Information</h3><p>The GDPR is all about protecting personal information and giving control back to people navigating the internet. GDPR is not the only set of laws in play, as <a href="https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=201720180AB375" target="_blank" rel="noopener">California</a>, <a href="https://iapp.org/media/pdf/resource_center/Brazilian_General_Data_Protection_Law.pdf" target="_blank" rel="noopener">Brazil</a>, and <a href="https://www.priv.gc.ca/en/privacy-topics/privacy-laws-in-canada/the-personal-information-protection-and-electronic-documents-act-pipeda" target="_blank" rel="noopener">Canada</a> have their own versions of similar legislation, but many of these laws seem to have been inspired by GDPR and why I tend to focus on it.</p><p>At the personal website level, you need to consider whether or not you are collecting personal information from your users. This includes things like <a href="https://gdpr.eu/eu-gdpr-personal-data/" target="_blank" rel="noopener">IP addresses or cookie identifiers</a>.</p><p>If you are NOT collecting information like that, you are good to go! Just remember that services like Google Analytics or Disqus Comments use personally identifiable information to operate, so if you have decided to include one of those services on your site then you need to think about GDPR compliance.</p><h2>My Solution Highlights</h2><p>I concluded the GDPR-like laws apply to my personal website if I want to do any kind of usage tracking and understand how users are using my site.. This means it needs to be an opt-in policy that gives the user the option to do just that, <em>opt-in</em>.</p><p><img src="/images/2022-11-18-does-gdpr-apply-to-personal-websites/my-gdpr-dialogue.png" alt="A screenshot of the davidwesst.com blog page with a dialogue docked to the bottom with the statement: 'This site uses cookies to track usage in order to help improve the user experience. By clicking &amp;quot;Accept&amp;quot;, you consent to our use of cookies.' along with gray 'Accept' and 'Decline' buttons, and a blue link with the text 'Privacy Statement'"></p><p>The dialogue above is the only real visual evidence on the site now. As simple as that looks, a lot of thought went into it prior to implementation. Rather than doing a complete code review, I figured I would share the highlights.</p><h3>Understanding My Tools</h3><p>My default would just be to include something like Google Analytics, and be done with it, but with <a href="https://techstory.in/eu-declares-google-analytics-illegal-heres-why/" target="_blank" rel="noopener">GA being made illegal in the EU</a> and more countries creating their own GDPR-like legislation, I thought I would stay away from it and try something different.</p><p>I chose <a href="https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview" target="_blank" rel="noopener">Application Insights</a> and took the time to learn how <a href="https://learn.microsoft.com/en-us/azure/azure-monitor/app/data-retention-privacy" target="_blank" rel="noopener">it handles data privacy and retention</a> and how the <a href="https://learn.microsoft.com/en-us/azure/azure-monitor/app/javascript?tabs=snippet#cookie-handling" target="_blank" rel="noopener">JavaScript SDK uses cookies</a>.</p><p>Regardless of what you choose for your analytics or tracking tool, the important part is that you understand how the tools are GDPR compliant and how the tracking technology works.</p><h3>Opt-In for Cookies</h3><p>You've seen million of them already, but those cookie banners have purpose. The <a href="https://gdpr.eu/cookies/" target="_blank" rel="noopener">GDPR website outlines the requirements</a> around using cookies, and many tools use them. The important thing is that <em>you</em> know how your website works, along with all the dependencies <em>you choose</em> to include.</p><p>In my case, the cookie banner enables cookies in Application Insights, which in turn enable usage data collection, only if they click &quot;Accept&quot;.</p><h3>Transparency</h3><p>This last point is less technical, and more about design. I am designing with transparency in the front of my mind. I added a <a href="https://www.davidwesst.com/about" target="_blank" rel="noopener">privacy statement to my about page</a> to explain the &quot;why&quot; around using Application Insights, and will share more specifics and document them accordingly.</p><h2>Conclusion / TL;DR;</h2><p>GDPR and the various GDPR-like laws definitely apply to you and your personal website or app project if you are building the code yourself, assuming you want to track information about your users.</p><p>The short story on this is that you need to draw your own conclusions and take responsibility for what you include in your website. If you are developing something to share outward into the world, you need to take the time to understand how the various tools you are included (such as Google Analytics or Application Insights) as well as the requirements for compliance.</p><h3>GDPR Resources</h3><p>Two resources I found useful in explaining GDPR requirements are provided on the site <a href="https://gdpr.eu/" target="_blank" rel="noopener">GDPR.eu</a>. If you are looking for more information, I definitely suggest checking out these links:</p><ul><li><a href="https://gdpr.eu/cookies/" target="_blank" rel="noopener">Cookies, the GDPR, and the ePrivacy Directive</a></li><li><a href="https://gdpr.eu/compliance/" target="_blank" rel="noopener">Everything you need to know about GDPR compliance</a></li></ul><p>Thanks for playing.</p><p>~ DW</p>]]></content>
+    
+    <summary type="html">
+    
+      While rebuilding my personal website in 2022, I wanted to know how or if GDPR applied to my little side project. My internet sleuthing did not bring up any clear and cut answers, but I put together some thoughts that might help others answer it for themselves.
+    
+    </summary>
+    
+    
+      <category term="website" scheme="https://westerndevs.com/tags/website/"/>
+    
+      <category term="gdpr" scheme="https://westerndevs.com/tags/gdpr/"/>
+    
+      <category term="ldgp" scheme="https://westerndevs.com/tags/ldgp/"/>
+    
+      <category term="ccpa" scheme="https://westerndevs.com/tags/ccpa/"/>
+    
+      <category term="privacy" scheme="https://westerndevs.com/tags/privacy/"/>
+    
+      <category term="cookies" scheme="https://westerndevs.com/tags/cookies/"/>
+    
+  </entry>
+  
+  <entry>
     <title type="html">How much is enough documentation?</title>
     <link href="https://westerndevs.com/_/how-much-is-enough-documentation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/how-much-is-enough-documentation/</id>
     <published>2022-11-10T22:00:00.000Z</published>
-    <updated>2022-11-17T15:17:14.416Z</updated>
+    <updated>2022-11-18T20:10:52.934Z</updated>
 	<author>
 	
 	  
@@ -61,7 +99,7 @@
     <link href="https://westerndevs.com/_/how-to-fork-like-a-boss/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/how-to-fork-like-a-boss/</id>
     <published>2022-11-02T21:00:00.000Z</published>
-    <updated>2022-11-17T15:17:14.416Z</updated>
+    <updated>2022-11-18T20:10:52.934Z</updated>
 	<author>
 	
 	  
@@ -95,7 +133,7 @@
     <link href="https://westerndevs.com/finding-inspiration/i-can-teach-your-dog-quantum-physics/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/finding-inspiration/i-can-teach-your-dog-quantum-physics/</id>
     <published>2021-06-28T16:00:00.000Z</published>
-    <updated>2022-11-17T15:17:14.416Z</updated>
+    <updated>2022-11-18T20:10:52.934Z</updated>
 	<author>
 	
 	  
@@ -133,7 +171,7 @@
     <link href="https://westerndevs.com/inner-monologue/what-value-does-making-content-bring-to-me/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/inner-monologue/what-value-does-making-content-bring-to-me/</id>
     <published>2021-06-17T16:00:00.000Z</published>
-    <updated>2022-11-17T15:17:14.416Z</updated>
+    <updated>2022-11-18T20:10:52.934Z</updated>
 	<author>
 	
 	  
@@ -171,7 +209,7 @@
     <link href="https://westerndevs.com/inner-monologue/my-secret-addiction-to-likes/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/inner-monologue/my-secret-addiction-to-likes/</id>
     <published>2021-06-03T16:00:00.000Z</published>
-    <updated>2022-11-17T15:17:14.416Z</updated>
+    <updated>2022-11-18T20:10:52.934Z</updated>
 	<author>
 	
 	  
@@ -209,7 +247,7 @@
     <link href="https://westerndevs.com/technology/inner-monologue/lucky-number-v7/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/technology/inner-monologue/lucky-number-v7/</id>
     <published>2021-05-24T16:00:00.000Z</published>
-    <updated>2022-11-17T15:17:14.416Z</updated>
+    <updated>2022-11-18T20:10:52.934Z</updated>
 	<author>
 	
 	  
@@ -245,7 +283,7 @@
     <link href="https://westerndevs.com/devops/from-travis-ci-to-github-actions/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devops/from-travis-ci-to-github-actions/</id>
     <published>2020-11-10T23:36:00.000Z</published>
-    <updated>2022-11-17T15:17:14.416Z</updated>
+    <updated>2022-11-18T20:10:52.934Z</updated>
 	<author>
 	
 	  
@@ -283,7 +321,7 @@
     <link href="https://westerndevs.com/devlog/out-the-door/out-the-door-post-jam-update/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/out-the-door/out-the-door-post-jam-update/</id>
     <published>2020-11-09T14:00:00.000Z</published>
-    <updated>2022-11-17T15:17:14.416Z</updated>
+    <updated>2022-11-18T20:10:52.934Z</updated>
 	<author>
 	
 	  
@@ -325,7 +363,7 @@
     <link href="https://westerndevs.com/devlog/a-solo-gamejam-experience-ld47/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/a-solo-gamejam-experience-ld47/</id>
     <published>2020-10-23T13:00:00.000Z</published>
-    <updated>2022-11-17T15:17:14.416Z</updated>
+    <updated>2022-11-18T20:10:52.934Z</updated>
 	<author>
 	
 	  
@@ -365,7 +403,7 @@
     <link href="https://westerndevs.com/devlog/game-portfolio-review-2020/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/game-portfolio-review-2020/</id>
     <published>2020-09-18T13:00:00.000Z</published>
-    <updated>2022-11-17T15:17:14.416Z</updated>
+    <updated>2022-11-18T20:10:52.934Z</updated>
 	<author>
 	
 	  
@@ -405,7 +443,7 @@
     <link href="https://westerndevs.com/devlog/little-shop-of-wall-street-01-release-notes/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/little-shop-of-wall-street-01-release-notes/</id>
     <published>2020-07-02T15:13:00.000Z</published>
-    <updated>2022-11-17T15:17:14.416Z</updated>
+    <updated>2022-11-18T20:10:52.934Z</updated>
 	<author>
 	
 	  
@@ -443,7 +481,7 @@
     <link href="https://westerndevs.com/Game-Design/How-GitHub-Makes-Game-Making-Easier-For-NonCoders/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Game-Design/How-GitHub-Makes-Game-Making-Easier-For-NonCoders/</id>
     <published>2020-02-19T20:48:36.000Z</published>
-    <updated>2022-11-17T15:17:14.416Z</updated>
+    <updated>2022-11-18T20:10:52.934Z</updated>
 	<author>
 	
 	  
@@ -479,7 +517,7 @@
     <link href="https://westerndevs.com/Devlog/Jan-2020-Devlog/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Devlog/Jan-2020-Devlog/</id>
     <published>2020-02-04T21:03:24.000Z</published>
-    <updated>2022-11-17T15:17:14.412Z</updated>
+    <updated>2022-11-18T20:10:52.934Z</updated>
 	<author>
 	
 	  
@@ -515,7 +553,7 @@
     <link href="https://westerndevs.com/Game-Development/Where-To-Find-Your-Gamedev-Community/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Game-Development/Where-To-Find-Your-Gamedev-Community/</id>
     <published>2020-01-21T11:09:00.000Z</published>
-    <updated>2022-11-17T15:17:14.412Z</updated>
+    <updated>2022-11-18T20:10:52.934Z</updated>
 	<author>
 	
 	  
@@ -553,7 +591,7 @@
     <link href="https://westerndevs.com/_/No-Cost-Game-Design-Toolbox/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/No-Cost-Game-Design-Toolbox/</id>
     <published>2020-01-13T21:51:04.000Z</published>
-    <updated>2022-11-17T15:17:14.412Z</updated>
+    <updated>2022-11-18T20:10:52.934Z</updated>
 	<author>
 	
 	  
@@ -589,7 +627,7 @@
     <link href="https://westerndevs.com/Game-Development/gameoff2019-gamejam-devlog/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Game-Development/gameoff2019-gamejam-devlog/</id>
     <published>2019-11-26T14:57:00.000Z</published>
-    <updated>2022-11-17T15:17:14.412Z</updated>
+    <updated>2022-11-18T20:10:52.934Z</updated>
 	<author>
 	
 	  
@@ -619,7 +657,7 @@
     <link href="https://westerndevs.com/_/streaming-code-and-games-on-mixer/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/streaming-code-and-games-on-mixer/</id>
     <published>2018-09-27T17:55:42.000Z</published>
-    <updated>2022-11-17T15:17:14.412Z</updated>
+    <updated>2022-11-18T20:10:52.930Z</updated>
 	<author>
 	
 	  
@@ -645,7 +683,7 @@
     <link href="https://westerndevs.com/Development/f12-chooser-is-dev-tool-thing/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Development/f12-chooser-is-dev-tool-thing/</id>
     <published>2018-03-28T17:10:00.000Z</published>
-    <updated>2022-11-17T15:17:14.412Z</updated>
+    <updated>2022-11-18T20:10:52.930Z</updated>
 	<author>
 	
 	  
@@ -681,7 +719,7 @@
     <link href="https://westerndevs.com/Development/typescript-or-javascript/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Development/typescript-or-javascript/</id>
     <published>2018-03-15T15:40:00.000Z</published>
-    <updated>2022-11-17T15:17:14.412Z</updated>
+    <updated>2022-11-18T20:10:52.930Z</updated>
 	<author>
 	
 	  
@@ -705,38 +743,6 @@
       <category term="JavaScript" scheme="https://westerndevs.com/tags/JavaScript/"/>
     
       <category term="TypeScript" scheme="https://westerndevs.com/tags/TypeScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Crowdsourcing Documentation is Cool</title>
-    <link href="https://westerndevs.com/Development/crowdsourcing-docs-is-cool/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/Development/crowdsourcing-docs-is-cool/</id>
-    <published>2018-03-13T13:40:00.000Z</published>
-    <updated>2022-11-17T15:17:14.412Z</updated>
-	<author>
-	
-	  
-	  <name>David Wesst</name>
-	  <email>questions@davidwesst.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>The idea of these large enterprises crowdsourcing their technical documentation is pretty cool. More cool than I had originally realized, and I want to take a moment to explain why I like it and why you should get involved yourself.</p><a id="more"></a><p>I updated the Microsoft Edge documentation on web extensions. As of this writing, you can see it <a href="https://docs.microsoft.com/en-us/microsoft-edge/extensions/extensions-for-enterprise" target="_blank" rel="noopener">here</a>, but just in case you can't I've included an image.</p><p><img src="https://i.imgur.com/5ptKftE.png" alt=""></p><p>The idea of these large enterprises crowdsourcing their technical documentation is pretty cool. More cool than I had originally realized and, for that reason, I want to take a moment to explain why I like it and why you should get involved yourself.</p><h2>What do you mean by &quot;Crowdsourcing&quot;?</h2><p>When it comes to web platforms, many of the platform owners (<a href="https://github.com/awsdocs" target="_blank" rel="noopener">Amazon</a>, <a href="https://github.com/MicrosoftDocs" target="_blank" rel="noopener">Microsoft</a>, <a href="https://github.com/mdn" target="_blank" rel="noopener">Mozilla</a>) have started crowdsourcing their technical documentation. When I say <em>crowdsourcing</em> I mean that the organization opens up the conversation about what the documentation should say to the community at large.</p><p>The community, being the consumers of the product (and the documentation) can have input into adding, editing, or removing sections of official product or platform documentation. Assuming the vendor agrees with the changes being suggested, then the change is accepted and the official documentation is updated.</p><p>This whole process if facilitated generally by GitHub, where documentation is published as source code and pull requests act as the avenue submitting changes. This way, the conversation about the changes is tracked, shared, and kept in the open for people to review and understand.</p><p>Plus, using things like contributors guides and automated build tools can be integrated with GitHub to validate the change, to make sure that the change to the documentation doesn't break anything and follows any rules the vendor has in place.</p><h2>Where is the coolness?</h2><p>There are a couple of cool points I'd like to highlight.</p><h3>Consumers are More Qualified than Vendors</h3><p>The developers of the platform itself are somewhat qualified considering they know the inner workings of the product, but they aren't the ones using it. The people using the product don't need to know how the guts work, they need to how to use it.</p><p>There is nobody more qualified to update product documentation than the consumers of the documentation and technology. The people that are neck deep and actually <em>using</em> in tech to make things happen. Those are the people that are best suited to critique and ultimately improve the documentation.</p><h3>Transparent Conversations</h3><p>When you crowdsource your documentation, you need to make it open and accessible, which tends to make conversation around the documentation transparent. In our case, GitHub provides the facilty to make this happen with public repositories filled with documentation and through the issue and pull request interface.</p><p>People can submit pull requests and issues and have a conversation with the vendor about their documentation and ultimately their product.</p><p>Something that starts out like a minor update, could result in an entire section. In my case, I was confident that I'd be adding new pages of content, but once I got into the thick of it, I realized all the parts were already present in the docs. I just needed to add some context and minor updates to what was already there.</p><h2>Conclusion</h2><p>In conclusion, anyone reviewing the documentation for a tool or technology should check to see if:</p><ol><li>It's open to improvement through crowdsourcing</li><li>They can think they can make it better.</li></ol><p>It's a great way to get involved in your technology community, all while improving the developer experience for the next person that comes along.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;The idea of these large enterprises crowdsourcing their technical documentation is pretty cool. More cool than I had originally realized, and I want to take a moment to explain why I like it and why you should get involved yourself.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Development" scheme="https://westerndevs.com/categories/Development/"/>
-    
-    
-      <category term="JavaScript" scheme="https://westerndevs.com/tags/JavaScript/"/>
-    
-      <category term="Documentation" scheme="https://westerndevs.com/tags/Documentation/"/>
     
   </entry>
   

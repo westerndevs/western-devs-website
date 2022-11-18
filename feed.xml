@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2022-11-17T15:17:14.420Z</updated>
+  <updated>2022-11-18T20:10:52.934Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,49 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Does GDPR Apply to Personal Websites?</title>
+    <link href="https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/</id>
+    <published>2022-11-19T01:10:07.083Z</published>
+    <updated>2022-11-18T20:10:52.934Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>A few weeks back, I <a href="https://github.com/davidwesst/website/releases/tag/v10.0.1" target="_blank" rel="noopener">released v10.0.1 of my website</a>. I use a static site generator to generate all the pages and publish it out into the internet for all the world to read. In that release, I added <a href="https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview" target="_blank" rel="noopener">Application Insights</a> to provide me with some performance data, but also to get a bit of usage data (for those willing to share it).</p><p>What I found odd was that all the links and articles I came across seemed to talk about things at a high-level (i.e. defining GDPR) or assumed I was working at a large scale (i.e. enterprise software), but nothing small projects like my personal website.</p><p>Still, I managed to draw some of my own conclusions on how to handle GDPR for my personal website and wanted to document them somewhere.</p><h2>DISCLAIMER: This is not legal advice</h2><p>I am not a lawyer, so this is just an opinion from a developer. As a rule of thumb, I avoid taking legal advice from random folks on the internet. If you take advice from this article, take that bit and keep it.</p><p>I hope others (like you) use this post to draw your own conclusions or how you want to proceed with your own plan for handling GDPR.</p><p>But if you want <em>real</em> advice. Get a lawyer and talk to them.</p><h2>Short Answer: Yes</h2><p>Yes, it does apply to your personal website <strong>if</strong> are tracking information about your users <strong>and</strong> you are developing your own website or application.</p><h3>Developing Your Own Website or Application</h3><p>I mean developing as it coding it, publishing that code, and hosting it somewhere like Microsoft Azure or GitHub Pages. If you are publishing your own code, GDPR may apply to you.</p><p>If you are using a third party tool or platform, like Facebook or LinkedIn to host your blog posts-- you appear to be in the clear. When you use a third-party platform, the <em>platform</em>, not you, is responsible for GDPR compliance.</p><p>Even if you think you are clear of GDPR responsibility, make sure that you trust your chosen platform to comply to GDPR and other regulatory bodies out there, as your site depends on it.</p><h3>Tracking Information</h3><p>The GDPR is all about protecting personal information and giving control back to people navigating the internet. GDPR is not the only set of laws in play, as <a href="https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=201720180AB375" target="_blank" rel="noopener">California</a>, <a href="https://iapp.org/media/pdf/resource_center/Brazilian_General_Data_Protection_Law.pdf" target="_blank" rel="noopener">Brazil</a>, and <a href="https://www.priv.gc.ca/en/privacy-topics/privacy-laws-in-canada/the-personal-information-protection-and-electronic-documents-act-pipeda" target="_blank" rel="noopener">Canada</a> have their own versions of similar legislation, but many of these laws seem to have been inspired by GDPR and why I tend to focus on it.</p><p>At the personal website level, you need to consider whether or not you are collecting personal information from your users. This includes things like <a href="https://gdpr.eu/eu-gdpr-personal-data/" target="_blank" rel="noopener">IP addresses or cookie identifiers</a>.</p><p>If you are NOT collecting information like that, you are good to go! Just remember that services like Google Analytics or Disqus Comments use personally identifiable information to operate, so if you have decided to include one of those services on your site then you need to think about GDPR compliance.</p><h2>My Solution Highlights</h2><p>I concluded the GDPR-like laws apply to my personal website if I want to do any kind of usage tracking and understand how users are using my site.. This means it needs to be an opt-in policy that gives the user the option to do just that, <em>opt-in</em>.</p><p><img src="/images/2022-11-18-does-gdpr-apply-to-personal-websites/my-gdpr-dialogue.png" alt="A screenshot of the davidwesst.com blog page with a dialogue docked to the bottom with the statement: 'This site uses cookies to track usage in order to help improve the user experience. By clicking &amp;quot;Accept&amp;quot;, you consent to our use of cookies.' along with gray 'Accept' and 'Decline' buttons, and a blue link with the text 'Privacy Statement'"></p><p>The dialogue above is the only real visual evidence on the site now. As simple as that looks, a lot of thought went into it prior to implementation. Rather than doing a complete code review, I figured I would share the highlights.</p><h3>Understanding My Tools</h3><p>My default would just be to include something like Google Analytics, and be done with it, but with <a href="https://techstory.in/eu-declares-google-analytics-illegal-heres-why/" target="_blank" rel="noopener">GA being made illegal in the EU</a> and more countries creating their own GDPR-like legislation, I thought I would stay away from it and try something different.</p><p>I chose <a href="https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview" target="_blank" rel="noopener">Application Insights</a> and took the time to learn how <a href="https://learn.microsoft.com/en-us/azure/azure-monitor/app/data-retention-privacy" target="_blank" rel="noopener">it handles data privacy and retention</a> and how the <a href="https://learn.microsoft.com/en-us/azure/azure-monitor/app/javascript?tabs=snippet#cookie-handling" target="_blank" rel="noopener">JavaScript SDK uses cookies</a>.</p><p>Regardless of what you choose for your analytics or tracking tool, the important part is that you understand how the tools are GDPR compliant and how the tracking technology works.</p><h3>Opt-In for Cookies</h3><p>You've seen million of them already, but those cookie banners have purpose. The <a href="https://gdpr.eu/cookies/" target="_blank" rel="noopener">GDPR website outlines the requirements</a> around using cookies, and many tools use them. The important thing is that <em>you</em> know how your website works, along with all the dependencies <em>you choose</em> to include.</p><p>In my case, the cookie banner enables cookies in Application Insights, which in turn enable usage data collection, only if they click &quot;Accept&quot;.</p><h3>Transparency</h3><p>This last point is less technical, and more about design. I am designing with transparency in the front of my mind. I added a <a href="https://www.davidwesst.com/about" target="_blank" rel="noopener">privacy statement to my about page</a> to explain the &quot;why&quot; around using Application Insights, and will share more specifics and document them accordingly.</p><h2>Conclusion / TL;DR;</h2><p>GDPR and the various GDPR-like laws definitely apply to you and your personal website or app project if you are building the code yourself, assuming you want to track information about your users.</p><p>The short story on this is that you need to draw your own conclusions and take responsibility for what you include in your website. If you are developing something to share outward into the world, you need to take the time to understand how the various tools you are included (such as Google Analytics or Application Insights) as well as the requirements for compliance.</p><h3>GDPR Resources</h3><p>Two resources I found useful in explaining GDPR requirements are provided on the site <a href="https://gdpr.eu/" target="_blank" rel="noopener">GDPR.eu</a>. If you are looking for more information, I definitely suggest checking out these links:</p><ul><li><a href="https://gdpr.eu/cookies/" target="_blank" rel="noopener">Cookies, the GDPR, and the ePrivacy Directive</a></li><li><a href="https://gdpr.eu/compliance/" target="_blank" rel="noopener">Everything you need to know about GDPR compliance</a></li></ul><p>Thanks for playing.</p><p>~ DW</p>]]></content>
+    
+    <summary type="html">
+    
+      While rebuilding my personal website in 2022, I wanted to know how or if GDPR applied to my little side project. My internet sleuthing did not bring up any clear and cut answers, but I put together some thoughts that might help others answer it for themselves.
+    
+    </summary>
+    
+    
+      <category term="website" scheme="https://westerndevs.com/tags/website/"/>
+    
+      <category term="gdpr" scheme="https://westerndevs.com/tags/gdpr/"/>
+    
+      <category term="ldgp" scheme="https://westerndevs.com/tags/ldgp/"/>
+    
+      <category term="ccpa" scheme="https://westerndevs.com/tags/ccpa/"/>
+    
+      <category term="privacy" scheme="https://westerndevs.com/tags/privacy/"/>
+    
+      <category term="cookies" scheme="https://westerndevs.com/tags/cookies/"/>
+    
+  </entry>
+  
+  <entry>
     <title type="html">Bulk Insert SQL Geometry on .NET Core</title>
     <link href="https://westerndevs.com/_/bulk-insert-sql-geometry/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/bulk-insert-sql-geometry/</id>
     <published>2022-11-17T05:00:00.000Z</published>
-    <updated>2022-11-17T15:17:14.420Z</updated>
+    <updated>2022-11-18T20:10:52.938Z</updated>
 	<author>
 	
 	  
@@ -47,7 +85,7 @@
     <link href="https://westerndevs.com/_/azure-backus-protip/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-backus-protip/</id>
     <published>2022-11-11T05:00:00.000Z</published>
-    <updated>2022-11-17T15:17:14.420Z</updated>
+    <updated>2022-11-18T20:10:52.938Z</updated>
 	<author>
 	
 	  
@@ -73,7 +111,7 @@
     <link href="https://westerndevs.com/_/how-much-is-enough-documentation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/how-much-is-enough-documentation/</id>
     <published>2022-11-10T22:00:00.000Z</published>
-    <updated>2022-11-17T15:17:14.416Z</updated>
+    <updated>2022-11-18T20:10:52.934Z</updated>
 	<author>
 	
 	  
@@ -113,7 +151,7 @@
     <link href="https://westerndevs.com/_/how-to-fork-like-a-boss/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/how-to-fork-like-a-boss/</id>
     <published>2022-11-02T21:00:00.000Z</published>
-    <updated>2022-11-17T15:17:14.416Z</updated>
+    <updated>2022-11-18T20:10:52.934Z</updated>
 	<author>
 	
 	  
@@ -147,7 +185,7 @@
     <link href="https://westerndevs.com/_/set-output-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-output-terraform/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2022-11-17T15:17:14.428Z</updated>
+    <updated>2022-11-18T20:10:52.942Z</updated>
 	<author>
 	
 	  
@@ -173,7 +211,7 @@
     <link href="https://westerndevs.com/_/theory-of-terraform-github-actions/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/theory-of-terraform-github-actions/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2022-11-17T15:17:14.428Z</updated>
+    <updated>2022-11-18T20:10:52.946Z</updated>
 	<author>
 	
 	  
@@ -199,7 +237,7 @@
     <link href="https://westerndevs.com/_/register-providers/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/register-providers/</id>
     <published>2022-08-12T04:00:00.000Z</published>
-    <updated>2022-11-17T15:17:14.424Z</updated>
+    <updated>2022-11-18T20:10:52.942Z</updated>
 	<author>
 	
 	  
@@ -225,7 +263,7 @@
     <link href="https://westerndevs.com/_/debug-azure-container-instances-startup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/debug-azure-container-instances-startup/</id>
     <published>2022-08-04T04:00:00.000Z</published>
-    <updated>2022-11-17T15:17:14.420Z</updated>
+    <updated>2022-11-18T20:10:52.938Z</updated>
 	<author>
 	
 	  
@@ -251,7 +289,7 @@
     <link href="https://westerndevs.com/_/consuming-wsdl/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/consuming-wsdl/</id>
     <published>2022-05-30T04:00:00.000Z</published>
-    <updated>2022-11-17T15:17:14.420Z</updated>
+    <updated>2022-11-18T20:10:52.938Z</updated>
 	<author>
 	
 	  
@@ -277,7 +315,7 @@
     <link href="https://westerndevs.com/_/azure-functions-error/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-functions-error/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2022-11-17T15:17:14.420Z</updated>
+    <updated>2022-11-18T20:10:52.938Z</updated>
 	<author>
 	
 	  
@@ -303,7 +341,7 @@
     <link href="https://westerndevs.com/_/which-sql-server-edition/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/which-sql-server-edition/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2022-11-17T15:17:14.428Z</updated>
+    <updated>2022-11-18T20:10:52.946Z</updated>
 	<author>
 	
 	  
@@ -329,7 +367,7 @@
     <link href="https://westerndevs.com/_/cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cheat-sheet/</id>
     <published>2022-04-04T04:00:00.000Z</published>
-    <updated>2022-11-17T15:17:14.420Z</updated>
+    <updated>2022-11-18T20:10:52.938Z</updated>
 	<author>
 	
 	  
@@ -357,7 +395,7 @@
     <link href="https://westerndevs.com/_/rubocop-issue/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/rubocop-issue/</id>
     <published>2022-03-18T04:00:00.000Z</published>
-    <updated>2022-11-17T15:17:14.428Z</updated>
+    <updated>2022-11-18T20:10:52.942Z</updated>
 	<author>
 	
 	  
@@ -384,7 +422,7 @@
     <link href="https://westerndevs.com/_/fsevents-optional-dependencies/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/fsevents-optional-dependencies/</id>
     <published>2022-03-16T04:00:00.000Z</published>
-    <updated>2022-11-17T15:17:14.424Z</updated>
+    <updated>2022-11-18T20:10:52.938Z</updated>
 	<author>
 	
 	  
@@ -410,7 +448,7 @@
     <link href="https://westerndevs.com/_/backblaze-exclude-node-modules/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/backblaze-exclude-node-modules/</id>
     <published>2022-02-20T05:00:00.000Z</published>
-    <updated>2022-11-17T15:17:14.420Z</updated>
+    <updated>2022-11-18T20:10:52.938Z</updated>
 	<author>
 	
 	  
@@ -436,7 +474,7 @@
     <link href="https://westerndevs.com/_/parsing-vue-router-parameters/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/parsing-vue-router-parameters/</id>
     <published>2022-02-18T05:00:00.000Z</published>
-    <updated>2022-11-17T15:17:14.424Z</updated>
+    <updated>2022-11-18T20:10:52.942Z</updated>
 	<author>
 	
 	  
@@ -462,7 +500,7 @@
     <link href="https://westerndevs.com/_/install-azfileshybrid-powershell/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/install-azfileshybrid-powershell/</id>
     <published>2022-02-16T05:00:00.000Z</published>
-    <updated>2022-11-17T15:17:14.424Z</updated>
+    <updated>2022-11-18T20:10:52.942Z</updated>
 	<author>
 	
 	  
@@ -488,7 +526,7 @@
     <link href="https://westerndevs.com/_/purge-cdn-in-devops/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/purge-cdn-in-devops/</id>
     <published>2022-01-27T05:00:00.000Z</published>
-    <updated>2022-11-17T15:17:14.424Z</updated>
+    <updated>2022-11-18T20:10:52.942Z</updated>
 	<author>
 	
 	  
@@ -515,7 +553,7 @@
     <link href="https://westerndevs.com/_/hash-nil/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/hash-nil/</id>
     <published>2021-11-24T05:00:00.000Z</published>
-    <updated>2022-11-17T15:17:14.424Z</updated>
+    <updated>2022-11-18T20:10:52.942Z</updated>
 	<author>
 	
 	  
@@ -530,32 +568,6 @@
     <summary type="html">
     
       &lt;p&gt;Tony Hoare introduced Null in ALGOL W in 1965. He says that it was a billion dollar mistake. Fortunately, Ruby totally avoids this sticky
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Choosing Power BI</title>
-    <link href="https://westerndevs.com/_/choosing-power-bi/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/choosing-power-bi/</id>
-    <published>2021-11-19T05:00:00.000Z</published>
-    <updated>2022-11-17T15:17:14.420Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>If you're a developer and you're looking for a solution for reporting in your application then Power BI might be the right choice for you. However, there are tradeoffs that are worth considering before you dig in too much.</p><h2>What is it?</h2><p>The GitHub copilot I have running while writing this wants me to say that &quot;Power BI is a platform for creating and managing data-driven reports. It's a powerful tool that allows you to create reports that are easy to understand and use.&quot; That sounds an awful lot like a sentence that an AI trained on Microsoft marketing data would say. It isn't entirely inaccurate. For me Power BI is a combination for two different reporting tools which are pretty different from one another. The first is the one you see in all the marketing literature: Dashboard reports. These are nifty looking reports that are largely driven by visuals like maps or charts. Users can easily drill into aspects of the data by clicking on the charts or tables to filter the data and drill in. These reports aren't great for people who like to see the underlying data and draw their own conclusions.</p><p>The second report type is Paginated Reports. These reports are basically a complete migration of the older SQL Server Reporting Services (SSRS) reports. There is limited support for cool graphics but if you need an Excel like view of the data then they are great. I've run into a few cases in the past where I've tried to convince users that they cannot possibly want a 90 page report and that they should use the dashboard report. But frequently users do legitimately want to print 90 pages and go at the report with a highlighter. One of my favorite sayings for these situations is that as a developer I make suggestions and users make decisions.</p><p>The desktop based tools for building these reports are all pretty good. The dashboard report tool in particular is excellent. It may be that your users don't need to use online reporting and that providing them with a database connection and a copy of Power BI Desktop will be a good solution. The added advantage there is that the desktop tools are free to use. If you have a read only replica of your database then letting users develop their own reports doesn't have much of a downside other than having to support people as they learn the system. A cool idea is to build projections or views inside your database to handle the complex joins in your data and remove that burden from the users.</p><p>If you want to embed the reports in your application there is facility for doing that through a JavaScript API. You do need to jump through some hoops to authenticate and generate tokens but that's a lot easier than developing your own HTML based reports. There aren't a whole lot of examples out there for how to do embeddeding and you will need to spend some time learning the security models.</p><p>The alternative to all this is to use one of the myriad of other reporting tools that are available. I've used Telerik Reporting quite a lot in the past and I can confidently say it is &quot;not terrible&quot;. That's about as high of praise as you're going to get from me for a reporting tool.</p><h2>Cost</h2><p>As with anything Microsoft the pricing for all this is convoluted and contently changing. This is my current understanding of it but  you can likely get a better deal and understanding by talking to your sales representative.</p><ul><li>Power BI Desktop: Free as in beer</li><li>Power BI Pro: Let's you run dashboard reports online and embed them in your application (note that this doesn't' let you embed paginated reports) $9.99/month a users</li><li>Power BI Premium per user: This lets you run dashboard reports online and embed them in your application and also run paginated reports (note I didn't say embed paginated reports) $20/month a user</li><li>Power BI Premium per capacity: Run and embed both report types. Open for as many users as you have. $4995/month. Yikes, that price sure jumps up</li></ul><p>Being able to embed paginated reports was the killer feature for me that took the reporting cost from very reasonable to very expensive.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;If you&#39;re a developer and you&#39;re looking for a solution for reporting in your application then Power BI might be the right choice for you
     
     </summary>
     
