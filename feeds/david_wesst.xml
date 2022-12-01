@@ -5,7 +5,7 @@
   <link href="/feeds/david_wesst" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2022-11-24T14:36:20.884Z</updated>
+  <updated>2022-12-01T04:18:53.556Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,49 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Open Graph Tools and Resources for Web Nerds (Like Me)</title>
+    <link href="https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/</id>
+    <published>2022-12-01T09:18:34.509Z</published>
+    <updated>2022-12-01T04:18:53.556Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>The <a href="https://ogp.me" target="_blank" rel="noopener">Open Graph Protocol (OGP)</a> is an open standard that allows web pages to have deeper integration with a social graph, such as Facebook, Twitter, or LinkedIn. You know those cards that appear on Twitter or LinkedIn with tailored images for a link to a blog post? That is OGP in action.</p><p>With <a href="https://github.com/davidwesst/website/releases" target="_blank" rel="noopener">my recent adventures with reimplementing my website</a>, I wanted to leverage this on pages and posts, specifically with LinkedIn and it took a little more research to get it working right. So, for the web nerds like me looking to implement OGP on their projects, I wanted to share the resources I found useful to hopefully save them some time in finding the right resources.</p><h2><a href="https://ogp.me" target="_blank" rel="noopener"><code>ogp.me</code></a></h2><p>I am calling this the specification, or &quot;spec&quot;, and it probably the most important resource. The best part about this site is how approachable it is.</p><p>There are code snippets, explanations of all the object types and their properties, and its own list of tools (although they differ from the ones I am including on this list).</p><p>If you take one thing away from this post for your work with OGP, take this one.</p><h3>Reference</h3><ul><li><a href="https://ogp.me" target="_blank" rel="noopener">Open Graph protocol page</a></li></ul><h2>LinkedIn (and Facebook) Post Inspectors</h2><p>Both Facebook and LinkedIn provide a developer tool to analyze and verify your implemenation of OGP and has the added feature of busting whatever the social networks have cached for the pages you share.</p><p>These tools for triaging or assesing publically shared pages, but not so much when it comes to local development. That is where the next tool comes into play.</p><h3>Reference</h3><ul><li><a href="https://www.linkedin.com/post-inspector/" target="_blank" rel="noopener">LinkedIn Post Inspector</a></li><li><a href="https://developers.facebook.com/tools/debug/" target="_blank" rel="noopener">Facebook Sharing Debugger</a></li></ul><h2>Social Share Preview Web Extension</h2><p>Available for both <a href="https://chrome.google.com/webstore/detail/social-share-preview/ggnikicjfklimmffbkhknndafpdlabib" target="_blank" rel="noopener">Chromium Browsers</a> and <a href="https://addons.mozilla.org/en-US/firefox/addon/social-share-preview/" target="_blank" rel="noopener">Firefox</a>, this web extension allows you simulate what should appears for any page loaded up in your browser.</p><p>This tool saved me from having to continually publish the content to a public location for the post inspector, but note that it is just a <em>simulation</em> of what the tool thinks it should appear. It does not replace post inspector or proper testing on the site you are looking to share to.</p><p><img src="/images/2022-11-30-open-graph-tools-and-resources-for-web-nerds/social-share-preview-example.png" alt="A window displaying a preview of what a LinkedIn post of the 'How much is enough documentation?' blog post on davidwesst.com"></p><h3>Reference</h3><ul><li><a href="https://chrome.google.com/webstore/detail/social-share-preview/ggnikicjfklimmffbkhknndafpdlabib" target="_blank" rel="noopener">Chrome Extension</a></li><li><a href="https://addons.mozilla.org/en-US/firefox/addon/social-share-preview/" target="_blank" rel="noopener">Firefox Add-On</a></li></ul><h2>Browser Dev Tools (Obviously)</h2><p>If you are reading the post, then this one is an obvious one-- but sometimes we (like me) get so caught up on exploring new ways to solve my problem, we forget about the obvious ones.</p><p>OGP tags live in the <code>&lt;head&gt;</code> of your HTML page. If you are unsure why things are not working, make sure you run your browser dev tools of choice and check the <code>&lt;head&gt;</code> of the document and make sure the OGP tags you are expecting appear where they should be.</p><p>It seems simple, but depending on what tool, engine, or framework to output HTML, you may be surprised what shows up.</p><h3>Reference</h3><p>Open this post on a desktop browser and press the key combination <code>Ctrl + Shift + i</code> and you should see your browser dev tools pop open for the site.</p><h2>Conclusion / TL;DR;</h2><p>Read the <a href="https://ogp.me" target="_blank" rel="noopener">aproachable spec document</a>. That is the most important part takeaway from my OGP implemenation. It is very approachable and gives you a strong foundation to work from as you use other tools to triage and assess your implementation.</p><p>These are the tools I used to implement LinkedIn support, along with my browser dev tools.</p><ul><li><a href="https://www.linkedin.com/post-inspector/" target="_blank" rel="noopener">LinkedIn Post Inspector</a></li><li><a href="https://developers.facebook.com/tools/debug/" target="_blank" rel="noopener">Facebook Sharing Debugger</a></li><li><a href="https://chrome.google.com/webstore/detail/social-share-preview/ggnikicjfklimmffbkhknndafpdlabib" target="_blank" rel="noopener">Chrome Extension</a></li><li><a href="https://addons.mozilla.org/en-US/firefox/addon/social-share-preview/" target="_blank" rel="noopener">Firefox Add-On</a></li><li><code>Ctrl + Shift + i</code> on your desktop browser</li></ul><p>Thanks for playing.</p><p>~ DW</p>]]></content>
+    
+    <summary type="html">
+    
+      A compilation of tools and resources I used to implemented the Open Graph Protocol (OGP) for my website to make posts and pages more engaging on LinkedIn and other social networks.
+    
+    </summary>
+    
+    
+      <category term="twitter" scheme="https://westerndevs.com/tags/twitter/"/>
+    
+      <category term="open graph" scheme="https://westerndevs.com/tags/open-graph/"/>
+    
+      <category term="web development" scheme="https://westerndevs.com/tags/web-development/"/>
+    
+      <category term="seo" scheme="https://westerndevs.com/tags/seo/"/>
+    
+      <category term="linkedin" scheme="https://westerndevs.com/tags/linkedin/"/>
+    
+      <category term="facebook" scheme="https://westerndevs.com/tags/facebook/"/>
+    
+  </entry>
+  
+  <entry>
     <title type="html">Does GDPR Apply to Personal Websites?</title>
     <link href="https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/</id>
     <published>2022-11-19T01:10:07.083Z</published>
-    <updated>2022-11-24T14:36:20.884Z</updated>
+    <updated>2022-12-01T04:18:53.556Z</updated>
 	<author>
 	
 	  
@@ -59,7 +97,7 @@
     <link href="https://westerndevs.com/_/how-much-is-enough-documentation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/how-much-is-enough-documentation/</id>
     <published>2022-11-10T22:00:00.000Z</published>
-    <updated>2022-11-24T14:36:20.884Z</updated>
+    <updated>2022-12-01T04:18:53.556Z</updated>
 	<author>
 	
 	  
@@ -99,7 +137,7 @@
     <link href="https://westerndevs.com/_/how-to-fork-like-a-boss/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/how-to-fork-like-a-boss/</id>
     <published>2022-11-02T21:00:00.000Z</published>
-    <updated>2022-11-24T14:36:20.884Z</updated>
+    <updated>2022-12-01T04:18:53.556Z</updated>
 	<author>
 	
 	  
@@ -133,7 +171,7 @@
     <link href="https://westerndevs.com/finding-inspiration/i-can-teach-your-dog-quantum-physics/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/finding-inspiration/i-can-teach-your-dog-quantum-physics/</id>
     <published>2021-06-28T16:00:00.000Z</published>
-    <updated>2022-11-24T14:36:20.884Z</updated>
+    <updated>2022-12-01T04:18:53.556Z</updated>
 	<author>
 	
 	  
@@ -171,7 +209,7 @@
     <link href="https://westerndevs.com/inner-monologue/what-value-does-making-content-bring-to-me/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/inner-monologue/what-value-does-making-content-bring-to-me/</id>
     <published>2021-06-17T16:00:00.000Z</published>
-    <updated>2022-11-24T14:36:20.884Z</updated>
+    <updated>2022-12-01T04:18:53.556Z</updated>
 	<author>
 	
 	  
@@ -209,7 +247,7 @@
     <link href="https://westerndevs.com/inner-monologue/my-secret-addiction-to-likes/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/inner-monologue/my-secret-addiction-to-likes/</id>
     <published>2021-06-03T16:00:00.000Z</published>
-    <updated>2022-11-24T14:36:20.884Z</updated>
+    <updated>2022-12-01T04:18:53.556Z</updated>
 	<author>
 	
 	  
@@ -247,7 +285,7 @@
     <link href="https://westerndevs.com/technology/inner-monologue/lucky-number-v7/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/technology/inner-monologue/lucky-number-v7/</id>
     <published>2021-05-24T16:00:00.000Z</published>
-    <updated>2022-11-24T14:36:20.884Z</updated>
+    <updated>2022-12-01T04:18:53.556Z</updated>
 	<author>
 	
 	  
@@ -283,7 +321,7 @@
     <link href="https://westerndevs.com/devops/from-travis-ci-to-github-actions/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devops/from-travis-ci-to-github-actions/</id>
     <published>2020-11-10T23:36:00.000Z</published>
-    <updated>2022-11-24T14:36:20.884Z</updated>
+    <updated>2022-12-01T04:18:53.556Z</updated>
 	<author>
 	
 	  
@@ -321,7 +359,7 @@
     <link href="https://westerndevs.com/devlog/out-the-door/out-the-door-post-jam-update/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/out-the-door/out-the-door-post-jam-update/</id>
     <published>2020-11-09T14:00:00.000Z</published>
-    <updated>2022-11-24T14:36:20.884Z</updated>
+    <updated>2022-12-01T04:18:53.556Z</updated>
 	<author>
 	
 	  
@@ -363,7 +401,7 @@
     <link href="https://westerndevs.com/devlog/a-solo-gamejam-experience-ld47/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/a-solo-gamejam-experience-ld47/</id>
     <published>2020-10-23T13:00:00.000Z</published>
-    <updated>2022-11-24T14:36:20.884Z</updated>
+    <updated>2022-12-01T04:18:53.552Z</updated>
 	<author>
 	
 	  
@@ -403,7 +441,7 @@
     <link href="https://westerndevs.com/devlog/game-portfolio-review-2020/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/game-portfolio-review-2020/</id>
     <published>2020-09-18T13:00:00.000Z</published>
-    <updated>2022-11-24T14:36:20.884Z</updated>
+    <updated>2022-12-01T04:18:53.552Z</updated>
 	<author>
 	
 	  
@@ -443,7 +481,7 @@
     <link href="https://westerndevs.com/devlog/little-shop-of-wall-street-01-release-notes/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/little-shop-of-wall-street-01-release-notes/</id>
     <published>2020-07-02T15:13:00.000Z</published>
-    <updated>2022-11-24T14:36:20.884Z</updated>
+    <updated>2022-12-01T04:18:53.552Z</updated>
 	<author>
 	
 	  
@@ -481,7 +519,7 @@
     <link href="https://westerndevs.com/Game-Design/How-GitHub-Makes-Game-Making-Easier-For-NonCoders/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Game-Design/How-GitHub-Makes-Game-Making-Easier-For-NonCoders/</id>
     <published>2020-02-19T20:48:36.000Z</published>
-    <updated>2022-11-24T14:36:20.880Z</updated>
+    <updated>2022-12-01T04:18:53.552Z</updated>
 	<author>
 	
 	  
@@ -517,7 +555,7 @@
     <link href="https://westerndevs.com/Devlog/Jan-2020-Devlog/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Devlog/Jan-2020-Devlog/</id>
     <published>2020-02-04T21:03:24.000Z</published>
-    <updated>2022-11-24T14:36:20.880Z</updated>
+    <updated>2022-12-01T04:18:53.552Z</updated>
 	<author>
 	
 	  
@@ -553,7 +591,7 @@
     <link href="https://westerndevs.com/Game-Development/Where-To-Find-Your-Gamedev-Community/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Game-Development/Where-To-Find-Your-Gamedev-Community/</id>
     <published>2020-01-21T11:09:00.000Z</published>
-    <updated>2022-11-24T14:36:20.880Z</updated>
+    <updated>2022-12-01T04:18:53.552Z</updated>
 	<author>
 	
 	  
@@ -591,7 +629,7 @@
     <link href="https://westerndevs.com/_/No-Cost-Game-Design-Toolbox/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/No-Cost-Game-Design-Toolbox/</id>
     <published>2020-01-13T21:51:04.000Z</published>
-    <updated>2022-11-24T14:36:20.880Z</updated>
+    <updated>2022-12-01T04:18:53.552Z</updated>
 	<author>
 	
 	  
@@ -627,7 +665,7 @@
     <link href="https://westerndevs.com/Game-Development/gameoff2019-gamejam-devlog/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Game-Development/gameoff2019-gamejam-devlog/</id>
     <published>2019-11-26T14:57:00.000Z</published>
-    <updated>2022-11-24T14:36:20.880Z</updated>
+    <updated>2022-12-01T04:18:53.552Z</updated>
 	<author>
 	
 	  
@@ -657,7 +695,7 @@
     <link href="https://westerndevs.com/_/streaming-code-and-games-on-mixer/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/streaming-code-and-games-on-mixer/</id>
     <published>2018-09-27T17:55:42.000Z</published>
-    <updated>2022-11-24T14:36:20.880Z</updated>
+    <updated>2022-12-01T04:18:53.548Z</updated>
 	<author>
 	
 	  
@@ -683,7 +721,7 @@
     <link href="https://westerndevs.com/Development/f12-chooser-is-dev-tool-thing/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Development/f12-chooser-is-dev-tool-thing/</id>
     <published>2018-03-28T17:10:00.000Z</published>
-    <updated>2022-11-24T14:36:20.880Z</updated>
+    <updated>2022-12-01T04:18:53.548Z</updated>
 	<author>
 	
 	  
@@ -711,38 +749,6 @@
       <category term="Web Extensions" scheme="https://westerndevs.com/tags/Web-Extensions/"/>
     
       <category term="Office Add-In" scheme="https://westerndevs.com/tags/Office-Add-In/"/>
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Picking between TypeScript and JavaScript</title>
-    <link href="https://westerndevs.com/Development/typescript-or-javascript/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/Development/typescript-or-javascript/</id>
-    <published>2018-03-15T15:40:00.000Z</published>
-    <updated>2022-11-24T14:36:20.880Z</updated>
-	<author>
-	
-	  
-	  <name>David Wesst</name>
-	  <email>questions@davidwesst.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>Which one should you pick: TypeScript or JavaScript? They are both great languages, people always ask me when you should use one or the other. This post puts that to rest.</p><a id="more"></a><p>Whether it's a work project or a personal one, the question &quot;TypeScript or JavaScript&quot; always seems to come up in my mind. Utlimately, they provide a very similiar function considering that TypeScript is a superset of JavaScript, and compiles down to JavaScript itself.</p><p>I'm not the only person that has this question either. Over the past year, I've asked a number of JavaScript/TypeScript developers about how they pick between the two and I wanted to sum up my thoughts here after being influenced by my private panel of experts.</p><h2>It Depends on the Project</h2><p>Of course it does.</p><p>There is never one answer for everything, and this is no different. That being said, there are a few criteria or &quot;flags&quot; that help me select when I want to use one over the other.</p><h3>JavaScript Knowledge is Assumed</h3><p>Before we get into it, let me clarify that I'm assuming that the developer(s) working on the project already know JavaScript. They don't need to be experts, but they are familiar with writing vanilla JavaScript for applications, whether that be client or server side code.</p><p>That being said, I'm also assuming that a TypeScript-focued developer can get their way around JavaScript code.</p><h2>When to TypeScript</h2><p><img src="https://i.imgur.com/IAPRGfv.png" alt=""></p><p>I fall to TypeScript when I am writing more than one or two code files or if I'm writing code that I expect someone else to have to run. Although I use TypeScript, the it's not necessarily the language itself that I want, but the TypeScript compiler as it helps the other developers running my code, and removes the ambiguity of types between functions or classes that need to work togther.</p><p>It does a lot of stuff for me:</p><ul><li>Catches errors, especially typing ones, at compile time rather than run time</li><li>Sets standards around what JS-like conventions I want to use</li><li>Better legacy browser support</li><li>Supports multiple module practices</li></ul><p>Ultimately, that compiler is powerful and I put a lot of trust into it considering I expect that the compiled code to be optimal.</p><h3>But doesn't the compiler work on JavaScript too?</h3><p>Yes. Yes it does.</p><p>The catch is that the compiler is not as thurough as it is with TypeScript. When you add the <code>//@ts-check</code> <a href="https://code.visualstudio.com/docs/languages/javascript#_type-checking-and-quick-fixes-for-javascript-files" target="_blank" rel="noopener">reference</a> at the top of your JavaScript file in Visual Studio Code, that really helps with the development story of any JavaScript code, but it's still not as deep as using TypeScript itself.</p><p>Using TypeScript with the TypeScript compiler gives you that little bit of extra help in development, and that is really where the value comes in for me.</p><h2>When to JavaScript</h2><p><img src="https://i.imgur.com/yCn8NUQ.png" alt=""></p><p>I tend to use JavaScript when I'm only writing a little bit of code and don't want to deal with the overhead of setting up the compiler for the project. For examples, when I'm writing a little Node script, or experimenting with REST API and want a simple GUI, I'll quickly put together some vanilla JS code and get something working quickly.</p><p>That being said, I write the majority of my JavaScript in <a href="https://code.visualstudio.com" target="_blank" rel="noopener">Visual Studio Code</a> which provides a lot of JavaScript tooling support using the TypeScript compiler underneath the hood.</p><h2>Conclusion</h2><p>In conclusion, when I have to pick between JavaScript or TypeScript I lean towards TypeScript. It provides the better development story between the two, and that's a really important factor when I'm writing and sharing code.</p><p>When I'm lazy and don't want to setup a TypeScript project, I fall back on JavaScript but still rely on the built-in TypeScript tooling in Visual Studio Code.</p><p>TypeScript provides the tooling and needed bit of abstraction from the implementation with its compiler. Even though JavaScript has come a long way with <a href="https://github.com/tc39/ecma262" target="_blank" rel="noopener">ECMA-262</a> getting plenty of updates, there is still the challenge of browser vendors supporting the spec and so on. In the end, the overhead of setting up your project to using the TypeScript compiler outweighs the complexity that large JavaScript projects bring to the table.</p><p>Even when JavaScript is &quot;feature complete&quot;, I'm guessing that TypeScript will still provide a stronger developer story for larger software projects, while JavaScript will continue to provide the foundation for the web platform, and TypeScript itself.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Which one should you pick: TypeScript or JavaScript? They are both great languages, people always ask me when you should use one or the other. This post puts that to rest.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Development" scheme="https://westerndevs.com/categories/Development/"/>
-    
-    
-      <category term="JavaScript" scheme="https://westerndevs.com/tags/JavaScript/"/>
-    
-      <category term="TypeScript" scheme="https://westerndevs.com/tags/TypeScript/"/>
     
   </entry>
   
