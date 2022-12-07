@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2022-12-01T04:18:53.556Z</updated>
+  <updated>2022-12-07T15:37:34.229Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,53 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Prairie Dev Con 2022 Takeaways</title>
+    <link href="https://westerndevs.com/_/prairie-dev-con-2022-takeaways/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/prairie-dev-con-2022-takeaways/</id>
+    <published>2022-12-07T20:37:20.777Z</published>
+    <updated>2022-12-07T15:37:34.229Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>Until I walked through the doors of the Prairie Dev Con in 2022, I did not realize how much I missed it. The talented speakers that come together always bring fresh ideas to my mind and give me pause to think about my own efforts and how I can learn from their experience. Although not a complete list, these ideas the ones that stood out the most from Prairie Dev Con 2022.</p><h2>API First Design (<a href="https://www.linkedin.com/in/joelhebert/" target="_blank" rel="noopener">Joël Hébert</a>)</h2><p>Joel did a great session about API first design, which was a very dense session, but he delivered the content in a way that was very approachable and allowed me to think of the benefits of doing API first design with tools like <a href="https://swagger.io" target="_blank" rel="noopener">Swagger.io</a> and <a href="https://www.openapis.org" target="_blank" rel="noopener">OpenAPI</a>.</p><p>It was great seeing the value of these tools, and hearing about the patterns and practices experienced API developers like Joel use to implement consistent and secure APIs.</p><h2>Developer Velocity Index (<a href="https://www.linkedin.com/in/ajenns/" target="_blank" rel="noopener">AJ Enns</a>)</h2><p>I went into this session thinking I was going to be fascinated with the subject, but that the concept would apply only to development leads or possibly coders, rather than an architect like me..</p><p>I was wrong.</p><p>The <a href="https://azure.microsoft.com/en-us/solutions/developer-velocity/" target="_blank" rel="noopener">Developer Velocity Index (DVI)</a>, is a way for any team (even if it is a one-person team, like me on my side projects) can help frame up and scope the abstract problem of figuring out how do to deliver more value.</p><p>I plan on applying the DVI to my side project adventures, self-development, and my enterprise day-job efforts as soon as possible.</p><h2>End to End Testing (<a href="https://www.davepaquette.com" target="_blank" rel="noopener">Dave Paquette</a> and <a href="https://www.linkedin.com/in/lavanya-mohan/" target="_blank" rel="noopener">Lavanya Mohan</a>)</h2><p>Although Dave and Lavanya delivered two completely separate sessions related to testing, the content they delivered worked together in a very interesting way.</p><p>Dave demonstrated and discussed <a href="https://playwright.dev" target="_blank" rel="noopener">Playwright</a> and end-to-end testing framework that resolved or improved the problems we commonly see with end-to-end testing. Lavanya demonstrated how someone <em>should apply</em> proper code management and development techniques when creating test code using a framework, like Playwright.</p><p>For me, together they demonstrated why the test recorded features of end-to-end frameworks is not the &quot;best approach&quot; to creating tests, but rather it is only the first step.</p><p>I feel that these ideas will be seeping into both my day-job and side projects in the very near future.</p><h2>Cloud Security (<a href="https://www.linkedin.com/in/adam-krieger-7a087048/" target="_blank" rel="noopener">Adam Krieger</a>)</h2><p>Adam closed the Prairie Dev Con season with his session, and managed to leave me with a lot of ideas and helped me identify gaps that I have been living with as a developer and as a solution architect.</p><p>Ensuring that developers are security-aware is something I didn't realize I have been missing in my own skills, but also should be looking for in the implementation of my solution designs.</p><h2>A Deal is a Deal (<a href="https://www.rodpaddock.com" target="_blank" rel="noopener">Rod Paddock</a>)</h2><p>Rod delivered a keynote in both Regina and Winnipeg, and each time I walked away with a positive outlook on my own professional and personal growth, but also with the reminder: A Deal Is A Deal.</p><p>Sounds simple enough, but in the past I have frequently found myself regretting decisions or deals I had made with myself or others. But, a deal is a deal, and even if you don't like it or regret it, you need to take a moment to learn from it and ensure the next deal is one you won't regret.</p><h2>TL;DR; / Conclusion</h2><p>In short, there were a lot of good ideas at Prairie Dev Con 2022. These are the ones that stood out to me the most:</p><ul><li>Consider API First Design with tools like Swagger.io and OpenAPI (Joël Hébert)</li><li>The Developer Velocity Index (DVI) is NOT just for developers, but for anyone looking to deliver value (AJ Enns)</li><li>End-to-End Testing is a thing that requires effort, but has major benefits with the right tools and patterns in practice (Dave Paquette and Lavanya Mohan)</li><li>Cloud Developers need not should be security-aware and not just depend others (Adam Krieger)</li><li>A deal is a deal, and if you don't like it, learn from it so the next one is better (Rod Paddock)</li></ul><p>Thanks for playing.</p><p>~ DW</p>]]></content>
+    
+    <summary type="html">
+    
+      The talented speakers that come together for Prairie Dev Con always bring fresh ideas to my mind and give me pause to think about my own efforts and how I can learn from their experience. Although not a complete list, these ideas the ones that stood out the most from Prairie Dev Con 2022.
+    
+    </summary>
+    
+    
+      <category term="prairie-dev-con" scheme="https://westerndevs.com/tags/prairie-dev-con/"/>
+    
+      <category term="prdc-2022" scheme="https://westerndevs.com/tags/prdc-2022/"/>
+    
+      <category term="api-design" scheme="https://westerndevs.com/tags/api-design/"/>
+    
+      <category term="open-api" scheme="https://westerndevs.com/tags/open-api/"/>
+    
+      <category term="developer-velocity-index" scheme="https://westerndevs.com/tags/developer-velocity-index/"/>
+    
+      <category term="e2e-testing" scheme="https://westerndevs.com/tags/e2e-testing/"/>
+    
+      <category term="playwright" scheme="https://westerndevs.com/tags/playwright/"/>
+    
+      <category term="adiad" scheme="https://westerndevs.com/tags/adiad/"/>
+    
+  </entry>
+  
+  <entry>
     <title type="html">Open Graph Tools and Resources for Web Nerds (Like Me)</title>
     <link href="https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/</id>
     <published>2022-12-01T09:18:34.509Z</published>
-    <updated>2022-12-01T04:18:53.556Z</updated>
+    <updated>2022-12-07T15:37:34.229Z</updated>
 	<author>
 	
 	  
@@ -59,7 +101,7 @@
     <link href="https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/</id>
     <published>2022-11-19T01:10:07.083Z</published>
-    <updated>2022-12-01T04:18:53.556Z</updated>
+    <updated>2022-12-07T15:37:34.229Z</updated>
 	<author>
 	
 	  
@@ -97,7 +139,7 @@
     <link href="https://westerndevs.com/_/bulk-insert-sql-geometry/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/bulk-insert-sql-geometry/</id>
     <published>2022-11-17T05:00:00.000Z</published>
-    <updated>2022-12-01T04:18:53.556Z</updated>
+    <updated>2022-12-07T15:37:34.229Z</updated>
 	<author>
 	
 	  
@@ -123,7 +165,7 @@
     <link href="https://westerndevs.com/_/azure-backus-protip/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-backus-protip/</id>
     <published>2022-11-11T05:00:00.000Z</published>
-    <updated>2022-12-01T04:18:53.556Z</updated>
+    <updated>2022-12-07T15:37:34.229Z</updated>
 	<author>
 	
 	  
@@ -149,7 +191,7 @@
     <link href="https://westerndevs.com/_/how-much-is-enough-documentation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/how-much-is-enough-documentation/</id>
     <published>2022-11-10T22:00:00.000Z</published>
-    <updated>2022-12-01T04:18:53.556Z</updated>
+    <updated>2022-12-07T15:37:34.229Z</updated>
 	<author>
 	
 	  
@@ -189,7 +231,7 @@
     <link href="https://westerndevs.com/_/how-to-fork-like-a-boss/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/how-to-fork-like-a-boss/</id>
     <published>2022-11-02T21:00:00.000Z</published>
-    <updated>2022-12-01T04:18:53.556Z</updated>
+    <updated>2022-12-07T15:37:34.229Z</updated>
 	<author>
 	
 	  
@@ -223,7 +265,7 @@
     <link href="https://westerndevs.com/_/set-output-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-output-terraform/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2022-12-01T04:18:53.564Z</updated>
+    <updated>2022-12-07T15:37:34.237Z</updated>
 	<author>
 	
 	  
@@ -249,7 +291,7 @@
     <link href="https://westerndevs.com/_/theory-of-terraform-github-actions/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/theory-of-terraform-github-actions/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2022-12-01T04:18:53.564Z</updated>
+    <updated>2022-12-07T15:37:34.237Z</updated>
 	<author>
 	
 	  
@@ -275,7 +317,7 @@
     <link href="https://westerndevs.com/_/register-providers/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/register-providers/</id>
     <published>2022-08-12T04:00:00.000Z</published>
-    <updated>2022-12-01T04:18:53.564Z</updated>
+    <updated>2022-12-07T15:37:34.233Z</updated>
 	<author>
 	
 	  
@@ -301,7 +343,7 @@
     <link href="https://westerndevs.com/_/debug-azure-container-instances-startup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/debug-azure-container-instances-startup/</id>
     <published>2022-08-04T04:00:00.000Z</published>
-    <updated>2022-12-01T04:18:53.560Z</updated>
+    <updated>2022-12-07T15:37:34.233Z</updated>
 	<author>
 	
 	  
@@ -327,7 +369,7 @@
     <link href="https://westerndevs.com/_/consuming-wsdl/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/consuming-wsdl/</id>
     <published>2022-05-30T04:00:00.000Z</published>
-    <updated>2022-12-01T04:18:53.556Z</updated>
+    <updated>2022-12-07T15:37:34.229Z</updated>
 	<author>
 	
 	  
@@ -353,7 +395,7 @@
     <link href="https://westerndevs.com/_/azure-functions-error/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-functions-error/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2022-12-01T04:18:53.556Z</updated>
+    <updated>2022-12-07T15:37:34.229Z</updated>
 	<author>
 	
 	  
@@ -379,7 +421,7 @@
     <link href="https://westerndevs.com/_/which-sql-server-edition/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/which-sql-server-edition/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2022-12-01T04:18:53.568Z</updated>
+    <updated>2022-12-07T15:37:34.237Z</updated>
 	<author>
 	
 	  
@@ -405,7 +447,7 @@
     <link href="https://westerndevs.com/_/cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cheat-sheet/</id>
     <published>2022-04-04T04:00:00.000Z</published>
-    <updated>2022-12-01T04:18:53.556Z</updated>
+    <updated>2022-12-07T15:37:34.229Z</updated>
 	<author>
 	
 	  
@@ -433,7 +475,7 @@
     <link href="https://westerndevs.com/_/rubocop-issue/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/rubocop-issue/</id>
     <published>2022-03-18T04:00:00.000Z</published>
-    <updated>2022-12-01T04:18:53.564Z</updated>
+    <updated>2022-12-07T15:37:34.237Z</updated>
 	<author>
 	
 	  
@@ -460,7 +502,7 @@
     <link href="https://westerndevs.com/_/fsevents-optional-dependencies/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/fsevents-optional-dependencies/</id>
     <published>2022-03-16T04:00:00.000Z</published>
-    <updated>2022-12-01T04:18:53.560Z</updated>
+    <updated>2022-12-07T15:37:34.233Z</updated>
 	<author>
 	
 	  
@@ -486,7 +528,7 @@
     <link href="https://westerndevs.com/_/backblaze-exclude-node-modules/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/backblaze-exclude-node-modules/</id>
     <published>2022-02-20T05:00:00.000Z</published>
-    <updated>2022-12-01T04:18:53.556Z</updated>
+    <updated>2022-12-07T15:37:34.229Z</updated>
 	<author>
 	
 	  
@@ -512,7 +554,7 @@
     <link href="https://westerndevs.com/_/parsing-vue-router-parameters/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/parsing-vue-router-parameters/</id>
     <published>2022-02-18T05:00:00.000Z</published>
-    <updated>2022-12-01T04:18:53.560Z</updated>
+    <updated>2022-12-07T15:37:34.233Z</updated>
 	<author>
 	
 	  
@@ -538,7 +580,7 @@
     <link href="https://westerndevs.com/_/install-azfileshybrid-powershell/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/install-azfileshybrid-powershell/</id>
     <published>2022-02-16T05:00:00.000Z</published>
-    <updated>2022-12-01T04:18:53.560Z</updated>
+    <updated>2022-12-07T15:37:34.233Z</updated>
 	<author>
 	
 	  
@@ -553,33 +595,6 @@
     <summary type="html">
     
       &lt;p&gt;If you don&#39;t do a lot of powershell then the instructions on how to install the AzFilesHybrid module can be lacking. Here is how to do it
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Purge CDN in DevOps</title>
-    <link href="https://westerndevs.com/_/purge-cdn-in-devops/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/purge-cdn-in-devops/</id>
-    <published>2022-01-27T05:00:00.000Z</published>
-    <updated>2022-12-01T04:18:53.564Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>In order to purge a cache in the build pipeline you can use some random task that some dude wrote or you can just use the Azure CLI.</p><p>Here is an example of what it would look like to purge the entire CDN top to bottom</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">task:</span> <span class="string">AzureCLI@2</span></span><br><span class="line">  <span class="attr">displayName:</span> <span class="string">'Invalidate CDN Cache'</span></span><br><span class="line">  <span class="attr">inputs:</span></span><br><span class="line">    <span class="attr">azureSubscription:</span> <span class="string">'Azure'</span></span><br><span class="line">    <span class="attr">scriptType:</span> <span class="string">'batch'</span></span><br><span class="line">    <span class="attr">scriptLocation:</span> <span class="string">'inlineScript'</span></span><br><span class="line">    <span class="attr">inlineScript:</span> <span class="string">'az cdn endpoint purge --content-paths "/*"  -n devascacdnendpoint -g devasca-rg --no-wait --profile-name devascacdn'</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;In order to purge a cache in the build pipeline you can use some random task that some dude wrote or you can just use the Azure CLI.&lt;/p&gt;
-
     
     </summary>
     
