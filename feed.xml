@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2022-12-09T05:52:24.725Z</updated>
+  <updated>2022-12-13T21:28:54.696Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,47 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Docker Desktop for Linux is not the same as Docker Engine</title>
+    <link href="https://westerndevs.com/_/docker-desktop-is-not-docker-engine/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/docker-desktop-is-not-docker-engine/</id>
+    <published>2022-12-14T02:28:36.457Z</published>
+    <updated>2022-12-13T21:28:54.696Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>I like Docker Desktop. It provides me an easy-to-use GUI (graphical user interface) to manage my docker images I use for various tasks for building software. I use it on Windows, and now I'll be using it on Linux as <a href="https://docs.docker.com/desktop/install/linux-install/" target="_blank" rel="noopener">it is available for some of the the more common distros</a>. Regardless of its greatness, it is not the same as <a href="https://docs.docker.com/engine/" target="_blank" rel="noopener">Docker Engine</a> running right on the metal (rather than a virtual machine, like Docker Desktop), and some of those differences caught me while testing my GitHub Workflows with <a href="https://github.com/nektos/act" target="_blank" rel="noopener">nektos/act</a>, which depends on Docker Engine to work.</p><p>To be fair, I should highlight that this is definitely a self-induced problem. The Docker Engine prerequisite is listed right on the  <a href="https://github.com/nektos/act#necessary-prerequisites-for-running-act" target="_blank" rel="noopener">README for the nektos/act</a>, and had I reviewed the documentation I probably would have saved myself the trouble. Still, in my web sleuthing for solutions to the problem I created for myself, I found others had hit similar issues, hence this post.</p><h2>The Context</h2><p>I discovered the problem when I attempted to test my GitHub Workflows locally using <a href="https://github.com/nektos/act" target="_blank" rel="noopener">nektos/act</a> which is a tool I have been using for the past few years in my software development. It does this by pulling down a docker image that simulates the GitHub runner and runs the workflow in that Docker container. I have done this a few times over, so went to one of my older projects where I set this up and pulled in the code to get it running.</p><p>Being that this was a fresh Linux install, I had not installed Docker yet. When I searched out the installation instructions for Docker on Linux, I was greeted with this announcement:</p><p><img src="/images/2022-12-13-docker-desktop-is-not-docker-engine/docker-desktop-for-linux-notice.jpeg" alt="Docker documentation page with a banner highlighting that Docker for Desktop now exists for Linux"></p><p>I have been using Docker for Desktop on Windows for a while now, and I am always happy to have software that exists across my Windows-Linux development environment ecosystem, and so I went about installing Docker for Desktop as my new Docker install.</p><p>After testing my new and shiny Docker (for Desktop) installation with the standard <code>docker run hello-world</code>, I was ready to get back to coding!</p><p>Or so I thought...</p><h2>The Problem (and Triaging it)</h2><p>This is where things went sideways and the problem appeared. I ran <code>act -j build</code> to my run my <code>build job</code> in a  workflow I know has worked previously and was greeted with the following error message:</p><blockquote><p>Cannot connect to Docker daemon. Is the docker daemon running?</p></blockquote><p>Not what I expected, considering I just tested out my fresh Docker install, but I tried pulling the image down myself with the <code>docker pull</code> command just to make sure things didn't break, and everything worked as expected.</p><p>With a bit of web sleuthing, I came across others who <a href="https://github.com/nektos/act/issues/1051" target="_blank" rel="noopener">reported the same issue</a> and noticed this link in particular:</p><blockquote><p>You could check if <code>/var/run</code> actually contains <code>docker.sock</code></p></blockquote><p>When checking this, I found that <code>docker.sock</code> was in fact NOT present. I immediate associated it with the Docker for Desktop installation, as that was the only new variable from my previous development environment.</p><h2>The Root Cause (Probably)</h2><p>This is part where I waste my time trying to figure out why did Docker for Desktop not install docker.sock. Rather that figuring out how to install the docker components that are missing.</p><p>Although I am no Docker expert, my understanding is that Docker for Desktop runs docker inside a VM rather than on the system itself, unlike Docker Engine. In fact, you can see a separate <a href="https://docs.docker.com/engine/context/working-with-contexts/" target="_blank" rel="noopener">Docker context</a> when you list out the contexts.</p><p><img src="./docker-context-output.jpeg" alt="Screenshot of a Linux terminal showing the Docker CLI output for docker context list command that lists the default docker context, which is the Docker Engine context, and the Docker for Desktop context for the user">.</p><p><strong>It should be noted</strong> that default context for Docker was listed, even though I had not installed Docker Engine yet. This lead me to believe something I installed was incorrectly configured, but really it was the fact that I had not installed the software I needed.</p><h2>The Solution / TL;DR;</h2><p>As technical as I made it sound, the real problem was that I was missing software. Specifically I was missing &quot;docker&quot; on my Linux machine, even though I installed Docker for Desktop. 😊</p><p>Well, if the problem is that I am missing software, then the solution must be to install the software. That software is <a href="https://docs.docker.com/engine/" target="_blank" rel="noopener">Docker Engine</a>, which sets up the Docker API right on the machine rather than though a VM like Docker for Desktop (as far as I understand it).</p><p>In conclusion, install the software dependencies the tools If you're running a Linux distro, as great as Docker for Desktop is-- you may still want to install Docker Engine. You can always switch contexts on where to run your own docker commands with the <code>docker context set</code> command, but it's worth double checking to make sure the tool you are using supports Docker for Desktop on Linux platforms.</p><p>Thanks for playing.</p><p>~ DW</p>]]></content>
+    
+    <summary type="html">
+    
+      With Docker for Desktop available for Linux (which I like), I managed to get myself confused regarding its role on my Linux-based development machine. This post clarifies a few things I discovered while triaging an issue I had trying to test my GitHub Workflows locally.
+    
+    </summary>
+    
+    
+      <category term="docker" scheme="https://westerndevs.com/tags/docker/"/>
+    
+      <category term="linux" scheme="https://westerndevs.com/tags/linux/"/>
+    
+      <category term="docker engine" scheme="https://westerndevs.com/tags/docker-engine/"/>
+    
+      <category term="docker desktop" scheme="https://westerndevs.com/tags/docker-desktop/"/>
+    
+      <category term="github workflow" scheme="https://westerndevs.com/tags/github-workflow/"/>
+    
+  </entry>
+  
+  <entry>
     <title type="html">Prairie Dev Con 2022 Takeaways</title>
     <link href="https://westerndevs.com/_/prairie-dev-con-2022-takeaways/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/prairie-dev-con-2022-takeaways/</id>
     <published>2022-12-07T20:37:20.777Z</published>
-    <updated>2022-12-09T05:52:24.725Z</updated>
+    <updated>2022-12-13T21:28:54.692Z</updated>
 	<author>
 	
 	  
@@ -63,7 +99,7 @@
     <link href="https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/</id>
     <published>2022-12-01T09:18:34.509Z</published>
-    <updated>2022-12-09T05:52:24.725Z</updated>
+    <updated>2022-12-13T21:28:54.692Z</updated>
 	<author>
 	
 	  
@@ -101,7 +137,7 @@
     <link href="https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/</id>
     <published>2022-11-19T01:10:07.083Z</published>
-    <updated>2022-12-09T05:52:24.725Z</updated>
+    <updated>2022-12-13T21:28:54.692Z</updated>
 	<author>
 	
 	  
@@ -139,7 +175,7 @@
     <link href="https://westerndevs.com/_/bulk-insert-sql-geometry/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/bulk-insert-sql-geometry/</id>
     <published>2022-11-17T05:00:00.000Z</published>
-    <updated>2022-12-09T05:52:24.725Z</updated>
+    <updated>2022-12-13T21:28:54.696Z</updated>
 	<author>
 	
 	  
@@ -165,7 +201,7 @@
     <link href="https://westerndevs.com/_/azure-backus-protip/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-backus-protip/</id>
     <published>2022-11-11T05:00:00.000Z</published>
-    <updated>2022-12-09T05:52:24.725Z</updated>
+    <updated>2022-12-13T21:28:54.696Z</updated>
 	<author>
 	
 	  
@@ -191,7 +227,7 @@
     <link href="https://westerndevs.com/_/how-much-is-enough-documentation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/how-much-is-enough-documentation/</id>
     <published>2022-11-10T22:00:00.000Z</published>
-    <updated>2022-12-09T05:52:24.725Z</updated>
+    <updated>2022-12-13T21:28:54.692Z</updated>
 	<author>
 	
 	  
@@ -231,7 +267,7 @@
     <link href="https://westerndevs.com/_/how-to-fork-like-a-boss/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/how-to-fork-like-a-boss/</id>
     <published>2022-11-02T21:00:00.000Z</published>
-    <updated>2022-12-09T05:52:24.725Z</updated>
+    <updated>2022-12-13T21:28:54.692Z</updated>
 	<author>
 	
 	  
@@ -265,7 +301,7 @@
     <link href="https://westerndevs.com/_/set-output-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-output-terraform/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2022-12-09T05:52:24.733Z</updated>
+    <updated>2022-12-13T21:28:54.700Z</updated>
 	<author>
 	
 	  
@@ -291,7 +327,7 @@
     <link href="https://westerndevs.com/_/theory-of-terraform-github-actions/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/theory-of-terraform-github-actions/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2022-12-09T05:52:24.733Z</updated>
+    <updated>2022-12-13T21:28:54.704Z</updated>
 	<author>
 	
 	  
@@ -317,7 +353,7 @@
     <link href="https://westerndevs.com/_/register-providers/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/register-providers/</id>
     <published>2022-08-12T04:00:00.000Z</published>
-    <updated>2022-12-09T05:52:24.729Z</updated>
+    <updated>2022-12-13T21:28:54.700Z</updated>
 	<author>
 	
 	  
@@ -343,7 +379,7 @@
     <link href="https://westerndevs.com/_/debug-azure-container-instances-startup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/debug-azure-container-instances-startup/</id>
     <published>2022-08-04T04:00:00.000Z</published>
-    <updated>2022-12-09T05:52:24.725Z</updated>
+    <updated>2022-12-13T21:28:54.696Z</updated>
 	<author>
 	
 	  
@@ -369,7 +405,7 @@
     <link href="https://westerndevs.com/_/consuming-wsdl/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/consuming-wsdl/</id>
     <published>2022-05-30T04:00:00.000Z</published>
-    <updated>2022-12-09T05:52:24.725Z</updated>
+    <updated>2022-12-13T21:28:54.696Z</updated>
 	<author>
 	
 	  
@@ -395,7 +431,7 @@
     <link href="https://westerndevs.com/_/azure-functions-error/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-functions-error/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2022-12-09T05:52:24.725Z</updated>
+    <updated>2022-12-13T21:28:54.696Z</updated>
 	<author>
 	
 	  
@@ -421,7 +457,7 @@
     <link href="https://westerndevs.com/_/which-sql-server-edition/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/which-sql-server-edition/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2022-12-09T05:52:24.733Z</updated>
+    <updated>2022-12-13T21:28:54.704Z</updated>
 	<author>
 	
 	  
@@ -447,7 +483,7 @@
     <link href="https://westerndevs.com/_/cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cheat-sheet/</id>
     <published>2022-04-04T04:00:00.000Z</published>
-    <updated>2022-12-09T05:52:24.725Z</updated>
+    <updated>2022-12-13T21:28:54.696Z</updated>
 	<author>
 	
 	  
@@ -475,7 +511,7 @@
     <link href="https://westerndevs.com/_/rubocop-issue/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/rubocop-issue/</id>
     <published>2022-03-18T04:00:00.000Z</published>
-    <updated>2022-12-09T05:52:24.729Z</updated>
+    <updated>2022-12-13T21:28:54.700Z</updated>
 	<author>
 	
 	  
@@ -502,7 +538,7 @@
     <link href="https://westerndevs.com/_/fsevents-optional-dependencies/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/fsevents-optional-dependencies/</id>
     <published>2022-03-16T04:00:00.000Z</published>
-    <updated>2022-12-09T05:52:24.729Z</updated>
+    <updated>2022-12-13T21:28:54.696Z</updated>
 	<author>
 	
 	  
@@ -528,7 +564,7 @@
     <link href="https://westerndevs.com/_/backblaze-exclude-node-modules/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/backblaze-exclude-node-modules/</id>
     <published>2022-02-20T05:00:00.000Z</published>
-    <updated>2022-12-09T05:52:24.725Z</updated>
+    <updated>2022-12-13T21:28:54.696Z</updated>
 	<author>
 	
 	  
@@ -554,7 +590,7 @@
     <link href="https://westerndevs.com/_/parsing-vue-router-parameters/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/parsing-vue-router-parameters/</id>
     <published>2022-02-18T05:00:00.000Z</published>
-    <updated>2022-12-09T05:52:24.729Z</updated>
+    <updated>2022-12-13T21:28:54.700Z</updated>
 	<author>
 	
 	  
@@ -569,32 +605,6 @@
     <summary type="html">
     
       &lt;p&gt;In the vue router you can set up path parameters that are bound into the rendered component. For instance you might have a route like thi
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Installing the AzFilesHybrid PowerShell Module</title>
-    <link href="https://westerndevs.com/_/install-azfileshybrid-powershell/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/install-azfileshybrid-powershell/</id>
-    <published>2022-02-16T05:00:00.000Z</published>
-    <updated>2022-12-09T05:52:24.729Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>If you don't do a lot of powershell then the instructions on how to install the AzFilesHybrid module can be lacking. Here is how to do it</p><ol><li>Download the module from https://github.com/Azure-Samples/azure-files-samples/releases</li><li>Unzip the file downloaded in step 1</li><li>Go into the folder and run the copy command</li></ol><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./<span class="module-access"><span class="module"><span class="identifier">CopyToPSPath</span>.</span></span>ps1</span><br></pre></td></tr></table></figure><ol start="4"><li>Install the module with</li></ol><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Install</span>-<span class="keyword">Module</span> -<span class="keyword">Name</span> AzFilesHybrid -<span class="keyword">Force</span></span><br></pre></td></tr></table></figure><p>With this module installed you can then run things like Join-AzStorageAccount to get a fileshare joined to the domain</p><figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Join-AzStorageAccount -ResourceGroupName <span class="string">"rg-azfileshare"</span> -StorageAccountName <span class="string">"sa-azfileshare"</span> -<span class="built_in">DomainName</span> <span class="string">"somedomain.com"</span> -DomainUserName <span class="string">"jane"</span> -DomainUserPassword <span class="string">"password"</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;If you don&#39;t do a lot of powershell then the instructions on how to install the AzFilesHybrid module can be lacking. Here is how to do it
     
     </summary>
     

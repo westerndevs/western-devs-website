@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Docker Desktop for Linux is not the same as Docker Engine | Western Devs</title>
+  <meta name="description" content="With Docker for Desktop available for Linux (which I like), I managed to get myself confused regarding its role on my Linux-based development machine. This post clarifies a few things I discovered whi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker Desktop for Linux is not the same as Docker Engine">
+<meta property="og:url" content="https://westerndevs.com/_/docker-desktop-is-not-docker-engine/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="With Docker for Desktop available for Linux (which I like), I managed to get myself confused regarding its role on my Linux-based development machine. This post clarifies a few things I discovered whi">
+<meta property="og:image" content="https://westerndevs.com/images/2022-12-13-docker-desktop-is-not-docker-engine/docker-desktop-for-linux-notice.jpeg">
+<meta property="og:image" content="https://westerndevs.com/_/docker-desktop-is-not-docker-engine/docker-context-output.jpeg">
+<meta property="article:published_time" content="2022-12-14T02:28:36.457Z">
+<meta property="article:modified_time" content="2022-12-13T21:28:54.696Z">
+<meta property="article:author" content="Western Devs">
+<meta property="article:tag" content="docker">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="docker engine">
+<meta property="article:tag" content="docker desktop">
+<meta property="article:tag" content="github workflow">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://westerndevs.com/images/2022-12-13-docker-desktop-is-not-docker-engine/docker-desktop-for-linux-notice.jpeg">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="canonical" href="https://www.davidwesst.com/blog/docker-desktop-is-not-docker-engine">
+  
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">DEC</div>
+    <div class="ListLrgDateDay">14</div>
+    <div class="ListLrgDateYear">2022</div>
+  </div>
+  <h2>Docker Desktop for Linux is not the same as Docker Engine</h2>
+</div>
+
+		    
+
+<p class="TXTsm">ORIGINALLY POSTED TO: <a href="https://www.davidwesst.com/blog/docker-desktop-is-not-docker-engine" target="_blank" rel="noopener" class='originalurl'>https://www.davidwesst.com/blog/docker-desktop-is-not-docker-engine</a></p>
+
+
+
+			<div id="mainPostContent">
+	        <p>I like Docker Desktop. It provides me an easy-to-use GUI (graphical user interface) to manage my docker images I use for various tasks for building software. I use it on Windows, and now I'll be using it on Linux as <a href="https://docs.docker.com/desktop/install/linux-install/" target="_blank" rel="noopener">it is available for some of the the more common distros</a>. Regardless of its greatness, it is not the same as <a href="https://docs.docker.com/engine/" target="_blank" rel="noopener">Docker Engine</a> running right on the metal (rather than a virtual machine, like Docker Desktop), and some of those differences caught me while testing my GitHub Workflows with <a href="https://github.com/nektos/act" target="_blank" rel="noopener">nektos/act</a>, which depends on Docker Engine to work.</p>
+<p>To be fair, I should highlight that this is definitely a self-induced problem. The Docker Engine prerequisite is listed right on the  <a href="https://github.com/nektos/act#necessary-prerequisites-for-running-act" target="_blank" rel="noopener">README for the nektos/act</a>, and had I reviewed the documentation I probably would have saved myself the trouble. Still, in my web sleuthing for solutions to the problem I created for myself, I found others had hit similar issues, hence this post.</p>
+<h2>The Context</h2>
+<p>I discovered the problem when I attempted to test my GitHub Workflows locally using <a href="https://github.com/nektos/act" target="_blank" rel="noopener">nektos/act</a> which is a tool I have been using for the past few years in my software development. It does this by pulling down a docker image that simulates the GitHub runner and runs the workflow in that Docker container. I have done this a few times over, so went to one of my older projects where I set this up and pulled in the code to get it running.</p>
+<p>Being that this was a fresh Linux install, I had not installed Docker yet. When I searched out the installation instructions for Docker on Linux, I was greeted with this announcement:</p>
+<p><img src="/images/2022-12-13-docker-desktop-is-not-docker-engine/docker-desktop-for-linux-notice.jpeg" alt="Docker documentation page with a banner highlighting that Docker for Desktop now exists for Linux"></p>
+<p>I have been using Docker for Desktop on Windows for a while now, and I am always happy to have software that exists across my Windows-Linux development environment ecosystem, and so I went about installing Docker for Desktop as my new Docker install.</p>
+<p>After testing my new and shiny Docker (for Desktop) installation with the standard <code>docker run hello-world</code>, I was ready to get back to coding!</p>
+<p>Or so I thought...</p>
+<h2>The Problem (and Triaging it)</h2>
+<p>This is where things went sideways and the problem appeared. I ran <code>act -j build</code> to my run my <code>build job</code> in a  workflow I know has worked previously and was greeted with the following error message:</p>
+<blockquote>
+<p>Cannot connect to Docker daemon. Is the docker daemon running?</p>
+</blockquote>
+<p>Not what I expected, considering I just tested out my fresh Docker install, but I tried pulling the image down myself with the <code>docker pull</code> command just to make sure things didn't break, and everything worked as expected.</p>
+<p>With a bit of web sleuthing, I came across others who <a href="https://github.com/nektos/act/issues/1051" target="_blank" rel="noopener">reported the same issue</a> and noticed this link in particular:</p>
+<blockquote>
+<p>You could check if <code>/var/run</code> actually contains <code>docker.sock</code></p>
+</blockquote>
+<p>When checking this, I found that <code>docker.sock</code> was in fact NOT present. I immediate associated it with the Docker for Desktop installation, as that was the only new variable from my previous development environment.</p>
+<h2>The Root Cause (Probably)</h2>
+<p>This is part where I waste my time trying to figure out why did Docker for Desktop not install docker.sock. Rather that figuring out how to install the docker components that are missing.</p>
+<p>Although I am no Docker expert, my understanding is that Docker for Desktop runs docker inside a VM rather than on the system itself, unlike Docker Engine. In fact, you can see a separate <a href="https://docs.docker.com/engine/context/working-with-contexts/" target="_blank" rel="noopener">Docker context</a> when you list out the contexts.</p>
+<p><img src="./docker-context-output.jpeg" alt="Screenshot of a Linux terminal showing the Docker CLI output for docker context list command that lists the default docker context, which is the Docker Engine context, and the Docker for Desktop context for the user">.</p>
+<p><strong>It should be noted</strong> that default context for Docker was listed, even though I had not installed Docker Engine yet. This lead me to believe something I installed was incorrectly configured, but really it was the fact that I had not installed the software I needed.</p>
+<h2>The Solution / TL;DR;</h2>
+<p>As technical as I made it sound, the real problem was that I was missing software. Specifically I was missing &quot;docker&quot; on my Linux machine, even though I installed Docker for Desktop. 😊</p>
+<p>Well, if the problem is that I am missing software, then the solution must be to install the software. That software is <a href="https://docs.docker.com/engine/" target="_blank" rel="noopener">Docker Engine</a>, which sets up the Docker API right on the machine rather than though a VM like Docker for Desktop (as far as I understand it).</p>
+<p>In conclusion, install the software dependencies the tools If you're running a Linux distro, as great as Docker for Desktop is-- you may still want to install Docker Engine. You can always switch contexts on where to run your own docker commands with the <code>docker context set</code> command, but it's worth double checking to make sure the tool you are using supports Docker for Desktop on Linux platforms.</p>
+<p>Thanks for playing.</p>
+<p>~ DW</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/david_wesst">
+				
+					<img src='/images/avatars/davidwesst_400x400.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/david_wesst">David Wesst</a></h2>
+			
+			<a href="mailto:questions@davidwesst.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://www.davidwesst.com" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/davidwesst" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/davidwesst" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			<a href="https://www.linkedin.com/in/davidwesst" target="_blank"><img class="ProfileIcon" src="/images/icon_linkedin.png" border="0" alt="LinkedIN" title="LinkedIN"> LinkedIn</a><br>
+			
+			
+ 			<a href="/feeds/david_wesst.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/_/docker-desktop-is-not-docker-engine/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'david_wesst');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

@@ -5,7 +5,7 @@
   <link href="/feeds/david_wesst" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2022-12-09T05:52:24.725Z</updated>
+  <updated>2022-12-13T21:28:54.696Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,47 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Docker Desktop for Linux is not the same as Docker Engine</title>
+    <link href="https://westerndevs.com/_/docker-desktop-is-not-docker-engine/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/docker-desktop-is-not-docker-engine/</id>
+    <published>2022-12-14T02:28:36.457Z</published>
+    <updated>2022-12-13T21:28:54.696Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>I like Docker Desktop. It provides me an easy-to-use GUI (graphical user interface) to manage my docker images I use for various tasks for building software. I use it on Windows, and now I'll be using it on Linux as <a href="https://docs.docker.com/desktop/install/linux-install/" target="_blank" rel="noopener">it is available for some of the the more common distros</a>. Regardless of its greatness, it is not the same as <a href="https://docs.docker.com/engine/" target="_blank" rel="noopener">Docker Engine</a> running right on the metal (rather than a virtual machine, like Docker Desktop), and some of those differences caught me while testing my GitHub Workflows with <a href="https://github.com/nektos/act" target="_blank" rel="noopener">nektos/act</a>, which depends on Docker Engine to work.</p><p>To be fair, I should highlight that this is definitely a self-induced problem. The Docker Engine prerequisite is listed right on the  <a href="https://github.com/nektos/act#necessary-prerequisites-for-running-act" target="_blank" rel="noopener">README for the nektos/act</a>, and had I reviewed the documentation I probably would have saved myself the trouble. Still, in my web sleuthing for solutions to the problem I created for myself, I found others had hit similar issues, hence this post.</p><h2>The Context</h2><p>I discovered the problem when I attempted to test my GitHub Workflows locally using <a href="https://github.com/nektos/act" target="_blank" rel="noopener">nektos/act</a> which is a tool I have been using for the past few years in my software development. It does this by pulling down a docker image that simulates the GitHub runner and runs the workflow in that Docker container. I have done this a few times over, so went to one of my older projects where I set this up and pulled in the code to get it running.</p><p>Being that this was a fresh Linux install, I had not installed Docker yet. When I searched out the installation instructions for Docker on Linux, I was greeted with this announcement:</p><p><img src="/images/2022-12-13-docker-desktop-is-not-docker-engine/docker-desktop-for-linux-notice.jpeg" alt="Docker documentation page with a banner highlighting that Docker for Desktop now exists for Linux"></p><p>I have been using Docker for Desktop on Windows for a while now, and I am always happy to have software that exists across my Windows-Linux development environment ecosystem, and so I went about installing Docker for Desktop as my new Docker install.</p><p>After testing my new and shiny Docker (for Desktop) installation with the standard <code>docker run hello-world</code>, I was ready to get back to coding!</p><p>Or so I thought...</p><h2>The Problem (and Triaging it)</h2><p>This is where things went sideways and the problem appeared. I ran <code>act -j build</code> to my run my <code>build job</code> in a  workflow I know has worked previously and was greeted with the following error message:</p><blockquote><p>Cannot connect to Docker daemon. Is the docker daemon running?</p></blockquote><p>Not what I expected, considering I just tested out my fresh Docker install, but I tried pulling the image down myself with the <code>docker pull</code> command just to make sure things didn't break, and everything worked as expected.</p><p>With a bit of web sleuthing, I came across others who <a href="https://github.com/nektos/act/issues/1051" target="_blank" rel="noopener">reported the same issue</a> and noticed this link in particular:</p><blockquote><p>You could check if <code>/var/run</code> actually contains <code>docker.sock</code></p></blockquote><p>When checking this, I found that <code>docker.sock</code> was in fact NOT present. I immediate associated it with the Docker for Desktop installation, as that was the only new variable from my previous development environment.</p><h2>The Root Cause (Probably)</h2><p>This is part where I waste my time trying to figure out why did Docker for Desktop not install docker.sock. Rather that figuring out how to install the docker components that are missing.</p><p>Although I am no Docker expert, my understanding is that Docker for Desktop runs docker inside a VM rather than on the system itself, unlike Docker Engine. In fact, you can see a separate <a href="https://docs.docker.com/engine/context/working-with-contexts/" target="_blank" rel="noopener">Docker context</a> when you list out the contexts.</p><p><img src="./docker-context-output.jpeg" alt="Screenshot of a Linux terminal showing the Docker CLI output for docker context list command that lists the default docker context, which is the Docker Engine context, and the Docker for Desktop context for the user">.</p><p><strong>It should be noted</strong> that default context for Docker was listed, even though I had not installed Docker Engine yet. This lead me to believe something I installed was incorrectly configured, but really it was the fact that I had not installed the software I needed.</p><h2>The Solution / TL;DR;</h2><p>As technical as I made it sound, the real problem was that I was missing software. Specifically I was missing &quot;docker&quot; on my Linux machine, even though I installed Docker for Desktop. 😊</p><p>Well, if the problem is that I am missing software, then the solution must be to install the software. That software is <a href="https://docs.docker.com/engine/" target="_blank" rel="noopener">Docker Engine</a>, which sets up the Docker API right on the machine rather than though a VM like Docker for Desktop (as far as I understand it).</p><p>In conclusion, install the software dependencies the tools If you're running a Linux distro, as great as Docker for Desktop is-- you may still want to install Docker Engine. You can always switch contexts on where to run your own docker commands with the <code>docker context set</code> command, but it's worth double checking to make sure the tool you are using supports Docker for Desktop on Linux platforms.</p><p>Thanks for playing.</p><p>~ DW</p>]]></content>
+    
+    <summary type="html">
+    
+      With Docker for Desktop available for Linux (which I like), I managed to get myself confused regarding its role on my Linux-based development machine. This post clarifies a few things I discovered while triaging an issue I had trying to test my GitHub Workflows locally.
+    
+    </summary>
+    
+    
+      <category term="docker" scheme="https://westerndevs.com/tags/docker/"/>
+    
+      <category term="linux" scheme="https://westerndevs.com/tags/linux/"/>
+    
+      <category term="docker engine" scheme="https://westerndevs.com/tags/docker-engine/"/>
+    
+      <category term="docker desktop" scheme="https://westerndevs.com/tags/docker-desktop/"/>
+    
+      <category term="github workflow" scheme="https://westerndevs.com/tags/github-workflow/"/>
+    
+  </entry>
+  
+  <entry>
     <title type="html">Prairie Dev Con 2022 Takeaways</title>
     <link href="https://westerndevs.com/_/prairie-dev-con-2022-takeaways/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/prairie-dev-con-2022-takeaways/</id>
     <published>2022-12-07T20:37:20.777Z</published>
-    <updated>2022-12-09T05:52:24.725Z</updated>
+    <updated>2022-12-13T21:28:54.692Z</updated>
 	<author>
 	
 	  
@@ -63,7 +99,7 @@
     <link href="https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/</id>
     <published>2022-12-01T09:18:34.509Z</published>
-    <updated>2022-12-09T05:52:24.725Z</updated>
+    <updated>2022-12-13T21:28:54.692Z</updated>
 	<author>
 	
 	  
@@ -101,7 +137,7 @@
     <link href="https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/</id>
     <published>2022-11-19T01:10:07.083Z</published>
-    <updated>2022-12-09T05:52:24.725Z</updated>
+    <updated>2022-12-13T21:28:54.692Z</updated>
 	<author>
 	
 	  
@@ -139,7 +175,7 @@
     <link href="https://westerndevs.com/_/how-much-is-enough-documentation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/how-much-is-enough-documentation/</id>
     <published>2022-11-10T22:00:00.000Z</published>
-    <updated>2022-12-09T05:52:24.725Z</updated>
+    <updated>2022-12-13T21:28:54.692Z</updated>
 	<author>
 	
 	  
@@ -179,7 +215,7 @@
     <link href="https://westerndevs.com/_/how-to-fork-like-a-boss/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/how-to-fork-like-a-boss/</id>
     <published>2022-11-02T21:00:00.000Z</published>
-    <updated>2022-12-09T05:52:24.725Z</updated>
+    <updated>2022-12-13T21:28:54.692Z</updated>
 	<author>
 	
 	  
@@ -213,7 +249,7 @@
     <link href="https://westerndevs.com/finding-inspiration/i-can-teach-your-dog-quantum-physics/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/finding-inspiration/i-can-teach-your-dog-quantum-physics/</id>
     <published>2021-06-28T16:00:00.000Z</published>
-    <updated>2022-12-09T05:52:24.725Z</updated>
+    <updated>2022-12-13T21:28:54.692Z</updated>
 	<author>
 	
 	  
@@ -251,7 +287,7 @@
     <link href="https://westerndevs.com/inner-monologue/what-value-does-making-content-bring-to-me/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/inner-monologue/what-value-does-making-content-bring-to-me/</id>
     <published>2021-06-17T16:00:00.000Z</published>
-    <updated>2022-12-09T05:52:24.725Z</updated>
+    <updated>2022-12-13T21:28:54.692Z</updated>
 	<author>
 	
 	  
@@ -289,7 +325,7 @@
     <link href="https://westerndevs.com/inner-monologue/my-secret-addiction-to-likes/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/inner-monologue/my-secret-addiction-to-likes/</id>
     <published>2021-06-03T16:00:00.000Z</published>
-    <updated>2022-12-09T05:52:24.725Z</updated>
+    <updated>2022-12-13T21:28:54.692Z</updated>
 	<author>
 	
 	  
@@ -327,7 +363,7 @@
     <link href="https://westerndevs.com/technology/inner-monologue/lucky-number-v7/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/technology/inner-monologue/lucky-number-v7/</id>
     <published>2021-05-24T16:00:00.000Z</published>
-    <updated>2022-12-09T05:52:24.725Z</updated>
+    <updated>2022-12-13T21:28:54.692Z</updated>
 	<author>
 	
 	  
@@ -363,7 +399,7 @@
     <link href="https://westerndevs.com/devops/from-travis-ci-to-github-actions/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devops/from-travis-ci-to-github-actions/</id>
     <published>2020-11-10T23:36:00.000Z</published>
-    <updated>2022-12-09T05:52:24.725Z</updated>
+    <updated>2022-12-13T21:28:54.692Z</updated>
 	<author>
 	
 	  
@@ -384,9 +420,9 @@
       <category term="devops" scheme="https://westerndevs.com/categories/devops/"/>
     
     
-      <category term="github actions" scheme="https://westerndevs.com/tags/github-actions/"/>
-    
       <category term="github workflow" scheme="https://westerndevs.com/tags/github-workflow/"/>
+    
+      <category term="github actions" scheme="https://westerndevs.com/tags/github-actions/"/>
     
       <category term="travis ci" scheme="https://westerndevs.com/tags/travis-ci/"/>
     
@@ -401,7 +437,7 @@
     <link href="https://westerndevs.com/devlog/out-the-door/out-the-door-post-jam-update/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/out-the-door/out-the-door-post-jam-update/</id>
     <published>2020-11-09T14:00:00.000Z</published>
-    <updated>2022-12-09T05:52:24.725Z</updated>
+    <updated>2022-12-13T21:28:54.692Z</updated>
 	<author>
 	
 	  
@@ -443,7 +479,7 @@
     <link href="https://westerndevs.com/devlog/a-solo-gamejam-experience-ld47/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/a-solo-gamejam-experience-ld47/</id>
     <published>2020-10-23T13:00:00.000Z</published>
-    <updated>2022-12-09T05:52:24.725Z</updated>
+    <updated>2022-12-13T21:28:54.692Z</updated>
 	<author>
 	
 	  
@@ -483,7 +519,7 @@
     <link href="https://westerndevs.com/devlog/game-portfolio-review-2020/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/game-portfolio-review-2020/</id>
     <published>2020-09-18T13:00:00.000Z</published>
-    <updated>2022-12-09T05:52:24.721Z</updated>
+    <updated>2022-12-13T21:28:54.692Z</updated>
 	<author>
 	
 	  
@@ -523,7 +559,7 @@
     <link href="https://westerndevs.com/devlog/little-shop-of-wall-street-01-release-notes/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/little-shop-of-wall-street-01-release-notes/</id>
     <published>2020-07-02T15:13:00.000Z</published>
-    <updated>2022-12-09T05:52:24.721Z</updated>
+    <updated>2022-12-13T21:28:54.692Z</updated>
 	<author>
 	
 	  
@@ -561,7 +597,7 @@
     <link href="https://westerndevs.com/Game-Design/How-GitHub-Makes-Game-Making-Easier-For-NonCoders/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Game-Design/How-GitHub-Makes-Game-Making-Easier-For-NonCoders/</id>
     <published>2020-02-19T20:48:36.000Z</published>
-    <updated>2022-12-09T05:52:24.721Z</updated>
+    <updated>2022-12-13T21:28:54.692Z</updated>
 	<author>
 	
 	  
@@ -597,7 +633,7 @@
     <link href="https://westerndevs.com/Devlog/Jan-2020-Devlog/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Devlog/Jan-2020-Devlog/</id>
     <published>2020-02-04T21:03:24.000Z</published>
-    <updated>2022-12-09T05:52:24.721Z</updated>
+    <updated>2022-12-13T21:28:54.692Z</updated>
 	<author>
 	
 	  
@@ -633,7 +669,7 @@
     <link href="https://westerndevs.com/Game-Development/Where-To-Find-Your-Gamedev-Community/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Game-Development/Where-To-Find-Your-Gamedev-Community/</id>
     <published>2020-01-21T11:09:00.000Z</published>
-    <updated>2022-12-09T05:52:24.721Z</updated>
+    <updated>2022-12-13T21:28:54.692Z</updated>
 	<author>
 	
 	  
@@ -671,7 +707,7 @@
     <link href="https://westerndevs.com/_/No-Cost-Game-Design-Toolbox/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/No-Cost-Game-Design-Toolbox/</id>
     <published>2020-01-13T21:51:04.000Z</published>
-    <updated>2022-12-09T05:52:24.721Z</updated>
+    <updated>2022-12-13T21:28:54.692Z</updated>
 	<author>
 	
 	  
@@ -707,7 +743,7 @@
     <link href="https://westerndevs.com/Game-Development/gameoff2019-gamejam-devlog/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Game-Development/gameoff2019-gamejam-devlog/</id>
     <published>2019-11-26T14:57:00.000Z</published>
-    <updated>2022-12-09T05:52:24.721Z</updated>
+    <updated>2022-12-13T21:28:54.692Z</updated>
 	<author>
 	
 	  
@@ -729,32 +765,6 @@
     
     
       <category term="gamedev" scheme="https://westerndevs.com/tags/gamedev/"/>
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Streaming Code and Play on Mixer every Thursday and Sunday</title>
-    <link href="https://westerndevs.com/_/streaming-code-and-games-on-mixer/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/streaming-code-and-games-on-mixer/</id>
-    <published>2018-09-27T17:55:42.000Z</published>
-    <updated>2022-12-09T05:52:24.717Z</updated>
-	<author>
-	
-	  
-	  <name>David Wesst</name>
-	  <email>questions@davidwesst.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<iframe allowfullscreen="true" src="https://mixer.com/embed/player/davidwesst" width="620" height="349"> </iframe><p>I recently started streaming twice a week on <a href="https://mixer.com/davidwesst" target="_blank" rel="noopener">Mixer</a>. The streams happen at 9:30pm CT (7:30pm PT or 10:30pm ET) on Thursdays and Sundays. Thursdays are <em>Code Nights</em> where I fumble through the creation of a video game. Sundays are <em>Play Nights</em> I play and analyze a game that has something interesting in it. No specific topic, just play and talk about game with the intent of finding interesting design in games.</p><p>Now, I'll take a few questions.</p><h2>Are you a game developer now?</h2><p>No, but I'd like to be. More specifically, I'd like <em>my own</em> games.</p><p>That's not to say I wouldn't work somewhere that makes games, as I'm sure I'd learn a lot, but as it stands right now with my real life, I'm not willing take on the cost of doing the whole &quot;lift and shift&quot; to my whole career. Maybe another day, but not today.</p><h2>What about all that web development stuff?</h2><p>That's still something I like and will continue to work on, but making a video game has always been something of a dream. I've dabbled in combining the two, but there is a lot I need to learn about game development and design that has nothing to do with code.</p><h2>What is with the streaming?</h2><p>If I'm being honest, it's more for me than it is for you. No offense.</p><p>The streams act as milestones to keep it relevent in my real life. The streams are scheduled and planned for, as they are hard dates in a calendar that I can plan my life around. Playing a game keeps me thinking about what I want to see in my game, and code keeps me building the game.</p><h2>Is that why you've been in hiding for so long?</h2><p>Not intentionally, but yeah.</p><p>There is a whole story behind it, but I'll save that for another post. The short of it is that during my self imposed sabatical, I realized that I need to work on something I'm truly passionate about. That passion is video games, and this is me making sure I don't regret trying to get myself involved.</p><h2>I have an idea for a game...</h2><p>Awesome. Me too! Feel free to share it with me on <a href="https://twitter.com/davidwesst" target="_blank" rel="noopener">Twitter</a>, <a href="https://www.instagram.com/davidwesst/" target="_blank" rel="noopener">Instagram</a>, or <a href="https://mixer.com/davidwesst" target="_blank" rel="noopener">Mixer Chat</a> and we can chat about it.</p><h2>Does that mean you're leaving the Western Devs?</h2><p>Heh, no.</p><p>First, these people would be lost without me. Second, I'm still planning on talking about code, but likely a little less often. I'll be reviving <a href="https://davidwesst.com" target="_blank" rel="noopener">davidwesst.com</a> in the near future where you can see all my game related content. For the time being though, only devblogs will show up over here.</p><h2>When can I buy your game?</h2><p>I have no idea. Right now, I'm toying with a prototype I call <em>Vagabond</em> and whether that turns into a game is a whole other story.</p><h2>Is your game code open source?</h2><p>No, but I'm not against it.</p><p>Ignoring the whole selling an open source game discussion, my code is amateur at best. I'm an application web developer trying to wear the shoes of a console/PC game developer. It's going to take some time before I feel like I know what I'm doing to actually put something out there for people to assess.</p><h2>I'm interested. How do I support?</h2><p>Like, share, watch, and participate whenever and however you can.</p><p>I'm really just getting started in this, and it's going to have some rough edges. Just stay tuned and we'll see where this takes me.</p><hr><p>Thanks for playing. ~ DW</p>]]></content>
-    
-    <summary type="html">
-    
-      This month I started livestreaming game code and gameplay every Thursday and Sunday night at 9:30pm CT
-    
-    </summary>
-    
     
   </entry>
   
