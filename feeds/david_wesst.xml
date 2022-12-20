@@ -5,7 +5,7 @@
   <link href="/feeds/david_wesst" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2022-12-13T21:28:54.696Z</updated>
+  <updated>2022-12-20T16:59:54.930Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,49 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Speaking at Tech Events Helps You Grow</title>
+    <link href="https://westerndevs.com/_/speaking-at-tech-events-helps-you-grow/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/speaking-at-tech-events-helps-you-grow/</id>
+    <published>2022-12-20T21:59:37.185Z</published>
+    <updated>2022-12-20T16:59:54.930Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>I was lucky enough to be selected to speak at all three <a href="https://www.prairiedevcon.com" target="_blank" rel="noopener">Prairie Dev Con 2022</a> events this year, after a hiatus from speaking at live tech events. The experience of submitting and delivering a couple of session reminded me how important speaking at these sorts of events has been over the years and now they account for a large part of my career growth. On top of that, I have had many people who are entering tech ask me about my experience and wanted to share it for others who might be wondering what benefits actually are.</p><h1>You need to sell yourself and your session</h1><p>When the call for speakers opens up, you are required to submit a summary of your talk and yourself. I call this the pitch process, as your submission is your moment to convince the event organizers you are worth betting on.</p><p>It might sound stressful, but its not. It's a pretty low key process considering you are just filling out a form, and it's low stakes. If you don't make the cut then, you cam try again next time.</p><p>The point is that you need take the time to think about wht you're worth the effort, because you are definitely worth it! You know it, so now is your chance to practice.</p><h1>Connecting with Other Speakers</h1><p>Once you're accepted, you get a chance to connect with other speakers. These folks are like minded people who are willing to spend their time sharing their experiences and expertise. Sit with people you don't know and have conversations. Introduce yourself. Talk about what you do and listen to what they do. When you're done, find them on LinkedIn and remind them where you met them.</p><p>I have met some of the best people this way and have continued to stay connected beyond the conference (shout out to the <a href="https://www.westerndevs.com" target="_blank" rel="noopener">WesternDevs</a>).</p><h1>A Live Studio Audience</h1><p>As much as I appreciate livestreaming and virtualized meetings, speaking in the same room as other humans is very different and definitely develops a different set of skills and strengths. The interaction you get with your audience during and after you deliver your session is something I have not been able to replicate in the digitally transformed world we live in today, in 2022.</p><p>Just to be clear, something will go wrong...and that's okay.</p><p>No matter how much you prep, something will go wrong. A demo will fail, a slide will be out of order, a question will be asked that you don't have the answer to. The key  is in how you react and respond to the situation. These &quot;mistakes&quot; are what has made me a better presenter in my day job. It has also helped me learn to stay calm and collected when pressure is being applied.</p><p><img src="/images/2022-12-20-speaking-at-tech-events-helps-you-grow/prdc2022-audience.png" alt="&amp;quot;Five rows of tables with white table clothes with people attentively looking forward at the speaker, who is not in frame, with a PowerPoint slide on the back wall describing solution architecture at the University of Manitoba"></p><h1>Side Note: Considerations Before Committing</h1><p>As a side, I wanted to note that not all conferences are created equally.</p><p>Before you submit your session take note on what the conference does to support their speakers. A few questions to ask yourself before you commit your time and effort to a conference:</p><ul><li>Do they cover your travel and accommodation?</li><li>Does it include your admission into the conference?</li><li>Do you still own your content when your done the conference?</li></ul><p>There are no right or wrong answers to these questions, but you should consider what you're getting out of the deal when you submit sessions to a conference beyond professional development.</p><p>Just remember that the speakers are the talent that makes a conference possible. Your work is valuable, and the conference team should ensure you feel appreciated, ome way or another.</p><h1>TL;DR; / Conclusion</h1><p>Speaking at in-person events, like tech conferences and user groups, is a a great way to grow as a professional. Key benefits are:</p><ul><li>You learn promote yourself and your session through the session submission process (a.k.a. the pitch process)</li><li>Connecting with other speakers who are as passionate as you are about sharing their tech experience</li><li>Reacting to a live audience and the mistakes you make in front of them</li><li>Don't forget that your effort is valuable and before you submit a session, make sure the event makes you feel like you are getting a fair deal</li></ul><p>Thanks for playing.</p><p>~ DW</p>]]></content>
+    
+    <summary type="html">
+    
+      A large part of my career growth is tied directly to speaking at tech events like conferences and user groups. I have had many people ask me about my experience and wanted to share it for others who might be wondering what benefits actually are. 
+    
+    </summary>
+    
+    
+      <category term="prairie-dev-con" scheme="https://westerndevs.com/tags/prairie-dev-con/"/>
+    
+      <category term="public-speaking" scheme="https://westerndevs.com/tags/public-speaking/"/>
+    
+      <category term="prdc" scheme="https://westerndevs.com/tags/prdc/"/>
+    
+      <category term="community" scheme="https://westerndevs.com/tags/community/"/>
+    
+      <category term="presentations" scheme="https://westerndevs.com/tags/presentations/"/>
+    
+      <category term="conference" scheme="https://westerndevs.com/tags/conference/"/>
+    
+  </entry>
+  
+  <entry>
     <title type="html">Docker Desktop for Linux is not the same as Docker Engine</title>
     <link href="https://westerndevs.com/_/docker-desktop-is-not-docker-engine/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/docker-desktop-is-not-docker-engine/</id>
     <published>2022-12-14T02:28:36.457Z</published>
-    <updated>2022-12-13T21:28:54.696Z</updated>
+    <updated>2022-12-20T16:59:54.930Z</updated>
 	<author>
 	
 	  
@@ -57,7 +95,7 @@
     <link href="https://westerndevs.com/_/prairie-dev-con-2022-takeaways/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/prairie-dev-con-2022-takeaways/</id>
     <published>2022-12-07T20:37:20.777Z</published>
-    <updated>2022-12-13T21:28:54.692Z</updated>
+    <updated>2022-12-20T16:59:54.930Z</updated>
 	<author>
 	
 	  
@@ -99,7 +137,7 @@
     <link href="https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/</id>
     <published>2022-12-01T09:18:34.509Z</published>
-    <updated>2022-12-13T21:28:54.692Z</updated>
+    <updated>2022-12-20T16:59:54.930Z</updated>
 	<author>
 	
 	  
@@ -137,7 +175,7 @@
     <link href="https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/</id>
     <published>2022-11-19T01:10:07.083Z</published>
-    <updated>2022-12-13T21:28:54.692Z</updated>
+    <updated>2022-12-20T16:59:54.930Z</updated>
 	<author>
 	
 	  
@@ -175,7 +213,7 @@
     <link href="https://westerndevs.com/_/how-much-is-enough-documentation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/how-much-is-enough-documentation/</id>
     <published>2022-11-10T22:00:00.000Z</published>
-    <updated>2022-12-13T21:28:54.692Z</updated>
+    <updated>2022-12-20T16:59:54.930Z</updated>
 	<author>
 	
 	  
@@ -215,7 +253,7 @@
     <link href="https://westerndevs.com/_/how-to-fork-like-a-boss/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/how-to-fork-like-a-boss/</id>
     <published>2022-11-02T21:00:00.000Z</published>
-    <updated>2022-12-13T21:28:54.692Z</updated>
+    <updated>2022-12-20T16:59:54.930Z</updated>
 	<author>
 	
 	  
@@ -249,7 +287,7 @@
     <link href="https://westerndevs.com/finding-inspiration/i-can-teach-your-dog-quantum-physics/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/finding-inspiration/i-can-teach-your-dog-quantum-physics/</id>
     <published>2021-06-28T16:00:00.000Z</published>
-    <updated>2022-12-13T21:28:54.692Z</updated>
+    <updated>2022-12-20T16:59:54.930Z</updated>
 	<author>
 	
 	  
@@ -287,7 +325,7 @@
     <link href="https://westerndevs.com/inner-monologue/what-value-does-making-content-bring-to-me/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/inner-monologue/what-value-does-making-content-bring-to-me/</id>
     <published>2021-06-17T16:00:00.000Z</published>
-    <updated>2022-12-13T21:28:54.692Z</updated>
+    <updated>2022-12-20T16:59:54.930Z</updated>
 	<author>
 	
 	  
@@ -325,7 +363,7 @@
     <link href="https://westerndevs.com/inner-monologue/my-secret-addiction-to-likes/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/inner-monologue/my-secret-addiction-to-likes/</id>
     <published>2021-06-03T16:00:00.000Z</published>
-    <updated>2022-12-13T21:28:54.692Z</updated>
+    <updated>2022-12-20T16:59:54.930Z</updated>
 	<author>
 	
 	  
@@ -363,7 +401,7 @@
     <link href="https://westerndevs.com/technology/inner-monologue/lucky-number-v7/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/technology/inner-monologue/lucky-number-v7/</id>
     <published>2021-05-24T16:00:00.000Z</published>
-    <updated>2022-12-13T21:28:54.692Z</updated>
+    <updated>2022-12-20T16:59:54.930Z</updated>
 	<author>
 	
 	  
@@ -399,7 +437,7 @@
     <link href="https://westerndevs.com/devops/from-travis-ci-to-github-actions/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devops/from-travis-ci-to-github-actions/</id>
     <published>2020-11-10T23:36:00.000Z</published>
-    <updated>2022-12-13T21:28:54.692Z</updated>
+    <updated>2022-12-20T16:59:54.930Z</updated>
 	<author>
 	
 	  
@@ -437,7 +475,7 @@
     <link href="https://westerndevs.com/devlog/out-the-door/out-the-door-post-jam-update/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/out-the-door/out-the-door-post-jam-update/</id>
     <published>2020-11-09T14:00:00.000Z</published>
-    <updated>2022-12-13T21:28:54.692Z</updated>
+    <updated>2022-12-20T16:59:54.930Z</updated>
 	<author>
 	
 	  
@@ -479,7 +517,7 @@
     <link href="https://westerndevs.com/devlog/a-solo-gamejam-experience-ld47/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/a-solo-gamejam-experience-ld47/</id>
     <published>2020-10-23T13:00:00.000Z</published>
-    <updated>2022-12-13T21:28:54.692Z</updated>
+    <updated>2022-12-20T16:59:54.930Z</updated>
 	<author>
 	
 	  
@@ -519,7 +557,7 @@
     <link href="https://westerndevs.com/devlog/game-portfolio-review-2020/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/game-portfolio-review-2020/</id>
     <published>2020-09-18T13:00:00.000Z</published>
-    <updated>2022-12-13T21:28:54.692Z</updated>
+    <updated>2022-12-20T16:59:54.930Z</updated>
 	<author>
 	
 	  
@@ -559,7 +597,7 @@
     <link href="https://westerndevs.com/devlog/little-shop-of-wall-street-01-release-notes/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/little-shop-of-wall-street-01-release-notes/</id>
     <published>2020-07-02T15:13:00.000Z</published>
-    <updated>2022-12-13T21:28:54.692Z</updated>
+    <updated>2022-12-20T16:59:54.930Z</updated>
 	<author>
 	
 	  
@@ -597,7 +635,7 @@
     <link href="https://westerndevs.com/Game-Design/How-GitHub-Makes-Game-Making-Easier-For-NonCoders/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Game-Design/How-GitHub-Makes-Game-Making-Easier-For-NonCoders/</id>
     <published>2020-02-19T20:48:36.000Z</published>
-    <updated>2022-12-13T21:28:54.692Z</updated>
+    <updated>2022-12-20T16:59:54.926Z</updated>
 	<author>
 	
 	  
@@ -633,7 +671,7 @@
     <link href="https://westerndevs.com/Devlog/Jan-2020-Devlog/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Devlog/Jan-2020-Devlog/</id>
     <published>2020-02-04T21:03:24.000Z</published>
-    <updated>2022-12-13T21:28:54.692Z</updated>
+    <updated>2022-12-20T16:59:54.926Z</updated>
 	<author>
 	
 	  
@@ -669,7 +707,7 @@
     <link href="https://westerndevs.com/Game-Development/Where-To-Find-Your-Gamedev-Community/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Game-Development/Where-To-Find-Your-Gamedev-Community/</id>
     <published>2020-01-21T11:09:00.000Z</published>
-    <updated>2022-12-13T21:28:54.692Z</updated>
+    <updated>2022-12-20T16:59:54.926Z</updated>
 	<author>
 	
 	  
@@ -707,7 +745,7 @@
     <link href="https://westerndevs.com/_/No-Cost-Game-Design-Toolbox/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/No-Cost-Game-Design-Toolbox/</id>
     <published>2020-01-13T21:51:04.000Z</published>
-    <updated>2022-12-13T21:28:54.692Z</updated>
+    <updated>2022-12-20T16:59:54.926Z</updated>
 	<author>
 	
 	  
@@ -735,36 +773,6 @@
       <category term="OneNote" scheme="https://westerndevs.com/tags/OneNote/"/>
     
       <category term="Excel" scheme="https://westerndevs.com/tags/Excel/"/>
-    
-  </entry>
-  
-  <entry>
-    <title type="html">GitHub Game Off 2019 Game Jam featuring DW</title>
-    <link href="https://westerndevs.com/Game-Development/gameoff2019-gamejam-devlog/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/Game-Development/gameoff2019-gamejam-devlog/</id>
-    <published>2019-11-26T14:57:00.000Z</published>
-    <updated>2022-12-13T21:28:54.692Z</updated>
-	<author>
-	
-	  
-	  <name>David Wesst</name>
-	  <email>questions@davidwesst.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>For the past month I have been participating in the GameOff 2019 Gamejam hosted by GitHub over on Itch.io and I've been devlogging about it over on my YouTube channel.</p><a id="more"></a><iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLbTA1UhK0wKjTEEc_wO1n0w_hPAUIeVRf" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe><p>For the past year or so, I've been working on learning and getting into video game development (a.k.a. gamedev) as a sort of side thing to the whole enterprise cloud architect thing that I do during the day.</p><p>In order to focus my effort, I decided that I would participate in the GitHub hosted <a href="https://itch.io/jam/game-off-2019" target="_blank" rel="noopener">GameOff 2019 Game Jam on Itch.io</a>. It's been a ride to say the least, but as I've been doing it, I've been doing a devlog series on YouTube about my progress and my thoughts throughout the competition.</p><h2>Where Do I Find the Vlog</h2><p>You're in the right spot, as I'm going to cross post my <a href="https://itch.io/" target="_blank" rel="noopener">Itch.io</a> project devlog posts here, but you can also follow along on my <a href="https://youtube.com/davidwesst" target="_blank" rel="noopener">YouTube channel</a> if you're into that sort of thing, or you can just <a href="https://www.youtube.com/playlist?list=PLbTA1UhK0wKjTEEc_wO1n0w_hPAUIeVRf" target="_blank" rel="noopener">checkout the playlist here</a>.</p><p>The game jam ends on December 1, and there is more work to be done, so stay tuned for more posts.</p><hr><p>Thanks for playing. ~ DW</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;For the past month I have been participating in the GameOff 2019 Gamejam hosted by GitHub over on Itch.io and I&#39;ve been devlogging about it over on my YouTube channel.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Game Development" scheme="https://westerndevs.com/categories/Game-Development/"/>
-    
-    
-      <category term="gamedev" scheme="https://westerndevs.com/tags/gamedev/"/>
     
   </entry>
   

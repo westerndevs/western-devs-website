@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2022-12-13T21:28:54.696Z</updated>
+  <updated>2022-12-20T16:59:54.930Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,49 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Speaking at Tech Events Helps You Grow</title>
+    <link href="https://westerndevs.com/_/speaking-at-tech-events-helps-you-grow/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/speaking-at-tech-events-helps-you-grow/</id>
+    <published>2022-12-20T21:59:37.185Z</published>
+    <updated>2022-12-20T16:59:54.930Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>I was lucky enough to be selected to speak at all three <a href="https://www.prairiedevcon.com" target="_blank" rel="noopener">Prairie Dev Con 2022</a> events this year, after a hiatus from speaking at live tech events. The experience of submitting and delivering a couple of session reminded me how important speaking at these sorts of events has been over the years and now they account for a large part of my career growth. On top of that, I have had many people who are entering tech ask me about my experience and wanted to share it for others who might be wondering what benefits actually are.</p><h1>You need to sell yourself and your session</h1><p>When the call for speakers opens up, you are required to submit a summary of your talk and yourself. I call this the pitch process, as your submission is your moment to convince the event organizers you are worth betting on.</p><p>It might sound stressful, but its not. It's a pretty low key process considering you are just filling out a form, and it's low stakes. If you don't make the cut then, you cam try again next time.</p><p>The point is that you need take the time to think about wht you're worth the effort, because you are definitely worth it! You know it, so now is your chance to practice.</p><h1>Connecting with Other Speakers</h1><p>Once you're accepted, you get a chance to connect with other speakers. These folks are like minded people who are willing to spend their time sharing their experiences and expertise. Sit with people you don't know and have conversations. Introduce yourself. Talk about what you do and listen to what they do. When you're done, find them on LinkedIn and remind them where you met them.</p><p>I have met some of the best people this way and have continued to stay connected beyond the conference (shout out to the <a href="https://www.westerndevs.com" target="_blank" rel="noopener">WesternDevs</a>).</p><h1>A Live Studio Audience</h1><p>As much as I appreciate livestreaming and virtualized meetings, speaking in the same room as other humans is very different and definitely develops a different set of skills and strengths. The interaction you get with your audience during and after you deliver your session is something I have not been able to replicate in the digitally transformed world we live in today, in 2022.</p><p>Just to be clear, something will go wrong...and that's okay.</p><p>No matter how much you prep, something will go wrong. A demo will fail, a slide will be out of order, a question will be asked that you don't have the answer to. The key  is in how you react and respond to the situation. These &quot;mistakes&quot; are what has made me a better presenter in my day job. It has also helped me learn to stay calm and collected when pressure is being applied.</p><p><img src="/images/2022-12-20-speaking-at-tech-events-helps-you-grow/prdc2022-audience.png" alt="&amp;quot;Five rows of tables with white table clothes with people attentively looking forward at the speaker, who is not in frame, with a PowerPoint slide on the back wall describing solution architecture at the University of Manitoba"></p><h1>Side Note: Considerations Before Committing</h1><p>As a side, I wanted to note that not all conferences are created equally.</p><p>Before you submit your session take note on what the conference does to support their speakers. A few questions to ask yourself before you commit your time and effort to a conference:</p><ul><li>Do they cover your travel and accommodation?</li><li>Does it include your admission into the conference?</li><li>Do you still own your content when your done the conference?</li></ul><p>There are no right or wrong answers to these questions, but you should consider what you're getting out of the deal when you submit sessions to a conference beyond professional development.</p><p>Just remember that the speakers are the talent that makes a conference possible. Your work is valuable, and the conference team should ensure you feel appreciated, ome way or another.</p><h1>TL;DR; / Conclusion</h1><p>Speaking at in-person events, like tech conferences and user groups, is a a great way to grow as a professional. Key benefits are:</p><ul><li>You learn promote yourself and your session through the session submission process (a.k.a. the pitch process)</li><li>Connecting with other speakers who are as passionate as you are about sharing their tech experience</li><li>Reacting to a live audience and the mistakes you make in front of them</li><li>Don't forget that your effort is valuable and before you submit a session, make sure the event makes you feel like you are getting a fair deal</li></ul><p>Thanks for playing.</p><p>~ DW</p>]]></content>
+    
+    <summary type="html">
+    
+      A large part of my career growth is tied directly to speaking at tech events like conferences and user groups. I have had many people ask me about my experience and wanted to share it for others who might be wondering what benefits actually are. 
+    
+    </summary>
+    
+    
+      <category term="prairie-dev-con" scheme="https://westerndevs.com/tags/prairie-dev-con/"/>
+    
+      <category term="public-speaking" scheme="https://westerndevs.com/tags/public-speaking/"/>
+    
+      <category term="prdc" scheme="https://westerndevs.com/tags/prdc/"/>
+    
+      <category term="community" scheme="https://westerndevs.com/tags/community/"/>
+    
+      <category term="presentations" scheme="https://westerndevs.com/tags/presentations/"/>
+    
+      <category term="conference" scheme="https://westerndevs.com/tags/conference/"/>
+    
+  </entry>
+  
+  <entry>
     <title type="html">Docker Desktop for Linux is not the same as Docker Engine</title>
     <link href="https://westerndevs.com/_/docker-desktop-is-not-docker-engine/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/docker-desktop-is-not-docker-engine/</id>
     <published>2022-12-14T02:28:36.457Z</published>
-    <updated>2022-12-13T21:28:54.696Z</updated>
+    <updated>2022-12-20T16:59:54.930Z</updated>
 	<author>
 	
 	  
@@ -57,7 +95,7 @@
     <link href="https://westerndevs.com/_/prairie-dev-con-2022-takeaways/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/prairie-dev-con-2022-takeaways/</id>
     <published>2022-12-07T20:37:20.777Z</published>
-    <updated>2022-12-13T21:28:54.692Z</updated>
+    <updated>2022-12-20T16:59:54.930Z</updated>
 	<author>
 	
 	  
@@ -99,7 +137,7 @@
     <link href="https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/</id>
     <published>2022-12-01T09:18:34.509Z</published>
-    <updated>2022-12-13T21:28:54.692Z</updated>
+    <updated>2022-12-20T16:59:54.930Z</updated>
 	<author>
 	
 	  
@@ -137,7 +175,7 @@
     <link href="https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/</id>
     <published>2022-11-19T01:10:07.083Z</published>
-    <updated>2022-12-13T21:28:54.692Z</updated>
+    <updated>2022-12-20T16:59:54.930Z</updated>
 	<author>
 	
 	  
@@ -175,7 +213,7 @@
     <link href="https://westerndevs.com/_/bulk-insert-sql-geometry/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/bulk-insert-sql-geometry/</id>
     <published>2022-11-17T05:00:00.000Z</published>
-    <updated>2022-12-13T21:28:54.696Z</updated>
+    <updated>2022-12-20T16:59:54.934Z</updated>
 	<author>
 	
 	  
@@ -201,7 +239,7 @@
     <link href="https://westerndevs.com/_/azure-backus-protip/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-backus-protip/</id>
     <published>2022-11-11T05:00:00.000Z</published>
-    <updated>2022-12-13T21:28:54.696Z</updated>
+    <updated>2022-12-20T16:59:54.934Z</updated>
 	<author>
 	
 	  
@@ -227,7 +265,7 @@
     <link href="https://westerndevs.com/_/how-much-is-enough-documentation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/how-much-is-enough-documentation/</id>
     <published>2022-11-10T22:00:00.000Z</published>
-    <updated>2022-12-13T21:28:54.692Z</updated>
+    <updated>2022-12-20T16:59:54.930Z</updated>
 	<author>
 	
 	  
@@ -267,7 +305,7 @@
     <link href="https://westerndevs.com/_/how-to-fork-like-a-boss/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/how-to-fork-like-a-boss/</id>
     <published>2022-11-02T21:00:00.000Z</published>
-    <updated>2022-12-13T21:28:54.692Z</updated>
+    <updated>2022-12-20T16:59:54.930Z</updated>
 	<author>
 	
 	  
@@ -301,7 +339,7 @@
     <link href="https://westerndevs.com/_/set-output-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-output-terraform/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2022-12-13T21:28:54.700Z</updated>
+    <updated>2022-12-20T16:59:54.938Z</updated>
 	<author>
 	
 	  
@@ -327,7 +365,7 @@
     <link href="https://westerndevs.com/_/theory-of-terraform-github-actions/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/theory-of-terraform-github-actions/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2022-12-13T21:28:54.704Z</updated>
+    <updated>2022-12-20T16:59:54.942Z</updated>
 	<author>
 	
 	  
@@ -353,7 +391,7 @@
     <link href="https://westerndevs.com/_/register-providers/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/register-providers/</id>
     <published>2022-08-12T04:00:00.000Z</published>
-    <updated>2022-12-13T21:28:54.700Z</updated>
+    <updated>2022-12-20T16:59:54.938Z</updated>
 	<author>
 	
 	  
@@ -379,7 +417,7 @@
     <link href="https://westerndevs.com/_/debug-azure-container-instances-startup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/debug-azure-container-instances-startup/</id>
     <published>2022-08-04T04:00:00.000Z</published>
-    <updated>2022-12-13T21:28:54.696Z</updated>
+    <updated>2022-12-20T16:59:54.934Z</updated>
 	<author>
 	
 	  
@@ -405,7 +443,7 @@
     <link href="https://westerndevs.com/_/consuming-wsdl/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/consuming-wsdl/</id>
     <published>2022-05-30T04:00:00.000Z</published>
-    <updated>2022-12-13T21:28:54.696Z</updated>
+    <updated>2022-12-20T16:59:54.934Z</updated>
 	<author>
 	
 	  
@@ -431,7 +469,7 @@
     <link href="https://westerndevs.com/_/azure-functions-error/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-functions-error/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2022-12-13T21:28:54.696Z</updated>
+    <updated>2022-12-20T16:59:54.934Z</updated>
 	<author>
 	
 	  
@@ -457,7 +495,7 @@
     <link href="https://westerndevs.com/_/which-sql-server-edition/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/which-sql-server-edition/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2022-12-13T21:28:54.704Z</updated>
+    <updated>2022-12-20T16:59:54.942Z</updated>
 	<author>
 	
 	  
@@ -483,7 +521,7 @@
     <link href="https://westerndevs.com/_/cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cheat-sheet/</id>
     <published>2022-04-04T04:00:00.000Z</published>
-    <updated>2022-12-13T21:28:54.696Z</updated>
+    <updated>2022-12-20T16:59:54.934Z</updated>
 	<author>
 	
 	  
@@ -511,7 +549,7 @@
     <link href="https://westerndevs.com/_/rubocop-issue/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/rubocop-issue/</id>
     <published>2022-03-18T04:00:00.000Z</published>
-    <updated>2022-12-13T21:28:54.700Z</updated>
+    <updated>2022-12-20T16:59:54.938Z</updated>
 	<author>
 	
 	  
@@ -538,7 +576,7 @@
     <link href="https://westerndevs.com/_/fsevents-optional-dependencies/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/fsevents-optional-dependencies/</id>
     <published>2022-03-16T04:00:00.000Z</published>
-    <updated>2022-12-13T21:28:54.696Z</updated>
+    <updated>2022-12-20T16:59:54.934Z</updated>
 	<author>
 	
 	  
@@ -564,7 +602,7 @@
     <link href="https://westerndevs.com/_/backblaze-exclude-node-modules/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/backblaze-exclude-node-modules/</id>
     <published>2022-02-20T05:00:00.000Z</published>
-    <updated>2022-12-13T21:28:54.696Z</updated>
+    <updated>2022-12-20T16:59:54.934Z</updated>
 	<author>
 	
 	  
@@ -579,32 +617,6 @@
     <summary type="html">
     
       &lt;p&gt;There are &lt;a href=&quot;https://chrisblackwell.me/ignore-node_modules-and-git-folders-in-backblaze/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;some&lt;/a&gt; &lt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Parsing Vue Router Path Parameters</title>
-    <link href="https://westerndevs.com/_/parsing-vue-router-parameters/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/parsing-vue-router-parameters/</id>
-    <published>2022-02-18T05:00:00.000Z</published>
-    <updated>2022-12-13T21:28:54.700Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>In the vue router you can set up path parameters that are bound into the rendered component. For instance you might have a route like this:</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    path: <span class="string">'/reports/:reportId/:reportName/:favorite'</span>,</span><br><span class="line">    name: <span class="string">'Reports'</span>,</span><br><span class="line">    component: ReportView,</span><br><span class="line">    props: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>This will bind the parameters <code>reportId</code>, <code>reportName</code> and <code>favorite</code> on the component. However when you drop into that component and look at the values passed in you will see that they are strings. Of course that makes sense, the router doesn't really know if the things you pass in are strings or something else. Consider the route <code>/reports/17/awesome report/false</code>. Here <code>reportId</code> and <code>favorite</code> are going to be strings.</p><p>You can work around that by giving props in the router a function rather than just a boolean.</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    path: <span class="string">'/reports/:reportId/:reportName/:favorite'</span>,</span><br><span class="line">    name: <span class="string">'Reports'</span>,</span><br><span class="line">    component: ReportView,</span><br><span class="line">    props: <span class="function">(<span class="params">route</span>) =&gt;</span> (&#123;</span><br><span class="line">      ...route.params,</span><br><span class="line">      reportId: <span class="built_in">parseInt</span>(route.params.reportId),</span><br><span class="line">      favorite: route.params.favorite === <span class="string">'true'</span>,</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;In the vue router you can set up path parameters that are bound into the rendered component. For instance you might have a route like thi
     
     </summary>
     
