@@ -9,7 +9,7 @@ authorId: all
 excerpt: "From our computers to yours, we wanted to take a moment to share with your part of our annual Western Devs Holiday Extranvaganza virtual celebration!"
 ---
 
-Every year, the Western Devs try to put together a virtual holiday gathering across 7 timezones to catch-up, have fun, and celebrate the holiday season. To mark the occasion, we had AI generate a poem to help us enjoy the season along with an image for which will will not provide context for.
+Every year, the Western Devs try to put together a virtual holiday gathering across 7 timezones to catch-up, have fun, and celebrate the holiday season. To mark the occasion, we had AI generate a poem to help us enjoy the season along with an image for which we will not provide context for.
 
 > 'Twas the night before Christmas, and all through the land
 > The Western Devs group was busily at hand
