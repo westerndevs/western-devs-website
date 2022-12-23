@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2022-12-20T16:59:54.930Z</updated>
+  <updated>2022-12-23T16:30:55.152Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,43 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Happy Holidays from the Western Devs</title>
+    <link href="https://westerndevs.com/_/happy-holidays-2022/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/happy-holidays-2022/</id>
+    <published>2022-12-24T22:00:00.000Z</published>
+    <updated>2022-12-23T16:30:55.152Z</updated>
+	<author>
+	
+	  
+	  <name></name>
+	  <email></email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>Every year, the Western Devs try to put together a virtual holiday gathering across 7 timezones to catch-up, have fun, and celebrate the holiday season. To mark the occasion, we had AI generate a poem to help us enjoy the season along with an image for which will will not provide context for.</p><blockquote><p>'Twas the night before Christmas, and all through the landThe Western Devs group was busily at handWorking on projects, coding with careIn hopes that the deadlines would soon be met, with flair</p><p>he computers were humming, the monitors aglowAs the developers worked on code, to and froSome were debugging, some were designingAll with the goal of creating something exciting</p><p>But as the night wore on, and the work was almost throughThe developers stopped, and a cheer rose anewThey had made it, they had finished the taskNow it was time to put down the code and unwind at last</p><p>So they gathered around, for the holiday was hereRaised a glass to a year of hard work and good cheerHere's to the Western Devs group, may your future be brightMerry Christmas to all, and to all a good night!</p></blockquote><p>Have yourselves a great holiday season and new year!</p><p><img src="/images/2022-12-24-happy-holidays-2022/lobster.png" alt="a portrait of the lobster dressed for bed and sipping a glass of champagne after a one night stand in Seattle. The lobster is sitting on a hotel bed, wearing an oversized aqua robe, with a shirt and bowtie, but no pants, and a set of ski goggles."></p><p>Cheers!</p>]]></content>
+    
+    <summary type="html">
+    
+      From our computers to yours, we wanted to take a moment to share with your part of our annual Western Devs Holiday Extranvaganza virtual celebration!
+    
+    </summary>
+    
+    
+      <category term="happy-holidays" scheme="https://westerndevs.com/tags/happy-holidays/"/>
+    
+      <category term="poem" scheme="https://westerndevs.com/tags/poem/"/>
+    
+      <category term="fun" scheme="https://westerndevs.com/tags/fun/"/>
+    
+  </entry>
+  
+  <entry>
     <title type="html">Speaking at Tech Events Helps You Grow</title>
     <link href="https://westerndevs.com/_/speaking-at-tech-events-helps-you-grow/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/speaking-at-tech-events-helps-you-grow/</id>
     <published>2022-12-20T21:59:37.185Z</published>
-    <updated>2022-12-20T16:59:54.930Z</updated>
+    <updated>2022-12-23T16:30:55.152Z</updated>
 	<author>
 	
 	  
@@ -59,7 +91,7 @@
     <link href="https://westerndevs.com/_/docker-desktop-is-not-docker-engine/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/docker-desktop-is-not-docker-engine/</id>
     <published>2022-12-14T02:28:36.457Z</published>
-    <updated>2022-12-20T16:59:54.930Z</updated>
+    <updated>2022-12-23T16:30:55.152Z</updated>
 	<author>
 	
 	  
@@ -95,7 +127,7 @@
     <link href="https://westerndevs.com/_/prairie-dev-con-2022-takeaways/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/prairie-dev-con-2022-takeaways/</id>
     <published>2022-12-07T20:37:20.777Z</published>
-    <updated>2022-12-20T16:59:54.930Z</updated>
+    <updated>2022-12-23T16:30:55.152Z</updated>
 	<author>
 	
 	  
@@ -137,7 +169,7 @@
     <link href="https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/</id>
     <published>2022-12-01T09:18:34.509Z</published>
-    <updated>2022-12-20T16:59:54.930Z</updated>
+    <updated>2022-12-23T16:30:55.152Z</updated>
 	<author>
 	
 	  
@@ -175,7 +207,7 @@
     <link href="https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/</id>
     <published>2022-11-19T01:10:07.083Z</published>
-    <updated>2022-12-20T16:59:54.930Z</updated>
+    <updated>2022-12-23T16:30:55.152Z</updated>
 	<author>
 	
 	  
@@ -213,7 +245,7 @@
     <link href="https://westerndevs.com/_/bulk-insert-sql-geometry/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/bulk-insert-sql-geometry/</id>
     <published>2022-11-17T05:00:00.000Z</published>
-    <updated>2022-12-20T16:59:54.934Z</updated>
+    <updated>2022-12-23T16:30:55.156Z</updated>
 	<author>
 	
 	  
@@ -239,7 +271,7 @@
     <link href="https://westerndevs.com/_/azure-backus-protip/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-backus-protip/</id>
     <published>2022-11-11T05:00:00.000Z</published>
-    <updated>2022-12-20T16:59:54.934Z</updated>
+    <updated>2022-12-23T16:30:55.156Z</updated>
 	<author>
 	
 	  
@@ -265,7 +297,7 @@
     <link href="https://westerndevs.com/_/how-much-is-enough-documentation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/how-much-is-enough-documentation/</id>
     <published>2022-11-10T22:00:00.000Z</published>
-    <updated>2022-12-20T16:59:54.930Z</updated>
+    <updated>2022-12-23T16:30:55.152Z</updated>
 	<author>
 	
 	  
@@ -305,7 +337,7 @@
     <link href="https://westerndevs.com/_/how-to-fork-like-a-boss/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/how-to-fork-like-a-boss/</id>
     <published>2022-11-02T21:00:00.000Z</published>
-    <updated>2022-12-20T16:59:54.930Z</updated>
+    <updated>2022-12-23T16:30:55.152Z</updated>
 	<author>
 	
 	  
@@ -339,7 +371,7 @@
     <link href="https://westerndevs.com/_/set-output-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-output-terraform/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2022-12-20T16:59:54.938Z</updated>
+    <updated>2022-12-23T16:30:55.160Z</updated>
 	<author>
 	
 	  
@@ -365,7 +397,7 @@
     <link href="https://westerndevs.com/_/theory-of-terraform-github-actions/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/theory-of-terraform-github-actions/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2022-12-20T16:59:54.942Z</updated>
+    <updated>2022-12-23T16:30:55.160Z</updated>
 	<author>
 	
 	  
@@ -391,7 +423,7 @@
     <link href="https://westerndevs.com/_/register-providers/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/register-providers/</id>
     <published>2022-08-12T04:00:00.000Z</published>
-    <updated>2022-12-20T16:59:54.938Z</updated>
+    <updated>2022-12-23T16:30:55.160Z</updated>
 	<author>
 	
 	  
@@ -417,7 +449,7 @@
     <link href="https://westerndevs.com/_/debug-azure-container-instances-startup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/debug-azure-container-instances-startup/</id>
     <published>2022-08-04T04:00:00.000Z</published>
-    <updated>2022-12-20T16:59:54.934Z</updated>
+    <updated>2022-12-23T16:30:55.156Z</updated>
 	<author>
 	
 	  
@@ -443,7 +475,7 @@
     <link href="https://westerndevs.com/_/consuming-wsdl/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/consuming-wsdl/</id>
     <published>2022-05-30T04:00:00.000Z</published>
-    <updated>2022-12-20T16:59:54.934Z</updated>
+    <updated>2022-12-23T16:30:55.156Z</updated>
 	<author>
 	
 	  
@@ -469,7 +501,7 @@
     <link href="https://westerndevs.com/_/azure-functions-error/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-functions-error/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2022-12-20T16:59:54.934Z</updated>
+    <updated>2022-12-23T16:30:55.156Z</updated>
 	<author>
 	
 	  
@@ -495,7 +527,7 @@
     <link href="https://westerndevs.com/_/which-sql-server-edition/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/which-sql-server-edition/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2022-12-20T16:59:54.942Z</updated>
+    <updated>2022-12-23T16:30:55.164Z</updated>
 	<author>
 	
 	  
@@ -521,7 +553,7 @@
     <link href="https://westerndevs.com/_/cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cheat-sheet/</id>
     <published>2022-04-04T04:00:00.000Z</published>
-    <updated>2022-12-20T16:59:54.934Z</updated>
+    <updated>2022-12-23T16:30:55.156Z</updated>
 	<author>
 	
 	  
@@ -549,7 +581,7 @@
     <link href="https://westerndevs.com/_/rubocop-issue/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/rubocop-issue/</id>
     <published>2022-03-18T04:00:00.000Z</published>
-    <updated>2022-12-20T16:59:54.938Z</updated>
+    <updated>2022-12-23T16:30:55.160Z</updated>
 	<author>
 	
 	  
@@ -576,7 +608,7 @@
     <link href="https://westerndevs.com/_/fsevents-optional-dependencies/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/fsevents-optional-dependencies/</id>
     <published>2022-03-16T04:00:00.000Z</published>
-    <updated>2022-12-20T16:59:54.934Z</updated>
+    <updated>2022-12-23T16:30:55.156Z</updated>
 	<author>
 	
 	  
@@ -591,32 +623,6 @@
     <summary type="html">
     
       &lt;p&gt;I updated the version of the lock file on a project the other day in the hopes it might restore a little bit more quickly. However for so
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Exclude node_modules from Backblaze Backups on Windows</title>
-    <link href="https://westerndevs.com/_/backblaze-exclude-node-modules/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/backblaze-exclude-node-modules/</id>
-    <published>2022-02-20T05:00:00.000Z</published>
-    <updated>2022-12-20T16:59:54.934Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>There are <a href="https://chrisblackwell.me/ignore-node_modules-and-git-folders-in-backblaze/" target="_blank" rel="noopener">some</a> <a href="https://gist.github.com/nickcernis/bb4bd43a44efd73b87d857e29b1d5b96" target="_blank" rel="noopener">articles</a> out there about how to exclude <code>node_modules</code> from Backblaze backups on OSX but I couldn't find anything about windows.</p><p>What you want to do is open up <code>C:\ProgramData\Backblaze\bzdata\bzexcluderules_editable.xml</code> and add a new rule.</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">excludefname_rule</span> <span class="attr">plat</span>=<span class="string">"win"</span> <span class="attr">osVers</span>=<span class="string">"*"</span>  <span class="attr">ruleIsOptional</span>=<span class="string">"t"</span> <span class="attr">skipFirstCharThenStartsWith</span>=<span class="string">"*"</span> <span class="attr">contains_1</span>=<span class="string">"node_modules"</span> <span class="attr">contains_2</span>=<span class="string">"*"</span> <span class="attr">doesNotContain</span>=<span class="string">"*"</span> <span class="attr">endsWith</span>=<span class="string">"*"</span> <span class="attr">hasFileExtension</span>=<span class="string">"*"</span> /&gt;</span></span><br></pre></td></tr></table></figure><p>If you want to exclude .git folders too (they can also contain a lot of small files that are slow to backup) also add</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">excludefname_rule</span> <span class="attr">plat</span>=<span class="string">"win"</span> <span class="attr">osVers</span>=<span class="string">"*"</span>  <span class="attr">ruleIsOptional</span>=<span class="string">"t"</span> <span class="attr">skipFirstCharThenStartsWith</span>=<span class="string">"*"</span> <span class="attr">contains_1</span>=<span class="string">".git"</span> <span class="attr">contains_2</span>=<span class="string">"*"</span> <span class="attr">doesNotContain</span>=<span class="string">"*"</span> <span class="attr">endsWith</span>=<span class="string">"*"</span> <span class="attr">hasFileExtension</span>=<span class="string">"*"</span> /&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;There are &lt;a href=&quot;https://chrisblackwell.me/ignore-node_modules-and-git-folders-in-backblaze/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;some&lt;/a&gt; &lt;
     
     </summary>
     
