@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2022-12-24T04:15:03.814Z</updated>
+  <updated>2023-01-05T16:47:29.015Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,53 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Highlight Reel for 2022</title>
+    <link href="https://westerndevs.com/musings/highlight-reel-for-2022/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/musings/highlight-reel-for-2022/</id>
+    <published>2023-01-05T21:47:02.098Z</published>
+    <updated>2023-01-05T16:47:29.015Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>While working on revamping my website and blog, I revisited a number of my old posts. Two of my favourites are the Highlight Reels for <a href="https://www.githubunwrapped.com/davidwesst" target="_blank" rel="noopener">2014</a> and <a href="https://github.com/cocobokostudios/videogamelibrary" target="_blank" rel="noopener">2015</a> as they document how I felt about myself and my accomplishments at that point in my life and career. Considering that this past year has been one of pretty extreme personal transformation, I thought it would be appropriate to document my self-reflection for 2022 in a similar style. The difference this time around will be that I focus on observed behaviours related to event and work, rather than the events themselves. More specifically, the behaviours that I like, love, and need to improve.</p><p>Don't worry-- it's not all feelings. It's data too. All my observed behaviours relate to my projects I worked on throughout the year on GitHub, which provides great insights into my contributions. I'll be using my GitHub contributions for 2022 to highlight the spots where I can identify the behaviour.</p><p>Why do this? Because I want to remind myself an others that if you feel like you are stuck, you are better off finding the source of the problem-- even if it makes you face some hard truths. By understanding the root problem, you can work at resolving it, even it it involves changing what you believe is your best approach to work.</p><h2>I <em>love to learn</em> about code</h2><p><img src="./gh2022-contributions_learning.png" alt="The GitHub contribution graph for user davidwesst, consisting of coloured squares ranging from grey for no contributions to bright green for many, for all the weeks in the year. There is a bright red, mouse-written work &amp;quot;learning&amp;quot; with an arrow pointing to a bright red circle around the squares for January and February 2022 where there appears to be a consistent amount of git activity."></p><p>At the end of 2021, I started looking at the job market and started to notice that the jobs I wanted (or thought I wanted) relied on skills that I have not been able to practice as part of my day job. Coding is no longer one of my responsibilities, only planning, designing, and providing oversight. This sparked the urge to refresh my skills and prove to myself that I <em>could</em> do for these jobs, and that all I had to do was put in the time.</p><p>And so began a series of LeetCode challenges, learning exercises, and review of various problems so that I could skill up and strengthen those coding muscles again. This is what you see in the contribution graph for the first 2-3 months of 2022.</p><p>Although this spark eventually faded as it does, I realized something about myself. I realized that it's not the code I love, but the learning about code and how to apply code in various ways. New languages, patterns and practices, solution architecture, whatever-- if it involves coding something, you can count I'll be interested.</p><h3>Lesson Learned: Burnout</h3><p>This is example highlight Q1 of 2022, yet there are plenty of other times where I spent time learning new tech. Experimenting with Go and Rust as part of my <a href="https://github.com/cocobokostudios/videogamelibrary" target="_blank" rel="noopener">VGL project</a> (more about that later). A brief experiment with Q# back in 2019 early 2020, and my continual urge to learn C/C++ along with the DevOps tools around it. These are all things that have sparked that <em>love of learning code</em> over the past few years, and each time it's the same pattern: spark of interest, dive deep into the learning, burn out because you don't know where to go with this knowledge.</p><p>Which brings me to the lesson learned: I need to direct my learning energy towards a goal. This way, when the excitement of learning something new fades I will still have a goal in my sights and continue to channel that energy towards something, rather then letting it fade out.</p><h2>I <em>love to build things</em> out of code</h2><p>At the end of the year, I looked at my <a href="https://www.githubunwrapped.com/davidwesst" target="_blank" rel="noopener">GitHub Unwrapped video</a> and was surprised by my top languages for 2022.</p><p><img src="/images/2023-01-05-highlight-reel-for-2022/gh2022-toplanguages.png" alt="A blue and white stocking is hung on an imaginary wall with snow coming down and a TypeScript logo sitting on top of it, denoting that TypeScript was my &amp;quot;top language&amp;quot; for the year, followed up by JavaScript in second, and HTML in third"></p><p>I was trying to figure out where I had written so much TypeScript, considering that for the past few months I have been living in JavaScript and HTML. Again, going back to my contribution graph I noticed another spike in activity in May.</p><p><img src="./gh2022-contributions_building.png" alt="The GitHub contribution graph made up of squares where a large number of the squares for May 2022 show contributions, along with many more from October to December. Both sections of the graph are circled in bright red, and between them is the word &amp;quot;building&amp;quot; with arrows pointing at them."></p><p>I remembered that I decided to repurpose my learning strategy, and rather than just doing LeetCode exercises and textbook studying to strengthen my atrophied coding muscles, I would study by building something. Something that <em>I</em> found useful, all while further strengthening my skills! This was the beginning of the <a href="https://github.com/cocobokostudios/videogamelibrary" target="_blank" rel="noopener">Video Game Library or &quot;VGL&quot; project</a> where I spent time building a TypeScript-React project and included some experiments with both Go and Rust to determine which language allowed me to leverage WASM (which was yet another rabbit hole I became excited about).</p><p>In the end I shelved the project because I was letting my learning drive the project. This meant anything I wanted to learn, I added scope to the project. In the end, it become too big and my original vision was lost, but the urge to build never fades, only the &quot;something&quot; that I am building.</p><p>Looking back beyond 2022-- the idea of building something has always driven me. Building a business, a video game, or a product. It doesn't matter, as long as <em>I am building it</em>.</p><p>Where it falls over is when the scope gets too large and overwhelming. This is not uncommon amongst creative types (just ask any game developer) but building something, ideally out of code, is something that drives me. If I can channel that excitement and passion on something I believe is worth it, I think I could produce and finish something I could be proud of.</p><p>I started to make this realization about myself and my drive to build things later in the year. This is why I came back to building my website that I had let fall into dormant. I wanted to channel that excitement, energy, and knowledge into something I found valuable. My website is something I have talked about improving for years and started redoing countless times. Looking back at the contribution graph, this represents a large part of the contributions for October, November, and December for 2022. This is further evidenced by the <a href="https://github.com/davidwesst/website/releases" target="_blank" rel="noopener">releases of the website</a> I published through the same time period.</p><h3>Same Drive, Different Approach</h3><p>Reflecting on my behaviour during the VGL project in May and the website work in the last quarter of the year-- the behaviour and drive was the same. I <em>loved building something</em>, yet the VGL project went onto the shelf, and the website finally managed to get some traction.</p><p>The difference was in my approach.</p><p>For the Video Game Library project, I let the excitement of learning and drive its development, which led to scope creep and dilution of the original project vision. With the website I took the time to plan and force myself to complete releases-- no matter how small.</p><p>This change in approach enabled in a longer focus on a single project. Ultimately, that kept my excitement for my website project going longer and I kept coming back to it over and over again to make small (or sometimes larger) improvements. In fact, I am continuing those improvements today as the website is far from complete-- but it's starting to represent the vision I started.</p><h2>I <em>like</em> (not love) to share</h2><p>I have tried sharing and producing content in various forms over the years, but with <a href="https://www.davidwesst.com/blog/prairie-dev-con-2022-takeaways/" target="_blank" rel="noopener">Prairie Dev Con returning in 2022</a>, I thought I would focus some energy into preparing and share content like I used to in my <a href="https://www.davidwesst.com/tags/mvp/" target="_blank" rel="noopener">Microsoft MVP days</a>. This meant lecture-style presentations and blogging.</p><p>After three live events in 2022, and almost a blog post a week since mid-October, I realized that I don't love sharing like I used to...rather I only <em>like it</em>. It's a subtle difference, but it is definitely different than it once was.</p><p>I like it because it is a <em>practical</em> way to document my work. I love learning and building things, and sharing those things is an easy way to document my progress for others-- but more importantly myself. With the blog posts, I documented things I learned for my website like the <a href="https://www.davidwesst.com/blog/open-graph-tools-and-resources-for-web-nerds/" target="_blank" rel="noopener">Open Graph protocol</a> or my <a href="https://www.davidwesst.com/blog/does-gdpr-apply-to-personal-websites/" target="_blank" rel="noopener">implementation of GDPR compliance</a>. For the presentations, I focused on what I knew and delivered two original sessions; one about <a href="https://www.davidwesst.com/talks/concensus-in-the-chaos/" target="_blank" rel="noopener">my day job and what it is means to be an IT Architect</a> and the other a <a href="http://localhost:8080/talks/cots-to-cloud/" target="_blank" rel="noopener">case study on how to do my day job</a>.</p><p>Though this experience this year, I found that I liked the process-- but didn't love it like I used to. To me, the presentations and blog posts were necessary for other outcomes. More specifically, the presentations were my ticket to touch base with other real-life speakers and tech professionals after a multi-year hiatus. The blog posts were my way of documenting, analyzing, and appreciating my own effort into my various side projects.</p><p>In the past, with the MVP program, I blogged and shared to receive validation from my peers and the MVP program itself. Those goals are not bad ones by any stretch, but since I don't have the MVP program pushing me, I need something else to help push me. That &quot;something&quot; is myself, and the outcomes I mentioned previously. Personally, I think that means I've grown quite a bit since I was an MVP and is an great example of how 2022 has been a year filled with huge change for myself and my attitude towards work.</p><p><img src="./gh2022-contributions_sharing.png" alt="The same GitHub contribution graph from the previous two pictures, except this time the mouse-drawn word &amp;quot;sharing&amp;quot; with an arrow leading from the word to a red circle which highlights the months of October, November and December of 2022 as there are a large number of green squares with varying degree of brightness denoted that there were a large number of contributions during these months."></p><h2>The <em>need</em> to improve</h2><p>I have mentioned the good things, the changed things, and now I will go over the things I need to improve (in my opinion).</p><h3>I <em>need</em> to accept my own skills and abilities</h3><p>Everybody is different and bring different value to the table. I have led a very privileged career and have had massive success in many different areas, yet for years I have rarely taken the time to appreciate those accomplishments.</p><p>Instead, I would get caught up in comparing myself to others and what I <em>couldn't</em> do, rather than what I <em>could</em> do. I would dwell on my lack of recent coding experience, rather than celebrate the time I've spent <a href="http://localhost:8080/talks/cots-to-cloud/" target="_blank" rel="noopener">migrating legacy systems into the cloud</a>. I would focus on the jobs I did not qualify for, rather than the ones that I did qualify for.</p><p>This cycle of focusing on what is missing is lose-lose situation. There will never be enough success. The grass will always be greener on the other side of fence, no matter how many times I jump over it.</p><p>I need to remind myself of this moving forward, and hopefully you can remember that for yourself as well.</p><h3>I <em>need</em> to do more, and talk less</h3><p>People refer to me as &quot;a talker&quot;, as in, I like to talk and I'm pretty good at it.</p><p>I leverage my talking skill in my day-to-day job, but when it comes what I am trying to build for myself I need to focus on doing the work rather than talking about it.</p><p>It might be cliché, but &quot;talk is cheap&quot; and I need to talk less and do more. Plain and simple.</p><h2>Conclusion / TL;DR;</h2><p>In short, I identified cyclical behaviours and patterns in myself that relate to the work I put into my various side projects and personal (and professional) development. In 2022, I noticed the following about myself:</p><ol><li>I <em>love</em> to learn about code</li><li>I <em>love</em> to build things out of the things I learn (in code)</li><li>I <em>like</em> to share what I build and learn (for future me, and anyone else willing to listen)</li></ol><p>The first two are my way of channelling creativity, which is why I love them so much. Although I used to <em>love</em> sharing my knowledge, at this point in my career and life, I <em>like</em> it as it is a practical way for me to document things as I discover them and connect with others, rather than as a method to be validated and rewarded.</p><p>In terms of how I can improve:</p><ol start="4"><li>I <em>need</em> to accept my own skills and abilities</li><li>I <em>need</em> to do more and talk less (but talk about it once it is actually done)</li></ol><p>I <em>need</em> to accept and embrace my current skills and abilities, rather than focusing on what I think I am lacking. I also need to focus more on implementing my ideas rather that talking about them. Once I have something built, then I can talk more about it-- but until it's built, I need to focus my energy and excitement on the build rather than the talk.</p><p>Thanks for playing.</p><p>~ DW</p>]]></content>
+    
+    <summary type="html">
+    
+      When a new year arrives, it is a great opportunity to take a moment to reflect on where you started at the beginning of the year, and where you ended. When I look back on 2022, I noticed events reflected in my GitHub contribution graph that highlight some common cycles in my own behaviour. I want to take a moment to document this, and hopefully you can use this an example to examine your own progress and behaviour patterns that might be aiding (or impeding) your own personal and professional growth.
+    
+    </summary>
+    
+      <category term="musings" scheme="https://westerndevs.com/categories/musings/"/>
+    
+    
+      <category term="javascript" scheme="https://westerndevs.com/tags/javascript/"/>
+    
+      <category term="typescript" scheme="https://westerndevs.com/tags/typescript/"/>
+    
+      <category term="github" scheme="https://westerndevs.com/tags/github/"/>
+    
+      <category term="prdc-2022" scheme="https://westerndevs.com/tags/prdc-2022/"/>
+    
+      <category term="mvp" scheme="https://westerndevs.com/tags/mvp/"/>
+    
+      <category term="code" scheme="https://westerndevs.com/tags/code/"/>
+    
+      <category term="burnout" scheme="https://westerndevs.com/tags/burnout/"/>
+    
+  </entry>
+  
+  <entry>
     <title type="html">Happy Holidays from the Western Devs</title>
     <link href="https://westerndevs.com/_/happy-holidays-2022/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/happy-holidays-2022/</id>
     <published>2022-12-24T22:00:00.000Z</published>
-    <updated>2022-12-24T04:15:03.814Z</updated>
+    <updated>2023-01-05T16:47:29.015Z</updated>
 	<author>
 	
 	  
@@ -53,7 +95,7 @@
     <link href="https://westerndevs.com/_/speaking-at-tech-events-helps-you-grow/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/speaking-at-tech-events-helps-you-grow/</id>
     <published>2022-12-20T21:59:37.185Z</published>
-    <updated>2022-12-24T04:15:03.814Z</updated>
+    <updated>2023-01-05T16:47:29.015Z</updated>
 	<author>
 	
 	  
@@ -91,7 +133,7 @@
     <link href="https://westerndevs.com/_/docker-desktop-is-not-docker-engine/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/docker-desktop-is-not-docker-engine/</id>
     <published>2022-12-14T02:28:36.457Z</published>
-    <updated>2022-12-24T04:15:03.814Z</updated>
+    <updated>2023-01-05T16:47:29.015Z</updated>
 	<author>
 	
 	  
@@ -127,7 +169,7 @@
     <link href="https://westerndevs.com/_/prairie-dev-con-2022-takeaways/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/prairie-dev-con-2022-takeaways/</id>
     <published>2022-12-07T20:37:20.777Z</published>
-    <updated>2022-12-24T04:15:03.814Z</updated>
+    <updated>2023-01-05T16:47:29.015Z</updated>
 	<author>
 	
 	  
@@ -169,7 +211,7 @@
     <link href="https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/</id>
     <published>2022-12-01T09:18:34.509Z</published>
-    <updated>2022-12-24T04:15:03.814Z</updated>
+    <updated>2023-01-05T16:47:29.015Z</updated>
 	<author>
 	
 	  
@@ -207,7 +249,7 @@
     <link href="https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/</id>
     <published>2022-11-19T01:10:07.083Z</published>
-    <updated>2022-12-24T04:15:03.814Z</updated>
+    <updated>2023-01-05T16:47:29.015Z</updated>
 	<author>
 	
 	  
@@ -245,7 +287,7 @@
     <link href="https://westerndevs.com/_/bulk-insert-sql-geometry/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/bulk-insert-sql-geometry/</id>
     <published>2022-11-17T05:00:00.000Z</published>
-    <updated>2022-12-24T04:15:03.814Z</updated>
+    <updated>2023-01-05T16:47:29.015Z</updated>
 	<author>
 	
 	  
@@ -271,7 +313,7 @@
     <link href="https://westerndevs.com/_/azure-backus-protip/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-backus-protip/</id>
     <published>2022-11-11T05:00:00.000Z</published>
-    <updated>2022-12-24T04:15:03.814Z</updated>
+    <updated>2023-01-05T16:47:29.015Z</updated>
 	<author>
 	
 	  
@@ -297,7 +339,7 @@
     <link href="https://westerndevs.com/_/how-much-is-enough-documentation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/how-much-is-enough-documentation/</id>
     <published>2022-11-10T22:00:00.000Z</published>
-    <updated>2022-12-24T04:15:03.814Z</updated>
+    <updated>2023-01-05T16:47:29.015Z</updated>
 	<author>
 	
 	  
@@ -337,7 +379,7 @@
     <link href="https://westerndevs.com/_/how-to-fork-like-a-boss/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/how-to-fork-like-a-boss/</id>
     <published>2022-11-02T21:00:00.000Z</published>
-    <updated>2022-12-24T04:15:03.814Z</updated>
+    <updated>2023-01-05T16:47:29.015Z</updated>
 	<author>
 	
 	  
@@ -371,7 +413,7 @@
     <link href="https://westerndevs.com/_/set-output-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-output-terraform/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2022-12-24T04:15:03.822Z</updated>
+    <updated>2023-01-05T16:47:29.023Z</updated>
 	<author>
 	
 	  
@@ -397,7 +439,7 @@
     <link href="https://westerndevs.com/_/theory-of-terraform-github-actions/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/theory-of-terraform-github-actions/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2022-12-24T04:15:03.822Z</updated>
+    <updated>2023-01-05T16:47:29.023Z</updated>
 	<author>
 	
 	  
@@ -423,7 +465,7 @@
     <link href="https://westerndevs.com/_/register-providers/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/register-providers/</id>
     <published>2022-08-12T04:00:00.000Z</published>
-    <updated>2022-12-24T04:15:03.822Z</updated>
+    <updated>2023-01-05T16:47:29.023Z</updated>
 	<author>
 	
 	  
@@ -449,7 +491,7 @@
     <link href="https://westerndevs.com/_/debug-azure-container-instances-startup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/debug-azure-container-instances-startup/</id>
     <published>2022-08-04T04:00:00.000Z</published>
-    <updated>2022-12-24T04:15:03.818Z</updated>
+    <updated>2023-01-05T16:47:29.019Z</updated>
 	<author>
 	
 	  
@@ -475,7 +517,7 @@
     <link href="https://westerndevs.com/_/consuming-wsdl/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/consuming-wsdl/</id>
     <published>2022-05-30T04:00:00.000Z</published>
-    <updated>2022-12-24T04:15:03.814Z</updated>
+    <updated>2023-01-05T16:47:29.015Z</updated>
 	<author>
 	
 	  
@@ -501,7 +543,7 @@
     <link href="https://westerndevs.com/_/azure-functions-error/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-functions-error/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2022-12-24T04:15:03.814Z</updated>
+    <updated>2023-01-05T16:47:29.015Z</updated>
 	<author>
 	
 	  
@@ -527,7 +569,7 @@
     <link href="https://westerndevs.com/_/which-sql-server-edition/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/which-sql-server-edition/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2022-12-24T04:15:03.826Z</updated>
+    <updated>2023-01-05T16:47:29.027Z</updated>
 	<author>
 	
 	  
@@ -553,7 +595,7 @@
     <link href="https://westerndevs.com/_/cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cheat-sheet/</id>
     <published>2022-04-04T04:00:00.000Z</published>
-    <updated>2022-12-24T04:15:03.814Z</updated>
+    <updated>2023-01-05T16:47:29.015Z</updated>
 	<author>
 	
 	  
@@ -581,7 +623,7 @@
     <link href="https://westerndevs.com/_/rubocop-issue/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/rubocop-issue/</id>
     <published>2022-03-18T04:00:00.000Z</published>
-    <updated>2022-12-24T04:15:03.822Z</updated>
+    <updated>2023-01-05T16:47:29.023Z</updated>
 	<author>
 	
 	  
@@ -597,32 +639,6 @@
     
       &lt;p&gt;I run this rubocop extension in my VS Code&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/images/2022-03-18-rubocop-issue.md/2022-03-18-10-15-48.png&quot; alt=&quot;rubocop ext
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Unsupported Architecture for fsevents with Oryx</title>
-    <link href="https://westerndevs.com/_/fsevents-optional-dependencies/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/fsevents-optional-dependencies/</id>
-    <published>2022-03-16T04:00:00.000Z</published>
-    <updated>2022-12-24T04:15:03.818Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>I updated the version of the lock file on a project the other day in the hopes it might restore a little bit more quickly. However for some steps in my build an older version of NPM was being used. This older version didn't have support for the new lock file version and while it is supposed to be compatible it seemed like optional dependencies like fsevents were causing a legit issue</p><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">npm WARN <span class="keyword">read</span>-shrinkwrap This <span class="keyword">version</span> of npm is compatible with lockfileVersion@1, but package-lock.json was generated <span class="keyword">for</span> lockfileVersion@2. I'll try to <span class="keyword">do</span> my best with it!</span><br><span class="line">npm <span class="keyword">ERR</span>! code EBADPLATFORM</span><br><span class="line">npm <span class="keyword">ERR</span>! notsup Unsupported platform <span class="keyword">for</span> fsevents@2.3.2: wanted &#123;<span class="string">"os"</span>:<span class="string">"darwin"</span>,<span class="string">"arch"</span>:<span class="string">"any"</span>&#125; (current: &#123;<span class="string">"os"</span>:<span class="string">"linux"</span>,<span class="string">"arch"</span>:<span class="string">"x64"</span>&#125;)</span><br><span class="line">npm <span class="keyword">ERR</span>! notsup Valid OS:    darwin</span><br><span class="line">npm <span class="keyword">ERR</span>! notsup Valid <span class="keyword">Arch</span>:  any</span><br><span class="line">npm <span class="keyword">ERR</span>! notsup Actual OS:   linux</span><br><span class="line">npm <span class="keyword">ERR</span>! notsup Actual <span class="keyword">Arch</span>: x64</span><br><span class="line"></span><br><span class="line">npm <span class="keyword">ERR</span>! A complete <span class="keyword">log</span> of this <span class="keyword">run</span> can be found <span class="keyword">in</span>:</span><br><span class="line">npm <span class="keyword">ERR</span>!     /root/.npm/_logs/2022-03-09T13_58_42_006Z-debug.<span class="keyword">log</span></span><br></pre></td></tr></table></figure><p>In theory these fsevent things should be warnings because they are optional dependencies. Updating the version of node used by Oryx, the build engine for Azure Static Web Apps, listens to the version of node defined in <code>package.config</code>. Adding this section to the <code>package.config</code> fixed everything</p><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"engines"</span>: &#123;</span><br><span class="line">    <span class="string">"node"</span>: <span class="string">"&gt;=16.0"</span>,</span><br><span class="line">    <span class="string">"npm"</span>: <span class="string">"&gt;=8.0"</span></span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;I updated the version of the lock file on a project the other day in the hopes it might restore a little bit more quickly. However for so
     
     </summary>
     
