@@ -5,7 +5,7 @@
   <link href="/feeds/david_wesst" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2023-01-05T16:47:29.015Z</updated>
+  <updated>2023-01-11T21:44:18.112Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,53 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Docker Build Hangs When Adding Key with apt-key in WSL2</title>
+    <link href="https://westerndevs.com/coding/problem-solution/docker-build-hangs-on-apt-key-in-wsl2/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/coding/problem-solution/docker-build-hangs-on-apt-key-in-wsl2/</id>
+    <published>2023-01-12T02:43:58.005Z</published>
+    <updated>2023-01-11T21:44:18.112Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<h2>Problem</h2><p>When trying to add a key using <code>apt-key</code> on a Debian 11 docker image, the step seems to run infinitely.</p><p>The screenshot below highlights this problem when adding a key that is necessary to validate the mono-complete package.</p><p><img src="/images/2023-01-11-docker-build-hangs-on-apt-key-in-wsl2/console-screenshot.png" alt="A terminal window showing the steps of a docker build command along with their run times. The command that is currently being run is an apt-key command that is still running after 8078.8 seconds"></p><h3>Details</h3><p>I setup a <a href="https://containers.dev/" target="_blank" rel="noopener">DevContainer</a> to build Inky, a interactive fiction editor I like for game projects, without having to install all the build dependencies on my local machine. The Docker container build worked on my Linux machine, but would hang on my Windows 11 box, using Docker Desktop with WSL2. More specifically, it would run forever on the <code>apt-key</code> command, as specified by the <a href="https://www.mono-project.com/download/stable/#download-lin-debian" target="_blank" rel="noopener">mono install instructions</a>.</p><p>If you need an example, take a look at <a href="https://github.com/davidwesst/inky/tree/8a5809f0b5f0a480b37b759443479fa13b9cf18c" target="_blank" rel="noopener">my Inky repository fork at that specific point</a>.</p><h2>Solution</h2><p>The issue was that the command specifically references port 80 in the URL to the keyserver. In the end, I changed:</p><p><code>sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF</code></p><p>to</p><p><code>sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF</code></p><p>You can see the specifics in the <a href="https://github.com/davidwesst/inky/commit/52b9d1a2e577061ae1da735e05cf466712bb9279" target="_blank" rel="noopener">next commit in my example repository</a> in the following commit here.</p><h3>Reference</h3><p>I was put on the right track with a Stack Overflow post trying to solve a similar issue with <code>apt-key</code>. Scrolling through the answers, I found this one: <a href="https://unix.stackexchange.com/a/128704" target="_blank" rel="noopener">LINK</a></p><h3><code>apt-key</code> Deprecation Notice</h3><p>If you look at the <a href="https://manpages.debian.org/testing/apt/apt-key.8.en.html" target="_blank" rel="noopener">Debian documentation for <code>apt-key</code></a> or try running the command yourself, you might notice the deprecation warning. Underneath the hood, it runs the appropriate command in Debian 11, but will be gone after Debian 11 and Ubuntu 22.04.</p><p>Just something to note for those looking over this solution in the future.</p><h2>Conclusion / TL;DR;</h2><p>I needed to remove the port number from the keyserver URL used in my <code>apt-key</code> command.</p><p>Thanks for playing.</p><p>~ DW</p>]]></content>
+    
+    <summary type="html">
+    
+      The solution to the problem where an apt-key command seems to run forever in your docker build.
+    
+    </summary>
+    
+      <category term="coding" scheme="https://westerndevs.com/categories/coding/"/>
+    
+      <category term="problem-solution" scheme="https://westerndevs.com/categories/coding/problem-solution/"/>
+    
+    
+      <category term="docker" scheme="https://westerndevs.com/tags/docker/"/>
+    
+      <category term="linux" scheme="https://westerndevs.com/tags/linux/"/>
+    
+      <category term="wsl2" scheme="https://westerndevs.com/tags/wsl2/"/>
+    
+      <category term="apt-key" scheme="https://westerndevs.com/tags/apt-key/"/>
+    
+      <category term="debian" scheme="https://westerndevs.com/tags/debian/"/>
+    
+      <category term="devcontainer" scheme="https://westerndevs.com/tags/devcontainer/"/>
+    
+  </entry>
+  
+  <entry>
     <title type="html">Highlight Reel for 2022</title>
     <link href="https://westerndevs.com/musings/highlight-reel-for-2022/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/musings/highlight-reel-for-2022/</id>
     <published>2023-01-05T21:47:02.098Z</published>
-    <updated>2023-01-05T16:47:29.015Z</updated>
+    <updated>2023-01-11T21:44:18.112Z</updated>
 	<author>
 	
 	  
@@ -63,7 +105,7 @@
     <link href="https://westerndevs.com/_/speaking-at-tech-events-helps-you-grow/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/speaking-at-tech-events-helps-you-grow/</id>
     <published>2022-12-20T21:59:37.185Z</published>
-    <updated>2023-01-05T16:47:29.015Z</updated>
+    <updated>2023-01-11T21:44:18.112Z</updated>
 	<author>
 	
 	  
@@ -101,7 +143,7 @@
     <link href="https://westerndevs.com/_/docker-desktop-is-not-docker-engine/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/docker-desktop-is-not-docker-engine/</id>
     <published>2022-12-14T02:28:36.457Z</published>
-    <updated>2023-01-05T16:47:29.015Z</updated>
+    <updated>2023-01-11T21:44:18.112Z</updated>
 	<author>
 	
 	  
@@ -137,7 +179,7 @@
     <link href="https://westerndevs.com/_/prairie-dev-con-2022-takeaways/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/prairie-dev-con-2022-takeaways/</id>
     <published>2022-12-07T20:37:20.777Z</published>
-    <updated>2023-01-05T16:47:29.015Z</updated>
+    <updated>2023-01-11T21:44:18.112Z</updated>
 	<author>
 	
 	  
@@ -179,7 +221,7 @@
     <link href="https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/</id>
     <published>2022-12-01T09:18:34.509Z</published>
-    <updated>2023-01-05T16:47:29.015Z</updated>
+    <updated>2023-01-11T21:44:18.112Z</updated>
 	<author>
 	
 	  
@@ -217,7 +259,7 @@
     <link href="https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/</id>
     <published>2022-11-19T01:10:07.083Z</published>
-    <updated>2023-01-05T16:47:29.015Z</updated>
+    <updated>2023-01-11T21:44:18.112Z</updated>
 	<author>
 	
 	  
@@ -255,7 +297,7 @@
     <link href="https://westerndevs.com/_/how-much-is-enough-documentation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/how-much-is-enough-documentation/</id>
     <published>2022-11-10T22:00:00.000Z</published>
-    <updated>2023-01-05T16:47:29.015Z</updated>
+    <updated>2023-01-11T21:44:18.112Z</updated>
 	<author>
 	
 	  
@@ -295,7 +337,7 @@
     <link href="https://westerndevs.com/_/how-to-fork-like-a-boss/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/how-to-fork-like-a-boss/</id>
     <published>2022-11-02T21:00:00.000Z</published>
-    <updated>2023-01-05T16:47:29.015Z</updated>
+    <updated>2023-01-11T21:44:18.112Z</updated>
 	<author>
 	
 	  
@@ -329,7 +371,7 @@
     <link href="https://westerndevs.com/finding-inspiration/i-can-teach-your-dog-quantum-physics/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/finding-inspiration/i-can-teach-your-dog-quantum-physics/</id>
     <published>2021-06-28T16:00:00.000Z</published>
-    <updated>2023-01-05T16:47:29.015Z</updated>
+    <updated>2023-01-11T21:44:18.112Z</updated>
 	<author>
 	
 	  
@@ -367,7 +409,7 @@
     <link href="https://westerndevs.com/inner-monologue/what-value-does-making-content-bring-to-me/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/inner-monologue/what-value-does-making-content-bring-to-me/</id>
     <published>2021-06-17T16:00:00.000Z</published>
-    <updated>2023-01-05T16:47:29.015Z</updated>
+    <updated>2023-01-11T21:44:18.112Z</updated>
 	<author>
 	
 	  
@@ -405,7 +447,7 @@
     <link href="https://westerndevs.com/inner-monologue/my-secret-addiction-to-likes/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/inner-monologue/my-secret-addiction-to-likes/</id>
     <published>2021-06-03T16:00:00.000Z</published>
-    <updated>2023-01-05T16:47:29.015Z</updated>
+    <updated>2023-01-11T21:44:18.112Z</updated>
 	<author>
 	
 	  
@@ -443,7 +485,7 @@
     <link href="https://westerndevs.com/technology/inner-monologue/lucky-number-v7/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/technology/inner-monologue/lucky-number-v7/</id>
     <published>2021-05-24T16:00:00.000Z</published>
-    <updated>2023-01-05T16:47:29.015Z</updated>
+    <updated>2023-01-11T21:44:18.112Z</updated>
 	<author>
 	
 	  
@@ -479,7 +521,7 @@
     <link href="https://westerndevs.com/devops/from-travis-ci-to-github-actions/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devops/from-travis-ci-to-github-actions/</id>
     <published>2020-11-10T23:36:00.000Z</published>
-    <updated>2023-01-05T16:47:29.015Z</updated>
+    <updated>2023-01-11T21:44:18.112Z</updated>
 	<author>
 	
 	  
@@ -517,7 +559,7 @@
     <link href="https://westerndevs.com/devlog/out-the-door/out-the-door-post-jam-update/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/out-the-door/out-the-door-post-jam-update/</id>
     <published>2020-11-09T14:00:00.000Z</published>
-    <updated>2023-01-05T16:47:29.015Z</updated>
+    <updated>2023-01-11T21:44:18.112Z</updated>
 	<author>
 	
 	  
@@ -559,7 +601,7 @@
     <link href="https://westerndevs.com/devlog/a-solo-gamejam-experience-ld47/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/a-solo-gamejam-experience-ld47/</id>
     <published>2020-10-23T13:00:00.000Z</published>
-    <updated>2023-01-05T16:47:29.015Z</updated>
+    <updated>2023-01-11T21:44:18.112Z</updated>
 	<author>
 	
 	  
@@ -599,7 +641,7 @@
     <link href="https://westerndevs.com/devlog/game-portfolio-review-2020/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/game-portfolio-review-2020/</id>
     <published>2020-09-18T13:00:00.000Z</published>
-    <updated>2023-01-05T16:47:29.015Z</updated>
+    <updated>2023-01-11T21:44:18.112Z</updated>
 	<author>
 	
 	  
@@ -639,7 +681,7 @@
     <link href="https://westerndevs.com/devlog/little-shop-of-wall-street-01-release-notes/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/little-shop-of-wall-street-01-release-notes/</id>
     <published>2020-07-02T15:13:00.000Z</published>
-    <updated>2023-01-05T16:47:29.011Z</updated>
+    <updated>2023-01-11T21:44:18.112Z</updated>
 	<author>
 	
 	  
@@ -677,7 +719,7 @@
     <link href="https://westerndevs.com/Game-Design/How-GitHub-Makes-Game-Making-Easier-For-NonCoders/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Game-Design/How-GitHub-Makes-Game-Making-Easier-For-NonCoders/</id>
     <published>2020-02-19T20:48:36.000Z</published>
-    <updated>2023-01-05T16:47:29.011Z</updated>
+    <updated>2023-01-11T21:44:18.108Z</updated>
 	<author>
 	
 	  
@@ -713,7 +755,7 @@
     <link href="https://westerndevs.com/Devlog/Jan-2020-Devlog/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Devlog/Jan-2020-Devlog/</id>
     <published>2020-02-04T21:03:24.000Z</published>
-    <updated>2023-01-05T16:47:29.011Z</updated>
+    <updated>2023-01-11T21:44:18.108Z</updated>
 	<author>
 	
 	  
@@ -741,44 +783,6 @@
       <category term="Video" scheme="https://westerndevs.com/tags/Video/"/>
     
       <category term="Car Scientist" scheme="https://westerndevs.com/tags/Car-Scientist/"/>
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Where to Find Your Gamedev Community</title>
-    <link href="https://westerndevs.com/Game-Development/Where-To-Find-Your-Gamedev-Community/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/Game-Development/Where-To-Find-Your-Gamedev-Community/</id>
-    <published>2020-01-21T11:09:00.000Z</published>
-    <updated>2023-01-05T16:47:29.011Z</updated>
-	<author>
-	
-	  
-	  <name>David Wesst</name>
-	  <email>questions@davidwesst.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>Four places to find your new game development and/or design and/or technology community and figure out if it's even good!</p><a id="more"></a><iframe width="560" height="315" src="https://www.youtube.com/embed/rfxfLZTM7Fk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>Did you know there are people out there who will help you with your game because they WANT TO DO IT? I know, right? This magical place is called a “community” and they exist literally all over the world. You just need to find one. In this video, I talk about four different places to find technology and game development/design communities right from where your sitting.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Four places to find your new game development and/or design and/or technology community and figure out if it&#39;s even good!&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Game Development" scheme="https://westerndevs.com/categories/Game-Development/"/>
-    
-    
-      <category term="Game Development" scheme="https://westerndevs.com/tags/Game-Development/"/>
-    
-      <category term="Community" scheme="https://westerndevs.com/tags/Community/"/>
-    
-      <category term="Game Design" scheme="https://westerndevs.com/tags/Game-Design/"/>
-    
-      <category term="Gamedev" scheme="https://westerndevs.com/tags/Gamedev/"/>
-    
-      <category term="Professional Development" scheme="https://westerndevs.com/tags/Professional-Development/"/>
     
   </entry>
   
