@@ -5,7 +5,7 @@
   <link href="/feeds/simon_timms" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2023-01-22T22:52:22.219Z</updated>
+  <updated>2023-01-27T18:24:49.686Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://westerndevs.com/_/bulk-insert-sql-geometry/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/bulk-insert-sql-geometry/</id>
     <published>2022-11-17T05:00:00.000Z</published>
-    <updated>2023-01-22T22:52:22.219Z</updated>
+    <updated>2023-01-27T18:24:49.686Z</updated>
 	<author>
 	
 	  
@@ -47,7 +47,7 @@
     <link href="https://westerndevs.com/_/azure-backus-protip/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-backus-protip/</id>
     <published>2022-11-11T05:00:00.000Z</published>
-    <updated>2023-01-22T22:52:22.219Z</updated>
+    <updated>2023-01-27T18:24:49.686Z</updated>
 	<author>
 	
 	  
@@ -73,7 +73,7 @@
     <link href="https://westerndevs.com/_/set-output-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-output-terraform/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2023-01-22T22:52:22.227Z</updated>
+    <updated>2023-01-27T18:24:49.694Z</updated>
 	<author>
 	
 	  
@@ -99,7 +99,7 @@
     <link href="https://westerndevs.com/_/theory-of-terraform-github-actions/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/theory-of-terraform-github-actions/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2023-01-22T22:52:22.227Z</updated>
+    <updated>2023-01-27T18:24:49.694Z</updated>
 	<author>
 	
 	  
@@ -125,7 +125,7 @@
     <link href="https://westerndevs.com/_/register-providers/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/register-providers/</id>
     <published>2022-08-12T04:00:00.000Z</published>
-    <updated>2023-01-22T22:52:22.223Z</updated>
+    <updated>2023-01-27T18:24:49.690Z</updated>
 	<author>
 	
 	  
@@ -151,7 +151,7 @@
     <link href="https://westerndevs.com/_/debug-azure-container-instances-startup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/debug-azure-container-instances-startup/</id>
     <published>2022-08-04T04:00:00.000Z</published>
-    <updated>2023-01-22T22:52:22.219Z</updated>
+    <updated>2023-01-27T18:24:49.686Z</updated>
 	<author>
 	
 	  
@@ -177,7 +177,7 @@
     <link href="https://westerndevs.com/_/consuming-wsdl/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/consuming-wsdl/</id>
     <published>2022-05-30T04:00:00.000Z</published>
-    <updated>2023-01-22T22:52:22.219Z</updated>
+    <updated>2023-01-27T18:24:49.686Z</updated>
 	<author>
 	
 	  
@@ -203,7 +203,7 @@
     <link href="https://westerndevs.com/_/azure-functions-error/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-functions-error/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2023-01-22T22:52:22.219Z</updated>
+    <updated>2023-01-27T18:24:49.686Z</updated>
 	<author>
 	
 	  
@@ -229,7 +229,7 @@
     <link href="https://westerndevs.com/_/which-sql-server-edition/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/which-sql-server-edition/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2023-01-22T22:52:22.227Z</updated>
+    <updated>2023-01-27T18:24:49.694Z</updated>
 	<author>
 	
 	  
@@ -255,7 +255,7 @@
     <link href="https://westerndevs.com/_/cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cheat-sheet/</id>
     <published>2022-04-04T04:00:00.000Z</published>
-    <updated>2023-01-22T22:52:22.219Z</updated>
+    <updated>2023-01-27T18:24:49.686Z</updated>
 	<author>
 	
 	  
@@ -283,7 +283,7 @@
     <link href="https://westerndevs.com/_/rubocop-issue/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/rubocop-issue/</id>
     <published>2022-03-18T04:00:00.000Z</published>
-    <updated>2023-01-22T22:52:22.223Z</updated>
+    <updated>2023-01-27T18:24:49.690Z</updated>
 	<author>
 	
 	  
@@ -310,7 +310,7 @@
     <link href="https://westerndevs.com/_/fsevents-optional-dependencies/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/fsevents-optional-dependencies/</id>
     <published>2022-03-16T04:00:00.000Z</published>
-    <updated>2023-01-22T22:52:22.223Z</updated>
+    <updated>2023-01-27T18:24:49.686Z</updated>
 	<author>
 	
 	  
@@ -336,7 +336,7 @@
     <link href="https://westerndevs.com/_/backblaze-exclude-node-modules/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/backblaze-exclude-node-modules/</id>
     <published>2022-02-20T05:00:00.000Z</published>
-    <updated>2023-01-22T22:52:22.219Z</updated>
+    <updated>2023-01-27T18:24:49.686Z</updated>
 	<author>
 	
 	  
@@ -362,7 +362,7 @@
     <link href="https://westerndevs.com/_/parsing-vue-router-parameters/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/parsing-vue-router-parameters/</id>
     <published>2022-02-18T05:00:00.000Z</published>
-    <updated>2023-01-22T22:52:22.223Z</updated>
+    <updated>2023-01-27T18:24:49.690Z</updated>
 	<author>
 	
 	  
@@ -388,7 +388,7 @@
     <link href="https://westerndevs.com/_/install-azfileshybrid-powershell/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/install-azfileshybrid-powershell/</id>
     <published>2022-02-16T05:00:00.000Z</published>
-    <updated>2023-01-22T22:52:22.223Z</updated>
+    <updated>2023-01-27T18:24:49.690Z</updated>
 	<author>
 	
 	  
@@ -414,7 +414,7 @@
     <link href="https://westerndevs.com/_/purge-cdn-in-devops/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/purge-cdn-in-devops/</id>
     <published>2022-01-27T05:00:00.000Z</published>
-    <updated>2023-01-22T22:52:22.223Z</updated>
+    <updated>2023-01-27T18:24:49.690Z</updated>
 	<author>
 	
 	  
@@ -441,7 +441,7 @@
     <link href="https://westerndevs.com/_/hash-nil/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/hash-nil/</id>
     <published>2021-11-24T05:00:00.000Z</published>
-    <updated>2023-01-22T22:52:22.223Z</updated>
+    <updated>2023-01-27T18:24:49.690Z</updated>
 	<author>
 	
 	  
@@ -467,7 +467,7 @@
     <link href="https://westerndevs.com/_/choosing-power-bi/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/choosing-power-bi/</id>
     <published>2021-11-19T05:00:00.000Z</published>
-    <updated>2023-01-22T22:52:22.219Z</updated>
+    <updated>2023-01-27T18:24:49.686Z</updated>
 	<author>
 	
 	  
@@ -493,7 +493,7 @@
     <link href="https://westerndevs.com/_/app-services-on-vnet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/app-services-on-vnet/</id>
     <published>2021-11-14T05:00:00.000Z</published>
-    <updated>2023-01-22T22:52:22.219Z</updated>
+    <updated>2023-01-27T18:24:49.686Z</updated>
 	<author>
 	
 	  
@@ -519,7 +519,7 @@
     <link href="https://westerndevs.com/_/ngrok-aspnet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ngrok-aspnet/</id>
     <published>2021-10-25T04:00:00.000Z</published>
-    <updated>2023-01-22T22:52:22.223Z</updated>
+    <updated>2023-01-27T18:24:49.690Z</updated>
 	<author>
 	
 	  
