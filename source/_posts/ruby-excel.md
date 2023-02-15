@@ -2,12 +2,8 @@
 title:  Excel and Ruby
 # Spreadsheet
 # RubyXL
- only do this if you don't care about memory usage, otherwise you can load submodules separately
- depending on what you need
 # CAXLSX
 # Fast Excel
- constant_memory: true streams changes to disk so it means that you cannot
- modify an already written record
 authorId: simon_timms
 date: 2023-02-15
 originalurl: https://blog.simontimms.com/2023/02/15/ruby-excel
@@ -52,8 +48,8 @@ This library works on the more modern XLSX file formats. It is able to read and 
 ```ruby
 require 'rubyXL'
 
-
-
+  # only do this if you don't care about memory usage, otherwise you can load submodules separately
+  # depending on what you need
 require 'rubyXL/convenience_methods'
 
 workbook = RubyXL::Parser.parse("test.xlsx")
@@ -103,8 +99,8 @@ This library focuses on being the fastest excel library for ruby. It is actually
 ```ruby
 require 'fast_excel'
 
-
-
+  # constant_memory: true streams changes to disk so it means that you cannot
+  # modify an already written record
 workbook = FastExcel.open("test.xlsx", constant_memory: true)
 worksheet = workbook.add_worksheet("Test")
 
