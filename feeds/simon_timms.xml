@@ -5,7 +5,7 @@
   <link href="/feeds/simon_timms" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2023-02-15T15:29:46.273Z</updated>
+  <updated>2023-02-15T16:04:15.056Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Excel and Ruby</title>
+    <link href="https://westerndevs.com/_/ruby-excel/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/ruby-excel/</id>
+    <published>2023-02-15T05:00:00.000Z</published>
+    <updated>2023-02-15T16:04:15.056Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>Excel is the king of spreadsheets and I often find myself in situation where I have to write our Excel files in an application. I'd say that as an application grows the probability of needing Excel import or export approaches 1. Fortunately, there are lots of libraries out there to help with Excel across just about every language. The quality and usefuleness of these libraries varies a lot. In Ruby land there seem to be a few options.</p><h2>Spreadsheet</h2><p>https://github.com/zdavatz/spreadsheet/</p><p>As the name suggests this library deals with Excel spreadsheets. It is able to both read and write them by using Spreadsheet::Excel Library and the ParseExcel Library. However it only supports the older XLS file format. While this is still widely used it is not the default format for Excel 2007 and later. I try to stay clear of the format as much as possible. There have not been any releases of this library in about 18 months but there haven't been any releases of the XLS file format for decades so it doesn't seem like a big deal.</p><p>The library can be installed using</p><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem <span class="keyword">install</span> spreadsheet</span><br></pre></td></tr></table></figure><p>Then you can use it like so</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">'spreadsheet'</span></span><br><span class="line"></span><br><span class="line">workbook = Spreadsheet.open(<span class="string">"test.xls"</span>)</span><br><span class="line">worksheet = workbook.worksheet <span class="number">0</span></span><br><span class="line">worksheet.rows[<span class="number">1</span>][<span class="number">1</span>] = <span class="string">"Hello there!"</span></span><br><span class="line">workbook.write(<span class="string">"test2.xls"</span>)</span><br></pre></td></tr></table></figure><p>There are some limitations around editing files such as cell formats not updating but for most things it should be fine.</p><h2>RubyXL</h2><p>https://github.com/weshatheleopard/rubyXL</p><p>This library works on the more modern XLSX file formats. It is able to read and write files with modifications. However there are some limitations such as being unable to insert images</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">'rubyXL'</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># only do this if you don't care about memory usage, otherwise you can load submodules separately</span></span><br><span class="line">  <span class="comment"># depending on what you need</span></span><br><span class="line"><span class="keyword">require</span> <span class="string">'rubyXL/convenience_methods'</span></span><br><span class="line"></span><br><span class="line">workbook = RubyXL::Parser.parse(<span class="string">"test.xlsx"</span>)</span><br><span class="line">worksheet = workbook[<span class="number">0</span>]</span><br><span class="line">cell = worksheet.cell_at(<span class="string">'A1'</span>)</span><br><span class="line">cell.change_contents(<span class="string">"Hello there!"</span>)</span><br><span class="line">workbook.write(<span class="string">"test2.xlsx"</span>)</span><br></pre></td></tr></table></figure><h2>CAXLSX</h2><p>https://github.com/caxlsx/caxlsx</p><p>This library is the community supported version of AXLSX. It is able to generate XLSX files but not read them or modify them. There is rich support for charts, images and other more advanced excel features. The</p><p>Install using</p><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem <span class="keyword">install</span> caxlsx</span><br></pre></td></tr></table></figure><p>And then a simple example looks like</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">'axlsx'</span></span><br><span class="line"></span><br><span class="line">p = Axlsx::Package.new</span><br><span class="line">workbook = p.workbook</span><br><span class="line"></span><br><span class="line">wb.add_worksheet(<span class="symbol">name:</span> <span class="string">'Test'</span>) <span class="keyword">do</span> <span class="params">|sheet|</span></span><br><span class="line">  sheet.add_row [<span class="string">'Hello there!'</span>]</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">p.serialize <span class="string">"test.xlsx"</span></span><br></pre></td></tr></table></figure><p>Of all the libraries mentioned here the documentation for this one is the best. It is also the most actively maintained. The examples directory https://github.com/caxlsx/caxlsx/tree/master/examples gives a plethora of examples of how to use the library.</p><h2>Fast Excel</h2><p>https://github.com/Paxa/fast_excel</p><p>This library focuses on being the fastest excel library for ruby. It is actually written in C to speed it up so comes with all the caveats about running native code. Similar to CAXLSX it is only able to read and write files and not modify them.</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">'fast_excel'</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># constant_memory: true streams changes to disk so it means that you cannot</span></span><br><span class="line">  <span class="comment"># modify an already written record</span></span><br><span class="line">workbook = FastExcel.open(<span class="string">"test.xlsx"</span>, <span class="symbol">constant_memory:</span> <span class="literal">true</span>)</span><br><span class="line">worksheet = workbook.add_worksheet(<span class="string">"Test"</span>)</span><br><span class="line"></span><br><span class="line">bold = workbook.bold_format</span><br><span class="line">worksheet.set_column(<span class="number">0</span>, <span class="number">0</span>, FastExcel::DEF_COL_WIDTH, bold)</span><br><span class="line">worksheet &lt;&lt; [<span class="string">"Hello World"</span>]</span><br><span class="line">workbook.close</span><br></pre></td></tr></table></figure><p>As you can see here the library really excels at adding consistently shaped rows. You're unlikely to get a complex spreadsheet with headers and footers built using this tooling.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Excel is the king of spreadsheets and I often find myself in situation where I have to write our Excel files in an application. I&#39;d say t
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Bulk Insert SQL Geometry on .NET Core</title>
     <link href="https://westerndevs.com/_/bulk-insert-sql-geometry/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/bulk-insert-sql-geometry/</id>
     <published>2022-11-17T05:00:00.000Z</published>
-    <updated>2023-02-15T15:29:46.273Z</updated>
+    <updated>2023-02-15T16:04:15.052Z</updated>
 	<author>
 	
 	  
@@ -47,7 +73,7 @@
     <link href="https://westerndevs.com/_/azure-backus-protip/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-backus-protip/</id>
     <published>2022-11-11T05:00:00.000Z</published>
-    <updated>2023-02-15T15:29:46.273Z</updated>
+    <updated>2023-02-15T16:04:15.052Z</updated>
 	<author>
 	
 	  
@@ -73,7 +99,7 @@
     <link href="https://westerndevs.com/_/set-output-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-output-terraform/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2023-02-15T15:29:46.281Z</updated>
+    <updated>2023-02-15T16:04:15.056Z</updated>
 	<author>
 	
 	  
@@ -99,7 +125,7 @@
     <link href="https://westerndevs.com/_/theory-of-terraform-github-actions/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/theory-of-terraform-github-actions/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2023-02-15T15:29:46.281Z</updated>
+    <updated>2023-02-15T16:04:15.060Z</updated>
 	<author>
 	
 	  
@@ -125,7 +151,7 @@
     <link href="https://westerndevs.com/_/register-providers/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/register-providers/</id>
     <published>2022-08-12T04:00:00.000Z</published>
-    <updated>2023-02-15T15:29:46.281Z</updated>
+    <updated>2023-02-15T16:04:15.056Z</updated>
 	<author>
 	
 	  
@@ -151,7 +177,7 @@
     <link href="https://westerndevs.com/_/debug-azure-container-instances-startup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/debug-azure-container-instances-startup/</id>
     <published>2022-08-04T04:00:00.000Z</published>
-    <updated>2023-02-15T15:29:46.277Z</updated>
+    <updated>2023-02-15T16:04:15.052Z</updated>
 	<author>
 	
 	  
@@ -177,7 +203,7 @@
     <link href="https://westerndevs.com/_/consuming-wsdl/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/consuming-wsdl/</id>
     <published>2022-05-30T04:00:00.000Z</published>
-    <updated>2023-02-15T15:29:46.273Z</updated>
+    <updated>2023-02-15T16:04:15.052Z</updated>
 	<author>
 	
 	  
@@ -203,7 +229,7 @@
     <link href="https://westerndevs.com/_/azure-functions-error/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-functions-error/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2023-02-15T15:29:46.273Z</updated>
+    <updated>2023-02-15T16:04:15.052Z</updated>
 	<author>
 	
 	  
@@ -229,7 +255,7 @@
     <link href="https://westerndevs.com/_/which-sql-server-edition/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/which-sql-server-edition/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2023-02-15T15:29:46.281Z</updated>
+    <updated>2023-02-15T16:04:15.060Z</updated>
 	<author>
 	
 	  
@@ -255,7 +281,7 @@
     <link href="https://westerndevs.com/_/cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cheat-sheet/</id>
     <published>2022-04-04T04:00:00.000Z</published>
-    <updated>2023-02-15T15:29:46.273Z</updated>
+    <updated>2023-02-15T16:04:15.052Z</updated>
 	<author>
 	
 	  
@@ -283,7 +309,7 @@
     <link href="https://westerndevs.com/_/rubocop-issue/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/rubocop-issue/</id>
     <published>2022-03-18T04:00:00.000Z</published>
-    <updated>2023-02-15T15:29:46.281Z</updated>
+    <updated>2023-02-15T16:04:15.056Z</updated>
 	<author>
 	
 	  
@@ -310,7 +336,7 @@
     <link href="https://westerndevs.com/_/fsevents-optional-dependencies/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/fsevents-optional-dependencies/</id>
     <published>2022-03-16T04:00:00.000Z</published>
-    <updated>2023-02-15T15:29:46.277Z</updated>
+    <updated>2023-02-15T16:04:15.052Z</updated>
 	<author>
 	
 	  
@@ -336,7 +362,7 @@
     <link href="https://westerndevs.com/_/backblaze-exclude-node-modules/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/backblaze-exclude-node-modules/</id>
     <published>2022-02-20T05:00:00.000Z</published>
-    <updated>2023-02-15T15:29:46.273Z</updated>
+    <updated>2023-02-15T16:04:15.052Z</updated>
 	<author>
 	
 	  
@@ -362,7 +388,7 @@
     <link href="https://westerndevs.com/_/parsing-vue-router-parameters/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/parsing-vue-router-parameters/</id>
     <published>2022-02-18T05:00:00.000Z</published>
-    <updated>2023-02-15T15:29:46.277Z</updated>
+    <updated>2023-02-15T16:04:15.056Z</updated>
 	<author>
 	
 	  
@@ -388,7 +414,7 @@
     <link href="https://westerndevs.com/_/install-azfileshybrid-powershell/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/install-azfileshybrid-powershell/</id>
     <published>2022-02-16T05:00:00.000Z</published>
-    <updated>2023-02-15T15:29:46.277Z</updated>
+    <updated>2023-02-15T16:04:15.052Z</updated>
 	<author>
 	
 	  
@@ -414,7 +440,7 @@
     <link href="https://westerndevs.com/_/purge-cdn-in-devops/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/purge-cdn-in-devops/</id>
     <published>2022-01-27T05:00:00.000Z</published>
-    <updated>2023-02-15T15:29:46.277Z</updated>
+    <updated>2023-02-15T16:04:15.056Z</updated>
 	<author>
 	
 	  
@@ -441,7 +467,7 @@
     <link href="https://westerndevs.com/_/hash-nil/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/hash-nil/</id>
     <published>2021-11-24T05:00:00.000Z</published>
-    <updated>2023-02-15T15:29:46.277Z</updated>
+    <updated>2023-02-15T16:04:15.052Z</updated>
 	<author>
 	
 	  
@@ -467,7 +493,7 @@
     <link href="https://westerndevs.com/_/choosing-power-bi/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/choosing-power-bi/</id>
     <published>2021-11-19T05:00:00.000Z</published>
-    <updated>2023-02-15T15:29:46.273Z</updated>
+    <updated>2023-02-15T16:04:15.052Z</updated>
 	<author>
 	
 	  
@@ -493,7 +519,7 @@
     <link href="https://westerndevs.com/_/app-services-on-vnet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/app-services-on-vnet/</id>
     <published>2021-11-14T05:00:00.000Z</published>
-    <updated>2023-02-15T15:29:46.273Z</updated>
+    <updated>2023-02-15T16:04:15.052Z</updated>
 	<author>
 	
 	  
@@ -508,33 +534,6 @@
     <summary type="html">
     
       &lt;p&gt;When setting up an app service, including azure functions,  you can have it reside on a vnet so it can access internal resources like a d
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Using ngrok for ASP.NET</title>
-    <link href="https://westerndevs.com/_/ngrok-aspnet/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/ngrok-aspnet/</id>
-    <published>2021-10-25T04:00:00.000Z</published>
-    <updated>2023-02-15T15:29:46.277Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>If you try to just use ngrok like this</p><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ngrok http <span class="number">1316</span></span><br></pre></td></tr></table></figure><p>You're likely going to run into an issue when you browse to the website via the ngrok supplied URL that there are invalid host headers. This is because the local server is expecting headers for <code>localhost</code> and instead it is getting them for something like <code>https://3fe1-198-53-125-218.ngrok.io</code>. This can be solved by running with</p><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ngrok <span class="keyword">http</span> <span class="number">1316</span> -host-header=<span class="string">"localhost:1316"</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;If you try to just use ngrok like this&lt;/p&gt;
-&lt;figure class=&quot;highlight angelscript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;
     
     </summary>
     

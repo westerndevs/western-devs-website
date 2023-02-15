@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2023-02-15T15:29:46.273Z</updated>
+  <updated>2023-02-15T16:04:15.056Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Excel and Ruby</title>
+    <link href="https://westerndevs.com/_/ruby-excel/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/ruby-excel/</id>
+    <published>2023-02-15T05:00:00.000Z</published>
+    <updated>2023-02-15T16:04:15.056Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>Excel is the king of spreadsheets and I often find myself in situation where I have to write our Excel files in an application. I'd say that as an application grows the probability of needing Excel import or export approaches 1. Fortunately, there are lots of libraries out there to help with Excel across just about every language. The quality and usefuleness of these libraries varies a lot. In Ruby land there seem to be a few options.</p><h2>Spreadsheet</h2><p>https://github.com/zdavatz/spreadsheet/</p><p>As the name suggests this library deals with Excel spreadsheets. It is able to both read and write them by using Spreadsheet::Excel Library and the ParseExcel Library. However it only supports the older XLS file format. While this is still widely used it is not the default format for Excel 2007 and later. I try to stay clear of the format as much as possible. There have not been any releases of this library in about 18 months but there haven't been any releases of the XLS file format for decades so it doesn't seem like a big deal.</p><p>The library can be installed using</p><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem <span class="keyword">install</span> spreadsheet</span><br></pre></td></tr></table></figure><p>Then you can use it like so</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">'spreadsheet'</span></span><br><span class="line"></span><br><span class="line">workbook = Spreadsheet.open(<span class="string">"test.xls"</span>)</span><br><span class="line">worksheet = workbook.worksheet <span class="number">0</span></span><br><span class="line">worksheet.rows[<span class="number">1</span>][<span class="number">1</span>] = <span class="string">"Hello there!"</span></span><br><span class="line">workbook.write(<span class="string">"test2.xls"</span>)</span><br></pre></td></tr></table></figure><p>There are some limitations around editing files such as cell formats not updating but for most things it should be fine.</p><h2>RubyXL</h2><p>https://github.com/weshatheleopard/rubyXL</p><p>This library works on the more modern XLSX file formats. It is able to read and write files with modifications. However there are some limitations such as being unable to insert images</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">'rubyXL'</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># only do this if you don't care about memory usage, otherwise you can load submodules separately</span></span><br><span class="line">  <span class="comment"># depending on what you need</span></span><br><span class="line"><span class="keyword">require</span> <span class="string">'rubyXL/convenience_methods'</span></span><br><span class="line"></span><br><span class="line">workbook = RubyXL::Parser.parse(<span class="string">"test.xlsx"</span>)</span><br><span class="line">worksheet = workbook[<span class="number">0</span>]</span><br><span class="line">cell = worksheet.cell_at(<span class="string">'A1'</span>)</span><br><span class="line">cell.change_contents(<span class="string">"Hello there!"</span>)</span><br><span class="line">workbook.write(<span class="string">"test2.xlsx"</span>)</span><br></pre></td></tr></table></figure><h2>CAXLSX</h2><p>https://github.com/caxlsx/caxlsx</p><p>This library is the community supported version of AXLSX. It is able to generate XLSX files but not read them or modify them. There is rich support for charts, images and other more advanced excel features. The</p><p>Install using</p><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem <span class="keyword">install</span> caxlsx</span><br></pre></td></tr></table></figure><p>And then a simple example looks like</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">'axlsx'</span></span><br><span class="line"></span><br><span class="line">p = Axlsx::Package.new</span><br><span class="line">workbook = p.workbook</span><br><span class="line"></span><br><span class="line">wb.add_worksheet(<span class="symbol">name:</span> <span class="string">'Test'</span>) <span class="keyword">do</span> <span class="params">|sheet|</span></span><br><span class="line">  sheet.add_row [<span class="string">'Hello there!'</span>]</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">p.serialize <span class="string">"test.xlsx"</span></span><br></pre></td></tr></table></figure><p>Of all the libraries mentioned here the documentation for this one is the best. It is also the most actively maintained. The examples directory https://github.com/caxlsx/caxlsx/tree/master/examples gives a plethora of examples of how to use the library.</p><h2>Fast Excel</h2><p>https://github.com/Paxa/fast_excel</p><p>This library focuses on being the fastest excel library for ruby. It is actually written in C to speed it up so comes with all the caveats about running native code. Similar to CAXLSX it is only able to read and write files and not modify them.</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">'fast_excel'</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># constant_memory: true streams changes to disk so it means that you cannot</span></span><br><span class="line">  <span class="comment"># modify an already written record</span></span><br><span class="line">workbook = FastExcel.open(<span class="string">"test.xlsx"</span>, <span class="symbol">constant_memory:</span> <span class="literal">true</span>)</span><br><span class="line">worksheet = workbook.add_worksheet(<span class="string">"Test"</span>)</span><br><span class="line"></span><br><span class="line">bold = workbook.bold_format</span><br><span class="line">worksheet.set_column(<span class="number">0</span>, <span class="number">0</span>, FastExcel::DEF_COL_WIDTH, bold)</span><br><span class="line">worksheet &lt;&lt; [<span class="string">"Hello World"</span>]</span><br><span class="line">workbook.close</span><br></pre></td></tr></table></figure><p>As you can see here the library really excels at adding consistently shaped rows. You're unlikely to get a complex spreadsheet with headers and footers built using this tooling.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Excel is the king of spreadsheets and I often find myself in situation where I have to write our Excel files in an application. I&#39;d say t
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Defining the Problem before the Solution</title>
     <link href="https://westerndevs.com/musings/defining-problem-before-the-soltuion/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/musings/defining-problem-before-the-soltuion/</id>
     <published>2023-01-27T23:24:33.221Z</published>
-    <updated>2023-02-15T15:29:46.273Z</updated>
+    <updated>2023-02-15T16:04:15.048Z</updated>
 	<author>
 	
 	  
@@ -59,7 +85,7 @@
     <link href="https://westerndevs.com/coding/problem-solution/docker-build-hangs-on-apt-key-in-wsl2/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/coding/problem-solution/docker-build-hangs-on-apt-key-in-wsl2/</id>
     <published>2023-01-12T02:43:58.005Z</published>
-    <updated>2023-02-15T15:29:46.273Z</updated>
+    <updated>2023-02-15T16:04:15.048Z</updated>
 	<author>
 	
 	  
@@ -101,7 +127,7 @@
     <link href="https://westerndevs.com/musings/highlight-reel-for-2022/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/musings/highlight-reel-for-2022/</id>
     <published>2023-01-05T21:47:02.098Z</published>
-    <updated>2023-02-15T15:29:46.273Z</updated>
+    <updated>2023-02-15T16:04:15.048Z</updated>
 	<author>
 	
 	  
@@ -143,7 +169,7 @@
     <link href="https://westerndevs.com/_/happy-holidays-2022/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/happy-holidays-2022/</id>
     <published>2022-12-24T22:00:00.000Z</published>
-    <updated>2023-02-15T15:29:46.273Z</updated>
+    <updated>2023-02-15T16:04:15.048Z</updated>
 	<author>
 	
 	  
@@ -175,7 +201,7 @@
     <link href="https://westerndevs.com/_/speaking-at-tech-events-helps-you-grow/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/speaking-at-tech-events-helps-you-grow/</id>
     <published>2022-12-20T21:59:37.185Z</published>
-    <updated>2023-02-15T15:29:46.273Z</updated>
+    <updated>2023-02-15T16:04:15.048Z</updated>
 	<author>
 	
 	  
@@ -213,7 +239,7 @@
     <link href="https://westerndevs.com/_/docker-desktop-is-not-docker-engine/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/docker-desktop-is-not-docker-engine/</id>
     <published>2022-12-14T02:28:36.457Z</published>
-    <updated>2023-02-15T15:29:46.273Z</updated>
+    <updated>2023-02-15T16:04:15.048Z</updated>
 	<author>
 	
 	  
@@ -249,7 +275,7 @@
     <link href="https://westerndevs.com/_/prairie-dev-con-2022-takeaways/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/prairie-dev-con-2022-takeaways/</id>
     <published>2022-12-07T20:37:20.777Z</published>
-    <updated>2023-02-15T15:29:46.273Z</updated>
+    <updated>2023-02-15T16:04:15.048Z</updated>
 	<author>
 	
 	  
@@ -291,7 +317,7 @@
     <link href="https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/</id>
     <published>2022-12-01T09:18:34.509Z</published>
-    <updated>2023-02-15T15:29:46.273Z</updated>
+    <updated>2023-02-15T16:04:15.048Z</updated>
 	<author>
 	
 	  
@@ -329,7 +355,7 @@
     <link href="https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/</id>
     <published>2022-11-19T01:10:07.083Z</published>
-    <updated>2023-02-15T15:29:46.273Z</updated>
+    <updated>2023-02-15T16:04:15.048Z</updated>
 	<author>
 	
 	  
@@ -367,7 +393,7 @@
     <link href="https://westerndevs.com/_/bulk-insert-sql-geometry/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/bulk-insert-sql-geometry/</id>
     <published>2022-11-17T05:00:00.000Z</published>
-    <updated>2023-02-15T15:29:46.273Z</updated>
+    <updated>2023-02-15T16:04:15.052Z</updated>
 	<author>
 	
 	  
@@ -393,7 +419,7 @@
     <link href="https://westerndevs.com/_/azure-backus-protip/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-backus-protip/</id>
     <published>2022-11-11T05:00:00.000Z</published>
-    <updated>2023-02-15T15:29:46.273Z</updated>
+    <updated>2023-02-15T16:04:15.052Z</updated>
 	<author>
 	
 	  
@@ -419,7 +445,7 @@
     <link href="https://westerndevs.com/_/how-much-is-enough-documentation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/how-much-is-enough-documentation/</id>
     <published>2022-11-10T22:00:00.000Z</published>
-    <updated>2023-02-15T15:29:46.273Z</updated>
+    <updated>2023-02-15T16:04:15.048Z</updated>
 	<author>
 	
 	  
@@ -459,7 +485,7 @@
     <link href="https://westerndevs.com/_/how-to-fork-like-a-boss/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/how-to-fork-like-a-boss/</id>
     <published>2022-11-02T21:00:00.000Z</published>
-    <updated>2023-02-15T15:29:46.273Z</updated>
+    <updated>2023-02-15T16:04:15.048Z</updated>
 	<author>
 	
 	  
@@ -493,7 +519,7 @@
     <link href="https://westerndevs.com/_/set-output-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-output-terraform/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2023-02-15T15:29:46.281Z</updated>
+    <updated>2023-02-15T16:04:15.056Z</updated>
 	<author>
 	
 	  
@@ -519,7 +545,7 @@
     <link href="https://westerndevs.com/_/theory-of-terraform-github-actions/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/theory-of-terraform-github-actions/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2023-02-15T15:29:46.281Z</updated>
+    <updated>2023-02-15T16:04:15.060Z</updated>
 	<author>
 	
 	  
@@ -545,7 +571,7 @@
     <link href="https://westerndevs.com/_/register-providers/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/register-providers/</id>
     <published>2022-08-12T04:00:00.000Z</published>
-    <updated>2023-02-15T15:29:46.281Z</updated>
+    <updated>2023-02-15T16:04:15.056Z</updated>
 	<author>
 	
 	  
@@ -571,7 +597,7 @@
     <link href="https://westerndevs.com/_/debug-azure-container-instances-startup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/debug-azure-container-instances-startup/</id>
     <published>2022-08-04T04:00:00.000Z</published>
-    <updated>2023-02-15T15:29:46.277Z</updated>
+    <updated>2023-02-15T16:04:15.052Z</updated>
 	<author>
 	
 	  
@@ -597,7 +623,7 @@
     <link href="https://westerndevs.com/_/consuming-wsdl/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/consuming-wsdl/</id>
     <published>2022-05-30T04:00:00.000Z</published>
-    <updated>2023-02-15T15:29:46.273Z</updated>
+    <updated>2023-02-15T16:04:15.052Z</updated>
 	<author>
 	
 	  
@@ -623,7 +649,7 @@
     <link href="https://westerndevs.com/_/azure-functions-error/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-functions-error/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2023-02-15T15:29:46.273Z</updated>
+    <updated>2023-02-15T16:04:15.052Z</updated>
 	<author>
 	
 	  
@@ -638,32 +664,6 @@
     <summary type="html">
     
       &lt;p&gt;I started up a previously working Azure functions project today that I hadn&#39;t touched in a week. It failed to start with an error like th
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Which SQL Hosting Option is Right for Me?</title>
-    <link href="https://westerndevs.com/_/which-sql-server-edition/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/which-sql-server-edition/</id>
-    <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2023-02-15T15:29:46.281Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>There are a bunch of different ways to host SQL Server workloads on Azure. Answering some questions about how you use SQL server can help guide us to picking the right option for you.</p><p>The 3 options for hosting we're considering are</p><ol><li>SQL Azure - https://azure.microsoft.com/en-us/products/azure-sql/database/#overview</li><li>Azure SQL Managed Instance - https://azure.microsoft.com/en-us/products/azure-sql/managed-instance/</li><li>SQL Server on VM - https://azure.microsoft.com/en-us/services/virtual-machines/sql-server/#overview</li></ol><p>I've listed these in my order of preference. I'd rather push people to a more managed solution than a less managed one. There is a huge shortage of SQL server skills out there so if you can take a more managed approach then you're less likely to run into problems that require you finding an SQL expert. I frequently say to companies that they're not in the business of managing SQL server but in the business of building whatever widgets they build. Unless there is a real need don't waste company resources building custom solutions when you can buy a 90% solution off the shelf.</p><p>When I talk with companies about migrating their existing workloads to the cloud from on premise SQL servers I find myself asking these questions:</p><ol><li>Does your solution use cross database joins?</li><li>Does your solution make use of the SQL Agent to run jobs?</li><li>Does your solution use FILESTREAM to access files on disk?</li><li>Does your solution require fine tuning of availability groups?</li><li>Does your solution require SQL logins from <code>CERTIFICATE</code>, <code>ASYMMETRIC KEY</code> or <code>SID</code>?</li><li>Do you need to make use of a compatibility level below 100?</li><li>Do you need to make use of database mirroring?</li><li>Does your solution need to start and stop job scheduling?</li><li>Are you making use of SQL Server Reporting Services (SSRS)?</li><li>Are you using xp_cmdshell anywhere in your application (https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql?view=sql-server-ver15)</li></ol><p>If the answer to any of the first 3 questions is <code>yes</code> then they can't easily use SQL Azure* and should set the baseline to a managed instance. If the answer to any of the rest of the questions is <code>yes</code> then they should set the baseline to a VM running a full on version of SQL Server. Only if the answer to all these questions is <code>no</code> is SQL Azure the best solution.</p><ul><li>Cross database joins and SQL Agent can be replaced by Elastic Query and Elastic Jobs but neither one is an easy drop in replacement so I typically don't bother directing people to them for time constrained migrations.</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;There are a bunch of different ways to host SQL Server workloads on Azure. Answering some questions about how you use SQL server can help
     
     </summary>
     
