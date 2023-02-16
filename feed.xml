@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2023-02-15T16:04:15.056Z</updated>
+  <updated>2023-02-16T14:07:33.323Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Allow Comments in JSON Payload in ExpressJS</title>
+    <link href="https://westerndevs.com/_/express-json-comments/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/express-json-comments/</id>
+    <published>2023-02-16T05:00:00.000Z</published>
+    <updated>2023-02-16T14:07:33.323Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>Officially comments are not supported in the JSON format. In fact this lack of ability to comment is one of the reasons that lead to the downfall of the JSON based project system during the rewrite of the .NET some years back. However they sure can be useful to support. In my case I wanted to add some comments to the body of a request to explain a parameter in Postman. I like to keep comments as close to the thing they describe as possible so I didn't want this on a wiki somewhere nobody would ever find.</p><p>The content looked something like</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"data"</span>: &#123;</span><br><span class="line">        <span class="attr">"form_data"</span>: &#123;</span><br><span class="line">            <span class="attr">"effective_date"</span>: <span class="string">"2023-02-23"</span>,</span><br><span class="line">            <span class="attr">"match_on_per_pay_period_basis"</span>: <span class="number">0</span>, <span class="comment">/* 0 if yes, 1 if no */</span></span><br><span class="line">            <span class="attr">"simple_or_tiered"</span>: <span class="number">1</span>, <span class="comment">/* 0 if simple 1 if tiered */</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>This was going to an ExpressJS application which was parsing the body using <code>body-parser</code>. These days we can just use <code>express.json()</code> and avoid taking on that additional dependency. The JSON parsing in both these is too strict to allow for comments. Fortunately, we can use middleware to resolve the issue. There is a swell package called <code>strip-json-comments</code> which does the surprisingly difficult task of stripping comments. We can use that.</p><p>The typical json paring middleware looks like</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">app.use(express.json())</span><br><span class="line"></span><br><span class="line">or </span><br><span class="line"></span><br><span class="line">app.use(bodyParser.json())</span><br></pre></td></tr></table></figure><p>Instead we can do</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> stripJsonComments <span class="keyword">from</span> <span class="string">'strip-json-comments'</span>;</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">app.use(express.text&#123;</span><br><span class="line">    type: <span class="string">"application/json"</span> <span class="comment">// </span></span><br><span class="line">&#125;) <span class="comment">//or app.use(bodyParser.text(&#123;type: "application/json&#125;))</span></span><br><span class="line">app.use(<span class="function">(<span class="params">req,res,next</span>)=&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(req.body)&#123;</span><br><span class="line">        req.body = stripJsonComments(req.body);</span><br><span class="line">    &#125;</span><br><span class="line">    next();</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><p>This still allows us to</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Officially comments are not supported in the JSON format. In fact this lack of ability to comment is one of the reasons that lead to the 
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Excel and Ruby</title>
     <link href="https://westerndevs.com/_/ruby-excel/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ruby-excel/</id>
     <published>2023-02-15T05:00:00.000Z</published>
-    <updated>2023-02-15T16:04:15.056Z</updated>
+    <updated>2023-02-16T14:07:33.327Z</updated>
 	<author>
 	
 	  
@@ -47,7 +73,7 @@
     <link href="https://westerndevs.com/musings/defining-problem-before-the-soltuion/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/musings/defining-problem-before-the-soltuion/</id>
     <published>2023-01-27T23:24:33.221Z</published>
-    <updated>2023-02-15T16:04:15.048Z</updated>
+    <updated>2023-02-16T14:07:33.319Z</updated>
 	<author>
 	
 	  
@@ -85,7 +111,7 @@
     <link href="https://westerndevs.com/coding/problem-solution/docker-build-hangs-on-apt-key-in-wsl2/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/coding/problem-solution/docker-build-hangs-on-apt-key-in-wsl2/</id>
     <published>2023-01-12T02:43:58.005Z</published>
-    <updated>2023-02-15T16:04:15.048Z</updated>
+    <updated>2023-02-16T14:07:33.319Z</updated>
 	<author>
 	
 	  
@@ -127,7 +153,7 @@
     <link href="https://westerndevs.com/musings/highlight-reel-for-2022/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/musings/highlight-reel-for-2022/</id>
     <published>2023-01-05T21:47:02.098Z</published>
-    <updated>2023-02-15T16:04:15.048Z</updated>
+    <updated>2023-02-16T14:07:33.319Z</updated>
 	<author>
 	
 	  
@@ -169,7 +195,7 @@
     <link href="https://westerndevs.com/_/happy-holidays-2022/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/happy-holidays-2022/</id>
     <published>2022-12-24T22:00:00.000Z</published>
-    <updated>2023-02-15T16:04:15.048Z</updated>
+    <updated>2023-02-16T14:07:33.319Z</updated>
 	<author>
 	
 	  
@@ -201,7 +227,7 @@
     <link href="https://westerndevs.com/_/speaking-at-tech-events-helps-you-grow/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/speaking-at-tech-events-helps-you-grow/</id>
     <published>2022-12-20T21:59:37.185Z</published>
-    <updated>2023-02-15T16:04:15.048Z</updated>
+    <updated>2023-02-16T14:07:33.319Z</updated>
 	<author>
 	
 	  
@@ -239,7 +265,7 @@
     <link href="https://westerndevs.com/_/docker-desktop-is-not-docker-engine/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/docker-desktop-is-not-docker-engine/</id>
     <published>2022-12-14T02:28:36.457Z</published>
-    <updated>2023-02-15T16:04:15.048Z</updated>
+    <updated>2023-02-16T14:07:33.319Z</updated>
 	<author>
 	
 	  
@@ -275,7 +301,7 @@
     <link href="https://westerndevs.com/_/prairie-dev-con-2022-takeaways/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/prairie-dev-con-2022-takeaways/</id>
     <published>2022-12-07T20:37:20.777Z</published>
-    <updated>2023-02-15T16:04:15.048Z</updated>
+    <updated>2023-02-16T14:07:33.319Z</updated>
 	<author>
 	
 	  
@@ -317,7 +343,7 @@
     <link href="https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/</id>
     <published>2022-12-01T09:18:34.509Z</published>
-    <updated>2023-02-15T16:04:15.048Z</updated>
+    <updated>2023-02-16T14:07:33.319Z</updated>
 	<author>
 	
 	  
@@ -355,7 +381,7 @@
     <link href="https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/</id>
     <published>2022-11-19T01:10:07.083Z</published>
-    <updated>2023-02-15T16:04:15.048Z</updated>
+    <updated>2023-02-16T14:07:33.319Z</updated>
 	<author>
 	
 	  
@@ -393,7 +419,7 @@
     <link href="https://westerndevs.com/_/bulk-insert-sql-geometry/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/bulk-insert-sql-geometry/</id>
     <published>2022-11-17T05:00:00.000Z</published>
-    <updated>2023-02-15T16:04:15.052Z</updated>
+    <updated>2023-02-16T14:07:33.323Z</updated>
 	<author>
 	
 	  
@@ -419,7 +445,7 @@
     <link href="https://westerndevs.com/_/azure-backus-protip/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-backus-protip/</id>
     <published>2022-11-11T05:00:00.000Z</published>
-    <updated>2023-02-15T16:04:15.052Z</updated>
+    <updated>2023-02-16T14:07:33.319Z</updated>
 	<author>
 	
 	  
@@ -445,7 +471,7 @@
     <link href="https://westerndevs.com/_/how-much-is-enough-documentation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/how-much-is-enough-documentation/</id>
     <published>2022-11-10T22:00:00.000Z</published>
-    <updated>2023-02-15T16:04:15.048Z</updated>
+    <updated>2023-02-16T14:07:33.319Z</updated>
 	<author>
 	
 	  
@@ -485,7 +511,7 @@
     <link href="https://westerndevs.com/_/how-to-fork-like-a-boss/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/how-to-fork-like-a-boss/</id>
     <published>2022-11-02T21:00:00.000Z</published>
-    <updated>2023-02-15T16:04:15.048Z</updated>
+    <updated>2023-02-16T14:07:33.319Z</updated>
 	<author>
 	
 	  
@@ -519,7 +545,7 @@
     <link href="https://westerndevs.com/_/set-output-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-output-terraform/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2023-02-15T16:04:15.056Z</updated>
+    <updated>2023-02-16T14:07:33.327Z</updated>
 	<author>
 	
 	  
@@ -545,7 +571,7 @@
     <link href="https://westerndevs.com/_/theory-of-terraform-github-actions/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/theory-of-terraform-github-actions/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2023-02-15T16:04:15.060Z</updated>
+    <updated>2023-02-16T14:07:33.327Z</updated>
 	<author>
 	
 	  
@@ -571,7 +597,7 @@
     <link href="https://westerndevs.com/_/register-providers/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/register-providers/</id>
     <published>2022-08-12T04:00:00.000Z</published>
-    <updated>2023-02-15T16:04:15.056Z</updated>
+    <updated>2023-02-16T14:07:33.327Z</updated>
 	<author>
 	
 	  
@@ -597,7 +623,7 @@
     <link href="https://westerndevs.com/_/debug-azure-container-instances-startup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/debug-azure-container-instances-startup/</id>
     <published>2022-08-04T04:00:00.000Z</published>
-    <updated>2023-02-15T16:04:15.052Z</updated>
+    <updated>2023-02-16T14:07:33.323Z</updated>
 	<author>
 	
 	  
@@ -623,7 +649,7 @@
     <link href="https://westerndevs.com/_/consuming-wsdl/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/consuming-wsdl/</id>
     <published>2022-05-30T04:00:00.000Z</published>
-    <updated>2023-02-15T16:04:15.052Z</updated>
+    <updated>2023-02-16T14:07:33.323Z</updated>
 	<author>
 	
 	  
@@ -638,32 +664,6 @@
     <summary type="html">
     
       &lt;p&gt;Today I ran into the need to consume an older SOAP web service in .NET Core. I was really fortunate in my timing because Core WCF was jus
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Azure Functions Provider Error</title>
-    <link href="https://westerndevs.com/_/azure-functions-error/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/azure-functions-error/</id>
-    <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2023-02-15T16:04:15.052Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>I started up a previously working Azure functions project today that I hadn't touched in a week. It failed to start with an error like this</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A host <span class="builtin-name">error</span> has occurred during startup operation <span class="string">'b59ba8b8-f264-4274-a9eb-e17ba0e02ed8'</span>.</span><br><span class="line">api: Could <span class="keyword">not</span> load file <span class="keyword">or</span> assembly <span class="string">'Microsoft.Extensions.Options, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60'</span>. The<span class="built_in"> system </span>cannot <span class="builtin-name">find</span> the file specified.</span><br><span class="line">Value cannot be <span class="literal">null</span>. (Parameter <span class="string">'provider'</span>)</span><br></pre></td></tr></table></figure><p>This is the sort of error that terrifies me. Something is wrong but who knows what. No changes in git and an infinity of generic errors on google for <code>Could not load file or assembly</code>. Eventually after some digging it seems like I might be suffering from some corrupted tooling (some hints about that here: https://github.com/Azure/azure-functions-core-tools/issues/2232). I was able to fix mine by downloading the latest version of the tooling from https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=v4%2Cwindows%2Ccsharp%2Cportal%2Cbash</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;I started up a previously working Azure functions project today that I hadn&#39;t touched in a week. It failed to start with an error like th
     
     </summary>
     
