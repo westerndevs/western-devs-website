@@ -108,3 +108,15 @@ FLUSHALL
 ```
 FLUSHDB
 ```
+
+**Stats on keys**
+
+```
+INFO keyspace
+```
+
+**Get an idea of db size**
+
+```
+INFO Memory
+```
