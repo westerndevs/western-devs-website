@@ -5,7 +5,7 @@
   <link href="/feeds/simon_timms" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2023-03-04T03:49:50.994Z</updated>
+  <updated>2023-03-04T04:12:53.917Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://westerndevs.com/_/app-service-quota/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/app-service-quota/</id>
     <published>2023-03-04T05:00:00.000Z</published>
-    <updated>2023-03-04T03:49:50.994Z</updated>
+    <updated>2023-03-04T04:12:53.917Z</updated>
 	<author>
 	
 	  
@@ -44,11 +44,37 @@
   </entry>
   
   <entry>
+    <title type="html">Azure KeyVault Reference Gotcha</title>
+    <link href="https://westerndevs.com/_/azure-keyvaul-reference-gotcha/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/azure-keyvaul-reference-gotcha/</id>
+    <published>2023-03-04T05:00:00.000Z</published>
+    <updated>2023-03-04T04:12:53.917Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>I was working on a deployment today and ran into an issue with a keyvault reference. In the app service the keyvault reference showed that it wasn't able to get the secret. The reference seemed good but I wasn't seeing what I wanted to see which was a couple of green checkmarks</p><p><img src="/images/2023-03-03-azure-keyvaul-reference-gotcha.md/2023-03-03-21-10-36.png" alt="">)</p><p>The managed identity on the app service had only GET access to the keyvault. I added LIST access and the reference started working. I'm not sure why this is but I'm guessing that the reference is doing a LIST to get the secret and then a GET to get the secret value.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;I was working on a deployment today and ran into an issue with a keyvault reference. In the app service the keyvault reference showed tha
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Allow Comments in JSON Payload in ExpressJS</title>
     <link href="https://westerndevs.com/_/express-json-comments/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/express-json-comments/</id>
     <published>2023-02-16T05:00:00.000Z</published>
-    <updated>2023-03-04T03:49:50.998Z</updated>
+    <updated>2023-03-04T04:12:53.921Z</updated>
 	<author>
 	
 	  
@@ -74,7 +100,7 @@
     <link href="https://westerndevs.com/_/ruby-excel/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ruby-excel/</id>
     <published>2023-02-15T05:00:00.000Z</published>
-    <updated>2023-03-04T03:49:51.002Z</updated>
+    <updated>2023-03-04T04:12:53.921Z</updated>
 	<author>
 	
 	  
@@ -100,7 +126,7 @@
     <link href="https://westerndevs.com/_/bulk-insert-sql-geometry/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/bulk-insert-sql-geometry/</id>
     <published>2022-11-17T05:00:00.000Z</published>
-    <updated>2023-03-04T03:49:50.994Z</updated>
+    <updated>2023-03-04T04:12:53.917Z</updated>
 	<author>
 	
 	  
@@ -126,7 +152,7 @@
     <link href="https://westerndevs.com/_/azure-backus-protip/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-backus-protip/</id>
     <published>2022-11-11T05:00:00.000Z</published>
-    <updated>2023-03-04T03:49:50.994Z</updated>
+    <updated>2023-03-04T04:12:53.917Z</updated>
 	<author>
 	
 	  
@@ -152,7 +178,7 @@
     <link href="https://westerndevs.com/_/set-output-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-output-terraform/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2023-03-04T03:49:51.002Z</updated>
+    <updated>2023-03-04T04:12:53.925Z</updated>
 	<author>
 	
 	  
@@ -178,7 +204,7 @@
     <link href="https://westerndevs.com/_/theory-of-terraform-github-actions/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/theory-of-terraform-github-actions/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2023-03-04T03:49:51.002Z</updated>
+    <updated>2023-03-04T04:12:53.925Z</updated>
 	<author>
 	
 	  
@@ -204,7 +230,7 @@
     <link href="https://westerndevs.com/_/register-providers/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/register-providers/</id>
     <published>2022-08-12T04:00:00.000Z</published>
-    <updated>2023-03-04T03:49:50.998Z</updated>
+    <updated>2023-03-04T04:12:53.921Z</updated>
 	<author>
 	
 	  
@@ -230,7 +256,7 @@
     <link href="https://westerndevs.com/_/debug-azure-container-instances-startup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/debug-azure-container-instances-startup/</id>
     <published>2022-08-04T04:00:00.000Z</published>
-    <updated>2023-03-04T03:49:50.994Z</updated>
+    <updated>2023-03-04T04:12:53.917Z</updated>
 	<author>
 	
 	  
@@ -256,7 +282,7 @@
     <link href="https://westerndevs.com/_/consuming-wsdl/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/consuming-wsdl/</id>
     <published>2022-05-30T04:00:00.000Z</published>
-    <updated>2023-03-04T03:49:50.994Z</updated>
+    <updated>2023-03-04T04:12:53.917Z</updated>
 	<author>
 	
 	  
@@ -282,7 +308,7 @@
     <link href="https://westerndevs.com/_/azure-functions-error/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-functions-error/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2023-03-04T03:49:50.994Z</updated>
+    <updated>2023-03-04T04:12:53.917Z</updated>
 	<author>
 	
 	  
@@ -308,7 +334,7 @@
     <link href="https://westerndevs.com/_/which-sql-server-edition/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/which-sql-server-edition/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2023-03-04T03:49:51.002Z</updated>
+    <updated>2023-03-04T04:12:53.925Z</updated>
 	<author>
 	
 	  
@@ -334,7 +360,7 @@
     <link href="https://westerndevs.com/_/cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cheat-sheet/</id>
     <published>2022-04-04T04:00:00.000Z</published>
-    <updated>2023-03-04T03:49:50.994Z</updated>
+    <updated>2023-03-04T04:12:53.917Z</updated>
 	<author>
 	
 	  
@@ -362,7 +388,7 @@
     <link href="https://westerndevs.com/_/rubocop-issue/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/rubocop-issue/</id>
     <published>2022-03-18T04:00:00.000Z</published>
-    <updated>2023-03-04T03:49:51.002Z</updated>
+    <updated>2023-03-04T04:12:53.921Z</updated>
 	<author>
 	
 	  
@@ -389,7 +415,7 @@
     <link href="https://westerndevs.com/_/fsevents-optional-dependencies/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/fsevents-optional-dependencies/</id>
     <published>2022-03-16T04:00:00.000Z</published>
-    <updated>2023-03-04T03:49:50.998Z</updated>
+    <updated>2023-03-04T04:12:53.921Z</updated>
 	<author>
 	
 	  
@@ -415,7 +441,7 @@
     <link href="https://westerndevs.com/_/backblaze-exclude-node-modules/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/backblaze-exclude-node-modules/</id>
     <published>2022-02-20T05:00:00.000Z</published>
-    <updated>2023-03-04T03:49:50.994Z</updated>
+    <updated>2023-03-04T04:12:53.917Z</updated>
 	<author>
 	
 	  
@@ -441,7 +467,7 @@
     <link href="https://westerndevs.com/_/parsing-vue-router-parameters/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/parsing-vue-router-parameters/</id>
     <published>2022-02-18T05:00:00.000Z</published>
-    <updated>2023-03-04T03:49:50.998Z</updated>
+    <updated>2023-03-04T04:12:53.921Z</updated>
 	<author>
 	
 	  
@@ -467,7 +493,7 @@
     <link href="https://westerndevs.com/_/install-azfileshybrid-powershell/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/install-azfileshybrid-powershell/</id>
     <published>2022-02-16T05:00:00.000Z</published>
-    <updated>2023-03-04T03:49:50.998Z</updated>
+    <updated>2023-03-04T04:12:53.921Z</updated>
 	<author>
 	
 	  
@@ -493,7 +519,7 @@
     <link href="https://westerndevs.com/_/purge-cdn-in-devops/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/purge-cdn-in-devops/</id>
     <published>2022-01-27T05:00:00.000Z</published>
-    <updated>2023-03-04T03:49:50.998Z</updated>
+    <updated>2023-03-04T04:12:53.921Z</updated>
 	<author>
 	
 	  
@@ -509,32 +535,6 @@
     
       &lt;p&gt;In order to purge a cache in the build pipeline you can use some random task that some dude wrote or you can just use the Azure CLI.&lt;/p&gt;
 
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Handling Nil in Nested Hashes in Ruby</title>
-    <link href="https://westerndevs.com/_/hash-nil/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/hash-nil/</id>
-    <published>2021-11-24T05:00:00.000Z</published>
-    <updated>2023-03-04T03:49:50.998Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>Tony Hoare introduced Null in ALGOL W in 1965. He says that it was a billion dollar mistake. Fortunately, Ruby totally avoids this sticky problem by renaming <code>null</code> to <code>nil</code>. This is the same strategy that my kids use when I say &quot;next person to ask for popcorn is going to do pushups&quot; and they ask for &quot;corn that has been popped&quot;. If you're navigating a nested hash, that is a hash that contains other hashes then you might get into a situation where you want to do something like</p><figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">best_dessert = meals[:dinner][:dessert].<span class="built_in">find</span>&#123; | dessert | &#123;<span class="built_in">name</span>: dessert.<span class="built_in">name</span>, <span class="built_in">rating</span>: dessert.<span class="built_in">rating</span> &#125; &#125;.sort_by&#123; |a,b| b[:<span class="built_in">rating</span>] &#125;.first</span><br></pre></td></tr></table></figure><p>There are a bunch of opportunities in there for nil to creep in. Maybe there are no dinners maybe no desserts... to handle these we can use a combination of <code>dig</code> (which searches a path in a hash and returns nil if the path doesn't exist) and the safe navigation <code>&amp;.</code> operator.</p><figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">best_dessert = meals.dig(:dinner, :dessert)&amp;.<span class="built_in">find</span>&#123; | dessert | &#123;<span class="built_in">name</span>: dessert.<span class="built_in">name</span>, <span class="built_in">rating</span>: dessert.<span class="built_in">rating</span> &#125; &#125;&amp;.sort_by&#123; |a,b| b[:<span class="built_in">rating</span>] &#125;&amp;.first</span><br></pre></td></tr></table></figure><p>This combination of dig and &amp;. allows us to get a nil out if nil appears anywhere in the chain without ending up in an error. We are calling the combination of dig and &amp;. the 811 operator after https://call811.com/</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Tony Hoare introduced Null in ALGOL W in 1965. He says that it was a billion dollar mistake. Fortunately, Ruby totally avoids this sticky
     
     </summary>
     
