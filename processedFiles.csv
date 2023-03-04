@@ -19,6 +19,7 @@ docs/work/azure/app-services-on-vnet.md,2021-11-14
 docs/work/azure/enable-azure-ad-based-SSO-for-snowflake.md,2021-07-06
 docs/work/azure/app-service-quota.md,2023-03-04
 docs/work/azure/azure-functions-error.md,2022-04-07
+docs/work/azure/azure-keyvaul-reference-gotcha.md,2023-03-04
 docs/work/azure/function-appinsights.md,2021-05-08
 docs/work/azure/azure-isolated-functions-config.md,2021-10-05
 docs/work/node/express-json-comments.md,2023-02-16
