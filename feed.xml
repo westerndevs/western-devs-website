@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2023-03-04T04:12:53.917Z</updated>
+  <updated>2023-03-15T23:23:40.366Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Importing Vuetify via ESM</title>
+    <link href="https://westerndevs.com/_/vuetify-esm/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/vuetify-esm/</id>
+    <published>2023-03-15T04:00:00.000Z</published>
+    <updated>2023-03-15T23:23:40.366Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>If you want a quick way to add Vue 3 and Vuetify to your project via the UMD CDN then you can do so using ESM. ESM are ECMAScript Modules and are now supported by the majority of browsers. This is going to look like</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"importmap"</span>&gt;</span></span><br><span class="line"><span class="actionscript">    &#123; <span class="string">"imports"</span>: </span></span><br><span class="line"><span class="actionscript">        &#123; <span class="string">"vue"</span>: <span class="string">"https://unpkg.com/vue@3.2.47/dist/vue.esm-browser.js"</span> &#125;</span></span><br><span class="line"><span class="actionscript">          <span class="string">"vuetify"</span>: <span class="string">"https://unpkg.com/vuetify@3.1.10/dist/vuetify.esm.js"</span></span></span><br><span class="line">        &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"module"</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">import</span> &#123;createApp&#125; <span class="keyword">from</span> <span class="string">'vue'</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">import</span> &#123; createVuetify &#125; <span class="keyword">from</span> <span class="string">'vuetify'</span></span></span><br><span class="line"><span class="actionscript">    <span class="keyword">const</span> vuetify = createVuetify()</span></span><br><span class="line"></span><br><span class="line">    createApp(&#123;</span><br><span class="line">      data() &#123;</span><br><span class="line"><span class="actionscript">        <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="actionscript">          message: <span class="string">'Hello Vue!'</span></span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line"><span class="actionscript">    &#125;).use(vuetify).mount(<span class="string">'#app'</span>)</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure><p>The import map is a way to map a module name to a URL. This is necessary because the Vuetify ESM module imports from Vue. Don't forget you'll also need to add in the CSS for Vuetify</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;If you want a quick way to add Vue 3 and Vuetify to your project via the UMD CDN then you can do so using ESM. ESM are ECMAScript Modules
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">App Service Quota Issue</title>
     <link href="https://westerndevs.com/_/app-service-quota/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/app-service-quota/</id>
     <published>2023-03-04T05:00:00.000Z</published>
-    <updated>2023-03-04T04:12:53.917Z</updated>
+    <updated>2023-03-15T23:23:40.358Z</updated>
 	<author>
 	
 	  
@@ -48,7 +74,7 @@
     <link href="https://westerndevs.com/_/azure-keyvaul-reference-gotcha/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-keyvaul-reference-gotcha/</id>
     <published>2023-03-04T05:00:00.000Z</published>
-    <updated>2023-03-04T04:12:53.917Z</updated>
+    <updated>2023-03-15T23:23:40.358Z</updated>
 	<author>
 	
 	  
@@ -74,7 +100,7 @@
     <link href="https://westerndevs.com/_/express-json-comments/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/express-json-comments/</id>
     <published>2023-02-16T05:00:00.000Z</published>
-    <updated>2023-03-04T04:12:53.921Z</updated>
+    <updated>2023-03-15T23:23:40.362Z</updated>
 	<author>
 	
 	  
@@ -100,7 +126,7 @@
     <link href="https://westerndevs.com/_/ruby-excel/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ruby-excel/</id>
     <published>2023-02-15T05:00:00.000Z</published>
-    <updated>2023-03-04T04:12:53.921Z</updated>
+    <updated>2023-03-15T23:23:40.362Z</updated>
 	<author>
 	
 	  
@@ -126,7 +152,7 @@
     <link href="https://westerndevs.com/musings/defining-problem-before-the-soltuion/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/musings/defining-problem-before-the-soltuion/</id>
     <published>2023-01-27T23:24:33.221Z</published>
-    <updated>2023-03-04T04:12:53.917Z</updated>
+    <updated>2023-03-15T23:23:40.358Z</updated>
 	<author>
 	
 	  
@@ -164,7 +190,7 @@
     <link href="https://westerndevs.com/coding/problem-solution/docker-build-hangs-on-apt-key-in-wsl2/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/coding/problem-solution/docker-build-hangs-on-apt-key-in-wsl2/</id>
     <published>2023-01-12T02:43:58.005Z</published>
-    <updated>2023-03-04T04:12:53.917Z</updated>
+    <updated>2023-03-15T23:23:40.358Z</updated>
 	<author>
 	
 	  
@@ -206,7 +232,7 @@
     <link href="https://westerndevs.com/musings/highlight-reel-for-2022/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/musings/highlight-reel-for-2022/</id>
     <published>2023-01-05T21:47:02.098Z</published>
-    <updated>2023-03-04T04:12:53.917Z</updated>
+    <updated>2023-03-15T23:23:40.358Z</updated>
 	<author>
 	
 	  
@@ -248,7 +274,7 @@
     <link href="https://westerndevs.com/_/happy-holidays-2022/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/happy-holidays-2022/</id>
     <published>2022-12-24T22:00:00.000Z</published>
-    <updated>2023-03-04T04:12:53.917Z</updated>
+    <updated>2023-03-15T23:23:40.358Z</updated>
 	<author>
 	
 	  
@@ -280,7 +306,7 @@
     <link href="https://westerndevs.com/_/speaking-at-tech-events-helps-you-grow/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/speaking-at-tech-events-helps-you-grow/</id>
     <published>2022-12-20T21:59:37.185Z</published>
-    <updated>2023-03-04T04:12:53.917Z</updated>
+    <updated>2023-03-15T23:23:40.358Z</updated>
 	<author>
 	
 	  
@@ -318,7 +344,7 @@
     <link href="https://westerndevs.com/_/docker-desktop-is-not-docker-engine/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/docker-desktop-is-not-docker-engine/</id>
     <published>2022-12-14T02:28:36.457Z</published>
-    <updated>2023-03-04T04:12:53.917Z</updated>
+    <updated>2023-03-15T23:23:40.358Z</updated>
 	<author>
 	
 	  
@@ -354,7 +380,7 @@
     <link href="https://westerndevs.com/_/prairie-dev-con-2022-takeaways/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/prairie-dev-con-2022-takeaways/</id>
     <published>2022-12-07T20:37:20.777Z</published>
-    <updated>2023-03-04T04:12:53.917Z</updated>
+    <updated>2023-03-15T23:23:40.358Z</updated>
 	<author>
 	
 	  
@@ -396,7 +422,7 @@
     <link href="https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/</id>
     <published>2022-12-01T09:18:34.509Z</published>
-    <updated>2023-03-04T04:12:53.917Z</updated>
+    <updated>2023-03-15T23:23:40.358Z</updated>
 	<author>
 	
 	  
@@ -434,7 +460,7 @@
     <link href="https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/</id>
     <published>2022-11-19T01:10:07.083Z</published>
-    <updated>2023-03-04T04:12:53.917Z</updated>
+    <updated>2023-03-15T23:23:40.358Z</updated>
 	<author>
 	
 	  
@@ -472,7 +498,7 @@
     <link href="https://westerndevs.com/_/bulk-insert-sql-geometry/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/bulk-insert-sql-geometry/</id>
     <published>2022-11-17T05:00:00.000Z</published>
-    <updated>2023-03-04T04:12:53.917Z</updated>
+    <updated>2023-03-15T23:23:40.358Z</updated>
 	<author>
 	
 	  
@@ -498,7 +524,7 @@
     <link href="https://westerndevs.com/_/azure-backus-protip/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-backus-protip/</id>
     <published>2022-11-11T05:00:00.000Z</published>
-    <updated>2023-03-04T04:12:53.917Z</updated>
+    <updated>2023-03-15T23:23:40.358Z</updated>
 	<author>
 	
 	  
@@ -524,7 +550,7 @@
     <link href="https://westerndevs.com/_/how-much-is-enough-documentation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/how-much-is-enough-documentation/</id>
     <published>2022-11-10T22:00:00.000Z</published>
-    <updated>2023-03-04T04:12:53.917Z</updated>
+    <updated>2023-03-15T23:23:40.358Z</updated>
 	<author>
 	
 	  
@@ -564,7 +590,7 @@
     <link href="https://westerndevs.com/_/how-to-fork-like-a-boss/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/how-to-fork-like-a-boss/</id>
     <published>2022-11-02T21:00:00.000Z</published>
-    <updated>2023-03-04T04:12:53.917Z</updated>
+    <updated>2023-03-15T23:23:40.358Z</updated>
 	<author>
 	
 	  
@@ -598,7 +624,7 @@
     <link href="https://westerndevs.com/_/set-output-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-output-terraform/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2023-03-04T04:12:53.925Z</updated>
+    <updated>2023-03-15T23:23:40.366Z</updated>
 	<author>
 	
 	  
@@ -624,7 +650,7 @@
     <link href="https://westerndevs.com/_/theory-of-terraform-github-actions/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/theory-of-terraform-github-actions/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2023-03-04T04:12:53.925Z</updated>
+    <updated>2023-03-15T23:23:40.366Z</updated>
 	<author>
 	
 	  
@@ -639,32 +665,6 @@
     <summary type="html">
     
       &lt;p&gt;I do all sorts of random work and one of those is helping out on some infrastructure deployments on Azure. Coming from a development back
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Registering Terraform Providers</title>
-    <link href="https://westerndevs.com/_/register-providers/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/register-providers/</id>
-    <published>2022-08-12T04:00:00.000Z</published>
-    <updated>2023-03-04T04:12:53.921Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>If you're setting up a new Terraform project on Azure you might find yourself needing to register providers if you're running with an identity that doesn't have wide ranging access to the subscription. I ran into this today with the error</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">│ Error: Error ensuring Resource Providers are registered.</span><br><span class="line">│ </span><br><span class="line">│ Terraform automatically attempts to register the Resource Providers it supports to</span><br><span class="line">│ ensure it's able to provision resources.</span><br><span class="line">│ </span><br><span class="line">│ If you don't have permission to register Resource Providers you may wish to <span class="keyword">use</span> the</span><br><span class="line">│ <span class="string">"skip_provider_registration"</span> flag <span class="keyword">in</span> the Provider <span class="keyword">block</span> <span class="keyword">to</span> <span class="keyword">disable</span> this functionality.</span><br><span class="line">│ </span><br><span class="line">│ Please note that <span class="keyword">if</span> you opt <span class="keyword">out</span> <span class="keyword">of</span> <span class="keyword">Resource</span> Provider Registration <span class="keyword">and</span> Terraform tries</span><br><span class="line">│ <span class="keyword">to</span> provision a <span class="keyword">resource</span> <span class="keyword">from</span> a <span class="keyword">Resource</span> Provider which <span class="keyword">is</span> unregistered, <span class="keyword">then</span> the <span class="keyword">errors</span></span><br><span class="line">│ may appear misleading - <span class="keyword">for</span> example:</span><br><span class="line">│ </span><br><span class="line">│ &gt; API <span class="keyword">version</span> <span class="number">2019</span>-XX-XX was <span class="keyword">not</span> <span class="keyword">found</span> <span class="keyword">for</span> Microsoft.Foo</span><br><span class="line">│ </span><br><span class="line">│ Could indicate either that the <span class="keyword">Resource</span> Provider <span class="string">"Microsoft.Foo"</span> requires registration,</span><br><span class="line">│ but this could also indicate that this Azure Region doesn<span class="string">'t support this API version.</span></span><br><span class="line"><span class="string">│ </span></span><br><span class="line"><span class="string">│ More information on the "skip_provider_registration" flag can be found here:</span></span><br><span class="line"><span class="string">│ https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs#skip_provider_registration</span></span><br><span class="line"><span class="string">│ </span></span><br><span class="line"><span class="string">│ Original Error: Cannnot register providers: Microsoft.StoragePool. Errors were: Cannot register provider Microsoft.StoragePool with Azure Resource Manager: resources.ProvidersClient#Register: Failure responding to request: StatusCode=403 -- Original Error: autorest/azure: Service returned an error. Status=403 Code="AuthorizationFailed" Message="The client '</span>************<span class="string">' with object id ''************'' does not have authorization to perform action '</span>Microsoft.StoragePool/<span class="keyword">register</span>/<span class="keyword">action</span><span class="string">' over scope '</span>/subscriptions<span class="comment">/***' or the scope is invalid. If access was recently granted, please refresh your credentials.".</span></span><br><span class="line"><span class="comment">│ </span></span><br><span class="line"><span class="comment">│   with provider["registry.terraform.io/hashicorp/azurerm"],</span></span><br><span class="line"><span class="comment">│   on environment.tf line 21, in provider "azurerm":</span></span><br><span class="line"><span class="comment">│   21: provider "azurerm" &#123;</span></span><br></pre></td></tr></table></figure><p>The account running terraform in my github actions pipeline is restricted to only have contributor over the resource group into which I'm deploying so it's unable to properly set up providers. Two things needed to fix it:</p><ol><li>Tell terraform to not try to register providers</li><li>Register the providers manually</li></ol><p>For 1 the provider block in the terraform file needs to be updated to look like</p><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  <span class="attribute">provider</span> <span class="string">"azurerm"</span> &#123;</span><br><span class="line">    <span class="section">features</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="attribute">skip_provider_registration</span> = <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>For 2 it requires logging into the azure portal and registering the providers manually. Go to the subscription and select <code>Resource Providers</code> then search for the one you need, select it and hit <code>Register</code>. In my case the provider was already registered and the problem was just Terraform's attempt to register it without sufficient permission.</p><p><img src="/images/2022-08-11-register_providers.md/2022-08-11-07-07-29.png" alt="">)</p><pre><code></code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;If you&#39;re setting up a new Terraform project on Azure you might find yourself needing to register providers if you&#39;re running with an ide
     
     </summary>
     

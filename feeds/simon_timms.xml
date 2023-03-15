@@ -5,7 +5,7 @@
   <link href="/feeds/simon_timms" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2023-03-04T04:12:53.917Z</updated>
+  <updated>2023-03-15T23:23:40.366Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Importing Vuetify via ESM</title>
+    <link href="https://westerndevs.com/_/vuetify-esm/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/vuetify-esm/</id>
+    <published>2023-03-15T04:00:00.000Z</published>
+    <updated>2023-03-15T23:23:40.366Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>If you want a quick way to add Vue 3 and Vuetify to your project via the UMD CDN then you can do so using ESM. ESM are ECMAScript Modules and are now supported by the majority of browsers. This is going to look like</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"importmap"</span>&gt;</span></span><br><span class="line"><span class="actionscript">    &#123; <span class="string">"imports"</span>: </span></span><br><span class="line"><span class="actionscript">        &#123; <span class="string">"vue"</span>: <span class="string">"https://unpkg.com/vue@3.2.47/dist/vue.esm-browser.js"</span> &#125;</span></span><br><span class="line"><span class="actionscript">          <span class="string">"vuetify"</span>: <span class="string">"https://unpkg.com/vuetify@3.1.10/dist/vuetify.esm.js"</span></span></span><br><span class="line">        &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"module"</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">import</span> &#123;createApp&#125; <span class="keyword">from</span> <span class="string">'vue'</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">import</span> &#123; createVuetify &#125; <span class="keyword">from</span> <span class="string">'vuetify'</span></span></span><br><span class="line"><span class="actionscript">    <span class="keyword">const</span> vuetify = createVuetify()</span></span><br><span class="line"></span><br><span class="line">    createApp(&#123;</span><br><span class="line">      data() &#123;</span><br><span class="line"><span class="actionscript">        <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="actionscript">          message: <span class="string">'Hello Vue!'</span></span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line"><span class="actionscript">    &#125;).use(vuetify).mount(<span class="string">'#app'</span>)</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure><p>The import map is a way to map a module name to a URL. This is necessary because the Vuetify ESM module imports from Vue. Don't forget you'll also need to add in the CSS for Vuetify</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;If you want a quick way to add Vue 3 and Vuetify to your project via the UMD CDN then you can do so using ESM. ESM are ECMAScript Modules
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">App Service Quota Issue</title>
     <link href="https://westerndevs.com/_/app-service-quota/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/app-service-quota/</id>
     <published>2023-03-04T05:00:00.000Z</published>
-    <updated>2023-03-04T04:12:53.917Z</updated>
+    <updated>2023-03-15T23:23:40.358Z</updated>
 	<author>
 	
 	  
@@ -48,7 +74,7 @@
     <link href="https://westerndevs.com/_/azure-keyvaul-reference-gotcha/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-keyvaul-reference-gotcha/</id>
     <published>2023-03-04T05:00:00.000Z</published>
-    <updated>2023-03-04T04:12:53.917Z</updated>
+    <updated>2023-03-15T23:23:40.358Z</updated>
 	<author>
 	
 	  
@@ -74,7 +100,7 @@
     <link href="https://westerndevs.com/_/express-json-comments/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/express-json-comments/</id>
     <published>2023-02-16T05:00:00.000Z</published>
-    <updated>2023-03-04T04:12:53.921Z</updated>
+    <updated>2023-03-15T23:23:40.362Z</updated>
 	<author>
 	
 	  
@@ -100,7 +126,7 @@
     <link href="https://westerndevs.com/_/ruby-excel/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ruby-excel/</id>
     <published>2023-02-15T05:00:00.000Z</published>
-    <updated>2023-03-04T04:12:53.921Z</updated>
+    <updated>2023-03-15T23:23:40.362Z</updated>
 	<author>
 	
 	  
@@ -126,7 +152,7 @@
     <link href="https://westerndevs.com/_/bulk-insert-sql-geometry/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/bulk-insert-sql-geometry/</id>
     <published>2022-11-17T05:00:00.000Z</published>
-    <updated>2023-03-04T04:12:53.917Z</updated>
+    <updated>2023-03-15T23:23:40.358Z</updated>
 	<author>
 	
 	  
@@ -152,7 +178,7 @@
     <link href="https://westerndevs.com/_/azure-backus-protip/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-backus-protip/</id>
     <published>2022-11-11T05:00:00.000Z</published>
-    <updated>2023-03-04T04:12:53.917Z</updated>
+    <updated>2023-03-15T23:23:40.358Z</updated>
 	<author>
 	
 	  
@@ -178,7 +204,7 @@
     <link href="https://westerndevs.com/_/set-output-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-output-terraform/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2023-03-04T04:12:53.925Z</updated>
+    <updated>2023-03-15T23:23:40.366Z</updated>
 	<author>
 	
 	  
@@ -204,7 +230,7 @@
     <link href="https://westerndevs.com/_/theory-of-terraform-github-actions/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/theory-of-terraform-github-actions/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2023-03-04T04:12:53.925Z</updated>
+    <updated>2023-03-15T23:23:40.366Z</updated>
 	<author>
 	
 	  
@@ -230,7 +256,7 @@
     <link href="https://westerndevs.com/_/register-providers/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/register-providers/</id>
     <published>2022-08-12T04:00:00.000Z</published>
-    <updated>2023-03-04T04:12:53.921Z</updated>
+    <updated>2023-03-15T23:23:40.362Z</updated>
 	<author>
 	
 	  
@@ -256,7 +282,7 @@
     <link href="https://westerndevs.com/_/debug-azure-container-instances-startup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/debug-azure-container-instances-startup/</id>
     <published>2022-08-04T04:00:00.000Z</published>
-    <updated>2023-03-04T04:12:53.917Z</updated>
+    <updated>2023-03-15T23:23:40.358Z</updated>
 	<author>
 	
 	  
@@ -282,7 +308,7 @@
     <link href="https://westerndevs.com/_/consuming-wsdl/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/consuming-wsdl/</id>
     <published>2022-05-30T04:00:00.000Z</published>
-    <updated>2023-03-04T04:12:53.917Z</updated>
+    <updated>2023-03-15T23:23:40.358Z</updated>
 	<author>
 	
 	  
@@ -308,7 +334,7 @@
     <link href="https://westerndevs.com/_/azure-functions-error/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-functions-error/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2023-03-04T04:12:53.917Z</updated>
+    <updated>2023-03-15T23:23:40.358Z</updated>
 	<author>
 	
 	  
@@ -334,7 +360,7 @@
     <link href="https://westerndevs.com/_/which-sql-server-edition/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/which-sql-server-edition/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2023-03-04T04:12:53.925Z</updated>
+    <updated>2023-03-15T23:23:40.366Z</updated>
 	<author>
 	
 	  
@@ -360,7 +386,7 @@
     <link href="https://westerndevs.com/_/cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cheat-sheet/</id>
     <published>2022-04-04T04:00:00.000Z</published>
-    <updated>2023-03-04T04:12:53.917Z</updated>
+    <updated>2023-03-15T23:23:40.358Z</updated>
 	<author>
 	
 	  
@@ -388,7 +414,7 @@
     <link href="https://westerndevs.com/_/rubocop-issue/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/rubocop-issue/</id>
     <published>2022-03-18T04:00:00.000Z</published>
-    <updated>2023-03-04T04:12:53.921Z</updated>
+    <updated>2023-03-15T23:23:40.362Z</updated>
 	<author>
 	
 	  
@@ -415,7 +441,7 @@
     <link href="https://westerndevs.com/_/fsevents-optional-dependencies/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/fsevents-optional-dependencies/</id>
     <published>2022-03-16T04:00:00.000Z</published>
-    <updated>2023-03-04T04:12:53.921Z</updated>
+    <updated>2023-03-15T23:23:40.362Z</updated>
 	<author>
 	
 	  
@@ -441,7 +467,7 @@
     <link href="https://westerndevs.com/_/backblaze-exclude-node-modules/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/backblaze-exclude-node-modules/</id>
     <published>2022-02-20T05:00:00.000Z</published>
-    <updated>2023-03-04T04:12:53.917Z</updated>
+    <updated>2023-03-15T23:23:40.358Z</updated>
 	<author>
 	
 	  
@@ -467,7 +493,7 @@
     <link href="https://westerndevs.com/_/parsing-vue-router-parameters/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/parsing-vue-router-parameters/</id>
     <published>2022-02-18T05:00:00.000Z</published>
-    <updated>2023-03-04T04:12:53.921Z</updated>
+    <updated>2023-03-15T23:23:40.362Z</updated>
 	<author>
 	
 	  
@@ -493,7 +519,7 @@
     <link href="https://westerndevs.com/_/install-azfileshybrid-powershell/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/install-azfileshybrid-powershell/</id>
     <published>2022-02-16T05:00:00.000Z</published>
-    <updated>2023-03-04T04:12:53.921Z</updated>
+    <updated>2023-03-15T23:23:40.362Z</updated>
 	<author>
 	
 	  
@@ -508,33 +534,6 @@
     <summary type="html">
     
       &lt;p&gt;If you don&#39;t do a lot of powershell then the instructions on how to install the AzFilesHybrid module can be lacking. Here is how to do it
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Purge CDN in DevOps</title>
-    <link href="https://westerndevs.com/_/purge-cdn-in-devops/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/purge-cdn-in-devops/</id>
-    <published>2022-01-27T05:00:00.000Z</published>
-    <updated>2023-03-04T04:12:53.921Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>In order to purge a cache in the build pipeline you can use some random task that some dude wrote or you can just use the Azure CLI.</p><p>Here is an example of what it would look like to purge the entire CDN top to bottom</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">task:</span> <span class="string">AzureCLI@2</span></span><br><span class="line">  <span class="attr">displayName:</span> <span class="string">'Invalidate CDN Cache'</span></span><br><span class="line">  <span class="attr">inputs:</span></span><br><span class="line">    <span class="attr">azureSubscription:</span> <span class="string">'Azure'</span></span><br><span class="line">    <span class="attr">scriptType:</span> <span class="string">'batch'</span></span><br><span class="line">    <span class="attr">scriptLocation:</span> <span class="string">'inlineScript'</span></span><br><span class="line">    <span class="attr">inlineScript:</span> <span class="string">'az cdn endpoint purge --content-paths "/*"  -n devascacdnendpoint -g devasca-rg --no-wait --profile-name devascacdn'</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;In order to purge a cache in the build pipeline you can use some random task that some dude wrote or you can just use the Azure CLI.&lt;/p&gt;
-
     
     </summary>
     
