@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2023-09-29T20:42:35.188Z</updated>
+  <updated>2023-10-14T02:52:52.697Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Load Testing with Artillery</title>
+    <link href="https://westerndevs.com/_/artillery/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/artillery/</id>
+    <published>2023-10-14T04:00:00.000Z</published>
+    <updated>2023-10-14T02:52:52.697Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>Load testing a site or an API can be a bit involved. There are lots of things to consider like what the traffic on your site typically looks like, what peaks look like and so forth. That's mostly outside the scope of this article which is just about load testing with artillery.</p><h2>Scenario</h2><p>We have an API that we call which is super slow and super fragile. We were recently told by the team that maintains it that they'd made improvements and increased our rate limit from something like 200 requests per minute to 300 and could we test it. So sure, I guess we can do your job for you. For this we're going to use the load testing tool <a href="https://www.artillery.io/" target="_blank" rel="noopener">artillery</a>.</p><h2>Getting started</h2><p>Artillery is a node based tool so you'll need to have node installed.  You can install artillery with <code>npm install -g artillery</code>.</p><p>You then write a configuration file to tell artillery what to do. Here's the one I used for this test (with the names of the guilty redacted):</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">config:</span> </span><br><span class="line">  <span class="attr">target:</span> <span class="string">https://some.company.com</span></span><br><span class="line">  <span class="attr">phases:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">duration:</span> <span class="number">1</span></span><br><span class="line">      <span class="attr">arrivalRate:</span> <span class="number">1</span></span><br><span class="line">  <span class="attr">http:</span></span><br><span class="line">    <span class="attr">timeout:</span> <span class="number">100</span></span><br><span class="line"><span class="attr">scenarios:</span></span><br><span class="line"> <span class="bullet">-</span> <span class="attr">flow:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">log:</span> <span class="string">"Adding new user</span></span><br><span class="line"><span class="string">    - post:</span></span><br><span class="line"><span class="string">        url: /2020-04/graphql</span></span><br><span class="line"><span class="string">        body: |</span></span><br><span class="line"><span class="string">          &#123;"</span><span class="string">query":"query</span> <span class="string">readAllEmployees($limit:</span> <span class="string">Int!,</span> <span class="string">$cursor:</span> <span class="string">String,</span> <span class="string">$statusFilter:</span> <span class="string">[String!]!)</span> <span class="string">&#123;\n</span> <span class="string">company</span> <span class="string">&#123;\n</span> <span class="string">employees(filter:</span> <span class="string">&#123;status:</span> <span class="string">&#123;in:</span> <span class="string">$statusFilter&#125;&#125;,</span> <span class="attr">pagination:</span> <span class="string">&#123;first:</span> <span class="string">$limit,</span> <span class="attr">after:</span> <span class="string">$cursor&#125;)</span> <span class="string">&#123;\n</span> <span class="string">pageInfo</span> <span class="string">&#123;\n</span> <span class="string">hasNextPage\n</span> <span class="string">startCursor\n</span> <span class="string">endCursor\n</span> <span class="string">hasPreviousPage\n</span> <span class="string">&#125;\n</span> <span class="string">nodes</span> <span class="string">&#123;\n</span> <span class="string">id\n</span> <span class="string">firstName\n</span> <span class="string">lastName\n\t\tmiddleName\n</span> <span class="string">birthDate\n</span> <span class="string">displayName\n</span> <span class="string">employmentDetail</span> <span class="string">&#123;\n</span> <span class="string">employmentStatus\n</span> <span class="string">hireDate\n</span> <span class="string">terminationDate\n</span> <span class="string">&#125;\n</span> <span class="string">taxIdentifiers</span> <span class="string">&#123;\n</span> <span class="string">taxIdentifierType\n</span> <span class="string">value\n</span> <span class="string">&#125;\n</span> <span class="string">payrollProfile</span> <span class="string">&#123;\n</span> <span class="string">preferredAddress</span> <span class="string">&#123;\n</span> <span class="string">streetAddress1\n</span> <span class="string">streetAddress2\n</span> <span class="string">city\n</span> <span class="string">zipCode\n</span> <span class="string">county\n</span> <span class="string">state\n</span> <span class="string">country\n</span> <span class="string">&#125;\n</span> <span class="string">preferredEmail\n</span> <span class="string">preferredPhone\n</span> <span class="string">compensations</span> <span class="string">&#123;\n</span> <span class="string">id\n</span> <span class="string">timeWorked</span> <span class="string">&#123;\n</span> <span class="string">unit\n</span> <span class="string">value\n</span> <span class="string">&#125;\n</span> <span class="string">active\n</span> <span class="string">amount\n</span> <span class="string">multiplier\n</span> <span class="string">employerCompensation</span> <span class="string">&#123;\n</span> <span class="string">id\n</span> <span class="string">name\n</span> <span class="string">active\n</span> <span class="string">amount\n</span> <span class="string">timeWorked</span> <span class="string">&#123;\n</span> <span class="string">unit\n</span> <span class="string">value\n</span> <span class="string">&#125;\n</span> <span class="string">multiplier\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n&#125;\n","variables":&#123;</span></span><br><span class="line">          <span class="attr">"limit":</span> <span class="number">100</span><span class="string">,</span></span><br><span class="line">          <span class="attr">"cursor":</span> <span class="literal">null</span><span class="string">,</span></span><br><span class="line">          <span class="attr">"statusFilter":</span> <span class="string">[</span></span><br><span class="line">          <span class="string">"ACTIVE"</span><span class="string">,</span></span><br><span class="line">          <span class="string">"TERMINATED"</span><span class="string">,</span></span><br><span class="line">          <span class="string">"NOTONPAYROLL"</span><span class="string">,</span></span><br><span class="line">          <span class="string">"UNPAIDLEAVE"</span><span class="string">,</span></span><br><span class="line">          <span class="string">"PAIDLEAVE"</span></span><br><span class="line">          <span class="string">]</span></span><br><span class="line">          <span class="string">&#125;&#125;</span></span><br><span class="line">        <span class="attr">headers:</span></span><br><span class="line">          <span class="attr">Content-Type:</span> <span class="string">application/json</span></span><br><span class="line">          <span class="attr">Authorization:</span> <span class="string">Bearer</span> <span class="string">&lt;redacted&gt;</span></span><br></pre></td></tr></table></figure><p>As you can see this is graphql and it is a private API so we need to pass in a bearer token. The body I just stole from our postman collection so it isn't well formatted.</p><p>Running this is as simple as running <code>artillery run &lt;filename&gt;</code>.</p><p>At the top you can see arrival rates and duration. This is saying that we want to ramp up to 1 requests per second over the course of 1 second. So basically this is just proving that our request works. The first time I ran this I only got back 400 errors. To get the body of the response to allow me to see why I was getting a 400 I set</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">export</span> <span class="attribute">DEBUG</span>=http,http:capture,http:response</span><br></pre></td></tr></table></figure><p>Once I had the simple case working I was able to increase the rates to higher levels. To do this I ended up adjusting the phases to look like</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">phases:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">duration:</span> <span class="number">30</span></span><br><span class="line">    <span class="attr">arrivalRate:</span> <span class="number">30</span></span><br><span class="line">    <span class="attr">maxVusers:</span> <span class="number">150</span></span><br></pre></td></tr></table></figure><p>This provisions 30 users a second up to a maximum of 150 users - so that takes about 5 seconds to saturate. I left the duration higher because I'm lazy and artillery is smart enough to not provision more. Then to ensure that I was pretty constantly hitting the API with the maximum number of users I added a loop to the scenario like so:</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">scenarios:</span></span><br><span class="line"> <span class="bullet">-</span> <span class="attr">flow:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">log:</span> <span class="string">"New virtual user running"</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">loop:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">post:</span></span><br><span class="line">          <span class="attr">url:</span> <span class="string">/2020-04/graphql</span></span><br><span class="line">          <span class="attr">body:</span> <span class="string">|</span></span><br><span class="line">            <span class="string">&#123;"query":"query</span> <span class="string">readAllEmployeePensions($limit:</span> <span class="string">Int!,</span> <span class="string">$cursor:</span> <span class="string">String,</span> <span class="string">$statusFilter:</span> <span class="string">[String!]!)</span> <span class="string">&#123;\n</span> <span class="string">company</span> <span class="string">&#123;\n</span> <span class="string">employees(filter:</span> <span class="string">&#123;status:</span> <span class="string">&#123;</span> <span class="attr">in:</span> <span class="string">$statusFilter</span> <span class="string">&#125;&#125;,</span> <span class="attr">pagination:</span> <span class="string">&#123;first:</span> <span class="string">$limit,</span> <span class="attr">after:</span> <span class="string">$cursor&#125;)</span> <span class="string">&#123;\n</span> <span class="string">pageInfo</span> <span class="string">&#123;\n</span> <span class="string">hasNextPage\n</span> <span class="string">startCursor\n</span> <span class="string">endCursor\n</span> <span class="string">hasPreviousPage\n</span> <span class="string">&#125;\n</span> <span class="string">nodes</span> <span class="string">&#123;\n</span> <span class="string">id\n</span> <span class="string">displayName\n</span> <span class="string">payrollProfile</span> <span class="string">&#123;\n</span> <span class="string">pensions</span> <span class="string">&#123;\n</span> <span class="string">id\n</span> <span class="string">active\n</span> <span class="string">employeeSetup</span> <span class="string">&#123;\n</span> <span class="string">amount</span> <span class="string">&#123;\n</span> <span class="string">percentage\n</span> <span class="string">value\n</span> <span class="string">&#125;\n</span> <span class="string">cappings</span> <span class="string">&#123;\n</span> <span class="string">amount\n</span> <span class="string">timeInterval\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n</span> <span class="string">employerSetup</span> <span class="string">&#123;\n</span> <span class="string">amount</span> <span class="string">&#123;\n</span> <span class="string">percentage\n</span> <span class="string">value\n</span> <span class="string">&#125;\n</span> <span class="string">cappings</span> <span class="string">&#123;\n</span> <span class="string">amount\n</span> <span class="string">timeInterval\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n</span> <span class="string">employerPension</span> <span class="string">&#123;\n</span> <span class="string">id\n</span> <span class="string">name\n</span> <span class="string">statutoryPensionPolicy\n</span> <span class="string">&#125;\n</span> <span class="string">customFields</span> <span class="string">&#123;\n</span> <span class="string">name\n</span> <span class="string">value\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n&#125;\n","variables":&#123;</span></span><br><span class="line">            <span class="attr">"limit":</span> <span class="number">100</span><span class="string">,</span></span><br><span class="line">            <span class="attr">"statusFilter":</span> <span class="string">[</span></span><br><span class="line">            <span class="string">"ACTIVE"</span></span><br><span class="line">            <span class="string">]</span></span><br><span class="line">            <span class="string">&#125;&#125;</span></span><br><span class="line">          <span class="attr">headers:</span></span><br><span class="line">            <span class="attr">Content-Type:</span> <span class="string">application/json</span></span><br><span class="line">            <span class="attr">Authorization:</span> <span class="string">Bearer</span> <span class="string">&lt;redacted&gt;</span></span><br><span class="line">      <span class="attr">count:</span> <span class="number">100</span></span><br></pre></td></tr></table></figure><p>Pay attention to that count at the bottom.</p><p>I was able to use this to fire thousands of requests at the service and prove out that our rate limit was indeed higher than it was before and we could raise our concurrency.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Load testing a site or an API can be a bit involved. There are lots of things to consider like what the traffic on your site typically lo
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Alerting on Blob Storage Throttling</title>
     <link href="https://westerndevs.com/_/storage-alert-rules/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storage-alert-rules/</id>
     <published>2023-03-30T04:00:00.000Z</published>
-    <updated>2023-09-29T20:42:35.188Z</updated>
+    <updated>2023-10-14T02:52:52.705Z</updated>
 	<author>
 	
 	  
@@ -47,7 +73,7 @@
     <link href="https://westerndevs.com/_/vuetify-esm/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/vuetify-esm/</id>
     <published>2023-03-15T04:00:00.000Z</published>
-    <updated>2023-09-29T20:42:35.188Z</updated>
+    <updated>2023-10-14T02:52:52.705Z</updated>
 	<author>
 	
 	  
@@ -73,7 +99,7 @@
     <link href="https://westerndevs.com/_/app-service-quota/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/app-service-quota/</id>
     <published>2023-03-04T05:00:00.000Z</published>
-    <updated>2023-09-29T20:42:35.180Z</updated>
+    <updated>2023-10-14T02:52:52.697Z</updated>
 	<author>
 	
 	  
@@ -100,7 +126,7 @@
     <link href="https://westerndevs.com/_/azure-keyvaul-reference-gotcha/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-keyvaul-reference-gotcha/</id>
     <published>2023-03-04T05:00:00.000Z</published>
-    <updated>2023-09-29T20:42:35.180Z</updated>
+    <updated>2023-10-14T02:52:52.697Z</updated>
 	<author>
 	
 	  
@@ -126,7 +152,7 @@
     <link href="https://westerndevs.com/_/express-json-comments/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/express-json-comments/</id>
     <published>2023-02-16T05:00:00.000Z</published>
-    <updated>2023-09-29T20:42:35.184Z</updated>
+    <updated>2023-10-14T02:52:52.701Z</updated>
 	<author>
 	
 	  
@@ -152,7 +178,7 @@
     <link href="https://westerndevs.com/_/ruby-excel/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ruby-excel/</id>
     <published>2023-02-15T05:00:00.000Z</published>
-    <updated>2023-09-29T20:42:35.188Z</updated>
+    <updated>2023-10-14T02:52:52.705Z</updated>
 	<author>
 	
 	  
@@ -178,7 +204,7 @@
     <link href="https://westerndevs.com/musings/defining-problem-before-the-soltuion/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/musings/defining-problem-before-the-soltuion/</id>
     <published>2023-01-27T23:24:33.221Z</published>
-    <updated>2023-09-29T20:42:35.180Z</updated>
+    <updated>2023-10-14T02:52:52.697Z</updated>
 	<author>
 	
 	  
@@ -216,7 +242,7 @@
     <link href="https://westerndevs.com/coding/problem-solution/docker-build-hangs-on-apt-key-in-wsl2/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/coding/problem-solution/docker-build-hangs-on-apt-key-in-wsl2/</id>
     <published>2023-01-12T02:43:58.005Z</published>
-    <updated>2023-09-29T20:42:35.180Z</updated>
+    <updated>2023-10-14T02:52:52.697Z</updated>
 	<author>
 	
 	  
@@ -258,7 +284,7 @@
     <link href="https://westerndevs.com/musings/highlight-reel-for-2022/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/musings/highlight-reel-for-2022/</id>
     <published>2023-01-05T21:47:02.098Z</published>
-    <updated>2023-09-29T20:42:35.180Z</updated>
+    <updated>2023-10-14T02:52:52.693Z</updated>
 	<author>
 	
 	  
@@ -300,7 +326,7 @@
     <link href="https://westerndevs.com/_/happy-holidays-2022/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/happy-holidays-2022/</id>
     <published>2022-12-24T22:00:00.000Z</published>
-    <updated>2023-09-29T20:42:35.180Z</updated>
+    <updated>2023-10-14T02:52:52.693Z</updated>
 	<author>
 	
 	  
@@ -332,7 +358,7 @@
     <link href="https://westerndevs.com/_/speaking-at-tech-events-helps-you-grow/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/speaking-at-tech-events-helps-you-grow/</id>
     <published>2022-12-20T21:59:37.185Z</published>
-    <updated>2023-09-29T20:42:35.180Z</updated>
+    <updated>2023-10-14T02:52:52.693Z</updated>
 	<author>
 	
 	  
@@ -370,7 +396,7 @@
     <link href="https://westerndevs.com/_/docker-desktop-is-not-docker-engine/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/docker-desktop-is-not-docker-engine/</id>
     <published>2022-12-14T02:28:36.457Z</published>
-    <updated>2023-09-29T20:42:35.180Z</updated>
+    <updated>2023-10-14T02:52:52.693Z</updated>
 	<author>
 	
 	  
@@ -406,7 +432,7 @@
     <link href="https://westerndevs.com/_/prairie-dev-con-2022-takeaways/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/prairie-dev-con-2022-takeaways/</id>
     <published>2022-12-07T20:37:20.777Z</published>
-    <updated>2023-09-29T20:42:35.180Z</updated>
+    <updated>2023-10-14T02:52:52.693Z</updated>
 	<author>
 	
 	  
@@ -448,7 +474,7 @@
     <link href="https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/</id>
     <published>2022-12-01T09:18:34.509Z</published>
-    <updated>2023-09-29T20:42:35.180Z</updated>
+    <updated>2023-10-14T02:52:52.693Z</updated>
 	<author>
 	
 	  
@@ -486,7 +512,7 @@
     <link href="https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/</id>
     <published>2022-11-19T01:10:07.083Z</published>
-    <updated>2023-09-29T20:42:35.180Z</updated>
+    <updated>2023-10-14T02:52:52.693Z</updated>
 	<author>
 	
 	  
@@ -524,7 +550,7 @@
     <link href="https://westerndevs.com/_/bulk-insert-sql-geometry/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/bulk-insert-sql-geometry/</id>
     <published>2022-11-17T05:00:00.000Z</published>
-    <updated>2023-09-29T20:42:35.180Z</updated>
+    <updated>2023-10-14T02:52:52.697Z</updated>
 	<author>
 	
 	  
@@ -550,7 +576,7 @@
     <link href="https://westerndevs.com/_/azure-backus-protip/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-backus-protip/</id>
     <published>2022-11-11T05:00:00.000Z</published>
-    <updated>2023-09-29T20:42:35.180Z</updated>
+    <updated>2023-10-14T02:52:52.697Z</updated>
 	<author>
 	
 	  
@@ -576,7 +602,7 @@
     <link href="https://westerndevs.com/_/how-much-is-enough-documentation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/how-much-is-enough-documentation/</id>
     <published>2022-11-10T22:00:00.000Z</published>
-    <updated>2023-09-29T20:42:35.180Z</updated>
+    <updated>2023-10-14T02:52:52.693Z</updated>
 	<author>
 	
 	  
@@ -616,7 +642,7 @@
     <link href="https://westerndevs.com/_/how-to-fork-like-a-boss/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/how-to-fork-like-a-boss/</id>
     <published>2022-11-02T21:00:00.000Z</published>
-    <updated>2023-09-29T20:42:35.180Z</updated>
+    <updated>2023-10-14T02:52:52.693Z</updated>
 	<author>
 	
 	  
@@ -642,32 +668,6 @@
       <category term="contribution" scheme="https://westerndevs.com/tags/contribution/"/>
     
       <category term="open source" scheme="https://westerndevs.com/tags/open-source/"/>
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Dealing with Set-Output Depreciation Warnings in Terraform github-actions</title>
-    <link href="https://westerndevs.com/_/set-output-terraform/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/set-output-terraform/</id>
-    <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2023-09-29T20:42:35.188Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>I've got a build that is running terraform on github actions (I actually have loads of them) and I've been noticing that they are very chatty about warnings now.</p><p><img src="/images/2022-11-01-set-output-terraform.md/2022-11-01-06-46-18.png" alt="">)</p><p>The warning is</p><figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">The </span>`<span class="built_in">set-output`</span> <span class="string">command </span><span class="string">is </span><span class="string">deprecated </span><span class="string">and </span><span class="string">will </span><span class="string">be </span><span class="string">disabled </span><span class="string">soon.</span> <span class="string">Please </span><span class="string">upgrade </span><span class="string">to </span><span class="string">using </span><span class="string">Environment </span><span class="string">Files.</span> <span class="string">For </span><span class="string">more </span><span class="string">information </span><span class="string">see:</span> <span class="string">https:</span>//<span class="string">github.</span><span class="string">blog/</span><span class="string">changelog/</span><span class="string">2022-10-</span><span class="string">11-github-</span><span class="string">actions-deprecating-</span><span class="string">save-state-</span><span class="string">and-set-</span><span class="string">output-commands/</span></span><br></pre></td></tr></table></figure><p>The history here without reading that link is basically that github are changing how we push variables to the pipeline for use in later steps. There were some security implications with the old approach and the new approach should be better</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Save</span> <span class="string">variable</span></span><br><span class="line">  <span class="attr">run:</span> <span class="string">echo</span> <span class="string">"SOMENAME=PICKLE"</span> <span class="string">&gt;&gt;</span> <span class="string">$GITHUB_STATE</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Set</span> <span class="string">output</span></span><br><span class="line">  <span class="attr">run:</span> <span class="string">echo</span> <span class="string">"SOMENAME=PICKLE"</span> <span class="string">&gt;&gt;</span> <span class="string">$GITHUB_OUTPUT</span></span><br></pre></td></tr></table></figure><p>Problem was that the steps on which I was having trouble didn't obviously use the <code>set-output</code> command.</p>  <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> <span class="string">...</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Init</span> <span class="string">Terraform</span></span><br><span class="line">  <span class="attr">run:</span> <span class="string">terraform</span> <span class="string">init</span> </span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Validate</span> <span class="string">Terraform</span></span><br><span class="line">  <span class="attr">run:</span> <span class="string">terraform</span> <span class="string">validate</span></span><br><span class="line"><span class="string">...</span></span><br></pre></td></tr></table></figure><p>I had to dig a bit to find out that it was actually the <code>terraform</code> command that was causing the problem. See as part of the build I install the terraform cli using the</p>  <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">HashiCorp</span> <span class="bullet">-</span> <span class="string">Setup</span> <span class="string">Terraform</span></span><br><span class="line">  <span class="attr">uses:</span> <span class="string">hashicorp/setup-terraform@v2.0.2</span></span><br><span class="line">  <span class="attr">with:</span></span><br><span class="line">      <span class="attr">terraform_version:</span> <span class="number">1.1</span><span class="number">.9</span></span><br><span class="line">      <span class="attr">terraform_wrapper:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure><p>Turns out that as of writing the latest version of the wrapper installed by the setup-terraform task makes use of an older version of the <code>@actions/core</code> package. This package is what is used to set the output and before version 1.10 it did so using <code>set-output</code>. A fix has been merged into the setup-terraform project but no update released yet.</p><p>For now I found that I had no need for the wrapper so I disabled it with</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">HashiCorp</span> <span class="bullet">-</span> <span class="string">Setup</span> <span class="string">Terraform</span></span><br><span class="line">  <span class="attr">uses:</span> <span class="string">hashicorp/setup-terraform@v2.0.2</span></span><br><span class="line">  <span class="attr">with:</span></span><br><span class="line">      <span class="attr">terraform_version:</span> <span class="number">1.1</span><span class="number">.9</span></span><br><span class="line">      <span class="attr">terraform_wrapper:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure><p>but for future readers if there is a more recent version of setup-terraform than 2.0.2 then you can update to that to remove the warnings. Now my build is clean</p><p><img src="/images/2022-11-01-set-output-terraform.md/2022-11-01-06-57-27.png" alt="">)</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;I&#39;ve got a build that is running terraform on github actions (I actually have loads of them) and I&#39;ve been noticing that they are very ch
-    
-    </summary>
-    
     
   </entry>
   

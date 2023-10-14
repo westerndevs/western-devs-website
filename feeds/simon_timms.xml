@@ -5,7 +5,7 @@
   <link href="/feeds/simon_timms" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2023-09-29T20:42:35.188Z</updated>
+  <updated>2023-10-14T02:52:52.697Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Load Testing with Artillery</title>
+    <link href="https://westerndevs.com/_/artillery/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/artillery/</id>
+    <published>2023-10-14T04:00:00.000Z</published>
+    <updated>2023-10-14T02:52:52.697Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>Load testing a site or an API can be a bit involved. There are lots of things to consider like what the traffic on your site typically looks like, what peaks look like and so forth. That's mostly outside the scope of this article which is just about load testing with artillery.</p><h2>Scenario</h2><p>We have an API that we call which is super slow and super fragile. We were recently told by the team that maintains it that they'd made improvements and increased our rate limit from something like 200 requests per minute to 300 and could we test it. So sure, I guess we can do your job for you. For this we're going to use the load testing tool <a href="https://www.artillery.io/" target="_blank" rel="noopener">artillery</a>.</p><h2>Getting started</h2><p>Artillery is a node based tool so you'll need to have node installed.  You can install artillery with <code>npm install -g artillery</code>.</p><p>You then write a configuration file to tell artillery what to do. Here's the one I used for this test (with the names of the guilty redacted):</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">config:</span> </span><br><span class="line">  <span class="attr">target:</span> <span class="string">https://some.company.com</span></span><br><span class="line">  <span class="attr">phases:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">duration:</span> <span class="number">1</span></span><br><span class="line">      <span class="attr">arrivalRate:</span> <span class="number">1</span></span><br><span class="line">  <span class="attr">http:</span></span><br><span class="line">    <span class="attr">timeout:</span> <span class="number">100</span></span><br><span class="line"><span class="attr">scenarios:</span></span><br><span class="line"> <span class="bullet">-</span> <span class="attr">flow:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">log:</span> <span class="string">"Adding new user</span></span><br><span class="line"><span class="string">    - post:</span></span><br><span class="line"><span class="string">        url: /2020-04/graphql</span></span><br><span class="line"><span class="string">        body: |</span></span><br><span class="line"><span class="string">          &#123;"</span><span class="string">query":"query</span> <span class="string">readAllEmployees($limit:</span> <span class="string">Int!,</span> <span class="string">$cursor:</span> <span class="string">String,</span> <span class="string">$statusFilter:</span> <span class="string">[String!]!)</span> <span class="string">&#123;\n</span> <span class="string">company</span> <span class="string">&#123;\n</span> <span class="string">employees(filter:</span> <span class="string">&#123;status:</span> <span class="string">&#123;in:</span> <span class="string">$statusFilter&#125;&#125;,</span> <span class="attr">pagination:</span> <span class="string">&#123;first:</span> <span class="string">$limit,</span> <span class="attr">after:</span> <span class="string">$cursor&#125;)</span> <span class="string">&#123;\n</span> <span class="string">pageInfo</span> <span class="string">&#123;\n</span> <span class="string">hasNextPage\n</span> <span class="string">startCursor\n</span> <span class="string">endCursor\n</span> <span class="string">hasPreviousPage\n</span> <span class="string">&#125;\n</span> <span class="string">nodes</span> <span class="string">&#123;\n</span> <span class="string">id\n</span> <span class="string">firstName\n</span> <span class="string">lastName\n\t\tmiddleName\n</span> <span class="string">birthDate\n</span> <span class="string">displayName\n</span> <span class="string">employmentDetail</span> <span class="string">&#123;\n</span> <span class="string">employmentStatus\n</span> <span class="string">hireDate\n</span> <span class="string">terminationDate\n</span> <span class="string">&#125;\n</span> <span class="string">taxIdentifiers</span> <span class="string">&#123;\n</span> <span class="string">taxIdentifierType\n</span> <span class="string">value\n</span> <span class="string">&#125;\n</span> <span class="string">payrollProfile</span> <span class="string">&#123;\n</span> <span class="string">preferredAddress</span> <span class="string">&#123;\n</span> <span class="string">streetAddress1\n</span> <span class="string">streetAddress2\n</span> <span class="string">city\n</span> <span class="string">zipCode\n</span> <span class="string">county\n</span> <span class="string">state\n</span> <span class="string">country\n</span> <span class="string">&#125;\n</span> <span class="string">preferredEmail\n</span> <span class="string">preferredPhone\n</span> <span class="string">compensations</span> <span class="string">&#123;\n</span> <span class="string">id\n</span> <span class="string">timeWorked</span> <span class="string">&#123;\n</span> <span class="string">unit\n</span> <span class="string">value\n</span> <span class="string">&#125;\n</span> <span class="string">active\n</span> <span class="string">amount\n</span> <span class="string">multiplier\n</span> <span class="string">employerCompensation</span> <span class="string">&#123;\n</span> <span class="string">id\n</span> <span class="string">name\n</span> <span class="string">active\n</span> <span class="string">amount\n</span> <span class="string">timeWorked</span> <span class="string">&#123;\n</span> <span class="string">unit\n</span> <span class="string">value\n</span> <span class="string">&#125;\n</span> <span class="string">multiplier\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n&#125;\n","variables":&#123;</span></span><br><span class="line">          <span class="attr">"limit":</span> <span class="number">100</span><span class="string">,</span></span><br><span class="line">          <span class="attr">"cursor":</span> <span class="literal">null</span><span class="string">,</span></span><br><span class="line">          <span class="attr">"statusFilter":</span> <span class="string">[</span></span><br><span class="line">          <span class="string">"ACTIVE"</span><span class="string">,</span></span><br><span class="line">          <span class="string">"TERMINATED"</span><span class="string">,</span></span><br><span class="line">          <span class="string">"NOTONPAYROLL"</span><span class="string">,</span></span><br><span class="line">          <span class="string">"UNPAIDLEAVE"</span><span class="string">,</span></span><br><span class="line">          <span class="string">"PAIDLEAVE"</span></span><br><span class="line">          <span class="string">]</span></span><br><span class="line">          <span class="string">&#125;&#125;</span></span><br><span class="line">        <span class="attr">headers:</span></span><br><span class="line">          <span class="attr">Content-Type:</span> <span class="string">application/json</span></span><br><span class="line">          <span class="attr">Authorization:</span> <span class="string">Bearer</span> <span class="string">&lt;redacted&gt;</span></span><br></pre></td></tr></table></figure><p>As you can see this is graphql and it is a private API so we need to pass in a bearer token. The body I just stole from our postman collection so it isn't well formatted.</p><p>Running this is as simple as running <code>artillery run &lt;filename&gt;</code>.</p><p>At the top you can see arrival rates and duration. This is saying that we want to ramp up to 1 requests per second over the course of 1 second. So basically this is just proving that our request works. The first time I ran this I only got back 400 errors. To get the body of the response to allow me to see why I was getting a 400 I set</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">export</span> <span class="attribute">DEBUG</span>=http,http:capture,http:response</span><br></pre></td></tr></table></figure><p>Once I had the simple case working I was able to increase the rates to higher levels. To do this I ended up adjusting the phases to look like</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">phases:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">duration:</span> <span class="number">30</span></span><br><span class="line">    <span class="attr">arrivalRate:</span> <span class="number">30</span></span><br><span class="line">    <span class="attr">maxVusers:</span> <span class="number">150</span></span><br></pre></td></tr></table></figure><p>This provisions 30 users a second up to a maximum of 150 users - so that takes about 5 seconds to saturate. I left the duration higher because I'm lazy and artillery is smart enough to not provision more. Then to ensure that I was pretty constantly hitting the API with the maximum number of users I added a loop to the scenario like so:</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">scenarios:</span></span><br><span class="line"> <span class="bullet">-</span> <span class="attr">flow:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">log:</span> <span class="string">"New virtual user running"</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">loop:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">post:</span></span><br><span class="line">          <span class="attr">url:</span> <span class="string">/2020-04/graphql</span></span><br><span class="line">          <span class="attr">body:</span> <span class="string">|</span></span><br><span class="line">            <span class="string">&#123;"query":"query</span> <span class="string">readAllEmployeePensions($limit:</span> <span class="string">Int!,</span> <span class="string">$cursor:</span> <span class="string">String,</span> <span class="string">$statusFilter:</span> <span class="string">[String!]!)</span> <span class="string">&#123;\n</span> <span class="string">company</span> <span class="string">&#123;\n</span> <span class="string">employees(filter:</span> <span class="string">&#123;status:</span> <span class="string">&#123;</span> <span class="attr">in:</span> <span class="string">$statusFilter</span> <span class="string">&#125;&#125;,</span> <span class="attr">pagination:</span> <span class="string">&#123;first:</span> <span class="string">$limit,</span> <span class="attr">after:</span> <span class="string">$cursor&#125;)</span> <span class="string">&#123;\n</span> <span class="string">pageInfo</span> <span class="string">&#123;\n</span> <span class="string">hasNextPage\n</span> <span class="string">startCursor\n</span> <span class="string">endCursor\n</span> <span class="string">hasPreviousPage\n</span> <span class="string">&#125;\n</span> <span class="string">nodes</span> <span class="string">&#123;\n</span> <span class="string">id\n</span> <span class="string">displayName\n</span> <span class="string">payrollProfile</span> <span class="string">&#123;\n</span> <span class="string">pensions</span> <span class="string">&#123;\n</span> <span class="string">id\n</span> <span class="string">active\n</span> <span class="string">employeeSetup</span> <span class="string">&#123;\n</span> <span class="string">amount</span> <span class="string">&#123;\n</span> <span class="string">percentage\n</span> <span class="string">value\n</span> <span class="string">&#125;\n</span> <span class="string">cappings</span> <span class="string">&#123;\n</span> <span class="string">amount\n</span> <span class="string">timeInterval\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n</span> <span class="string">employerSetup</span> <span class="string">&#123;\n</span> <span class="string">amount</span> <span class="string">&#123;\n</span> <span class="string">percentage\n</span> <span class="string">value\n</span> <span class="string">&#125;\n</span> <span class="string">cappings</span> <span class="string">&#123;\n</span> <span class="string">amount\n</span> <span class="string">timeInterval\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n</span> <span class="string">employerPension</span> <span class="string">&#123;\n</span> <span class="string">id\n</span> <span class="string">name\n</span> <span class="string">statutoryPensionPolicy\n</span> <span class="string">&#125;\n</span> <span class="string">customFields</span> <span class="string">&#123;\n</span> <span class="string">name\n</span> <span class="string">value\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n&#125;\n","variables":&#123;</span></span><br><span class="line">            <span class="attr">"limit":</span> <span class="number">100</span><span class="string">,</span></span><br><span class="line">            <span class="attr">"statusFilter":</span> <span class="string">[</span></span><br><span class="line">            <span class="string">"ACTIVE"</span></span><br><span class="line">            <span class="string">]</span></span><br><span class="line">            <span class="string">&#125;&#125;</span></span><br><span class="line">          <span class="attr">headers:</span></span><br><span class="line">            <span class="attr">Content-Type:</span> <span class="string">application/json</span></span><br><span class="line">            <span class="attr">Authorization:</span> <span class="string">Bearer</span> <span class="string">&lt;redacted&gt;</span></span><br><span class="line">      <span class="attr">count:</span> <span class="number">100</span></span><br></pre></td></tr></table></figure><p>Pay attention to that count at the bottom.</p><p>I was able to use this to fire thousands of requests at the service and prove out that our rate limit was indeed higher than it was before and we could raise our concurrency.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Load testing a site or an API can be a bit involved. There are lots of things to consider like what the traffic on your site typically lo
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Alerting on Blob Storage Throttling</title>
     <link href="https://westerndevs.com/_/storage-alert-rules/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storage-alert-rules/</id>
     <published>2023-03-30T04:00:00.000Z</published>
-    <updated>2023-09-29T20:42:35.188Z</updated>
+    <updated>2023-10-14T02:52:52.705Z</updated>
 	<author>
 	
 	  
@@ -47,7 +73,7 @@
     <link href="https://westerndevs.com/_/vuetify-esm/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/vuetify-esm/</id>
     <published>2023-03-15T04:00:00.000Z</published>
-    <updated>2023-09-29T20:42:35.188Z</updated>
+    <updated>2023-10-14T02:52:52.705Z</updated>
 	<author>
 	
 	  
@@ -73,7 +99,7 @@
     <link href="https://westerndevs.com/_/app-service-quota/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/app-service-quota/</id>
     <published>2023-03-04T05:00:00.000Z</published>
-    <updated>2023-09-29T20:42:35.180Z</updated>
+    <updated>2023-10-14T02:52:52.697Z</updated>
 	<author>
 	
 	  
@@ -100,7 +126,7 @@
     <link href="https://westerndevs.com/_/azure-keyvaul-reference-gotcha/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-keyvaul-reference-gotcha/</id>
     <published>2023-03-04T05:00:00.000Z</published>
-    <updated>2023-09-29T20:42:35.180Z</updated>
+    <updated>2023-10-14T02:52:52.697Z</updated>
 	<author>
 	
 	  
@@ -126,7 +152,7 @@
     <link href="https://westerndevs.com/_/express-json-comments/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/express-json-comments/</id>
     <published>2023-02-16T05:00:00.000Z</published>
-    <updated>2023-09-29T20:42:35.184Z</updated>
+    <updated>2023-10-14T02:52:52.701Z</updated>
 	<author>
 	
 	  
@@ -152,7 +178,7 @@
     <link href="https://westerndevs.com/_/ruby-excel/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ruby-excel/</id>
     <published>2023-02-15T05:00:00.000Z</published>
-    <updated>2023-09-29T20:42:35.188Z</updated>
+    <updated>2023-10-14T02:52:52.705Z</updated>
 	<author>
 	
 	  
@@ -178,7 +204,7 @@
     <link href="https://westerndevs.com/_/bulk-insert-sql-geometry/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/bulk-insert-sql-geometry/</id>
     <published>2022-11-17T05:00:00.000Z</published>
-    <updated>2023-09-29T20:42:35.180Z</updated>
+    <updated>2023-10-14T02:52:52.697Z</updated>
 	<author>
 	
 	  
@@ -204,7 +230,7 @@
     <link href="https://westerndevs.com/_/azure-backus-protip/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-backus-protip/</id>
     <published>2022-11-11T05:00:00.000Z</published>
-    <updated>2023-09-29T20:42:35.180Z</updated>
+    <updated>2023-10-14T02:52:52.697Z</updated>
 	<author>
 	
 	  
@@ -230,7 +256,7 @@
     <link href="https://westerndevs.com/_/set-output-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-output-terraform/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2023-09-29T20:42:35.188Z</updated>
+    <updated>2023-10-14T02:52:52.705Z</updated>
 	<author>
 	
 	  
@@ -256,7 +282,7 @@
     <link href="https://westerndevs.com/_/theory-of-terraform-github-actions/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/theory-of-terraform-github-actions/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2023-09-29T20:42:35.188Z</updated>
+    <updated>2023-10-14T02:52:52.705Z</updated>
 	<author>
 	
 	  
@@ -282,7 +308,7 @@
     <link href="https://westerndevs.com/_/register-providers/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/register-providers/</id>
     <published>2022-08-12T04:00:00.000Z</published>
-    <updated>2023-09-29T20:42:35.188Z</updated>
+    <updated>2023-10-14T02:52:52.705Z</updated>
 	<author>
 	
 	  
@@ -308,7 +334,7 @@
     <link href="https://westerndevs.com/_/debug-azure-container-instances-startup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/debug-azure-container-instances-startup/</id>
     <published>2022-08-04T04:00:00.000Z</published>
-    <updated>2023-09-29T20:42:35.184Z</updated>
+    <updated>2023-10-14T02:52:52.697Z</updated>
 	<author>
 	
 	  
@@ -334,7 +360,7 @@
     <link href="https://westerndevs.com/_/consuming-wsdl/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/consuming-wsdl/</id>
     <published>2022-05-30T04:00:00.000Z</published>
-    <updated>2023-09-29T20:42:35.184Z</updated>
+    <updated>2023-10-14T02:52:52.697Z</updated>
 	<author>
 	
 	  
@@ -360,7 +386,7 @@
     <link href="https://westerndevs.com/_/azure-functions-error/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-functions-error/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2023-09-29T20:42:35.180Z</updated>
+    <updated>2023-10-14T02:52:52.697Z</updated>
 	<author>
 	
 	  
@@ -386,7 +412,7 @@
     <link href="https://westerndevs.com/_/which-sql-server-edition/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/which-sql-server-edition/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2023-09-29T20:42:35.192Z</updated>
+    <updated>2023-10-14T02:52:52.705Z</updated>
 	<author>
 	
 	  
@@ -412,7 +438,7 @@
     <link href="https://westerndevs.com/_/cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cheat-sheet/</id>
     <published>2022-04-04T04:00:00.000Z</published>
-    <updated>2023-09-29T20:42:35.180Z</updated>
+    <updated>2023-10-14T02:52:52.697Z</updated>
 	<author>
 	
 	  
@@ -440,7 +466,7 @@
     <link href="https://westerndevs.com/_/rubocop-issue/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/rubocop-issue/</id>
     <published>2022-03-18T04:00:00.000Z</published>
-    <updated>2023-09-29T20:42:35.188Z</updated>
+    <updated>2023-10-14T02:52:52.705Z</updated>
 	<author>
 	
 	  
@@ -467,7 +493,7 @@
     <link href="https://westerndevs.com/_/fsevents-optional-dependencies/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/fsevents-optional-dependencies/</id>
     <published>2022-03-16T04:00:00.000Z</published>
-    <updated>2023-09-29T20:42:35.184Z</updated>
+    <updated>2023-10-14T02:52:52.701Z</updated>
 	<author>
 	
 	  
@@ -493,7 +519,7 @@
     <link href="https://westerndevs.com/_/backblaze-exclude-node-modules/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/backblaze-exclude-node-modules/</id>
     <published>2022-02-20T05:00:00.000Z</published>
-    <updated>2023-09-29T20:42:35.180Z</updated>
+    <updated>2023-10-14T02:52:52.697Z</updated>
 	<author>
 	
 	  
@@ -508,32 +534,6 @@
     <summary type="html">
     
       &lt;p&gt;There are &lt;a href=&quot;https://chrisblackwell.me/ignore-node_modules-and-git-folders-in-backblaze/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;some&lt;/a&gt; &lt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Parsing Vue Router Path Parameters</title>
-    <link href="https://westerndevs.com/_/parsing-vue-router-parameters/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/parsing-vue-router-parameters/</id>
-    <published>2022-02-18T05:00:00.000Z</published>
-    <updated>2023-09-29T20:42:35.184Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>In the vue router you can set up path parameters that are bound into the rendered component. For instance you might have a route like this:</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    path: <span class="string">'/reports/:reportId/:reportName/:favorite'</span>,</span><br><span class="line">    name: <span class="string">'Reports'</span>,</span><br><span class="line">    component: ReportView,</span><br><span class="line">    props: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>This will bind the parameters <code>reportId</code>, <code>reportName</code> and <code>favorite</code> on the component. However when you drop into that component and look at the values passed in you will see that they are strings. Of course that makes sense, the router doesn't really know if the things you pass in are strings or something else. Consider the route <code>/reports/17/awesome report/false</code>. Here <code>reportId</code> and <code>favorite</code> are going to be strings.</p><p>You can work around that by giving props in the router a function rather than just a boolean.</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    path: <span class="string">'/reports/:reportId/:reportName/:favorite'</span>,</span><br><span class="line">    name: <span class="string">'Reports'</span>,</span><br><span class="line">    component: ReportView,</span><br><span class="line">    props: <span class="function">(<span class="params">route</span>) =&gt;</span> (&#123;</span><br><span class="line">      ...route.params,</span><br><span class="line">      reportId: <span class="built_in">parseInt</span>(route.params.reportId),</span><br><span class="line">      favorite: route.params.favorite === <span class="string">'true'</span>,</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;In the vue router you can set up path parameters that are bound into the rendered component. For instance you might have a route like thi
     
     </summary>
     

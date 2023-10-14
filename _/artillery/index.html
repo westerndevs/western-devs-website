@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Load Testing with Artillery | Western Devs</title>
+  <meta name="description" content="Load testing a site or an API can be a bit involved. There are lots of things to consider like what the traffic on your site typically looks like, what peaks look like and so forth. That&#39;s mostly outs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Load Testing with Artillery">
+<meta property="og:url" content="https://westerndevs.com/_/artillery/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="Load testing a site or an API can be a bit involved. There are lots of things to consider like what the traffic on your site typically looks like, what peaks look like and so forth. That&#39;s mostly outs">
+<meta property="article:published_time" content="2023-10-14T04:00:00.000Z">
+<meta property="article:modified_time" content="2023-10-14T02:52:52.697Z">
+<meta property="article:author" content="Western Devs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="canonical" href="https://blog.simontimms.com/2023/10/14/artillery">
+  
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">OCT</div>
+    <div class="ListLrgDateDay">14</div>
+    <div class="ListLrgDateYear">2023</div>
+  </div>
+  <h2>Load Testing with Artillery</h2>
+</div>
+
+		    
+
+<p class="TXTsm">ORIGINALLY POSTED TO: <a href="https://blog.simontimms.com/2023/10/14/artillery" target="_blank" rel="noopener" class='originalurl'>https://blog.simontimms.com/2023/10/14/artillery</a></p>
+
+
+
+			<div id="mainPostContent">
+	        <p>Load testing a site or an API can be a bit involved. There are lots of things to consider like what the traffic on your site typically looks like, what peaks look like and so forth. That's mostly outside the scope of this article which is just about load testing with artillery.</p>
+<h2>Scenario</h2>
+<p>We have an API that we call which is super slow and super fragile. We were recently told by the team that maintains it that they'd made improvements and increased our rate limit from something like 200 requests per minute to 300 and could we test it. So sure, I guess we can do your job for you. For this we're going to use the load testing tool <a href="https://www.artillery.io/" target="_blank" rel="noopener">artillery</a>.</p>
+<h2>Getting started</h2>
+<p>Artillery is a node based tool so you'll need to have node installed.  You can install artillery with <code>npm install -g artillery</code>.</p>
+<p>You then write a configuration file to tell artillery what to do. Here's the one I used for this test (with the names of the guilty redacted):</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">config:</span> </span><br><span class="line">  <span class="attr">target:</span> <span class="string">https://some.company.com</span></span><br><span class="line">  <span class="attr">phases:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">duration:</span> <span class="number">1</span></span><br><span class="line">      <span class="attr">arrivalRate:</span> <span class="number">1</span></span><br><span class="line">  <span class="attr">http:</span></span><br><span class="line">    <span class="attr">timeout:</span> <span class="number">100</span></span><br><span class="line"><span class="attr">scenarios:</span></span><br><span class="line"> <span class="bullet">-</span> <span class="attr">flow:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">log:</span> <span class="string">"Adding new user</span></span><br><span class="line"><span class="string">    - post:</span></span><br><span class="line"><span class="string">        url: /2020-04/graphql</span></span><br><span class="line"><span class="string">        body: |</span></span><br><span class="line"><span class="string">          &#123;"</span><span class="string">query":"query</span> <span class="string">readAllEmployees($limit:</span> <span class="string">Int!,</span> <span class="string">$cursor:</span> <span class="string">String,</span> <span class="string">$statusFilter:</span> <span class="string">[String!]!)</span> <span class="string">&#123;\n</span> <span class="string">company</span> <span class="string">&#123;\n</span> <span class="string">employees(filter:</span> <span class="string">&#123;status:</span> <span class="string">&#123;in:</span> <span class="string">$statusFilter&#125;&#125;,</span> <span class="attr">pagination:</span> <span class="string">&#123;first:</span> <span class="string">$limit,</span> <span class="attr">after:</span> <span class="string">$cursor&#125;)</span> <span class="string">&#123;\n</span> <span class="string">pageInfo</span> <span class="string">&#123;\n</span> <span class="string">hasNextPage\n</span> <span class="string">startCursor\n</span> <span class="string">endCursor\n</span> <span class="string">hasPreviousPage\n</span> <span class="string">&#125;\n</span> <span class="string">nodes</span> <span class="string">&#123;\n</span> <span class="string">id\n</span> <span class="string">firstName\n</span> <span class="string">lastName\n\t\tmiddleName\n</span> <span class="string">birthDate\n</span> <span class="string">displayName\n</span> <span class="string">employmentDetail</span> <span class="string">&#123;\n</span> <span class="string">employmentStatus\n</span> <span class="string">hireDate\n</span> <span class="string">terminationDate\n</span> <span class="string">&#125;\n</span> <span class="string">taxIdentifiers</span> <span class="string">&#123;\n</span> <span class="string">taxIdentifierType\n</span> <span class="string">value\n</span> <span class="string">&#125;\n</span> <span class="string">payrollProfile</span> <span class="string">&#123;\n</span> <span class="string">preferredAddress</span> <span class="string">&#123;\n</span> <span class="string">streetAddress1\n</span> <span class="string">streetAddress2\n</span> <span class="string">city\n</span> <span class="string">zipCode\n</span> <span class="string">county\n</span> <span class="string">state\n</span> <span class="string">country\n</span> <span class="string">&#125;\n</span> <span class="string">preferredEmail\n</span> <span class="string">preferredPhone\n</span> <span class="string">compensations</span> <span class="string">&#123;\n</span> <span class="string">id\n</span> <span class="string">timeWorked</span> <span class="string">&#123;\n</span> <span class="string">unit\n</span> <span class="string">value\n</span> <span class="string">&#125;\n</span> <span class="string">active\n</span> <span class="string">amount\n</span> <span class="string">multiplier\n</span> <span class="string">employerCompensation</span> <span class="string">&#123;\n</span> <span class="string">id\n</span> <span class="string">name\n</span> <span class="string">active\n</span> <span class="string">amount\n</span> <span class="string">timeWorked</span> <span class="string">&#123;\n</span> <span class="string">unit\n</span> <span class="string">value\n</span> <span class="string">&#125;\n</span> <span class="string">multiplier\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n&#125;\n","variables":&#123;</span></span><br><span class="line">          <span class="attr">"limit":</span> <span class="number">100</span><span class="string">,</span></span><br><span class="line">          <span class="attr">"cursor":</span> <span class="literal">null</span><span class="string">,</span></span><br><span class="line">          <span class="attr">"statusFilter":</span> <span class="string">[</span></span><br><span class="line">          <span class="string">"ACTIVE"</span><span class="string">,</span></span><br><span class="line">          <span class="string">"TERMINATED"</span><span class="string">,</span></span><br><span class="line">          <span class="string">"NOTONPAYROLL"</span><span class="string">,</span></span><br><span class="line">          <span class="string">"UNPAIDLEAVE"</span><span class="string">,</span></span><br><span class="line">          <span class="string">"PAIDLEAVE"</span></span><br><span class="line">          <span class="string">]</span></span><br><span class="line">          <span class="string">&#125;&#125;</span></span><br><span class="line">        <span class="attr">headers:</span></span><br><span class="line">          <span class="attr">Content-Type:</span> <span class="string">application/json</span></span><br><span class="line">          <span class="attr">Authorization:</span> <span class="string">Bearer</span> <span class="string">&lt;redacted&gt;</span></span><br></pre></td></tr></table></figure>
+<p>As you can see this is graphql and it is a private API so we need to pass in a bearer token. The body I just stole from our postman collection so it isn't well formatted.</p>
+<p>Running this is as simple as running <code>artillery run &lt;filename&gt;</code>.</p>
+<p>At the top you can see arrival rates and duration. This is saying that we want to ramp up to 1 requests per second over the course of 1 second. So basically this is just proving that our request works. The first time I ran this I only got back 400 errors. To get the body of the response to allow me to see why I was getting a 400 I set</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">export</span> <span class="attribute">DEBUG</span>=http,http:capture,http:response</span><br></pre></td></tr></table></figure>
+<p>Once I had the simple case working I was able to increase the rates to higher levels. To do this I ended up adjusting the phases to look like</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">phases:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">duration:</span> <span class="number">30</span></span><br><span class="line">    <span class="attr">arrivalRate:</span> <span class="number">30</span></span><br><span class="line">    <span class="attr">maxVusers:</span> <span class="number">150</span></span><br></pre></td></tr></table></figure>
+<p>This provisions 30 users a second up to a maximum of 150 users - so that takes about 5 seconds to saturate. I left the duration higher because I'm lazy and artillery is smart enough to not provision more. Then to ensure that I was pretty constantly hitting the API with the maximum number of users I added a loop to the scenario like so:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">scenarios:</span></span><br><span class="line"> <span class="bullet">-</span> <span class="attr">flow:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">log:</span> <span class="string">"New virtual user running"</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">loop:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">post:</span></span><br><span class="line">          <span class="attr">url:</span> <span class="string">/2020-04/graphql</span></span><br><span class="line">          <span class="attr">body:</span> <span class="string">|</span></span><br><span class="line">            <span class="string">&#123;"query":"query</span> <span class="string">readAllEmployeePensions($limit:</span> <span class="string">Int!,</span> <span class="string">$cursor:</span> <span class="string">String,</span> <span class="string">$statusFilter:</span> <span class="string">[String!]!)</span> <span class="string">&#123;\n</span> <span class="string">company</span> <span class="string">&#123;\n</span> <span class="string">employees(filter:</span> <span class="string">&#123;status:</span> <span class="string">&#123;</span> <span class="attr">in:</span> <span class="string">$statusFilter</span> <span class="string">&#125;&#125;,</span> <span class="attr">pagination:</span> <span class="string">&#123;first:</span> <span class="string">$limit,</span> <span class="attr">after:</span> <span class="string">$cursor&#125;)</span> <span class="string">&#123;\n</span> <span class="string">pageInfo</span> <span class="string">&#123;\n</span> <span class="string">hasNextPage\n</span> <span class="string">startCursor\n</span> <span class="string">endCursor\n</span> <span class="string">hasPreviousPage\n</span> <span class="string">&#125;\n</span> <span class="string">nodes</span> <span class="string">&#123;\n</span> <span class="string">id\n</span> <span class="string">displayName\n</span> <span class="string">payrollProfile</span> <span class="string">&#123;\n</span> <span class="string">pensions</span> <span class="string">&#123;\n</span> <span class="string">id\n</span> <span class="string">active\n</span> <span class="string">employeeSetup</span> <span class="string">&#123;\n</span> <span class="string">amount</span> <span class="string">&#123;\n</span> <span class="string">percentage\n</span> <span class="string">value\n</span> <span class="string">&#125;\n</span> <span class="string">cappings</span> <span class="string">&#123;\n</span> <span class="string">amount\n</span> <span class="string">timeInterval\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n</span> <span class="string">employerSetup</span> <span class="string">&#123;\n</span> <span class="string">amount</span> <span class="string">&#123;\n</span> <span class="string">percentage\n</span> <span class="string">value\n</span> <span class="string">&#125;\n</span> <span class="string">cappings</span> <span class="string">&#123;\n</span> <span class="string">amount\n</span> <span class="string">timeInterval\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n</span> <span class="string">employerPension</span> <span class="string">&#123;\n</span> <span class="string">id\n</span> <span class="string">name\n</span> <span class="string">statutoryPensionPolicy\n</span> <span class="string">&#125;\n</span> <span class="string">customFields</span> <span class="string">&#123;\n</span> <span class="string">name\n</span> <span class="string">value\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n&#125;\n","variables":&#123;</span></span><br><span class="line">            <span class="attr">"limit":</span> <span class="number">100</span><span class="string">,</span></span><br><span class="line">            <span class="attr">"statusFilter":</span> <span class="string">[</span></span><br><span class="line">            <span class="string">"ACTIVE"</span></span><br><span class="line">            <span class="string">]</span></span><br><span class="line">            <span class="string">&#125;&#125;</span></span><br><span class="line">          <span class="attr">headers:</span></span><br><span class="line">            <span class="attr">Content-Type:</span> <span class="string">application/json</span></span><br><span class="line">            <span class="attr">Authorization:</span> <span class="string">Bearer</span> <span class="string">&lt;redacted&gt;</span></span><br><span class="line">      <span class="attr">count:</span> <span class="number">100</span></span><br></pre></td></tr></table></figure>
+<p>Pay attention to that count at the bottom.</p>
+<p>I was able to use this to fire thousands of requests at the service and prove out that our rate limit was indeed higher than it was before and we could raise our concurrency.</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/simon_timms">
+				
+					<img src='/images/avatars/simon.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/simon_timms">Simon Timms</a></h2>
+			
+			<a href="mailto:stimms@gmail.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://blog.simontimms.com/" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/stimms" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/stimms" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			
+ 			<a href="/feeds/simon_timms.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/_/artillery/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'simon_timms');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>
