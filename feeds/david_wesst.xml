@@ -5,7 +5,7 @@
   <link href="/feeds/david_wesst" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2023-10-14T02:52:52.697Z</updated>
+  <updated>2023-10-30T23:36:03.357Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://westerndevs.com/musings/defining-problem-before-the-soltuion/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/musings/defining-problem-before-the-soltuion/</id>
     <published>2023-01-27T23:24:33.221Z</published>
-    <updated>2023-10-14T02:52:52.697Z</updated>
+    <updated>2023-10-30T23:36:03.357Z</updated>
 	<author>
 	
 	  
@@ -59,7 +59,7 @@
     <link href="https://westerndevs.com/coding/problem-solution/docker-build-hangs-on-apt-key-in-wsl2/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/coding/problem-solution/docker-build-hangs-on-apt-key-in-wsl2/</id>
     <published>2023-01-12T02:43:58.005Z</published>
-    <updated>2023-10-14T02:52:52.697Z</updated>
+    <updated>2023-10-30T23:36:03.357Z</updated>
 	<author>
 	
 	  
@@ -101,7 +101,7 @@
     <link href="https://westerndevs.com/musings/highlight-reel-for-2022/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/musings/highlight-reel-for-2022/</id>
     <published>2023-01-05T21:47:02.098Z</published>
-    <updated>2023-10-14T02:52:52.693Z</updated>
+    <updated>2023-10-30T23:36:03.357Z</updated>
 	<author>
 	
 	  
@@ -143,7 +143,7 @@
     <link href="https://westerndevs.com/_/speaking-at-tech-events-helps-you-grow/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/speaking-at-tech-events-helps-you-grow/</id>
     <published>2022-12-20T21:59:37.185Z</published>
-    <updated>2023-10-14T02:52:52.693Z</updated>
+    <updated>2023-10-30T23:36:03.357Z</updated>
 	<author>
 	
 	  
@@ -181,7 +181,7 @@
     <link href="https://westerndevs.com/_/docker-desktop-is-not-docker-engine/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/docker-desktop-is-not-docker-engine/</id>
     <published>2022-12-14T02:28:36.457Z</published>
-    <updated>2023-10-14T02:52:52.693Z</updated>
+    <updated>2023-10-30T23:36:03.357Z</updated>
 	<author>
 	
 	  
@@ -204,11 +204,11 @@
     
       <category term="linux" scheme="https://westerndevs.com/tags/linux/"/>
     
+      <category term="github workflow" scheme="https://westerndevs.com/tags/github-workflow/"/>
+    
       <category term="docker engine" scheme="https://westerndevs.com/tags/docker-engine/"/>
     
       <category term="docker desktop" scheme="https://westerndevs.com/tags/docker-desktop/"/>
-    
-      <category term="github workflow" scheme="https://westerndevs.com/tags/github-workflow/"/>
     
   </entry>
   
@@ -217,7 +217,7 @@
     <link href="https://westerndevs.com/_/prairie-dev-con-2022-takeaways/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/prairie-dev-con-2022-takeaways/</id>
     <published>2022-12-07T20:37:20.777Z</published>
-    <updated>2023-10-14T02:52:52.693Z</updated>
+    <updated>2023-10-30T23:36:03.357Z</updated>
 	<author>
 	
 	  
@@ -259,7 +259,7 @@
     <link href="https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/</id>
     <published>2022-12-01T09:18:34.509Z</published>
-    <updated>2023-10-14T02:52:52.693Z</updated>
+    <updated>2023-10-30T23:36:03.357Z</updated>
 	<author>
 	
 	  
@@ -297,7 +297,7 @@
     <link href="https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/</id>
     <published>2022-11-19T01:10:07.083Z</published>
-    <updated>2023-10-14T02:52:52.693Z</updated>
+    <updated>2023-10-30T23:36:03.357Z</updated>
 	<author>
 	
 	  
@@ -335,7 +335,7 @@
     <link href="https://westerndevs.com/_/how-much-is-enough-documentation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/how-much-is-enough-documentation/</id>
     <published>2022-11-10T22:00:00.000Z</published>
-    <updated>2023-10-14T02:52:52.693Z</updated>
+    <updated>2023-10-30T23:36:03.357Z</updated>
 	<author>
 	
 	  
@@ -375,7 +375,7 @@
     <link href="https://westerndevs.com/_/how-to-fork-like-a-boss/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/how-to-fork-like-a-boss/</id>
     <published>2022-11-02T21:00:00.000Z</published>
-    <updated>2023-10-14T02:52:52.693Z</updated>
+    <updated>2023-10-30T23:36:03.357Z</updated>
 	<author>
 	
 	  
@@ -409,7 +409,7 @@
     <link href="https://westerndevs.com/finding-inspiration/i-can-teach-your-dog-quantum-physics/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/finding-inspiration/i-can-teach-your-dog-quantum-physics/</id>
     <published>2021-06-28T16:00:00.000Z</published>
-    <updated>2023-10-14T02:52:52.693Z</updated>
+    <updated>2023-10-30T23:36:03.357Z</updated>
 	<author>
 	
 	  
@@ -447,7 +447,7 @@
     <link href="https://westerndevs.com/inner-monologue/what-value-does-making-content-bring-to-me/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/inner-monologue/what-value-does-making-content-bring-to-me/</id>
     <published>2021-06-17T16:00:00.000Z</published>
-    <updated>2023-10-14T02:52:52.693Z</updated>
+    <updated>2023-10-30T23:36:03.357Z</updated>
 	<author>
 	
 	  
@@ -485,7 +485,7 @@
     <link href="https://westerndevs.com/inner-monologue/my-secret-addiction-to-likes/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/inner-monologue/my-secret-addiction-to-likes/</id>
     <published>2021-06-03T16:00:00.000Z</published>
-    <updated>2023-10-14T02:52:52.693Z</updated>
+    <updated>2023-10-30T23:36:03.353Z</updated>
 	<author>
 	
 	  
@@ -523,7 +523,7 @@
     <link href="https://westerndevs.com/technology/inner-monologue/lucky-number-v7/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/technology/inner-monologue/lucky-number-v7/</id>
     <published>2021-05-24T16:00:00.000Z</published>
-    <updated>2023-10-14T02:52:52.693Z</updated>
+    <updated>2023-10-30T23:36:03.353Z</updated>
 	<author>
 	
 	  
@@ -559,7 +559,7 @@
     <link href="https://westerndevs.com/devops/from-travis-ci-to-github-actions/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devops/from-travis-ci-to-github-actions/</id>
     <published>2020-11-10T23:36:00.000Z</published>
-    <updated>2023-10-14T02:52:52.693Z</updated>
+    <updated>2023-10-30T23:36:03.353Z</updated>
 	<author>
 	
 	  
@@ -580,9 +580,9 @@
       <category term="devops" scheme="https://westerndevs.com/categories/devops/"/>
     
     
-      <category term="github workflow" scheme="https://westerndevs.com/tags/github-workflow/"/>
-    
       <category term="github actions" scheme="https://westerndevs.com/tags/github-actions/"/>
+    
+      <category term="github workflow" scheme="https://westerndevs.com/tags/github-workflow/"/>
     
       <category term="travis ci" scheme="https://westerndevs.com/tags/travis-ci/"/>
     
@@ -597,7 +597,7 @@
     <link href="https://westerndevs.com/devlog/out-the-door/out-the-door-post-jam-update/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/out-the-door/out-the-door-post-jam-update/</id>
     <published>2020-11-09T14:00:00.000Z</published>
-    <updated>2023-10-14T02:52:52.693Z</updated>
+    <updated>2023-10-30T23:36:03.353Z</updated>
 	<author>
 	
 	  
@@ -639,7 +639,7 @@
     <link href="https://westerndevs.com/devlog/a-solo-gamejam-experience-ld47/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/a-solo-gamejam-experience-ld47/</id>
     <published>2020-10-23T13:00:00.000Z</published>
-    <updated>2023-10-14T02:52:52.693Z</updated>
+    <updated>2023-10-30T23:36:03.353Z</updated>
 	<author>
 	
 	  
@@ -679,7 +679,7 @@
     <link href="https://westerndevs.com/devlog/game-portfolio-review-2020/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/game-portfolio-review-2020/</id>
     <published>2020-09-18T13:00:00.000Z</published>
-    <updated>2023-10-14T02:52:52.693Z</updated>
+    <updated>2023-10-30T23:36:03.353Z</updated>
 	<author>
 	
 	  
@@ -719,7 +719,7 @@
     <link href="https://westerndevs.com/devlog/little-shop-of-wall-street-01-release-notes/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/little-shop-of-wall-street-01-release-notes/</id>
     <published>2020-07-02T15:13:00.000Z</published>
-    <updated>2023-10-14T02:52:52.693Z</updated>
+    <updated>2023-10-30T23:36:03.353Z</updated>
 	<author>
 	
 	  
@@ -757,7 +757,7 @@
     <link href="https://westerndevs.com/Game-Design/How-GitHub-Makes-Game-Making-Easier-For-NonCoders/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/Game-Design/How-GitHub-Makes-Game-Making-Easier-For-NonCoders/</id>
     <published>2020-02-19T20:48:36.000Z</published>
-    <updated>2023-10-14T02:52:52.689Z</updated>
+    <updated>2023-10-30T23:36:03.353Z</updated>
 	<author>
 	
 	  
