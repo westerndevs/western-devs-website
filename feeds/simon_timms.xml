@@ -5,7 +5,7 @@
   <link href="/feeds/simon_timms" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2023-10-30T23:36:03.365Z</updated>
+  <updated>2023-11-20T18:29:08.380Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Connect to a Service Container in Github Actions</title>
+    <link href="https://westerndevs.com/_/connect-to-service-container/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/connect-to-service-container/</id>
+    <published>2023-11-20T05:00:00.000Z</published>
+    <updated>2023-11-20T18:29:08.380Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>Increasingly there is a need to run containers during a github action build to run realistic tests. In my specific scenario I had a database integration test that I wanted to run against a postgres database with our latest database migrations applied.</p><p>We run our builds inside a multi-stage docker build so we actually need to have a build container communicate with the database container during the build phase. This is easy enough in the run phase but in the build phase there is just a flag you can pass to the build called <code>network</code> which takes an argument but the arguments it can take don't appear to be documented anywhere. After significant trial and error I found that the argument it takes that we want is <code>host</code>. This will build the container using the host networking. As we surfaced the ports for postgres in our workflow file like so</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">postgres:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">postgres:15.3</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="number">5432</span><span class="string">:5432</span></span><br><span class="line">    <span class="attr">env:</span></span><br><span class="line">        <span class="attr">POSTGRES_DB:</span> <span class="string">default</span></span><br><span class="line">        <span class="attr">POSTGRES_USER:</span> <span class="string">webapp_user</span></span><br><span class="line">        <span class="attr">POSTGRES_PASSWORD:</span> <span class="string">password</span></span><br><span class="line">    <span class="attr">options:</span> <span class="string">&gt;-</span></span><br><span class="line">        <span class="string">--health-cmd</span> <span class="string">pg_isready</span></span><br><span class="line">        <span class="string">--health-interval</span> <span class="string">10s</span></span><br><span class="line">        <span class="string">--health-timeout</span> <span class="string">5s</span></span><br><span class="line">        <span class="string">--health-retries</span> <span class="number">5</span></span><br></pre></td></tr></table></figure><p>We are able to access the database from the build context with <code>127.0.0.1</code>. So we can pass in a variable to our container build</p><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build --network=host . --tag $&#123;&#123; <span class="keyword">env</span>.DOCKER_REGISTRY_NAME &#125;&#125;/$&#123;&#123; <span class="keyword">env</span>.DOCKER_IMAGE_NAME &#125;&#125;:$&#123;&#123; github.run_number &#125;&#125; --build-<span class="keyword">arg</span> <span class="string">'DATABASE_CONNECTION_STRING=$&#123;&#123; env.DATABASE_CONNECTION_STRING &#125;&#125;'</span></span><br></pre></td></tr></table></figure><p>With all this in place the tests run nicely in the container during the build. Phew.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Increasingly there is a need to run containers during a github action build to run realistic tests. In my specific scenario I had a datab
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Setting up SMTP for Keycloak Using Mailgun</title>
     <link href="https://westerndevs.com/_/smtp-setup-for-mailgun/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/smtp-setup-for-mailgun/</id>
     <published>2023-10-30T04:00:00.000Z</published>
-    <updated>2023-10-30T23:36:03.365Z</updated>
+    <updated>2023-11-20T18:29:08.384Z</updated>
 	<author>
 	
 	  
@@ -47,7 +73,7 @@
     <link href="https://westerndevs.com/_/artillery/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/artillery/</id>
     <published>2023-10-14T04:00:00.000Z</published>
-    <updated>2023-10-30T23:36:03.357Z</updated>
+    <updated>2023-11-20T18:29:08.376Z</updated>
 	<author>
 	
 	  
@@ -73,7 +99,7 @@
     <link href="https://westerndevs.com/_/storage-alert-rules/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storage-alert-rules/</id>
     <published>2023-03-30T04:00:00.000Z</published>
-    <updated>2023-10-30T23:36:03.365Z</updated>
+    <updated>2023-11-20T18:29:08.384Z</updated>
 	<author>
 	
 	  
@@ -99,7 +125,7 @@
     <link href="https://westerndevs.com/_/vuetify-esm/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/vuetify-esm/</id>
     <published>2023-03-15T04:00:00.000Z</published>
-    <updated>2023-10-30T23:36:03.365Z</updated>
+    <updated>2023-11-20T18:29:08.388Z</updated>
 	<author>
 	
 	  
@@ -125,7 +151,7 @@
     <link href="https://westerndevs.com/_/app-service-quota/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/app-service-quota/</id>
     <published>2023-03-04T05:00:00.000Z</published>
-    <updated>2023-10-30T23:36:03.357Z</updated>
+    <updated>2023-11-20T18:29:08.376Z</updated>
 	<author>
 	
 	  
@@ -152,7 +178,7 @@
     <link href="https://westerndevs.com/_/azure-keyvaul-reference-gotcha/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-keyvaul-reference-gotcha/</id>
     <published>2023-03-04T05:00:00.000Z</published>
-    <updated>2023-10-30T23:36:03.357Z</updated>
+    <updated>2023-11-20T18:29:08.376Z</updated>
 	<author>
 	
 	  
@@ -178,7 +204,7 @@
     <link href="https://westerndevs.com/_/express-json-comments/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/express-json-comments/</id>
     <published>2023-02-16T05:00:00.000Z</published>
-    <updated>2023-10-30T23:36:03.361Z</updated>
+    <updated>2023-11-20T18:29:08.380Z</updated>
 	<author>
 	
 	  
@@ -204,7 +230,7 @@
     <link href="https://westerndevs.com/_/ruby-excel/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ruby-excel/</id>
     <published>2023-02-15T05:00:00.000Z</published>
-    <updated>2023-10-30T23:36:03.365Z</updated>
+    <updated>2023-11-20T18:29:08.384Z</updated>
 	<author>
 	
 	  
@@ -230,7 +256,7 @@
     <link href="https://westerndevs.com/_/bulk-insert-sql-geometry/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/bulk-insert-sql-geometry/</id>
     <published>2022-11-17T05:00:00.000Z</published>
-    <updated>2023-10-30T23:36:03.357Z</updated>
+    <updated>2023-11-20T18:29:08.376Z</updated>
 	<author>
 	
 	  
@@ -256,7 +282,7 @@
     <link href="https://westerndevs.com/_/azure-backus-protip/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-backus-protip/</id>
     <published>2022-11-11T05:00:00.000Z</published>
-    <updated>2023-10-30T23:36:03.357Z</updated>
+    <updated>2023-11-20T18:29:08.376Z</updated>
 	<author>
 	
 	  
@@ -282,7 +308,7 @@
     <link href="https://westerndevs.com/_/set-output-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-output-terraform/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2023-10-30T23:36:03.365Z</updated>
+    <updated>2023-11-20T18:29:08.384Z</updated>
 	<author>
 	
 	  
@@ -308,7 +334,7 @@
     <link href="https://westerndevs.com/_/theory-of-terraform-github-actions/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/theory-of-terraform-github-actions/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2023-10-30T23:36:03.365Z</updated>
+    <updated>2023-11-20T18:29:08.384Z</updated>
 	<author>
 	
 	  
@@ -334,7 +360,7 @@
     <link href="https://westerndevs.com/_/register-providers/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/register-providers/</id>
     <published>2022-08-12T04:00:00.000Z</published>
-    <updated>2023-10-30T23:36:03.361Z</updated>
+    <updated>2023-11-20T18:29:08.384Z</updated>
 	<author>
 	
 	  
@@ -360,7 +386,7 @@
     <link href="https://westerndevs.com/_/debug-azure-container-instances-startup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/debug-azure-container-instances-startup/</id>
     <published>2022-08-04T04:00:00.000Z</published>
-    <updated>2023-10-30T23:36:03.357Z</updated>
+    <updated>2023-11-20T18:29:08.380Z</updated>
 	<author>
 	
 	  
@@ -386,7 +412,7 @@
     <link href="https://westerndevs.com/_/consuming-wsdl/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/consuming-wsdl/</id>
     <published>2022-05-30T04:00:00.000Z</published>
-    <updated>2023-10-30T23:36:03.357Z</updated>
+    <updated>2023-11-20T18:29:08.380Z</updated>
 	<author>
 	
 	  
@@ -412,7 +438,7 @@
     <link href="https://westerndevs.com/_/azure-functions-error/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-functions-error/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2023-10-30T23:36:03.357Z</updated>
+    <updated>2023-11-20T18:29:08.376Z</updated>
 	<author>
 	
 	  
@@ -438,7 +464,7 @@
     <link href="https://westerndevs.com/_/which-sql-server-edition/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/which-sql-server-edition/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2023-10-30T23:36:03.365Z</updated>
+    <updated>2023-11-20T18:29:08.388Z</updated>
 	<author>
 	
 	  
@@ -464,7 +490,7 @@
     <link href="https://westerndevs.com/_/cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cheat-sheet/</id>
     <published>2022-04-04T04:00:00.000Z</published>
-    <updated>2023-10-30T23:36:03.357Z</updated>
+    <updated>2023-11-20T18:29:08.380Z</updated>
 	<author>
 	
 	  
@@ -492,7 +518,7 @@
     <link href="https://westerndevs.com/_/rubocop-issue/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/rubocop-issue/</id>
     <published>2022-03-18T04:00:00.000Z</published>
-    <updated>2023-10-30T23:36:03.365Z</updated>
+    <updated>2023-11-20T18:29:08.384Z</updated>
 	<author>
 	
 	  
@@ -508,32 +534,6 @@
     
       &lt;p&gt;I run this rubocop extension in my VS Code&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/images/2022-03-18-rubocop-issue.md/2022-03-18-10-15-48.png&quot; alt=&quot;rubocop ext
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Unsupported Architecture for fsevents with Oryx</title>
-    <link href="https://westerndevs.com/_/fsevents-optional-dependencies/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/fsevents-optional-dependencies/</id>
-    <published>2022-03-16T04:00:00.000Z</published>
-    <updated>2023-10-30T23:36:03.361Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>I updated the version of the lock file on a project the other day in the hopes it might restore a little bit more quickly. However for some steps in my build an older version of NPM was being used. This older version didn't have support for the new lock file version and while it is supposed to be compatible it seemed like optional dependencies like fsevents were causing a legit issue</p><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">npm WARN <span class="keyword">read</span>-shrinkwrap This <span class="keyword">version</span> of npm is compatible with lockfileVersion@1, but package-lock.json was generated <span class="keyword">for</span> lockfileVersion@2. I'll try to <span class="keyword">do</span> my best with it!</span><br><span class="line">npm <span class="keyword">ERR</span>! code EBADPLATFORM</span><br><span class="line">npm <span class="keyword">ERR</span>! notsup Unsupported platform <span class="keyword">for</span> fsevents@2.3.2: wanted &#123;<span class="string">"os"</span>:<span class="string">"darwin"</span>,<span class="string">"arch"</span>:<span class="string">"any"</span>&#125; (current: &#123;<span class="string">"os"</span>:<span class="string">"linux"</span>,<span class="string">"arch"</span>:<span class="string">"x64"</span>&#125;)</span><br><span class="line">npm <span class="keyword">ERR</span>! notsup Valid OS:    darwin</span><br><span class="line">npm <span class="keyword">ERR</span>! notsup Valid <span class="keyword">Arch</span>:  any</span><br><span class="line">npm <span class="keyword">ERR</span>! notsup Actual OS:   linux</span><br><span class="line">npm <span class="keyword">ERR</span>! notsup Actual <span class="keyword">Arch</span>: x64</span><br><span class="line"></span><br><span class="line">npm <span class="keyword">ERR</span>! A complete <span class="keyword">log</span> of this <span class="keyword">run</span> can be found <span class="keyword">in</span>:</span><br><span class="line">npm <span class="keyword">ERR</span>!     /root/.npm/_logs/2022-03-09T13_58_42_006Z-debug.<span class="keyword">log</span></span><br></pre></td></tr></table></figure><p>In theory these fsevent things should be warnings because they are optional dependencies. Updating the version of node used by Oryx, the build engine for Azure Static Web Apps, listens to the version of node defined in <code>package.config</code>. Adding this section to the <code>package.config</code> fixed everything</p><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"engines"</span>: &#123;</span><br><span class="line">    <span class="string">"node"</span>: <span class="string">"&gt;=16.0"</span>,</span><br><span class="line">    <span class="string">"npm"</span>: <span class="string">"&gt;=8.0"</span></span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;I updated the version of the lock file on a project the other day in the hopes it might restore a little bit more quickly. However for so
     
     </summary>
     
