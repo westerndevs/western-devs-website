@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2023-11-20T18:29:08.380Z</updated>
+  <updated>2023-11-23T23:38:45.465Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Docker COPY not Finding Files</title>
+    <link href="https://westerndevs.com/_/cannot-copy/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/cannot-copy/</id>
+    <published>2023-11-23T05:00:00.000Z</published>
+    <updated>2023-11-23T23:38:45.465Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>My dad once told me that there are no such things a problems just solutions waiting to be applied. I don't know what book he'd just read or course he'd just been on to spout such nonsense but I've never forgotten it.</p><p>Today my not problem was running a docker build wasn't copying the files I was expecting it to. In particular I had a <code>themes</code> directory which was not ending up in the image and in fact the build was failing with something like</p><figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ERROR: </span>failed to solve: failed to compute cache key: failed to calculate checksum of ref b1f3faa4-fdeb<span class="string">-41</span>ed-b016-fac3862d370a::pjh3jwhj2huqmcgigjh9udlh2: "/themes": not found</span><br></pre></td></tr></table></figure><p>I was really confused because <code>themes</code> absolutly did exist on disk. It was as if it wasn't being added to the build context. In fact it wasn't being added and, as it turns out, this was because my .dockerignore file contained</p><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">**</span></span><br></pre></td></tr></table></figure><p>Which ignores everything from the local directory. That seemed a bit extreme so I changed it to</p><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">** </span></span><br><span class="line">!themes</span><br></pre></td></tr></table></figure><p>With this in place the build worked as expected.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;My dad once told me that there are no such things a problems just solutions waiting to be applied. I don&#39;t know what book he&#39;d just read 
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Connect to a Service Container in Github Actions</title>
     <link href="https://westerndevs.com/_/connect-to-service-container/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/connect-to-service-container/</id>
     <published>2023-11-20T05:00:00.000Z</published>
-    <updated>2023-11-20T18:29:08.380Z</updated>
+    <updated>2023-11-23T23:38:45.465Z</updated>
 	<author>
 	
 	  
@@ -47,7 +73,7 @@
     <link href="https://westerndevs.com/_/smtp-setup-for-mailgun/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/smtp-setup-for-mailgun/</id>
     <published>2023-10-30T04:00:00.000Z</published>
-    <updated>2023-11-20T18:29:08.384Z</updated>
+    <updated>2023-11-23T23:38:45.469Z</updated>
 	<author>
 	
 	  
@@ -73,7 +99,7 @@
     <link href="https://westerndevs.com/_/artillery/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/artillery/</id>
     <published>2023-10-14T04:00:00.000Z</published>
-    <updated>2023-11-20T18:29:08.376Z</updated>
+    <updated>2023-11-23T23:38:45.461Z</updated>
 	<author>
 	
 	  
@@ -99,7 +125,7 @@
     <link href="https://westerndevs.com/_/storage-alert-rules/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storage-alert-rules/</id>
     <published>2023-03-30T04:00:00.000Z</published>
-    <updated>2023-11-20T18:29:08.384Z</updated>
+    <updated>2023-11-23T23:38:45.469Z</updated>
 	<author>
 	
 	  
@@ -125,7 +151,7 @@
     <link href="https://westerndevs.com/_/vuetify-esm/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/vuetify-esm/</id>
     <published>2023-03-15T04:00:00.000Z</published>
-    <updated>2023-11-20T18:29:08.388Z</updated>
+    <updated>2023-11-23T23:38:45.473Z</updated>
 	<author>
 	
 	  
@@ -151,7 +177,7 @@
     <link href="https://westerndevs.com/_/app-service-quota/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/app-service-quota/</id>
     <published>2023-03-04T05:00:00.000Z</published>
-    <updated>2023-11-20T18:29:08.376Z</updated>
+    <updated>2023-11-23T23:38:45.461Z</updated>
 	<author>
 	
 	  
@@ -178,7 +204,7 @@
     <link href="https://westerndevs.com/_/azure-keyvaul-reference-gotcha/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-keyvaul-reference-gotcha/</id>
     <published>2023-03-04T05:00:00.000Z</published>
-    <updated>2023-11-20T18:29:08.376Z</updated>
+    <updated>2023-11-23T23:38:45.461Z</updated>
 	<author>
 	
 	  
@@ -204,7 +230,7 @@
     <link href="https://westerndevs.com/_/express-json-comments/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/express-json-comments/</id>
     <published>2023-02-16T05:00:00.000Z</published>
-    <updated>2023-11-20T18:29:08.380Z</updated>
+    <updated>2023-11-23T23:38:45.465Z</updated>
 	<author>
 	
 	  
@@ -230,7 +256,7 @@
     <link href="https://westerndevs.com/_/ruby-excel/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ruby-excel/</id>
     <published>2023-02-15T05:00:00.000Z</published>
-    <updated>2023-11-20T18:29:08.384Z</updated>
+    <updated>2023-11-23T23:38:45.469Z</updated>
 	<author>
 	
 	  
@@ -256,7 +282,7 @@
     <link href="https://westerndevs.com/musings/defining-problem-before-the-soltuion/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/musings/defining-problem-before-the-soltuion/</id>
     <published>2023-01-27T23:24:33.221Z</published>
-    <updated>2023-11-20T18:29:08.376Z</updated>
+    <updated>2023-11-23T23:38:45.461Z</updated>
 	<author>
 	
 	  
@@ -277,8 +303,6 @@
       <category term="musings" scheme="https://westerndevs.com/categories/musings/"/>
     
     
-      <category term="code" scheme="https://westerndevs.com/tags/code/"/>
-    
       <category term="solution-architecture" scheme="https://westerndevs.com/tags/solution-architecture/"/>
     
       <category term="problem-definition" scheme="https://westerndevs.com/tags/problem-definition/"/>
@@ -287,6 +311,8 @@
     
       <category term="defining-value" scheme="https://westerndevs.com/tags/defining-value/"/>
     
+      <category term="code" scheme="https://westerndevs.com/tags/code/"/>
+    
   </entry>
   
   <entry>
@@ -294,7 +320,7 @@
     <link href="https://westerndevs.com/coding/problem-solution/docker-build-hangs-on-apt-key-in-wsl2/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/coding/problem-solution/docker-build-hangs-on-apt-key-in-wsl2/</id>
     <published>2023-01-12T02:43:58.005Z</published>
-    <updated>2023-11-20T18:29:08.376Z</updated>
+    <updated>2023-11-23T23:38:45.461Z</updated>
 	<author>
 	
 	  
@@ -336,7 +362,7 @@
     <link href="https://westerndevs.com/musings/highlight-reel-for-2022/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/musings/highlight-reel-for-2022/</id>
     <published>2023-01-05T21:47:02.098Z</published>
-    <updated>2023-11-20T18:29:08.376Z</updated>
+    <updated>2023-11-23T23:38:45.461Z</updated>
 	<author>
 	
 	  
@@ -365,9 +391,9 @@
     
       <category term="prdc-2022" scheme="https://westerndevs.com/tags/prdc-2022/"/>
     
-      <category term="mvp" scheme="https://westerndevs.com/tags/mvp/"/>
-    
       <category term="code" scheme="https://westerndevs.com/tags/code/"/>
+    
+      <category term="mvp" scheme="https://westerndevs.com/tags/mvp/"/>
     
       <category term="burnout" scheme="https://westerndevs.com/tags/burnout/"/>
     
@@ -378,7 +404,7 @@
     <link href="https://westerndevs.com/_/happy-holidays-2022/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/happy-holidays-2022/</id>
     <published>2022-12-24T22:00:00.000Z</published>
-    <updated>2023-11-20T18:29:08.376Z</updated>
+    <updated>2023-11-23T23:38:45.461Z</updated>
 	<author>
 	
 	  
@@ -410,7 +436,7 @@
     <link href="https://westerndevs.com/_/speaking-at-tech-events-helps-you-grow/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/speaking-at-tech-events-helps-you-grow/</id>
     <published>2022-12-20T21:59:37.185Z</published>
-    <updated>2023-11-20T18:29:08.376Z</updated>
+    <updated>2023-11-23T23:38:45.461Z</updated>
 	<author>
 	
 	  
@@ -429,11 +455,11 @@
     </summary>
     
     
-      <category term="prairie-dev-con" scheme="https://westerndevs.com/tags/prairie-dev-con/"/>
-    
       <category term="public-speaking" scheme="https://westerndevs.com/tags/public-speaking/"/>
     
       <category term="prdc" scheme="https://westerndevs.com/tags/prdc/"/>
+    
+      <category term="prairie-dev-con" scheme="https://westerndevs.com/tags/prairie-dev-con/"/>
     
       <category term="community" scheme="https://westerndevs.com/tags/community/"/>
     
@@ -448,7 +474,7 @@
     <link href="https://westerndevs.com/_/docker-desktop-is-not-docker-engine/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/docker-desktop-is-not-docker-engine/</id>
     <published>2022-12-14T02:28:36.457Z</published>
-    <updated>2023-11-20T18:29:08.376Z</updated>
+    <updated>2023-11-23T23:38:45.461Z</updated>
 	<author>
 	
 	  
@@ -484,7 +510,7 @@
     <link href="https://westerndevs.com/_/prairie-dev-con-2022-takeaways/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/prairie-dev-con-2022-takeaways/</id>
     <published>2022-12-07T20:37:20.777Z</published>
-    <updated>2023-11-20T18:29:08.376Z</updated>
+    <updated>2023-11-23T23:38:45.461Z</updated>
 	<author>
 	
 	  
@@ -526,7 +552,7 @@
     <link href="https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/</id>
     <published>2022-12-01T09:18:34.509Z</published>
-    <updated>2023-11-20T18:29:08.376Z</updated>
+    <updated>2023-11-23T23:38:45.461Z</updated>
 	<author>
 	
 	  
@@ -564,7 +590,7 @@
     <link href="https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/</id>
     <published>2022-11-19T01:10:07.083Z</published>
-    <updated>2023-11-20T18:29:08.376Z</updated>
+    <updated>2023-11-23T23:38:45.461Z</updated>
 	<author>
 	
 	  
@@ -602,7 +628,7 @@
     <link href="https://westerndevs.com/_/bulk-insert-sql-geometry/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/bulk-insert-sql-geometry/</id>
     <published>2022-11-17T05:00:00.000Z</published>
-    <updated>2023-11-20T18:29:08.376Z</updated>
+    <updated>2023-11-23T23:38:45.465Z</updated>
 	<author>
 	
 	  
@@ -617,32 +643,6 @@
     <summary type="html">
     
       &lt;p&gt;I have been updating an application from full framework to .NET 6 this week. One of the things this app does is bulk load data into SQL S
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Removing Azure Backups in Terraform</title>
-    <link href="https://westerndevs.com/_/azure-backus-protip/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/azure-backus-protip/</id>
-    <published>2022-11-11T05:00:00.000Z</published>
-    <updated>2023-11-20T18:29:08.376Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>If you have a VM backup in your Terraform state and need to get rid of it be aware that it is probably going to break your <a href="https://blog.simontimms.com/2022/11/01/theory-of-terraform-github.-actions/" target="_blank" rel="noopener">deployment pipeline</a>. The reason is that Terraform will delete the item but then find that the resource still there. This is because backup deletion takes a while (say 14 days). Eventually the backup will delete but not before Terraform times out.</p><p>The solution I'm using is to just go in an manually delete the backup from the terraform state to unblock my pipelines.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">terraform state list | grep &lt;name of your backup&gt;</span><br><span class="line">-- make note of the resource identifier --</span><br><span class="line">terraform state rm &lt;found resource identifier&gt;</span><br></pre></td></tr></table></figure><p>Editing Terraform state seems scary but it's not too bad after you do it a bit. Take backups!</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;If you have a VM backup in your Terraform state and need to get rid of it be aware that it is probably going to break your &lt;a href=&quot;https
     
     </summary>
     
