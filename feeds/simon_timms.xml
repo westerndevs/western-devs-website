@@ -5,7 +5,7 @@
   <link href="/feeds/simon_timms" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2023-11-23T23:38:45.465Z</updated>
+  <updated>2024-01-29T19:23:30.961Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://westerndevs.com/_/cannot-copy/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cannot-copy/</id>
     <published>2023-11-23T05:00:00.000Z</published>
-    <updated>2023-11-23T23:38:45.465Z</updated>
+    <updated>2024-01-29T19:23:30.961Z</updated>
 	<author>
 	
 	  
@@ -47,7 +47,7 @@
     <link href="https://westerndevs.com/_/connect-to-service-container/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/connect-to-service-container/</id>
     <published>2023-11-20T05:00:00.000Z</published>
-    <updated>2023-11-23T23:38:45.465Z</updated>
+    <updated>2024-01-29T19:23:30.961Z</updated>
 	<author>
 	
 	  
@@ -73,7 +73,7 @@
     <link href="https://westerndevs.com/_/smtp-setup-for-mailgun/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/smtp-setup-for-mailgun/</id>
     <published>2023-10-30T04:00:00.000Z</published>
-    <updated>2023-11-23T23:38:45.469Z</updated>
+    <updated>2024-01-29T19:23:30.965Z</updated>
 	<author>
 	
 	  
@@ -99,7 +99,7 @@
     <link href="https://westerndevs.com/_/artillery/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/artillery/</id>
     <published>2023-10-14T04:00:00.000Z</published>
-    <updated>2023-11-23T23:38:45.461Z</updated>
+    <updated>2024-01-29T19:23:30.961Z</updated>
 	<author>
 	
 	  
@@ -125,7 +125,7 @@
     <link href="https://westerndevs.com/_/storage-alert-rules/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storage-alert-rules/</id>
     <published>2023-03-30T04:00:00.000Z</published>
-    <updated>2023-11-23T23:38:45.469Z</updated>
+    <updated>2024-01-29T19:23:30.965Z</updated>
 	<author>
 	
 	  
@@ -151,7 +151,7 @@
     <link href="https://westerndevs.com/_/vuetify-esm/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/vuetify-esm/</id>
     <published>2023-03-15T04:00:00.000Z</published>
-    <updated>2023-11-23T23:38:45.473Z</updated>
+    <updated>2024-01-29T19:23:30.969Z</updated>
 	<author>
 	
 	  
@@ -177,7 +177,7 @@
     <link href="https://westerndevs.com/_/app-service-quota/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/app-service-quota/</id>
     <published>2023-03-04T05:00:00.000Z</published>
-    <updated>2023-11-23T23:38:45.461Z</updated>
+    <updated>2024-01-29T19:23:30.957Z</updated>
 	<author>
 	
 	  
@@ -204,7 +204,7 @@
     <link href="https://westerndevs.com/_/azure-keyvaul-reference-gotcha/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-keyvaul-reference-gotcha/</id>
     <published>2023-03-04T05:00:00.000Z</published>
-    <updated>2023-11-23T23:38:45.461Z</updated>
+    <updated>2024-01-29T19:23:30.961Z</updated>
 	<author>
 	
 	  
@@ -230,7 +230,7 @@
     <link href="https://westerndevs.com/_/express-json-comments/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/express-json-comments/</id>
     <published>2023-02-16T05:00:00.000Z</published>
-    <updated>2023-11-23T23:38:45.465Z</updated>
+    <updated>2024-01-29T19:23:30.961Z</updated>
 	<author>
 	
 	  
@@ -256,7 +256,7 @@
     <link href="https://westerndevs.com/_/ruby-excel/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ruby-excel/</id>
     <published>2023-02-15T05:00:00.000Z</published>
-    <updated>2023-11-23T23:38:45.469Z</updated>
+    <updated>2024-01-29T19:23:30.965Z</updated>
 	<author>
 	
 	  
@@ -282,7 +282,7 @@
     <link href="https://westerndevs.com/_/bulk-insert-sql-geometry/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/bulk-insert-sql-geometry/</id>
     <published>2022-11-17T05:00:00.000Z</published>
-    <updated>2023-11-23T23:38:45.465Z</updated>
+    <updated>2024-01-29T19:23:30.961Z</updated>
 	<author>
 	
 	  
@@ -308,7 +308,7 @@
     <link href="https://westerndevs.com/_/azure-backus-protip/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-backus-protip/</id>
     <published>2022-11-11T05:00:00.000Z</published>
-    <updated>2023-11-23T23:38:45.461Z</updated>
+    <updated>2024-01-29T19:23:30.961Z</updated>
 	<author>
 	
 	  
@@ -334,7 +334,7 @@
     <link href="https://westerndevs.com/_/set-output-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-output-terraform/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2023-11-23T23:38:45.469Z</updated>
+    <updated>2024-01-29T19:23:30.965Z</updated>
 	<author>
 	
 	  
@@ -360,7 +360,7 @@
     <link href="https://westerndevs.com/_/theory-of-terraform-github-actions/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/theory-of-terraform-github-actions/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2023-11-23T23:38:45.469Z</updated>
+    <updated>2024-01-29T19:23:30.969Z</updated>
 	<author>
 	
 	  
@@ -386,7 +386,7 @@
     <link href="https://westerndevs.com/_/register-providers/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/register-providers/</id>
     <published>2022-08-12T04:00:00.000Z</published>
-    <updated>2023-11-23T23:38:45.469Z</updated>
+    <updated>2024-01-29T19:23:30.965Z</updated>
 	<author>
 	
 	  
@@ -412,7 +412,7 @@
     <link href="https://westerndevs.com/_/debug-azure-container-instances-startup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/debug-azure-container-instances-startup/</id>
     <published>2022-08-04T04:00:00.000Z</published>
-    <updated>2023-11-23T23:38:45.465Z</updated>
+    <updated>2024-01-29T19:23:30.961Z</updated>
 	<author>
 	
 	  
@@ -438,7 +438,7 @@
     <link href="https://westerndevs.com/_/consuming-wsdl/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/consuming-wsdl/</id>
     <published>2022-05-30T04:00:00.000Z</published>
-    <updated>2023-11-23T23:38:45.465Z</updated>
+    <updated>2024-01-29T19:23:30.961Z</updated>
 	<author>
 	
 	  
@@ -464,7 +464,7 @@
     <link href="https://westerndevs.com/_/azure-functions-error/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-functions-error/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2023-11-23T23:38:45.461Z</updated>
+    <updated>2024-01-29T19:23:30.961Z</updated>
 	<author>
 	
 	  
@@ -490,7 +490,7 @@
     <link href="https://westerndevs.com/_/which-sql-server-edition/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/which-sql-server-edition/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2023-11-23T23:38:45.473Z</updated>
+    <updated>2024-01-29T19:23:30.969Z</updated>
 	<author>
 	
 	  
@@ -516,7 +516,7 @@
     <link href="https://westerndevs.com/_/cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cheat-sheet/</id>
     <published>2022-04-04T04:00:00.000Z</published>
-    <updated>2023-11-23T23:38:45.465Z</updated>
+    <updated>2024-01-29T19:23:30.961Z</updated>
 	<author>
 	
 	  

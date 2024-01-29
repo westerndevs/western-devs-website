@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2023-11-23T23:38:45.465Z</updated>
+  <updated>2024-01-29T19:23:30.961Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://westerndevs.com/_/cannot-copy/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cannot-copy/</id>
     <published>2023-11-23T05:00:00.000Z</published>
-    <updated>2023-11-23T23:38:45.465Z</updated>
+    <updated>2024-01-29T19:23:30.961Z</updated>
 	<author>
 	
 	  
@@ -47,7 +47,7 @@
     <link href="https://westerndevs.com/_/connect-to-service-container/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/connect-to-service-container/</id>
     <published>2023-11-20T05:00:00.000Z</published>
-    <updated>2023-11-23T23:38:45.465Z</updated>
+    <updated>2024-01-29T19:23:30.961Z</updated>
 	<author>
 	
 	  
@@ -73,7 +73,7 @@
     <link href="https://westerndevs.com/_/smtp-setup-for-mailgun/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/smtp-setup-for-mailgun/</id>
     <published>2023-10-30T04:00:00.000Z</published>
-    <updated>2023-11-23T23:38:45.469Z</updated>
+    <updated>2024-01-29T19:23:30.965Z</updated>
 	<author>
 	
 	  
@@ -99,7 +99,7 @@
     <link href="https://westerndevs.com/_/artillery/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/artillery/</id>
     <published>2023-10-14T04:00:00.000Z</published>
-    <updated>2023-11-23T23:38:45.461Z</updated>
+    <updated>2024-01-29T19:23:30.961Z</updated>
 	<author>
 	
 	  
@@ -125,7 +125,7 @@
     <link href="https://westerndevs.com/_/storage-alert-rules/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storage-alert-rules/</id>
     <published>2023-03-30T04:00:00.000Z</published>
-    <updated>2023-11-23T23:38:45.469Z</updated>
+    <updated>2024-01-29T19:23:30.965Z</updated>
 	<author>
 	
 	  
@@ -151,7 +151,7 @@
     <link href="https://westerndevs.com/_/vuetify-esm/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/vuetify-esm/</id>
     <published>2023-03-15T04:00:00.000Z</published>
-    <updated>2023-11-23T23:38:45.473Z</updated>
+    <updated>2024-01-29T19:23:30.969Z</updated>
 	<author>
 	
 	  
@@ -177,7 +177,7 @@
     <link href="https://westerndevs.com/_/app-service-quota/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/app-service-quota/</id>
     <published>2023-03-04T05:00:00.000Z</published>
-    <updated>2023-11-23T23:38:45.461Z</updated>
+    <updated>2024-01-29T19:23:30.957Z</updated>
 	<author>
 	
 	  
@@ -204,7 +204,7 @@
     <link href="https://westerndevs.com/_/azure-keyvaul-reference-gotcha/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-keyvaul-reference-gotcha/</id>
     <published>2023-03-04T05:00:00.000Z</published>
-    <updated>2023-11-23T23:38:45.461Z</updated>
+    <updated>2024-01-29T19:23:30.961Z</updated>
 	<author>
 	
 	  
@@ -230,7 +230,7 @@
     <link href="https://westerndevs.com/_/express-json-comments/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/express-json-comments/</id>
     <published>2023-02-16T05:00:00.000Z</published>
-    <updated>2023-11-23T23:38:45.465Z</updated>
+    <updated>2024-01-29T19:23:30.961Z</updated>
 	<author>
 	
 	  
@@ -256,7 +256,7 @@
     <link href="https://westerndevs.com/_/ruby-excel/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ruby-excel/</id>
     <published>2023-02-15T05:00:00.000Z</published>
-    <updated>2023-11-23T23:38:45.469Z</updated>
+    <updated>2024-01-29T19:23:30.965Z</updated>
 	<author>
 	
 	  
@@ -282,7 +282,7 @@
     <link href="https://westerndevs.com/musings/defining-problem-before-the-soltuion/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/musings/defining-problem-before-the-soltuion/</id>
     <published>2023-01-27T23:24:33.221Z</published>
-    <updated>2023-11-23T23:38:45.461Z</updated>
+    <updated>2024-01-29T19:23:30.957Z</updated>
 	<author>
 	
 	  
@@ -320,7 +320,7 @@
     <link href="https://westerndevs.com/coding/problem-solution/docker-build-hangs-on-apt-key-in-wsl2/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/coding/problem-solution/docker-build-hangs-on-apt-key-in-wsl2/</id>
     <published>2023-01-12T02:43:58.005Z</published>
-    <updated>2023-11-23T23:38:45.461Z</updated>
+    <updated>2024-01-29T19:23:30.957Z</updated>
 	<author>
 	
 	  
@@ -362,7 +362,7 @@
     <link href="https://westerndevs.com/musings/highlight-reel-for-2022/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/musings/highlight-reel-for-2022/</id>
     <published>2023-01-05T21:47:02.098Z</published>
-    <updated>2023-11-23T23:38:45.461Z</updated>
+    <updated>2024-01-29T19:23:30.957Z</updated>
 	<author>
 	
 	  
@@ -404,7 +404,7 @@
     <link href="https://westerndevs.com/_/happy-holidays-2022/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/happy-holidays-2022/</id>
     <published>2022-12-24T22:00:00.000Z</published>
-    <updated>2023-11-23T23:38:45.461Z</updated>
+    <updated>2024-01-29T19:23:30.957Z</updated>
 	<author>
 	
 	  
@@ -436,7 +436,7 @@
     <link href="https://westerndevs.com/_/speaking-at-tech-events-helps-you-grow/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/speaking-at-tech-events-helps-you-grow/</id>
     <published>2022-12-20T21:59:37.185Z</published>
-    <updated>2023-11-23T23:38:45.461Z</updated>
+    <updated>2024-01-29T19:23:30.957Z</updated>
 	<author>
 	
 	  
@@ -455,11 +455,11 @@
     </summary>
     
     
+      <category term="prairie-dev-con" scheme="https://westerndevs.com/tags/prairie-dev-con/"/>
+    
       <category term="public-speaking" scheme="https://westerndevs.com/tags/public-speaking/"/>
     
       <category term="prdc" scheme="https://westerndevs.com/tags/prdc/"/>
-    
-      <category term="prairie-dev-con" scheme="https://westerndevs.com/tags/prairie-dev-con/"/>
     
       <category term="community" scheme="https://westerndevs.com/tags/community/"/>
     
@@ -474,7 +474,7 @@
     <link href="https://westerndevs.com/_/docker-desktop-is-not-docker-engine/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/docker-desktop-is-not-docker-engine/</id>
     <published>2022-12-14T02:28:36.457Z</published>
-    <updated>2023-11-23T23:38:45.461Z</updated>
+    <updated>2024-01-29T19:23:30.957Z</updated>
 	<author>
 	
 	  
@@ -510,7 +510,7 @@
     <link href="https://westerndevs.com/_/prairie-dev-con-2022-takeaways/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/prairie-dev-con-2022-takeaways/</id>
     <published>2022-12-07T20:37:20.777Z</published>
-    <updated>2023-11-23T23:38:45.461Z</updated>
+    <updated>2024-01-29T19:23:30.957Z</updated>
 	<author>
 	
 	  
@@ -552,7 +552,7 @@
     <link href="https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/</id>
     <published>2022-12-01T09:18:34.509Z</published>
-    <updated>2023-11-23T23:38:45.461Z</updated>
+    <updated>2024-01-29T19:23:30.957Z</updated>
 	<author>
 	
 	  
@@ -590,7 +590,7 @@
     <link href="https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/</id>
     <published>2022-11-19T01:10:07.083Z</published>
-    <updated>2023-11-23T23:38:45.461Z</updated>
+    <updated>2024-01-29T19:23:30.957Z</updated>
 	<author>
 	
 	  
@@ -628,7 +628,7 @@
     <link href="https://westerndevs.com/_/bulk-insert-sql-geometry/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/bulk-insert-sql-geometry/</id>
     <published>2022-11-17T05:00:00.000Z</published>
-    <updated>2023-11-23T23:38:45.465Z</updated>
+    <updated>2024-01-29T19:23:30.961Z</updated>
 	<author>
 	
 	  
