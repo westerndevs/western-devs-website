@@ -14,7 +14,7 @@
 <meta property="og:image" content="https://westerndevs.com/images/2023-10-30-smtp_setup_for_mailgun.md/2023-10-30-17-34-55.png">
 <meta property="og:image" content="https://westerndevs.com/images/2023-10-30-smtp_setup_for_mailgun.md/2023-10-30-17-34-24.png">
 <meta property="article:published_time" content="2023-10-30T04:00:00.000Z">
-<meta property="article:modified_time" content="2024-01-29T19:23:30.965Z">
+<meta property="article:modified_time" content="2024-02-25T23:53:49.826Z">
 <meta property="article:author" content="Western Devs">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://westerndevs.com/images/2023-10-30-smtp_setup_for_mailgun.md/2023-10-30-17-34-55.png">
@@ -114,7 +114,7 @@
 			<div id="mainPostContent">
 	        <p>Quick entry here about setting up Mailgun as the email provider in Keycloak. To do this first you'll need to create SMTP credentials in Mailgun and note the generated password</p>
 <p><img src="/images/2023-10-30-smtp_setup_for_mailgun.md/2023-10-30-17-34-55.png" alt="">)</p>
-<p>Next in Keycloak set the credentials up in the realm settings under email.
+<p>Next in Keycloak set the credentials up in the realm settings under email. You'll want the host to be smtp.mailgun.org and the port to be 465. Enable all the encryptions and use the full email address as the username.
 <img src="/images/2023-10-30-smtp_setup_for_mailgun.md/2023-10-30-17-34-24.png" alt="">)</p>
 <p>Check both the SSL boxes and give it port 465.</p>
 
