@@ -12,7 +12,7 @@ Quick entry here about setting up Mailgun as the email provider in Keycloak. To 
 
 ![](/images/2023-10-30-smtp_setup_for_mailgun.md/2023-10-30-17-34-55.png))
 
-Next in Keycloak set the credentials up in the realm settings under email. 
+Next in Keycloak set the credentials up in the realm settings under email. You'll want the host to be smtp.mailgun.org and the port to be 465. Enable all the encryptions and use the full email address as the username.
 ![](/images/2023-10-30-smtp_setup_for_mailgun.md/2023-10-30-17-34-24.png))
 
 Check both the SSL boxes and give it port 465.
