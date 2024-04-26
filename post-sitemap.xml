@@ -8,808 +8,8 @@
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/thoughts-on-building-making/</loc>
-        <lastmod>2024-04-10T22:59:22.993Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/three-types-of-relationships-you-need-to-survive-as-a-remote-worker/</loc>
-        <lastmod>2024-04-10T22:59:22.993Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/Ergonomics/truly-ergonomic-review/</loc>
-        <lastmod>2024-04-10T22:59:22.993Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/unit-conversions/</loc>
-        <lastmod>2024-04-10T22:59:22.993Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/updating-sub-collections-with-sql-servers-merge/</loc>
-        <lastmod>2024-04-10T22:59:22.993Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/upgrading-a-real-world-mvc-5-application-to-mvc-6/</loc>
-        <lastmod>2024-04-10T22:59:22.993Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/upgrading-npm-in-visual-studio-2015/</loc>
-        <lastmod>2024-04-10T22:59:22.993Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/upgrading-projects-to-net-4-6/</loc>
-        <lastmod>2024-04-10T22:59:22.993Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/using-java-build-script-tasks-in-visual-studio-code/</loc>
-        <lastmod>2024-04-10T22:59:22.993Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/using-powershell-to-set-your-azure-sql-firewall-rule/</loc>
-        <lastmod>2024-04-10T22:59:22.993Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/using-azure-arm-to-deploy-a-docker-container/</loc>
-        <lastmod>2024-04-10T22:59:22.993Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/vscode-the-visual-studio-for-everybody/</loc>
-        <lastmod>2024-04-10T22:59:22.993Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/vetur-cant-file-files/</loc>
-        <lastmod>2024-04-10T22:59:22.993Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/vsftpd/</loc>
-        <lastmod>2024-04-10T22:59:22.993Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/vuetify-esm/</loc>
-        <lastmod>2024-04-10T22:59:22.993Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/western-devs-found-my-spirit-animal/</loc>
-        <lastmod>2024-04-10T22:59:22.993Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/welcome-lori-lalonde/</loc>
-        <lastmod>2024-04-10T22:59:22.993Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/which-sql-server-edition/</loc>
-        <lastmod>2024-04-10T22:59:22.993Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/western-devs-three-months-on/</loc>
-        <lastmod>2024-04-10T22:59:22.993Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/westerndevs-learn-about-docker-part-2/</loc>
-        <lastmod>2024-04-10T22:59:22.993Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/windows-server-containers-are-coming-whether-you-like-it-or-not/</loc>
-        <lastmod>2024-04-10T22:59:22.993Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/why-gulp/</loc>
-        <lastmod>2024-04-10T22:59:22.993Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/workaround-nuget-packages-failing-to-download-in-visual-studio-2015-rtm/</loc>
-        <lastmod>2024-04-10T22:59:22.993Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/winner-selector/</loc>
-        <lastmod>2024-04-10T22:59:22.993Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/writing-custom-commands-for-dnx-with-asp-net-5-0/</loc>
-        <lastmod>2024-04-10T22:59:22.993Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/docker/yet-another-docker-intro/</loc>
-        <lastmod>2024-04-10T22:59:22.993Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/xdt-transforms/</loc>
-        <lastmod>2024-04-10T22:59:22.993Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/mvc-6-image-tag-helper/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/microsofts-clear-message-for-canadian-partners/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/mobile-app-testing-on-114-devices-in-20-minutes/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/microservices-sizing/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/my-favourite-online-dev-tools/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/mvc-6-cache-tag-helper/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/ngrok-aspnet/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/noda-time/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/on-co-location-email-and-face-to-face-communication/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/ooops-repointing-git-head/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/on-ui-testing/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/parsing-vue-router-parameters/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/podcasts/podcast-all-about-smartview/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/outside-the-shack-or-how-to-be-a-gigolo/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/podcasts/podcast-brownfield-applications/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/podcasts/podcast-barriers-for-women-in-technology/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/podcasts/podcast-devops/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/pandas-cheat-sheet/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/podcasts/podcast-encouraging-and-educating-kids/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/podcasts/podcast-ethics/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/podcasts/podcast-geek-gifts/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/podcasts/podcast-going-independent/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/podcasts/podcast-internal-open-source/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/podcasts/podcast-interviews-and-hiring-practices/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/podcasts/podcast-kanban/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/podcasts/podcast-microservices/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/podcasts/podcast-life-outside-net/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/podcasts/podcast-the-future-of-computing/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/podcasts/podcast-the-internet-of-things/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/podcasts/podcast-no-estimates/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/podcasts/podcast-zencastr/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/podcasts/podcast-the-repository-pattern/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/podcasts/podcast-work-life-balance/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/purge-cdn-in-devops/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/psa-setting-up-containers-in-a-vm-in-windows-server-2016-tech-preview-3/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/property-testing/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/query-collections-in-big-table/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/reauth-nuget/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/realistic-sample-data-with-genfu/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/register-providers/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/response-from-postsharp-net-is-not-a-valid-nuget-v2-service-response/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/rethinking-our-practices-with-the-mvc-framework/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/repository-nightmares/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/ruby-excel/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/running-a-net-app-against-postgres-database-in-docker/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/rubocop-issue/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/running-tomcat-apps-on-docker-through-eclipse/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/running-process-as-a-different-user-on-windows/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/saas-and-commodities/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/sequence/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/serverless-offline-https/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/set-env-variable/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/set-output-terraform/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/set-timezone/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/running-your-first-code-camp/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/sgen-not-found/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/setting-up-an-iis-site-using-powershell/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/sharpening-chisels/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/simple-powershell-automation-browser-based-tasks/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/smtp-setup-for-mailgun/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/source-control-for-sql-databases/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/sql-server-aliases/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/static-app-settings/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/stop-managing-resource/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/stop-osx-deleting-tmp-so-frequently/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/storybook/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/storage-alert-rules/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/storybook-iframe-404/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/terminal-buffer/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/pandas-read-tsv/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/supporting-options-and-arguments-in-your-dnx-commands/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/the-humanitarian-toolbox-allready-code-a-thon/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/theory-of-terraform-github-actions/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://westerndevs.com/_/testing-with-data/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.318Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -817,7 +17,7 @@
 
     <url>
         <loc>https://westerndevs.com/_/tfs-module-in-powershell-using-nuget/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.318Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -825,503 +25,239 @@
 
     <url>
         <loc>https://westerndevs.com/_/the-changing-winnipeg-technology-consulting-landscape/</loc>
-        <lastmod>2024-04-10T22:59:22.989Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.318Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/backblaze-exclude-node-modules/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
+        <loc>https://westerndevs.com/_/theory-of-terraform-github-actions/</loc>
+        <lastmod>2024-04-26T18:38:30.318Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/azure-sql-point-in-time-restore-is-near-useless/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
+        <loc>https://westerndevs.com/_/the-humanitarian-toolbox-allready-code-a-thon/</loc>
+        <lastmod>2024-04-26T18:38:30.318Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/build-sql-connection-string/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
+        <loc>https://westerndevs.com/_/thoughts-on-building-making/</loc>
+        <lastmod>2024-04-26T18:38:30.318Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/bulk-insert-sql-geometry/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
+        <loc>https://westerndevs.com/_/three-types-of-relationships-you-need-to-survive-as-a-remote-worker/</loc>
+        <lastmod>2024-04-26T18:38:30.318Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/bdd-vs-tdd/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
+        <loc>https://westerndevs.com/Ergonomics/truly-ergonomic-review/</loc>
+        <lastmod>2024-04-26T18:38:30.318Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/cannot-copy/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
+        <loc>https://westerndevs.com/_/unit-conversions/</loc>
+        <lastmod>2024-04-26T18:38:30.318Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/casting-in-telerik-reports/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
+        <loc>https://westerndevs.com/_/updating-sub-collections-with-sql-servers-merge/</loc>
+        <lastmod>2024-04-26T18:38:30.318Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/cancelling-long-running-queries-in-asp-net-mvc-and-web-api/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
+        <loc>https://westerndevs.com/_/upgrading-a-real-world-mvc-5-application-to-mvc-6/</loc>
+        <lastmod>2024-04-26T18:38:30.318Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/case-of-the-disappearing-database/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
+        <loc>https://westerndevs.com/_/upgrading-npm-in-visual-studio-2015/</loc>
+        <lastmod>2024-04-26T18:38:30.318Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/capture-https-traffic-in-java-with-eclipse-and-fiddler/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
+        <loc>https://westerndevs.com/_/upgrading-projects-to-net-4-6/</loc>
+        <lastmod>2024-04-26T18:38:30.318Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/cheat-sheet/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
+        <loc>https://westerndevs.com/_/using-powershell-to-set-your-azure-sql-firewall-rule/</loc>
+        <lastmod>2024-04-26T18:38:30.318Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/change-management-the-missing-podcast/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
+        <loc>https://westerndevs.com/_/using-java-build-script-tasks-in-visual-studio-code/</loc>
+        <lastmod>2024-04-26T18:38:30.318Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/change-management-for-the-evolving-world/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
+        <loc>https://westerndevs.com/_/using-azure-arm-to-deploy-a-docker-container/</loc>
+        <lastmod>2024-04-26T18:38:30.318Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/choosing-power-bi/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
+        <loc>https://westerndevs.com/_/vetur-cant-file-files/</loc>
+        <lastmod>2024-04-26T18:38:30.318Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/conference-recap-extravaganza/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
+        <loc>https://westerndevs.com/_/vsftpd/</loc>
+        <lastmod>2024-04-26T18:38:30.318Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/connect-to-service-container/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
+        <loc>https://westerndevs.com/_/vscode-the-visual-studio-for-everybody/</loc>
+        <lastmod>2024-04-26T18:38:30.318Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/configuring-features-for-many-teamprojects-in-tfs-2015/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
+        <loc>https://westerndevs.com/_/vuetify-esm/</loc>
+        <lastmod>2024-04-26T18:38:30.318Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/considerations-when-migrating-your-blog/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
+        <loc>https://westerndevs.com/_/western-devs-three-months-on/</loc>
+        <lastmod>2024-04-26T18:38:30.318Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/consuming-wsdl/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
+        <loc>https://westerndevs.com/_/welcome-lori-lalonde/</loc>
+        <lastmod>2024-04-26T18:38:30.318Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/continuous-integration-with-xamarin-ios-visual-studio-team-services-and-macincloud-part-1/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
+        <loc>https://westerndevs.com/_/western-devs-found-my-spirit-animal/</loc>
+        <lastmod>2024-04-26T18:38:30.318Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/converting-net-4-6-projects-to-the-vs-2015-project-system/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
+        <loc>https://westerndevs.com/_/which-sql-server-edition/</loc>
+        <lastmod>2024-04-26T18:38:30.318Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/creating-a-shortcut/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
+        <loc>https://westerndevs.com/_/westerndevs-learn-about-docker-part-2/</loc>
+        <lastmod>2024-04-26T18:38:30.318Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/copy-azure-blobs/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
+        <loc>https://westerndevs.com/_/windows-server-containers-are-coming-whether-you-like-it-or-not/</loc>
+        <lastmod>2024-04-26T18:38:30.318Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/crashplan-tip/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
+        <loc>https://westerndevs.com/_/winner-selector/</loc>
+        <lastmod>2024-04-26T18:38:30.318Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/datatable-filtering/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
+        <loc>https://westerndevs.com/_/workaround-nuget-packages-failing-to-download-in-visual-studio-2015-rtm/</loc>
+        <lastmod>2024-04-26T18:38:30.318Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/custom-mvc-6-tag-helper-samples/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
+        <loc>https://westerndevs.com/_/why-gulp/</loc>
+        <lastmod>2024-04-26T18:38:30.318Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/custom-tasks-for-java-in-visual-studio-code/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
+        <loc>https://westerndevs.com/_/xdt-transforms/</loc>
+        <lastmod>2024-04-26T18:38:30.318Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/debug-azure-container-instances-startup/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
+        <loc>https://westerndevs.com/docker/yet-another-docker-intro/</loc>
+        <lastmod>2024-04-26T18:38:30.318Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/creating-custom-mvc-6-tag-helpers/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/discussion-hosting-git-in-house/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/docker-and-western-devs/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/docker-containers-explained-for-the-novice/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/docker-is-coming-whether-you-like-it-or-not/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/docker-on-windows-10-problems/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/download-file/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/downgrading-windows-phone-10-technical-preview-the-lowlights/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/drop-existing-index/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/durable-entities/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/enable-azure-ad-based-SSO-for-snowflake/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/enable-database-mail/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/enable-symbol-server/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/nservicebus/extensibility-in-message-systems-with-nservicebus/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/express-json-comments/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/extracting-a-service-to-interact-with-azure-table-storage/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/fibonacci/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/function-appinsights/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/getting-lookup-data-into-you-view/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/fsevents-optional-dependencies/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/getting-docker-running-on-windows-10/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/getting-started-with-elk/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/getting-your-build-server-ready-for-vs-2015/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/Development/github-authentication-asp-net-core/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/guidebook-mobile-app-for-conferences/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/hash-nil/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/inspiration-from-mvp-summit-2015/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/install-azfileshybrid-powershell/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/importing-tde-encrypted-backup/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/installing-fonts/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/ASP-NET-Core/json-config-in-aspnetcoremvc/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/layer-already-being-pulled-by-another-client-waiting/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/jq/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/launching-an-asp-net-5-application-from-visual-studio-2015/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
+        <loc>https://westerndevs.com/_/writing-custom-commands-for-dnx-with-asp-net-5-0/</loc>
+        <lastmod>2024-04-26T18:38:30.318Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -1329,7 +265,7 @@
 
     <url>
         <loc>https://westerndevs.com/_/matplotlib-cheat-sheet/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -1337,23 +273,7 @@
 
     <url>
         <loc>https://westerndevs.com/_/markdown-in-your-mvc-6-razor-pages/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/Work-Life-Balance/leaving-your-work-at-work-when-you-work-from-home/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/microservices-and-boundaries/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -1361,7 +281,15 @@
 
     <url>
         <loc>https://westerndevs.com/_/microservices-a-gentle-introduction/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/microservices-and-boundaries/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -1369,495 +297,583 @@
 
     <url>
         <loc>https://westerndevs.com/_/microservices-or-how-to-spread-the-love/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/dont-let-crud-corruption-and-communism-kill-your-smart-watch/</loc>
-        <lastmod>2024-04-10T22:59:22.985Z</lastmod>
+        <loc>https://westerndevs.com/_/microservices-sizing/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-6/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/_/microsofts-clear-message-for-canadian-partners/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-5b/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/_/mobile-app-testing-on-114-devices-in-20-minutes/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-9/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/_/mvc-6-image-tag-helper/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/kubernetes/kubernetes-my-journey/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/_/ngrok-aspnet/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-8/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/_/mvc-6-cache-tag-helper/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/devlog/little-shop-of-wall-street-01-release-notes/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/_/my-favourite-online-dev-tools/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/devlog/game-portfolio-review-2020/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/_/noda-time/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-7b/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/_/on-co-location-email-and-face-to-face-communication/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/typescript-definition/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/_/ooops-repointing-git-head/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-7a/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/_/on-ui-testing/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/devlog/a-solo-gamejam-experience-ld47/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/_/pandas-cheat-sheet/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/Azure/Azure-Functions/scaling-azure-functions-from-consumption-plan-to-premium-hosting-plan/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/_/pandas-read-tsv/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/devlog/out-the-door/out-the-door-post-jam-update/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/_/outside-the-shack-or-how-to-be-a-gigolo/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/serverless-sql-azure-terraform/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/_/parsing-vue-router-parameters/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/elasticquery/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/podcasts/podcast-all-about-smartview/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/Advent-Of-Code-Intro/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/podcasts/podcast-barriers-for-women-in-technology/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/Advent-Of-Code-Day01/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/podcasts/podcast-brownfield-applications/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/Advent-Of-Code-Day02/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/podcasts/podcast-devops/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/Advent-Of-Code-Day03/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/podcasts/podcast-encouraging-and-educating-kids/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/devops/from-travis-ci-to-github-actions/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/podcasts/podcast-ethics/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/technology/inner-monologue/lucky-number-v7/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/podcasts/podcast-geek-gifts/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/inner-monologue/what-value-does-making-content-bring-to-me/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/podcasts/podcast-going-independent/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/inner-monologue/my-secret-addiction-to-likes/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/podcasts/podcast-internal-open-source/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/how-to-fork-like-a-boss/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/podcasts/podcast-kanban/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/finding-inspiration/i-can-teach-your-dog-quantum-physics/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/podcasts/podcast-life-outside-net/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/how-much-is-enough-documentation/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/podcasts/podcast-interviews-and-hiring-practices/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/podcasts/podcast-microservices/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/prairie-dev-con-2022-takeaways/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/podcasts/podcast-the-future-of-computing/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/docker-desktop-is-not-docker-engine/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/podcasts/podcast-no-estimates/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/podcasts/podcast-the-internet-of-things/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/happy-holidays-2022/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/podcasts/podcast-work-life-balance/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/speaking-at-tech-events-helps-you-grow/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/podcasts/podcast-the-repository-pattern/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/Azure-service-bus-transports/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/_/purge-cdn-in-devops/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/coding/problem-solution/docker-build-hangs-on-apt-key-in-wsl2/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/_/psa-setting-up-containers-in-a-vm-in-windows-server-2016-tech-preview-3/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/musings/defining-problem-before-the-soltuion/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/podcasts/podcast-zencastr/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/musings/highlight-reel-for-2022/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/_/property-testing/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/ASP-NET-Core/Configuration-in-ASP-NET-Core-MVC/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/_/query-collections-in-big-table/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/RLS-with-power-bi/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/_/reauth-nuget/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/a-couple-of-things-about-powershell-remoting/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/_/realistic-sample-data-with-genfu/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/ASP-NET-Core/Strongly-Typed-Configuration-in-ASP-NET-Core-MVC/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/_/register-providers/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/Microservices-and-isolation/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/_/repository-nightmares/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/a-discussion-on-knockout/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/_/rubocop-issue/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/add-user-to-role/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/_/response-from-postsharp-net-is-not-a-valid-nuget-v2-service-response/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/advanced-waf-rules-in-terraform/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/_/rethinking-our-practices-with-the-mvc-framework/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/adding-prefixes-to-tag-helpers-in-mvc-6/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/_/ruby-excel/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/adventures-in-windows-iot-core-for-raspberry-pi-2/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/_/running-process-as-a-different-user-on-windows/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/apicontroller-in-asp-net-5-nopesauce/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/_/running-a-net-app-against-postgres-database-in-docker/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/bugs/another-time-disposing-is-dangerous/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/_/sequence/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/app-service-quota/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/_/running-tomcat-apps-on-docker-through-eclipse/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/an-intro-to-android-data-binding/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/_/saas-and-commodities/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/appliation-key-for-keyvault/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/_/serverless-offline-https/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/app-services-on-vnet/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/_/set-env-variable/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/asp-net-beta-6-is-in-the-wild/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/_/set-timezone/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/artillery/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/_/set-output-terraform/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/azure-backus-protip/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/_/running-your-first-code-camp/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/happiness/avoid-death-with-directives/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/_/sgen-not-found/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/azure-automation/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/_/setting-up-an-iis-site-using-powershell/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/azure-functions-error/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/_/smtp-setup-for-mailgun/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/azure-isolated-functions-config/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/_/sharpening-chisels/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/azure-keyvaul-reference-gotcha/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <loc>https://westerndevs.com/_/simple-powershell-automation-browser-based-tasks/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/source-control-for-sql-databases/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/sql-server-aliases/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/stop-managing-resource/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/static-app-settings/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/stop-osx-deleting-tmp-so-frequently/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/storybook-iframe-404/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/storybook/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/storage-alert-rules/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/terminal-buffer/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/supporting-options-and-arguments-in-your-dnx-commands/</loc>
+        <lastmod>2024-04-26T18:38:30.314Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/azure-sql-point-in-time-restore-is-near-useless/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -1865,7 +881,591 @@
 
     <url>
         <loc>https://westerndevs.com/_/azure-snapshots/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/backblaze-exclude-node-modules/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/build-sql-connection-string/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/bulk-insert-sql-geometry/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/bdd-vs-tdd/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/cannot-copy/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/cancelling-long-running-queries-in-asp-net-mvc-and-web-api/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/capture-https-traffic-in-java-with-eclipse-and-fiddler/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/case-of-the-disappearing-database/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/casting-in-telerik-reports/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/change-management-the-missing-podcast/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/cheat-sheet/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/change-management-for-the-evolving-world/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/choosing-power-bi/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/conference-recap-extravaganza/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/connect-to-service-container/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/configuring-features-for-many-teamprojects-in-tfs-2015/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/consuming-wsdl/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/continuous-integration-with-xamarin-ios-visual-studio-team-services-and-macincloud-part-1/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/copy-azure-blobs/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/crashplan-tip/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/considerations-when-migrating-your-blog/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/converting-net-4-6-projects-to-the-vs-2015-project-system/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/creating-a-shortcut/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/custom-tasks-for-java-in-visual-studio-code/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/custom-mvc-6-tag-helper-samples/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/datatable-filtering/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/creating-custom-mvc-6-tag-helpers/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/docker-and-western-devs/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/debug-azure-container-instances-startup/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/discussion-hosting-git-in-house/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/docker-containers-explained-for-the-novice/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/dont-let-crud-corruption-and-communism-kill-your-smart-watch/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/docker-on-windows-10-problems/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/docker-is-coming-whether-you-like-it-or-not/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/download-file/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/downgrading-windows-phone-10-technical-preview-the-lowlights/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/drop-existing-index/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/durable-entities/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/enable-database-mail/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/enable-azure-ad-based-SSO-for-snowflake/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/express-json-comments/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/enable-symbol-server/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/fibonacci/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/fsevents-optional-dependencies/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/nservicebus/extensibility-in-message-systems-with-nservicebus/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/function-appinsights/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/getting-docker-running-on-windows-10/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/extracting-a-service-to-interact-with-azure-table-storage/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/getting-started-with-elk/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/getting-lookup-data-into-you-view/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/getting-your-build-server-ready-for-vs-2015/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/Development/github-authentication-asp-net-core/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/importing-tde-encrypted-backup/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/hash-nil/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/guidebook-mobile-app-for-conferences/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/install-azfileshybrid-powershell/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/inspiration-from-mvp-summit-2015/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/installing-fonts/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/jq/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/ASP-NET-Core/json-config-in-aspnetcoremvc/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/launching-an-asp-net-5-application-from-visual-studio-2015/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/layer-already-being-pulled-by-another-client-waiting/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/Work-Life-Balance/leaving-your-work-at-work-when-you-work-from-home/</loc>
+        <lastmod>2024-04-26T18:38:30.310Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-6/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-8/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-7a/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-7b/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-9/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/kubernetes/kubernetes-my-journey/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/devlog/game-portfolio-review-2020/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/devlog/little-shop-of-wall-street-01-release-notes/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/Azure/Azure-Functions/scaling-azure-functions-from-consumption-plan-to-premium-hosting-plan/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/devlog/a-solo-gamejam-experience-ld47/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -1873,7 +1473,7 @@
 
     <url>
         <loc>https://westerndevs.com/_/cross-database-procs/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -1881,55 +1481,399 @@
 
     <url>
         <loc>https://westerndevs.com/_/processor-limits/</loc>
-        <lastmod>2024-04-10T22:59:22.981Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/Development/angular-testing-2/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <loc>https://westerndevs.com/_/typescript-definition/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/Development/crowdsourcing-docs-is-cool/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <loc>https://westerndevs.com/_/elasticquery/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/Development/PiDay/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <loc>https://westerndevs.com/_/Advent-Of-Code-Intro/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/Development/f12-chooser-is-dev-tool-thing/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <loc>https://westerndevs.com/devlog/out-the-door/out-the-door-post-jam-update/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/Development/Environment-independent-packaging/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <loc>https://westerndevs.com/_/Advent-Of-Code-Day01/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/Development/typescript-or-javascript/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <loc>https://westerndevs.com/_/serverless-sql-azure-terraform/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/Advent-Of-Code-Day02/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/Advent-Of-Code-Day03/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/technology/inner-monologue/lucky-number-v7/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/inner-monologue/my-secret-addiction-to-likes/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/inner-monologue/what-value-does-making-content-bring-to-me/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/finding-inspiration/i-can-teach-your-dog-quantum-physics/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/how-to-fork-like-a-boss/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/how-much-is-enough-documentation/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/prairie-dev-con-2022-takeaways/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/speaking-at-tech-events-helps-you-grow/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/happy-holidays-2022/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/docker-desktop-is-not-docker-engine/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/coding/problem-solution/docker-build-hangs-on-apt-key-in-wsl2/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/musings/defining-problem-before-the-soltuion/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/Azure-service-bus-transports/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/musings/highlight-reel-for-2022/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/ASP-NET-Core/Configuration-in-ASP-NET-Core-MVC/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/Microservices-and-isolation/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/a-couple-of-things-about-powershell-remoting/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/RLS-with-power-bi/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/a-discussion-on-knockout/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/ASP-NET-Core/Strongly-Typed-Configuration-in-ASP-NET-Core-MVC/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/add-user-to-role/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/adding-prefixes-to-tag-helpers-in-mvc-6/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/apicontroller-in-asp-net-5-nopesauce/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/advanced-waf-rules-in-terraform/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/adventures-in-windows-iot-core-for-raspberry-pi-2/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/bugs/another-time-disposing-is-dangerous/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/an-intro-to-android-data-binding/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/app-service-quota/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/app-services-on-vnet/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/appliation-key-for-keyvault/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/asp-net-beta-6-is-in-the-wild/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/happiness/avoid-death-with-directives/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/artillery/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/azure-automation/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/azure-functions-error/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/azure-backus-protip/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/azure-isolated-functions-config/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/azure-keyvaul-reference-gotcha/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/devops/from-travis-ci-to-github-actions/</loc>
+        <lastmod>2024-04-26T18:38:30.306Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -1937,23 +1881,7 @@
 
     <url>
         <loc>https://westerndevs.com/podcasts/Moving-to-SSL/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/Development/javascript-lambdas/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/Dapper/loading-related-entities-many-to-one-part-2/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -1961,23 +1889,15 @@
 
     <url>
         <loc>https://westerndevs.com/podcasts/Six-page-memos/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/Development/SignalR-Service/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/app_insights_appname/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <loc>https://westerndevs.com/Dapper/loading-related-entities-many-to-one-part-2/</loc>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -1985,15 +1905,7 @@
 
     <url>
         <loc>https://westerndevs.com/podcasts/Developer-Accountability/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/mistakes/How_To_Be_A_Pretentious_Douche_Canoe/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -2001,7 +1913,31 @@
 
     <url>
         <loc>https://westerndevs.com/_/app_insights_alerts/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/Development/SignalR-Service/</loc>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/app_insights_appname/</loc>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/Development/javascript-lambdas/</loc>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -2009,7 +1945,7 @@
 
     <url>
         <loc>https://westerndevs.com/_/JavaScript-Destructuring/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -2017,39 +1953,7 @@
 
     <url>
         <loc>https://westerndevs.com/_/streaming-code-and-games-on-mixer/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/microservices-devops/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/Azure/installing-an-azure-web-app-site-extension-with-powershell/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/2018-11-05-datafactory/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/2018-10-12-cloudfront-terraform/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -2057,15 +1961,39 @@
 
     <url>
         <loc>https://westerndevs.com/_/2018-12-06-creating-queues-in-devops/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/podcasts/javascript-and-npm/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <loc>https://westerndevs.com/mistakes/How_To_Be_A_Pretentious_Douche_Canoe/</loc>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/microservices-devops/</loc>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/2018-10-12-cloudfront-terraform/</loc>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/2018-11-05-datafactory/</loc>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -2073,23 +2001,23 @@
 
     <url>
         <loc>https://westerndevs.com/certificates-azurefunctions/Testing-Client-Cert-Auth/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/Running-a-single-durable-function/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <loc>https://westerndevs.com/Azure/installing-an-azure-web-app-site-extension-with-powershell/</loc>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/Dapper/paging-large-result-sets-with-dapper-and-sql-server/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <loc>https://westerndevs.com/podcasts/javascript-and-npm/</loc>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -2097,23 +2025,23 @@
 
     <url>
         <loc>https://westerndevs.com/_/Functions-aad-authentication/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/ASP-NET/Vue-js/using-vue-as-a-drop-in-replacement-for-knockout-in-an-MVC-project/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <loc>https://westerndevs.com/Dapper/paging-large-result-sets-with-dapper-and-sql-server/</loc>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/B2C/Getting-b2c-claims-in-an-azure-function/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <loc>https://westerndevs.com/_/Running-a-single-durable-function/</loc>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -2121,7 +2049,15 @@
 
     <url>
         <loc>https://westerndevs.com/Dapper/basic-insert-update-delete-with-dapper/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/ASP-NET/Vue-js/using-vue-as-a-drop-in-replacement-for-knockout-in-an-MVC-project/</loc>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -2129,15 +2065,15 @@
 
     <url>
         <loc>https://westerndevs.com/Dapper/managing-transactions-in-dapper/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/DurableFunctions/durablefunctions_sagas/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <loc>https://westerndevs.com/B2C/Getting-b2c-claims-in-an-azure-function/</loc>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -2145,7 +2081,7 @@
 
     <url>
         <loc>https://westerndevs.com/DurableFunctions/durable_functions_analyzer/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -2153,15 +2089,7 @@
 
     <url>
         <loc>https://westerndevs.com/Dapper/optimistic-concurrency-tracking-with-dapper-and-sql-server/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/Dapper/using-noda-time-with-dapper/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -2169,23 +2097,15 @@
 
     <url>
         <loc>https://westerndevs.com/Entity-Framework-Core/using-noda-time-with-ef-core/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/Debugging-php-in-container/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/Game-Development/gameoff2019-gamejam-devlog/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <loc>https://westerndevs.com/Dapper/using-noda-time-with-dapper/</loc>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -2193,7 +2113,15 @@
 
     <url>
         <loc>https://westerndevs.com/Azure/Deploy-Azure-Multi-RG/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/Debugging-php-in-container/</loc>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -2201,7 +2129,7 @@
 
     <url>
         <loc>https://westerndevs.com/_/bulk-load-and-merge/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -2209,15 +2137,15 @@
 
     <url>
         <loc>https://westerndevs.com/_/Azure-AD-B2C-Web-Testing/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/UNION-vs-UNION-ALL/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <loc>https://westerndevs.com/Game-Development/gameoff2019-gamejam-devlog/</loc>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -2225,15 +2153,15 @@
 
     <url>
         <loc>https://westerndevs.com/_/Allow-hosted-agent-through-firewall/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/No-Cost-Game-Design-Toolbox/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <loc>https://westerndevs.com/_/UNION-vs-UNION-ALL/</loc>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -2241,15 +2169,15 @@
 
     <url>
         <loc>https://westerndevs.com/Game-Development/Where-To-Find-Your-Gamedev-Community/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/Application-Insights/getting-the-most-out-of-application-insights-for-net-core-apps/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <loc>https://westerndevs.com/_/No-Cost-Game-Design-Toolbox/</loc>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -2257,7 +2185,15 @@
 
     <url>
         <loc>https://westerndevs.com/Devlog/Jan-2020-Devlog/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/Application-Insights/getting-the-most-out-of-application-insights-for-net-core-apps/</loc>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -2265,7 +2201,7 @@
 
     <url>
         <loc>https://westerndevs.com/Application-Insights/setting-cloud-role-name-in-application-insights/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -2273,15 +2209,7 @@
 
     <url>
         <loc>https://westerndevs.com/Game-Design/How-GitHub-Makes-Game-Making-Easier-For-NonCoders/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/find-webforms-errors-with-precompilation/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -2289,7 +2217,15 @@
 
     <url>
         <loc>https://westerndevs.com/Application-Insights/enhancing-application-insights-request-telemetry/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/find-webforms-errors-with-precompilation/</loc>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -2297,7 +2233,7 @@
 
     <url>
         <loc>https://westerndevs.com/_/flutter-tests-with-native/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -2305,7 +2241,7 @@
 
     <url>
         <loc>https://westerndevs.com/bash/Go-just-big-enough-for-your-needs-or-go-home/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -2313,15 +2249,7 @@
 
     <url>
         <loc>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-1/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-10/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -2329,7 +2257,15 @@
 
     <url>
         <loc>https://westerndevs.com/Azure/deploying-a-static-site-to-azure-using-the-az-cli/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-10/</loc>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -2337,7 +2273,7 @@
 
     <url>
         <loc>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-3/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -2345,15 +2281,7 @@
 
     <url>
         <loc>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-2/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-4/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -2361,63 +2289,31 @@
 
     <url>
         <loc>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-5a/</loc>
-        <lastmod>2024-04-10T22:59:22.977Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/JavaScript/How-to-Fix-node-gyp-Error-on-Windows/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
+        <loc>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-4/</loc>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/Community/Hour-of-Code-Challenge/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
+        <loc>https://westerndevs.com/kubernetes/kubernetes-my-journey-part-5b/</loc>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/Azure/Add-some-spice-to-your-life-with-resharer-templates/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/Video/Windows-Not-Required-Video/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/development/How-to-Use-Global-NPM-Packages-on-a-VSTS-Self-Hosted-Build-Agent/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/alm/How-to-Blog-with-VSTS-Part-1/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/alm/How-to-Blog-with-VSTS-Part-2/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
+        <loc>https://westerndevs.com/DurableFunctions/durablefunctions_sagas/</loc>
+        <lastmod>2024-04-26T18:38:30.302Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -2425,391 +2321,7 @@
 
     <url>
         <loc>https://westerndevs.com/Development/integration-testing-with-entity-framework-core-and-sql-server/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/Community/Hour-of-Code-Challenge-Completed/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/Training/ASP-NET-Core-Training-in-Calgary-Alberta/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/ASP-NET-Core/creating-a-new-view-engine-in-asp-net-core/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/Testing/Acceptance-Testing-With-Legacy-Databases/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/conference/services/Paper-Cuts-My-Review-Of-PaperCall/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/C/2016-9-30-Introduction-to-Messaging-Primitives/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/Synchronize-GitHub-Repository-With-VSTS/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/Issues-are-not-cheap/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/javascript/How-to-Compile-TypeScript-into-a-Single-File-with-SystemJS-Modules-with-Gulp/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/docker/RabbitContainer/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/messaging/az_command_line-on_windows_bash/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/messaging/MassTransit_and_ASP/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/cloud/azure/The-Cloud-Is-The-Internet/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/podcasts/working-from-home/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/json/Json.net-not-just-for-sereialization/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/podcasts/Transparency/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/development/AndroidSerialPorts/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/Dylan-Joins-Microsoft/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/development/Kubernetes_on_azure/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/Kanban/Kanban_and_Scrum_Together/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/Kanban/Nothing_in_Kanban_Prevents_Scrum/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/Networking/Home-Networking-1/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/Kanban/Scrum_with_WIP_Limits/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/development-fundamentals/Checking-In-packages/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/mistakes/Estimations_And_Mistake_Driven_Development/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/Kanban/Kanban_Helps_Scrum_with_Emergent_Work/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/Kanban/Scrum_for_Kanban_Teams/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/podcasts/Developer-Health/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/development/mocha-in-vsts/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/javascript/nvs/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/development/istanbuljs-in-vsts/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/java/posh-gvm/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/java/jabba/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/podcasts/Server-side-web/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/web/websummit-pwa/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/web/websummit-sonar/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/devops/Awareness-Acknowledgement-Adjustment/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/development/TsMokito-custom-matcher/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/web/websummit-wsl/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/Networking/Home-Networking-2/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/Networking/Home-Networking-3/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/Development/angular-testing-1/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/ASP-NET-Core/Tag-Helpers/authorize-tag-helper/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/ASP-NET-Core/Tag-Helpers/authorize-resource-tag-helper/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/Dapper/using-stored-procedures-to-load-data-with-dapper/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/Dapper/loading-an-object-graph-with-dapper/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/Dapper/loading-related-entities-many-to-one/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/C/Wildcard-csharp/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -2817,239 +2329,431 @@
 
     <url>
         <loc>https://westerndevs.com/alm/What-Is-DevOps/</loc>
-        <lastmod>2024-04-10T22:59:22.973Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/jekyll/hexo/Migrating-from-Jekyll-to-Hexo/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <loc>https://westerndevs.com/Community/Hour-of-Code-Challenge-Completed/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/Merry-Christmas/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <loc>https://westerndevs.com/ASP-NET-Core/creating-a-new-view-engine-in-asp-net-core/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/retrospective/Highlight-Reel-for-2015/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <loc>https://westerndevs.com/Testing/Acceptance-Testing-With-Legacy-Databases/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/MVC-6/Tag-Helpers/complex-custom-tag-helpers-in-mvc-6/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <loc>https://westerndevs.com/Training/ASP-NET-Core-Training-in-Calgary-Alberta/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/jekyll/hexo/Migrating-from-Jekyll-to-Hexo-Part-2/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <loc>https://westerndevs.com/C/2016-9-30-Introduction-to-Messaging-Primitives/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/hexo/my-hasty-move-to-hexo/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <loc>https://westerndevs.com/conference/services/Paper-Cuts-My-Review-Of-PaperCall/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/podcasts/Podcast-2016-Goals/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <loc>https://westerndevs.com/_/Synchronize-GitHub-Repository-With-VSTS/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/retrospective/Looking-Forward-into-2016/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <loc>https://westerndevs.com/messaging/MassTransit_and_ASP/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/tfs/octopus/continuous-delivery/Setting-Up-Octopus-Build-Task-on-TFS-2015-On-Prem/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <loc>https://westerndevs.com/messaging/az_command_line-on_windows_bash/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/MVC-6/View-Components/goodbye-child-actions-hello-view-components/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <loc>https://westerndevs.com/docker/RabbitContainer/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/work-life-balance/Your-Work-and-Your-Life-are-Not-Intricately-Intertwined/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <loc>https://westerndevs.com/javascript/How-to-Compile-TypeScript-into-a-Single-File-with-SystemJS-Modules-with-Gulp/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/javascript/nodejs/chakra/Why-ChakraCore-OSS-is-Important/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <loc>https://westerndevs.com/cloud/azure/The-Cloud-Is-The-Internet/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/Code-Dive/Everything-You-Need-To-Know-About-Microsoft-Band-2-Battery-Life/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <loc>https://westerndevs.com/podcasts/working-from-home/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/News/ASP-Net-5-rename/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <loc>https://westerndevs.com/json/Json.net-not-just-for-sereialization/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/News/ASPNetCoreGetOverIt/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <loc>https://westerndevs.com/development/AndroidSerialPorts/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/podcasts/Podcast-Is-Web-Development-Terrible/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <loc>https://westerndevs.com/podcasts/Transparency/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/WhatWeveDone/Launching-Monsters/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <loc>https://westerndevs.com/_/Dylan-Joins-Microsoft/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/News/OctopusDeployGotchas/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <loc>https://westerndevs.com/development/Kubernetes_on_azure/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/communication/Why-can-t-you-just/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <loc>https://westerndevs.com/Kanban/Kanban_and_Scrum_Together/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/podcasts/Azure-with-Yves-Goeleven/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <loc>https://westerndevs.com/Kanban/Nothing_in_Kanban_Prevents_Scrum/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/SQL-Server/Random-date-in-sql/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <loc>https://westerndevs.com/Networking/Home-Networking-1/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/GitHub/Submitting-Your-First-Pull-request/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <loc>https://westerndevs.com/development-fundamentals/Checking-In-packages/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/JavaScript/Game/Exploring-JavaScript-Game-Frameworks/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <loc>https://westerndevs.com/Kanban/Scrum_with_WIP_Limits/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/Tools/I-squash/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <loc>https://westerndevs.com/mistakes/Estimations_And_Mistake_Driven_Development/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/podcasts/Ergonomics/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <loc>https://westerndevs.com/development/mocha-in-vsts/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/JavaScript/JavaScript-Framework-or-JavaScript-Core-Part-1/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <loc>https://westerndevs.com/Kanban/Kanban_Helps_Scrum_with_Emergent_Work/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/Networking/DDWRT-and-logentries/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <loc>https://westerndevs.com/Kanban/Scrum_for_Kanban_Teams/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/podcasts/Getting-started-in-open-source-with-Adam-Ralph/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <loc>https://westerndevs.com/development/istanbuljs-in-vsts/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/Development/Tips-for-Speeding-Up-Visual-Studio/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <loc>https://westerndevs.com/podcasts/Developer-Health/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/javascript/nvs/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/java/jabba/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/java/posh-gvm/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/podcasts/Server-side-web/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/devops/Awareness-Acknowledgement-Adjustment/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/web/websummit-sonar/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/development/TsMokito-custom-matcher/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/web/websummit-pwa/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/web/websummit-wsl/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/Networking/Home-Networking-2/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/ASP-NET-Core/Tag-Helpers/authorize-resource-tag-helper/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/Development/angular-testing-1/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/ASP-NET-Core/Tag-Helpers/authorize-tag-helper/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/Networking/Home-Networking-3/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/Dapper/using-stored-procedures-to-load-data-with-dapper/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/Dapper/loading-an-object-graph-with-dapper/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/Development/crowdsourcing-docs-is-cool/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/Dapper/loading-related-entities-many-to-one/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/Development/angular-testing-2/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/Development/PiDay/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/Issues-are-not-cheap/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/Development/Environment-independent-packaging/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/Development/typescript-or-javascript/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/Development/f12-chooser-is-dev-tool-thing/</loc>
+        <lastmod>2024-04-26T18:38:30.298Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -3057,15 +2761,7 @@
 
     <url>
         <loc>https://westerndevs.com/podcasts/Developer-Productivity/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/JavaScript/JavaScript-Framework-or-JavaScript-Core-Part-2/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -3073,15 +2769,15 @@
 
     <url>
         <loc>https://westerndevs.com/podcasts/Building-developer-tools-with-Igal-Tabachnik/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/css/Using-Overflow-Ellipsis-in-Inline-Flex/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <loc>https://westerndevs.com/JavaScript/JavaScript-Framework-or-JavaScript-Core-Part-2/</loc>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -3089,7 +2785,15 @@
 
     <url>
         <loc>https://westerndevs.com/_/Addendum-To-My-Demystifying-The-Cloud-Talk/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/css/Using-Overflow-Ellipsis-in-Inline-Flex/</loc>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -3097,7 +2801,7 @@
 
     <url>
         <loc>https://westerndevs.com/Tools/What-is-middleware/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -3105,15 +2809,7 @@
 
     <url>
         <loc>https://westerndevs.com/conferences/Prairie-Dev-Con-What-you-need-to-know/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/Monsters-Weekly/The-Monsters-Weekly-Episode-20-Docs-and-GitHub-Repos/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -3121,7 +2817,7 @@
 
     <url>
         <loc>https://westerndevs.com/Tools/Lets-Encrypt-ASPNET-Core/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -3129,7 +2825,15 @@
 
     <url>
         <loc>https://westerndevs.com/podcasts/Diabetes-technology/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/Monsters-Weekly/The-Monsters-Weekly-Episode-20-Docs-and-GitHub-Repos/</loc>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -3137,23 +2841,7 @@
 
     <url>
         <loc>https://westerndevs.com/Design/idiomatic-iterative-design/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/conferences/Prairie-Dev-Con-2016-Presentation-Materials/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/conferences/PrDC-Wrapup-DB/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -3161,7 +2849,15 @@
 
     <url>
         <loc>https://westerndevs.com/podcasts/MS-Build/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/conferences/PrDC-Wrapup-DB/</loc>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -3169,7 +2865,7 @@
 
     <url>
         <loc>https://westerndevs.com/fsharp/FSharp.Data.SqlClient%20no%20method/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -3177,23 +2873,15 @@
 
     <url>
         <loc>https://westerndevs.com/fsharp/FSharp.Data.SqlClient/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/docker/CI-for-fsharp-typeproviders/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/docker/windows-docker/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <loc>https://westerndevs.com/conferences/Prairie-Dev-Con-2016-Presentation-Materials/</loc>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -3201,7 +2889,15 @@
 
     <url>
         <loc>https://westerndevs.com/podcasts/Prairie-Dev-Con-Recap/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/docker/windows-docker/</loc>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -3209,7 +2905,15 @@
 
     <url>
         <loc>https://westerndevs.com/career/I-regret-nothing/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/docker/CI-for-fsharp-typeproviders/</loc>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -3217,15 +2921,7 @@
 
     <url>
         <loc>https://westerndevs.com/debugging/MarkRussinovich/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/ASP-NET-Core/Tag-Helpers/ASP-NET-Core-Distributed-Cache-Tag-Helper/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -3233,15 +2929,15 @@
 
     <url>
         <loc>https://westerndevs.com/podcasts/Building-APIs/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/O365/Azure/O365DomainsForWebsites/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <loc>https://westerndevs.com/ASP-NET-Core/Tag-Helpers/ASP-NET-Core-Distributed-Cache-Tag-Helper/</loc>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -3249,7 +2945,7 @@
 
     <url>
         <loc>https://westerndevs.com/Fsharp/Functional-programming/maybe-null-is-not-an-option/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -3257,7 +2953,7 @@
 
     <url>
         <loc>https://westerndevs.com/podcasts/Mobile-apps/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -3265,31 +2961,15 @@
 
     <url>
         <loc>https://westerndevs.com/podcasts/FSharp-with-Rachel-Reese/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/Tools/NSBSagaTimeouts/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/podcasts/Exploratory-Data-Analysis-with-Matthew-Renze/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/keeping-your-edge/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <loc>https://westerndevs.com/O365/Azure/O365DomainsForWebsites/</loc>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -3297,7 +2977,15 @@
 
     <url>
         <loc>https://westerndevs.com/ASP-NET-Core/View-Components/loading-view-components-from-a-class-library-in-asp-net-core/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/Tools/NSBSagaTimeouts/</loc>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -3305,15 +2993,23 @@
 
     <url>
         <loc>https://westerndevs.com/Deployment/nginx/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://westerndevs.com/_/the-code-review-blues/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <loc>https://westerndevs.com/podcasts/Exploratory-Data-Analysis-with-Matthew-Renze/</loc>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/keeping-your-edge/</loc>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -3321,15 +3017,7 @@
 
     <url>
         <loc>https://westerndevs.com/_/Mobile-First-Design-Tips/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/_/How-to-Use-Highlight-Js-with-Bower-and-Gulp/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -3337,7 +3025,15 @@
 
     <url>
         <loc>https://westerndevs.com/Deployment/httpclientwrong/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/the-code-review-blues/</loc>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -3345,7 +3041,15 @@
 
     <url>
         <loc>https://westerndevs.com/podcasts/Stress/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/How-to-Use-Highlight-Js-with-Bower-and-Gulp/</loc>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -3353,15 +3057,7 @@
 
     <url>
         <loc>https://westerndevs.com/podcasts/Career-Planning/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://westerndevs.com/JavaScript/How-to-Build-ReactJS-with-Gulp/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -3369,7 +3065,311 @@
 
     <url>
         <loc>https://westerndevs.com/_/TypeScript-with-AMD-and-Gulp/</loc>
-        <lastmod>2024-04-10T22:59:22.969Z</lastmod>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/Community/Hour-of-Code-Challenge/</loc>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/JavaScript/How-to-Build-ReactJS-with-Gulp/</loc>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/JavaScript/How-to-Fix-node-gyp-Error-on-Windows/</loc>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/Video/Windows-Not-Required-Video/</loc>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/Azure/Add-some-spice-to-your-life-with-resharer-templates/</loc>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/alm/How-to-Blog-with-VSTS-Part-1/</loc>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/development/How-to-Use-Global-NPM-Packages-on-a-VSTS-Self-Hosted-Build-Agent/</loc>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/alm/How-to-Blog-with-VSTS-Part-2/</loc>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/C/Wildcard-csharp/</loc>
+        <lastmod>2024-04-26T18:38:30.294Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/jekyll/hexo/Migrating-from-Jekyll-to-Hexo/</loc>
+        <lastmod>2024-04-26T18:38:30.290Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/_/Merry-Christmas/</loc>
+        <lastmod>2024-04-26T18:38:30.290Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/jekyll/hexo/Migrating-from-Jekyll-to-Hexo-Part-2/</loc>
+        <lastmod>2024-04-26T18:38:30.290Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/hexo/my-hasty-move-to-hexo/</loc>
+        <lastmod>2024-04-26T18:38:30.290Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/MVC-6/Tag-Helpers/complex-custom-tag-helpers-in-mvc-6/</loc>
+        <lastmod>2024-04-26T18:38:30.290Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/retrospective/Highlight-Reel-for-2015/</loc>
+        <lastmod>2024-04-26T18:38:30.290Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/retrospective/Looking-Forward-into-2016/</loc>
+        <lastmod>2024-04-26T18:38:30.290Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/MVC-6/View-Components/goodbye-child-actions-hello-view-components/</loc>
+        <lastmod>2024-04-26T18:38:30.290Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/tfs/octopus/continuous-delivery/Setting-Up-Octopus-Build-Task-on-TFS-2015-On-Prem/</loc>
+        <lastmod>2024-04-26T18:38:30.290Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/javascript/nodejs/chakra/Why-ChakraCore-OSS-is-Important/</loc>
+        <lastmod>2024-04-26T18:38:30.290Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/podcasts/Podcast-2016-Goals/</loc>
+        <lastmod>2024-04-26T18:38:30.290Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/Code-Dive/Everything-You-Need-To-Know-About-Microsoft-Band-2-Battery-Life/</loc>
+        <lastmod>2024-04-26T18:38:30.290Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/work-life-balance/Your-Work-and-Your-Life-are-Not-Intricately-Intertwined/</loc>
+        <lastmod>2024-04-26T18:38:30.290Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/News/ASP-Net-5-rename/</loc>
+        <lastmod>2024-04-26T18:38:30.290Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/podcasts/Podcast-Is-Web-Development-Terrible/</loc>
+        <lastmod>2024-04-26T18:38:30.290Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/News/ASPNetCoreGetOverIt/</loc>
+        <lastmod>2024-04-26T18:38:30.290Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/WhatWeveDone/Launching-Monsters/</loc>
+        <lastmod>2024-04-26T18:38:30.290Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/News/OctopusDeployGotchas/</loc>
+        <lastmod>2024-04-26T18:38:30.290Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/SQL-Server/Random-date-in-sql/</loc>
+        <lastmod>2024-04-26T18:38:30.290Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/communication/Why-can-t-you-just/</loc>
+        <lastmod>2024-04-26T18:38:30.290Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/GitHub/Submitting-Your-First-Pull-request/</loc>
+        <lastmod>2024-04-26T18:38:30.290Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/podcasts/Ergonomics/</loc>
+        <lastmod>2024-04-26T18:38:30.290Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/podcasts/Azure-with-Yves-Goeleven/</loc>
+        <lastmod>2024-04-26T18:38:30.290Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/Tools/I-squash/</loc>
+        <lastmod>2024-04-26T18:38:30.290Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/JavaScript/Game/Exploring-JavaScript-Game-Frameworks/</loc>
+        <lastmod>2024-04-26T18:38:30.290Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/Development/Tips-for-Speeding-Up-Visual-Studio/</loc>
+        <lastmod>2024-04-26T18:38:30.290Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/JavaScript/JavaScript-Framework-or-JavaScript-Core-Part-1/</loc>
+        <lastmod>2024-04-26T18:38:30.290Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/Networking/DDWRT-and-logentries/</loc>
+        <lastmod>2024-04-26T18:38:30.290Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://westerndevs.com/podcasts/Getting-started-in-open-source-with-Adam-Ralph/</loc>
+        <lastmod>2024-04-26T18:38:30.290Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
