@@ -5,7 +5,7 @@
   <link href="/feeds/simon_timms" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2024-05-24T21:36:34.593Z</updated>
+  <updated>2024-05-24T21:56:42.673Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Setting Container Cors Rules in Azure</title>
+    <link href="https://westerndevs.com/_/set-blob-container-cors/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/set-blob-container-cors/</id>
+    <published>2024-05-24T04:00:00.000Z</published>
+    <updated>2024-05-24T21:56:42.673Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>This week I'm busy upgrading some legacy code to the latest version of the Azure SDKs. This code is so old it was using packages like <code>WindowsAzure.Storage</code>. Over the years this library has evolved significantly and is now part of the <code>Azure.Storage.Blobs</code> package. What this code I was updating was doing was setting the CORS rules on a blob container. These days I think I would solve this problem using Terraform and set the <a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account" target="_blank" rel="noopener">blob properties</a> directly on the container. But since I was already in the code I figured I would just update it there.</p><p>So what we want is to allow anybody to link into these and download them with a GET</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> Azure.Storage.Blobs;</span><br><span class="line"><span class="keyword">using</span> Azure.Storage.Blobs.Models;</span><br><span class="line">...</span><br><span class="line"><span class="keyword">var</span> bsp = <span class="keyword">new</span> BlobServiceProperties &#123; HourMetrics = <span class="literal">null</span>, MinuteMetrics = <span class="literal">null</span>, Logging = <span class="literal">null</span> &#125;;</span><br><span class="line">bsp.Cors.Add(<span class="keyword">new</span> BlobCorsRule</span><br><span class="line">&#123;</span><br><span class="line">    AllowedHeaders =  <span class="string">"*"</span>,</span><br><span class="line">    AllowedMethods = <span class="string">"GET"</span>,</span><br><span class="line">    AllowedOrigins = <span class="string">"*"</span>,</span><br><span class="line">    ExposedHeaders = <span class="string">"*"</span>,</span><br><span class="line">    MaxAgeInSeconds = <span class="number">60</span> * <span class="number">30</span> <span class="comment">// 30 minutes</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// from a nifty little T4 template</span></span><br><span class="line"><span class="keyword">var</span> connectionString = <span class="keyword">new</span> ConnectionStrings().StorageConnectionString;</span><br><span class="line">BlobServiceClient blobServiceClient = <span class="keyword">new</span> BlobServiceClient(connectionString);</span><br><span class="line">blobServiceClient.SetProperties(bsp);</span><br></pre></td></tr></table></figure><p>Again, in hindsight I feel like these rules are overly permissive and I would probably want to lock them down a bit more.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;This week I&#39;m busy upgrading some legacy code to the latest version of the Azure SDKs. This code is so old it was using packages like &lt;co
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Docker COPY not Finding Files</title>
     <link href="https://westerndevs.com/_/cannot-copy/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cannot-copy/</id>
     <published>2023-11-23T05:00:00.000Z</published>
-    <updated>2024-05-24T21:36:34.593Z</updated>
+    <updated>2024-05-24T21:56:42.669Z</updated>
 	<author>
 	
 	  
@@ -47,7 +73,7 @@
     <link href="https://westerndevs.com/_/connect-to-service-container/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/connect-to-service-container/</id>
     <published>2023-11-20T05:00:00.000Z</published>
-    <updated>2024-05-24T21:36:34.593Z</updated>
+    <updated>2024-05-24T21:56:42.669Z</updated>
 	<author>
 	
 	  
@@ -73,7 +99,7 @@
     <link href="https://westerndevs.com/_/smtp-setup-for-mailgun/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/smtp-setup-for-mailgun/</id>
     <published>2023-10-30T04:00:00.000Z</published>
-    <updated>2024-05-24T21:36:34.605Z</updated>
+    <updated>2024-05-24T21:56:42.673Z</updated>
 	<author>
 	
 	  
@@ -99,7 +125,7 @@
     <link href="https://westerndevs.com/_/artillery/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/artillery/</id>
     <published>2023-10-14T04:00:00.000Z</published>
-    <updated>2024-05-24T21:36:34.593Z</updated>
+    <updated>2024-05-24T21:56:42.665Z</updated>
 	<author>
 	
 	  
@@ -125,7 +151,7 @@
     <link href="https://westerndevs.com/_/storage-alert-rules/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storage-alert-rules/</id>
     <published>2023-03-30T04:00:00.000Z</published>
-    <updated>2024-05-24T21:36:34.605Z</updated>
+    <updated>2024-05-24T21:56:42.673Z</updated>
 	<author>
 	
 	  
@@ -151,7 +177,7 @@
     <link href="https://westerndevs.com/_/vuetify-esm/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/vuetify-esm/</id>
     <published>2023-03-15T04:00:00.000Z</published>
-    <updated>2024-05-24T21:36:34.605Z</updated>
+    <updated>2024-05-24T21:56:42.677Z</updated>
 	<author>
 	
 	  
@@ -177,7 +203,7 @@
     <link href="https://westerndevs.com/_/app-service-quota/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/app-service-quota/</id>
     <published>2023-03-04T05:00:00.000Z</published>
-    <updated>2024-05-24T21:36:34.593Z</updated>
+    <updated>2024-05-24T21:56:42.665Z</updated>
 	<author>
 	
 	  
@@ -204,7 +230,7 @@
     <link href="https://westerndevs.com/_/azure-keyvaul-reference-gotcha/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-keyvaul-reference-gotcha/</id>
     <published>2023-03-04T05:00:00.000Z</published>
-    <updated>2024-05-24T21:36:34.593Z</updated>
+    <updated>2024-05-24T21:56:42.665Z</updated>
 	<author>
 	
 	  
@@ -230,7 +256,7 @@
     <link href="https://westerndevs.com/_/express-json-comments/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/express-json-comments/</id>
     <published>2023-02-16T05:00:00.000Z</published>
-    <updated>2024-05-24T21:36:34.597Z</updated>
+    <updated>2024-05-24T21:56:42.669Z</updated>
 	<author>
 	
 	  
@@ -256,7 +282,7 @@
     <link href="https://westerndevs.com/_/ruby-excel/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ruby-excel/</id>
     <published>2023-02-15T05:00:00.000Z</published>
-    <updated>2024-05-24T21:36:34.601Z</updated>
+    <updated>2024-05-24T21:56:42.673Z</updated>
 	<author>
 	
 	  
@@ -282,7 +308,7 @@
     <link href="https://westerndevs.com/_/bulk-insert-sql-geometry/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/bulk-insert-sql-geometry/</id>
     <published>2022-11-17T05:00:00.000Z</published>
-    <updated>2024-05-24T21:36:34.593Z</updated>
+    <updated>2024-05-24T21:56:42.669Z</updated>
 	<author>
 	
 	  
@@ -308,7 +334,7 @@
     <link href="https://westerndevs.com/_/azure-backus-protip/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-backus-protip/</id>
     <published>2022-11-11T05:00:00.000Z</published>
-    <updated>2024-05-24T21:36:34.593Z</updated>
+    <updated>2024-05-24T21:56:42.665Z</updated>
 	<author>
 	
 	  
@@ -334,7 +360,7 @@
     <link href="https://westerndevs.com/_/set-output-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-output-terraform/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2024-05-24T21:36:34.605Z</updated>
+    <updated>2024-05-24T21:56:42.673Z</updated>
 	<author>
 	
 	  
@@ -360,7 +386,7 @@
     <link href="https://westerndevs.com/_/theory-of-terraform-github-actions/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/theory-of-terraform-github-actions/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2024-05-24T21:36:34.605Z</updated>
+    <updated>2024-05-24T21:56:42.677Z</updated>
 	<author>
 	
 	  
@@ -386,7 +412,7 @@
     <link href="https://westerndevs.com/_/register-providers/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/register-providers/</id>
     <published>2022-08-12T04:00:00.000Z</published>
-    <updated>2024-05-24T21:36:34.601Z</updated>
+    <updated>2024-05-24T21:56:42.673Z</updated>
 	<author>
 	
 	  
@@ -412,7 +438,7 @@
     <link href="https://westerndevs.com/_/debug-azure-container-instances-startup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/debug-azure-container-instances-startup/</id>
     <published>2022-08-04T04:00:00.000Z</published>
-    <updated>2024-05-24T21:36:34.593Z</updated>
+    <updated>2024-05-24T21:56:42.669Z</updated>
 	<author>
 	
 	  
@@ -438,7 +464,7 @@
     <link href="https://westerndevs.com/_/consuming-wsdl/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/consuming-wsdl/</id>
     <published>2022-05-30T04:00:00.000Z</published>
-    <updated>2024-05-24T21:36:34.593Z</updated>
+    <updated>2024-05-24T21:56:42.669Z</updated>
 	<author>
 	
 	  
@@ -464,7 +490,7 @@
     <link href="https://westerndevs.com/_/azure-functions-error/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-functions-error/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2024-05-24T21:36:34.593Z</updated>
+    <updated>2024-05-24T21:56:42.665Z</updated>
 	<author>
 	
 	  
@@ -490,7 +516,7 @@
     <link href="https://westerndevs.com/_/which-sql-server-edition/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/which-sql-server-edition/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2024-05-24T21:36:34.605Z</updated>
+    <updated>2024-05-24T21:56:42.677Z</updated>
 	<author>
 	
 	  
@@ -505,34 +531,6 @@
     <summary type="html">
     
       &lt;p&gt;There are a bunch of different ways to host SQL Server workloads on Azure. Answering some questions about how you use SQL server can help
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Redis Cheat Sheet</title>
-    <link href="https://westerndevs.com/_/cheat-sheet/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/cheat-sheet/</id>
-    <published>2022-04-04T04:00:00.000Z</published>
-    <updated>2024-05-24T21:36:34.593Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<h2>Running in Docker</h2><p>Quickly get started with</p><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name somename -p <span class="number">6379</span>:<span class="number">6379</span> redis</span><br></pre></td></tr></table></figure><h2>Connection</h2><p>The simplest connection string is to use <code>localhost</code> which just connects to the localhost on port 6379.</p><h2>Querying</h2><p>Redis is a really simple server to which you can just telnet (or use the redis-cli) to run commands.</p><p><strong>List All Keys</strong></p><p>This might not be a great idea against a prod server with lots of keys</p><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">keys</span> *</span><br></pre></td></tr></table></figure><p><strong>Get key type</strong></p><p>Redis supports a bunch of different data primatives like a simple key value, a list, a hash, a zset, ... to find the type of a key use <code>type</code></p><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> <span class="type">HereForElizabethAnneSlovak</span></span><br><span class="line"><span class="type">+zset</span></span><br></pre></td></tr></table></figure><p><strong>Set key value</strong></p><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> blah <span class="comment">7</span></span><br></pre></td></tr></table></figure><p>This works for updates too</p><p><strong>Get key value</strong></p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">get</span> blah</span><br></pre></td></tr></table></figure><p><strong>Get everything in a zset</strong></p><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZRANGE <span class="string">"id"</span> <span class="number">0</span> <span class="number">-1</span></span><br></pre></td></tr></table></figure><p><strong>Count everything in a zset</strong></p><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zcount HereForjohnrufuscolginjr. -<span class="literal">inf</span> +<span class="literal">inf</span></span><br></pre></td></tr></table></figure><p><strong>Get the first thing in a zset</strong></p><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZRANGE <span class="string">"id"</span> <span class="number">0</span> <span class="number">0</span></span><br></pre></td></tr></table></figure><p><strong>Get everything in a set</strong></p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">SMEMBERS HereFeedHashTags</span></span><br></pre></td></tr></table></figure><p><strong>Get the first member of a list</strong></p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">LPOP somekey</span></span><br></pre></td></tr></table></figure><p><strong>Get the last member of a list</strong></p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">RPOP somekey</span></span><br></pre></td></tr></table></figure><p><strong>Get the contents of a hash</strong></p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">HGETALL somekey</span></span><br></pre></td></tr></table></figure><p><strong>Clear out the whole database</strong></p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">FLUSHALL</span></span><br></pre></td></tr></table></figure><p><strong>Clear just the current db</strong></p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">FLUSHDB</span></span><br></pre></td></tr></table></figure><p><strong>Stats on keys</strong></p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">INFO</span> keyspace</span><br></pre></td></tr></table></figure><p><strong>Get an idea of db size</strong></p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">INFO</span> Memory</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2&gt;Running in Docker&lt;/h2&gt;
-&lt;p&gt;Quickly get started with&lt;/p&gt;
-&lt;figure class=&quot;highlight angelscript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span cl
     
     </summary>
     

@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2024-05-24T21:36:34.593Z</updated>
+  <updated>2024-05-24T21:56:42.673Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Setting Container Cors Rules in Azure</title>
+    <link href="https://westerndevs.com/_/set-blob-container-cors/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/set-blob-container-cors/</id>
+    <published>2024-05-24T04:00:00.000Z</published>
+    <updated>2024-05-24T21:56:42.673Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>This week I'm busy upgrading some legacy code to the latest version of the Azure SDKs. This code is so old it was using packages like <code>WindowsAzure.Storage</code>. Over the years this library has evolved significantly and is now part of the <code>Azure.Storage.Blobs</code> package. What this code I was updating was doing was setting the CORS rules on a blob container. These days I think I would solve this problem using Terraform and set the <a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account" target="_blank" rel="noopener">blob properties</a> directly on the container. But since I was already in the code I figured I would just update it there.</p><p>So what we want is to allow anybody to link into these and download them with a GET</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> Azure.Storage.Blobs;</span><br><span class="line"><span class="keyword">using</span> Azure.Storage.Blobs.Models;</span><br><span class="line">...</span><br><span class="line"><span class="keyword">var</span> bsp = <span class="keyword">new</span> BlobServiceProperties &#123; HourMetrics = <span class="literal">null</span>, MinuteMetrics = <span class="literal">null</span>, Logging = <span class="literal">null</span> &#125;;</span><br><span class="line">bsp.Cors.Add(<span class="keyword">new</span> BlobCorsRule</span><br><span class="line">&#123;</span><br><span class="line">    AllowedHeaders =  <span class="string">"*"</span>,</span><br><span class="line">    AllowedMethods = <span class="string">"GET"</span>,</span><br><span class="line">    AllowedOrigins = <span class="string">"*"</span>,</span><br><span class="line">    ExposedHeaders = <span class="string">"*"</span>,</span><br><span class="line">    MaxAgeInSeconds = <span class="number">60</span> * <span class="number">30</span> <span class="comment">// 30 minutes</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// from a nifty little T4 template</span></span><br><span class="line"><span class="keyword">var</span> connectionString = <span class="keyword">new</span> ConnectionStrings().StorageConnectionString;</span><br><span class="line">BlobServiceClient blobServiceClient = <span class="keyword">new</span> BlobServiceClient(connectionString);</span><br><span class="line">blobServiceClient.SetProperties(bsp);</span><br></pre></td></tr></table></figure><p>Again, in hindsight I feel like these rules are overly permissive and I would probably want to lock them down a bit more.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;This week I&#39;m busy upgrading some legacy code to the latest version of the Azure SDKs. This code is so old it was using packages like &lt;co
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Docker COPY not Finding Files</title>
     <link href="https://westerndevs.com/_/cannot-copy/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cannot-copy/</id>
     <published>2023-11-23T05:00:00.000Z</published>
-    <updated>2024-05-24T21:36:34.593Z</updated>
+    <updated>2024-05-24T21:56:42.669Z</updated>
 	<author>
 	
 	  
@@ -47,7 +73,7 @@
     <link href="https://westerndevs.com/_/connect-to-service-container/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/connect-to-service-container/</id>
     <published>2023-11-20T05:00:00.000Z</published>
-    <updated>2024-05-24T21:36:34.593Z</updated>
+    <updated>2024-05-24T21:56:42.669Z</updated>
 	<author>
 	
 	  
@@ -73,7 +99,7 @@
     <link href="https://westerndevs.com/_/smtp-setup-for-mailgun/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/smtp-setup-for-mailgun/</id>
     <published>2023-10-30T04:00:00.000Z</published>
-    <updated>2024-05-24T21:36:34.605Z</updated>
+    <updated>2024-05-24T21:56:42.673Z</updated>
 	<author>
 	
 	  
@@ -99,7 +125,7 @@
     <link href="https://westerndevs.com/_/artillery/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/artillery/</id>
     <published>2023-10-14T04:00:00.000Z</published>
-    <updated>2024-05-24T21:36:34.593Z</updated>
+    <updated>2024-05-24T21:56:42.665Z</updated>
 	<author>
 	
 	  
@@ -125,7 +151,7 @@
     <link href="https://westerndevs.com/_/storage-alert-rules/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storage-alert-rules/</id>
     <published>2023-03-30T04:00:00.000Z</published>
-    <updated>2024-05-24T21:36:34.605Z</updated>
+    <updated>2024-05-24T21:56:42.673Z</updated>
 	<author>
 	
 	  
@@ -151,7 +177,7 @@
     <link href="https://westerndevs.com/_/vuetify-esm/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/vuetify-esm/</id>
     <published>2023-03-15T04:00:00.000Z</published>
-    <updated>2024-05-24T21:36:34.605Z</updated>
+    <updated>2024-05-24T21:56:42.677Z</updated>
 	<author>
 	
 	  
@@ -177,7 +203,7 @@
     <link href="https://westerndevs.com/_/app-service-quota/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/app-service-quota/</id>
     <published>2023-03-04T05:00:00.000Z</published>
-    <updated>2024-05-24T21:36:34.593Z</updated>
+    <updated>2024-05-24T21:56:42.665Z</updated>
 	<author>
 	
 	  
@@ -204,7 +230,7 @@
     <link href="https://westerndevs.com/_/azure-keyvaul-reference-gotcha/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-keyvaul-reference-gotcha/</id>
     <published>2023-03-04T05:00:00.000Z</published>
-    <updated>2024-05-24T21:36:34.593Z</updated>
+    <updated>2024-05-24T21:56:42.665Z</updated>
 	<author>
 	
 	  
@@ -230,7 +256,7 @@
     <link href="https://westerndevs.com/_/express-json-comments/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/express-json-comments/</id>
     <published>2023-02-16T05:00:00.000Z</published>
-    <updated>2024-05-24T21:36:34.597Z</updated>
+    <updated>2024-05-24T21:56:42.669Z</updated>
 	<author>
 	
 	  
@@ -256,7 +282,7 @@
     <link href="https://westerndevs.com/_/ruby-excel/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ruby-excel/</id>
     <published>2023-02-15T05:00:00.000Z</published>
-    <updated>2024-05-24T21:36:34.601Z</updated>
+    <updated>2024-05-24T21:56:42.673Z</updated>
 	<author>
 	
 	  
@@ -282,7 +308,7 @@
     <link href="https://westerndevs.com/musings/defining-problem-before-the-soltuion/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/musings/defining-problem-before-the-soltuion/</id>
     <published>2023-01-27T23:24:33.221Z</published>
-    <updated>2024-05-24T21:36:34.589Z</updated>
+    <updated>2024-05-24T21:56:42.665Z</updated>
 	<author>
 	
 	  
@@ -320,7 +346,7 @@
     <link href="https://westerndevs.com/coding/problem-solution/docker-build-hangs-on-apt-key-in-wsl2/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/coding/problem-solution/docker-build-hangs-on-apt-key-in-wsl2/</id>
     <published>2023-01-12T02:43:58.005Z</published>
-    <updated>2024-05-24T21:36:34.589Z</updated>
+    <updated>2024-05-24T21:56:42.665Z</updated>
 	<author>
 	
 	  
@@ -362,7 +388,7 @@
     <link href="https://westerndevs.com/musings/highlight-reel-for-2022/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/musings/highlight-reel-for-2022/</id>
     <published>2023-01-05T21:47:02.098Z</published>
-    <updated>2024-05-24T21:36:34.589Z</updated>
+    <updated>2024-05-24T21:56:42.665Z</updated>
 	<author>
 	
 	  
@@ -404,7 +430,7 @@
     <link href="https://westerndevs.com/_/happy-holidays-2022/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/happy-holidays-2022/</id>
     <published>2022-12-24T22:00:00.000Z</published>
-    <updated>2024-05-24T21:36:34.589Z</updated>
+    <updated>2024-05-24T21:56:42.665Z</updated>
 	<author>
 	
 	  
@@ -436,7 +462,7 @@
     <link href="https://westerndevs.com/_/speaking-at-tech-events-helps-you-grow/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/speaking-at-tech-events-helps-you-grow/</id>
     <published>2022-12-20T21:59:37.185Z</published>
-    <updated>2024-05-24T21:36:34.589Z</updated>
+    <updated>2024-05-24T21:56:42.665Z</updated>
 	<author>
 	
 	  
@@ -474,7 +500,7 @@
     <link href="https://westerndevs.com/_/docker-desktop-is-not-docker-engine/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/docker-desktop-is-not-docker-engine/</id>
     <published>2022-12-14T02:28:36.457Z</published>
-    <updated>2024-05-24T21:36:34.589Z</updated>
+    <updated>2024-05-24T21:56:42.665Z</updated>
 	<author>
 	
 	  
@@ -510,7 +536,7 @@
     <link href="https://westerndevs.com/_/prairie-dev-con-2022-takeaways/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/prairie-dev-con-2022-takeaways/</id>
     <published>2022-12-07T20:37:20.777Z</published>
-    <updated>2024-05-24T21:36:34.589Z</updated>
+    <updated>2024-05-24T21:56:42.665Z</updated>
 	<author>
 	
 	  
@@ -552,7 +578,7 @@
     <link href="https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/</id>
     <published>2022-12-01T09:18:34.509Z</published>
-    <updated>2024-05-24T21:36:34.589Z</updated>
+    <updated>2024-05-24T21:56:42.665Z</updated>
 	<author>
 	
 	  
@@ -590,7 +616,7 @@
     <link href="https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/</id>
     <published>2022-11-19T01:10:07.083Z</published>
-    <updated>2024-05-24T21:36:34.589Z</updated>
+    <updated>2024-05-24T21:56:42.665Z</updated>
 	<author>
 	
 	  
@@ -620,32 +646,6 @@
       <category term="privacy" scheme="https://westerndevs.com/tags/privacy/"/>
     
       <category term="cookies" scheme="https://westerndevs.com/tags/cookies/"/>
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Bulk Insert SQL Geometry on .NET Core</title>
-    <link href="https://westerndevs.com/_/bulk-insert-sql-geometry/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/bulk-insert-sql-geometry/</id>
-    <published>2022-11-17T05:00:00.000Z</published>
-    <updated>2024-05-24T21:36:34.593Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>I have been updating an application from full framework to .NET 6 this week. One of the things this app does is bulk load data into SQL Server. Normally this works just fine but some of the data is geography data which requires a special package to be installed: <code>Microsoft.SqlServer.Types</code>. This package is owned by the SQL server team so, as you'd expect, it is ridiculously behind the times. Fortunately, they are working on updating it and it is now available for Netstandard 2.1 in a preview mode.</p><p>The steps I needed to take to update the app were:</p><ol><li>Install the preview package for <code>Microsoft.SqlServer.Types</code></li><li>Update the SQL client package from System.Data.SqlClient to Microsoft.Data.SqlClient</li></ol><p>After that the tests we had for inserting polygons worked just great. This has been a bit of a challenge over the years but I'm delighted that we're almost there. We just need a non-preview version of the types package and we should be good to go.</p><h2>Gotchas</h2><p>When I'd only done step 1 I ran into errors like</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">System.InvalidOperationException : The given value of<span class="built_in"> type </span>SqlGeometry <span class="keyword">from</span> the data source cannot be converted <span class="keyword">to</span><span class="built_in"> type </span>udt of the specified target column.</span><br><span class="line">---- System.ArgumentException : Specified<span class="built_in"> type </span>is <span class="keyword">not</span> registered on the target server. Microsoft.SqlServer.Types.SqlGeometry, Microsoft.SqlServer.Types, <span class="attribute">Version</span>=16.0.0.0, <span class="attribute">Culture</span>=neutral, <span class="attribute">PublicKeyToken</span>=89845dcd8080cc91.</span><br></pre></td></tr></table></figure><p>I went down a rabbit hole on that one before spotting a post from MVP Erik Jensen https://github.com/ErikEJ/EntityFramework6PowerTools/issues/103 which sent me in the right direction.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;I have been updating an application from full framework to .NET 6 this week. One of the things this app does is bulk load data into SQL S
-    
-    </summary>
-    
     
   </entry>
   
