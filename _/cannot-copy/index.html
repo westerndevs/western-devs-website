@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="Western Devs">
 <meta property="og:description" content="My dad once told me that there are no such things a problems just solutions waiting to be applied. I don&#39;t know what book he&#39;d just read or course he&#39;d just been on to spout such nonsense but I&#39;ve nev">
 <meta property="article:published_time" content="2023-11-23T05:00:00.000Z">
-<meta property="article:modified_time" content="2024-05-24T21:56:42.669Z">
+<meta property="article:modified_time" content="2024-06-18T14:26:34.015Z">
 <meta property="article:author" content="Western Devs">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:creator" content="@westerndevs">
@@ -112,7 +112,7 @@
 	        <p>My dad once told me that there are no such things a problems just solutions waiting to be applied. I don't know what book he'd just read or course he'd just been on to spout such nonsense but I've never forgotten it.</p>
 <p>Today my not problem was running a docker build wasn't copying the files I was expecting it to. In particular I had a <code>themes</code> directory which was not ending up in the image and in fact the build was failing with something like</p>
 <figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ERROR: </span>failed to solve: failed to compute cache key: failed to calculate checksum of ref b1f3faa4-fdeb<span class="string">-41</span>ed-b016-fac3862d370a::pjh3jwhj2huqmcgigjh9udlh2: "/themes": not found</span><br></pre></td></tr></table></figure>
-<p>I was really confused because <code>themes</code> absolutly did exist on disk. It was as if it wasn't being added to the build context. In fact it wasn't being added and, as it turns out, this was because my .dockerignore file contained</p>
+<p>I was really confused because <code>themes</code> absolutley did exist on disk. It was as if it wasn't being added to the build context. In fact it wasn't being added and, as it turns out, this was because my .dockerignore file contained</p>
 <figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">**</span></span><br></pre></td></tr></table></figure>
 <p>Which ignores everything from the local directory. That seemed a bit extreme so I changed it to</p>
 <figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">** </span></span><br><span class="line">!themes</span><br></pre></td></tr></table></figure>

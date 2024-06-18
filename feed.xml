@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2024-05-24T21:56:42.673Z</updated>
+  <updated>2024-06-18T14:26:34.023Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Truly syncing multiple calendars</title>
+    <link href="https://westerndevs.com/_/syncing-multiple-calendars/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/syncing-multiple-calendars/</id>
+    <published>2024-06-17T04:00:00.000Z</published>
+    <updated>2024-06-18T14:26:34.023Z</updated>
+	<author>
+	
+	  
+	  <name>Kyle Baley</name>
+	  <email>kyle@baley.org</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>Very reasons that I really need to investigate, I'm apparently a busy fellow. Such that I now maintain a rather ungainly number of calendars. Three to be exact. That's one personal calendar and one for each of two clients.</p><p>It's a fairly simple process to <em>view</em> all of these calendars in a single place. All the major calendar providers generously provide iCal links at the very least to let you combine everything in a single view and you can even turn individual calendars on and off.</p><p>I have two problems with this.</p><p>First, I often don't want to have all of these calendars visible in a single view on my screen. Screen-sharing is common and on more than one occasion, I've said, &quot;let's schedule a meeting&quot; and switched to the shared calendar view where all my personal <a href="https://en.wikipedia.org/wiki/Dudeism" target="_blank" rel="noopener">Dudeism meetings</a> are there for all to see.</p><p>Second (and more important than risking an argument with a nihilist), people booking meetings with me don't see the unavailable slots on the other calendars, leading to double-bookings. I didn't know how good I had it in high school when this was...let's just say, &quot;not a problem&quot;.</p><p>So I went on the hunt for a solution that met these criteria:</p><ol><li>The ability to book an event on one calendar and have the time blocked on the other two.</li><li>Have the time on other calendar show as a generic &quot;busy&quot; or &quot;unavailable&quot;. I.e. don't broadcast the details of the events from other calendars.</li><li>Have a centralized view <em>somewhere</em> of all the events <em>without</em> duplicates. I.e. without a bunch of &quot;busy&quot; or &quot;unavailable&quot; events.</li><li>Ideally, works with both Google and Microsoft calendars</li></ol><p><img src="/images/flintstones-camera.jpg" alt="The early days of online meetings">)</p><p>The easiest way to achieve this, of course, is to do it yourself. When you book an event on one calendar, you go through the motions of creating a generic event on the other two. This meets all the criteria but depending on how heavily your client leans into the &quot;all meetings/all the time&quot; project management style, this gets old real fast. But to be fair, it's served me reasonably well for many years.</p><p>This led naturally to a search for a technical solution, which yielded the following options:</p><ul><li><a href="https://www.onecal.io/" target="_blank" rel="noopener">OneCal</a></li><li><a href="https://calendarbridge.com/" target="_blank" rel="noopener">CalendarBridge</a></li><li><a href="https://flexibits.com/fantastical" target="_blank" rel="noopener">Fantastical</a></li><li><a href="https://calendly.com" target="_blank" rel="noopener">Calendly</a></li><li><a href="https://reclaim.ai/" target="_blank" rel="noopener">Reclaim.ai</a></li><li><a href="https://www.spikenow.com/" target="_blank" rel="noopener">Spike</a></li><li><a href="https://www.calendar.com/blog/how-to-sync-your-calendar-across-all-devices/" target="_blank" rel="noopener">Syncing calendars</a></li></ul><p>I have OneCal at the top because it's (currently) my favorite option. But I'll skim through the rest and provide reasons why I didn't go with them. I'll use my tried-and-true practice of claiming that my choice is the One True Way™ and everyone else is wrong as a means of encouraging people to comment with their own options, if only to prove me wrong. Which I'm quite happy to be. But still, that's not the case here. I'm right and you're wrong. Comment below if you disagree.</p><p>Back to the evaluations. I'll start with some of the quicker ones.</p><h3>Syncing calendars</h3><p>I'll be honest, I just kind of skimmed this article. I have kind of a vague idea of what they're going for but this seems geared more toward people that are managing someone else's calendar. Plus I don't <em>think</em> it meets the criteria of actually booking the time off on the other calendar. Either way, it looks kind of cumbersome to set up and to manage.</p><h3>Spike</h3><p>I didn't give this much more than a glance. It does <em>way</em> more than I want it to and calendar sync doesn't appear to be among their more popular features. In any case, the banner says &quot;email and chat app&quot; and the byline talks about teams and partners. I don't think I'm their target audience.</p><h3>Reclaim.ai</h3><p>Also has many features I don't need nor want though at least it's focused on calendars. Google Calendar specifically. Outlook is coming soon. So while calendar sync is one of the highlighted features, the lack of Outlook, as well as the focus on collaboration and AI and &quot;smart&quot; also suggests it's overkill.</p><h3>Calendly</h3><p>I've used Calendly before to send people links to schedule calls with me. It's a lovely app and the free version is quite powerful. I'd recommend it even over Google Calendar's built-in &quot;scheduling slots&quot; or &quot;appointment schedules&quot; or whatever they're calling the feature now.</p><p>That said, based on what I read, I don't think they offer what I need. It looks like the paid plans will let you connect to multiple calendars so that you can give someone a link with a more comprehensive view of your availability. But I need something for internal people who have direct access to my calendar.</p><h3>Fantastical</h3><p>This is just plain a gorgeous app, if you'll forgive an awkwardly-worded almost-oxymoron. I keep threatening to use it every couple of years but can't really justify it. The major selling points are syncing across multiple devices, the natural language parsing, the UX, and integration with a lot of other productivity tools I don't use. Seriously, you should check this app out...</p><p>...except if all you need is to sync events across multiple calendars. I'm still in the midst of testing the app but the process to ensure an event appears as a block of unavailable time on multiple calendars seems to be to duplicate it. Which, to be fair, they make <em>really</em> easy. And if you keep the details the same in all the clones, the unified calendar view removes the duplicates. But that doesn't meet criteria #2 for me above. And if you change the name, it shows as a separate event which is a bit clumsy. For this feature specifically, it's not much better than what I can achieve in Google Calendar natively. But still, give it a whirl.</p><h3>Final verdict: OneCal (CalendarBridge runner up)</h3><p>That leaves two options: OneCal and CalendarBridge. Both do the same thing though their respective marketing teams might squabble over technicalities. Their primary purpose is to sync multiple calendars and avoid double-bookings. Perfect.</p><p>Both services sync one calendar to another by cloning events between them and monitoring the source calendar for new events. Both give you control over what information you want to copy over and have similar options like excluding events of a given colour or excluding events where you're marked free (useful if you track birthdays in your calendar). Once syncing was set up, my calendars looked pretty much exactly how they did when I was doing it manually.</p><p>Neither service has a mobile app from what I can tell which is a shame, especially in the case of OneCal because unlike CalendarBridge, they offer a unified calendar view of all your calendars with the option to hide the cloned events. This is a nice touch and while the view is mobile friendly, it's missing some features, like a three-day view or the ability to put a widget on your phone.</p><p>Pricing is virtually identical on both services in that the one I would need runs about $100/year to sync three calendars. OneCal has the ability to do two-way syncs between calendars or to broadcast a one-way sync from one calendar to multiple other calendars, something that I don't <em>think</em> CalendarBridge does. In CalendarBridge, a two-way sync is done with two one-way syncs and their pricing reflects that. The basic plan for both essentially covers two calendars so I'd be looking at premium for both.</p><p>Setting up the syncs seemed nicer in OneCal to me though I can't 100% say why. Both essentially walk you through a three-ish-step wizard to do it. Maybe OneCal worded things better or laid things out more intuitively for me. I found myself wondering if I was doing it right a couple of times in CalendarBridge. OneCal also felt zippier in general.</p><p>Both apps give you booking links (a la Calendly) which is nice if you need that. OneCal apparently integrates with Zoom to automatically add a meeting link to appointments booked online but I didn't test that out since I don't need it. Neither requires a credit card to sign up which is an underrated feature these days.</p><p>A couple of little UX things. First, OneCal has another underrated feature: a big ol' Delete My Account button at the bottom of the settings page. This is great for someone who wants to test things out, decide it's not for them, and move on. I'm not planning to use CalendarBridge and I've cancelled my free trial but the account remains. There's no obvious way to delete it so I guess I'm a CalendarBridge user indefinitely now. I suppose that's good for them to pump up their user numbers in case someone wants to buy them out but doesn't do me any good.</p><p>Second thing is CalendarBridge's login mechanism. To log in, I enter my email address, they email me a code, I enter the code. It's basically the standard 2FA mechanism from fifteen years ago. There's no password, no Google/Apple/Facebook/etc option. It's kinda weird. Like the developers have a personal agenda against traditional authentication and this is their manifesto.</p><p>So both apps do what I want and cost roughly the same but I give the edge to OneCal for their usability and their unified Calendar view. The price point is high enough that I'll give it a few days before pulling the trigger so I can decide if I want this more than I want to watch seasons 2 of Silo and Severance.</p><p>The alternative is to set up an auto-decline automation for all meetings which I haven't fully taken off the table yet.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Very reasons that I really need to investigate, I&#39;m apparently a busy fellow. Such that I now maintain a rather ungainly number of calend
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Setting Container Cors Rules in Azure</title>
     <link href="https://westerndevs.com/_/set-blob-container-cors/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-blob-container-cors/</id>
     <published>2024-05-24T04:00:00.000Z</published>
-    <updated>2024-05-24T21:56:42.673Z</updated>
+    <updated>2024-06-18T14:26:34.023Z</updated>
 	<author>
 	
 	  
@@ -47,7 +73,7 @@
     <link href="https://westerndevs.com/_/cannot-copy/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cannot-copy/</id>
     <published>2023-11-23T05:00:00.000Z</published>
-    <updated>2024-05-24T21:56:42.669Z</updated>
+    <updated>2024-06-18T14:26:34.015Z</updated>
 	<author>
 	
 	  
@@ -57,7 +83,7 @@
 	  <uri>https://westerndevs.com</uri>
 	</author>
     
-    <content type="html"><![CDATA[<p>My dad once told me that there are no such things a problems just solutions waiting to be applied. I don't know what book he'd just read or course he'd just been on to spout such nonsense but I've never forgotten it.</p><p>Today my not problem was running a docker build wasn't copying the files I was expecting it to. In particular I had a <code>themes</code> directory which was not ending up in the image and in fact the build was failing with something like</p><figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ERROR: </span>failed to solve: failed to compute cache key: failed to calculate checksum of ref b1f3faa4-fdeb<span class="string">-41</span>ed-b016-fac3862d370a::pjh3jwhj2huqmcgigjh9udlh2: "/themes": not found</span><br></pre></td></tr></table></figure><p>I was really confused because <code>themes</code> absolutly did exist on disk. It was as if it wasn't being added to the build context. In fact it wasn't being added and, as it turns out, this was because my .dockerignore file contained</p><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">**</span></span><br></pre></td></tr></table></figure><p>Which ignores everything from the local directory. That seemed a bit extreme so I changed it to</p><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">** </span></span><br><span class="line">!themes</span><br></pre></td></tr></table></figure><p>With this in place the build worked as expected.</p>]]></content>
+    <content type="html"><![CDATA[<p>My dad once told me that there are no such things a problems just solutions waiting to be applied. I don't know what book he'd just read or course he'd just been on to spout such nonsense but I've never forgotten it.</p><p>Today my not problem was running a docker build wasn't copying the files I was expecting it to. In particular I had a <code>themes</code> directory which was not ending up in the image and in fact the build was failing with something like</p><figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ERROR: </span>failed to solve: failed to compute cache key: failed to calculate checksum of ref b1f3faa4-fdeb<span class="string">-41</span>ed-b016-fac3862d370a::pjh3jwhj2huqmcgigjh9udlh2: "/themes": not found</span><br></pre></td></tr></table></figure><p>I was really confused because <code>themes</code> absolutley did exist on disk. It was as if it wasn't being added to the build context. In fact it wasn't being added and, as it turns out, this was because my .dockerignore file contained</p><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">**</span></span><br></pre></td></tr></table></figure><p>Which ignores everything from the local directory. That seemed a bit extreme so I changed it to</p><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">** </span></span><br><span class="line">!themes</span><br></pre></td></tr></table></figure><p>With this in place the build worked as expected.</p>]]></content>
     
     <summary type="html">
     
@@ -73,7 +99,7 @@
     <link href="https://westerndevs.com/_/connect-to-service-container/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/connect-to-service-container/</id>
     <published>2023-11-20T05:00:00.000Z</published>
-    <updated>2024-05-24T21:56:42.669Z</updated>
+    <updated>2024-06-18T14:26:34.015Z</updated>
 	<author>
 	
 	  
@@ -99,7 +125,7 @@
     <link href="https://westerndevs.com/_/smtp-setup-for-mailgun/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/smtp-setup-for-mailgun/</id>
     <published>2023-10-30T04:00:00.000Z</published>
-    <updated>2024-05-24T21:56:42.673Z</updated>
+    <updated>2024-06-18T14:26:34.023Z</updated>
 	<author>
 	
 	  
@@ -125,7 +151,7 @@
     <link href="https://westerndevs.com/_/artillery/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/artillery/</id>
     <published>2023-10-14T04:00:00.000Z</published>
-    <updated>2024-05-24T21:56:42.665Z</updated>
+    <updated>2024-06-18T14:26:34.015Z</updated>
 	<author>
 	
 	  
@@ -151,7 +177,7 @@
     <link href="https://westerndevs.com/_/storage-alert-rules/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storage-alert-rules/</id>
     <published>2023-03-30T04:00:00.000Z</published>
-    <updated>2024-05-24T21:56:42.673Z</updated>
+    <updated>2024-06-18T14:26:34.023Z</updated>
 	<author>
 	
 	  
@@ -177,7 +203,7 @@
     <link href="https://westerndevs.com/_/vuetify-esm/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/vuetify-esm/</id>
     <published>2023-03-15T04:00:00.000Z</published>
-    <updated>2024-05-24T21:56:42.677Z</updated>
+    <updated>2024-06-18T14:26:34.023Z</updated>
 	<author>
 	
 	  
@@ -203,7 +229,7 @@
     <link href="https://westerndevs.com/_/app-service-quota/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/app-service-quota/</id>
     <published>2023-03-04T05:00:00.000Z</published>
-    <updated>2024-05-24T21:56:42.665Z</updated>
+    <updated>2024-06-18T14:26:34.015Z</updated>
 	<author>
 	
 	  
@@ -230,7 +256,7 @@
     <link href="https://westerndevs.com/_/azure-keyvaul-reference-gotcha/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-keyvaul-reference-gotcha/</id>
     <published>2023-03-04T05:00:00.000Z</published>
-    <updated>2024-05-24T21:56:42.665Z</updated>
+    <updated>2024-06-18T14:26:34.015Z</updated>
 	<author>
 	
 	  
@@ -256,7 +282,7 @@
     <link href="https://westerndevs.com/_/express-json-comments/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/express-json-comments/</id>
     <published>2023-02-16T05:00:00.000Z</published>
-    <updated>2024-05-24T21:56:42.669Z</updated>
+    <updated>2024-06-18T14:26:34.019Z</updated>
 	<author>
 	
 	  
@@ -282,7 +308,7 @@
     <link href="https://westerndevs.com/_/ruby-excel/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ruby-excel/</id>
     <published>2023-02-15T05:00:00.000Z</published>
-    <updated>2024-05-24T21:56:42.673Z</updated>
+    <updated>2024-06-18T14:26:34.023Z</updated>
 	<author>
 	
 	  
@@ -308,7 +334,7 @@
     <link href="https://westerndevs.com/musings/defining-problem-before-the-soltuion/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/musings/defining-problem-before-the-soltuion/</id>
     <published>2023-01-27T23:24:33.221Z</published>
-    <updated>2024-05-24T21:56:42.665Z</updated>
+    <updated>2024-06-18T14:26:34.015Z</updated>
 	<author>
 	
 	  
@@ -329,6 +355,8 @@
       <category term="musings" scheme="https://westerndevs.com/categories/musings/"/>
     
     
+      <category term="code" scheme="https://westerndevs.com/tags/code/"/>
+    
       <category term="solution-architecture" scheme="https://westerndevs.com/tags/solution-architecture/"/>
     
       <category term="problem-definition" scheme="https://westerndevs.com/tags/problem-definition/"/>
@@ -337,8 +365,6 @@
     
       <category term="defining-value" scheme="https://westerndevs.com/tags/defining-value/"/>
     
-      <category term="code" scheme="https://westerndevs.com/tags/code/"/>
-    
   </entry>
   
   <entry>
@@ -346,7 +372,7 @@
     <link href="https://westerndevs.com/coding/problem-solution/docker-build-hangs-on-apt-key-in-wsl2/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/coding/problem-solution/docker-build-hangs-on-apt-key-in-wsl2/</id>
     <published>2023-01-12T02:43:58.005Z</published>
-    <updated>2024-05-24T21:56:42.665Z</updated>
+    <updated>2024-06-18T14:26:34.015Z</updated>
 	<author>
 	
 	  
@@ -388,7 +414,7 @@
     <link href="https://westerndevs.com/musings/highlight-reel-for-2022/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/musings/highlight-reel-for-2022/</id>
     <published>2023-01-05T21:47:02.098Z</published>
-    <updated>2024-05-24T21:56:42.665Z</updated>
+    <updated>2024-06-18T14:26:34.015Z</updated>
 	<author>
 	
 	  
@@ -417,9 +443,9 @@
     
       <category term="prdc-2022" scheme="https://westerndevs.com/tags/prdc-2022/"/>
     
-      <category term="code" scheme="https://westerndevs.com/tags/code/"/>
-    
       <category term="mvp" scheme="https://westerndevs.com/tags/mvp/"/>
+    
+      <category term="code" scheme="https://westerndevs.com/tags/code/"/>
     
       <category term="burnout" scheme="https://westerndevs.com/tags/burnout/"/>
     
@@ -430,7 +456,7 @@
     <link href="https://westerndevs.com/_/happy-holidays-2022/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/happy-holidays-2022/</id>
     <published>2022-12-24T22:00:00.000Z</published>
-    <updated>2024-05-24T21:56:42.665Z</updated>
+    <updated>2024-06-18T14:26:34.015Z</updated>
 	<author>
 	
 	  
@@ -462,7 +488,7 @@
     <link href="https://westerndevs.com/_/speaking-at-tech-events-helps-you-grow/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/speaking-at-tech-events-helps-you-grow/</id>
     <published>2022-12-20T21:59:37.185Z</published>
-    <updated>2024-05-24T21:56:42.665Z</updated>
+    <updated>2024-06-18T14:26:34.015Z</updated>
 	<author>
 	
 	  
@@ -500,7 +526,7 @@
     <link href="https://westerndevs.com/_/docker-desktop-is-not-docker-engine/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/docker-desktop-is-not-docker-engine/</id>
     <published>2022-12-14T02:28:36.457Z</published>
-    <updated>2024-05-24T21:56:42.665Z</updated>
+    <updated>2024-06-18T14:26:34.015Z</updated>
 	<author>
 	
 	  
@@ -536,7 +562,7 @@
     <link href="https://westerndevs.com/_/prairie-dev-con-2022-takeaways/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/prairie-dev-con-2022-takeaways/</id>
     <published>2022-12-07T20:37:20.777Z</published>
-    <updated>2024-05-24T21:56:42.665Z</updated>
+    <updated>2024-06-18T14:26:34.015Z</updated>
 	<author>
 	
 	  
@@ -578,7 +604,7 @@
     <link href="https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/</id>
     <published>2022-12-01T09:18:34.509Z</published>
-    <updated>2024-05-24T21:56:42.665Z</updated>
+    <updated>2024-06-18T14:26:34.015Z</updated>
 	<author>
 	
 	  
@@ -608,44 +634,6 @@
       <category term="linkedin" scheme="https://westerndevs.com/tags/linkedin/"/>
     
       <category term="facebook" scheme="https://westerndevs.com/tags/facebook/"/>
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Does GDPR Apply to Personal Websites?</title>
-    <link href="https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/</id>
-    <published>2022-11-19T01:10:07.083Z</published>
-    <updated>2024-05-24T21:56:42.665Z</updated>
-	<author>
-	
-	  
-	  <name>David Wesst</name>
-	  <email>questions@davidwesst.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>A few weeks back, I <a href="https://github.com/davidwesst/website/releases/tag/v10.0.1" target="_blank" rel="noopener">released v10.0.1 of my website</a>. I use a static site generator to generate all the pages and publish it out into the internet for all the world to read. In that release, I added <a href="https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview" target="_blank" rel="noopener">Application Insights</a> to provide me with some performance data, but also to get a bit of usage data (for those willing to share it).</p><p>What I found odd was that all the links and articles I came across seemed to talk about things at a high-level (i.e. defining GDPR) or assumed I was working at a large scale (i.e. enterprise software), but nothing small projects like my personal website.</p><p>Still, I managed to draw some of my own conclusions on how to handle GDPR for my personal website and wanted to document them somewhere.</p><h2>DISCLAIMER: This is not legal advice</h2><p>I am not a lawyer, so this is just an opinion from a developer. As a rule of thumb, I avoid taking legal advice from random folks on the internet. If you take advice from this article, take that bit and keep it.</p><p>I hope others (like you) use this post to draw your own conclusions or how you want to proceed with your own plan for handling GDPR.</p><p>But if you want <em>real</em> advice. Get a lawyer and talk to them.</p><h2>Short Answer: Yes</h2><p>Yes, it does apply to your personal website <strong>if</strong> are tracking information about your users <strong>and</strong> you are developing your own website or application.</p><h3>Developing Your Own Website or Application</h3><p>I mean developing as it coding it, publishing that code, and hosting it somewhere like Microsoft Azure or GitHub Pages. If you are publishing your own code, GDPR may apply to you.</p><p>If you are using a third party tool or platform, like Facebook or LinkedIn to host your blog posts-- you appear to be in the clear. When you use a third-party platform, the <em>platform</em>, not you, is responsible for GDPR compliance.</p><p>Even if you think you are clear of GDPR responsibility, make sure that you trust your chosen platform to comply to GDPR and other regulatory bodies out there, as your site depends on it.</p><h3>Tracking Information</h3><p>The GDPR is all about protecting personal information and giving control back to people navigating the internet. GDPR is not the only set of laws in play, as <a href="https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=201720180AB375" target="_blank" rel="noopener">California</a>, <a href="https://iapp.org/media/pdf/resource_center/Brazilian_General_Data_Protection_Law.pdf" target="_blank" rel="noopener">Brazil</a>, and <a href="https://www.priv.gc.ca/en/privacy-topics/privacy-laws-in-canada/the-personal-information-protection-and-electronic-documents-act-pipeda" target="_blank" rel="noopener">Canada</a> have their own versions of similar legislation, but many of these laws seem to have been inspired by GDPR and why I tend to focus on it.</p><p>At the personal website level, you need to consider whether or not you are collecting personal information from your users. This includes things like <a href="https://gdpr.eu/eu-gdpr-personal-data/" target="_blank" rel="noopener">IP addresses or cookie identifiers</a>.</p><p>If you are NOT collecting information like that, you are good to go! Just remember that services like Google Analytics or Disqus Comments use personally identifiable information to operate, so if you have decided to include one of those services on your site then you need to think about GDPR compliance.</p><h2>My Solution Highlights</h2><p>I concluded the GDPR-like laws apply to my personal website if I want to do any kind of usage tracking and understand how users are using my site.. This means it needs to be an opt-in policy that gives the user the option to do just that, <em>opt-in</em>.</p><p><img src="/images/2022-11-18-does-gdpr-apply-to-personal-websites/my-gdpr-dialogue.png" alt="A screenshot of the davidwesst.com blog page with a dialogue docked to the bottom with the statement: 'This site uses cookies to track usage in order to help improve the user experience. By clicking &amp;quot;Accept&amp;quot;, you consent to our use of cookies.' along with gray 'Accept' and 'Decline' buttons, and a blue link with the text 'Privacy Statement'"></p><p>The dialogue above is the only real visual evidence on the site now. As simple as that looks, a lot of thought went into it prior to implementation. Rather than doing a complete code review, I figured I would share the highlights.</p><h3>Understanding My Tools</h3><p>My default would just be to include something like Google Analytics, and be done with it, but with <a href="https://techstory.in/eu-declares-google-analytics-illegal-heres-why/" target="_blank" rel="noopener">GA being made illegal in the EU</a> and more countries creating their own GDPR-like legislation, I thought I would stay away from it and try something different.</p><p>I chose <a href="https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview" target="_blank" rel="noopener">Application Insights</a> and took the time to learn how <a href="https://learn.microsoft.com/en-us/azure/azure-monitor/app/data-retention-privacy" target="_blank" rel="noopener">it handles data privacy and retention</a> and how the <a href="https://learn.microsoft.com/en-us/azure/azure-monitor/app/javascript?tabs=snippet#cookie-handling" target="_blank" rel="noopener">JavaScript SDK uses cookies</a>.</p><p>Regardless of what you choose for your analytics or tracking tool, the important part is that you understand how the tools are GDPR compliant and how the tracking technology works.</p><h3>Opt-In for Cookies</h3><p>You've seen million of them already, but those cookie banners have purpose. The <a href="https://gdpr.eu/cookies/" target="_blank" rel="noopener">GDPR website outlines the requirements</a> around using cookies, and many tools use them. The important thing is that <em>you</em> know how your website works, along with all the dependencies <em>you choose</em> to include.</p><p>In my case, the cookie banner enables cookies in Application Insights, which in turn enable usage data collection, only if they click &quot;Accept&quot;.</p><h3>Transparency</h3><p>This last point is less technical, and more about design. I am designing with transparency in the front of my mind. I added a <a href="https://www.davidwesst.com/about" target="_blank" rel="noopener">privacy statement to my about page</a> to explain the &quot;why&quot; around using Application Insights, and will share more specifics and document them accordingly.</p><h2>Conclusion / TL;DR;</h2><p>GDPR and the various GDPR-like laws definitely apply to you and your personal website or app project if you are building the code yourself, assuming you want to track information about your users.</p><p>The short story on this is that you need to draw your own conclusions and take responsibility for what you include in your website. If you are developing something to share outward into the world, you need to take the time to understand how the various tools you are included (such as Google Analytics or Application Insights) as well as the requirements for compliance.</p><h3>GDPR Resources</h3><p>Two resources I found useful in explaining GDPR requirements are provided on the site <a href="https://gdpr.eu/" target="_blank" rel="noopener">GDPR.eu</a>. If you are looking for more information, I definitely suggest checking out these links:</p><ul><li><a href="https://gdpr.eu/cookies/" target="_blank" rel="noopener">Cookies, the GDPR, and the ePrivacy Directive</a></li><li><a href="https://gdpr.eu/compliance/" target="_blank" rel="noopener">Everything you need to know about GDPR compliance</a></li></ul><p>Thanks for playing.</p><p>~ DW</p>]]></content>
-    
-    <summary type="html">
-    
-      While rebuilding my personal website in 2022, I wanted to know how or if GDPR applied to my little side project. My internet sleuthing did not bring up any clear and cut answers, but I put together some thoughts that might help others answer it for themselves.
-    
-    </summary>
-    
-    
-      <category term="website" scheme="https://westerndevs.com/tags/website/"/>
-    
-      <category term="gdpr" scheme="https://westerndevs.com/tags/gdpr/"/>
-    
-      <category term="ldgp" scheme="https://westerndevs.com/tags/ldgp/"/>
-    
-      <category term="ccpa" scheme="https://westerndevs.com/tags/ccpa/"/>
-    
-      <category term="privacy" scheme="https://westerndevs.com/tags/privacy/"/>
-    
-      <category term="cookies" scheme="https://westerndevs.com/tags/cookies/"/>
     
   </entry>
   

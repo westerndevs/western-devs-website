@@ -5,7 +5,7 @@
   <link href="/feeds/kyle_baley" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2024-05-24T21:56:42.661Z</updated>
+  <updated>2024-06-18T14:26:34.023Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Truly syncing multiple calendars</title>
+    <link href="https://westerndevs.com/_/syncing-multiple-calendars/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/syncing-multiple-calendars/</id>
+    <published>2024-06-17T04:00:00.000Z</published>
+    <updated>2024-06-18T14:26:34.023Z</updated>
+	<author>
+	
+	  
+	  <name>Kyle Baley</name>
+	  <email>kyle@baley.org</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>Very reasons that I really need to investigate, I'm apparently a busy fellow. Such that I now maintain a rather ungainly number of calendars. Three to be exact. That's one personal calendar and one for each of two clients.</p><p>It's a fairly simple process to <em>view</em> all of these calendars in a single place. All the major calendar providers generously provide iCal links at the very least to let you combine everything in a single view and you can even turn individual calendars on and off.</p><p>I have two problems with this.</p><p>First, I often don't want to have all of these calendars visible in a single view on my screen. Screen-sharing is common and on more than one occasion, I've said, &quot;let's schedule a meeting&quot; and switched to the shared calendar view where all my personal <a href="https://en.wikipedia.org/wiki/Dudeism" target="_blank" rel="noopener">Dudeism meetings</a> are there for all to see.</p><p>Second (and more important than risking an argument with a nihilist), people booking meetings with me don't see the unavailable slots on the other calendars, leading to double-bookings. I didn't know how good I had it in high school when this was...let's just say, &quot;not a problem&quot;.</p><p>So I went on the hunt for a solution that met these criteria:</p><ol><li>The ability to book an event on one calendar and have the time blocked on the other two.</li><li>Have the time on other calendar show as a generic &quot;busy&quot; or &quot;unavailable&quot;. I.e. don't broadcast the details of the events from other calendars.</li><li>Have a centralized view <em>somewhere</em> of all the events <em>without</em> duplicates. I.e. without a bunch of &quot;busy&quot; or &quot;unavailable&quot; events.</li><li>Ideally, works with both Google and Microsoft calendars</li></ol><p><img src="/images/flintstones-camera.jpg" alt="The early days of online meetings">)</p><p>The easiest way to achieve this, of course, is to do it yourself. When you book an event on one calendar, you go through the motions of creating a generic event on the other two. This meets all the criteria but depending on how heavily your client leans into the &quot;all meetings/all the time&quot; project management style, this gets old real fast. But to be fair, it's served me reasonably well for many years.</p><p>This led naturally to a search for a technical solution, which yielded the following options:</p><ul><li><a href="https://www.onecal.io/" target="_blank" rel="noopener">OneCal</a></li><li><a href="https://calendarbridge.com/" target="_blank" rel="noopener">CalendarBridge</a></li><li><a href="https://flexibits.com/fantastical" target="_blank" rel="noopener">Fantastical</a></li><li><a href="https://calendly.com" target="_blank" rel="noopener">Calendly</a></li><li><a href="https://reclaim.ai/" target="_blank" rel="noopener">Reclaim.ai</a></li><li><a href="https://www.spikenow.com/" target="_blank" rel="noopener">Spike</a></li><li><a href="https://www.calendar.com/blog/how-to-sync-your-calendar-across-all-devices/" target="_blank" rel="noopener">Syncing calendars</a></li></ul><p>I have OneCal at the top because it's (currently) my favorite option. But I'll skim through the rest and provide reasons why I didn't go with them. I'll use my tried-and-true practice of claiming that my choice is the One True Way™ and everyone else is wrong as a means of encouraging people to comment with their own options, if only to prove me wrong. Which I'm quite happy to be. But still, that's not the case here. I'm right and you're wrong. Comment below if you disagree.</p><p>Back to the evaluations. I'll start with some of the quicker ones.</p><h3>Syncing calendars</h3><p>I'll be honest, I just kind of skimmed this article. I have kind of a vague idea of what they're going for but this seems geared more toward people that are managing someone else's calendar. Plus I don't <em>think</em> it meets the criteria of actually booking the time off on the other calendar. Either way, it looks kind of cumbersome to set up and to manage.</p><h3>Spike</h3><p>I didn't give this much more than a glance. It does <em>way</em> more than I want it to and calendar sync doesn't appear to be among their more popular features. In any case, the banner says &quot;email and chat app&quot; and the byline talks about teams and partners. I don't think I'm their target audience.</p><h3>Reclaim.ai</h3><p>Also has many features I don't need nor want though at least it's focused on calendars. Google Calendar specifically. Outlook is coming soon. So while calendar sync is one of the highlighted features, the lack of Outlook, as well as the focus on collaboration and AI and &quot;smart&quot; also suggests it's overkill.</p><h3>Calendly</h3><p>I've used Calendly before to send people links to schedule calls with me. It's a lovely app and the free version is quite powerful. I'd recommend it even over Google Calendar's built-in &quot;scheduling slots&quot; or &quot;appointment schedules&quot; or whatever they're calling the feature now.</p><p>That said, based on what I read, I don't think they offer what I need. It looks like the paid plans will let you connect to multiple calendars so that you can give someone a link with a more comprehensive view of your availability. But I need something for internal people who have direct access to my calendar.</p><h3>Fantastical</h3><p>This is just plain a gorgeous app, if you'll forgive an awkwardly-worded almost-oxymoron. I keep threatening to use it every couple of years but can't really justify it. The major selling points are syncing across multiple devices, the natural language parsing, the UX, and integration with a lot of other productivity tools I don't use. Seriously, you should check this app out...</p><p>...except if all you need is to sync events across multiple calendars. I'm still in the midst of testing the app but the process to ensure an event appears as a block of unavailable time on multiple calendars seems to be to duplicate it. Which, to be fair, they make <em>really</em> easy. And if you keep the details the same in all the clones, the unified calendar view removes the duplicates. But that doesn't meet criteria #2 for me above. And if you change the name, it shows as a separate event which is a bit clumsy. For this feature specifically, it's not much better than what I can achieve in Google Calendar natively. But still, give it a whirl.</p><h3>Final verdict: OneCal (CalendarBridge runner up)</h3><p>That leaves two options: OneCal and CalendarBridge. Both do the same thing though their respective marketing teams might squabble over technicalities. Their primary purpose is to sync multiple calendars and avoid double-bookings. Perfect.</p><p>Both services sync one calendar to another by cloning events between them and monitoring the source calendar for new events. Both give you control over what information you want to copy over and have similar options like excluding events of a given colour or excluding events where you're marked free (useful if you track birthdays in your calendar). Once syncing was set up, my calendars looked pretty much exactly how they did when I was doing it manually.</p><p>Neither service has a mobile app from what I can tell which is a shame, especially in the case of OneCal because unlike CalendarBridge, they offer a unified calendar view of all your calendars with the option to hide the cloned events. This is a nice touch and while the view is mobile friendly, it's missing some features, like a three-day view or the ability to put a widget on your phone.</p><p>Pricing is virtually identical on both services in that the one I would need runs about $100/year to sync three calendars. OneCal has the ability to do two-way syncs between calendars or to broadcast a one-way sync from one calendar to multiple other calendars, something that I don't <em>think</em> CalendarBridge does. In CalendarBridge, a two-way sync is done with two one-way syncs and their pricing reflects that. The basic plan for both essentially covers two calendars so I'd be looking at premium for both.</p><p>Setting up the syncs seemed nicer in OneCal to me though I can't 100% say why. Both essentially walk you through a three-ish-step wizard to do it. Maybe OneCal worded things better or laid things out more intuitively for me. I found myself wondering if I was doing it right a couple of times in CalendarBridge. OneCal also felt zippier in general.</p><p>Both apps give you booking links (a la Calendly) which is nice if you need that. OneCal apparently integrates with Zoom to automatically add a meeting link to appointments booked online but I didn't test that out since I don't need it. Neither requires a credit card to sign up which is an underrated feature these days.</p><p>A couple of little UX things. First, OneCal has another underrated feature: a big ol' Delete My Account button at the bottom of the settings page. This is great for someone who wants to test things out, decide it's not for them, and move on. I'm not planning to use CalendarBridge and I've cancelled my free trial but the account remains. There's no obvious way to delete it so I guess I'm a CalendarBridge user indefinitely now. I suppose that's good for them to pump up their user numbers in case someone wants to buy them out but doesn't do me any good.</p><p>Second thing is CalendarBridge's login mechanism. To log in, I enter my email address, they email me a code, I enter the code. It's basically the standard 2FA mechanism from fifteen years ago. There's no password, no Google/Apple/Facebook/etc option. It's kinda weird. Like the developers have a personal agenda against traditional authentication and this is their manifesto.</p><p>So both apps do what I want and cost roughly the same but I give the edge to OneCal for their usability and their unified Calendar view. The price point is high enough that I'll give it a few days before pulling the trigger so I can decide if I want this more than I want to watch seasons 2 of Silo and Severance.</p><p>The alternative is to set up an auto-decline automation for all meetings which I haven't fully taken off the table yet.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Very reasons that I really need to investigate, I&#39;m apparently a busy fellow. Such that I now maintain a rather ungainly number of calend
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Go just big enough for your needs or go home</title>
     <link href="https://westerndevs.com/bash/Go-just-big-enough-for-your-needs-or-go-home/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/bash/Go-just-big-enough-for-your-needs-or-go-home/</id>
     <published>2020-05-18T19:42:18.000Z</published>
-    <updated>2024-05-24T21:56:42.661Z</updated>
+    <updated>2024-06-18T14:26:34.011Z</updated>
 	<author>
 	
 	  
@@ -55,7 +81,7 @@
     <link href="https://westerndevs.com/career/I-regret-nothing/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/career/I-regret-nothing/</id>
     <published>2016-05-08T17:46:59.000Z</published>
-    <updated>2024-05-24T21:56:42.653Z</updated>
+    <updated>2024-06-18T14:26:34.003Z</updated>
 	<author>
 	
 	  
@@ -83,7 +109,7 @@
     <link href="https://westerndevs.com/conferences/Prairie-Dev-Con-2016-Presentation-Materials/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/conferences/Prairie-Dev-Con-2016-Presentation-Materials/</id>
     <published>2016-04-18T20:14:02.000Z</published>
-    <updated>2024-05-24T21:56:42.653Z</updated>
+    <updated>2024-06-18T14:26:34.003Z</updated>
 	<author>
 	
 	  
@@ -111,7 +137,7 @@
     <link href="https://westerndevs.com/communication/Why-can-t-you-just/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/communication/Why-can-t-you-just/</id>
     <published>2016-01-27T21:09:57.000Z</published>
-    <updated>2024-05-24T21:56:42.653Z</updated>
+    <updated>2024-06-18T14:26:33.999Z</updated>
 	<author>
 	
 	  
@@ -141,7 +167,7 @@
     <link href="https://westerndevs.com/jekyll/hexo/Migrating-from-Jekyll-to-Hexo-Part-2/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/jekyll/hexo/Migrating-from-Jekyll-to-Hexo-Part-2/</id>
     <published>2015-12-28T00:43:32.000Z</published>
-    <updated>2024-05-24T21:56:42.653Z</updated>
+    <updated>2024-06-18T14:26:33.999Z</updated>
 	<author>
 	
 	  
@@ -171,7 +197,7 @@
     <link href="https://westerndevs.com/jekyll/hexo/Migrating-from-Jekyll-to-Hexo/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/jekyll/hexo/Migrating-from-Jekyll-to-Hexo/</id>
     <published>2015-12-22T19:00:42.000Z</published>
-    <updated>2024-05-24T21:56:42.649Z</updated>
+    <updated>2024-06-18T14:26:33.999Z</updated>
 	<author>
 	
 	  
@@ -201,7 +227,7 @@
     <link href="https://westerndevs.com/_/testing-with-data/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/testing-with-data/</id>
     <published>2015-11-20T00:02:10.000Z</published>
-    <updated>2024-05-24T21:56:42.673Z</updated>
+    <updated>2024-06-18T14:26:34.023Z</updated>
 	<author>
 	
 	  
@@ -227,7 +253,7 @@
     <link href="https://westerndevs.com/_/running-a-net-app-against-postgres-database-in-docker/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/running-a-net-app-against-postgres-database-in-docker/</id>
     <published>2015-10-25T21:24:14.000Z</published>
-    <updated>2024-05-24T21:56:42.673Z</updated>
+    <updated>2024-06-18T14:26:34.023Z</updated>
 	<author>
 	
 	  
@@ -253,7 +279,7 @@
     <link href="https://westerndevs.com/_/windows-server-containers-are-coming-whether-you-like-it-or-not/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/windows-server-containers-are-coming-whether-you-like-it-or-not/</id>
     <published>2015-08-31T19:01:20.000Z</published>
-    <updated>2024-05-24T21:56:42.677Z</updated>
+    <updated>2024-06-18T14:26:34.023Z</updated>
 	<author>
 	
 	  
@@ -279,7 +305,7 @@
     <link href="https://westerndevs.com/_/docker-and-western-devs/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/docker-and-western-devs/</id>
     <published>2015-08-24T00:38:59.000Z</published>
-    <updated>2024-05-24T21:56:42.669Z</updated>
+    <updated>2024-06-18T14:26:34.019Z</updated>
 	<author>
 	
 	  
@@ -305,7 +331,7 @@
     <link href="https://westerndevs.com/_/psa-setting-up-containers-in-a-vm-in-windows-server-2016-tech-preview-3/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/psa-setting-up-containers-in-a-vm-in-windows-server-2016-tech-preview-3/</id>
     <published>2015-08-20T00:38:59.000Z</published>
-    <updated>2024-05-24T21:56:42.673Z</updated>
+    <updated>2024-06-18T14:26:34.019Z</updated>
 	<author>
 	
 	  
@@ -331,7 +357,7 @@
     <link href="https://westerndevs.com/_/docker-is-coming-whether-you-like-it-or-not/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/docker-is-coming-whether-you-like-it-or-not/</id>
     <published>2015-08-04T16:31:10.000Z</published>
-    <updated>2024-05-24T21:56:42.669Z</updated>
+    <updated>2024-06-18T14:26:34.019Z</updated>
 	<author>
 	
 	  
@@ -358,7 +384,7 @@
     <link href="https://westerndevs.com/_/microservices-or-how-to-spread-the-love/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/microservices-or-how-to-spread-the-love/</id>
     <published>2015-07-15T05:01:19.000Z</published>
-    <updated>2024-05-24T21:56:42.669Z</updated>
+    <updated>2024-06-18T14:26:34.019Z</updated>
 	<author>
 	
 	  
@@ -384,7 +410,7 @@
     <link href="https://westerndevs.com/_/outside-the-shack-or-how-to-be-a-gigolo/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/outside-the-shack-or-how-to-be-a-gigolo/</id>
     <published>2015-07-06T05:11:15.000Z</published>
-    <updated>2024-05-24T21:56:42.673Z</updated>
+    <updated>2024-06-18T14:26:34.019Z</updated>
 	<author>
 	
 	  
@@ -410,7 +436,7 @@
     <link href="https://westerndevs.com/_/on-ui-testing/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/on-ui-testing/</id>
     <published>2015-06-30T12:09:05.000Z</published>
-    <updated>2024-05-24T21:56:42.673Z</updated>
+    <updated>2024-06-18T14:26:34.019Z</updated>
 	<author>
 	
 	  

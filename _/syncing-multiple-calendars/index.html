@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Truly syncing multiple calendars | Western Devs</title>
+  <meta name="description" content="Very reasons that I really need to investigate, I&#39;m apparently a busy fellow. Such that I now maintain a rather ungainly number of calendars. Three to be exact. That&#39;s one personal calendar and one fo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Truly syncing multiple calendars">
+<meta property="og:url" content="https://westerndevs.com/_/syncing-multiple-calendars/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="Very reasons that I really need to investigate, I&#39;m apparently a busy fellow. Such that I now maintain a rather ungainly number of calendars. Three to be exact. That&#39;s one personal calendar and one fo">
+<meta property="og:image" content="https://westerndevs.com/images/flintstones-camera.jpg">
+<meta property="article:published_time" content="2024-06-17T04:00:00.000Z">
+<meta property="article:modified_time" content="2024-06-18T14:26:34.023Z">
+<meta property="article:author" content="Western Devs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://westerndevs.com/images/flintstones-camera.jpg">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">JUN</div>
+    <div class="ListLrgDateDay">17</div>
+    <div class="ListLrgDateYear">2024</div>
+  </div>
+  <h2>Truly syncing multiple calendars</h2>
+</div>
+
+		    
+
+			<div id="mainPostContent">
+	        <p>Very reasons that I really need to investigate, I'm apparently a busy fellow. Such that I now maintain a rather ungainly number of calendars. Three to be exact. That's one personal calendar and one for each of two clients.</p>
+<p>It's a fairly simple process to <em>view</em> all of these calendars in a single place. All the major calendar providers generously provide iCal links at the very least to let you combine everything in a single view and you can even turn individual calendars on and off.</p>
+<p>I have two problems with this.</p>
+<p>First, I often don't want to have all of these calendars visible in a single view on my screen. Screen-sharing is common and on more than one occasion, I've said, &quot;let's schedule a meeting&quot; and switched to the shared calendar view where all my personal <a href="https://en.wikipedia.org/wiki/Dudeism" target="_blank" rel="noopener">Dudeism meetings</a> are there for all to see.</p>
+<p>Second (and more important than risking an argument with a nihilist), people booking meetings with me don't see the unavailable slots on the other calendars, leading to double-bookings. I didn't know how good I had it in high school when this was...let's just say, &quot;not a problem&quot;.</p>
+<p>So I went on the hunt for a solution that met these criteria:</p>
+<ol>
+<li>The ability to book an event on one calendar and have the time blocked on the other two.</li>
+<li>Have the time on other calendar show as a generic &quot;busy&quot; or &quot;unavailable&quot;. I.e. don't broadcast the details of the events from other calendars.</li>
+<li>Have a centralized view <em>somewhere</em> of all the events <em>without</em> duplicates. I.e. without a bunch of &quot;busy&quot; or &quot;unavailable&quot; events.</li>
+<li>Ideally, works with both Google and Microsoft calendars</li>
+</ol>
+<p><img src="/images/flintstones-camera.jpg" alt="The early days of online meetings">)</p>
+<p>The easiest way to achieve this, of course, is to do it yourself. When you book an event on one calendar, you go through the motions of creating a generic event on the other two. This meets all the criteria but depending on how heavily your client leans into the &quot;all meetings/all the time&quot; project management style, this gets old real fast. But to be fair, it's served me reasonably well for many years.</p>
+<p>This led naturally to a search for a technical solution, which yielded the following options:</p>
+<ul>
+<li><a href="https://www.onecal.io/" target="_blank" rel="noopener">OneCal</a></li>
+<li><a href="https://calendarbridge.com/" target="_blank" rel="noopener">CalendarBridge</a></li>
+<li><a href="https://flexibits.com/fantastical" target="_blank" rel="noopener">Fantastical</a></li>
+<li><a href="https://calendly.com" target="_blank" rel="noopener">Calendly</a></li>
+<li><a href="https://reclaim.ai/" target="_blank" rel="noopener">Reclaim.ai</a></li>
+<li><a href="https://www.spikenow.com/" target="_blank" rel="noopener">Spike</a></li>
+<li><a href="https://www.calendar.com/blog/how-to-sync-your-calendar-across-all-devices/" target="_blank" rel="noopener">Syncing calendars</a></li>
+</ul>
+<p>I have OneCal at the top because it's (currently) my favorite option. But I'll skim through the rest and provide reasons why I didn't go with them. I'll use my tried-and-true practice of claiming that my choice is the One True Way™ and everyone else is wrong as a means of encouraging people to comment with their own options, if only to prove me wrong. Which I'm quite happy to be. But still, that's not the case here. I'm right and you're wrong. Comment below if you disagree.</p>
+<p>Back to the evaluations. I'll start with some of the quicker ones.</p>
+<h3>Syncing calendars</h3>
+<p>I'll be honest, I just kind of skimmed this article. I have kind of a vague idea of what they're going for but this seems geared more toward people that are managing someone else's calendar. Plus I don't <em>think</em> it meets the criteria of actually booking the time off on the other calendar. Either way, it looks kind of cumbersome to set up and to manage.</p>
+<h3>Spike</h3>
+<p>I didn't give this much more than a glance. It does <em>way</em> more than I want it to and calendar sync doesn't appear to be among their more popular features. In any case, the banner says &quot;email and chat app&quot; and the byline talks about teams and partners. I don't think I'm their target audience.</p>
+<h3>Reclaim.ai</h3>
+<p>Also has many features I don't need nor want though at least it's focused on calendars. Google Calendar specifically. Outlook is coming soon. So while calendar sync is one of the highlighted features, the lack of Outlook, as well as the focus on collaboration and AI and &quot;smart&quot; also suggests it's overkill.</p>
+<h3>Calendly</h3>
+<p>I've used Calendly before to send people links to schedule calls with me. It's a lovely app and the free version is quite powerful. I'd recommend it even over Google Calendar's built-in &quot;scheduling slots&quot; or &quot;appointment schedules&quot; or whatever they're calling the feature now.</p>
+<p>That said, based on what I read, I don't think they offer what I need. It looks like the paid plans will let you connect to multiple calendars so that you can give someone a link with a more comprehensive view of your availability. But I need something for internal people who have direct access to my calendar.</p>
+<h3>Fantastical</h3>
+<p>This is just plain a gorgeous app, if you'll forgive an awkwardly-worded almost-oxymoron. I keep threatening to use it every couple of years but can't really justify it. The major selling points are syncing across multiple devices, the natural language parsing, the UX, and integration with a lot of other productivity tools I don't use. Seriously, you should check this app out...</p>
+<p>...except if all you need is to sync events across multiple calendars. I'm still in the midst of testing the app but the process to ensure an event appears as a block of unavailable time on multiple calendars seems to be to duplicate it. Which, to be fair, they make <em>really</em> easy. And if you keep the details the same in all the clones, the unified calendar view removes the duplicates. But that doesn't meet criteria #2 for me above. And if you change the name, it shows as a separate event which is a bit clumsy. For this feature specifically, it's not much better than what I can achieve in Google Calendar natively. But still, give it a whirl.</p>
+<h3>Final verdict: OneCal (CalendarBridge runner up)</h3>
+<p>That leaves two options: OneCal and CalendarBridge. Both do the same thing though their respective marketing teams might squabble over technicalities. Their primary purpose is to sync multiple calendars and avoid double-bookings. Perfect.</p>
+<p>Both services sync one calendar to another by cloning events between them and monitoring the source calendar for new events. Both give you control over what information you want to copy over and have similar options like excluding events of a given colour or excluding events where you're marked free (useful if you track birthdays in your calendar). Once syncing was set up, my calendars looked pretty much exactly how they did when I was doing it manually.</p>
+<p>Neither service has a mobile app from what I can tell which is a shame, especially in the case of OneCal because unlike CalendarBridge, they offer a unified calendar view of all your calendars with the option to hide the cloned events. This is a nice touch and while the view is mobile friendly, it's missing some features, like a three-day view or the ability to put a widget on your phone.</p>
+<p>Pricing is virtually identical on both services in that the one I would need runs about $100/year to sync three calendars. OneCal has the ability to do two-way syncs between calendars or to broadcast a one-way sync from one calendar to multiple other calendars, something that I don't <em>think</em> CalendarBridge does. In CalendarBridge, a two-way sync is done with two one-way syncs and their pricing reflects that. The basic plan for both essentially covers two calendars so I'd be looking at premium for both.</p>
+<p>Setting up the syncs seemed nicer in OneCal to me though I can't 100% say why. Both essentially walk you through a three-ish-step wizard to do it. Maybe OneCal worded things better or laid things out more intuitively for me. I found myself wondering if I was doing it right a couple of times in CalendarBridge. OneCal also felt zippier in general.</p>
+<p>Both apps give you booking links (a la Calendly) which is nice if you need that. OneCal apparently integrates with Zoom to automatically add a meeting link to appointments booked online but I didn't test that out since I don't need it. Neither requires a credit card to sign up which is an underrated feature these days.</p>
+<p>A couple of little UX things. First, OneCal has another underrated feature: a big ol' Delete My Account button at the bottom of the settings page. This is great for someone who wants to test things out, decide it's not for them, and move on. I'm not planning to use CalendarBridge and I've cancelled my free trial but the account remains. There's no obvious way to delete it so I guess I'm a CalendarBridge user indefinitely now. I suppose that's good for them to pump up their user numbers in case someone wants to buy them out but doesn't do me any good.</p>
+<p>Second thing is CalendarBridge's login mechanism. To log in, I enter my email address, they email me a code, I enter the code. It's basically the standard 2FA mechanism from fifteen years ago. There's no password, no Google/Apple/Facebook/etc option. It's kinda weird. Like the developers have a personal agenda against traditional authentication and this is their manifesto.</p>
+<p>So both apps do what I want and cost roughly the same but I give the edge to OneCal for their usability and their unified Calendar view. The price point is high enough that I'll give it a few days before pulling the trigger so I can decide if I want this more than I want to watch seasons 2 of Silo and Severance.</p>
+<p>The alternative is to set up an auto-decline automation for all meetings which I haven't fully taken off the table yet.</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/kyle_baley">
+				
+					<img src='/images/avatars/Kyle_300x300.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/kyle_baley">Kyle Baley</a></h2>
+			
+			<a href="mailto:kyle@baley.org"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://kyle.baley.org" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/kyle_baley" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/kbaley" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			<a href="https://www.linkedin.com/in/kylebaley" target="_blank"><img class="ProfileIcon" src="/images/icon_linkedin.png" border="0" alt="LinkedIN" title="LinkedIN"> LinkedIn</a><br>
+			
+			
+ 			<a href="/feeds/kyle_baley.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/_/syncing-multiple-calendars/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'kyle_baley');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>
