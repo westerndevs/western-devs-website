@@ -5,7 +5,7 @@ date: 2024-06-17
 mode: public
 ---
 
-Very reasons that I really need to investigate, I'm apparently a busy fellow. Such that I now maintain a rather ungainly number of calendars. Three to be exact. That's one personal calendar and one for each of two clients.
+For reasons that I really need to investigate, I'm apparently a busy fellow. Such that I now maintain a rather ungainly number of calendars. Three to be exact. That's one personal calendar and one for each of two clients.
 
 It's a fairly simple process to _view_ all of these calendars in a single place. All the major calendar providers generously provide iCal links at the very least to let you combine everything in a single view and you can even turn individual calendars on and off.
 
