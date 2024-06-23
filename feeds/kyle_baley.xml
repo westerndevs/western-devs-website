@@ -5,7 +5,7 @@
   <link href="/feeds/kyle_baley" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2024-06-18T14:46:01.196Z</updated>
+  <updated>2024-06-23T15:03:45.377Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,42 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">An exploration of Azure Functions for a side project</title>
+    <link href="https://westerndevs.com/_/azure-functions-for-side-projects/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/azure-functions-for-side-projects/</id>
+    <published>2024-06-23T04:00:00.000Z</published>
+    <updated>2024-06-23T15:03:45.377Z</updated>
+	<author>
+	
+	  
+	  <name>Kyle Baley</name>
+	  <email>kyle@baley.org</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>This is a short PSA for people (or, more likely, just future me) to describe two issues I ran into while migrating a bash file to Azure Functions. Namely:</p><ul><li>How do I see the exceptions that happened?</li><li>How do I configure an Azure Function app to save a PDF to a Google Drive folder</li></ul><p>This is from the perspective of someone who doesn't need their app to be highly available/scalable/reliable/tenable/affable/inscrutable/explicable, which the documentation for all cloud products seems to assume (and, it must be said, rightfully so).</p><a id="more"></a><p>I like crossword puzzles. And I like doing them on paper. I subscribe to a few services, including the New York Times, <a href="https://avxwords.com/" target="_blank" rel="noopener">AVCX</a>, <a href="https://xwordcontest.com/" target="_blank" rel="noopener">Matt Gaffney</a>, the <a href="https://pmxwords.com/" target="_blank" rel="noopener">Muller Monthly Music Meta</a>, and a couple of others, both free and paid. For years, I've maintained a <a href="https://github.com/kbaley/xword-downloader" target="_blank" rel="noopener">bash file</a> that downloads PDFs from various services that allow it (and some that likely don't) and merges them into a single document for printing. It works fine but I wanted to try my hand at moving it to an Azure Function app that ran on a timer rather than on demand like I do with the bash file.</p><p>So the app in question is pretty simple and the code itself isn't super interesting. Here are the logistics:</p><ul><li>Runs nightly</li><li>Downloads PDFs from various crossword providers (three so far)</li><li>Saves the PDF to Google Drive</li></ul><p>The last one is only because that's where I keep them after they're printed. I have an archive of the puzzles I've downloaded going back a number of years. I've no idea why except that I have the storage available. Maybe I'll run through them again in retirement but the more likely scenario is that my children will mass delete them in a housecleaning exercise after I die.</p><p>With that in mind, let's get to the two areas where I struggled.</p><h2>App Insights</h2><p>By most accounts, App Insights on Azure is a powerful tool and telemetry in general is a big business. But I've always shied away from the Diagnose/Investigate/Metrics tabs because they're just plain overwhelming for an aging hillbilly who's used to scrolling through IIS log files. So when I wake up in the morning and the latest Times puzzle isn't there, I need to figure out where to go.</p><p>My solution (which may not align with <em>the</em> solution) is pretty simple in the end:</p><ul><li>Navigate to the Function app in Azure</li><li>Go to Monitoring | Logs</li><li>Query the <code>exceptions</code> table with no other qualifers and with an appropriate time range</li></ul><p>This shows the exceptions and the stack traces within the time period. Given this runs nightly, there likely won't be more than a couple in the last 24 hours.</p><h2>Connect to a Google Drive folder</h2><p>Ugh...</p><p>I've said this on more than one occasion: I hate all things security-related including, but not limited to: certificates, OAuth, face ID, fingerprint scanners, digital signatures, encryption, authentication providers, 2FA, MFA, SSL, VPN, CVE, IAM, JWT, SSO, AES, TSA, passkeys, passwords, passports, key fobs, car alarms, and bike locks.</p><p>Setting up an Azure Function App to connect to Google Drive touches on several of these pet peeves and adds a few more. Here's what I eventually did to get this to work:</p><ul><li>Create a project in my Google Developer Console</li><li>Enable the Google Drive API (it wasn't enabled by default)</li><li>Create a <a href="https://cloud.google.com/iam/docs/service-account-overview" target="_blank" rel="noopener">service account</a> credential</li><li>Under the new service account, create a <em>key</em>. This downloads a file to your computer.</li><li>Upload the file to the Azure Storage account for the Azure Functions app in a File Share folder called <code>secrets</code></li><li>Create two environment variables for the Azure Function:<ul><li>GoogleApiSecretsFileName: the name of the file (include the .json extension) I downloaded for the key</li><li>GoogleDriveFolderId: The ID of the folder where the puzzles should be saved. (Navigate to the folder in a browser. The ID is everything after <code>folder/</code> in the URL.)</li></ul></li><li>Share the Google drive folder with the Google API service account (with Editor access). The email address is on the Credentials page in the Google Developer Console.</li></ul><p>Oh, and also write the actual code.</p><p>The <a href="https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-google" target="_blank" rel="noopener">Azure documentation</a> and ChatGPT suggest strongly that OAuth2 credentials (instead of a service account) should work if you set up Google as an authenticator on the Azure Functions app. I ran into problems with this and I <em>think</em> it's because I was running locally. I have the app set up to do everything through a console app instead of through the Azure Functions host when running in DEBUG mode and I suspect the problems are because my local app hasn't gone through the necessary authentication process. Either way, a service account explicitly says it's for unattended server-to-server scenarios, which this is, so I've justified it in my head, even if the Azure documentation suggests something else.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;This is a short PSA for people (or, more likely, just future me) to describe two issues I ran into while migrating a bash file to Azure Functions. Namely:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;How do I see the exceptions that happened?&lt;/li&gt;
+&lt;li&gt;How do I configure an Azure Function app to save a PDF to a Google Drive folder&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This is from the perspective of someone who doesn&#39;t need their app to be highly available/scalable/reliable/tenable/affable/inscrutable/explicable, which the documentation for all cloud products seems to assume (and, it must be said, rightfully so).&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Truly syncing multiple calendars</title>
     <link href="https://westerndevs.com/_/syncing-multiple-calendars/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/syncing-multiple-calendars/</id>
     <published>2024-06-17T04:00:00.000Z</published>
-    <updated>2024-06-18T14:46:01.196Z</updated>
+    <updated>2024-06-23T15:03:45.385Z</updated>
 	<author>
 	
 	  
@@ -47,7 +78,7 @@
     <link href="https://westerndevs.com/bash/Go-just-big-enough-for-your-needs-or-go-home/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/bash/Go-just-big-enough-for-your-needs-or-go-home/</id>
     <published>2020-05-18T19:42:18.000Z</published>
-    <updated>2024-06-18T14:46:01.184Z</updated>
+    <updated>2024-06-23T15:03:45.373Z</updated>
 	<author>
 	
 	  
@@ -81,7 +112,7 @@
     <link href="https://westerndevs.com/career/I-regret-nothing/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/career/I-regret-nothing/</id>
     <published>2016-05-08T17:46:59.000Z</published>
-    <updated>2024-06-18T14:46:01.176Z</updated>
+    <updated>2024-06-23T15:03:45.365Z</updated>
 	<author>
 	
 	  
@@ -109,7 +140,7 @@
     <link href="https://westerndevs.com/conferences/Prairie-Dev-Con-2016-Presentation-Materials/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/conferences/Prairie-Dev-Con-2016-Presentation-Materials/</id>
     <published>2016-04-18T20:14:02.000Z</published>
-    <updated>2024-06-18T14:46:01.176Z</updated>
+    <updated>2024-06-23T15:03:45.365Z</updated>
 	<author>
 	
 	  
@@ -137,7 +168,7 @@
     <link href="https://westerndevs.com/communication/Why-can-t-you-just/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/communication/Why-can-t-you-just/</id>
     <published>2016-01-27T21:09:57.000Z</published>
-    <updated>2024-06-18T14:46:01.172Z</updated>
+    <updated>2024-06-23T15:03:45.365Z</updated>
 	<author>
 	
 	  
@@ -167,7 +198,7 @@
     <link href="https://westerndevs.com/jekyll/hexo/Migrating-from-Jekyll-to-Hexo-Part-2/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/jekyll/hexo/Migrating-from-Jekyll-to-Hexo-Part-2/</id>
     <published>2015-12-28T00:43:32.000Z</published>
-    <updated>2024-06-18T14:46:01.172Z</updated>
+    <updated>2024-06-23T15:03:45.361Z</updated>
 	<author>
 	
 	  
@@ -197,7 +228,7 @@
     <link href="https://westerndevs.com/jekyll/hexo/Migrating-from-Jekyll-to-Hexo/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/jekyll/hexo/Migrating-from-Jekyll-to-Hexo/</id>
     <published>2015-12-22T19:00:42.000Z</published>
-    <updated>2024-06-18T14:46:01.172Z</updated>
+    <updated>2024-06-23T15:03:45.361Z</updated>
 	<author>
 	
 	  
@@ -227,7 +258,7 @@
     <link href="https://westerndevs.com/_/testing-with-data/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/testing-with-data/</id>
     <published>2015-11-20T00:02:10.000Z</published>
-    <updated>2024-06-18T14:46:01.196Z</updated>
+    <updated>2024-06-23T15:03:45.385Z</updated>
 	<author>
 	
 	  
@@ -253,7 +284,7 @@
     <link href="https://westerndevs.com/_/running-a-net-app-against-postgres-database-in-docker/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/running-a-net-app-against-postgres-database-in-docker/</id>
     <published>2015-10-25T21:24:14.000Z</published>
-    <updated>2024-06-18T14:46:01.196Z</updated>
+    <updated>2024-06-23T15:03:45.385Z</updated>
 	<author>
 	
 	  
@@ -279,7 +310,7 @@
     <link href="https://westerndevs.com/_/windows-server-containers-are-coming-whether-you-like-it-or-not/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/windows-server-containers-are-coming-whether-you-like-it-or-not/</id>
     <published>2015-08-31T19:01:20.000Z</published>
-    <updated>2024-06-18T14:46:01.196Z</updated>
+    <updated>2024-06-23T15:03:45.389Z</updated>
 	<author>
 	
 	  
@@ -305,7 +336,7 @@
     <link href="https://westerndevs.com/_/docker-and-western-devs/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/docker-and-western-devs/</id>
     <published>2015-08-24T00:38:59.000Z</published>
-    <updated>2024-06-18T14:46:01.188Z</updated>
+    <updated>2024-06-23T15:03:45.381Z</updated>
 	<author>
 	
 	  
@@ -331,7 +362,7 @@
     <link href="https://westerndevs.com/_/psa-setting-up-containers-in-a-vm-in-windows-server-2016-tech-preview-3/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/psa-setting-up-containers-in-a-vm-in-windows-server-2016-tech-preview-3/</id>
     <published>2015-08-20T00:38:59.000Z</published>
-    <updated>2024-06-18T14:46:01.192Z</updated>
+    <updated>2024-06-23T15:03:45.385Z</updated>
 	<author>
 	
 	  
@@ -357,7 +388,7 @@
     <link href="https://westerndevs.com/_/docker-is-coming-whether-you-like-it-or-not/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/docker-is-coming-whether-you-like-it-or-not/</id>
     <published>2015-08-04T16:31:10.000Z</published>
-    <updated>2024-06-18T14:46:01.188Z</updated>
+    <updated>2024-06-23T15:03:45.381Z</updated>
 	<author>
 	
 	  
@@ -384,7 +415,7 @@
     <link href="https://westerndevs.com/_/microservices-or-how-to-spread-the-love/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/microservices-or-how-to-spread-the-love/</id>
     <published>2015-07-15T05:01:19.000Z</published>
-    <updated>2024-06-18T14:46:01.192Z</updated>
+    <updated>2024-06-23T15:03:45.381Z</updated>
 	<author>
 	
 	  
@@ -410,7 +441,7 @@
     <link href="https://westerndevs.com/_/outside-the-shack-or-how-to-be-a-gigolo/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/outside-the-shack-or-how-to-be-a-gigolo/</id>
     <published>2015-07-06T05:11:15.000Z</published>
-    <updated>2024-06-18T14:46:01.192Z</updated>
+    <updated>2024-06-23T15:03:45.381Z</updated>
 	<author>
 	
 	  
@@ -436,7 +467,7 @@
     <link href="https://westerndevs.com/_/on-ui-testing/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/on-ui-testing/</id>
     <published>2015-06-30T12:09:05.000Z</published>
-    <updated>2024-06-18T14:46:01.192Z</updated>
+    <updated>2024-06-23T15:03:45.381Z</updated>
 	<author>
 	
 	  

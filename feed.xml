@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2024-06-18T14:46:01.196Z</updated>
+  <updated>2024-06-23T15:03:45.377Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,42 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">An exploration of Azure Functions for a side project</title>
+    <link href="https://westerndevs.com/_/azure-functions-for-side-projects/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/azure-functions-for-side-projects/</id>
+    <published>2024-06-23T04:00:00.000Z</published>
+    <updated>2024-06-23T15:03:45.377Z</updated>
+	<author>
+	
+	  
+	  <name>Kyle Baley</name>
+	  <email>kyle@baley.org</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>This is a short PSA for people (or, more likely, just future me) to describe two issues I ran into while migrating a bash file to Azure Functions. Namely:</p><ul><li>How do I see the exceptions that happened?</li><li>How do I configure an Azure Function app to save a PDF to a Google Drive folder</li></ul><p>This is from the perspective of someone who doesn't need their app to be highly available/scalable/reliable/tenable/affable/inscrutable/explicable, which the documentation for all cloud products seems to assume (and, it must be said, rightfully so).</p><a id="more"></a><p>I like crossword puzzles. And I like doing them on paper. I subscribe to a few services, including the New York Times, <a href="https://avxwords.com/" target="_blank" rel="noopener">AVCX</a>, <a href="https://xwordcontest.com/" target="_blank" rel="noopener">Matt Gaffney</a>, the <a href="https://pmxwords.com/" target="_blank" rel="noopener">Muller Monthly Music Meta</a>, and a couple of others, both free and paid. For years, I've maintained a <a href="https://github.com/kbaley/xword-downloader" target="_blank" rel="noopener">bash file</a> that downloads PDFs from various services that allow it (and some that likely don't) and merges them into a single document for printing. It works fine but I wanted to try my hand at moving it to an Azure Function app that ran on a timer rather than on demand like I do with the bash file.</p><p>So the app in question is pretty simple and the code itself isn't super interesting. Here are the logistics:</p><ul><li>Runs nightly</li><li>Downloads PDFs from various crossword providers (three so far)</li><li>Saves the PDF to Google Drive</li></ul><p>The last one is only because that's where I keep them after they're printed. I have an archive of the puzzles I've downloaded going back a number of years. I've no idea why except that I have the storage available. Maybe I'll run through them again in retirement but the more likely scenario is that my children will mass delete them in a housecleaning exercise after I die.</p><p>With that in mind, let's get to the two areas where I struggled.</p><h2>App Insights</h2><p>By most accounts, App Insights on Azure is a powerful tool and telemetry in general is a big business. But I've always shied away from the Diagnose/Investigate/Metrics tabs because they're just plain overwhelming for an aging hillbilly who's used to scrolling through IIS log files. So when I wake up in the morning and the latest Times puzzle isn't there, I need to figure out where to go.</p><p>My solution (which may not align with <em>the</em> solution) is pretty simple in the end:</p><ul><li>Navigate to the Function app in Azure</li><li>Go to Monitoring | Logs</li><li>Query the <code>exceptions</code> table with no other qualifers and with an appropriate time range</li></ul><p>This shows the exceptions and the stack traces within the time period. Given this runs nightly, there likely won't be more than a couple in the last 24 hours.</p><h2>Connect to a Google Drive folder</h2><p>Ugh...</p><p>I've said this on more than one occasion: I hate all things security-related including, but not limited to: certificates, OAuth, face ID, fingerprint scanners, digital signatures, encryption, authentication providers, 2FA, MFA, SSL, VPN, CVE, IAM, JWT, SSO, AES, TSA, passkeys, passwords, passports, key fobs, car alarms, and bike locks.</p><p>Setting up an Azure Function App to connect to Google Drive touches on several of these pet peeves and adds a few more. Here's what I eventually did to get this to work:</p><ul><li>Create a project in my Google Developer Console</li><li>Enable the Google Drive API (it wasn't enabled by default)</li><li>Create a <a href="https://cloud.google.com/iam/docs/service-account-overview" target="_blank" rel="noopener">service account</a> credential</li><li>Under the new service account, create a <em>key</em>. This downloads a file to your computer.</li><li>Upload the file to the Azure Storage account for the Azure Functions app in a File Share folder called <code>secrets</code></li><li>Create two environment variables for the Azure Function:<ul><li>GoogleApiSecretsFileName: the name of the file (include the .json extension) I downloaded for the key</li><li>GoogleDriveFolderId: The ID of the folder where the puzzles should be saved. (Navigate to the folder in a browser. The ID is everything after <code>folder/</code> in the URL.)</li></ul></li><li>Share the Google drive folder with the Google API service account (with Editor access). The email address is on the Credentials page in the Google Developer Console.</li></ul><p>Oh, and also write the actual code.</p><p>The <a href="https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-google" target="_blank" rel="noopener">Azure documentation</a> and ChatGPT suggest strongly that OAuth2 credentials (instead of a service account) should work if you set up Google as an authenticator on the Azure Functions app. I ran into problems with this and I <em>think</em> it's because I was running locally. I have the app set up to do everything through a console app instead of through the Azure Functions host when running in DEBUG mode and I suspect the problems are because my local app hasn't gone through the necessary authentication process. Either way, a service account explicitly says it's for unattended server-to-server scenarios, which this is, so I've justified it in my head, even if the Azure documentation suggests something else.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;This is a short PSA for people (or, more likely, just future me) to describe two issues I ran into while migrating a bash file to Azure Functions. Namely:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;How do I see the exceptions that happened?&lt;/li&gt;
+&lt;li&gt;How do I configure an Azure Function app to save a PDF to a Google Drive folder&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This is from the perspective of someone who doesn&#39;t need their app to be highly available/scalable/reliable/tenable/affable/inscrutable/explicable, which the documentation for all cloud products seems to assume (and, it must be said, rightfully so).&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Truly syncing multiple calendars</title>
     <link href="https://westerndevs.com/_/syncing-multiple-calendars/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/syncing-multiple-calendars/</id>
     <published>2024-06-17T04:00:00.000Z</published>
-    <updated>2024-06-18T14:46:01.196Z</updated>
+    <updated>2024-06-23T15:03:45.385Z</updated>
 	<author>
 	
 	  
@@ -47,7 +78,7 @@
     <link href="https://westerndevs.com/_/set-blob-container-cors/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-blob-container-cors/</id>
     <published>2024-05-24T04:00:00.000Z</published>
-    <updated>2024-06-18T14:46:01.196Z</updated>
+    <updated>2024-06-23T15:03:45.385Z</updated>
 	<author>
 	
 	  
@@ -73,7 +104,7 @@
     <link href="https://westerndevs.com/_/cannot-copy/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cannot-copy/</id>
     <published>2023-11-23T05:00:00.000Z</published>
-    <updated>2024-06-18T14:46:01.188Z</updated>
+    <updated>2024-06-23T15:03:45.377Z</updated>
 	<author>
 	
 	  
@@ -99,7 +130,7 @@
     <link href="https://westerndevs.com/_/connect-to-service-container/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/connect-to-service-container/</id>
     <published>2023-11-20T05:00:00.000Z</published>
-    <updated>2024-06-18T14:46:01.188Z</updated>
+    <updated>2024-06-23T15:03:45.381Z</updated>
 	<author>
 	
 	  
@@ -125,7 +156,7 @@
     <link href="https://westerndevs.com/_/smtp-setup-for-mailgun/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/smtp-setup-for-mailgun/</id>
     <published>2023-10-30T04:00:00.000Z</published>
-    <updated>2024-06-18T14:46:01.196Z</updated>
+    <updated>2024-06-23T15:03:45.385Z</updated>
 	<author>
 	
 	  
@@ -151,7 +182,7 @@
     <link href="https://westerndevs.com/_/artillery/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/artillery/</id>
     <published>2023-10-14T04:00:00.000Z</published>
-    <updated>2024-06-18T14:46:01.188Z</updated>
+    <updated>2024-06-23T15:03:45.377Z</updated>
 	<author>
 	
 	  
@@ -177,7 +208,7 @@
     <link href="https://westerndevs.com/_/storage-alert-rules/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storage-alert-rules/</id>
     <published>2023-03-30T04:00:00.000Z</published>
-    <updated>2024-06-18T14:46:01.196Z</updated>
+    <updated>2024-06-23T15:03:45.385Z</updated>
 	<author>
 	
 	  
@@ -203,7 +234,7 @@
     <link href="https://westerndevs.com/_/vuetify-esm/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/vuetify-esm/</id>
     <published>2023-03-15T04:00:00.000Z</published>
-    <updated>2024-06-18T14:46:01.196Z</updated>
+    <updated>2024-06-23T15:03:45.389Z</updated>
 	<author>
 	
 	  
@@ -229,7 +260,7 @@
     <link href="https://westerndevs.com/_/app-service-quota/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/app-service-quota/</id>
     <published>2023-03-04T05:00:00.000Z</published>
-    <updated>2024-06-18T14:46:01.188Z</updated>
+    <updated>2024-06-23T15:03:45.377Z</updated>
 	<author>
 	
 	  
@@ -256,7 +287,7 @@
     <link href="https://westerndevs.com/_/azure-keyvaul-reference-gotcha/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-keyvaul-reference-gotcha/</id>
     <published>2023-03-04T05:00:00.000Z</published>
-    <updated>2024-06-18T14:46:01.188Z</updated>
+    <updated>2024-06-23T15:03:45.377Z</updated>
 	<author>
 	
 	  
@@ -282,7 +313,7 @@
     <link href="https://westerndevs.com/_/express-json-comments/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/express-json-comments/</id>
     <published>2023-02-16T05:00:00.000Z</published>
-    <updated>2024-06-18T14:46:01.192Z</updated>
+    <updated>2024-06-23T15:03:45.381Z</updated>
 	<author>
 	
 	  
@@ -308,7 +339,7 @@
     <link href="https://westerndevs.com/_/ruby-excel/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ruby-excel/</id>
     <published>2023-02-15T05:00:00.000Z</published>
-    <updated>2024-06-18T14:46:01.196Z</updated>
+    <updated>2024-06-23T15:03:45.385Z</updated>
 	<author>
 	
 	  
@@ -334,7 +365,7 @@
     <link href="https://westerndevs.com/musings/defining-problem-before-the-soltuion/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/musings/defining-problem-before-the-soltuion/</id>
     <published>2023-01-27T23:24:33.221Z</published>
-    <updated>2024-06-18T14:46:01.188Z</updated>
+    <updated>2024-06-23T15:03:45.377Z</updated>
 	<author>
 	
 	  
@@ -372,7 +403,7 @@
     <link href="https://westerndevs.com/coding/problem-solution/docker-build-hangs-on-apt-key-in-wsl2/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/coding/problem-solution/docker-build-hangs-on-apt-key-in-wsl2/</id>
     <published>2023-01-12T02:43:58.005Z</published>
-    <updated>2024-06-18T14:46:01.188Z</updated>
+    <updated>2024-06-23T15:03:45.377Z</updated>
 	<author>
 	
 	  
@@ -414,7 +445,7 @@
     <link href="https://westerndevs.com/musings/highlight-reel-for-2022/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/musings/highlight-reel-for-2022/</id>
     <published>2023-01-05T21:47:02.098Z</published>
-    <updated>2024-06-18T14:46:01.188Z</updated>
+    <updated>2024-06-23T15:03:45.377Z</updated>
 	<author>
 	
 	  
@@ -456,7 +487,7 @@
     <link href="https://westerndevs.com/_/happy-holidays-2022/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/happy-holidays-2022/</id>
     <published>2022-12-24T22:00:00.000Z</published>
-    <updated>2024-06-18T14:46:01.188Z</updated>
+    <updated>2024-06-23T15:03:45.377Z</updated>
 	<author>
 	
 	  
@@ -488,7 +519,7 @@
     <link href="https://westerndevs.com/_/speaking-at-tech-events-helps-you-grow/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/speaking-at-tech-events-helps-you-grow/</id>
     <published>2022-12-20T21:59:37.185Z</published>
-    <updated>2024-06-18T14:46:01.188Z</updated>
+    <updated>2024-06-23T15:03:45.377Z</updated>
 	<author>
 	
 	  
@@ -507,11 +538,11 @@
     </summary>
     
     
+      <category term="prairie-dev-con" scheme="https://westerndevs.com/tags/prairie-dev-con/"/>
+    
       <category term="public-speaking" scheme="https://westerndevs.com/tags/public-speaking/"/>
     
       <category term="prdc" scheme="https://westerndevs.com/tags/prdc/"/>
-    
-      <category term="prairie-dev-con" scheme="https://westerndevs.com/tags/prairie-dev-con/"/>
     
       <category term="community" scheme="https://westerndevs.com/tags/community/"/>
     
@@ -526,7 +557,7 @@
     <link href="https://westerndevs.com/_/docker-desktop-is-not-docker-engine/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/docker-desktop-is-not-docker-engine/</id>
     <published>2022-12-14T02:28:36.457Z</published>
-    <updated>2024-06-18T14:46:01.188Z</updated>
+    <updated>2024-06-23T15:03:45.377Z</updated>
 	<author>
 	
 	  
@@ -562,7 +593,7 @@
     <link href="https://westerndevs.com/_/prairie-dev-con-2022-takeaways/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/prairie-dev-con-2022-takeaways/</id>
     <published>2022-12-07T20:37:20.777Z</published>
-    <updated>2024-06-18T14:46:01.188Z</updated>
+    <updated>2024-06-23T15:03:45.377Z</updated>
 	<author>
 	
 	  
@@ -596,44 +627,6 @@
       <category term="playwright" scheme="https://westerndevs.com/tags/playwright/"/>
     
       <category term="adiad" scheme="https://westerndevs.com/tags/adiad/"/>
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Open Graph Tools and Resources for Web Nerds (Like Me)</title>
-    <link href="https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/</id>
-    <published>2022-12-01T09:18:34.509Z</published>
-    <updated>2024-06-18T14:46:01.188Z</updated>
-	<author>
-	
-	  
-	  <name>David Wesst</name>
-	  <email>questions@davidwesst.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>The <a href="https://ogp.me" target="_blank" rel="noopener">Open Graph Protocol (OGP)</a> is an open standard that allows web pages to have deeper integration with a social graph, such as Facebook, Twitter, or LinkedIn. You know those cards that appear on Twitter or LinkedIn with tailored images for a link to a blog post? That is OGP in action.</p><p>With <a href="https://github.com/davidwesst/website/releases" target="_blank" rel="noopener">my recent adventures with reimplementing my website</a>, I wanted to leverage this on pages and posts, specifically with LinkedIn and it took a little more research to get it working right. So, for the web nerds like me looking to implement OGP on their projects, I wanted to share the resources I found useful to hopefully save them some time in finding the right resources.</p><h2><a href="https://ogp.me" target="_blank" rel="noopener"><code>ogp.me</code></a></h2><p>I am calling this the specification, or &quot;spec&quot;, and it probably the most important resource. The best part about this site is how approachable it is.</p><p>There are code snippets, explanations of all the object types and their properties, and its own list of tools (although they differ from the ones I am including on this list).</p><p>If you take one thing away from this post for your work with OGP, take this one.</p><h3>Reference</h3><ul><li><a href="https://ogp.me" target="_blank" rel="noopener">Open Graph protocol page</a></li></ul><h2>LinkedIn (and Facebook) Post Inspectors</h2><p>Both Facebook and LinkedIn provide a developer tool to analyze and verify your implemenation of OGP and has the added feature of busting whatever the social networks have cached for the pages you share.</p><p>These tools for triaging or assesing publically shared pages, but not so much when it comes to local development. That is where the next tool comes into play.</p><h3>Reference</h3><ul><li><a href="https://www.linkedin.com/post-inspector/" target="_blank" rel="noopener">LinkedIn Post Inspector</a></li><li><a href="https://developers.facebook.com/tools/debug/" target="_blank" rel="noopener">Facebook Sharing Debugger</a></li></ul><h2>Social Share Preview Web Extension</h2><p>Available for both <a href="https://chrome.google.com/webstore/detail/social-share-preview/ggnikicjfklimmffbkhknndafpdlabib" target="_blank" rel="noopener">Chromium Browsers</a> and <a href="https://addons.mozilla.org/en-US/firefox/addon/social-share-preview/" target="_blank" rel="noopener">Firefox</a>, this web extension allows you simulate what should appears for any page loaded up in your browser.</p><p>This tool saved me from having to continually publish the content to a public location for the post inspector, but note that it is just a <em>simulation</em> of what the tool thinks it should appear. It does not replace post inspector or proper testing on the site you are looking to share to.</p><p><img src="/images/2022-11-30-open-graph-tools-and-resources-for-web-nerds/social-share-preview-example.png" alt="A window displaying a preview of what a LinkedIn post of the 'How much is enough documentation?' blog post on davidwesst.com"></p><h3>Reference</h3><ul><li><a href="https://chrome.google.com/webstore/detail/social-share-preview/ggnikicjfklimmffbkhknndafpdlabib" target="_blank" rel="noopener">Chrome Extension</a></li><li><a href="https://addons.mozilla.org/en-US/firefox/addon/social-share-preview/" target="_blank" rel="noopener">Firefox Add-On</a></li></ul><h2>Browser Dev Tools (Obviously)</h2><p>If you are reading the post, then this one is an obvious one-- but sometimes we (like me) get so caught up on exploring new ways to solve my problem, we forget about the obvious ones.</p><p>OGP tags live in the <code>&lt;head&gt;</code> of your HTML page. If you are unsure why things are not working, make sure you run your browser dev tools of choice and check the <code>&lt;head&gt;</code> of the document and make sure the OGP tags you are expecting appear where they should be.</p><p>It seems simple, but depending on what tool, engine, or framework to output HTML, you may be surprised what shows up.</p><h3>Reference</h3><p>Open this post on a desktop browser and press the key combination <code>Ctrl + Shift + i</code> and you should see your browser dev tools pop open for the site.</p><h2>Conclusion / TL;DR;</h2><p>Read the <a href="https://ogp.me" target="_blank" rel="noopener">aproachable spec document</a>. That is the most important part takeaway from my OGP implemenation. It is very approachable and gives you a strong foundation to work from as you use other tools to triage and assess your implementation.</p><p>These are the tools I used to implement LinkedIn support, along with my browser dev tools.</p><ul><li><a href="https://www.linkedin.com/post-inspector/" target="_blank" rel="noopener">LinkedIn Post Inspector</a></li><li><a href="https://developers.facebook.com/tools/debug/" target="_blank" rel="noopener">Facebook Sharing Debugger</a></li><li><a href="https://chrome.google.com/webstore/detail/social-share-preview/ggnikicjfklimmffbkhknndafpdlabib" target="_blank" rel="noopener">Chrome Extension</a></li><li><a href="https://addons.mozilla.org/en-US/firefox/addon/social-share-preview/" target="_blank" rel="noopener">Firefox Add-On</a></li><li><code>Ctrl + Shift + i</code> on your desktop browser</li></ul><p>Thanks for playing.</p><p>~ DW</p>]]></content>
-    
-    <summary type="html">
-    
-      A compilation of tools and resources I used to implemented the Open Graph Protocol (OGP) for my website to make posts and pages more engaging on LinkedIn and other social networks.
-    
-    </summary>
-    
-    
-      <category term="twitter" scheme="https://westerndevs.com/tags/twitter/"/>
-    
-      <category term="open graph" scheme="https://westerndevs.com/tags/open-graph/"/>
-    
-      <category term="web development" scheme="https://westerndevs.com/tags/web-development/"/>
-    
-      <category term="seo" scheme="https://westerndevs.com/tags/seo/"/>
-    
-      <category term="linkedin" scheme="https://westerndevs.com/tags/linkedin/"/>
-    
-      <category term="facebook" scheme="https://westerndevs.com/tags/facebook/"/>
     
   </entry>
   
