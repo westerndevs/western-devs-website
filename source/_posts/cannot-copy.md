@@ -16,7 +16,7 @@ Today my not problem was running a docker build wasn't copying the files I was e
 ERROR: failed to solve: failed to compute cache key: failed to calculate checksum of ref b1f3faa4-fdeb-41ed-b016-fac3862d370a::pjh3jwhj2huqmcgigjh9udlh2: "/themes": not found
 ```
 
-I was really confused because `themes` absolutley did exist on disk. It was as if it wasn't being added to the build context. In fact it wasn't being added and, as it turns out, this was because my .dockerignore file contained 
+I was really confused because `themes` absolutly did exist on disk. It was as if it wasn't being added to the build context. In fact it wasn't being added and, as it turns out, this was because my .dockerignore file contained 
 ```
 **
 ```
