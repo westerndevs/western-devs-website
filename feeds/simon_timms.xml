@@ -5,7 +5,7 @@
   <link href="/feeds/simon_timms" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2024-06-23T15:03:45.385Z</updated>
+  <updated>2024-07-31T16:02:00.654Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Plinko Diagram</title>
+    <link href="https://westerndevs.com/_/plinko-diagram/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/plinko-diagram/</id>
+    <published>2024-07-31T04:00:00.000Z</published>
+    <updated>2024-07-31T16:02:00.654Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>One of my team members mentioned that they envision the process flow of our code as a Plinko board. If you've never watched The Price is Right, a Plinko board is a vertical board with pegs that a contestant drops a disc down. The disc bounces off the pegs and lands in a slot at the bottom. The slots have different values and the contestant wins the value of the slot the disc lands in.</p><p><img src="/images/2024-07-31-plinko-diagram.md/2024-07-31-09-53-16.png" alt="">)</p><p>I just loved this mental model.  Each peg in the board is an fork in the code and a different path can be taken from that point on. It's basically an execution tree but with a fun visual that's easy to explain to people.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">flowchart TB</span><br><span class="line">    A --&gt; B &amp; C</span><br><span class="line">    B --&gt; D &amp; E</span><br><span class="line">    C --&gt; F &amp; G</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;One of my team members mentioned that they envision the process flow of our code as a Plinko board. If you&#39;ve never watched The Price is 
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Setting Container Cors Rules in Azure</title>
     <link href="https://westerndevs.com/_/set-blob-container-cors/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-blob-container-cors/</id>
     <published>2024-05-24T04:00:00.000Z</published>
-    <updated>2024-06-23T15:03:45.385Z</updated>
+    <updated>2024-07-31T16:02:00.654Z</updated>
 	<author>
 	
 	  
@@ -47,7 +73,7 @@
     <link href="https://westerndevs.com/_/cannot-copy/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cannot-copy/</id>
     <published>2023-11-23T05:00:00.000Z</published>
-    <updated>2024-06-23T15:03:45.377Z</updated>
+    <updated>2024-07-31T16:02:00.650Z</updated>
 	<author>
 	
 	  
@@ -57,7 +83,7 @@
 	  <uri>https://westerndevs.com</uri>
 	</author>
     
-    <content type="html"><![CDATA[<p>My dad once told me that there are no such things a problems just solutions waiting to be applied. I don't know what book he'd just read or course he'd just been on to spout such nonsense but I've never forgotten it.</p><p>Today my not problem was running a docker build wasn't copying the files I was expecting it to. In particular I had a <code>themes</code> directory which was not ending up in the image and in fact the build was failing with something like</p><figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ERROR: </span>failed to solve: failed to compute cache key: failed to calculate checksum of ref b1f3faa4-fdeb<span class="string">-41</span>ed-b016-fac3862d370a::pjh3jwhj2huqmcgigjh9udlh2: "/themes": not found</span><br></pre></td></tr></table></figure><p>I was really confused because <code>themes</code> absolutley did exist on disk. It was as if it wasn't being added to the build context. In fact it wasn't being added and, as it turns out, this was because my .dockerignore file contained</p><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">**</span></span><br></pre></td></tr></table></figure><p>Which ignores everything from the local directory. That seemed a bit extreme so I changed it to</p><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">** </span></span><br><span class="line">!themes</span><br></pre></td></tr></table></figure><p>With this in place the build worked as expected.</p>]]></content>
+    <content type="html"><![CDATA[<p>My dad once told me that there are no such things a problems just solutions waiting to be applied. I don't know what book he'd just read or course he'd just been on to spout such nonsense but I've never forgotten it.</p><p>Today my not problem was running a docker build wasn't copying the files I was expecting it to. In particular I had a <code>themes</code> directory which was not ending up in the image and in fact the build was failing with something like</p><figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ERROR: </span>failed to solve: failed to compute cache key: failed to calculate checksum of ref b1f3faa4-fdeb<span class="string">-41</span>ed-b016-fac3862d370a::pjh3jwhj2huqmcgigjh9udlh2: "/themes": not found</span><br></pre></td></tr></table></figure><p>I was really confused because <code>themes</code> absolutly did exist on disk. It was as if it wasn't being added to the build context. In fact it wasn't being added and, as it turns out, this was because my .dockerignore file contained</p><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">**</span></span><br></pre></td></tr></table></figure><p>Which ignores everything from the local directory. That seemed a bit extreme so I changed it to</p><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">** </span></span><br><span class="line">!themes</span><br></pre></td></tr></table></figure><p>With this in place the build worked as expected.</p>]]></content>
     
     <summary type="html">
     
@@ -73,7 +99,7 @@
     <link href="https://westerndevs.com/_/connect-to-service-container/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/connect-to-service-container/</id>
     <published>2023-11-20T05:00:00.000Z</published>
-    <updated>2024-06-23T15:03:45.381Z</updated>
+    <updated>2024-07-31T16:02:00.650Z</updated>
 	<author>
 	
 	  
@@ -99,7 +125,7 @@
     <link href="https://westerndevs.com/_/smtp-setup-for-mailgun/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/smtp-setup-for-mailgun/</id>
     <published>2023-10-30T04:00:00.000Z</published>
-    <updated>2024-06-23T15:03:45.385Z</updated>
+    <updated>2024-07-31T16:02:00.654Z</updated>
 	<author>
 	
 	  
@@ -125,7 +151,7 @@
     <link href="https://westerndevs.com/_/artillery/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/artillery/</id>
     <published>2023-10-14T04:00:00.000Z</published>
-    <updated>2024-06-23T15:03:45.377Z</updated>
+    <updated>2024-07-31T16:02:00.646Z</updated>
 	<author>
 	
 	  
@@ -151,7 +177,7 @@
     <link href="https://westerndevs.com/_/storage-alert-rules/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storage-alert-rules/</id>
     <published>2023-03-30T04:00:00.000Z</published>
-    <updated>2024-06-23T15:03:45.385Z</updated>
+    <updated>2024-07-31T16:02:00.654Z</updated>
 	<author>
 	
 	  
@@ -177,7 +203,7 @@
     <link href="https://westerndevs.com/_/vuetify-esm/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/vuetify-esm/</id>
     <published>2023-03-15T04:00:00.000Z</published>
-    <updated>2024-06-23T15:03:45.389Z</updated>
+    <updated>2024-07-31T16:02:00.658Z</updated>
 	<author>
 	
 	  
@@ -203,7 +229,7 @@
     <link href="https://westerndevs.com/_/app-service-quota/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/app-service-quota/</id>
     <published>2023-03-04T05:00:00.000Z</published>
-    <updated>2024-06-23T15:03:45.377Z</updated>
+    <updated>2024-07-31T16:02:00.646Z</updated>
 	<author>
 	
 	  
@@ -230,7 +256,7 @@
     <link href="https://westerndevs.com/_/azure-keyvaul-reference-gotcha/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-keyvaul-reference-gotcha/</id>
     <published>2023-03-04T05:00:00.000Z</published>
-    <updated>2024-06-23T15:03:45.377Z</updated>
+    <updated>2024-07-31T16:02:00.646Z</updated>
 	<author>
 	
 	  
@@ -256,7 +282,7 @@
     <link href="https://westerndevs.com/_/express-json-comments/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/express-json-comments/</id>
     <published>2023-02-16T05:00:00.000Z</published>
-    <updated>2024-06-23T15:03:45.381Z</updated>
+    <updated>2024-07-31T16:02:00.650Z</updated>
 	<author>
 	
 	  
@@ -282,7 +308,7 @@
     <link href="https://westerndevs.com/_/ruby-excel/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ruby-excel/</id>
     <published>2023-02-15T05:00:00.000Z</published>
-    <updated>2024-06-23T15:03:45.385Z</updated>
+    <updated>2024-07-31T16:02:00.654Z</updated>
 	<author>
 	
 	  
@@ -308,7 +334,7 @@
     <link href="https://westerndevs.com/_/bulk-insert-sql-geometry/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/bulk-insert-sql-geometry/</id>
     <published>2022-11-17T05:00:00.000Z</published>
-    <updated>2024-06-23T15:03:45.377Z</updated>
+    <updated>2024-07-31T16:02:00.650Z</updated>
 	<author>
 	
 	  
@@ -334,7 +360,7 @@
     <link href="https://westerndevs.com/_/azure-backus-protip/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-backus-protip/</id>
     <published>2022-11-11T05:00:00.000Z</published>
-    <updated>2024-06-23T15:03:45.377Z</updated>
+    <updated>2024-07-31T16:02:00.646Z</updated>
 	<author>
 	
 	  
@@ -360,7 +386,7 @@
     <link href="https://westerndevs.com/_/set-output-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-output-terraform/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2024-06-23T15:03:45.385Z</updated>
+    <updated>2024-07-31T16:02:00.654Z</updated>
 	<author>
 	
 	  
@@ -386,7 +412,7 @@
     <link href="https://westerndevs.com/_/theory-of-terraform-github-actions/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/theory-of-terraform-github-actions/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2024-06-23T15:03:45.385Z</updated>
+    <updated>2024-07-31T16:02:00.658Z</updated>
 	<author>
 	
 	  
@@ -412,7 +438,7 @@
     <link href="https://westerndevs.com/_/register-providers/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/register-providers/</id>
     <published>2022-08-12T04:00:00.000Z</published>
-    <updated>2024-06-23T15:03:45.385Z</updated>
+    <updated>2024-07-31T16:02:00.654Z</updated>
 	<author>
 	
 	  
@@ -438,7 +464,7 @@
     <link href="https://westerndevs.com/_/debug-azure-container-instances-startup/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/debug-azure-container-instances-startup/</id>
     <published>2022-08-04T04:00:00.000Z</published>
-    <updated>2024-06-23T15:03:45.381Z</updated>
+    <updated>2024-07-31T16:02:00.650Z</updated>
 	<author>
 	
 	  
@@ -464,7 +490,7 @@
     <link href="https://westerndevs.com/_/consuming-wsdl/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/consuming-wsdl/</id>
     <published>2022-05-30T04:00:00.000Z</published>
-    <updated>2024-06-23T15:03:45.381Z</updated>
+    <updated>2024-07-31T16:02:00.650Z</updated>
 	<author>
 	
 	  
@@ -490,7 +516,7 @@
     <link href="https://westerndevs.com/_/azure-functions-error/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-functions-error/</id>
     <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2024-06-23T15:03:45.377Z</updated>
+    <updated>2024-07-31T16:02:00.646Z</updated>
 	<author>
 	
 	  
@@ -505,32 +531,6 @@
     <summary type="html">
     
       &lt;p&gt;I started up a previously working Azure functions project today that I hadn&#39;t touched in a week. It failed to start with an error like th
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Which SQL Hosting Option is Right for Me?</title>
-    <link href="https://westerndevs.com/_/which-sql-server-edition/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/which-sql-server-edition/</id>
-    <published>2022-04-07T04:00:00.000Z</published>
-    <updated>2024-06-23T15:03:45.389Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>There are a bunch of different ways to host SQL Server workloads on Azure. Answering some questions about how you use SQL server can help guide us to picking the right option for you.</p><p>The 3 options for hosting we're considering are</p><ol><li>SQL Azure - https://azure.microsoft.com/en-us/products/azure-sql/database/#overview</li><li>Azure SQL Managed Instance - https://azure.microsoft.com/en-us/products/azure-sql/managed-instance/</li><li>SQL Server on VM - https://azure.microsoft.com/en-us/services/virtual-machines/sql-server/#overview</li></ol><p>I've listed these in my order of preference. I'd rather push people to a more managed solution than a less managed one. There is a huge shortage of SQL server skills out there so if you can take a more managed approach then you're less likely to run into problems that require you finding an SQL expert. I frequently say to companies that they're not in the business of managing SQL server but in the business of building whatever widgets they build. Unless there is a real need don't waste company resources building custom solutions when you can buy a 90% solution off the shelf.</p><p>When I talk with companies about migrating their existing workloads to the cloud from on premise SQL servers I find myself asking these questions:</p><ol><li>Does your solution use cross database joins?</li><li>Does your solution make use of the SQL Agent to run jobs?</li><li>Does your solution use FILESTREAM to access files on disk?</li><li>Does your solution require fine tuning of availability groups?</li><li>Does your solution require SQL logins from <code>CERTIFICATE</code>, <code>ASYMMETRIC KEY</code> or <code>SID</code>?</li><li>Do you need to make use of a compatibility level below 100?</li><li>Do you need to make use of database mirroring?</li><li>Does your solution need to start and stop job scheduling?</li><li>Are you making use of SQL Server Reporting Services (SSRS)?</li><li>Are you using xp_cmdshell anywhere in your application (https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql?view=sql-server-ver15)</li></ol><p>If the answer to any of the first 3 questions is <code>yes</code> then they can't easily use SQL Azure* and should set the baseline to a managed instance. If the answer to any of the rest of the questions is <code>yes</code> then they should set the baseline to a VM running a full on version of SQL Server. Only if the answer to all these questions is <code>no</code> is SQL Azure the best solution.</p><ul><li>Cross database joins and SQL Agent can be replaced by Elastic Query and Elastic Jobs but neither one is an easy drop in replacement so I typically don't bother directing people to them for time constrained migrations.</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;There are a bunch of different ways to host SQL Server workloads on Azure. Answering some questions about how you use SQL server can help
     
     </summary>
     

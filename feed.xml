@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2024-06-23T15:03:45.377Z</updated>
+  <updated>2024-07-31T16:02:00.654Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Plinko Diagram</title>
+    <link href="https://westerndevs.com/_/plinko-diagram/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/plinko-diagram/</id>
+    <published>2024-07-31T04:00:00.000Z</published>
+    <updated>2024-07-31T16:02:00.654Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>One of my team members mentioned that they envision the process flow of our code as a Plinko board. If you've never watched The Price is Right, a Plinko board is a vertical board with pegs that a contestant drops a disc down. The disc bounces off the pegs and lands in a slot at the bottom. The slots have different values and the contestant wins the value of the slot the disc lands in.</p><p><img src="/images/2024-07-31-plinko-diagram.md/2024-07-31-09-53-16.png" alt="">)</p><p>I just loved this mental model.  Each peg in the board is an fork in the code and a different path can be taken from that point on. It's basically an execution tree but with a fun visual that's easy to explain to people.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">flowchart TB</span><br><span class="line">    A --&gt; B &amp; C</span><br><span class="line">    B --&gt; D &amp; E</span><br><span class="line">    C --&gt; F &amp; G</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;One of my team members mentioned that they envision the process flow of our code as a Plinko board. If you&#39;ve never watched The Price is 
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">An exploration of Azure Functions for a side project</title>
     <link href="https://westerndevs.com/_/azure-functions-for-side-projects/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-functions-for-side-projects/</id>
     <published>2024-06-23T04:00:00.000Z</published>
-    <updated>2024-06-23T15:03:45.377Z</updated>
+    <updated>2024-07-31T16:02:00.646Z</updated>
 	<author>
 	
 	  
@@ -52,7 +78,7 @@
     <link href="https://westerndevs.com/_/syncing-multiple-calendars/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/syncing-multiple-calendars/</id>
     <published>2024-06-17T04:00:00.000Z</published>
-    <updated>2024-06-23T15:03:45.385Z</updated>
+    <updated>2024-07-31T16:02:00.654Z</updated>
 	<author>
 	
 	  
@@ -78,7 +104,7 @@
     <link href="https://westerndevs.com/_/set-blob-container-cors/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-blob-container-cors/</id>
     <published>2024-05-24T04:00:00.000Z</published>
-    <updated>2024-06-23T15:03:45.385Z</updated>
+    <updated>2024-07-31T16:02:00.654Z</updated>
 	<author>
 	
 	  
@@ -104,7 +130,7 @@
     <link href="https://westerndevs.com/_/cannot-copy/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cannot-copy/</id>
     <published>2023-11-23T05:00:00.000Z</published>
-    <updated>2024-06-23T15:03:45.377Z</updated>
+    <updated>2024-07-31T16:02:00.650Z</updated>
 	<author>
 	
 	  
@@ -114,7 +140,7 @@
 	  <uri>https://westerndevs.com</uri>
 	</author>
     
-    <content type="html"><![CDATA[<p>My dad once told me that there are no such things a problems just solutions waiting to be applied. I don't know what book he'd just read or course he'd just been on to spout such nonsense but I've never forgotten it.</p><p>Today my not problem was running a docker build wasn't copying the files I was expecting it to. In particular I had a <code>themes</code> directory which was not ending up in the image and in fact the build was failing with something like</p><figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ERROR: </span>failed to solve: failed to compute cache key: failed to calculate checksum of ref b1f3faa4-fdeb<span class="string">-41</span>ed-b016-fac3862d370a::pjh3jwhj2huqmcgigjh9udlh2: "/themes": not found</span><br></pre></td></tr></table></figure><p>I was really confused because <code>themes</code> absolutley did exist on disk. It was as if it wasn't being added to the build context. In fact it wasn't being added and, as it turns out, this was because my .dockerignore file contained</p><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">**</span></span><br></pre></td></tr></table></figure><p>Which ignores everything from the local directory. That seemed a bit extreme so I changed it to</p><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">** </span></span><br><span class="line">!themes</span><br></pre></td></tr></table></figure><p>With this in place the build worked as expected.</p>]]></content>
+    <content type="html"><![CDATA[<p>My dad once told me that there are no such things a problems just solutions waiting to be applied. I don't know what book he'd just read or course he'd just been on to spout such nonsense but I've never forgotten it.</p><p>Today my not problem was running a docker build wasn't copying the files I was expecting it to. In particular I had a <code>themes</code> directory which was not ending up in the image and in fact the build was failing with something like</p><figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ERROR: </span>failed to solve: failed to compute cache key: failed to calculate checksum of ref b1f3faa4-fdeb<span class="string">-41</span>ed-b016-fac3862d370a::pjh3jwhj2huqmcgigjh9udlh2: "/themes": not found</span><br></pre></td></tr></table></figure><p>I was really confused because <code>themes</code> absolutly did exist on disk. It was as if it wasn't being added to the build context. In fact it wasn't being added and, as it turns out, this was because my .dockerignore file contained</p><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">**</span></span><br></pre></td></tr></table></figure><p>Which ignores everything from the local directory. That seemed a bit extreme so I changed it to</p><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">** </span></span><br><span class="line">!themes</span><br></pre></td></tr></table></figure><p>With this in place the build worked as expected.</p>]]></content>
     
     <summary type="html">
     
@@ -130,7 +156,7 @@
     <link href="https://westerndevs.com/_/connect-to-service-container/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/connect-to-service-container/</id>
     <published>2023-11-20T05:00:00.000Z</published>
-    <updated>2024-06-23T15:03:45.381Z</updated>
+    <updated>2024-07-31T16:02:00.650Z</updated>
 	<author>
 	
 	  
@@ -156,7 +182,7 @@
     <link href="https://westerndevs.com/_/smtp-setup-for-mailgun/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/smtp-setup-for-mailgun/</id>
     <published>2023-10-30T04:00:00.000Z</published>
-    <updated>2024-06-23T15:03:45.385Z</updated>
+    <updated>2024-07-31T16:02:00.654Z</updated>
 	<author>
 	
 	  
@@ -182,7 +208,7 @@
     <link href="https://westerndevs.com/_/artillery/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/artillery/</id>
     <published>2023-10-14T04:00:00.000Z</published>
-    <updated>2024-06-23T15:03:45.377Z</updated>
+    <updated>2024-07-31T16:02:00.646Z</updated>
 	<author>
 	
 	  
@@ -208,7 +234,7 @@
     <link href="https://westerndevs.com/_/storage-alert-rules/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storage-alert-rules/</id>
     <published>2023-03-30T04:00:00.000Z</published>
-    <updated>2024-06-23T15:03:45.385Z</updated>
+    <updated>2024-07-31T16:02:00.654Z</updated>
 	<author>
 	
 	  
@@ -234,7 +260,7 @@
     <link href="https://westerndevs.com/_/vuetify-esm/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/vuetify-esm/</id>
     <published>2023-03-15T04:00:00.000Z</published>
-    <updated>2024-06-23T15:03:45.389Z</updated>
+    <updated>2024-07-31T16:02:00.658Z</updated>
 	<author>
 	
 	  
@@ -260,7 +286,7 @@
     <link href="https://westerndevs.com/_/app-service-quota/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/app-service-quota/</id>
     <published>2023-03-04T05:00:00.000Z</published>
-    <updated>2024-06-23T15:03:45.377Z</updated>
+    <updated>2024-07-31T16:02:00.646Z</updated>
 	<author>
 	
 	  
@@ -287,7 +313,7 @@
     <link href="https://westerndevs.com/_/azure-keyvaul-reference-gotcha/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-keyvaul-reference-gotcha/</id>
     <published>2023-03-04T05:00:00.000Z</published>
-    <updated>2024-06-23T15:03:45.377Z</updated>
+    <updated>2024-07-31T16:02:00.646Z</updated>
 	<author>
 	
 	  
@@ -313,7 +339,7 @@
     <link href="https://westerndevs.com/_/express-json-comments/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/express-json-comments/</id>
     <published>2023-02-16T05:00:00.000Z</published>
-    <updated>2024-06-23T15:03:45.381Z</updated>
+    <updated>2024-07-31T16:02:00.650Z</updated>
 	<author>
 	
 	  
@@ -339,7 +365,7 @@
     <link href="https://westerndevs.com/_/ruby-excel/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ruby-excel/</id>
     <published>2023-02-15T05:00:00.000Z</published>
-    <updated>2024-06-23T15:03:45.385Z</updated>
+    <updated>2024-07-31T16:02:00.654Z</updated>
 	<author>
 	
 	  
@@ -365,7 +391,7 @@
     <link href="https://westerndevs.com/musings/defining-problem-before-the-soltuion/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/musings/defining-problem-before-the-soltuion/</id>
     <published>2023-01-27T23:24:33.221Z</published>
-    <updated>2024-06-23T15:03:45.377Z</updated>
+    <updated>2024-07-31T16:02:00.646Z</updated>
 	<author>
 	
 	  
@@ -403,7 +429,7 @@
     <link href="https://westerndevs.com/coding/problem-solution/docker-build-hangs-on-apt-key-in-wsl2/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/coding/problem-solution/docker-build-hangs-on-apt-key-in-wsl2/</id>
     <published>2023-01-12T02:43:58.005Z</published>
-    <updated>2024-06-23T15:03:45.377Z</updated>
+    <updated>2024-07-31T16:02:00.646Z</updated>
 	<author>
 	
 	  
@@ -445,7 +471,7 @@
     <link href="https://westerndevs.com/musings/highlight-reel-for-2022/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/musings/highlight-reel-for-2022/</id>
     <published>2023-01-05T21:47:02.098Z</published>
-    <updated>2024-06-23T15:03:45.377Z</updated>
+    <updated>2024-07-31T16:02:00.646Z</updated>
 	<author>
 	
 	  
@@ -487,7 +513,7 @@
     <link href="https://westerndevs.com/_/happy-holidays-2022/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/happy-holidays-2022/</id>
     <published>2022-12-24T22:00:00.000Z</published>
-    <updated>2024-06-23T15:03:45.377Z</updated>
+    <updated>2024-07-31T16:02:00.646Z</updated>
 	<author>
 	
 	  
@@ -519,7 +545,7 @@
     <link href="https://westerndevs.com/_/speaking-at-tech-events-helps-you-grow/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/speaking-at-tech-events-helps-you-grow/</id>
     <published>2022-12-20T21:59:37.185Z</published>
-    <updated>2024-06-23T15:03:45.377Z</updated>
+    <updated>2024-07-31T16:02:00.646Z</updated>
 	<author>
 	
 	  
@@ -557,7 +583,7 @@
     <link href="https://westerndevs.com/_/docker-desktop-is-not-docker-engine/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/docker-desktop-is-not-docker-engine/</id>
     <published>2022-12-14T02:28:36.457Z</published>
-    <updated>2024-06-23T15:03:45.377Z</updated>
+    <updated>2024-07-31T16:02:00.646Z</updated>
 	<author>
 	
 	  
@@ -585,48 +611,6 @@
       <category term="docker engine" scheme="https://westerndevs.com/tags/docker-engine/"/>
     
       <category term="docker desktop" scheme="https://westerndevs.com/tags/docker-desktop/"/>
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Prairie Dev Con 2022 Takeaways</title>
-    <link href="https://westerndevs.com/_/prairie-dev-con-2022-takeaways/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/prairie-dev-con-2022-takeaways/</id>
-    <published>2022-12-07T20:37:20.777Z</published>
-    <updated>2024-06-23T15:03:45.377Z</updated>
-	<author>
-	
-	  
-	  <name>David Wesst</name>
-	  <email>questions@davidwesst.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>Until I walked through the doors of the Prairie Dev Con in 2022, I did not realize how much I missed it. The talented speakers that come together always bring fresh ideas to my mind and give me pause to think about my own efforts and how I can learn from their experience. Although not a complete list, these ideas the ones that stood out the most from Prairie Dev Con 2022.</p><h2>API First Design (<a href="https://www.linkedin.com/in/joelhebert/" target="_blank" rel="noopener">Joël Hébert</a>)</h2><p>Joel did a great session about API first design, which was a very dense session, but he delivered the content in a way that was very approachable and allowed me to think of the benefits of doing API first design with tools like <a href="https://swagger.io" target="_blank" rel="noopener">Swagger.io</a> and <a href="https://www.openapis.org" target="_blank" rel="noopener">OpenAPI</a>.</p><p>It was great seeing the value of these tools, and hearing about the patterns and practices experienced API developers like Joel use to implement consistent and secure APIs.</p><h2>Developer Velocity Index (<a href="https://www.linkedin.com/in/ajenns/" target="_blank" rel="noopener">AJ Enns</a>)</h2><p>I went into this session thinking I was going to be fascinated with the subject, but that the concept would apply only to development leads or possibly coders, rather than an architect like me..</p><p>I was wrong.</p><p>The <a href="https://azure.microsoft.com/en-us/solutions/developer-velocity/" target="_blank" rel="noopener">Developer Velocity Index (DVI)</a>, is a way for any team (even if it is a one-person team, like me on my side projects) can help frame up and scope the abstract problem of figuring out how do to deliver more value.</p><p>I plan on applying the DVI to my side project adventures, self-development, and my enterprise day-job efforts as soon as possible.</p><h2>End to End Testing (<a href="https://www.davepaquette.com" target="_blank" rel="noopener">Dave Paquette</a> and <a href="https://www.linkedin.com/in/lavanya-mohan/" target="_blank" rel="noopener">Lavanya Mohan</a>)</h2><p>Although Dave and Lavanya delivered two completely separate sessions related to testing, the content they delivered worked together in a very interesting way.</p><p>Dave demonstrated and discussed <a href="https://playwright.dev" target="_blank" rel="noopener">Playwright</a> and end-to-end testing framework that resolved or improved the problems we commonly see with end-to-end testing. Lavanya demonstrated how someone <em>should apply</em> proper code management and development techniques when creating test code using a framework, like Playwright.</p><p>For me, together they demonstrated why the test recorded features of end-to-end frameworks is not the &quot;best approach&quot; to creating tests, but rather it is only the first step.</p><p>I feel that these ideas will be seeping into both my day-job and side projects in the very near future.</p><h2>Cloud Security (<a href="https://www.linkedin.com/in/adam-krieger-7a087048/" target="_blank" rel="noopener">Adam Krieger</a>)</h2><p>Adam closed the Prairie Dev Con season with his session, and managed to leave me with a lot of ideas and helped me identify gaps that I have been living with as a developer and as a solution architect.</p><p>Ensuring that developers are security-aware is something I didn't realize I have been missing in my own skills, but also should be looking for in the implementation of my solution designs.</p><h2>A Deal is a Deal (<a href="https://www.rodpaddock.com" target="_blank" rel="noopener">Rod Paddock</a>)</h2><p>Rod delivered a keynote in both Regina and Winnipeg, and each time I walked away with a positive outlook on my own professional and personal growth, but also with the reminder: A Deal Is A Deal.</p><p>Sounds simple enough, but in the past I have frequently found myself regretting decisions or deals I had made with myself or others. But, a deal is a deal, and even if you don't like it or regret it, you need to take a moment to learn from it and ensure the next deal is one you won't regret.</p><h2>TL;DR; / Conclusion</h2><p>In short, there were a lot of good ideas at Prairie Dev Con 2022. These are the ones that stood out to me the most:</p><ul><li>Consider API First Design with tools like Swagger.io and OpenAPI (Joël Hébert)</li><li>The Developer Velocity Index (DVI) is NOT just for developers, but for anyone looking to deliver value (AJ Enns)</li><li>End-to-End Testing is a thing that requires effort, but has major benefits with the right tools and patterns in practice (Dave Paquette and Lavanya Mohan)</li><li>Cloud Developers need not should be security-aware and not just depend others (Adam Krieger)</li><li>A deal is a deal, and if you don't like it, learn from it so the next one is better (Rod Paddock)</li></ul><p>Thanks for playing.</p><p>~ DW</p>]]></content>
-    
-    <summary type="html">
-    
-      The talented speakers that come together for Prairie Dev Con always bring fresh ideas to my mind and give me pause to think about my own efforts and how I can learn from their experience. Although not a complete list, these ideas the ones that stood out the most from Prairie Dev Con 2022.
-    
-    </summary>
-    
-    
-      <category term="prairie-dev-con" scheme="https://westerndevs.com/tags/prairie-dev-con/"/>
-    
-      <category term="prdc-2022" scheme="https://westerndevs.com/tags/prdc-2022/"/>
-    
-      <category term="api-design" scheme="https://westerndevs.com/tags/api-design/"/>
-    
-      <category term="open-api" scheme="https://westerndevs.com/tags/open-api/"/>
-    
-      <category term="developer-velocity-index" scheme="https://westerndevs.com/tags/developer-velocity-index/"/>
-    
-      <category term="e2e-testing" scheme="https://westerndevs.com/tags/e2e-testing/"/>
-    
-      <category term="playwright" scheme="https://westerndevs.com/tags/playwright/"/>
-    
-      <category term="adiad" scheme="https://westerndevs.com/tags/adiad/"/>
     
   </entry>
   
