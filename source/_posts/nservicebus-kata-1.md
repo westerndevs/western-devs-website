@@ -86,9 +86,9 @@ public class EatCake: ICommand
 using messages;
 using NServiceBus;
 
-Console.Title = "MizeKata - Sender";
+Console.Title = "NServiceBusKata - Sender";
 
-var endpointConfiguration = new EndpointConfiguration("MizeKataSender");
+var endpointConfiguration = new EndpointConfiguration("NServiceBusKataSender");
 
 // Choose JSON to serialize and deserialize messages
 endpointConfiguration.UseSerialization<SystemJsonSerializer>();
@@ -97,7 +97,7 @@ var transport = endpointConfiguration.UseTransport<LearningTransport>();
 
 var endpointInstance = await Endpoint.Start(endpointConfiguration);
 
-await endpointInstance.Send("MizeKataReceiver", new EatCake{
+await endpointInstance.Send("NServiceBusKataReceiver", new EatCake{
     Flavour = "Coconut",
     NumberOfCakes = 2 //don't be greedy
 });
@@ -110,9 +110,9 @@ await endpointInstance.Stop();
 ```csharp
 using NServiceBus;
 
-Console.Title = "MizeKata - Reciever";
+Console.Title = "NServiceBusKata - Reciever";
 
-var endpointConfiguration = new EndpointConfiguration("MizeKataReceiver");
+var endpointConfiguration = new EndpointConfiguration("NServiceBusKataReceiver");
 
 // Choose JSON to serialize and deserialize messages
 endpointConfiguration.UseSerialization<SystemJsonSerializer>();
@@ -132,7 +132,7 @@ await endpointInstance.Stop();
 ```csharp
 using messages;
 
-public class PlaceOrderHandler :
+public class EatCakeHandler :
     IHandleMessages<EatCake>
 {
     public Task Handle(EatCake message, IMessageHandlerContext context)
