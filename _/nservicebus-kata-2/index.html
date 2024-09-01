@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>NServiceBus Kata 2 | Western Devs</title>
+  <meta name="description" content="In the previous kata we sent a message from one application to another. This is a common pattern in messaging systems. In this kata we&#39;re going to look at a different pattern: publishing a message.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NServiceBus Kata 2">
+<meta property="og:url" content="https://westerndevs.com/_/nservicebus-kata-2/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="In the previous kata we sent a message from one application to another. This is a common pattern in messaging systems. In this kata we&#39;re going to look at a different pattern: publishing a message.">
+<meta property="article:published_time" content="2024-08-31T04:00:00.000Z">
+<meta property="article:modified_time" content="2024-09-01T01:12:30.904Z">
+<meta property="article:author" content="Western Devs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">AUG</div>
+    <div class="ListLrgDateDay">31</div>
+    <div class="ListLrgDateYear">2024</div>
+  </div>
+  <h2>NServiceBus Kata 2</h2>
+</div>
+
+		    
+
+			<div id="mainPostContent">
+	        <p>In the previous kata we sent a message from one application to another. This is a common pattern in messaging systems. In this kata we're going to look at a different pattern: publishing a message.</p>
+<a id="more"></a>
+<h1>The Problem</h1>
+<p>It is great being able to send a message from one system to another - you can instruct a remote system to take some action which you don't know how to do. For instance sending an email. In a large system lots of processes will likely result in an email but if you can centralize the logic around how to send an email it makes it very easy to do things like change email providers as that functionality is isolated and independent.</p>
+<p>If you looked at my solution for the first Kata then you might have notice that I named my message <code>EatCake</code> this is named in the imperative form. This is a common pattern in messaging systems and is, I think, remarkably helpful to understand the command pattern. When you issue a command you know exactly who or what you're commanding and in the same way the command is sent to a known endpoint.</p>
+<p>Sometimes, however, you don't have a particular target in mind and you just want to let other systems know that you have done something. In this case you can publish a message. Unlike a command you don't know who is going to act on it - it may be nobody or it may be multiple people. In a messaging system we call this an <code>Event</code>.</p>
+<p>Let's extend our cake eating example to imagine some consequences of what might happen if I happily reported that I had eaten cake: <code>CakeEaten</code>. Finding out that the cake had been eaten the bakery might start baking more cake assuming that I'd want more (very likely). My gym might free up a treadmill knowing that my cake-induced guilt might drive me to run until I'd burned off the delicious butter-cream. It might also be of interest to my wife who can text me and see if I enjoyed the cake. I don't actually know who would be interested in the event so it is the responsibility of those who are interested to subscribe to the event.</p>
+<h1>The Kata</h1>
+<p>Using the solution to the first kata as a starting point extend the system to publish a <code>CakeEaten</code> message. Subscribe to the message in the sender and write out a message to the console. Also create another new project similar to the others and have it subscribe to the message.</p>
+<h1>My Solution</h1>
+<ol>
+<li>Create a new message in the messages assembly</li>
+</ol>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">messages</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> NServiceBus;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">CakeEaten</span> : <span class="title">IEvent</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> DateTime EatingFinishedAt &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>Modify the Hander in the receiver to publish the new event. Notice that we have access to a <code>IMessageHandlerContext</code> which we can use to publish messages.</li>
+</ol>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> messages;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">PlaceOrderHandler</span> :</span><br><span class="line">    IHandleMessages&lt;EatCake&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">async</span> Task <span class="title">Handle</span>(<span class="params">EatCake message, IMessageHandlerContext context</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">$"Cake eaten, NumberOfCakes = <span class="subst">&#123;message.NumberOfCakes&#125;</span>; Flavour = <span class="subst">&#123;message.Flavour&#125;</span>"</span>);</span><br><span class="line">        <span class="keyword">await</span> context.Publish(<span class="keyword">new</span> CakeEaten</span><br><span class="line">        &#123;</span><br><span class="line">            EatingFinishedAt = DateTime.Now</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>Modify the sender to subscribe to the event by adding a Handler to the project.</li>
+</ol>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> messages;</span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> NServiceBus;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">CakeEatenHandler</span> :</span><br><span class="line">    IHandleMessages&lt;CakeEaten&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Task <span class="title">Handle</span>(<span class="params">CakeEaten message, IMessageHandlerContext context</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">$"Uh oh, somebody ate a cake at <span class="subst">&#123;message.EatingFinishedAt&#125;</span>"</span>);</span><br><span class="line">        <span class="keyword">return</span> Task.CompletedTask;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>Optionally modify the sender to remain running so that it can receive the message. This is done by adding a <code>Console.ReadLine()</code> at the end of the <code>Main</code> method.</li>
+</ol>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> NServiceBus;</span><br><span class="line"></span><br><span class="line">Console.Title = <span class="string">"NServiceBusKata - Sender"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> endpointConfiguration = <span class="keyword">new</span> EndpointConfiguration(<span class="string">"NServiceBusKataReceiver"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Choose JSON to serialize and deserialize messages</span></span><br><span class="line">endpointConfiguration.UseSerialization&lt;SystemJsonSerializer&gt;();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> transport = endpointConfiguration.UseTransport&lt;LearningTransport&gt;();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> endpointInstance = <span class="keyword">await</span> Endpoint.Start(endpointConfiguration);</span><br><span class="line"></span><br><span class="line">Console.WriteLine(<span class="string">"Press Enter to exit..."</span>);</span><br><span class="line">Console.ReadLine();</span><br><span class="line"></span><br><span class="line"><span class="keyword">await</span> endpointInstance.Stop();</span><br></pre></td></tr></table></figure>
+<p>Pause here and ensure that when running the sender and receiver that you see both a message sent and published.</p>
+<ol start="5">
+<li>Create a new project to act as a second subscriber or receiver</li>
+</ol>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dotnet new<span class="built_in"> console </span>-o anotherReceiver</span><br><span class="line">dotnet <span class="builtin-name">add</span> anotherReceiver reference <span class="built_in">..</span>/messages</span><br><span class="line">dotnet <span class="builtin-name">add</span> anotherReceiver package NServiceBus</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>Add a subscriber class to the project</li>
+</ol>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> messages;</span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> NServiceBus;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">CakeEatenHandler</span> :</span><br><span class="line">    IHandleMessages&lt;CakeEaten&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Task <span class="title">Handle</span>(<span class="params">CakeEaten message, IMessageHandlerContext context</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">$"Awesome, somebody ate a cake at <span class="subst">&#123;message.EatingFinishedAt&#125;</span>. Time to bake another"</span>);</span><br><span class="line">        <span class="keyword">return</span> Task.CompletedTask;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="7">
+<li>Update the Program.cs to initiate NServiceBus</li>
+</ol>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> messages;</span><br><span class="line"><span class="keyword">using</span> NServiceBus;</span><br><span class="line"></span><br><span class="line">Console.Title = <span class="string">"NServiceBusKata - AnotherPublisher"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> endpointConfiguration = <span class="keyword">new</span> EndpointConfiguration(<span class="string">"NServiceBusKataAnotherReceiver"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Choose JSON to serialize and deserialize messages</span></span><br><span class="line">endpointConfiguration.UseSerialization&lt;SystemJsonSerializer&gt;();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> transport = endpointConfiguration.UseTransport&lt;LearningTransport&gt;();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> endpointInstance = <span class="keyword">await</span> Endpoint.Start(endpointConfiguration);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Console.ReadLine();</span><br><span class="line"></span><br><span class="line"><span class="keyword">await</span> endpointInstance.Stop();</span><br></pre></td></tr></table></figure>
+<p>Things to try now:</p>
+<ol>
+<li>Start the receiver and the another receiver then the sender - ensure you see messages flowing correctly</li>
+<li>Start services in different orders and see which messages might be lost</li>
+</ol>
+<p>Sending and receiving messages and publishing messages should now be working great. But to get this example going we've made some simplifications which we'll have to address in the next kata.</p>
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/simon_timms">
+				
+					<img src='/images/avatars/simon.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/simon_timms">Simon Timms</a></h2>
+			
+			<a href="mailto:stimms@gmail.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://blog.simontimms.com/" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/stimms" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/stimms" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			
+ 			<a href="/feeds/simon_timms.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/_/nservicebus-kata-2/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'simon_timms');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>
