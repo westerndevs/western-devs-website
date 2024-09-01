@@ -27,7 +27,7 @@ Using the solution to the first kata as a starting point extend the system to pu
 
 1. Create a new message in the messages assembly
 
-```
+```csharp
 namespace messages;
 
 using NServiceBus;
@@ -40,7 +40,7 @@ public class CakeEaten : IEvent
 
 2. Modify the Hander in the receiver to publish the new event. Notice that we have access to a `IMessageHandlerContext` which we can use to publish messages.
 
-```
+```csharp
 using messages;
 
 public class PlaceOrderHandler :
@@ -59,7 +59,7 @@ public class PlaceOrderHandler :
 
 3. Modify the sender to subscribe to the event by adding a Handler to the project.
 
-```
+```csharp
 using messages;
 
 using NServiceBus;
@@ -77,7 +77,7 @@ public class CakeEatenHandler :
 
 4. Optionally modify the sender to remain running so that it can receive the message. This is done by adding a `Console.ReadLine()` at the end of the `Main` method.
 
-```
+```csharp
 using NServiceBus;
 
 Console.Title = "NServiceBusKata - Sender";
@@ -109,7 +109,7 @@ dotnet add anotherReceiver package NServiceBus
 
 6. Add a subscriber class to the project
 
-```
+```csharp
 using messages;
 
 using NServiceBus;
@@ -127,7 +127,7 @@ public class CakeEatenHandler :
 
 7. Update the Program.cs to initiate NServiceBus
 
-```
+```csharp
 using messages;
 using NServiceBus;
 
