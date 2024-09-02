@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="Western Devs">
 <meta property="og:description" content="We now have a pretty solid way to send messages, publish messages and we&#39;ve got those messages flowing over a reliable transport mechanism. Sending and publishing individual messages only gets us so f">
 <meta property="article:published_time" content="2024-09-02T04:00:00.000Z">
-<meta property="article:modified_time" content="2024-09-02T18:32:23.426Z">
+<meta property="article:modified_time" content="2024-09-02T18:35:42.368Z">
 <meta property="article:author" content="Western Devs">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:creator" content="@westerndevs">
@@ -114,7 +114,7 @@
 <p>Consider the bakery which is creating the cake for me to eat: when it starts making a new cake because I ate the last one it has a bunch of things it needs to coordinate. They need to preheat ovens, gather ingredients, mix ingredients, grease pans, fill pans, put pans in the oven, remember to take the cake out, cool it, ice it... the list goes on and on - no wonder cake is so expensive. Coordinating all these activities is complex in a distributed system, really in any system. There are a lot of corner cases that we usually fail to consider in a non-distributed system which become much more apparent when building out a process manager. What if we preheat the oven but then discover that we're all out of flour? In that monolithic system we might throw an exception and hope that somebody is monitoring for it in a log file somewhere. Realistically that's never going to happen. In the meantime nobody has shut the oven off and the bakery burns down.</p>
 <p>A saga allows us to store the state of a process, to react to messages as they come in and send new messages. We use this to coordinate the activities of the bakery. In our example above we can probably call the process &quot;BakeCakeSaga&quot;. When messages come in relating to the order then we need to be able to find a way to look up the state and make modifications to it. NServiceBus implements this through a method called <code>ConfigureHowToFindSaga</code>. This function will provide a mapping from every message that interacts with the saga to find the saga data. For our example we'd probably use something like an order id.</p>
 <p>Let's build out a very simple saga which responds to just a few messages in our system so we can see how it works. Saga can get pretty complex but they are quite testable so that's nice.</p>
-<h1>The Kata cancelled canceled</h1>
+<h1>The Kata</h1>
 <p>Create a saga which handles the messages <code>CakeOrderPlaced</code>, <code>CakeOrderCanceled</code>, <code>CakeOrderShipped</code>. Each of these messages will contain an <code>OrderId</code>, a GUID, which will be used to identify the saga as well as whatever information might be associated with those messages. For now just write out to the console when each of these messages is received - unless you want to bake me a cake which I will accept.</p>
 <h1>The Solution</h1>
 <ol>
