@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="Western Devs">
 <meta property="og:description" content="We now have a pretty solid way to send messages, publish messages and we&#39;ve got those messages flowing over a reliable transport mechanism. Sending and publishing individual messages only gets us so f">
 <meta property="article:published_time" content="2024-09-02T04:00:00.000Z">
-<meta property="article:modified_time" content="2024-09-02T18:35:42.368Z">
+<meta property="article:modified_time" content="2024-09-02T18:42:16.605Z">
 <meta property="article:author" content="Western Devs">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:creator" content="@westerndevs">
@@ -106,9 +106,9 @@
 	        <p>We now have a pretty solid way to send messages, publish messages and we've got those messages flowing over a reliable transport mechanism. Sending and publishing individual messages only gets us so far. We often need a way to coordinate complex processes which involve multiple services. For this NServiceBus has the concept of sagas which some might call process managers.</p>
 <a id="more"></a>
 <ul>
-<li>Kata 1 - <a href="https://blog.simontimms.com/2024/08/30/nservicebus-kata-1" target="_blank" rel="noopener">Sending a message</a></li>
-<li>Kata 2 - <a href="https://blog.simontimms.com/2024/08/31/nservicebus-kata-2/" target="_blank" rel="noopener">Publishing a message</a></li>
-<li>Kata 3 - <a href="https://blog.simontimms.com/2024/09/01/nservicebus-kata-3" target="_blank" rel="noopener">Switching transports</a></li>
+<li>Kata 1 - <a href="https://www.westerndevs.com/_/nservicebus-kata-1" target="_blank" rel="noopener">Sending a message</a></li>
+<li>Kata 2 - <a href="https://www.westerndevs.com/_/nservicebus-kata-2" target="_blank" rel="noopener">Publishing a message</a></li>
+<li>Kata 3 - <a href="https://www.westerndevs.com/_/nservicebus-kata-3" target="_blank" rel="noopener">Switching transports</a></li>
 <li>Kata 4 - Long running processes</li>
 </ul>
 <p>Consider the bakery which is creating the cake for me to eat: when it starts making a new cake because I ate the last one it has a bunch of things it needs to coordinate. They need to preheat ovens, gather ingredients, mix ingredients, grease pans, fill pans, put pans in the oven, remember to take the cake out, cool it, ice it... the list goes on and on - no wonder cake is so expensive. Coordinating all these activities is complex in a distributed system, really in any system. There are a lot of corner cases that we usually fail to consider in a non-distributed system which become much more apparent when building out a process manager. What if we preheat the oven but then discover that we're all out of flour? In that monolithic system we might throw an exception and hope that somebody is monitoring for it in a log file somewhere. Realistically that's never going to happen. In the meantime nobody has shut the oven off and the bakery burns down.</p>

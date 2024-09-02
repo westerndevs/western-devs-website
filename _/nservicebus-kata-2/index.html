@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="Western Devs">
 <meta property="og:description" content="In the previous kata we sent a message from one application to another. This is a common pattern in messaging systems. In this kata we&#39;re going to look at a different pattern: publishing a message.">
 <meta property="article:published_time" content="2024-08-31T04:00:00.000Z">
-<meta property="article:modified_time" content="2024-09-02T18:35:42.368Z">
+<meta property="article:modified_time" content="2024-09-02T18:42:16.605Z">
 <meta property="article:author" content="Western Devs">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:creator" content="@westerndevs">
@@ -111,6 +111,12 @@
 			<div id="mainPostContent">
 	        <p>In the previous kata we sent a message from one application to another. This is a common pattern in messaging systems. In this kata we're going to look at a different pattern: publishing a message.</p>
 <a id="more"></a>
+<ul>
+<li>Kata 1 - <a href="https://blog.simontimms.com/2024/08/30/nservicebus-kata-1" target="_blank" rel="noopener">Sending a message</a></li>
+<li>Kata 2 - Publishing a message</li>
+<li>Kata 3 - <a href="https://www.westerndevs.com/_/nservicebus-kata-3/" target="_blank" rel="noopener">Switching transports</a></li>
+<li>Kata 4 - <a href="https://www.westerndevs.com/_/nservicebus-kata-4/" target="_blank" rel="noopener">Long running processes</a></li>
+</ul>
 <h1>The Problem</h1>
 <p>It is great being able to send a message from one system to another - you can instruct a remote system to take some action which you don't know how to do. For instance sending an email. In a large system lots of processes will likely result in an email but if you can centralize the logic around how to send an email it makes it very easy to do things like change email providers as that functionality is isolated and independent.</p>
 <p>If you looked at my solution for the first Kata then you might have notice that I named my message <code>EatCake</code> this is named in the imperative form. This is a common pattern in messaging systems and is, I think, remarkably helpful to understand the command pattern. When you issue a command you know exactly who or what you're commanding and in the same way the command is sent to a known endpoint.</p>
