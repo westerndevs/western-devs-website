@@ -10,9 +10,10 @@ In the previous article we looked at publishing messages and the one before that
 
 <!--more-->
 
-* Kata 1 - [Sending a message](https://blog.simontimms.com/2024/08/30/nservicebus-kata-1)
-* Kata 2 - [Publishing a message](https://blog.simontimms.com/2024/08/31/nservicebus-kata-2/) 
+* Kata 1 - [Sending a message](https://www.westerndevs.com/_/nservicebus-kata-1)
+* Kata 2 - [Publishing a message](https://www.westerndevs.com/_/nservicebus-kata-2/) 
 * Kata 3 - Switching transports
+* Kata 4 - [Long running processes](https://www.westerndevs.com/_/nservicebus-kata-4/)
 
 One of the really nice things about NServiceBus is that it abstracts away a lot of the mess of dealing with transports. You can spend less time fiddling with plumbing and more time getting to the nitty gritty of building business value. We have a lot of options for transport and the ability to write new ones if needed. The official supported transports are 
 

@@ -10,6 +10,11 @@ Exciting times for me, I get to help out on an NServiceBus project! It's been wa
 
 <!--more-->
 
+* Kata 1 - Sending a message
+* Kata 2 - [Publishing a message](https://www.westerndevs.com/_/nservicebus-kata-2/) 
+* Kata 3 - [Switching transports](https://www.westerndevs.com/_/nservicebus-kata-3/)
+* Kata 4 - [Long running processes](https://www.westerndevs.com/_/nservicebus-kata-4/)
+
 ## The Problem
 
 Our goal is to very simply demonstrate reliable messaging. If you're communicating between two processes on different machines a usual approach is to send a message using HTTP. Problem is that sometimes the other end isn't reachable. Could be that the service is down, could be that the network is down or it could be that the remote location was hit by a meteor. HTTP won't help us in this case - what we want is a reliable protocol which will save the message somewhere safe and deliver it when the endpoint does show up. 

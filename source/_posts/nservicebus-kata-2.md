@@ -10,6 +10,11 @@ In the previous kata we sent a message from one application to another. This is 
 
 <!--more -->
 
+* Kata 1 - [Sending a message](https://blog.simontimms.com/2024/08/30/nservicebus-kata-1)
+* Kata 2 - Publishing a message
+* Kata 3 - [Switching transports](https://www.westerndevs.com/_/nservicebus-kata-3/)
+* Kata 4 - [Long running processes](https://www.westerndevs.com/_/nservicebus-kata-4/)
+
 # The Problem
 
 It is great being able to send a message from one system to another - you can instruct a remote system to take some action which you don't know how to do. For instance sending an email. In a large system lots of processes will likely result in an email but if you can centralize the logic around how to send an email it makes it very easy to do things like change email providers as that functionality is isolated and independent. 
