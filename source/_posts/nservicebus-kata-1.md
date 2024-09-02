@@ -2,6 +2,7 @@
 layout: post
 title: NServiceBus Kata 1
 authorId: simon_timms
+originalurl: https://blog.simontimms.com/2024/08/30/nservicebus-kata-1/
 date: 2024-08-30
 ---
 

@@ -2,15 +2,15 @@
 layout: post
 title: NServiceBus Kata 3 - Switching transports
 authorId: simon_timms
-date: 2024-08-31
+date: 2024-09-01
 ---
 
 In the previous article we looked at publishing messages and the one before that sending messages. But in both cases we cheated a little bit: we used the LearningTransport. This is effectively just a directory on disk. It cannot be used as real world transport. Let's change out this transport for something more production ready.
 
 <!--more-->
 
-* Kata 1 - [Sending a message](nservicebus-kata-1)
-* Kata 2 - [Publishing a message](nservicebus-kata-2) 
+* Kata 1 - [Sending a message](https://blog.simontimms.com/2024/08/30/nservicebus-kata-1)
+* Kata 2 - [Publishing a message](https://blog.simontimms.com/2024/08/31/nservicebus-kata-2/) 
 * Kata 3 - Switching transports
 
 One of the really nice things about NServiceBus is that it abstracts away a lot of the mess of dealing with transports. You can spend less time fiddling with plumbing and more time getting to the nitty gritty of building business value. We have a lot of options for transport and the ability to write new ones if needed. The official supported transports are 
