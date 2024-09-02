@@ -20,7 +20,7 @@ A saga allows us to store the state of a process, to react to messages as they c
 
 Let's build out a very simple saga which responds to just a few messages in our system so we can see how it works. Saga can get pretty complex but they are quite testable so that's nice.  
 
-# The Kata cancelled canceled 
+# The Kata
 
 Create a saga which handles the messages `CakeOrderPlaced`, `CakeOrderCanceled`, `CakeOrderShipped`. Each of these messages will contain an `OrderId`, a GUID, which will be used to identify the saga as well as whatever information might be associated with those messages. For now just write out to the console when each of these messages is received - unless you want to bake me a cake which I will accept.
 
