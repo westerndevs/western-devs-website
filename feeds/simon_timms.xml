@@ -5,7 +5,7 @@
   <link href="/feeds/simon_timms" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2024-09-01T01:12:30.904Z</updated>
+  <updated>2024-09-02T03:16:08.600Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-2/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-2/</id>
     <published>2024-08-31T04:00:00.000Z</published>
-    <updated>2024-09-01T01:12:30.904Z</updated>
+    <updated>2024-09-02T03:16:08.600Z</updated>
 	<author>
 	
 	  
@@ -43,11 +43,37 @@
   </entry>
   
   <entry>
+    <title type="html">NServiceBus Kata 3 - Switching transports</title>
+    <link href="https://westerndevs.com/_/nservicebus-kata-3/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/nservicebus-kata-3/</id>
+    <published>2024-08-31T04:00:00.000Z</published>
+    <updated>2024-09-02T03:16:08.600Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>In the previous article we looked at publishing messages and the one before that sending messages. But in both cases we cheated a little bit: we used the LearningTransport. This is effectively just a directory on disk. It cannot be used as real world transport. Let's change out this transport for something more production ready.</p><a id="more"></a><ul><li>Kata 1 - <a href="nservicebus-kata-1">Sending a message</a></li><li>Kata 2 - <a href="nservicebus-kata-2">Publishing a message</a></li><li>Kata 3 - Switching transports</li></ul><p>One of the really nice things about NServiceBus is that it abstracts away a lot of the mess of dealing with transports. You can spend less time fiddling with plumbing and more time getting to the nitty gritty of building business value. We have a lot of options for transport and the ability to write new ones if needed. The official supported transports are</p><ul><li>Azure Service Bus</li><li>Azure Storage Queues</li><li>Amazon SQS</li><li>RabbitMQ</li><li>SQL Server</li><li>MSMQ</li></ul><p>Each of these has advantages and disadvantages which you can read about in some detail in the <a href="https://docs.particular.net/transports/" target="_blank" rel="noopener">documentation</a>. In a production environment I'd push heavily towards Azure Service Bus but it has a major disadvantage: no local emulator. There is a github issue open to <a href="https://github.com/Azure/azure-service-bus/issues/223" target="_blank" rel="noopener">add an emulator</a> which has been open since 2018. Normally I'd grumble a bit about how this is never going to be solved but actually the team has dedicated resources to building one out and think they'll have one ready by the end of 2024. Only you, dear readers from the future, know if this came to fruition.</p><p>For now we're going to take advantage of the interchangeability of transports and switch out the LearningTransport for the RabbitMQ transport. This can be run with a container on docker.</p><h1>The Kata</h1><p>Take the solution developed already and switch out the learning transport for the RabbitMQ transport running inside of a container. Everything should continue to work as it did before but now using RabbitMQ.</p><h1>My Solution</h1><ol><li>Download and run the RabbitMQ container</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --hostname nsbkata --name nsbkata-rabbit -p 15672:15672 -p 5672:5672 rabbitmq:3-management</span><br></pre></td></tr></table></figure><ol start="2"><li>Install the RabbitMQ transport package in all the projects</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dotnet add sender package NServiceBus.RabbitMQ</span><br><span class="line">dotnet add receiver package NServiceBus.RabbitMQ</span><br><span class="line">dotnet add anotherReceiver package NServiceBus.RabbitMQ</span><br></pre></td></tr></table></figure><ol start="3"><li>Modify the endpoint configurations across all the projects swapping</li></ol><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> transport = endpointConfiguration.UseTransport&lt;LearningTransport&gt;();</span><br></pre></td></tr></table></figure><p>with</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> transport = endpointConfiguration.UseTransport&lt;RabbitMQTransport&gt;();</span><br><span class="line">transport.ConnectionString(<span class="string">"host=localhost"</span>);</span><br><span class="line">transport.UseConventionalRoutingTopology(QueueType.Quorum);</span><br></pre></td></tr></table></figure><ol start="4"><li>It is generally best that you take control of creating queues for NServiceBus but tooling is provided. Install that tooling</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dotnet tool install -g NServiceBus.Transport.RabbitMQ.CommandLine</span><br></pre></td></tr></table></figure><p>Next create the queues for the endpoints (and the delays queues)</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rabbitmq-transport delays create  -c <span class="string">"host=localhost"</span></span><br><span class="line">rabbitmq-transport endpoint create NServiceBusKataAnotherReceiver -c <span class="string">"host=localhost"</span></span><br><span class="line">rabbitmq-transport endpoint create NServiceBusKataReceiver -c <span class="string">"host=localhost"</span></span><br><span class="line">rabbitmq-transport endpoint create NServiceBusKataSender -c <span class="string">"host=localhost"</span></span><br></pre></td></tr></table></figure><p>Things to try now</p><ol><li><p>Run the sender, receiver and anotherReceiver projects. You should see the messages being sent and received as before.</p></li><li><p>Log into the RabbitMQ management console(running at http://localhost:15672/ with credentials <code>guest</code>/<code>guest</code>) you should see the queues created and in fact a message processed</p></li></ol><p><img src="../images/nservicebus-kata-3/2024-09-01-12-09-20.png" alt="A RabbitMQ queue"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;In the previous article we looked at publishing messages and the one before that sending messages. But in both cases we cheated a little bit: we used the LearningTransport. This is effectively just a directory on disk. It cannot be used as real world transport. Let&#39;s change out this transport for something more production ready.&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">NServiceBus Kata 1</title>
     <link href="https://westerndevs.com/_/nservicebus-kata-1/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-1/</id>
     <published>2024-08-30T04:00:00.000Z</published>
-    <updated>2024-09-01T01:12:30.904Z</updated>
+    <updated>2024-09-02T03:16:08.600Z</updated>
 	<author>
 	
 	  
@@ -73,7 +99,7 @@
     <link href="https://westerndevs.com/_/plinko-diagram/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/plinko-diagram/</id>
     <published>2024-07-31T04:00:00.000Z</published>
-    <updated>2024-09-01T01:12:30.904Z</updated>
+    <updated>2024-09-02T03:16:08.604Z</updated>
 	<author>
 	
 	  
@@ -99,7 +125,7 @@
     <link href="https://westerndevs.com/_/set-blob-container-cors/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-blob-container-cors/</id>
     <published>2024-05-24T04:00:00.000Z</published>
-    <updated>2024-09-01T01:12:30.908Z</updated>
+    <updated>2024-09-02T03:16:08.604Z</updated>
 	<author>
 	
 	  
@@ -125,7 +151,7 @@
     <link href="https://westerndevs.com/_/cannot-copy/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cannot-copy/</id>
     <published>2023-11-23T05:00:00.000Z</published>
-    <updated>2024-09-01T01:12:30.900Z</updated>
+    <updated>2024-09-02T03:16:08.596Z</updated>
 	<author>
 	
 	  
@@ -151,7 +177,7 @@
     <link href="https://westerndevs.com/_/connect-to-service-container/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/connect-to-service-container/</id>
     <published>2023-11-20T05:00:00.000Z</published>
-    <updated>2024-09-01T01:12:30.900Z</updated>
+    <updated>2024-09-02T03:16:08.596Z</updated>
 	<author>
 	
 	  
@@ -177,7 +203,7 @@
     <link href="https://westerndevs.com/_/smtp-setup-for-mailgun/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/smtp-setup-for-mailgun/</id>
     <published>2023-10-30T04:00:00.000Z</published>
-    <updated>2024-09-01T01:12:30.908Z</updated>
+    <updated>2024-09-02T03:16:08.604Z</updated>
 	<author>
 	
 	  
@@ -203,7 +229,7 @@
     <link href="https://westerndevs.com/_/artillery/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/artillery/</id>
     <published>2023-10-14T04:00:00.000Z</published>
-    <updated>2024-09-01T01:12:30.900Z</updated>
+    <updated>2024-09-02T03:16:08.596Z</updated>
 	<author>
 	
 	  
@@ -229,7 +255,7 @@
     <link href="https://westerndevs.com/_/storage-alert-rules/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storage-alert-rules/</id>
     <published>2023-03-30T04:00:00.000Z</published>
-    <updated>2024-09-01T01:12:30.908Z</updated>
+    <updated>2024-09-02T03:16:08.604Z</updated>
 	<author>
 	
 	  
@@ -255,7 +281,7 @@
     <link href="https://westerndevs.com/_/vuetify-esm/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/vuetify-esm/</id>
     <published>2023-03-15T04:00:00.000Z</published>
-    <updated>2024-09-01T01:12:30.912Z</updated>
+    <updated>2024-09-02T03:16:08.608Z</updated>
 	<author>
 	
 	  
@@ -281,7 +307,7 @@
     <link href="https://westerndevs.com/_/app-service-quota/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/app-service-quota/</id>
     <published>2023-03-04T05:00:00.000Z</published>
-    <updated>2024-09-01T01:12:30.900Z</updated>
+    <updated>2024-09-02T03:16:08.596Z</updated>
 	<author>
 	
 	  
@@ -308,7 +334,7 @@
     <link href="https://westerndevs.com/_/azure-keyvaul-reference-gotcha/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-keyvaul-reference-gotcha/</id>
     <published>2023-03-04T05:00:00.000Z</published>
-    <updated>2024-09-01T01:12:30.900Z</updated>
+    <updated>2024-09-02T03:16:08.596Z</updated>
 	<author>
 	
 	  
@@ -334,7 +360,7 @@
     <link href="https://westerndevs.com/_/express-json-comments/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/express-json-comments/</id>
     <published>2023-02-16T05:00:00.000Z</published>
-    <updated>2024-09-01T01:12:30.904Z</updated>
+    <updated>2024-09-02T03:16:08.600Z</updated>
 	<author>
 	
 	  
@@ -360,7 +386,7 @@
     <link href="https://westerndevs.com/_/ruby-excel/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ruby-excel/</id>
     <published>2023-02-15T05:00:00.000Z</published>
-    <updated>2024-09-01T01:12:30.908Z</updated>
+    <updated>2024-09-02T03:16:08.604Z</updated>
 	<author>
 	
 	  
@@ -386,7 +412,7 @@
     <link href="https://westerndevs.com/_/bulk-insert-sql-geometry/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/bulk-insert-sql-geometry/</id>
     <published>2022-11-17T05:00:00.000Z</published>
-    <updated>2024-09-01T01:12:30.900Z</updated>
+    <updated>2024-09-02T03:16:08.596Z</updated>
 	<author>
 	
 	  
@@ -412,7 +438,7 @@
     <link href="https://westerndevs.com/_/azure-backus-protip/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-backus-protip/</id>
     <published>2022-11-11T05:00:00.000Z</published>
-    <updated>2024-09-01T01:12:30.900Z</updated>
+    <updated>2024-09-02T03:16:08.596Z</updated>
 	<author>
 	
 	  
@@ -438,7 +464,7 @@
     <link href="https://westerndevs.com/_/set-output-terraform/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-output-terraform/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2024-09-01T01:12:30.908Z</updated>
+    <updated>2024-09-02T03:16:08.604Z</updated>
 	<author>
 	
 	  
@@ -464,7 +490,7 @@
     <link href="https://westerndevs.com/_/theory-of-terraform-github-actions/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/theory-of-terraform-github-actions/</id>
     <published>2022-11-01T04:00:00.000Z</published>
-    <updated>2024-09-01T01:12:30.908Z</updated>
+    <updated>2024-09-02T03:16:08.608Z</updated>
 	<author>
 	
 	  
@@ -490,7 +516,7 @@
     <link href="https://westerndevs.com/_/register-providers/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/register-providers/</id>
     <published>2022-08-12T04:00:00.000Z</published>
-    <updated>2024-09-01T01:12:30.908Z</updated>
+    <updated>2024-09-02T03:16:08.604Z</updated>
 	<author>
 	
 	  
@@ -505,32 +531,6 @@
     <summary type="html">
     
       &lt;p&gt;If you&#39;re setting up a new Terraform project on Azure you might find yourself needing to register providers if you&#39;re running with an ide
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Debugging Azure Container Instance Startup</title>
-    <link href="https://westerndevs.com/_/debug-azure-container-instances-startup/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/debug-azure-container-instances-startup/</id>
-    <published>2022-08-04T04:00:00.000Z</published>
-    <updated>2024-09-01T01:12:30.904Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>I have some container instances which are failing to start up properly and the logs in the portal are blank. This makes debugging them kind of difficult.</p><p>On the command line running</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">az container logs -g &lt;resource group name&gt; -n &lt;container group name&gt; --container &lt;container name&gt;</span><br></pre></td></tr></table></figure><p>Just gave me an output of <code>None</code>. Not useful either.</p><p>Fortunately, you can attach directly to the logs streams coming out of the container which will give you a better idea of what is going on.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">az container attach -g &lt;resource group name&gt; -n &lt;container group name&gt; --container &lt;container name&gt;</span><br></pre></td></tr></table></figure><p>This was able to give me output like</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Start</span> streaming <span class="keyword">logs</span>:</span><br><span class="line">/usr/<span class="keyword">local</span>/lib/python3<span class="number">.9</span>/site-packages/environ/environ.py:<span class="number">628</span>: UserWarning: /ric-api/core/.env doesn<span class="string">'t exist - if you'</span>re <span class="keyword">not</span> configuring your environment separately, <span class="keyword">create</span> one.</span><br><span class="line">  warnings.warn(</span><br><span class="line">Traceback (most recent <span class="keyword">call</span> <span class="keyword">last</span>):</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/usr/local/lib/python3.9/site-packages/environ/environ.py"</span>, line <span class="number">273</span>, <span class="keyword">in</span> get_value</span><br><span class="line">    <span class="keyword">value</span> = self.ENVIRON[<span class="keyword">var</span>]</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/usr/local/lib/python3.9/os.py"</span>, line <span class="number">679</span>, <span class="keyword">in</span> __getitem__</span><br><span class="line">    <span class="keyword">raise</span> KeyError(<span class="keyword">key</span>) <span class="keyword">from</span> <span class="keyword">None</span></span><br><span class="line">KeyError: <span class="string">'DB_PORT'</span></span><br><span class="line"></span><br><span class="line">During handling <span class="keyword">of</span> the above <span class="keyword">exception</span>, another <span class="keyword">exception</span> occurred:</span><br><span class="line"></span><br><span class="line">Traceback (most recent <span class="keyword">call</span> <span class="keyword">last</span>):</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/ric-api/manage.py"</span>, line <span class="number">22</span>, <span class="keyword">in</span> &lt;<span class="keyword">module</span>&gt;</span><br><span class="line">    <span class="keyword">main</span>()</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/ric-api/manage.py"</span>, line <span class="number">18</span>, <span class="keyword">in</span> <span class="keyword">main</span></span><br><span class="line">    execute_from_command_line(sys.argv)</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/usr/local/lib/python3.9/site-packages/django/core/management/__init__.py"</span>, line <span class="number">419</span>, <span class="keyword">in</span> execute_from_command_line</span><br><span class="line">    utility.execute()</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/usr/local/lib/python3.9/site-packages/django/core/management/__init__.py"</span>, line <span class="number">413</span>, <span class="keyword">in</span> <span class="keyword">execute</span></span><br><span class="line">    self.fetch_command(subcommand).run_from_argv(self.argv)</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/usr/local/lib/python3.9/site-packages/django/core/management/base.py"</span>, line <span class="number">354</span>, <span class="keyword">in</span> run_from_argv</span><br><span class="line">    self.execute(*args, **cmd_options)</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/usr/local/lib/python3.9/site-packages/django/core/management/commands/runserver.py"</span>, line <span class="number">61</span>, <span class="keyword">in</span> <span class="keyword">execute</span></span><br><span class="line">    super().execute(*args, **options)</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/usr/local/lib/python3.9/site-packages/django/core/management/base.py"</span>, line <span class="number">398</span>, <span class="keyword">in</span> <span class="keyword">execute</span></span><br><span class="line">    <span class="keyword">output</span> = self.handle(*args, **options)</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/usr/local/lib/python3.9/site-packages/django/core/management/commands/runserver.py"</span>, line <span class="number">68</span>, <span class="keyword">in</span> handle</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> settings.DEBUG <span class="keyword">and</span> <span class="keyword">not</span> settings.ALLOWED_HOSTS:</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/usr/local/lib/python3.9/site-packages/django/conf/__init__.py"</span>, line <span class="number">82</span>, <span class="keyword">in</span> __getattr__</span><br><span class="line">    self._setup(<span class="keyword">name</span>)</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/usr/local/lib/python3.9/site-packages/django/conf/__init__.py"</span>, line <span class="number">69</span>, <span class="keyword">in</span> _setup</span><br><span class="line">    self._wrapped = <span class="keyword">Settings</span>(settings_module)</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/usr/local/lib/python3.9/site-packages/django/conf/__init__.py"</span>, line <span class="number">170</span>, <span class="keyword">in</span> __init__</span><br><span class="line">    <span class="keyword">mod</span> = importlib.import_module(self.SETTINGS_MODULE)</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/usr/local/lib/python3.9/importlib/__init__.py"</span>, line <span class="number">127</span>, <span class="keyword">in</span> import_module</span><br><span class="line">    <span class="keyword">return</span> _bootstrap._gcd_import(<span class="keyword">name</span>[<span class="keyword">level</span>:], <span class="keyword">package</span>, <span class="keyword">level</span>)</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"&lt;frozen importlib._bootstrap&gt;"</span>, line <span class="number">1030</span>, <span class="keyword">in</span> _gcd_import</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"&lt;frozen importlib._bootstrap&gt;"</span>, line <span class="number">1007</span>, <span class="keyword">in</span> _find_and_load</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"&lt;frozen importlib._bootstrap&gt;"</span>, line <span class="number">986</span>, <span class="keyword">in</span> _find_and_load_unlocked</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"&lt;frozen importlib._bootstrap&gt;"</span>, line <span class="number">680</span>, <span class="keyword">in</span> _load_unlocked</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"&lt;frozen importlib._bootstrap_external&gt;"</span>, line <span class="number">850</span>, <span class="keyword">in</span> exec_module</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"&lt;frozen importlib._bootstrap&gt;"</span>, line <span class="number">228</span>, <span class="keyword">in</span> _call_with_frames_removed</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/ric-api/core/settings.py"</span>, line <span class="number">114</span>, <span class="keyword">in</span> &lt;<span class="keyword">module</span>&gt;</span><br><span class="line">    <span class="string">'PORT'</span>: env(<span class="string">'DB_PORT'</span>),</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/usr/local/lib/python3.9/site-packages/environ/environ.py"</span>, line <span class="number">123</span>, <span class="keyword">in</span> __call__</span><br><span class="line">    <span class="keyword">return</span> self.get_value(<span class="keyword">var</span>, <span class="keyword">cast</span>=<span class="keyword">cast</span>, <span class="keyword">default</span>=<span class="keyword">default</span>, parse_default=parse_default)</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"/usr/local/lib/python3.9/site-packages/environ/environ.py"</span>, line <span class="number">277</span>, <span class="keyword">in</span> get_value</span><br><span class="line">    <span class="keyword">raise</span> ImproperlyConfigured(error_msg)</span><br><span class="line">django.core.exceptions.ImproperlyConfigured: <span class="keyword">Set</span> the DB_PORT environment <span class="keyword">variable</span></span><br><span class="line"><span class="number">2022</span><span class="number">-07</span><span class="number">-14</span>T14:<span class="number">37</span>:<span class="number">17.6003172</span>Z stderr F</span><br><span class="line"></span><br><span class="line"><span class="keyword">Exception</span> <span class="keyword">in</span> <span class="keyword">thread</span> <span class="keyword">Thread</span><span class="number">-1</span>:</span><br><span class="line">Traceback (most recent <span class="keyword">call</span> <span class="keyword">last</span>):</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"threading.py"</span>, line <span class="number">932</span>, <span class="keyword">in</span> _bootstrap_inner</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"threading.py"</span>, line <span class="number">870</span>, <span class="keyword">in</span> run</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"D:\a\1\s\build_scripts\windows\artifacts\cli\Lib\site-packages\azure/cli/command_modules/container/custom.py"</span>, line <span class="number">837</span>, <span class="keyword">in</span> _stream_container_events_and_logs</span><br><span class="line">  <span class="keyword">File</span> <span class="string">"D:\a\1\s\build_scripts\windows\artifacts\cli\Lib\site-packages\azure/cli/command_modules/container/custom.py"</span>, line <span class="number">791</span>, <span class="keyword">in</span> _stream_logs</span><br><span class="line">AttributeError: <span class="string">'NoneType'</span> <span class="keyword">object</span> has <span class="keyword">no</span> <span class="keyword">attribute</span> <span class="string">'split'</span></span><br></pre></td></tr></table></figure><p>Looks like I missed adding a <code>DB_PORT</code> to the environmental variables</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;I have some container instances which are failing to start up properly and the logs in the portal are blank. This makes debugging them ki
     
     </summary>
     

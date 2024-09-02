@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2024-09-01T01:12:30.904Z</updated>
+  <updated>2024-09-02T03:16:08.600Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-2/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-2/</id>
     <published>2024-08-31T04:00:00.000Z</published>
-    <updated>2024-09-01T01:12:30.904Z</updated>
+    <updated>2024-09-02T03:16:08.600Z</updated>
 	<author>
 	
 	  
@@ -43,11 +43,37 @@
   </entry>
   
   <entry>
+    <title type="html">NServiceBus Kata 3 - Switching transports</title>
+    <link href="https://westerndevs.com/_/nservicebus-kata-3/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/nservicebus-kata-3/</id>
+    <published>2024-08-31T04:00:00.000Z</published>
+    <updated>2024-09-02T03:16:08.600Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>In the previous article we looked at publishing messages and the one before that sending messages. But in both cases we cheated a little bit: we used the LearningTransport. This is effectively just a directory on disk. It cannot be used as real world transport. Let's change out this transport for something more production ready.</p><a id="more"></a><ul><li>Kata 1 - <a href="nservicebus-kata-1">Sending a message</a></li><li>Kata 2 - <a href="nservicebus-kata-2">Publishing a message</a></li><li>Kata 3 - Switching transports</li></ul><p>One of the really nice things about NServiceBus is that it abstracts away a lot of the mess of dealing with transports. You can spend less time fiddling with plumbing and more time getting to the nitty gritty of building business value. We have a lot of options for transport and the ability to write new ones if needed. The official supported transports are</p><ul><li>Azure Service Bus</li><li>Azure Storage Queues</li><li>Amazon SQS</li><li>RabbitMQ</li><li>SQL Server</li><li>MSMQ</li></ul><p>Each of these has advantages and disadvantages which you can read about in some detail in the <a href="https://docs.particular.net/transports/" target="_blank" rel="noopener">documentation</a>. In a production environment I'd push heavily towards Azure Service Bus but it has a major disadvantage: no local emulator. There is a github issue open to <a href="https://github.com/Azure/azure-service-bus/issues/223" target="_blank" rel="noopener">add an emulator</a> which has been open since 2018. Normally I'd grumble a bit about how this is never going to be solved but actually the team has dedicated resources to building one out and think they'll have one ready by the end of 2024. Only you, dear readers from the future, know if this came to fruition.</p><p>For now we're going to take advantage of the interchangeability of transports and switch out the LearningTransport for the RabbitMQ transport. This can be run with a container on docker.</p><h1>The Kata</h1><p>Take the solution developed already and switch out the learning transport for the RabbitMQ transport running inside of a container. Everything should continue to work as it did before but now using RabbitMQ.</p><h1>My Solution</h1><ol><li>Download and run the RabbitMQ container</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --hostname nsbkata --name nsbkata-rabbit -p 15672:15672 -p 5672:5672 rabbitmq:3-management</span><br></pre></td></tr></table></figure><ol start="2"><li>Install the RabbitMQ transport package in all the projects</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dotnet add sender package NServiceBus.RabbitMQ</span><br><span class="line">dotnet add receiver package NServiceBus.RabbitMQ</span><br><span class="line">dotnet add anotherReceiver package NServiceBus.RabbitMQ</span><br></pre></td></tr></table></figure><ol start="3"><li>Modify the endpoint configurations across all the projects swapping</li></ol><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> transport = endpointConfiguration.UseTransport&lt;LearningTransport&gt;();</span><br></pre></td></tr></table></figure><p>with</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> transport = endpointConfiguration.UseTransport&lt;RabbitMQTransport&gt;();</span><br><span class="line">transport.ConnectionString(<span class="string">"host=localhost"</span>);</span><br><span class="line">transport.UseConventionalRoutingTopology(QueueType.Quorum);</span><br></pre></td></tr></table></figure><ol start="4"><li>It is generally best that you take control of creating queues for NServiceBus but tooling is provided. Install that tooling</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dotnet tool install -g NServiceBus.Transport.RabbitMQ.CommandLine</span><br></pre></td></tr></table></figure><p>Next create the queues for the endpoints (and the delays queues)</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rabbitmq-transport delays create  -c <span class="string">"host=localhost"</span></span><br><span class="line">rabbitmq-transport endpoint create NServiceBusKataAnotherReceiver -c <span class="string">"host=localhost"</span></span><br><span class="line">rabbitmq-transport endpoint create NServiceBusKataReceiver -c <span class="string">"host=localhost"</span></span><br><span class="line">rabbitmq-transport endpoint create NServiceBusKataSender -c <span class="string">"host=localhost"</span></span><br></pre></td></tr></table></figure><p>Things to try now</p><ol><li><p>Run the sender, receiver and anotherReceiver projects. You should see the messages being sent and received as before.</p></li><li><p>Log into the RabbitMQ management console(running at http://localhost:15672/ with credentials <code>guest</code>/<code>guest</code>) you should see the queues created and in fact a message processed</p></li></ol><p><img src="../images/nservicebus-kata-3/2024-09-01-12-09-20.png" alt="A RabbitMQ queue"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;In the previous article we looked at publishing messages and the one before that sending messages. But in both cases we cheated a little bit: we used the LearningTransport. This is effectively just a directory on disk. It cannot be used as real world transport. Let&#39;s change out this transport for something more production ready.&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">NServiceBus Kata 1</title>
     <link href="https://westerndevs.com/_/nservicebus-kata-1/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-1/</id>
     <published>2024-08-30T04:00:00.000Z</published>
-    <updated>2024-09-01T01:12:30.904Z</updated>
+    <updated>2024-09-02T03:16:08.600Z</updated>
 	<author>
 	
 	  
@@ -73,7 +99,7 @@
     <link href="https://westerndevs.com/_/plinko-diagram/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/plinko-diagram/</id>
     <published>2024-07-31T04:00:00.000Z</published>
-    <updated>2024-09-01T01:12:30.904Z</updated>
+    <updated>2024-09-02T03:16:08.604Z</updated>
 	<author>
 	
 	  
@@ -99,7 +125,7 @@
     <link href="https://westerndevs.com/_/azure-functions-for-side-projects/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-functions-for-side-projects/</id>
     <published>2024-06-23T04:00:00.000Z</published>
-    <updated>2024-09-01T01:12:30.900Z</updated>
+    <updated>2024-09-02T03:16:08.596Z</updated>
 	<author>
 	
 	  
@@ -130,7 +156,7 @@
     <link href="https://westerndevs.com/_/syncing-multiple-calendars/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/syncing-multiple-calendars/</id>
     <published>2024-06-17T04:00:00.000Z</published>
-    <updated>2024-09-01T01:12:30.908Z</updated>
+    <updated>2024-09-02T03:16:08.604Z</updated>
 	<author>
 	
 	  
@@ -156,7 +182,7 @@
     <link href="https://westerndevs.com/_/set-blob-container-cors/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-blob-container-cors/</id>
     <published>2024-05-24T04:00:00.000Z</published>
-    <updated>2024-09-01T01:12:30.908Z</updated>
+    <updated>2024-09-02T03:16:08.604Z</updated>
 	<author>
 	
 	  
@@ -182,7 +208,7 @@
     <link href="https://westerndevs.com/_/cannot-copy/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cannot-copy/</id>
     <published>2023-11-23T05:00:00.000Z</published>
-    <updated>2024-09-01T01:12:30.900Z</updated>
+    <updated>2024-09-02T03:16:08.596Z</updated>
 	<author>
 	
 	  
@@ -208,7 +234,7 @@
     <link href="https://westerndevs.com/_/connect-to-service-container/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/connect-to-service-container/</id>
     <published>2023-11-20T05:00:00.000Z</published>
-    <updated>2024-09-01T01:12:30.900Z</updated>
+    <updated>2024-09-02T03:16:08.596Z</updated>
 	<author>
 	
 	  
@@ -234,7 +260,7 @@
     <link href="https://westerndevs.com/_/smtp-setup-for-mailgun/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/smtp-setup-for-mailgun/</id>
     <published>2023-10-30T04:00:00.000Z</published>
-    <updated>2024-09-01T01:12:30.908Z</updated>
+    <updated>2024-09-02T03:16:08.604Z</updated>
 	<author>
 	
 	  
@@ -260,7 +286,7 @@
     <link href="https://westerndevs.com/_/artillery/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/artillery/</id>
     <published>2023-10-14T04:00:00.000Z</published>
-    <updated>2024-09-01T01:12:30.900Z</updated>
+    <updated>2024-09-02T03:16:08.596Z</updated>
 	<author>
 	
 	  
@@ -286,7 +312,7 @@
     <link href="https://westerndevs.com/_/storage-alert-rules/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storage-alert-rules/</id>
     <published>2023-03-30T04:00:00.000Z</published>
-    <updated>2024-09-01T01:12:30.908Z</updated>
+    <updated>2024-09-02T03:16:08.604Z</updated>
 	<author>
 	
 	  
@@ -312,7 +338,7 @@
     <link href="https://westerndevs.com/_/vuetify-esm/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/vuetify-esm/</id>
     <published>2023-03-15T04:00:00.000Z</published>
-    <updated>2024-09-01T01:12:30.912Z</updated>
+    <updated>2024-09-02T03:16:08.608Z</updated>
 	<author>
 	
 	  
@@ -338,7 +364,7 @@
     <link href="https://westerndevs.com/_/app-service-quota/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/app-service-quota/</id>
     <published>2023-03-04T05:00:00.000Z</published>
-    <updated>2024-09-01T01:12:30.900Z</updated>
+    <updated>2024-09-02T03:16:08.596Z</updated>
 	<author>
 	
 	  
@@ -365,7 +391,7 @@
     <link href="https://westerndevs.com/_/azure-keyvaul-reference-gotcha/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-keyvaul-reference-gotcha/</id>
     <published>2023-03-04T05:00:00.000Z</published>
-    <updated>2024-09-01T01:12:30.900Z</updated>
+    <updated>2024-09-02T03:16:08.596Z</updated>
 	<author>
 	
 	  
@@ -391,7 +417,7 @@
     <link href="https://westerndevs.com/_/express-json-comments/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/express-json-comments/</id>
     <published>2023-02-16T05:00:00.000Z</published>
-    <updated>2024-09-01T01:12:30.904Z</updated>
+    <updated>2024-09-02T03:16:08.600Z</updated>
 	<author>
 	
 	  
@@ -417,7 +443,7 @@
     <link href="https://westerndevs.com/_/ruby-excel/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ruby-excel/</id>
     <published>2023-02-15T05:00:00.000Z</published>
-    <updated>2024-09-01T01:12:30.908Z</updated>
+    <updated>2024-09-02T03:16:08.604Z</updated>
 	<author>
 	
 	  
@@ -443,7 +469,7 @@
     <link href="https://westerndevs.com/musings/defining-problem-before-the-soltuion/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/musings/defining-problem-before-the-soltuion/</id>
     <published>2023-01-27T23:24:33.221Z</published>
-    <updated>2024-09-01T01:12:30.900Z</updated>
+    <updated>2024-09-02T03:16:08.596Z</updated>
 	<author>
 	
 	  
@@ -464,6 +490,8 @@
       <category term="musings" scheme="https://westerndevs.com/categories/musings/"/>
     
     
+      <category term="code" scheme="https://westerndevs.com/tags/code/"/>
+    
       <category term="solution-architecture" scheme="https://westerndevs.com/tags/solution-architecture/"/>
     
       <category term="problem-definition" scheme="https://westerndevs.com/tags/problem-definition/"/>
@@ -472,8 +500,6 @@
     
       <category term="defining-value" scheme="https://westerndevs.com/tags/defining-value/"/>
     
-      <category term="code" scheme="https://westerndevs.com/tags/code/"/>
-    
   </entry>
   
   <entry>
@@ -481,7 +507,7 @@
     <link href="https://westerndevs.com/coding/problem-solution/docker-build-hangs-on-apt-key-in-wsl2/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/coding/problem-solution/docker-build-hangs-on-apt-key-in-wsl2/</id>
     <published>2023-01-12T02:43:58.005Z</published>
-    <updated>2024-09-01T01:12:30.900Z</updated>
+    <updated>2024-09-02T03:16:08.596Z</updated>
 	<author>
 	
 	  
@@ -523,7 +549,7 @@
     <link href="https://westerndevs.com/musings/highlight-reel-for-2022/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/musings/highlight-reel-for-2022/</id>
     <published>2023-01-05T21:47:02.098Z</published>
-    <updated>2024-09-01T01:12:30.900Z</updated>
+    <updated>2024-09-02T03:16:08.596Z</updated>
 	<author>
 	
 	  
@@ -552,43 +578,11 @@
     
       <category term="prdc-2022" scheme="https://westerndevs.com/tags/prdc-2022/"/>
     
-      <category term="code" scheme="https://westerndevs.com/tags/code/"/>
-    
       <category term="mvp" scheme="https://westerndevs.com/tags/mvp/"/>
     
+      <category term="code" scheme="https://westerndevs.com/tags/code/"/>
+    
       <category term="burnout" scheme="https://westerndevs.com/tags/burnout/"/>
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Happy Holidays from the Western Devs</title>
-    <link href="https://westerndevs.com/_/happy-holidays-2022/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/happy-holidays-2022/</id>
-    <published>2022-12-24T22:00:00.000Z</published>
-    <updated>2024-09-01T01:12:30.900Z</updated>
-	<author>
-	
-	  
-	  <name></name>
-	  <email></email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>Every year, the Western Devs try to put together a virtual holiday gathering across 7 timezones to catch-up, have fun, and celebrate the holiday season. To mark the occasion, we had AI generate a poem to help us enjoy the season along with an image for which we will not provide context for.</p><blockquote><p>'Twas the night before Christmas, and all through the landThe Western Devs group was busily at handWorking on projects, coding with careIn hopes that the deadlines would soon be met, with flair</p><p>he computers were humming, the monitors aglowAs the developers worked on code, to and froSome were debugging, some were designingAll with the goal of creating something exciting</p><p>But as the night wore on, and the work was almost throughThe developers stopped, and a cheer rose anewThey had made it, they had finished the taskNow it was time to put down the code and unwind at last</p><p>So they gathered around, for the holiday was hereRaised a glass to a year of hard work and good cheerHere's to the Western Devs group, may your future be brightMerry Christmas to all, and to all a good night!</p></blockquote><p>Have yourselves a great holiday season and new year!</p><p><img src="/images/2022-12-24-happy-holidays-2022/lobster.png" alt="a portrait of the lobster dressed for bed and sipping a glass of champagne after a one night stand in Seattle. The lobster is sitting on a hotel bed, wearing an oversized aqua robe, with a shirt and bowtie, but no pants, and a set of ski goggles."></p><p>Cheers!</p>]]></content>
-    
-    <summary type="html">
-    
-      From our computers to yours, we wanted to take a moment to share with your part of our annual Western Devs Holiday Extranvaganza virtual celebration!
-    
-    </summary>
-    
-    
-      <category term="happy-holidays" scheme="https://westerndevs.com/tags/happy-holidays/"/>
-    
-      <category term="poem" scheme="https://westerndevs.com/tags/poem/"/>
-    
-      <category term="fun" scheme="https://westerndevs.com/tags/fun/"/>
     
   </entry>
   
