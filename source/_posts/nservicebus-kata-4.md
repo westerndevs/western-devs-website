@@ -28,13 +28,13 @@ Create a saga which handles the messages `CakeOrderPlaced`, `CakeOrderCanceled`,
 
 1. Add some mechanism to handle the persistence of saga data. For now we'll just use the in learning persistence. In the various program.cs files add 
 
-```
+```csharp
 var persistence = endpointConfiguration.UsePersistence<LearningPersistence>();
 ```
 
 2. Create messages classes in the messages project
 
-```
+```csharp
 namespace messages;
 
 using NServiceBus;
@@ -61,7 +61,7 @@ public class CakeOrderShipped : IEvent
 
 3. Create a saga class in the receiver project
 
-```
+```csharp
 using NServiceBus;
 using messages;
 public class CakeOrderSaga : Saga<CakeOrderSagaData>,
@@ -103,7 +103,7 @@ public class CakeOrderSaga : Saga<CakeOrderSagaData>,
 
 4. Add a saga data class to the receiver project
 
-```
+```csharp
 using NServiceBus;
 
 public class CakeOrderSagaData : ContainSagaData
@@ -116,7 +116,7 @@ public class CakeOrderSagaData : ContainSagaData
 
 5. Modify the sender project's program.cs to send the messages adding a loop which sends all the different messages involved in the saga. 
 
-```
+```csharp
 
 bool continueMessages = true;
 Guid orderId = Guid.NewGuid();
