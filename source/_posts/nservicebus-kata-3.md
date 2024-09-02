@@ -2,6 +2,7 @@
 layout: post
 title: NServiceBus Kata 3 - Switching transports
 authorId: simon_timms
+originalurl: https://blog.simontimms.com/2024/09/01/nservicebus-kata-3
 date: 2024-09-01
 ---
 
