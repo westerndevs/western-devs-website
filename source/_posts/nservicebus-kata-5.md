@@ -2,7 +2,7 @@
 layout: post
 title: NServiceBus Kata 5 - Timeouts
 authorId: simon_timms
-originalurl: https://blog.simontimms.com/2024/09/01/nservicebus-kata-5
+originalurl: https://blog.simontimms.com/2024/09/09/nservicebus-kata-5
 date: 2024-09-09
 ---
 
