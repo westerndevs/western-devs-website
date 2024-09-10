@@ -14,6 +14,7 @@ In the previous kata we sent a message from one application to another. This is 
 * Kata 2 - Publishing a message
 * Kata 3 - [Switching transports](https://www.westerndevs.com/_/nservicebus-kata-3/)
 * Kata 4 - [Long running processes](https://www.westerndevs.com/_/nservicebus-kata-4/)
+* Kata 5 - [Timeouts](https://www.westerndevs.com/_/nservicebus-kata-5)
 
 # The Problem
 
