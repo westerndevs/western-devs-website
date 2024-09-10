@@ -26,7 +26,7 @@ We just implemented a cake order saga in the last kata. Let's extend that saga t
 
 1. Add a new message to the messages project
 
-```
+```csharp
 namespace messages;
 
 using NServiceBus;
@@ -39,7 +39,7 @@ public class CakeOrderStalled : IMessage
 
 2. Modify the saga to start a timeout when an order is placed. The CakeOrderPlaced handler becomes 
 
-```
+```csharp
 public Task Handle(CakeOrderPlaced message, IMessageHandlerContext context)
 {
     Console.WriteLine($"Order {message.OrderId} placed");
@@ -50,7 +50,7 @@ public Task Handle(CakeOrderPlaced message, IMessageHandlerContext context)
 
 3. Add a handler for the timeout message
 
-```
+```csharp
 public Task Timeout(CakeOrderStalled state, IMessageHandlerContext context)
 {
     Console.WriteLine($"Order {Data.OrderId} stalled!");
@@ -60,13 +60,13 @@ public Task Timeout(CakeOrderStalled state, IMessageHandlerContext context)
 
 4. Have the saga implement 
 
-```
+```csharp
 IHandleTimeouts<CakeOrderStalled>
 ```
 
 4. We missed it previously but we need to have canceling the order or completing the order mark the saga as complete. To do that add `MarkAsComplete` to the handlers for those messages
 
-```
+```csharp
 public Task Handle(CakeOrderCanceled message, IMessageHandlerContext context)
 {
     Console.WriteLine($"Order {message.OrderId} canceled");
