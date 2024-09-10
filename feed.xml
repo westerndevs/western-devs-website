@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2024-09-10T05:05:39.488Z</updated>
+  <updated>2024-09-10T05:06:20.801Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-5/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-5/</id>
     <published>2024-09-09T04:00:00.000Z</published>
-    <updated>2024-09-10T05:05:39.488Z</updated>
+    <updated>2024-09-10T05:06:20.801Z</updated>
 	<author>
 	
 	  
@@ -31,7 +31,7 @@
 	  <uri>https://westerndevs.com</uri>
 	</author>
     
-    <content type="html"><![CDATA[<p>In the previous kata we looked at sagas which are a way to coordinate long running processes. In this kata we're going to look at another tool in the NServiceBus toolbox: timeouts. Timeouts are a way to schedule a message to be sent at some point in the future. This is a powerful tool for building out complex processes.</p><a id="more"></a><ul><li>Kata 1 - <a href="https://www.westerndevs.com/_/nservicebus-kata-1" target="_blank" rel="noopener">Sending a message</a></li><li>Kata 2 - <a href="https://www.westerndevs.com/_/nservicebus-kata-2" target="_blank" rel="noopener">Publishing a message</a></li><li>Kata 3 - <a href="https://www.westerndevs.com/_/nservicebus-kata-3" target="_blank" rel="noopener">Switching transports</a></li><li>Kata 4 - <a href="https://www.westerndevs.com/_/nservicebus-kata-4" target="_blank" rel="noopener">Long running processes</a></li><li>Kata 5 - Timeouts</li></ul><p>I think we're pretty used to the idea that a timeout is something we want to avoid - it usually means that a server isn't available or that we've run a query that is taking too long. But there are lots of places in business processes where timeout are just part of the process we're modeling and aren't an error at all. As an example consider a shopping cart: if a user adds an item to the cart and then doesn't check out within a certain period of time we might want to send them a reminder and even offer them a discount on their purchases. If we've modeled the checkout process as a saga then this reminder can be set up as a timeout.</p><h1>The Kata</h1><p>We just implemented a cake order saga in the last kata. Let's extend that saga to include a timeout. If the cake isn't shipped within 2 minutes of the order being placed then we should send a message to the bakery to ask them to check on the order. Obviously 2 minutes is a pretty quick turn around on a cake but I don't imagine you want to hang around for hours writing this kata.</p><h1>My Solution</h1><ol><li>Add a new message to the messages project</li></ol><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">messages</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> NServiceBus;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">CakeOrderStalled</span> : <span class="title">IMessage</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> Guid OrderId &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ol start="2"><li>Modify the saga to start a timeout when an order is placed. The CakeOrderPlaced handler becomes</li></ol><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="built_in">Task</span> <span class="title">Handle</span><span class="params">(CakeOrderPlaced message, IMessageHandlerContext context)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">Console</span>.WriteLine($<span class="string">"Order &#123;message.OrderId&#125; placed"</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> RequestTimeout&lt;CakeOrderStalled&gt;(context, TimeSpan.FromMinutes(<span class="number">2</span>), <span class="keyword">new</span> CakeOrderStalled&#123; OrderId = message.OrderId &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ol start="3"><li>Add a handler for the timeout message</li></ol><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="built_in">Task</span> <span class="title">Timeout</span><span class="params">(CakeOrderStalled state, IMessageHandlerContext context)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">Console</span>.WriteLine($<span class="string">"Order &#123;Data.OrderId&#125; stalled!"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Task</span>.CompletedTask;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ol start="4"><li>Have the saga implement</li></ol><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IHandleTimeouts<span class="tag">&lt;<span class="name">CakeOrderStalled</span>&gt;</span></span><br></pre></td></tr></table></figure><ol start="4"><li>We missed it previously but we need to have canceling the order or completing the order mark the saga as complete. To do that add <code>MarkAsComplete</code> to the handlers for those messages</li></ol><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="built_in">Task</span> <span class="title">Handle</span><span class="params">(CakeOrderCanceled message, IMessageHandlerContext context)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">Console</span>.WriteLine($<span class="string">"Order &#123;message.OrderId&#125; canceled"</span>);</span><br><span class="line">    MarkAsComplete();</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Task</span>.CompletedTask;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>Things to try now</p><ol><li>Run the applications and in the sender app try starting the saga with <code>o</code> to start an order. Wait a couple of minutes and see that the timeout fires.</li><li>Try starting the saga and then canceling it with <code>o</code> followed by <code>c</code> and see what happens when the timeout fires.</li></ol><h1>Things to think about</h1><p>Once a timeout is registered there is no way to cancel it. How come? What would you do if you needed to cancel a timeout? If messages are delayed is it possible that timeouts could fire when an expected action has actually happened? How would you mitigate that risk?</p>]]></content>
+    <content type="html"><![CDATA[<p>In the previous kata we looked at sagas which are a way to coordinate long running processes. In this kata we're going to look at another tool in the NServiceBus toolbox: timeouts. Timeouts are a way to schedule a message to be sent at some point in the future. This is a powerful tool for building out complex processes.</p><a id="more"></a><ul><li>Kata 1 - <a href="https://www.westerndevs.com/_/nservicebus-kata-1" target="_blank" rel="noopener">Sending a message</a></li><li>Kata 2 - <a href="https://www.westerndevs.com/_/nservicebus-kata-2" target="_blank" rel="noopener">Publishing a message</a></li><li>Kata 3 - <a href="https://www.westerndevs.com/_/nservicebus-kata-3" target="_blank" rel="noopener">Switching transports</a></li><li>Kata 4 - <a href="https://www.westerndevs.com/_/nservicebus-kata-4" target="_blank" rel="noopener">Long running processes</a></li><li>Kata 5 - Timeouts</li></ul><p>I think we're pretty used to the idea that a timeout is something we want to avoid - it usually means that a server isn't available or that we've run a query that is taking too long. But there are lots of places in business processes where timeout are just part of the process we're modeling and aren't an error at all. As an example consider a shopping cart: if a user adds an item to the cart and then doesn't check out within a certain period of time we might want to send them a reminder and even offer them a discount on their purchases. If we've modeled the checkout process as a saga then this reminder can be set up as a timeout.</p><h1>The Kata</h1><p>We just implemented a cake order saga in the last kata. Let's extend that saga to include a timeout. If the cake isn't shipped within 2 minutes of the order being placed then we should send a message to the bakery to ask them to check on the order. Obviously 2 minutes is a pretty quick turn around on a cake but I don't imagine you want to hang around for hours writing this kata.</p><h1>My Solution</h1><ol><li>Add a new message to the messages project</li></ol><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">messages</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> NServiceBus;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">CakeOrderStalled</span> : <span class="title">IMessage</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> Guid OrderId &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ol start="2"><li>Modify the saga to start a timeout when an order is placed. The CakeOrderPlaced handler becomes</li></ol><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Task <span class="title">Handle</span>(<span class="params">CakeOrderPlaced message, IMessageHandlerContext context</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">$"Order <span class="subst">&#123;message.OrderId&#125;</span> placed"</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> RequestTimeout&lt;CakeOrderStalled&gt;(context, TimeSpan.FromMinutes(<span class="number">2</span>), <span class="keyword">new</span> CakeOrderStalled&#123; OrderId = message.OrderId &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ol start="3"><li>Add a handler for the timeout message</li></ol><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Task <span class="title">Timeout</span>(<span class="params">CakeOrderStalled state, IMessageHandlerContext context</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">$"Order <span class="subst">&#123;Data.OrderId&#125;</span> stalled!"</span>);</span><br><span class="line">    <span class="keyword">return</span> Task.CompletedTask;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ol start="4"><li>Have the saga implement</li></ol><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IHandleTimeouts&lt;CakeOrderStalled&gt;</span><br></pre></td></tr></table></figure><ol start="4"><li>We missed it previously but we need to have canceling the order or completing the order mark the saga as complete. To do that add <code>MarkAsComplete</code> to the handlers for those messages</li></ol><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Task <span class="title">Handle</span>(<span class="params">CakeOrderCanceled message, IMessageHandlerContext context</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Console.WriteLine(<span class="string">$"Order <span class="subst">&#123;message.OrderId&#125;</span> canceled"</span>);</span><br><span class="line">    MarkAsComplete();</span><br><span class="line">    <span class="keyword">return</span> Task.CompletedTask;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>Things to try now</p><ol><li>Run the applications and in the sender app try starting the saga with <code>o</code> to start an order. Wait a couple of minutes and see that the timeout fires.</li><li>Try starting the saga and then canceling it with <code>o</code> followed by <code>c</code> and see what happens when the timeout fires.</li></ol><h1>Things to think about</h1><p>Once a timeout is registered there is no way to cancel it. How come? What would you do if you needed to cancel a timeout? If messages are delayed is it possible that timeouts could fire when an expected action has actually happened? How would you mitigate that risk?</p>]]></content>
     
     <summary type="html">
     
@@ -47,7 +47,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-4/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-4/</id>
     <published>2024-09-02T04:00:00.000Z</published>
-    <updated>2024-09-10T05:05:39.488Z</updated>
+    <updated>2024-09-10T05:06:20.801Z</updated>
 	<author>
 	
 	  
@@ -73,7 +73,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-3/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-3/</id>
     <published>2024-09-01T04:00:00.000Z</published>
-    <updated>2024-09-10T05:05:39.488Z</updated>
+    <updated>2024-09-10T05:06:20.801Z</updated>
 	<author>
 	
 	  
@@ -99,7 +99,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-2/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-2/</id>
     <published>2024-08-31T04:00:00.000Z</published>
-    <updated>2024-09-10T05:05:39.488Z</updated>
+    <updated>2024-09-10T05:06:20.801Z</updated>
 	<author>
 	
 	  
@@ -125,7 +125,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-1/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-1/</id>
     <published>2024-08-30T04:00:00.000Z</published>
-    <updated>2024-09-10T05:05:39.488Z</updated>
+    <updated>2024-09-10T05:06:20.801Z</updated>
 	<author>
 	
 	  
@@ -151,7 +151,7 @@
     <link href="https://westerndevs.com/_/plinko-diagram/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/plinko-diagram/</id>
     <published>2024-07-31T04:00:00.000Z</published>
-    <updated>2024-09-10T05:05:39.488Z</updated>
+    <updated>2024-09-10T05:06:20.801Z</updated>
 	<author>
 	
 	  
@@ -177,7 +177,7 @@
     <link href="https://westerndevs.com/_/azure-functions-for-side-projects/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-functions-for-side-projects/</id>
     <published>2024-06-23T04:00:00.000Z</published>
-    <updated>2024-09-10T05:05:39.484Z</updated>
+    <updated>2024-09-10T05:06:20.797Z</updated>
 	<author>
 	
 	  
@@ -208,7 +208,7 @@
     <link href="https://westerndevs.com/_/syncing-multiple-calendars/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/syncing-multiple-calendars/</id>
     <published>2024-06-17T04:00:00.000Z</published>
-    <updated>2024-09-10T05:05:39.492Z</updated>
+    <updated>2024-09-10T05:06:20.805Z</updated>
 	<author>
 	
 	  
@@ -234,7 +234,7 @@
     <link href="https://westerndevs.com/_/set-blob-container-cors/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-blob-container-cors/</id>
     <published>2024-05-24T04:00:00.000Z</published>
-    <updated>2024-09-10T05:05:39.488Z</updated>
+    <updated>2024-09-10T05:06:20.805Z</updated>
 	<author>
 	
 	  
@@ -260,7 +260,7 @@
     <link href="https://westerndevs.com/_/cannot-copy/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cannot-copy/</id>
     <published>2023-11-23T05:00:00.000Z</published>
-    <updated>2024-09-10T05:05:39.484Z</updated>
+    <updated>2024-09-10T05:06:20.797Z</updated>
 	<author>
 	
 	  
@@ -286,7 +286,7 @@
     <link href="https://westerndevs.com/_/connect-to-service-container/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/connect-to-service-container/</id>
     <published>2023-11-20T05:00:00.000Z</published>
-    <updated>2024-09-10T05:05:39.484Z</updated>
+    <updated>2024-09-10T05:06:20.797Z</updated>
 	<author>
 	
 	  
@@ -312,7 +312,7 @@
     <link href="https://westerndevs.com/_/smtp-setup-for-mailgun/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/smtp-setup-for-mailgun/</id>
     <published>2023-10-30T04:00:00.000Z</published>
-    <updated>2024-09-10T05:05:39.488Z</updated>
+    <updated>2024-09-10T05:06:20.805Z</updated>
 	<author>
 	
 	  
@@ -338,7 +338,7 @@
     <link href="https://westerndevs.com/_/artillery/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/artillery/</id>
     <published>2023-10-14T04:00:00.000Z</published>
-    <updated>2024-09-10T05:05:39.484Z</updated>
+    <updated>2024-09-10T05:06:20.797Z</updated>
 	<author>
 	
 	  
@@ -364,7 +364,7 @@
     <link href="https://westerndevs.com/_/storage-alert-rules/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storage-alert-rules/</id>
     <published>2023-03-30T04:00:00.000Z</published>
-    <updated>2024-09-10T05:05:39.492Z</updated>
+    <updated>2024-09-10T05:06:20.805Z</updated>
 	<author>
 	
 	  
@@ -390,7 +390,7 @@
     <link href="https://westerndevs.com/_/vuetify-esm/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/vuetify-esm/</id>
     <published>2023-03-15T04:00:00.000Z</published>
-    <updated>2024-09-10T05:05:39.492Z</updated>
+    <updated>2024-09-10T05:06:20.805Z</updated>
 	<author>
 	
 	  
@@ -416,7 +416,7 @@
     <link href="https://westerndevs.com/_/app-service-quota/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/app-service-quota/</id>
     <published>2023-03-04T05:00:00.000Z</published>
-    <updated>2024-09-10T05:05:39.484Z</updated>
+    <updated>2024-09-10T05:06:20.797Z</updated>
 	<author>
 	
 	  
@@ -443,7 +443,7 @@
     <link href="https://westerndevs.com/_/azure-keyvaul-reference-gotcha/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-keyvaul-reference-gotcha/</id>
     <published>2023-03-04T05:00:00.000Z</published>
-    <updated>2024-09-10T05:05:39.484Z</updated>
+    <updated>2024-09-10T05:06:20.797Z</updated>
 	<author>
 	
 	  
@@ -469,7 +469,7 @@
     <link href="https://westerndevs.com/_/express-json-comments/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/express-json-comments/</id>
     <published>2023-02-16T05:00:00.000Z</published>
-    <updated>2024-09-10T05:05:39.484Z</updated>
+    <updated>2024-09-10T05:06:20.797Z</updated>
 	<author>
 	
 	  
@@ -495,7 +495,7 @@
     <link href="https://westerndevs.com/_/ruby-excel/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ruby-excel/</id>
     <published>2023-02-15T05:00:00.000Z</published>
-    <updated>2024-09-10T05:05:39.488Z</updated>
+    <updated>2024-09-10T05:06:20.805Z</updated>
 	<author>
 	
 	  
@@ -521,7 +521,7 @@
     <link href="https://westerndevs.com/musings/defining-problem-before-the-soltuion/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/musings/defining-problem-before-the-soltuion/</id>
     <published>2023-01-27T23:24:33.221Z</published>
-    <updated>2024-09-10T05:05:39.480Z</updated>
+    <updated>2024-09-10T05:06:20.793Z</updated>
 	<author>
 	
 	  
