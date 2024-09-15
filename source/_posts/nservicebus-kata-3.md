@@ -15,6 +15,7 @@ In the previous article we looked at publishing messages and the one before that
 * Kata 3 - Switching transports
 * Kata 4 - [Long running processes](https://www.westerndevs.com/_/nservicebus-kata-4/)
 * Kata 5 - [Timeouts](https://www.westerndevs.com/_/nservicebus-kata-5)
+* Kata 6 - [When things go wrong](https://www.westerndevs.com/_/nservicebus-kata-6)
 
 One of the really nice things about NServiceBus is that it abstracts away a lot of the mess of dealing with transports. You can spend less time fiddling with plumbing and more time getting to the nitty gritty of building business value. We have a lot of options for transport and the ability to write new ones if needed. The official supported transports are 
 

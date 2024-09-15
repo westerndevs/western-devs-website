@@ -15,6 +15,7 @@ In the previous kata we looked at sagas which are a way to coordinate long runni
 * Kata 3 - [Switching transports](https://www.westerndevs.com/_/nservicebus-kata-3)
 * Kata 4 - [Long running processes](https://www.westerndevs.com/_/nservicebus-kata-4)
 * Kata 5 - Timeouts
+* Kata 6 - [When things go wrong](https://www.westerndevs.com/_/nservicebus-kata-6)
 
 I think we're pretty used to the idea that a timeout is something we want to avoid - it usually means that a server isn't available or that we've run a query that is taking too long. But there are lots of places in business processes where timeout are just part of the process we're modeling and aren't an error at all. As an example consider a shopping cart: if a user adds an item to the cart and then doesn't check out within a certain period of time we might want to send them a reminder and even offer them a discount on their purchases. If we've modeled the checkout process as a saga then this reminder can be set up as a timeout.
 

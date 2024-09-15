@@ -15,6 +15,7 @@ We now have a pretty solid way to send messages, publish messages and we've got 
 * Kata 3 - [Switching transports](https://www.westerndevs.com/_/nservicebus-kata-3)
 * Kata 4 - Long running processes
 * Kata 5 - [Timeouts](https://www.westerndevs.com/_/nservicebus-kata-5)
+* Kata 6 - [When things go wrong](https://www.westerndevs.com/_/nservicebus-kata-6)
 
 Consider the bakery which is creating the cake for me to eat: when it starts making a new cake because I ate the last one it has a bunch of things it needs to coordinate. They need to preheat ovens, gather ingredients, mix ingredients, grease pans, fill pans, put pans in the oven, remember to take the cake out, cool it, ice it... the list goes on and on - no wonder cake is so expensive. Coordinating all these activities is complex in a distributed system, really in any system. There are a lot of corner cases that we usually fail to consider in a non-distributed system which become much more apparent when building out a process manager. What if we preheat the oven but then discover that we're all out of flour? In that monolithic system we might throw an exception and hope that somebody is monitoring for it in a log file somewhere. Realistically that's never going to happen. In the meantime nobody has shut the oven off and the bakery burns down. 
 
