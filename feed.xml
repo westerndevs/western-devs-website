@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2024-09-15T04:02:10.882Z</updated>
+  <updated>2024-09-15T21:09:05.414Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Update outdated Nuget packages</title>
+    <link href="https://westerndevs.com/_/update-outdated-packages/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/update-outdated-packages/</id>
+    <published>2024-09-15T04:00:00.000Z</published>
+    <updated>2024-09-15T21:09:05.414Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>If you're using Visual Studio Code to develop C# applications, you might need to update outdated Nuget packages. You can do that without having to do each one individually on the command line using <a href="https://github.com/dotnet-outdated/dotnet-outdated" target="_blank" rel="noopener">dotnet outdated</a></p><p>Install it with</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dotnet tool install --global dotnet-outdated</span><br></pre></td></tr></table></figure><p>Then you can run it in the root of your project to list the packages which will be updated with</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dotnet outdated</span><br></pre></td></tr></table></figure><p>Then, if you're happy, run it again with</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dotnet outdated -u</span><br></pre></td></tr></table></figure><p>to actually get everything updated.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;If you&#39;re using Visual Studio Code to develop C# applications, you might need to update outdated Nuget packages. You can do that without 
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">NServiceBus Kata 6 - When things go wrong</title>
     <link href="https://westerndevs.com/_/nservicebus-kata-6/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-6/</id>
     <published>2024-09-14T04:00:00.000Z</published>
-    <updated>2024-09-15T04:02:10.882Z</updated>
+    <updated>2024-09-15T21:09:05.410Z</updated>
 	<author>
 	
 	  
@@ -47,7 +73,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-5/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-5/</id>
     <published>2024-09-09T04:00:00.000Z</published>
-    <updated>2024-09-15T04:02:10.882Z</updated>
+    <updated>2024-09-15T21:09:05.410Z</updated>
 	<author>
 	
 	  
@@ -73,7 +99,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-4/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-4/</id>
     <published>2024-09-02T04:00:00.000Z</published>
-    <updated>2024-09-15T04:02:10.882Z</updated>
+    <updated>2024-09-15T21:09:05.410Z</updated>
 	<author>
 	
 	  
@@ -99,7 +125,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-3/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-3/</id>
     <published>2024-09-01T04:00:00.000Z</published>
-    <updated>2024-09-15T04:02:10.882Z</updated>
+    <updated>2024-09-15T21:09:05.410Z</updated>
 	<author>
 	
 	  
@@ -125,7 +151,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-2/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-2/</id>
     <published>2024-08-31T04:00:00.000Z</published>
-    <updated>2024-09-15T04:02:10.882Z</updated>
+    <updated>2024-09-15T21:09:05.410Z</updated>
 	<author>
 	
 	  
@@ -151,7 +177,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-1/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-1/</id>
     <published>2024-08-30T04:00:00.000Z</published>
-    <updated>2024-09-15T04:02:10.882Z</updated>
+    <updated>2024-09-15T21:09:05.410Z</updated>
 	<author>
 	
 	  
@@ -177,7 +203,7 @@
     <link href="https://westerndevs.com/_/plinko-diagram/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/plinko-diagram/</id>
     <published>2024-07-31T04:00:00.000Z</published>
-    <updated>2024-09-15T04:02:10.882Z</updated>
+    <updated>2024-09-15T21:09:05.410Z</updated>
 	<author>
 	
 	  
@@ -203,7 +229,7 @@
     <link href="https://westerndevs.com/_/azure-functions-for-side-projects/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-functions-for-side-projects/</id>
     <published>2024-06-23T04:00:00.000Z</published>
-    <updated>2024-09-15T04:02:10.874Z</updated>
+    <updated>2024-09-15T21:09:05.402Z</updated>
 	<author>
 	
 	  
@@ -234,7 +260,7 @@
     <link href="https://westerndevs.com/_/syncing-multiple-calendars/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/syncing-multiple-calendars/</id>
     <published>2024-06-17T04:00:00.000Z</published>
-    <updated>2024-09-15T04:02:10.882Z</updated>
+    <updated>2024-09-15T21:09:05.414Z</updated>
 	<author>
 	
 	  
@@ -260,7 +286,7 @@
     <link href="https://westerndevs.com/_/set-blob-container-cors/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-blob-container-cors/</id>
     <published>2024-05-24T04:00:00.000Z</published>
-    <updated>2024-09-15T04:02:10.882Z</updated>
+    <updated>2024-09-15T21:09:05.410Z</updated>
 	<author>
 	
 	  
@@ -286,7 +312,7 @@
     <link href="https://westerndevs.com/_/cannot-copy/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cannot-copy/</id>
     <published>2023-11-23T05:00:00.000Z</published>
-    <updated>2024-09-15T04:02:10.878Z</updated>
+    <updated>2024-09-15T21:09:05.406Z</updated>
 	<author>
 	
 	  
@@ -312,7 +338,7 @@
     <link href="https://westerndevs.com/_/connect-to-service-container/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/connect-to-service-container/</id>
     <published>2023-11-20T05:00:00.000Z</published>
-    <updated>2024-09-15T04:02:10.878Z</updated>
+    <updated>2024-09-15T21:09:05.406Z</updated>
 	<author>
 	
 	  
@@ -338,7 +364,7 @@
     <link href="https://westerndevs.com/_/smtp-setup-for-mailgun/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/smtp-setup-for-mailgun/</id>
     <published>2023-10-30T04:00:00.000Z</published>
-    <updated>2024-09-15T04:02:10.882Z</updated>
+    <updated>2024-09-15T21:09:05.410Z</updated>
 	<author>
 	
 	  
@@ -364,7 +390,7 @@
     <link href="https://westerndevs.com/_/artillery/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/artillery/</id>
     <published>2023-10-14T04:00:00.000Z</published>
-    <updated>2024-09-15T04:02:10.874Z</updated>
+    <updated>2024-09-15T21:09:05.402Z</updated>
 	<author>
 	
 	  
@@ -390,7 +416,7 @@
     <link href="https://westerndevs.com/_/storage-alert-rules/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storage-alert-rules/</id>
     <published>2023-03-30T04:00:00.000Z</published>
-    <updated>2024-09-15T04:02:10.882Z</updated>
+    <updated>2024-09-15T21:09:05.414Z</updated>
 	<author>
 	
 	  
@@ -416,7 +442,7 @@
     <link href="https://westerndevs.com/_/vuetify-esm/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/vuetify-esm/</id>
     <published>2023-03-15T04:00:00.000Z</published>
-    <updated>2024-09-15T04:02:10.886Z</updated>
+    <updated>2024-09-15T21:09:05.414Z</updated>
 	<author>
 	
 	  
@@ -442,7 +468,7 @@
     <link href="https://westerndevs.com/_/app-service-quota/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/app-service-quota/</id>
     <published>2023-03-04T05:00:00.000Z</published>
-    <updated>2024-09-15T04:02:10.874Z</updated>
+    <updated>2024-09-15T21:09:05.402Z</updated>
 	<author>
 	
 	  
@@ -469,7 +495,7 @@
     <link href="https://westerndevs.com/_/azure-keyvaul-reference-gotcha/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-keyvaul-reference-gotcha/</id>
     <published>2023-03-04T05:00:00.000Z</published>
-    <updated>2024-09-15T04:02:10.874Z</updated>
+    <updated>2024-09-15T21:09:05.402Z</updated>
 	<author>
 	
 	  
@@ -495,7 +521,7 @@
     <link href="https://westerndevs.com/_/express-json-comments/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/express-json-comments/</id>
     <published>2023-02-16T05:00:00.000Z</published>
-    <updated>2024-09-15T04:02:10.878Z</updated>
+    <updated>2024-09-15T21:09:05.406Z</updated>
 	<author>
 	
 	  
@@ -510,32 +536,6 @@
     <summary type="html">
     
       &lt;p&gt;Officially comments are not supported in the JSON format. In fact this lack of ability to comment is one of the reasons that lead to the 
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Excel and Ruby</title>
-    <link href="https://westerndevs.com/_/ruby-excel/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/ruby-excel/</id>
-    <published>2023-02-15T05:00:00.000Z</published>
-    <updated>2024-09-15T04:02:10.882Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>Excel is the king of spreadsheets and I often find myself in situation where I have to write our Excel files in an application. I'd say that as an application grows the probability of needing Excel import or export approaches 1. Fortunately, there are lots of libraries out there to help with Excel across just about every language. The quality and usefuleness of these libraries varies a lot. In Ruby land there seem to be a few options.</p><h2>Spreadsheet</h2><p>https://github.com/zdavatz/spreadsheet/</p><p>As the name suggests this library deals with Excel spreadsheets. It is able to both read and write them by using Spreadsheet::Excel Library and the ParseExcel Library. However it only supports the older XLS file format. While this is still widely used it is not the default format for Excel 2007 and later. I try to stay clear of the format as much as possible. There have not been any releases of this library in about 18 months but there haven't been any releases of the XLS file format for decades so it doesn't seem like a big deal.</p><p>The library can be installed using</p><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem <span class="keyword">install</span> spreadsheet</span><br></pre></td></tr></table></figure><p>Then you can use it like so</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">'spreadsheet'</span></span><br><span class="line"></span><br><span class="line">workbook = Spreadsheet.open(<span class="string">"test.xls"</span>)</span><br><span class="line">worksheet = workbook.worksheet <span class="number">0</span></span><br><span class="line">worksheet.rows[<span class="number">1</span>][<span class="number">1</span>] = <span class="string">"Hello there!"</span></span><br><span class="line">workbook.write(<span class="string">"test2.xls"</span>)</span><br></pre></td></tr></table></figure><p>There are some limitations around editing files such as cell formats not updating but for most things it should be fine.</p><h2>RubyXL</h2><p>https://github.com/weshatheleopard/rubyXL</p><p>This library works on the more modern XLSX file formats. It is able to read and write files with modifications. However there are some limitations such as being unable to insert images</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">'rubyXL'</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># only do this if you don't care about memory usage, otherwise you can load submodules separately</span></span><br><span class="line">  <span class="comment"># depending on what you need</span></span><br><span class="line"><span class="keyword">require</span> <span class="string">'rubyXL/convenience_methods'</span></span><br><span class="line"></span><br><span class="line">workbook = RubyXL::Parser.parse(<span class="string">"test.xlsx"</span>)</span><br><span class="line">worksheet = workbook[<span class="number">0</span>]</span><br><span class="line">cell = worksheet.cell_at(<span class="string">'A1'</span>)</span><br><span class="line">cell.change_contents(<span class="string">"Hello there!"</span>)</span><br><span class="line">workbook.write(<span class="string">"test2.xlsx"</span>)</span><br></pre></td></tr></table></figure><h2>CAXLSX</h2><p>https://github.com/caxlsx/caxlsx</p><p>This library is the community supported version of AXLSX. It is able to generate XLSX files but not read them or modify them. There is rich support for charts, images and other more advanced excel features. The</p><p>Install using</p><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem <span class="keyword">install</span> caxlsx</span><br></pre></td></tr></table></figure><p>And then a simple example looks like</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">'axlsx'</span></span><br><span class="line"></span><br><span class="line">p = Axlsx::Package.new</span><br><span class="line">workbook = p.workbook</span><br><span class="line"></span><br><span class="line">wb.add_worksheet(<span class="symbol">name:</span> <span class="string">'Test'</span>) <span class="keyword">do</span> <span class="params">|sheet|</span></span><br><span class="line">  sheet.add_row [<span class="string">'Hello there!'</span>]</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">p.serialize <span class="string">"test.xlsx"</span></span><br></pre></td></tr></table></figure><p>Of all the libraries mentioned here the documentation for this one is the best. It is also the most actively maintained. The examples directory https://github.com/caxlsx/caxlsx/tree/master/examples gives a plethora of examples of how to use the library.</p><h2>Fast Excel</h2><p>https://github.com/Paxa/fast_excel</p><p>This library focuses on being the fastest excel library for ruby. It is actually written in C to speed it up so comes with all the caveats about running native code. Similar to CAXLSX it is only able to read and write files and not modify them.</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">'fast_excel'</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># constant_memory: true streams changes to disk so it means that you cannot</span></span><br><span class="line">  <span class="comment"># modify an already written record</span></span><br><span class="line">workbook = FastExcel.open(<span class="string">"test.xlsx"</span>, <span class="symbol">constant_memory:</span> <span class="literal">true</span>)</span><br><span class="line">worksheet = workbook.add_worksheet(<span class="string">"Test"</span>)</span><br><span class="line"></span><br><span class="line">bold = workbook.bold_format</span><br><span class="line">worksheet.set_column(<span class="number">0</span>, <span class="number">0</span>, FastExcel::DEF_COL_WIDTH, bold)</span><br><span class="line">worksheet &lt;&lt; [<span class="string">"Hello World"</span>]</span><br><span class="line">workbook.close</span><br></pre></td></tr></table></figure><p>As you can see here the library really excels at adding consistently shaped rows. You're unlikely to get a complex spreadsheet with headers and footers built using this tooling.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Excel is the king of spreadsheets and I often find myself in situation where I have to write our Excel files in an application. I&#39;d say t
     
     </summary>
     
