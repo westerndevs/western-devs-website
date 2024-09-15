@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="Western Devs">
 <meta property="og:description" content="In the previous kata we looked at sagas which are a way to coordinate long running processes. In this kata we&#39;re going to look at another tool in the NServiceBus toolbox: timeouts. Timeouts are a way">
 <meta property="article:published_time" content="2024-09-09T04:00:00.000Z">
-<meta property="article:modified_time" content="2024-09-10T11:55:58.749Z">
+<meta property="article:modified_time" content="2024-09-15T04:02:10.882Z">
 <meta property="article:author" content="Western Devs">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:creator" content="@westerndevs">
@@ -117,6 +117,7 @@
 <li>Kata 3 - <a href="https://www.westerndevs.com/_/nservicebus-kata-3" target="_blank" rel="noopener">Switching transports</a></li>
 <li>Kata 4 - <a href="https://www.westerndevs.com/_/nservicebus-kata-4" target="_blank" rel="noopener">Long running processes</a></li>
 <li>Kata 5 - Timeouts</li>
+<li>Kata 6 - <a href="https://www.westerndevs.com/_/nservicebus-kata-6" target="_blank" rel="noopener">When things go wrong</a></li>
 </ul>
 <p>I think we're pretty used to the idea that a timeout is something we want to avoid - it usually means that a server isn't available or that we've run a query that is taking too long. But there are lots of places in business processes where timeout are just part of the process we're modeling and aren't an error at all. As an example consider a shopping cart: if a user adds an item to the cart and then doesn't check out within a certain period of time we might want to send them a reminder and even offer them a discount on their purchases. If we've modeled the checkout process as a saga then this reminder can be set up as a timeout.</p>
 <h1>The Kata</h1>

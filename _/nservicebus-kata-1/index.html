@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="Western Devs">
 <meta property="og:description" content="Exciting times for me, I get to help out on an NServiceBus project! It&#39;s been way too long since I did anything with NServiceBus but I&#39;m back, baby! Most of the team has never used NServiceBus before">
 <meta property="article:published_time" content="2024-08-30T04:00:00.000Z">
-<meta property="article:modified_time" content="2024-09-10T11:55:58.749Z">
+<meta property="article:modified_time" content="2024-09-15T04:02:10.882Z">
 <meta property="article:author" content="Western Devs">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:creator" content="@westerndevs">
@@ -117,6 +117,7 @@
 <li>Kata 3 - <a href="https://www.westerndevs.com/_/nservicebus-kata-3/" target="_blank" rel="noopener">Switching transports</a></li>
 <li>Kata 4 - <a href="https://www.westerndevs.com/_/nservicebus-kata-4/" target="_blank" rel="noopener">Long running processes</a></li>
 <li>Kata 5 - <a href="https://www.westerndevs.com/_/nservicebus-kata-5" target="_blank" rel="noopener">Timeouts</a></li>
+<li>Kata 6 - <a href="https://www.westerndevs.com/_/nservicebus-kata-6" target="_blank" rel="noopener">When things go wrong</a></li>
 </ul>
 <h2>The Problem</h2>
 <p>Our goal is to very simply demonstrate reliable messaging. If you're communicating between two processes on different machines a usual approach is to send a message using HTTP. Problem is that sometimes the other end isn't reachable. Could be that the service is down, could be that the network is down or it could be that the remote location was hit by a meteor. HTTP won't help us in this case - what we want is a reliable protocol which will save the message somewhere safe and deliver it when the endpoint does show up.</p>
