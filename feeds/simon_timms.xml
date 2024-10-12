@@ -5,7 +5,7 @@
   <link href="/feeds/simon_timms" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2024-09-15T21:09:05.414Z</updated>
+  <updated>2024-10-12T20:30:40.965Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Fast Endpoints Listen Port</title>
+    <link href="https://westerndevs.com/_/fast-endpoints-port/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/fast-endpoints-port/</id>
+    <published>2024-10-12T04:00:00.000Z</published>
+    <updated>2024-10-12T20:30:40.965Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>In order to set the listening port for Fast Endpoints you can use the same mechanism as a regular ASP.NET application. This invovles setting the Urls setting in the appsettings.json file. My file looks like this:</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"Logging"</span>: &#123;</span><br><span class="line">    <span class="attr">"LogLevel"</span>: &#123;</span><br><span class="line">      <span class="attr">"Default"</span>: <span class="string">"Information"</span>,</span><br><span class="line">      <span class="attr">"Microsoft.AspNetCore"</span>: <span class="string">"Warning"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"Urls"</span>: <span class="string">"http://0.0.0.0:8080"</span>,</span><br><span class="line">  <span class="attr">"AllowedHosts"</span>: <span class="string">"*"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;In order to set the listening port for Fast Endpoints you can use the same mechanism as a regular ASP.NET application. This invovles sett
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Update outdated Nuget packages</title>
     <link href="https://westerndevs.com/_/update-outdated-packages/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/update-outdated-packages/</id>
     <published>2024-09-15T04:00:00.000Z</published>
-    <updated>2024-09-15T21:09:05.414Z</updated>
+    <updated>2024-10-12T20:30:40.973Z</updated>
 	<author>
 	
 	  
@@ -47,7 +73,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-6/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-6/</id>
     <published>2024-09-14T04:00:00.000Z</published>
-    <updated>2024-09-15T21:09:05.410Z</updated>
+    <updated>2024-10-12T20:30:40.969Z</updated>
 	<author>
 	
 	  
@@ -73,7 +99,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-5/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-5/</id>
     <published>2024-09-09T04:00:00.000Z</published>
-    <updated>2024-09-15T21:09:05.410Z</updated>
+    <updated>2024-10-12T20:30:40.969Z</updated>
 	<author>
 	
 	  
@@ -99,7 +125,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-4/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-4/</id>
     <published>2024-09-02T04:00:00.000Z</published>
-    <updated>2024-09-15T21:09:05.410Z</updated>
+    <updated>2024-10-12T20:30:40.969Z</updated>
 	<author>
 	
 	  
@@ -125,7 +151,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-3/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-3/</id>
     <published>2024-09-01T04:00:00.000Z</published>
-    <updated>2024-09-15T21:09:05.410Z</updated>
+    <updated>2024-10-12T20:30:40.969Z</updated>
 	<author>
 	
 	  
@@ -151,7 +177,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-2/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-2/</id>
     <published>2024-08-31T04:00:00.000Z</published>
-    <updated>2024-09-15T21:09:05.410Z</updated>
+    <updated>2024-10-12T20:30:40.969Z</updated>
 	<author>
 	
 	  
@@ -177,7 +203,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-1/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-1/</id>
     <published>2024-08-30T04:00:00.000Z</published>
-    <updated>2024-09-15T21:09:05.410Z</updated>
+    <updated>2024-10-12T20:30:40.969Z</updated>
 	<author>
 	
 	  
@@ -203,7 +229,7 @@
     <link href="https://westerndevs.com/_/plinko-diagram/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/plinko-diagram/</id>
     <published>2024-07-31T04:00:00.000Z</published>
-    <updated>2024-09-15T21:09:05.410Z</updated>
+    <updated>2024-10-12T20:30:40.969Z</updated>
 	<author>
 	
 	  
@@ -229,7 +255,7 @@
     <link href="https://westerndevs.com/_/set-blob-container-cors/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-blob-container-cors/</id>
     <published>2024-05-24T04:00:00.000Z</published>
-    <updated>2024-09-15T21:09:05.410Z</updated>
+    <updated>2024-10-12T20:30:40.973Z</updated>
 	<author>
 	
 	  
@@ -255,7 +281,7 @@
     <link href="https://westerndevs.com/_/cannot-copy/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cannot-copy/</id>
     <published>2023-11-23T05:00:00.000Z</published>
-    <updated>2024-09-15T21:09:05.406Z</updated>
+    <updated>2024-10-12T20:30:40.965Z</updated>
 	<author>
 	
 	  
@@ -281,7 +307,7 @@
     <link href="https://westerndevs.com/_/connect-to-service-container/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/connect-to-service-container/</id>
     <published>2023-11-20T05:00:00.000Z</published>
-    <updated>2024-09-15T21:09:05.406Z</updated>
+    <updated>2024-10-12T20:30:40.965Z</updated>
 	<author>
 	
 	  
@@ -307,7 +333,7 @@
     <link href="https://westerndevs.com/_/smtp-setup-for-mailgun/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/smtp-setup-for-mailgun/</id>
     <published>2023-10-30T04:00:00.000Z</published>
-    <updated>2024-09-15T21:09:05.410Z</updated>
+    <updated>2024-10-12T20:30:40.973Z</updated>
 	<author>
 	
 	  
@@ -333,7 +359,7 @@
     <link href="https://westerndevs.com/_/artillery/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/artillery/</id>
     <published>2023-10-14T04:00:00.000Z</published>
-    <updated>2024-09-15T21:09:05.402Z</updated>
+    <updated>2024-10-12T20:30:40.965Z</updated>
 	<author>
 	
 	  
@@ -359,7 +385,7 @@
     <link href="https://westerndevs.com/_/storage-alert-rules/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storage-alert-rules/</id>
     <published>2023-03-30T04:00:00.000Z</published>
-    <updated>2024-09-15T21:09:05.414Z</updated>
+    <updated>2024-10-12T20:30:40.973Z</updated>
 	<author>
 	
 	  
@@ -385,7 +411,7 @@
     <link href="https://westerndevs.com/_/vuetify-esm/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/vuetify-esm/</id>
     <published>2023-03-15T04:00:00.000Z</published>
-    <updated>2024-09-15T21:09:05.414Z</updated>
+    <updated>2024-10-12T20:30:40.973Z</updated>
 	<author>
 	
 	  
@@ -411,7 +437,7 @@
     <link href="https://westerndevs.com/_/app-service-quota/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/app-service-quota/</id>
     <published>2023-03-04T05:00:00.000Z</published>
-    <updated>2024-09-15T21:09:05.402Z</updated>
+    <updated>2024-10-12T20:30:40.965Z</updated>
 	<author>
 	
 	  
@@ -438,7 +464,7 @@
     <link href="https://westerndevs.com/_/azure-keyvaul-reference-gotcha/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-keyvaul-reference-gotcha/</id>
     <published>2023-03-04T05:00:00.000Z</published>
-    <updated>2024-09-15T21:09:05.402Z</updated>
+    <updated>2024-10-12T20:30:40.965Z</updated>
 	<author>
 	
 	  
@@ -464,7 +490,7 @@
     <link href="https://westerndevs.com/_/express-json-comments/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/express-json-comments/</id>
     <published>2023-02-16T05:00:00.000Z</published>
-    <updated>2024-09-15T21:09:05.406Z</updated>
+    <updated>2024-10-12T20:30:40.965Z</updated>
 	<author>
 	
 	  
@@ -490,7 +516,7 @@
     <link href="https://westerndevs.com/_/ruby-excel/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ruby-excel/</id>
     <published>2023-02-15T05:00:00.000Z</published>
-    <updated>2024-09-15T21:09:05.410Z</updated>
+    <updated>2024-10-12T20:30:40.969Z</updated>
 	<author>
 	
 	  
@@ -505,32 +531,6 @@
     <summary type="html">
     
       &lt;p&gt;Excel is the king of spreadsheets and I often find myself in situation where I have to write our Excel files in an application. I&#39;d say t
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Bulk Insert SQL Geometry on .NET Core</title>
-    <link href="https://westerndevs.com/_/bulk-insert-sql-geometry/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/bulk-insert-sql-geometry/</id>
-    <published>2022-11-17T05:00:00.000Z</published>
-    <updated>2024-09-15T21:09:05.406Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>I have been updating an application from full framework to .NET 6 this week. One of the things this app does is bulk load data into SQL Server. Normally this works just fine but some of the data is geography data which requires a special package to be installed: <code>Microsoft.SqlServer.Types</code>. This package is owned by the SQL server team so, as you'd expect, it is ridiculously behind the times. Fortunately, they are working on updating it and it is now available for Netstandard 2.1 in a preview mode.</p><p>The steps I needed to take to update the app were:</p><ol><li>Install the preview package for <code>Microsoft.SqlServer.Types</code></li><li>Update the SQL client package from System.Data.SqlClient to Microsoft.Data.SqlClient</li></ol><p>After that the tests we had for inserting polygons worked just great. This has been a bit of a challenge over the years but I'm delighted that we're almost there. We just need a non-preview version of the types package and we should be good to go.</p><h2>Gotchas</h2><p>When I'd only done step 1 I ran into errors like</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">System.InvalidOperationException : The given value of<span class="built_in"> type </span>SqlGeometry <span class="keyword">from</span> the data source cannot be converted <span class="keyword">to</span><span class="built_in"> type </span>udt of the specified target column.</span><br><span class="line">---- System.ArgumentException : Specified<span class="built_in"> type </span>is <span class="keyword">not</span> registered on the target server. Microsoft.SqlServer.Types.SqlGeometry, Microsoft.SqlServer.Types, <span class="attribute">Version</span>=16.0.0.0, <span class="attribute">Culture</span>=neutral, <span class="attribute">PublicKeyToken</span>=89845dcd8080cc91.</span><br></pre></td></tr></table></figure><p>I went down a rabbit hole on that one before spotting a post from MVP Erik Jensen https://github.com/ErikEJ/EntityFramework6PowerTools/issues/103 which sent me in the right direction.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;I have been updating an application from full framework to .NET 6 this week. One of the things this app does is bulk load data into SQL S
     
     </summary>
     
