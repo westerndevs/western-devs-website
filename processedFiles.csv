@@ -65,6 +65,7 @@ docs/work/azure/debug_azure_container_instances_startup.md,2022-08-04
 docs/work/azure/app-services-on-vnet.md,2021-11-14
 docs/work/azure/azure-automation.md,2021-06-24
 docs/work/azure/function-appinsights.md,2021-05-08
+docs/work/azure/letsencrypt-azure-aks.md,2024-10-13
 docs/work/azure/advanced-waf-rules-in-terraform.md,2021-05-19
 docs/work/azure/durable-entities.md,2021-05-20
 docs/work/azure/purge-cdn-in-devops.md,2022-01-27
