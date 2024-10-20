@@ -13,7 +13,6 @@ title:  Let's Encrypt on Azure AKS
 authorId: simon_timms
 date: 2024-10-13
 originalurl: https://blog.simontimms.com/2024/10/13/letsencrypt-azure-aks
-tags: azure aks ingress letsencrypt 
 mode: public
 ---
 
