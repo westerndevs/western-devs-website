@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2024-11-05T05:09:43.177Z</updated>
+  <updated>2024-11-05T05:12:08.609Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://westerndevs.com/_/consuming-github-packges-in-yarn/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/consuming-github-packges-in-yarn/</id>
     <published>2024-11-05T05:00:00.000Z</published>
-    <updated>2024-11-05T05:09:43.177Z</updated>
+    <updated>2024-11-05T05:12:08.609Z</updated>
 	<author>
 	
 	  
@@ -31,7 +31,7 @@
 	  <uri>https://westerndevs.com</uri>
 	</author>
     
-    <content type="html"><![CDATA[<p>My life is never without adventure but unfortunately it isn't the living on a beach sort of adventure. No it's the installing yarn packages. I wanted to have a package installed in my project which was one I'd published from another repository. In this case the package was called <code>@stimms/uicomponents</code>. There were a few tricks to getting Github actions to be able to pull the package: first I needed to create a .yarnrc.yml file. This gives yarn instructions about where it should look for packages.</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">nodeLinker:</span> <span class="string">node-modules</span></span><br><span class="line"></span><br><span class="line"><span class="attr">npmScopes:</span></span><br><span class="line">  <span class="attr">stimms:</span></span><br><span class="line">    <span class="attr">npmRegistryServer:</span> <span class="string">"https://npm.pkg.github.com"</span></span><br><span class="line">    </span><br><span class="line"><span class="attr">npmRegistries:</span></span><br><span class="line">  <span class="attr">"https://npm.pkg.github.com":</span></span><br><span class="line">    <span class="attr">npmAlwaysAuth:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure><p>Now in the build I needed to add a step in to populate the GITHUB_TOKEN which can be used for authentication. I found quite a bit of documentation which suggested that the .yarnrc.yml file would be able to read the environment variable but I had no luck with that approach. Instead I added a step to the build to populate the GITHUB_TOKEN in the .npmrc file.</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Configure</span> <span class="string">GitHub</span> <span class="string">Packages</span> <span class="string">Auth</span></span><br><span class="line">    <span class="attr">run:</span> <span class="string">echo</span> <span class="string">"//npm.pkg.github.com/:_authToken=$&#123;GITHUB_TOKEN&#125;"</span> <span class="string">&gt;</span> <span class="string">~/.npmrc</span></span><br><span class="line">    <span class="attr">env:</span></span><br><span class="line">    <span class="attr">GITHUB_TOKEN:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.GITHUB_TOKEN</span> <span class="string">&#125;&#125;</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Build</span></span><br><span class="line">    <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line">    <span class="string">yarn</span> <span class="string">install</span></span><br><span class="line">    <span class="string">yarn</span> <span class="string">lint</span></span><br><span class="line">    <span class="string">yarn</span> <span class="string">build</span></span><br></pre></td></tr></table></figure><p>The final thing to remember is that by default the GITHUB_TOKEN here doesn't have read permission over your packages. You'll need to go into the package settings and add the repository to the list of repositories which can use the package. You just need read access.  If you don't do this step you're going to see an error like <code>error Error: https://npm.pkg.github.com/@stimms%2fuicomponents: authentication token not provided</code></p><pre><code class="language-yml"></code></pre>]]></content>
+    <content type="html"><![CDATA[<p>My life is never without adventure but unfortunately it isn't the living on a beach sort of adventure. No it's the installing yarn packages. I wanted to have a package installed in my project which was one I'd published from another repository. In this case the package was called <code>@stimms/uicomponents</code>. There were a few tricks to getting Github actions to be able to pull the package: first I needed to create a .yarnrc.yml file. This gives yarn instructions about where it should look for packages.</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">nodeLinker:</span> <span class="string">node-modules</span></span><br><span class="line"></span><br><span class="line"><span class="attr">npmScopes:</span></span><br><span class="line">  <span class="attr">stimms:</span></span><br><span class="line">    <span class="attr">npmRegistryServer:</span> <span class="string">"https://npm.pkg.github.com"</span></span><br><span class="line">    </span><br><span class="line"><span class="attr">npmRegistries:</span></span><br><span class="line">  <span class="attr">"https://npm.pkg.github.com":</span></span><br><span class="line">    <span class="attr">npmAlwaysAuth:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure><p>Now in the build I needed to add a step in to populate the GITHUB_TOKEN which can be used for authentication. I found quite a bit of documentation which suggested that the .yarnrc.yml file would be able to read the environment variable but I had no luck with that approach. Instead I added a step to the build to populate the GITHUB_TOKEN in the .npmrc file.</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Configure</span> <span class="string">GitHub</span> <span class="string">Packages</span> <span class="string">Auth</span></span><br><span class="line">    <span class="attr">run:</span> <span class="string">echo</span> <span class="string">"//npm.pkg.github.com/:_authToken=$&#123;GITHUB_TOKEN&#125;"</span> <span class="string">&gt;</span> <span class="string">~/.npmrc</span></span><br><span class="line">    <span class="attr">env:</span></span><br><span class="line">    <span class="attr">GITHUB_TOKEN:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.GITHUB_TOKEN</span> <span class="string">&#125;&#125;</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Build</span></span><br><span class="line">    <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line">    <span class="string">yarn</span> <span class="string">install</span></span><br><span class="line">    <span class="string">yarn</span> <span class="string">lint</span></span><br><span class="line">    <span class="string">yarn</span> <span class="string">build</span></span><br></pre></td></tr></table></figure><p>The final thing to remember is that by default the GITHUB_TOKEN here doesn't have read permission over your packages. You'll need to go into the package settings and add the repository to the list of repositories which can use the package. You just need read access.  If you don't do this step you're going to see an error like <code>error Error: https://npm.pkg.github.com/@stimms%2fuicomponents: authentication token not provided</code></p>]]></content>
     
     <summary type="html">
     
@@ -47,7 +47,7 @@
     <link href="https://westerndevs.com/_/fast-endpoints-port/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/fast-endpoints-port/</id>
     <published>2024-10-12T04:00:00.000Z</published>
-    <updated>2024-11-05T05:09:43.177Z</updated>
+    <updated>2024-11-05T05:12:08.609Z</updated>
 	<author>
 	
 	  
@@ -73,7 +73,7 @@
     <link href="https://westerndevs.com/_/update-outdated-packages/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/update-outdated-packages/</id>
     <published>2024-09-15T04:00:00.000Z</published>
-    <updated>2024-11-05T05:09:43.185Z</updated>
+    <updated>2024-11-05T05:12:08.617Z</updated>
 	<author>
 	
 	  
@@ -99,7 +99,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-6/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-6/</id>
     <published>2024-09-14T04:00:00.000Z</published>
-    <updated>2024-11-05T05:09:43.181Z</updated>
+    <updated>2024-11-05T05:12:08.613Z</updated>
 	<author>
 	
 	  
@@ -125,7 +125,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-5/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-5/</id>
     <published>2024-09-09T04:00:00.000Z</published>
-    <updated>2024-11-05T05:09:43.181Z</updated>
+    <updated>2024-11-05T05:12:08.613Z</updated>
 	<author>
 	
 	  
@@ -151,7 +151,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-4/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-4/</id>
     <published>2024-09-02T04:00:00.000Z</published>
-    <updated>2024-11-05T05:09:43.181Z</updated>
+    <updated>2024-11-05T05:12:08.613Z</updated>
 	<author>
 	
 	  
@@ -177,7 +177,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-3/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-3/</id>
     <published>2024-09-01T04:00:00.000Z</published>
-    <updated>2024-11-05T05:09:43.181Z</updated>
+    <updated>2024-11-05T05:12:08.613Z</updated>
 	<author>
 	
 	  
@@ -203,7 +203,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-2/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-2/</id>
     <published>2024-08-31T04:00:00.000Z</published>
-    <updated>2024-11-05T05:09:43.181Z</updated>
+    <updated>2024-11-05T05:12:08.613Z</updated>
 	<author>
 	
 	  
@@ -229,7 +229,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-1/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-1/</id>
     <published>2024-08-30T04:00:00.000Z</published>
-    <updated>2024-11-05T05:09:43.181Z</updated>
+    <updated>2024-11-05T05:12:08.613Z</updated>
 	<author>
 	
 	  
@@ -255,7 +255,7 @@
     <link href="https://westerndevs.com/_/plinko-diagram/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/plinko-diagram/</id>
     <published>2024-07-31T04:00:00.000Z</published>
-    <updated>2024-11-05T05:09:43.181Z</updated>
+    <updated>2024-11-05T05:12:08.613Z</updated>
 	<author>
 	
 	  
@@ -281,7 +281,7 @@
     <link href="https://westerndevs.com/_/azure-functions-for-side-projects/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-functions-for-side-projects/</id>
     <published>2024-06-23T04:00:00.000Z</published>
-    <updated>2024-11-05T05:09:43.177Z</updated>
+    <updated>2024-11-05T05:12:08.605Z</updated>
 	<author>
 	
 	  
@@ -312,7 +312,7 @@
     <link href="https://westerndevs.com/_/syncing-multiple-calendars/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/syncing-multiple-calendars/</id>
     <published>2024-06-17T04:00:00.000Z</published>
-    <updated>2024-11-05T05:09:43.185Z</updated>
+    <updated>2024-11-05T05:12:08.617Z</updated>
 	<author>
 	
 	  
@@ -338,7 +338,7 @@
     <link href="https://westerndevs.com/_/set-blob-container-cors/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-blob-container-cors/</id>
     <published>2024-05-24T04:00:00.000Z</published>
-    <updated>2024-11-05T05:09:43.185Z</updated>
+    <updated>2024-11-05T05:12:08.613Z</updated>
 	<author>
 	
 	  
@@ -364,7 +364,7 @@
     <link href="https://westerndevs.com/_/cannot-copy/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cannot-copy/</id>
     <published>2023-11-23T05:00:00.000Z</published>
-    <updated>2024-11-05T05:09:43.177Z</updated>
+    <updated>2024-11-05T05:12:08.609Z</updated>
 	<author>
 	
 	  
@@ -390,7 +390,7 @@
     <link href="https://westerndevs.com/_/connect-to-service-container/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/connect-to-service-container/</id>
     <published>2023-11-20T05:00:00.000Z</published>
-    <updated>2024-11-05T05:09:43.177Z</updated>
+    <updated>2024-11-05T05:12:08.609Z</updated>
 	<author>
 	
 	  
@@ -416,7 +416,7 @@
     <link href="https://westerndevs.com/_/smtp-setup-for-mailgun/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/smtp-setup-for-mailgun/</id>
     <published>2023-10-30T04:00:00.000Z</published>
-    <updated>2024-11-05T05:09:43.185Z</updated>
+    <updated>2024-11-05T05:12:08.613Z</updated>
 	<author>
 	
 	  
@@ -442,7 +442,7 @@
     <link href="https://westerndevs.com/_/artillery/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/artillery/</id>
     <published>2023-10-14T04:00:00.000Z</published>
-    <updated>2024-11-05T05:09:43.177Z</updated>
+    <updated>2024-11-05T05:12:08.605Z</updated>
 	<author>
 	
 	  
@@ -468,7 +468,7 @@
     <link href="https://westerndevs.com/_/storage-alert-rules/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storage-alert-rules/</id>
     <published>2023-03-30T04:00:00.000Z</published>
-    <updated>2024-11-05T05:09:43.185Z</updated>
+    <updated>2024-11-05T05:12:08.617Z</updated>
 	<author>
 	
 	  
@@ -494,7 +494,7 @@
     <link href="https://westerndevs.com/_/vuetify-esm/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/vuetify-esm/</id>
     <published>2023-03-15T04:00:00.000Z</published>
-    <updated>2024-11-05T05:09:43.185Z</updated>
+    <updated>2024-11-05T05:12:08.617Z</updated>
 	<author>
 	
 	  
@@ -520,7 +520,7 @@
     <link href="https://westerndevs.com/_/app-service-quota/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/app-service-quota/</id>
     <published>2023-03-04T05:00:00.000Z</published>
-    <updated>2024-11-05T05:09:43.177Z</updated>
+    <updated>2024-11-05T05:12:08.605Z</updated>
 	<author>
 	
 	  

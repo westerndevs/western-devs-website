@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="Western Devs">
 <meta property="og:description" content="My life is never without adventure but unfortunately it isn&#39;t the living on a beach sort of adventure. No it&#39;s the installing yarn packages. I wanted to have a package installed in my project which wa">
 <meta property="article:published_time" content="2024-11-05T05:00:00.000Z">
-<meta property="article:modified_time" content="2024-11-05T05:09:43.177Z">
+<meta property="article:modified_time" content="2024-11-05T05:12:08.609Z">
 <meta property="article:author" content="Western Devs">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:creator" content="@westerndevs">
@@ -114,7 +114,6 @@
 <p>Now in the build I needed to add a step in to populate the GITHUB_TOKEN which can be used for authentication. I found quite a bit of documentation which suggested that the .yarnrc.yml file would be able to read the environment variable but I had no luck with that approach. Instead I added a step to the build to populate the GITHUB_TOKEN in the .npmrc file.</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Configure</span> <span class="string">GitHub</span> <span class="string">Packages</span> <span class="string">Auth</span></span><br><span class="line">    <span class="attr">run:</span> <span class="string">echo</span> <span class="string">"//npm.pkg.github.com/:_authToken=$&#123;GITHUB_TOKEN&#125;"</span> <span class="string">&gt;</span> <span class="string">~/.npmrc</span></span><br><span class="line">    <span class="attr">env:</span></span><br><span class="line">    <span class="attr">GITHUB_TOKEN:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.GITHUB_TOKEN</span> <span class="string">&#125;&#125;</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Build</span></span><br><span class="line">    <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line">    <span class="string">yarn</span> <span class="string">install</span></span><br><span class="line">    <span class="string">yarn</span> <span class="string">lint</span></span><br><span class="line">    <span class="string">yarn</span> <span class="string">build</span></span><br></pre></td></tr></table></figure>
 <p>The final thing to remember is that by default the GITHUB_TOKEN here doesn't have read permission over your packages. You'll need to go into the package settings and add the repository to the list of repositories which can use the package. You just need read access.  If you don't do this step you're going to see an error like <code>error Error: https://npm.pkg.github.com/@stimms%2fuicomponents: authentication token not provided</code></p>
-<pre><code class="language-yml"></code></pre>
 
 	        </div>
 
