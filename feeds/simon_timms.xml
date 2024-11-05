@@ -5,7 +5,7 @@
   <link href="/feeds/simon_timms" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2024-10-20T02:37:28.890Z</updated>
+  <updated>2024-11-05T05:09:43.177Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Consuming Github Packages in Yarn</title>
+    <link href="https://westerndevs.com/_/consuming-github-packges-in-yarn/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/consuming-github-packges-in-yarn/</id>
+    <published>2024-11-05T05:00:00.000Z</published>
+    <updated>2024-11-05T05:09:43.177Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>My life is never without adventure but unfortunately it isn't the living on a beach sort of adventure. No it's the installing yarn packages. I wanted to have a package installed in my project which was one I'd published from another repository. In this case the package was called <code>@stimms/uicomponents</code>. There were a few tricks to getting Github actions to be able to pull the package: first I needed to create a .yarnrc.yml file. This gives yarn instructions about where it should look for packages.</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">nodeLinker:</span> <span class="string">node-modules</span></span><br><span class="line"></span><br><span class="line"><span class="attr">npmScopes:</span></span><br><span class="line">  <span class="attr">stimms:</span></span><br><span class="line">    <span class="attr">npmRegistryServer:</span> <span class="string">"https://npm.pkg.github.com"</span></span><br><span class="line">    </span><br><span class="line"><span class="attr">npmRegistries:</span></span><br><span class="line">  <span class="attr">"https://npm.pkg.github.com":</span></span><br><span class="line">    <span class="attr">npmAlwaysAuth:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure><p>Now in the build I needed to add a step in to populate the GITHUB_TOKEN which can be used for authentication. I found quite a bit of documentation which suggested that the .yarnrc.yml file would be able to read the environment variable but I had no luck with that approach. Instead I added a step to the build to populate the GITHUB_TOKEN in the .npmrc file.</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Configure</span> <span class="string">GitHub</span> <span class="string">Packages</span> <span class="string">Auth</span></span><br><span class="line">    <span class="attr">run:</span> <span class="string">echo</span> <span class="string">"//npm.pkg.github.com/:_authToken=$&#123;GITHUB_TOKEN&#125;"</span> <span class="string">&gt;</span> <span class="string">~/.npmrc</span></span><br><span class="line">    <span class="attr">env:</span></span><br><span class="line">    <span class="attr">GITHUB_TOKEN:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.GITHUB_TOKEN</span> <span class="string">&#125;&#125;</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Build</span></span><br><span class="line">    <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line">    <span class="string">yarn</span> <span class="string">install</span></span><br><span class="line">    <span class="string">yarn</span> <span class="string">lint</span></span><br><span class="line">    <span class="string">yarn</span> <span class="string">build</span></span><br></pre></td></tr></table></figure><p>The final thing to remember is that by default the GITHUB_TOKEN here doesn't have read permission over your packages. You'll need to go into the package settings and add the repository to the list of repositories which can use the package. You just need read access.  If you don't do this step you're going to see an error like <code>error Error: https://npm.pkg.github.com/@stimms%2fuicomponents: authentication token not provided</code></p><pre><code class="language-yml"></code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;My life is never without adventure but unfortunately it isn&#39;t the living on a beach sort of adventure. No it&#39;s the installing yarn packag
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Fast Endpoints Listen Port</title>
     <link href="https://westerndevs.com/_/fast-endpoints-port/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/fast-endpoints-port/</id>
     <published>2024-10-12T04:00:00.000Z</published>
-    <updated>2024-10-20T02:37:28.890Z</updated>
+    <updated>2024-11-05T05:09:43.177Z</updated>
 	<author>
 	
 	  
@@ -47,7 +73,7 @@
     <link href="https://westerndevs.com/_/update-outdated-packages/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/update-outdated-packages/</id>
     <published>2024-09-15T04:00:00.000Z</published>
-    <updated>2024-10-20T02:37:28.894Z</updated>
+    <updated>2024-11-05T05:09:43.185Z</updated>
 	<author>
 	
 	  
@@ -73,7 +99,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-6/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-6/</id>
     <published>2024-09-14T04:00:00.000Z</published>
-    <updated>2024-10-20T02:37:28.890Z</updated>
+    <updated>2024-11-05T05:09:43.181Z</updated>
 	<author>
 	
 	  
@@ -99,7 +125,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-5/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-5/</id>
     <published>2024-09-09T04:00:00.000Z</published>
-    <updated>2024-10-20T02:37:28.890Z</updated>
+    <updated>2024-11-05T05:09:43.181Z</updated>
 	<author>
 	
 	  
@@ -125,7 +151,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-4/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-4/</id>
     <published>2024-09-02T04:00:00.000Z</published>
-    <updated>2024-10-20T02:37:28.890Z</updated>
+    <updated>2024-11-05T05:09:43.181Z</updated>
 	<author>
 	
 	  
@@ -151,7 +177,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-3/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-3/</id>
     <published>2024-09-01T04:00:00.000Z</published>
-    <updated>2024-10-20T02:37:28.890Z</updated>
+    <updated>2024-11-05T05:09:43.181Z</updated>
 	<author>
 	
 	  
@@ -177,7 +203,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-2/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-2/</id>
     <published>2024-08-31T04:00:00.000Z</published>
-    <updated>2024-10-20T02:37:28.890Z</updated>
+    <updated>2024-11-05T05:09:43.181Z</updated>
 	<author>
 	
 	  
@@ -203,7 +229,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-1/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-1/</id>
     <published>2024-08-30T04:00:00.000Z</published>
-    <updated>2024-10-20T02:37:28.890Z</updated>
+    <updated>2024-11-05T05:09:43.181Z</updated>
 	<author>
 	
 	  
@@ -229,7 +255,7 @@
     <link href="https://westerndevs.com/_/plinko-diagram/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/plinko-diagram/</id>
     <published>2024-07-31T04:00:00.000Z</published>
-    <updated>2024-10-20T02:37:28.890Z</updated>
+    <updated>2024-11-05T05:09:43.181Z</updated>
 	<author>
 	
 	  
@@ -255,7 +281,7 @@
     <link href="https://westerndevs.com/_/set-blob-container-cors/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-blob-container-cors/</id>
     <published>2024-05-24T04:00:00.000Z</published>
-    <updated>2024-10-20T02:37:28.894Z</updated>
+    <updated>2024-11-05T05:09:43.185Z</updated>
 	<author>
 	
 	  
@@ -281,7 +307,7 @@
     <link href="https://westerndevs.com/_/cannot-copy/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cannot-copy/</id>
     <published>2023-11-23T05:00:00.000Z</published>
-    <updated>2024-10-20T02:37:28.886Z</updated>
+    <updated>2024-11-05T05:09:43.177Z</updated>
 	<author>
 	
 	  
@@ -307,7 +333,7 @@
     <link href="https://westerndevs.com/_/connect-to-service-container/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/connect-to-service-container/</id>
     <published>2023-11-20T05:00:00.000Z</published>
-    <updated>2024-10-20T02:37:28.886Z</updated>
+    <updated>2024-11-05T05:09:43.177Z</updated>
 	<author>
 	
 	  
@@ -333,7 +359,7 @@
     <link href="https://westerndevs.com/_/smtp-setup-for-mailgun/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/smtp-setup-for-mailgun/</id>
     <published>2023-10-30T04:00:00.000Z</published>
-    <updated>2024-10-20T02:37:28.894Z</updated>
+    <updated>2024-11-05T05:09:43.185Z</updated>
 	<author>
 	
 	  
@@ -359,7 +385,7 @@
     <link href="https://westerndevs.com/_/artillery/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/artillery/</id>
     <published>2023-10-14T04:00:00.000Z</published>
-    <updated>2024-10-20T02:37:28.886Z</updated>
+    <updated>2024-11-05T05:09:43.177Z</updated>
 	<author>
 	
 	  
@@ -385,7 +411,7 @@
     <link href="https://westerndevs.com/_/storage-alert-rules/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/storage-alert-rules/</id>
     <published>2023-03-30T04:00:00.000Z</published>
-    <updated>2024-10-20T02:37:28.894Z</updated>
+    <updated>2024-11-05T05:09:43.185Z</updated>
 	<author>
 	
 	  
@@ -411,7 +437,7 @@
     <link href="https://westerndevs.com/_/vuetify-esm/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/vuetify-esm/</id>
     <published>2023-03-15T04:00:00.000Z</published>
-    <updated>2024-10-20T02:37:28.898Z</updated>
+    <updated>2024-11-05T05:09:43.185Z</updated>
 	<author>
 	
 	  
@@ -437,7 +463,7 @@
     <link href="https://westerndevs.com/_/app-service-quota/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/app-service-quota/</id>
     <published>2023-03-04T05:00:00.000Z</published>
-    <updated>2024-10-20T02:37:28.886Z</updated>
+    <updated>2024-11-05T05:09:43.177Z</updated>
 	<author>
 	
 	  
@@ -464,7 +490,7 @@
     <link href="https://westerndevs.com/_/azure-keyvaul-reference-gotcha/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-keyvaul-reference-gotcha/</id>
     <published>2023-03-04T05:00:00.000Z</published>
-    <updated>2024-10-20T02:37:28.886Z</updated>
+    <updated>2024-11-05T05:09:43.177Z</updated>
 	<author>
 	
 	  
@@ -490,7 +516,7 @@
     <link href="https://westerndevs.com/_/express-json-comments/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/express-json-comments/</id>
     <published>2023-02-16T05:00:00.000Z</published>
-    <updated>2024-10-20T02:37:28.890Z</updated>
+    <updated>2024-11-05T05:09:43.177Z</updated>
 	<author>
 	
 	  
@@ -505,32 +531,6 @@
     <summary type="html">
     
       &lt;p&gt;Officially comments are not supported in the JSON format. In fact this lack of ability to comment is one of the reasons that lead to the 
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Excel and Ruby</title>
-    <link href="https://westerndevs.com/_/ruby-excel/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/ruby-excel/</id>
-    <published>2023-02-15T05:00:00.000Z</published>
-    <updated>2024-10-20T02:37:28.894Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>Excel is the king of spreadsheets and I often find myself in situation where I have to write our Excel files in an application. I'd say that as an application grows the probability of needing Excel import or export approaches 1. Fortunately, there are lots of libraries out there to help with Excel across just about every language. The quality and usefuleness of these libraries varies a lot. In Ruby land there seem to be a few options.</p><h2>Spreadsheet</h2><p>https://github.com/zdavatz/spreadsheet/</p><p>As the name suggests this library deals with Excel spreadsheets. It is able to both read and write them by using Spreadsheet::Excel Library and the ParseExcel Library. However it only supports the older XLS file format. While this is still widely used it is not the default format for Excel 2007 and later. I try to stay clear of the format as much as possible. There have not been any releases of this library in about 18 months but there haven't been any releases of the XLS file format for decades so it doesn't seem like a big deal.</p><p>The library can be installed using</p><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem <span class="keyword">install</span> spreadsheet</span><br></pre></td></tr></table></figure><p>Then you can use it like so</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">'spreadsheet'</span></span><br><span class="line"></span><br><span class="line">workbook = Spreadsheet.open(<span class="string">"test.xls"</span>)</span><br><span class="line">worksheet = workbook.worksheet <span class="number">0</span></span><br><span class="line">worksheet.rows[<span class="number">1</span>][<span class="number">1</span>] = <span class="string">"Hello there!"</span></span><br><span class="line">workbook.write(<span class="string">"test2.xls"</span>)</span><br></pre></td></tr></table></figure><p>There are some limitations around editing files such as cell formats not updating but for most things it should be fine.</p><h2>RubyXL</h2><p>https://github.com/weshatheleopard/rubyXL</p><p>This library works on the more modern XLSX file formats. It is able to read and write files with modifications. However there are some limitations such as being unable to insert images</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">'rubyXL'</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># only do this if you don't care about memory usage, otherwise you can load submodules separately</span></span><br><span class="line">  <span class="comment"># depending on what you need</span></span><br><span class="line"><span class="keyword">require</span> <span class="string">'rubyXL/convenience_methods'</span></span><br><span class="line"></span><br><span class="line">workbook = RubyXL::Parser.parse(<span class="string">"test.xlsx"</span>)</span><br><span class="line">worksheet = workbook[<span class="number">0</span>]</span><br><span class="line">cell = worksheet.cell_at(<span class="string">'A1'</span>)</span><br><span class="line">cell.change_contents(<span class="string">"Hello there!"</span>)</span><br><span class="line">workbook.write(<span class="string">"test2.xlsx"</span>)</span><br></pre></td></tr></table></figure><h2>CAXLSX</h2><p>https://github.com/caxlsx/caxlsx</p><p>This library is the community supported version of AXLSX. It is able to generate XLSX files but not read them or modify them. There is rich support for charts, images and other more advanced excel features. The</p><p>Install using</p><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem <span class="keyword">install</span> caxlsx</span><br></pre></td></tr></table></figure><p>And then a simple example looks like</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">'axlsx'</span></span><br><span class="line"></span><br><span class="line">p = Axlsx::Package.new</span><br><span class="line">workbook = p.workbook</span><br><span class="line"></span><br><span class="line">wb.add_worksheet(<span class="symbol">name:</span> <span class="string">'Test'</span>) <span class="keyword">do</span> <span class="params">|sheet|</span></span><br><span class="line">  sheet.add_row [<span class="string">'Hello there!'</span>]</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">p.serialize <span class="string">"test.xlsx"</span></span><br></pre></td></tr></table></figure><p>Of all the libraries mentioned here the documentation for this one is the best. It is also the most actively maintained. The examples directory https://github.com/caxlsx/caxlsx/tree/master/examples gives a plethora of examples of how to use the library.</p><h2>Fast Excel</h2><p>https://github.com/Paxa/fast_excel</p><p>This library focuses on being the fastest excel library for ruby. It is actually written in C to speed it up so comes with all the caveats about running native code. Similar to CAXLSX it is only able to read and write files and not modify them.</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">'fast_excel'</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># constant_memory: true streams changes to disk so it means that you cannot</span></span><br><span class="line">  <span class="comment"># modify an already written record</span></span><br><span class="line">workbook = FastExcel.open(<span class="string">"test.xlsx"</span>, <span class="symbol">constant_memory:</span> <span class="literal">true</span>)</span><br><span class="line">worksheet = workbook.add_worksheet(<span class="string">"Test"</span>)</span><br><span class="line"></span><br><span class="line">bold = workbook.bold_format</span><br><span class="line">worksheet.set_column(<span class="number">0</span>, <span class="number">0</span>, FastExcel::DEF_COL_WIDTH, bold)</span><br><span class="line">worksheet &lt;&lt; [<span class="string">"Hello World"</span>]</span><br><span class="line">workbook.close</span><br></pre></td></tr></table></figure><p>As you can see here the library really excels at adding consistently shaped rows. You're unlikely to get a complex spreadsheet with headers and footers built using this tooling.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Excel is the king of spreadsheets and I often find myself in situation where I have to write our Excel files in an application. I&#39;d say t
     
     </summary>
     
