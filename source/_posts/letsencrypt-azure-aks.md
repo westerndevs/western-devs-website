@@ -185,7 +185,7 @@ helm install \
 
 ```
 
-This installs the cert manager. It's job is to provision and update certificates for us. We then need to create a ClusterIssuer. This is a resource that tells the cert-manager where to get the certificates from. In this case we're going to use Let's Encrypt. 
+This installs the cert manager. It's job is to provision and update certificates for us. We then need to create a ClusterIssuer. This is a resource that tells the cert-manager where to get the certificates from. In this case we're going to use Let's Encrypt. You can load this file into the cluster with `kubectl apply -f <filename>`.
 
 ```
 apiVersion: cert-manager.io/v1
@@ -210,7 +210,7 @@ spec:
 
 This will directly use prod Let's Encrypt - you might want to play using the staging server first if you're not confident. I wasn't confident. In here we've set the email which will have certificate expiries sent to it (but you should never see them because cert-manager will renew certs before they expire). 
 
-Now we need to create a Certificate resource. This is what will actually get the certificate for us. I provisioned a certificate with a lot of DNS names instead of a wildcard. Might revisit this later.
+Now we need to create a Certificate resource. This is what will actually get the certificate for us. I provisioned a certificate with a lot of DNS names instead of a wildcard. Might revisit this later. Again here to load this file into the cluster use `kubectl apply -f <filename>`.
 
 ```
 apiVersion: cert-manager.io/v1
@@ -249,7 +249,13 @@ spec:
     kind: ClusterIssuer
 ```
 
-Now all that's left is to update the ingres to use this certificate. 
+You can check the status of the certificate provisioning using the cmctl command which you can install, at least on OSX with `brew install cmctl`
+
+```
+cmctl status certificate wigglepiggle
+```
+
+Now all that's left is to update the ingress to use this certificate. 
 
 ```
 ingres: k.networking.v1.ingress.new($.config.containers.web.name) {
