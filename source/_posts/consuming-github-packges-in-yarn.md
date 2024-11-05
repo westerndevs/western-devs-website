@@ -38,4 +38,3 @@ Now in the build I needed to add a step in to populate the GITHUB_TOKEN which ca
 
 The final thing to remember is that by default the GITHUB_TOKEN here doesn't have read permission over your packages. You'll need to go into the package settings and add the repository to the list of repositories which can use the package. You just need read access.  If you don't do this step you're going to see an error like `error Error: https://npm.pkg.github.com/@stimms%2fuicomponents: authentication token not provided`
 
-```yml
