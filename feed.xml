@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2024-11-14T13:42:27.628Z</updated>
+  <updated>2024-11-20T00:17:14.227Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Limit Dependabot to .NET 8</title>
+    <link href="https://westerndevs.com/_/dependabot-ignore-dotnet-9/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/dependabot-ignore-dotnet-9/</id>
+    <published>2024-11-20T05:00:00.000Z</published>
+    <updated>2024-11-20T00:17:14.227Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>Just last week .NET 9 was realeased to much fanfare. There are a ton of cool and exciting things in it but for my current project I want to stick to a long term support version of .NET which is .NET 8. We might update later but for now 8 is great. Unfortunately dependabot isn't able to read my mind so it was continually proposing updating to .NET 9 packages.</p><p>Fixing this is easy enough. I needed to add a couple of lines to my dependabot file to limit the sorts of updates it did to just minor and patch updates. Notice the <code>update-types</code> section.</p><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span><span class="variable">s:</span></span><br><span class="line">  - package-ecosystem: <span class="string">"nuget"</span></span><br><span class="line">    directory: <span class="string">"/."</span></span><br><span class="line">    group<span class="variable">s:</span></span><br><span class="line">      all_package<span class="variable">s:</span></span><br><span class="line">        <span class="keyword">update</span>-<span class="built_in">type</span><span class="variable">s:</span></span><br><span class="line">          - <span class="string">"minor"</span></span><br><span class="line">          - <span class="string">"patch"</span></span><br><span class="line">        pattern<span class="variable">s:</span></span><br><span class="line">          - <span class="string">"*"</span></span><br><span class="line">    <span class="keyword">open</span>-pull-requests-limi<span class="variable">t:</span> <span class="number">50</span></span><br><span class="line">    schedule:</span><br><span class="line">      interva<span class="variable">l:</span> <span class="string">"weekly"</span></span><br></pre></td></tr></table></figure><p>With this in place dependabot is only proposing minor and patch updates to my .NET packages. It does mean that if we see other major version updates to non-Microsoft packages we'll have to manually update them.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Just last week .NET 9 was realeased to much fanfare. There are a ton of cool and exciting things in it but for my current project I want 
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">RavenDB on Kubernetes</title>
     <link href="https://westerndevs.com/_/ravendb-on-k8s/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ravendb-on-k8s/</id>
     <published>2024-11-14T05:00:00.000Z</published>
-    <updated>2024-11-14T13:42:27.628Z</updated>
+    <updated>2024-11-20T00:17:14.235Z</updated>
 	<author>
 	
 	  
@@ -47,7 +73,7 @@
     <link href="https://westerndevs.com/_/where-is-the-space/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/where-is-the-space/</id>
     <published>2024-11-10T05:00:00.000Z</published>
-    <updated>2024-11-14T13:42:27.632Z</updated>
+    <updated>2024-11-20T00:17:14.235Z</updated>
 	<author>
 	
 	  
@@ -73,7 +99,7 @@
     <link href="https://westerndevs.com/_/consuming-github-packges-in-yarn/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/consuming-github-packges-in-yarn/</id>
     <published>2024-11-05T05:00:00.000Z</published>
-    <updated>2024-11-14T13:42:27.620Z</updated>
+    <updated>2024-11-20T00:17:14.227Z</updated>
 	<author>
 	
 	  
@@ -99,7 +125,7 @@
     <link href="https://westerndevs.com/_/fast-endpoints-port/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/fast-endpoints-port/</id>
     <published>2024-10-12T04:00:00.000Z</published>
-    <updated>2024-11-14T13:42:27.624Z</updated>
+    <updated>2024-11-20T00:17:14.231Z</updated>
 	<author>
 	
 	  
@@ -125,7 +151,7 @@
     <link href="https://westerndevs.com/_/update-outdated-packages/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/update-outdated-packages/</id>
     <published>2024-09-15T04:00:00.000Z</published>
-    <updated>2024-11-14T13:42:27.628Z</updated>
+    <updated>2024-11-20T00:17:14.235Z</updated>
 	<author>
 	
 	  
@@ -151,7 +177,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-6/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-6/</id>
     <published>2024-09-14T04:00:00.000Z</published>
-    <updated>2024-11-14T13:42:27.624Z</updated>
+    <updated>2024-11-20T00:17:14.231Z</updated>
 	<author>
 	
 	  
@@ -177,7 +203,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-5/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-5/</id>
     <published>2024-09-09T04:00:00.000Z</published>
-    <updated>2024-11-14T13:42:27.624Z</updated>
+    <updated>2024-11-20T00:17:14.231Z</updated>
 	<author>
 	
 	  
@@ -203,7 +229,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-4/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-4/</id>
     <published>2024-09-02T04:00:00.000Z</published>
-    <updated>2024-11-14T13:42:27.624Z</updated>
+    <updated>2024-11-20T00:17:14.231Z</updated>
 	<author>
 	
 	  
@@ -229,7 +255,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-3/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-3/</id>
     <published>2024-09-01T04:00:00.000Z</published>
-    <updated>2024-11-14T13:42:27.624Z</updated>
+    <updated>2024-11-20T00:17:14.231Z</updated>
 	<author>
 	
 	  
@@ -255,7 +281,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-2/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-2/</id>
     <published>2024-08-31T04:00:00.000Z</published>
-    <updated>2024-11-14T13:42:27.624Z</updated>
+    <updated>2024-11-20T00:17:14.231Z</updated>
 	<author>
 	
 	  
@@ -281,7 +307,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-1/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-1/</id>
     <published>2024-08-30T04:00:00.000Z</published>
-    <updated>2024-11-14T13:42:27.624Z</updated>
+    <updated>2024-11-20T00:17:14.231Z</updated>
 	<author>
 	
 	  
@@ -307,7 +333,7 @@
     <link href="https://westerndevs.com/_/plinko-diagram/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/plinko-diagram/</id>
     <published>2024-07-31T04:00:00.000Z</published>
-    <updated>2024-11-14T13:42:27.624Z</updated>
+    <updated>2024-11-20T00:17:14.231Z</updated>
 	<author>
 	
 	  
@@ -333,7 +359,7 @@
     <link href="https://westerndevs.com/_/azure-functions-for-side-projects/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-functions-for-side-projects/</id>
     <published>2024-06-23T04:00:00.000Z</published>
-    <updated>2024-11-14T13:42:27.620Z</updated>
+    <updated>2024-11-20T00:17:14.227Z</updated>
 	<author>
 	
 	  
@@ -364,7 +390,7 @@
     <link href="https://westerndevs.com/_/syncing-multiple-calendars/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/syncing-multiple-calendars/</id>
     <published>2024-06-17T04:00:00.000Z</published>
-    <updated>2024-11-14T13:42:27.628Z</updated>
+    <updated>2024-11-20T00:17:14.235Z</updated>
 	<author>
 	
 	  
@@ -390,7 +416,7 @@
     <link href="https://westerndevs.com/_/set-blob-container-cors/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-blob-container-cors/</id>
     <published>2024-05-24T04:00:00.000Z</published>
-    <updated>2024-11-14T13:42:27.628Z</updated>
+    <updated>2024-11-20T00:17:14.235Z</updated>
 	<author>
 	
 	  
@@ -416,7 +442,7 @@
     <link href="https://westerndevs.com/_/cannot-copy/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cannot-copy/</id>
     <published>2023-11-23T05:00:00.000Z</published>
-    <updated>2024-11-14T13:42:27.620Z</updated>
+    <updated>2024-11-20T00:17:14.227Z</updated>
 	<author>
 	
 	  
@@ -442,7 +468,7 @@
     <link href="https://westerndevs.com/_/connect-to-service-container/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/connect-to-service-container/</id>
     <published>2023-11-20T05:00:00.000Z</published>
-    <updated>2024-11-14T13:42:27.620Z</updated>
+    <updated>2024-11-20T00:17:14.227Z</updated>
 	<author>
 	
 	  
@@ -468,7 +494,7 @@
     <link href="https://westerndevs.com/_/smtp-setup-for-mailgun/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/smtp-setup-for-mailgun/</id>
     <published>2023-10-30T04:00:00.000Z</published>
-    <updated>2024-11-14T13:42:27.628Z</updated>
+    <updated>2024-11-20T00:17:14.235Z</updated>
 	<author>
 	
 	  
@@ -494,7 +520,7 @@
     <link href="https://westerndevs.com/_/artillery/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/artillery/</id>
     <published>2023-10-14T04:00:00.000Z</published>
-    <updated>2024-11-14T13:42:27.620Z</updated>
+    <updated>2024-11-20T00:17:14.227Z</updated>
 	<author>
 	
 	  
@@ -509,32 +535,6 @@
     <summary type="html">
     
       &lt;p&gt;Load testing a site or an API can be a bit involved. There are lots of things to consider like what the traffic on your site typically lo
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Alerting on Blob Storage Throttling</title>
-    <link href="https://westerndevs.com/_/storage-alert-rules/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/storage-alert-rules/</id>
-    <published>2023-03-30T04:00:00.000Z</published>
-    <updated>2024-11-14T13:42:27.628Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>Blob storage is the workhorse of Azure. It is one of the original services and has grown with the times to allow storing data in a variety of formats. It is able to scale perhaps not to the moon but certainly to objects in low earth orbit(LEO).</p><p>One of my clients has a fair bit of data stored in a file share hosted in Azure Storage. They do nightly processing on this data using a legacy IaaS system. We were concerned that we might saturate the blob storage account with our requests. Fortunately, there are metrics we can use to understand what's going on inside blob storage. Nobody wants to monitor these all the time so we set up some alerting rules for the storage account.</p><p>Alert rules can easily be created by going to the file share in the storage account and clicking on metrics. Then in the top bar click on <code>New Alert Rule</code></p><p>The typical rules we applied were</p><ol><li>Alerting if we reach a certain % of capacity. We set this to about 90%<img src="/images/2023-03-30-storage-alert-rules.md/2023-03-30-07-32-46.png" alt="">)</li><li>Alerting if we see the number of transactions fall outside a typical range. We used a dynamic rule for this to account for how the load on this batch processing system changes overnight.<img src="/images/2023-03-30-storage-alert-rules.md/2023-03-30-07-35-25.png" alt="">)</li></ol><p>However there was one additional metric we wanted to catch: when we have hit throttling. This was a bit trickier to set up because we've never actually hit this threshold. This means that the dimensions to filter on don't actually show up in the portal. They must be entered by hand.</p><p>These are the normal values we see<img src="/images/2023-03-30-storage-alert-rules.md/2023-03-30-07-38-07.png" alt="">)</p><p>By clicking on add custom value we were able to add 3 new response codes</p><ul><li>ClientAccountBandwidthThrottlingError</li><li>ClientShareIopsThrottlingError</li><li>ClientThrottlingError</li></ul><p><img src="/images/2023-03-30-storage-alert-rules.md/2023-03-30-07-40-59.png" alt="">)</p><p>With these in place we can be confident that should these ever occur we'll be alerted to it</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Blob storage is the workhorse of Azure. It is one of the original services and has grown with the times to allow storing data in a variet
     
     </summary>
     
