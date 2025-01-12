@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2024-11-20T00:17:14.227Z</updated>
+  <updated>2025-01-12T02:21:30.221Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://westerndevs.com/_/dependabot-ignore-dotnet-9/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/dependabot-ignore-dotnet-9/</id>
     <published>2024-11-20T05:00:00.000Z</published>
-    <updated>2024-11-20T00:17:14.227Z</updated>
+    <updated>2025-01-12T02:21:30.221Z</updated>
 	<author>
 	
 	  
@@ -47,7 +47,7 @@
     <link href="https://westerndevs.com/_/ravendb-on-k8s/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ravendb-on-k8s/</id>
     <published>2024-11-14T05:00:00.000Z</published>
-    <updated>2024-11-20T00:17:14.235Z</updated>
+    <updated>2025-01-12T02:21:30.225Z</updated>
 	<author>
 	
 	  
@@ -73,7 +73,7 @@
     <link href="https://westerndevs.com/_/where-is-the-space/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/where-is-the-space/</id>
     <published>2024-11-10T05:00:00.000Z</published>
-    <updated>2024-11-20T00:17:14.235Z</updated>
+    <updated>2025-01-12T02:21:30.229Z</updated>
 	<author>
 	
 	  
@@ -99,7 +99,7 @@
     <link href="https://westerndevs.com/_/consuming-github-packges-in-yarn/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/consuming-github-packges-in-yarn/</id>
     <published>2024-11-05T05:00:00.000Z</published>
-    <updated>2024-11-20T00:17:14.227Z</updated>
+    <updated>2025-01-12T02:21:30.221Z</updated>
 	<author>
 	
 	  
@@ -125,7 +125,7 @@
     <link href="https://westerndevs.com/_/fast-endpoints-port/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/fast-endpoints-port/</id>
     <published>2024-10-12T04:00:00.000Z</published>
-    <updated>2024-11-20T00:17:14.231Z</updated>
+    <updated>2025-01-12T02:21:30.221Z</updated>
 	<author>
 	
 	  
@@ -151,7 +151,7 @@
     <link href="https://westerndevs.com/_/update-outdated-packages/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/update-outdated-packages/</id>
     <published>2024-09-15T04:00:00.000Z</published>
-    <updated>2024-11-20T00:17:14.235Z</updated>
+    <updated>2025-01-12T02:21:30.229Z</updated>
 	<author>
 	
 	  
@@ -177,7 +177,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-6/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-6/</id>
     <published>2024-09-14T04:00:00.000Z</published>
-    <updated>2024-11-20T00:17:14.231Z</updated>
+    <updated>2025-01-12T02:21:30.225Z</updated>
 	<author>
 	
 	  
@@ -203,7 +203,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-5/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-5/</id>
     <published>2024-09-09T04:00:00.000Z</published>
-    <updated>2024-11-20T00:17:14.231Z</updated>
+    <updated>2025-01-12T02:21:30.225Z</updated>
 	<author>
 	
 	  
@@ -229,7 +229,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-4/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-4/</id>
     <published>2024-09-02T04:00:00.000Z</published>
-    <updated>2024-11-20T00:17:14.231Z</updated>
+    <updated>2025-01-12T02:21:30.225Z</updated>
 	<author>
 	
 	  
@@ -255,7 +255,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-3/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-3/</id>
     <published>2024-09-01T04:00:00.000Z</published>
-    <updated>2024-11-20T00:17:14.231Z</updated>
+    <updated>2025-01-12T02:21:30.225Z</updated>
 	<author>
 	
 	  
@@ -281,7 +281,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-2/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-2/</id>
     <published>2024-08-31T04:00:00.000Z</published>
-    <updated>2024-11-20T00:17:14.231Z</updated>
+    <updated>2025-01-12T02:21:30.225Z</updated>
 	<author>
 	
 	  
@@ -307,7 +307,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-1/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-1/</id>
     <published>2024-08-30T04:00:00.000Z</published>
-    <updated>2024-11-20T00:17:14.231Z</updated>
+    <updated>2025-01-12T02:21:30.225Z</updated>
 	<author>
 	
 	  
@@ -333,7 +333,7 @@
     <link href="https://westerndevs.com/_/plinko-diagram/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/plinko-diagram/</id>
     <published>2024-07-31T04:00:00.000Z</published>
-    <updated>2024-11-20T00:17:14.231Z</updated>
+    <updated>2025-01-12T02:21:30.225Z</updated>
 	<author>
 	
 	  
@@ -359,7 +359,7 @@
     <link href="https://westerndevs.com/_/azure-functions-for-side-projects/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-functions-for-side-projects/</id>
     <published>2024-06-23T04:00:00.000Z</published>
-    <updated>2024-11-20T00:17:14.227Z</updated>
+    <updated>2025-01-12T02:21:30.217Z</updated>
 	<author>
 	
 	  
@@ -390,7 +390,7 @@
     <link href="https://westerndevs.com/_/syncing-multiple-calendars/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/syncing-multiple-calendars/</id>
     <published>2024-06-17T04:00:00.000Z</published>
-    <updated>2024-11-20T00:17:14.235Z</updated>
+    <updated>2025-01-12T02:21:30.225Z</updated>
 	<author>
 	
 	  
@@ -416,7 +416,7 @@
     <link href="https://westerndevs.com/_/set-blob-container-cors/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-blob-container-cors/</id>
     <published>2024-05-24T04:00:00.000Z</published>
-    <updated>2024-11-20T00:17:14.235Z</updated>
+    <updated>2025-01-12T02:21:30.225Z</updated>
 	<author>
 	
 	  
@@ -442,7 +442,7 @@
     <link href="https://westerndevs.com/_/cannot-copy/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cannot-copy/</id>
     <published>2023-11-23T05:00:00.000Z</published>
-    <updated>2024-11-20T00:17:14.227Z</updated>
+    <updated>2025-01-12T02:21:30.221Z</updated>
 	<author>
 	
 	  
@@ -468,7 +468,7 @@
     <link href="https://westerndevs.com/_/connect-to-service-container/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/connect-to-service-container/</id>
     <published>2023-11-20T05:00:00.000Z</published>
-    <updated>2024-11-20T00:17:14.227Z</updated>
+    <updated>2025-01-12T02:21:30.221Z</updated>
 	<author>
 	
 	  
@@ -494,7 +494,7 @@
     <link href="https://westerndevs.com/_/smtp-setup-for-mailgun/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/smtp-setup-for-mailgun/</id>
     <published>2023-10-30T04:00:00.000Z</published>
-    <updated>2024-11-20T00:17:14.235Z</updated>
+    <updated>2025-01-12T02:21:30.225Z</updated>
 	<author>
 	
 	  
@@ -520,7 +520,7 @@
     <link href="https://westerndevs.com/_/artillery/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/artillery/</id>
     <published>2023-10-14T04:00:00.000Z</published>
-    <updated>2024-11-20T00:17:14.227Z</updated>
+    <updated>2025-01-12T02:21:30.217Z</updated>
 	<author>
 	
 	  
