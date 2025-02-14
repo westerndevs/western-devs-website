@@ -135,7 +135,7 @@ volumes:
     driver: local
 ```
 
-> There is a lot of YAML in **k8s** and **docker**. You are going to have to become familiar with it. I'm going to assume that you'll work through any yaml syntax errors that may come out of working through the articles.
+> There is a lot of YAML in **k8s** and **docker**. You are going to have to become familiar with it. I'm going to assume that you'll work through any yaml syntax errors that may come out of working through the articles. If you encounter any issues, [YAML Lint online](https://yamline.com/validator/) can help you debug them.
 
 After adding in Postgre, we can now add in our pgAdmin4 container instance. pgAdmin4 is a database management tool built as a web application. If you have another Postgre management tool, you don't need to follow these steps.
 
