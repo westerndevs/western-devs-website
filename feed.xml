@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2025-02-12T23:15:39.257Z</updated>
+  <updated>2025-03-30T01:37:49.772Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Open API Generator for C#</title>
+    <link href="https://westerndevs.com/_/open-api-generator/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/open-api-generator/</id>
+    <published>2025-03-30T04:00:00.000Z</published>
+    <updated>2025-03-30T01:37:49.772Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>Every once in a while I run into the need to generate a C# client for some API which has been nice enough to provide me with OpenAPI specifications. But it's one of those things that I do so infrequently that I always forget how to do it. So I thought I would document it here.</p><p>The first thing to do is to install the OpenAPI generator. It's written in Java which is obviously a decision I'm solidly against. As I run a Mac most of the time I prefer to use brew since it's easier that trying to figure out how to build stuff with Maven.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install openapi-generator</span><br></pre></td></tr></table></figure><p>Now comes the fun part: figuring out the options to use. There are bunch of different generators for different languages and on top of that each generator has options. The C# generator is called <code>csharp</code> and the options are described in some detail here https://openapi-generator.tech/docs/generators/csharp. In my case I was looking to generator a client for a US Government API that they seem to be really snippy about people getting their hands on documentation about it without going through a heap of hoops so we'll just call it <code>USGovAPI</code> because this administration is not one I want to be on the wrong side of.</p><p>In addition I wanted to generate one for .NET 8 because the project is still running on the long term support version of .NET. So the command ended up being</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openapi-generator generate -i swagger.json -g csharp -o out/usgoveapi --additional-properties=packageName=USGovAPI,targetFramework=net8.0</span><br></pre></td></tr></table></figure><p>And with that we get a nice little C# client that we can use to call the USGovAPI. It even includes some unit tests to go along with it.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Every once in a while I run into the need to generate a C# client for some API which has been nice enough to provide me with OpenAPI spec
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Limit Dependabot to .NET 8</title>
     <link href="https://westerndevs.com/_/dependabot-ignore-dotnet-9/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/dependabot-ignore-dotnet-9/</id>
     <published>2024-11-20T05:00:00.000Z</published>
-    <updated>2025-02-12T23:15:39.257Z</updated>
+    <updated>2025-03-30T01:37:49.769Z</updated>
 	<author>
 	
 	  
@@ -47,7 +73,7 @@
     <link href="https://westerndevs.com/_/ravendb-on-k8s/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ravendb-on-k8s/</id>
     <published>2024-11-14T05:00:00.000Z</published>
-    <updated>2025-02-12T23:15:39.261Z</updated>
+    <updated>2025-03-30T01:37:49.773Z</updated>
 	<author>
 	
 	  
@@ -73,7 +99,7 @@
     <link href="https://westerndevs.com/_/where-is-the-space/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/where-is-the-space/</id>
     <published>2024-11-10T05:00:00.000Z</published>
-    <updated>2025-02-12T23:15:39.265Z</updated>
+    <updated>2025-03-30T01:37:49.776Z</updated>
 	<author>
 	
 	  
@@ -99,7 +125,7 @@
     <link href="https://westerndevs.com/_/consuming-github-packges-in-yarn/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/consuming-github-packges-in-yarn/</id>
     <published>2024-11-05T05:00:00.000Z</published>
-    <updated>2025-02-12T23:15:39.256Z</updated>
+    <updated>2025-03-30T01:37:49.768Z</updated>
 	<author>
 	
 	  
@@ -125,7 +151,7 @@
     <link href="https://westerndevs.com/_/fast-endpoints-port/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/fast-endpoints-port/</id>
     <published>2024-10-12T04:00:00.000Z</published>
-    <updated>2025-02-12T23:15:39.258Z</updated>
+    <updated>2025-03-30T01:37:49.770Z</updated>
 	<author>
 	
 	  
@@ -151,7 +177,7 @@
     <link href="https://westerndevs.com/_/update-outdated-packages/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/update-outdated-packages/</id>
     <published>2024-09-15T04:00:00.000Z</published>
-    <updated>2025-02-12T23:15:39.264Z</updated>
+    <updated>2025-03-30T01:37:49.776Z</updated>
 	<author>
 	
 	  
@@ -177,7 +203,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-6/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-6/</id>
     <published>2024-09-14T04:00:00.000Z</published>
-    <updated>2025-02-12T23:15:39.260Z</updated>
+    <updated>2025-03-30T01:37:49.772Z</updated>
 	<author>
 	
 	  
@@ -203,7 +229,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-5/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-5/</id>
     <published>2024-09-09T04:00:00.000Z</published>
-    <updated>2025-02-12T23:15:39.260Z</updated>
+    <updated>2025-03-30T01:37:49.772Z</updated>
 	<author>
 	
 	  
@@ -229,7 +255,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-4/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-4/</id>
     <published>2024-09-02T04:00:00.000Z</published>
-    <updated>2025-02-12T23:15:39.260Z</updated>
+    <updated>2025-03-30T01:37:49.772Z</updated>
 	<author>
 	
 	  
@@ -255,7 +281,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-3/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-3/</id>
     <published>2024-09-01T04:00:00.000Z</published>
-    <updated>2025-02-12T23:15:39.260Z</updated>
+    <updated>2025-03-30T01:37:49.771Z</updated>
 	<author>
 	
 	  
@@ -281,7 +307,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-2/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-2/</id>
     <published>2024-08-31T04:00:00.000Z</published>
-    <updated>2025-02-12T23:15:39.260Z</updated>
+    <updated>2025-03-30T01:37:49.771Z</updated>
 	<author>
 	
 	  
@@ -307,7 +333,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-1/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-1/</id>
     <published>2024-08-30T04:00:00.000Z</published>
-    <updated>2025-02-12T23:15:39.259Z</updated>
+    <updated>2025-03-30T01:37:49.771Z</updated>
 	<author>
 	
 	  
@@ -333,7 +359,7 @@
     <link href="https://westerndevs.com/_/plinko-diagram/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/plinko-diagram/</id>
     <published>2024-07-31T04:00:00.000Z</published>
-    <updated>2025-02-12T23:15:39.260Z</updated>
+    <updated>2025-03-30T01:37:49.772Z</updated>
 	<author>
 	
 	  
@@ -359,7 +385,7 @@
     <link href="https://westerndevs.com/_/azure-functions-for-side-projects/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-functions-for-side-projects/</id>
     <published>2024-06-23T04:00:00.000Z</published>
-    <updated>2025-02-12T23:15:39.255Z</updated>
+    <updated>2025-03-30T01:37:49.767Z</updated>
 	<author>
 	
 	  
@@ -390,7 +416,7 @@
     <link href="https://westerndevs.com/_/syncing-multiple-calendars/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/syncing-multiple-calendars/</id>
     <published>2024-06-17T04:00:00.000Z</published>
-    <updated>2025-02-12T23:15:39.263Z</updated>
+    <updated>2025-03-30T01:37:49.775Z</updated>
 	<author>
 	
 	  
@@ -416,7 +442,7 @@
     <link href="https://westerndevs.com/_/set-blob-container-cors/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-blob-container-cors/</id>
     <published>2024-05-24T04:00:00.000Z</published>
-    <updated>2025-02-12T23:15:39.262Z</updated>
+    <updated>2025-03-30T01:37:49.774Z</updated>
 	<author>
 	
 	  
@@ -442,7 +468,7 @@
     <link href="https://westerndevs.com/_/cannot-copy/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cannot-copy/</id>
     <published>2023-11-23T05:00:00.000Z</published>
-    <updated>2025-02-12T23:15:39.255Z</updated>
+    <updated>2025-03-30T01:37:49.767Z</updated>
 	<author>
 	
 	  
@@ -468,7 +494,7 @@
     <link href="https://westerndevs.com/_/connect-to-service-container/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/connect-to-service-container/</id>
     <published>2023-11-20T05:00:00.000Z</published>
-    <updated>2025-02-12T23:15:39.256Z</updated>
+    <updated>2025-03-30T01:37:49.768Z</updated>
 	<author>
 	
 	  
@@ -494,7 +520,7 @@
     <link href="https://westerndevs.com/_/smtp-setup-for-mailgun/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/smtp-setup-for-mailgun/</id>
     <published>2023-10-30T04:00:00.000Z</published>
-    <updated>2025-02-12T23:15:39.262Z</updated>
+    <updated>2025-03-30T01:37:49.774Z</updated>
 	<author>
 	
 	  
@@ -509,32 +535,6 @@
     <summary type="html">
     
       &lt;p&gt;Quick entry here about setting up Mailgun as the email provider in Keycloak. To do this first you&#39;ll need to create SMTP credentials in M
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Load Testing with Artillery</title>
-    <link href="https://westerndevs.com/_/artillery/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/artillery/</id>
-    <published>2023-10-14T04:00:00.000Z</published>
-    <updated>2025-02-12T23:15:39.255Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>Load testing a site or an API can be a bit involved. There are lots of things to consider like what the traffic on your site typically looks like, what peaks look like and so forth. That's mostly outside the scope of this article which is just about load testing with artillery.</p><h2>Scenario</h2><p>We have an API that we call which is super slow and super fragile. We were recently told by the team that maintains it that they'd made improvements and increased our rate limit from something like 200 requests per minute to 300 and could we test it. So sure, I guess we can do your job for you. For this we're going to use the load testing tool <a href="https://www.artillery.io/" target="_blank" rel="noopener">artillery</a>.</p><h2>Getting started</h2><p>Artillery is a node based tool so you'll need to have node installed.  You can install artillery with <code>npm install -g artillery</code>.</p><p>You then write a configuration file to tell artillery what to do. Here's the one I used for this test (with the names of the guilty redacted):</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">config:</span> </span><br><span class="line">  <span class="attr">target:</span> <span class="string">https://some.company.com</span></span><br><span class="line">  <span class="attr">phases:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">duration:</span> <span class="number">1</span></span><br><span class="line">      <span class="attr">arrivalRate:</span> <span class="number">1</span></span><br><span class="line">  <span class="attr">http:</span></span><br><span class="line">    <span class="attr">timeout:</span> <span class="number">100</span></span><br><span class="line"><span class="attr">scenarios:</span></span><br><span class="line"> <span class="bullet">-</span> <span class="attr">flow:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">log:</span> <span class="string">"Adding new user</span></span><br><span class="line"><span class="string">    - post:</span></span><br><span class="line"><span class="string">        url: /2020-04/graphql</span></span><br><span class="line"><span class="string">        body: |</span></span><br><span class="line"><span class="string">          &#123;"</span><span class="string">query":"query</span> <span class="string">readAllEmployees($limit:</span> <span class="string">Int!,</span> <span class="string">$cursor:</span> <span class="string">String,</span> <span class="string">$statusFilter:</span> <span class="string">[String!]!)</span> <span class="string">&#123;\n</span> <span class="string">company</span> <span class="string">&#123;\n</span> <span class="string">employees(filter:</span> <span class="string">&#123;status:</span> <span class="string">&#123;in:</span> <span class="string">$statusFilter&#125;&#125;,</span> <span class="attr">pagination:</span> <span class="string">&#123;first:</span> <span class="string">$limit,</span> <span class="attr">after:</span> <span class="string">$cursor&#125;)</span> <span class="string">&#123;\n</span> <span class="string">pageInfo</span> <span class="string">&#123;\n</span> <span class="string">hasNextPage\n</span> <span class="string">startCursor\n</span> <span class="string">endCursor\n</span> <span class="string">hasPreviousPage\n</span> <span class="string">&#125;\n</span> <span class="string">nodes</span> <span class="string">&#123;\n</span> <span class="string">id\n</span> <span class="string">firstName\n</span> <span class="string">lastName\n\t\tmiddleName\n</span> <span class="string">birthDate\n</span> <span class="string">displayName\n</span> <span class="string">employmentDetail</span> <span class="string">&#123;\n</span> <span class="string">employmentStatus\n</span> <span class="string">hireDate\n</span> <span class="string">terminationDate\n</span> <span class="string">&#125;\n</span> <span class="string">taxIdentifiers</span> <span class="string">&#123;\n</span> <span class="string">taxIdentifierType\n</span> <span class="string">value\n</span> <span class="string">&#125;\n</span> <span class="string">payrollProfile</span> <span class="string">&#123;\n</span> <span class="string">preferredAddress</span> <span class="string">&#123;\n</span> <span class="string">streetAddress1\n</span> <span class="string">streetAddress2\n</span> <span class="string">city\n</span> <span class="string">zipCode\n</span> <span class="string">county\n</span> <span class="string">state\n</span> <span class="string">country\n</span> <span class="string">&#125;\n</span> <span class="string">preferredEmail\n</span> <span class="string">preferredPhone\n</span> <span class="string">compensations</span> <span class="string">&#123;\n</span> <span class="string">id\n</span> <span class="string">timeWorked</span> <span class="string">&#123;\n</span> <span class="string">unit\n</span> <span class="string">value\n</span> <span class="string">&#125;\n</span> <span class="string">active\n</span> <span class="string">amount\n</span> <span class="string">multiplier\n</span> <span class="string">employerCompensation</span> <span class="string">&#123;\n</span> <span class="string">id\n</span> <span class="string">name\n</span> <span class="string">active\n</span> <span class="string">amount\n</span> <span class="string">timeWorked</span> <span class="string">&#123;\n</span> <span class="string">unit\n</span> <span class="string">value\n</span> <span class="string">&#125;\n</span> <span class="string">multiplier\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n&#125;\n","variables":&#123;</span></span><br><span class="line">          <span class="attr">"limit":</span> <span class="number">100</span><span class="string">,</span></span><br><span class="line">          <span class="attr">"cursor":</span> <span class="literal">null</span><span class="string">,</span></span><br><span class="line">          <span class="attr">"statusFilter":</span> <span class="string">[</span></span><br><span class="line">          <span class="string">"ACTIVE"</span><span class="string">,</span></span><br><span class="line">          <span class="string">"TERMINATED"</span><span class="string">,</span></span><br><span class="line">          <span class="string">"NOTONPAYROLL"</span><span class="string">,</span></span><br><span class="line">          <span class="string">"UNPAIDLEAVE"</span><span class="string">,</span></span><br><span class="line">          <span class="string">"PAIDLEAVE"</span></span><br><span class="line">          <span class="string">]</span></span><br><span class="line">          <span class="string">&#125;&#125;</span></span><br><span class="line">        <span class="attr">headers:</span></span><br><span class="line">          <span class="attr">Content-Type:</span> <span class="string">application/json</span></span><br><span class="line">          <span class="attr">Authorization:</span> <span class="string">Bearer</span> <span class="string">&lt;redacted&gt;</span></span><br></pre></td></tr></table></figure><p>As you can see this is graphql and it is a private API so we need to pass in a bearer token. The body I just stole from our postman collection so it isn't well formatted.</p><p>Running this is as simple as running <code>artillery run &lt;filename&gt;</code>.</p><p>At the top you can see arrival rates and duration. This is saying that we want to ramp up to 1 requests per second over the course of 1 second. So basically this is just proving that our request works. The first time I ran this I only got back 400 errors. To get the body of the response to allow me to see why I was getting a 400 I set</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">export</span> <span class="attribute">DEBUG</span>=http,http:capture,http:response</span><br></pre></td></tr></table></figure><p>Once I had the simple case working I was able to increase the rates to higher levels. To do this I ended up adjusting the phases to look like</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">phases:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">duration:</span> <span class="number">30</span></span><br><span class="line">    <span class="attr">arrivalRate:</span> <span class="number">30</span></span><br><span class="line">    <span class="attr">maxVusers:</span> <span class="number">150</span></span><br></pre></td></tr></table></figure><p>This provisions 30 users a second up to a maximum of 150 users - so that takes about 5 seconds to saturate. I left the duration higher because I'm lazy and artillery is smart enough to not provision more. Then to ensure that I was pretty constantly hitting the API with the maximum number of users I added a loop to the scenario like so:</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">scenarios:</span></span><br><span class="line"> <span class="bullet">-</span> <span class="attr">flow:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">log:</span> <span class="string">"New virtual user running"</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">loop:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">post:</span></span><br><span class="line">          <span class="attr">url:</span> <span class="string">/2020-04/graphql</span></span><br><span class="line">          <span class="attr">body:</span> <span class="string">|</span></span><br><span class="line">            <span class="string">&#123;"query":"query</span> <span class="string">readAllEmployeePensions($limit:</span> <span class="string">Int!,</span> <span class="string">$cursor:</span> <span class="string">String,</span> <span class="string">$statusFilter:</span> <span class="string">[String!]!)</span> <span class="string">&#123;\n</span> <span class="string">company</span> <span class="string">&#123;\n</span> <span class="string">employees(filter:</span> <span class="string">&#123;status:</span> <span class="string">&#123;</span> <span class="attr">in:</span> <span class="string">$statusFilter</span> <span class="string">&#125;&#125;,</span> <span class="attr">pagination:</span> <span class="string">&#123;first:</span> <span class="string">$limit,</span> <span class="attr">after:</span> <span class="string">$cursor&#125;)</span> <span class="string">&#123;\n</span> <span class="string">pageInfo</span> <span class="string">&#123;\n</span> <span class="string">hasNextPage\n</span> <span class="string">startCursor\n</span> <span class="string">endCursor\n</span> <span class="string">hasPreviousPage\n</span> <span class="string">&#125;\n</span> <span class="string">nodes</span> <span class="string">&#123;\n</span> <span class="string">id\n</span> <span class="string">displayName\n</span> <span class="string">payrollProfile</span> <span class="string">&#123;\n</span> <span class="string">pensions</span> <span class="string">&#123;\n</span> <span class="string">id\n</span> <span class="string">active\n</span> <span class="string">employeeSetup</span> <span class="string">&#123;\n</span> <span class="string">amount</span> <span class="string">&#123;\n</span> <span class="string">percentage\n</span> <span class="string">value\n</span> <span class="string">&#125;\n</span> <span class="string">cappings</span> <span class="string">&#123;\n</span> <span class="string">amount\n</span> <span class="string">timeInterval\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n</span> <span class="string">employerSetup</span> <span class="string">&#123;\n</span> <span class="string">amount</span> <span class="string">&#123;\n</span> <span class="string">percentage\n</span> <span class="string">value\n</span> <span class="string">&#125;\n</span> <span class="string">cappings</span> <span class="string">&#123;\n</span> <span class="string">amount\n</span> <span class="string">timeInterval\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n</span> <span class="string">employerPension</span> <span class="string">&#123;\n</span> <span class="string">id\n</span> <span class="string">name\n</span> <span class="string">statutoryPensionPolicy\n</span> <span class="string">&#125;\n</span> <span class="string">customFields</span> <span class="string">&#123;\n</span> <span class="string">name\n</span> <span class="string">value\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n</span> <span class="string">&#125;\n&#125;\n","variables":&#123;</span></span><br><span class="line">            <span class="attr">"limit":</span> <span class="number">100</span><span class="string">,</span></span><br><span class="line">            <span class="attr">"statusFilter":</span> <span class="string">[</span></span><br><span class="line">            <span class="string">"ACTIVE"</span></span><br><span class="line">            <span class="string">]</span></span><br><span class="line">            <span class="string">&#125;&#125;</span></span><br><span class="line">          <span class="attr">headers:</span></span><br><span class="line">            <span class="attr">Content-Type:</span> <span class="string">application/json</span></span><br><span class="line">            <span class="attr">Authorization:</span> <span class="string">Bearer</span> <span class="string">&lt;redacted&gt;</span></span><br><span class="line">      <span class="attr">count:</span> <span class="number">100</span></span><br></pre></td></tr></table></figure><p>Pay attention to that count at the bottom.</p><p>I was able to use this to fire thousands of requests at the service and prove out that our rate limit was indeed higher than it was before and we could raise our concurrency.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Load testing a site or an API can be a bit involved. There are lots of things to consider like what the traffic on your site typically lo
     
     </summary>
     
