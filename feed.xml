@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2025-08-20T14:26:31.381Z</updated>
+  <updated>2025-11-05T18:40:02.100Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Jujutsu Cheat Sheet</title>
+    <link href="https://westerndevs.com/_/jujutsu-cheat-sheet/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/jujutsu-cheat-sheet/</id>
+    <published>2025-11-05T05:00:00.000Z</published>
+    <updated>2025-11-05T18:40:02.100Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>I've started playing around a bit with the source control tool <a href="https://github.com/jj-vcs/jj" target="_blank" rel="noopener">Jujutsu</a> which is commonly referred to as <code>jj</code>. Git has been my go to tool for what seems like decades now but in the before times I worked as a release engineer and made use of a huge stable of source control tools as our code base was spread over many versions and had been created from purchasing lots of other companies. For a while there I was working on a daily basis with</p><ul><li>ClearCase</li><li>Perforce</li><li>Subversion</li><li>CVS</li><li>Visual Source Safe</li><li>Mercurial</li><li>Git</li><li>CCC/Harvest</li></ul><p>I'm using Jujutsu at my day job now because it just layers transparently on top of git so I don't need to go seeking permission. I'm only a few days into using it and I'm not thoroughly convinced yet that it is better than git but I'm willing to keep trying.</p><p>Here are some of the commands I'm using so far:</p><p>Get the latest version of the code from a central repository locally</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">jj git fetch</span></span><br></pre></td></tr></table></figure><p>Start new work from the latest mainline</p><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jj <span class="keyword">new</span> main<span class="meta">@origin</span> -m <span class="string">"Whatever I'm going to work on"</span></span><br></pre></td></tr></table></figure><p>Bookmark the work with a name I'm going to use as a branch in git</p><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">jj </span><span class="keyword">bookmark </span>my-feature-<span class="keyword">branch</span></span><br></pre></td></tr></table></figure><p>Push my work up to Github</p><figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jj git <span class="keyword">push</span> --allow-<span class="keyword">new</span></span><br></pre></td></tr></table></figure><p>Create a new commit before my current one that I can squash into</p><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jj <span class="keyword">new</span> <span class="type"></span>-B @ -m <span class="string">"Some description of the work"</span></span><br></pre></td></tr></table></figure><p>Push individual files into the parent change</p><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jj squash <span class="type">path</span>/<span class="keyword">to</span>/file1 <span class="type">path</span>/<span class="keyword">to</span>/file2</span><br></pre></td></tr></table></figure><p>I'll keep expanding this document with new commands as I uncover them.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;I&#39;ve started playing around a bit with the source control tool &lt;a href=&quot;https://github.com/jj-vcs/jj&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Juju
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Open API Generator for C#</title>
     <link href="https://westerndevs.com/_/open-api-generator/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/open-api-generator/</id>
     <published>2025-03-30T04:00:00.000Z</published>
-    <updated>2025-08-20T14:26:31.381Z</updated>
+    <updated>2025-11-05T18:40:02.102Z</updated>
 	<author>
 	
 	  
@@ -47,7 +73,7 @@
     <link href="https://westerndevs.com/_/dependabot-ignore-dotnet-9/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/dependabot-ignore-dotnet-9/</id>
     <published>2024-11-20T05:00:00.000Z</published>
-    <updated>2025-08-20T14:26:31.377Z</updated>
+    <updated>2025-11-05T18:40:02.098Z</updated>
 	<author>
 	
 	  
@@ -73,7 +99,7 @@
     <link href="https://westerndevs.com/_/ravendb-on-k8s/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ravendb-on-k8s/</id>
     <published>2024-11-14T05:00:00.000Z</published>
-    <updated>2025-08-20T14:26:31.383Z</updated>
+    <updated>2025-11-05T18:40:02.103Z</updated>
 	<author>
 	
 	  
@@ -99,7 +125,7 @@
     <link href="https://westerndevs.com/_/where-is-the-space/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/where-is-the-space/</id>
     <published>2024-11-10T05:00:00.000Z</published>
-    <updated>2025-08-20T14:26:31.386Z</updated>
+    <updated>2025-11-05T18:40:02.106Z</updated>
 	<author>
 	
 	  
@@ -125,7 +151,7 @@
     <link href="https://westerndevs.com/_/consuming-github-packges-in-yarn/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/consuming-github-packges-in-yarn/</id>
     <published>2024-11-05T05:00:00.000Z</published>
-    <updated>2025-08-20T14:26:31.376Z</updated>
+    <updated>2025-11-05T18:40:02.098Z</updated>
 	<author>
 	
 	  
@@ -151,7 +177,7 @@
     <link href="https://westerndevs.com/_/fast-endpoints-port/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/fast-endpoints-port/</id>
     <published>2024-10-12T04:00:00.000Z</published>
-    <updated>2025-08-20T14:26:31.378Z</updated>
+    <updated>2025-11-05T18:40:02.099Z</updated>
 	<author>
 	
 	  
@@ -177,7 +203,7 @@
     <link href="https://westerndevs.com/_/update-outdated-packages/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/update-outdated-packages/</id>
     <published>2024-09-15T04:00:00.000Z</published>
-    <updated>2025-08-20T14:26:31.385Z</updated>
+    <updated>2025-11-05T18:40:02.105Z</updated>
 	<author>
 	
 	  
@@ -203,7 +229,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-6/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-6/</id>
     <published>2024-09-14T04:00:00.000Z</published>
-    <updated>2025-08-20T14:26:31.381Z</updated>
+    <updated>2025-11-05T18:40:02.101Z</updated>
 	<author>
 	
 	  
@@ -229,7 +255,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-5/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-5/</id>
     <published>2024-09-09T04:00:00.000Z</published>
-    <updated>2025-08-20T14:26:31.381Z</updated>
+    <updated>2025-11-05T18:40:02.101Z</updated>
 	<author>
 	
 	  
@@ -255,7 +281,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-4/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-4/</id>
     <published>2024-09-02T04:00:00.000Z</published>
-    <updated>2025-08-20T14:26:31.381Z</updated>
+    <updated>2025-11-05T18:40:02.101Z</updated>
 	<author>
 	
 	  
@@ -281,7 +307,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-3/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-3/</id>
     <published>2024-09-01T04:00:00.000Z</published>
-    <updated>2025-08-20T14:26:31.381Z</updated>
+    <updated>2025-11-05T18:40:02.101Z</updated>
 	<author>
 	
 	  
@@ -307,7 +333,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-2/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-2/</id>
     <published>2024-08-31T04:00:00.000Z</published>
-    <updated>2025-08-20T14:26:31.381Z</updated>
+    <updated>2025-11-05T18:40:02.101Z</updated>
 	<author>
 	
 	  
@@ -333,7 +359,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-1/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-1/</id>
     <published>2024-08-30T04:00:00.000Z</published>
-    <updated>2025-08-20T14:26:31.380Z</updated>
+    <updated>2025-11-05T18:40:02.101Z</updated>
 	<author>
 	
 	  
@@ -359,7 +385,7 @@
     <link href="https://westerndevs.com/_/plinko-diagram/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/plinko-diagram/</id>
     <published>2024-07-31T04:00:00.000Z</published>
-    <updated>2025-08-20T14:26:31.381Z</updated>
+    <updated>2025-11-05T18:40:02.102Z</updated>
 	<author>
 	
 	  
@@ -385,7 +411,7 @@
     <link href="https://westerndevs.com/_/azure-functions-for-side-projects/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-functions-for-side-projects/</id>
     <published>2024-06-23T04:00:00.000Z</published>
-    <updated>2025-08-20T14:26:31.375Z</updated>
+    <updated>2025-11-05T18:40:02.097Z</updated>
 	<author>
 	
 	  
@@ -416,7 +442,7 @@
     <link href="https://westerndevs.com/_/syncing-multiple-calendars/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/syncing-multiple-calendars/</id>
     <published>2024-06-17T04:00:00.000Z</published>
-    <updated>2025-08-20T14:26:31.384Z</updated>
+    <updated>2025-11-05T18:40:02.105Z</updated>
 	<author>
 	
 	  
@@ -442,7 +468,7 @@
     <link href="https://westerndevs.com/_/set-blob-container-cors/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-blob-container-cors/</id>
     <published>2024-05-24T04:00:00.000Z</published>
-    <updated>2025-08-20T14:26:31.383Z</updated>
+    <updated>2025-11-05T18:40:02.104Z</updated>
 	<author>
 	
 	  
@@ -468,7 +494,7 @@
     <link href="https://westerndevs.com/_/cannot-copy/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cannot-copy/</id>
     <published>2023-11-23T05:00:00.000Z</published>
-    <updated>2025-08-20T14:26:31.376Z</updated>
+    <updated>2025-11-05T18:40:02.097Z</updated>
 	<author>
 	
 	  
@@ -494,7 +520,7 @@
     <link href="https://westerndevs.com/_/connect-to-service-container/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/connect-to-service-container/</id>
     <published>2023-11-20T05:00:00.000Z</published>
-    <updated>2025-08-20T14:26:31.376Z</updated>
+    <updated>2025-11-05T18:40:02.098Z</updated>
 	<author>
 	
 	  
@@ -509,32 +535,6 @@
     <summary type="html">
     
       &lt;p&gt;Increasingly there is a need to run containers during a github action build to run realistic tests. In my specific scenario I had a datab
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Setting up SMTP for Keycloak Using Mailgun</title>
-    <link href="https://westerndevs.com/_/smtp-setup-for-mailgun/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/smtp-setup-for-mailgun/</id>
-    <published>2023-10-30T04:00:00.000Z</published>
-    <updated>2025-08-20T14:26:31.384Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>Quick entry here about setting up Mailgun as the email provider in Keycloak. To do this first you'll need to create SMTP credentials in Mailgun and note the generated password</p><p><img src="/images/2023-10-30-smtp_setup_for_mailgun.md/2023-10-30-17-34-55.png" alt="">)</p><p>Next in Keycloak set the credentials up in the realm settings under email. You'll want the host to be smtp.mailgun.org and the port to be 465. Enable all the encryptions and use the full email address as the username.<img src="/images/2023-10-30-smtp_setup_for_mailgun.md/2023-10-30-17-34-24.png" alt="">)</p><p>Check both the SSL boxes and give it port 465.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Quick entry here about setting up Mailgun as the email provider in Keycloak. To do this first you&#39;ll need to create SMTP credentials in M
     
     </summary>
     
