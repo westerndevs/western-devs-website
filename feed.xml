@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2025-11-05T18:40:02.100Z</updated>
+  <updated>2026-03-22T17:42:31.818Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Expensive Hosting for Small to Medium Projects</title>
+    <link href="https://westerndevs.com/_/hosting-costs/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/hosting-costs/</id>
+    <published>2026-01-15T05:00:00.000Z</published>
+    <updated>2026-03-22T17:42:31.818Z</updated>
+	<author>
+	
+	  
+	  <name>Simon Timms</name>
+	  <email>stimms@gmail.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<p>If you happened to read my previous post about <a href="https://blog.simontimms.com/2025/12/24/where-is-this-ai-stuff-going/" target="_blank" rel="noopener">where AI is going</a> then you might have picked up on my concerns about the rising cost of memory and compute. For the last few years any time I've recommened hosting to a client I've recommended some variant of AWS, Azure, or GCP. I've done this because I remember how painful it used to be to get a server allocated from an overstressed IT department. When I was on internship years ago for a large petro-chemical company we planned had to plan for deployment 6 or even 12 months in advance. IT had to figure out capacity and plan, plan plan.</p><p>The cloud make this so much easier. We could spin up a server in minutes and with platform as a service we didn't have to worry about underlying compute or updates to operating systems, or patching. It was a dream. I'd tell clients &quot;You're an insurance company leave being an IT company to Microsoft/Amazon/Google&quot;.</p><p>Recently though I've been looking at the cost of hosting an application in Azure. Even for our small applications it is surprisngly expensive. We had a tendency to vastly overbuild the hosting when for applications that have only hundreds or low thousands of users. What really gets us is the cost of the database.</p><p><img src="/images/2026-01-31-hosting-costs/2026-03-22-10-11-01.png" alt=""></p><p>This isn't a huge or highly performant database, but it is still costing us almost $400/month. For a small application with only a few hundred users this is a huge cost. Add on dev and test environments and the cost is even higher. Painful.</p><p>I wanted to understand if I was still recommending the right thing to people so I started looking at alternatives. My first stop was looking at a VPS provider. I wanted something in Canada becasue this is where I live and I wanted to support local businesses. I found a provider called <a href="https://www.ovhcloud.com/en-ca/" target="_blank" rel="noopener">OVH</a> that had a VPS with 8 vCores, 24 Gig of memory and a 200 Gig SSD for $32 a month off contract.</p><p><img src="/images/2026-01-31-hosting-costs/2026-03-22-10-18-01.png" alt=""></p><p>Now obviously vCores aren't a standard measurement unit so it's hard to compares that with something from another offering like Azure but on the surface this feels similar to a D12 from Azure which is $380/month and that's in USD so closer to $500/month CAD. The OVH offering is about 1/15th the cost of Azure.</p><p><img src="/images/2026-01-31-hosting-costs/2026-03-22-10-21-19.png" alt=""></p><p>Yikes!</p><p>So I figured I'd sign up. Maybe the added cost here would be becasue it was really arduous to get signed up. I'll admit going through the process wasn't as polished as a cloud provier. Little things like this</p><p><img src="/images/2026-01-31-hosting-costs/2026-03-22-10-28-27.png" alt=""></p><p>Is that a last name field or a field for people who only have a single name? Is Madonna buying hosting a frequently? The 2FA setup, though, was probably the best I've ever done. It had the really nice feature of letting you record the name of the app you were using for 2FA. I have multiple apps for 2FA and this is a really nice feature.</p><p>I did spot this warning, though</p><p><img src="/images/2026-01-31-hosting-costs/2026-03-22-10-30-35.png" alt=""></p><p>Okay so there might be some latency in getting this server provisioned. That sucks, but perhaps I've gotten too used to the instant gratificaiton of demanding compute and getting it 5 minutes later. The email I got said that the server would be provisioned within the next 7 days. That's a long time to wait but whilte we do let's talk about why this VPS might not be a great idea. What are we losing by not using cloud hosting?</p><p>Well first off it's clear that scaling up and down is going to be so much harder. I can't scale the machine up instantly when there is a spike in traffic. Equally, if that spike subsites I can't scale down quickly. So I'm going to have to be comfortable knowing that I've got to pay for excess capacity. A lot of the line of business applications I work with have almost no traffic on the weekend and evenings but then predictable stable load during the day. I'm going to have to over provision to handle the maximum load. Maybe I can mine bitcoin or something on the weekends. Is that SETI@home project still a thing?</p><p>Next I'm losing the platform as a service benefits. I'm going to have to patch the operating system and database myself. I get to do backups, restores all that myself. So I'm going to trade my time for reduced hosting costs. Let's imagine that I'm setting up a database server and a web server which is kind of typical for a line of business application. This is going to run to $700/month in Azure(I'm going to use Candian dollars from here out). So that gives me $650 a month to play with for manual patching and updating and all that jazz. If I pay myself $200/hour (woo, massive pay raise) then I can spend 3 hours a month on that work and still come out ahead. I don't know if that scales well to dozens of servers but for a small application it might be worth it.</p><p>I'm likely going to have an increased cost for the initial set up of the server. I've got to figure out which web server to use, probably some default settings for PostgreSQL and tie it into a build pipeline. I suppose we'll be deploying via SFTP or something like that.</p><p>Finally, I'm losing the reliability and security of the cloud. I don't have the same level of redundancy and failover that I would get with a cloud provider. If my server goes down, it's on me to get it back up. If there is a security breach, it's on me to fix it. This is a big risk for any business, but especially for small businesses that may not have the resources to deal with these issues.</p><p>The other piece of the puzzle here is that the knowledge and expertise required to manage a VPS is higher than that required to use a cloud provider. I've been doing this computer stuff for year and I'm confident in my ability to teasily manage this but then I'm also still a bit sad about how Open Solaris failed to take off. I think that a lot of this gap can be closed using AI agents these days.</p><p>It's a calculated risk.</p><p>So, dear readers, I pulled the trigger and signed up for the VPS. Once it is provisioned then we'll return here and talk through setting up and deploying to it.</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;If you happened to read my previous post about &lt;a href=&quot;https://blog.simontimms.com/2025/12/24/where-is-this-ai-stuff-going/&quot; target=&quot;_bl
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title type="html">Jujutsu Cheat Sheet</title>
     <link href="https://westerndevs.com/_/jujutsu-cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/jujutsu-cheat-sheet/</id>
     <published>2025-11-05T05:00:00.000Z</published>
-    <updated>2025-11-05T18:40:02.100Z</updated>
+    <updated>2026-03-22T17:42:31.823Z</updated>
 	<author>
 	
 	  
@@ -47,7 +73,7 @@
     <link href="https://westerndevs.com/_/open-api-generator/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/open-api-generator/</id>
     <published>2025-03-30T04:00:00.000Z</published>
-    <updated>2025-11-05T18:40:02.102Z</updated>
+    <updated>2026-03-22T17:42:31.825Z</updated>
 	<author>
 	
 	  
@@ -73,7 +99,7 @@
     <link href="https://westerndevs.com/_/dependabot-ignore-dotnet-9/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/dependabot-ignore-dotnet-9/</id>
     <published>2024-11-20T05:00:00.000Z</published>
-    <updated>2025-11-05T18:40:02.098Z</updated>
+    <updated>2026-03-22T17:42:31.821Z</updated>
 	<author>
 	
 	  
@@ -99,7 +125,7 @@
     <link href="https://westerndevs.com/_/ravendb-on-k8s/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ravendb-on-k8s/</id>
     <published>2024-11-14T05:00:00.000Z</published>
-    <updated>2025-11-05T18:40:02.103Z</updated>
+    <updated>2026-03-22T17:42:31.826Z</updated>
 	<author>
 	
 	  
@@ -125,7 +151,7 @@
     <link href="https://westerndevs.com/_/where-is-the-space/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/where-is-the-space/</id>
     <published>2024-11-10T05:00:00.000Z</published>
-    <updated>2025-11-05T18:40:02.106Z</updated>
+    <updated>2026-03-22T17:42:31.830Z</updated>
 	<author>
 	
 	  
@@ -151,7 +177,7 @@
     <link href="https://westerndevs.com/_/consuming-github-packges-in-yarn/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/consuming-github-packges-in-yarn/</id>
     <published>2024-11-05T05:00:00.000Z</published>
-    <updated>2025-11-05T18:40:02.098Z</updated>
+    <updated>2026-03-22T17:42:31.820Z</updated>
 	<author>
 	
 	  
@@ -177,7 +203,7 @@
     <link href="https://westerndevs.com/_/fast-endpoints-port/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/fast-endpoints-port/</id>
     <published>2024-10-12T04:00:00.000Z</published>
-    <updated>2025-11-05T18:40:02.099Z</updated>
+    <updated>2026-03-22T17:42:31.822Z</updated>
 	<author>
 	
 	  
@@ -203,7 +229,7 @@
     <link href="https://westerndevs.com/_/update-outdated-packages/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/update-outdated-packages/</id>
     <published>2024-09-15T04:00:00.000Z</published>
-    <updated>2025-11-05T18:40:02.105Z</updated>
+    <updated>2026-03-22T17:42:31.829Z</updated>
 	<author>
 	
 	  
@@ -229,7 +255,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-6/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-6/</id>
     <published>2024-09-14T04:00:00.000Z</published>
-    <updated>2025-11-05T18:40:02.101Z</updated>
+    <updated>2026-03-22T17:42:31.824Z</updated>
 	<author>
 	
 	  
@@ -255,7 +281,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-5/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-5/</id>
     <published>2024-09-09T04:00:00.000Z</published>
-    <updated>2025-11-05T18:40:02.101Z</updated>
+    <updated>2026-03-22T17:42:31.824Z</updated>
 	<author>
 	
 	  
@@ -281,7 +307,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-4/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-4/</id>
     <published>2024-09-02T04:00:00.000Z</published>
-    <updated>2025-11-05T18:40:02.101Z</updated>
+    <updated>2026-03-22T17:42:31.824Z</updated>
 	<author>
 	
 	  
@@ -307,7 +333,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-3/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-3/</id>
     <published>2024-09-01T04:00:00.000Z</published>
-    <updated>2025-11-05T18:40:02.101Z</updated>
+    <updated>2026-03-22T17:42:31.824Z</updated>
 	<author>
 	
 	  
@@ -333,7 +359,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-2/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-2/</id>
     <published>2024-08-31T04:00:00.000Z</published>
-    <updated>2025-11-05T18:40:02.101Z</updated>
+    <updated>2026-03-22T17:42:31.824Z</updated>
 	<author>
 	
 	  
@@ -359,7 +385,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-1/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-1/</id>
     <published>2024-08-30T04:00:00.000Z</published>
-    <updated>2025-11-05T18:40:02.101Z</updated>
+    <updated>2026-03-22T17:42:31.824Z</updated>
 	<author>
 	
 	  
@@ -385,7 +411,7 @@
     <link href="https://westerndevs.com/_/plinko-diagram/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/plinko-diagram/</id>
     <published>2024-07-31T04:00:00.000Z</published>
-    <updated>2025-11-05T18:40:02.102Z</updated>
+    <updated>2026-03-22T17:42:31.825Z</updated>
 	<author>
 	
 	  
@@ -411,7 +437,7 @@
     <link href="https://westerndevs.com/_/azure-functions-for-side-projects/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-functions-for-side-projects/</id>
     <published>2024-06-23T04:00:00.000Z</published>
-    <updated>2025-11-05T18:40:02.097Z</updated>
+    <updated>2026-03-22T17:42:31.819Z</updated>
 	<author>
 	
 	  
@@ -442,7 +468,7 @@
     <link href="https://westerndevs.com/_/syncing-multiple-calendars/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/syncing-multiple-calendars/</id>
     <published>2024-06-17T04:00:00.000Z</published>
-    <updated>2025-11-05T18:40:02.105Z</updated>
+    <updated>2026-03-22T17:42:31.828Z</updated>
 	<author>
 	
 	  
@@ -468,7 +494,7 @@
     <link href="https://westerndevs.com/_/set-blob-container-cors/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-blob-container-cors/</id>
     <published>2024-05-24T04:00:00.000Z</published>
-    <updated>2025-11-05T18:40:02.104Z</updated>
+    <updated>2026-03-22T17:42:31.827Z</updated>
 	<author>
 	
 	  
@@ -494,7 +520,7 @@
     <link href="https://westerndevs.com/_/cannot-copy/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/cannot-copy/</id>
     <published>2023-11-23T05:00:00.000Z</published>
-    <updated>2025-11-05T18:40:02.097Z</updated>
+    <updated>2026-03-22T17:42:31.820Z</updated>
 	<author>
 	
 	  
@@ -509,32 +535,6 @@
     <summary type="html">
     
       &lt;p&gt;My dad once told me that there are no such things a problems just solutions waiting to be applied. I don&#39;t know what book he&#39;d just read 
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Connect to a Service Container in Github Actions</title>
-    <link href="https://westerndevs.com/_/connect-to-service-container/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/connect-to-service-container/</id>
-    <published>2023-11-20T05:00:00.000Z</published>
-    <updated>2025-11-05T18:40:02.098Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>Increasingly there is a need to run containers during a github action build to run realistic tests. In my specific scenario I had a database integration test that I wanted to run against a postgres database with our latest database migrations applied.</p><p>We run our builds inside a multi-stage docker build so we actually need to have a build container communicate with the database container during the build phase. This is easy enough in the run phase but in the build phase there is just a flag you can pass to the build called <code>network</code> which takes an argument but the arguments it can take don't appear to be documented anywhere. After significant trial and error I found that the argument it takes that we want is <code>host</code>. This will build the container using the host networking. As we surfaced the ports for postgres in our workflow file like so</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">postgres:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">postgres:15.3</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="number">5432</span><span class="string">:5432</span></span><br><span class="line">    <span class="attr">env:</span></span><br><span class="line">        <span class="attr">POSTGRES_DB:</span> <span class="string">default</span></span><br><span class="line">        <span class="attr">POSTGRES_USER:</span> <span class="string">webapp_user</span></span><br><span class="line">        <span class="attr">POSTGRES_PASSWORD:</span> <span class="string">password</span></span><br><span class="line">    <span class="attr">options:</span> <span class="string">&gt;-</span></span><br><span class="line">        <span class="string">--health-cmd</span> <span class="string">pg_isready</span></span><br><span class="line">        <span class="string">--health-interval</span> <span class="string">10s</span></span><br><span class="line">        <span class="string">--health-timeout</span> <span class="string">5s</span></span><br><span class="line">        <span class="string">--health-retries</span> <span class="number">5</span></span><br></pre></td></tr></table></figure><p>We are able to access the database from the build context with <code>127.0.0.1</code>. So we can pass in a variable to our container build</p><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build --network=host . --tag $&#123;&#123; <span class="keyword">env</span>.DOCKER_REGISTRY_NAME &#125;&#125;/$&#123;&#123; <span class="keyword">env</span>.DOCKER_IMAGE_NAME &#125;&#125;:$&#123;&#123; github.run_number &#125;&#125; --build-<span class="keyword">arg</span> <span class="string">'DATABASE_CONNECTION_STRING=$&#123;&#123; env.DATABASE_CONNECTION_STRING &#125;&#125;'</span></span><br></pre></td></tr></table></figure><p>With all this in place the tests run nicely in the container during the build. Phew.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Increasingly there is a need to run containers during a github action build to run realistic tests. In my specific scenario I had a datab
     
     </summary>
     
