@@ -31,7 +31,7 @@
 	  <uri>https://westerndevs.com</uri>
 	</author>
     
-    <content type="html"><![CDATA[<figure>  <img src="/images/david-wesst/2026-10-13-david-wesst-is-scalable-game-design-a-thing/af90227ca3e52949-0011-devlog-thumbnail.png" alt="A man holds both hands open toward the camera beside bold text reading “Scalable Game Design?”, with “Game” highlighted in yellow.">    </figure><p>As familiar as I am with scalable software design for non-game development projects, in this past iteration, I started to assess whether or not scalability is something I need to consider for video game design.</p><p>Video games are software, but they're not like any other software.</p><p>I have been dealing in software development for almost two decades at this point, but the more I tackle creating a commercial video game, the more I see how game development is just not the same.</p><p>My journey in game development continued with another completed iteration where game design was the focus. As the game started taking shape and a project started to form, the idea of <em>scalable game design</em> entered my mind.</p><p>Is scalable game design a thing?</p><p>This is what I reflect on in the devlog for this iteration.</p><iframe width="560" height="315" src="https://www.youtube.com/embed/VKzO3YvJ_Jg?si=dLhFRCt4EMyjtuZJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>]]></content>
+    <content type="html"><![CDATA[  <img src="/images/david-wesst/2026-10-13-david-wesst-is-scalable-game-design-a-thing/af90227ca3e52949-0011-devlog-thumbnail.png" alt="A man holds both hands open toward the camera beside bold text reading “Scalable Game Design?”, with “Game” highlighted in yellow."><p>As familiar as I am with scalable software design for non-game development projects, in this past iteration, I started to assess whether or not scalability is something I need to consider for video game design.</p><p>Video games are software, but they're not like any other software.</p><p>I have been dealing in software development for almost two decades at this point, but the more I tackle creating a commercial video game, the more I see how game development is just not the same.</p><p>My journey in game development continued with another completed iteration where game design was the focus. As the game started taking shape and a project started to form, the idea of <em>scalable game design</em> entered my mind.</p><p>Is scalable game design a thing?</p><p>This is what I reflect on in the devlog for this iteration.</p><iframe width="560" height="315" src="https://www.youtube.com/embed/VKzO3YvJ_Jg?si=dLhFRCt4EMyjtuZJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>]]></content>
     
     <summary type="html">
     
@@ -61,7 +61,7 @@
     <link href="https://westerndevs.com/_/hosting-costs/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/hosting-costs/</id>
     <published>2026-01-15T05:00:00.000Z</published>
-    <updated>2026-10-14T15:59:01.651Z</updated>
+    <updated>2026-10-14T16:21:19.632Z</updated>
 	<author>
 	
 	  
@@ -87,7 +87,7 @@
     <link href="https://westerndevs.com/_/jujutsu-cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/jujutsu-cheat-sheet/</id>
     <published>2025-11-05T05:00:00.000Z</published>
-    <updated>2026-10-14T15:59:01.657Z</updated>
+    <updated>2026-10-14T16:21:19.636Z</updated>
 	<author>
 	
 	  
@@ -113,7 +113,7 @@
     <link href="https://westerndevs.com/_/open-api-generator/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/open-api-generator/</id>
     <published>2025-03-30T04:00:00.000Z</published>
-    <updated>2026-10-14T15:59:01.658Z</updated>
+    <updated>2026-10-14T16:21:19.637Z</updated>
 	<author>
 	
 	  
@@ -139,7 +139,7 @@
     <link href="https://westerndevs.com/_/dependabot-ignore-dotnet-9/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/dependabot-ignore-dotnet-9/</id>
     <published>2024-11-20T05:00:00.000Z</published>
-    <updated>2026-10-14T15:59:01.655Z</updated>
+    <updated>2026-10-14T16:21:19.634Z</updated>
 	<author>
 	
 	  
@@ -165,7 +165,7 @@
     <link href="https://westerndevs.com/_/ravendb-on-k8s/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ravendb-on-k8s/</id>
     <published>2024-11-14T05:00:00.000Z</published>
-    <updated>2026-10-14T15:59:01.660Z</updated>
+    <updated>2026-10-14T16:21:19.638Z</updated>
 	<author>
 	
 	  
@@ -191,7 +191,7 @@
     <link href="https://westerndevs.com/_/where-is-the-space/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/where-is-the-space/</id>
     <published>2024-11-10T05:00:00.000Z</published>
-    <updated>2026-10-14T15:59:01.663Z</updated>
+    <updated>2026-10-14T16:21:19.641Z</updated>
 	<author>
 	
 	  
@@ -217,7 +217,7 @@
     <link href="https://westerndevs.com/_/consuming-github-packges-in-yarn/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/consuming-github-packges-in-yarn/</id>
     <published>2024-11-05T05:00:00.000Z</published>
-    <updated>2026-10-14T15:59:01.654Z</updated>
+    <updated>2026-10-14T16:21:19.634Z</updated>
 	<author>
 	
 	  
@@ -243,7 +243,7 @@
     <link href="https://westerndevs.com/_/fast-endpoints-port/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/fast-endpoints-port/</id>
     <published>2024-10-12T04:00:00.000Z</published>
-    <updated>2026-10-14T15:59:01.656Z</updated>
+    <updated>2026-10-14T16:21:19.635Z</updated>
 	<author>
 	
 	  
@@ -269,7 +269,7 @@
     <link href="https://westerndevs.com/_/update-outdated-packages/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/update-outdated-packages/</id>
     <published>2024-09-15T04:00:00.000Z</published>
-    <updated>2026-10-14T15:59:01.662Z</updated>
+    <updated>2026-10-14T16:21:19.640Z</updated>
 	<author>
 	
 	  
@@ -295,7 +295,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-6/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-6/</id>
     <published>2024-09-14T04:00:00.000Z</published>
-    <updated>2026-10-14T15:59:01.658Z</updated>
+    <updated>2026-10-14T16:21:19.637Z</updated>
 	<author>
 	
 	  
@@ -321,7 +321,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-5/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-5/</id>
     <published>2024-09-09T04:00:00.000Z</published>
-    <updated>2026-10-14T15:59:01.658Z</updated>
+    <updated>2026-10-14T16:21:19.637Z</updated>
 	<author>
 	
 	  
@@ -347,7 +347,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-4/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-4/</id>
     <published>2024-09-02T04:00:00.000Z</published>
-    <updated>2026-10-14T15:59:01.658Z</updated>
+    <updated>2026-10-14T16:21:19.637Z</updated>
 	<author>
 	
 	  
@@ -373,7 +373,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-3/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-3/</id>
     <published>2024-09-01T04:00:00.000Z</published>
-    <updated>2026-10-14T15:59:01.658Z</updated>
+    <updated>2026-10-14T16:21:19.637Z</updated>
 	<author>
 	
 	  
@@ -399,7 +399,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-2/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-2/</id>
     <published>2024-08-31T04:00:00.000Z</published>
-    <updated>2026-10-14T15:59:01.658Z</updated>
+    <updated>2026-10-14T16:21:19.637Z</updated>
 	<author>
 	
 	  
@@ -425,7 +425,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-1/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-1/</id>
     <published>2024-08-30T04:00:00.000Z</published>
-    <updated>2026-10-14T15:59:01.658Z</updated>
+    <updated>2026-10-14T16:21:19.637Z</updated>
 	<author>
 	
 	  
@@ -451,7 +451,7 @@
     <link href="https://westerndevs.com/_/plinko-diagram/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/plinko-diagram/</id>
     <published>2024-07-31T04:00:00.000Z</published>
-    <updated>2026-10-14T15:59:01.658Z</updated>
+    <updated>2026-10-14T16:21:19.637Z</updated>
 	<author>
 	
 	  
@@ -477,7 +477,7 @@
     <link href="https://westerndevs.com/_/azure-functions-for-side-projects/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-functions-for-side-projects/</id>
     <published>2024-06-23T04:00:00.000Z</published>
-    <updated>2026-10-14T15:59:01.653Z</updated>
+    <updated>2026-10-14T16:21:19.633Z</updated>
 	<author>
 	
 	  
@@ -508,7 +508,7 @@
     <link href="https://westerndevs.com/_/syncing-multiple-calendars/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/syncing-multiple-calendars/</id>
     <published>2024-06-17T04:00:00.000Z</published>
-    <updated>2026-10-14T15:59:01.662Z</updated>
+    <updated>2026-10-14T16:21:19.640Z</updated>
 	<author>
 	
 	  
@@ -534,7 +534,7 @@
     <link href="https://westerndevs.com/_/set-blob-container-cors/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-blob-container-cors/</id>
     <published>2024-05-24T04:00:00.000Z</published>
-    <updated>2026-10-14T15:59:01.661Z</updated>
+    <updated>2026-10-14T16:21:19.639Z</updated>
 	<author>
 	
 	  
