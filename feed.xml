@@ -57,11 +57,49 @@
   </entry>
   
   <entry>
+    <title type="html">The Future is Agentic (Prairie Dev Con 2026 Takeaways)</title>
+    <link href="https://westerndevs.com/prdc-2026/david-wesst-prairie-dev-con-2026-the-future-is-agentic/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/prdc-2026/david-wesst-prairie-dev-con-2026-the-future-is-agentic/</id>
+    <published>2026-09-24T16:00:00.000Z</published>
+    <updated>2026-09-24T16:00:00.000Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<img src="/images/david-wesst/2026-09-24-david-wesst-prairie-dev-con-2026-the-future-is-agentic/59fbf41b709a4816-prdc2026-panel.jpg" alt="Panel discussion on stage with three seated speakers and a moderator at a podium. One speaker is holding a microphone while the others listen, and a projected slide behind them asks about AI adoption, job losses, and responsibility for displaced workers."><p>With Prairie Dev Con (PrDC) 2026 complete, there was a clear theme in everything I managed to see and share—the future of software development is agentic. This doesn't necessarily mean it's all "doom and gloom," but rather an evolution has taken hold in our industry.</p><p>With Prairie Dev Con (PrDC) 2026 complete, there was a clear theme in everything I managed to see and share—the future of software development is agentic. This doesn't necessarily mean it's all "doom and gloom," but rather an evolution has taken hold in our industry.</p><h2>Three Perspectives on AI: My first conference panel</h2><p>I am always grateful to <a href="https://prairiedevcon.com/" target="_blank" rel="noopener">Prairie Dev Con</a> for accepting my wild ideas for talks and whatnot and allowing me the privilege of speaking to a fantastic audience. This year, I proposed something different—something unfamiliar to me.</p><p>I proposed a panel.</p><h3>The Hypothesis</h3><p><em>Why a panel?</em> you ask? Good question.</p><p>If I am being honest, there are two reasons:</p><ol><li>I wanted to try something different from a lecture-style conference submission.</li><li>I wanted to compare and contrast different viewpoints on the spot, rather than compile the data myself and share it.</li></ol><p>The hypothesis was that different perspectives will focus on different areas when it comes to AI, specifically with large language models (LLMs).</p><p>With that hypothesis, I found three different people who I have discussed AI with previously and brought them together. We had an enterprise CIO, an investor, and a small business founder.</p><p>And then came the panel.</p><h3>The Result</h3><p><img src="/images/david-wesst/2026-09-24-david-wesst-prairie-dev-con-2026-the-future-is-agentic/59fbf41b709a4816-prdc2026-panel.jpg" alt="Panel discussion on stage with three seated speakers and a moderator at a podium. One speaker is holding a microphone while the others listen, and a projected slide behind them asks about AI adoption, job losses, and responsibility for displaced workers."></p><p>I asked a series of questions, and each of them presented their own take on the subject, and the answers were very interesting in my humble and likely biased opinion (considering it was my panel). Some answers landed almost exactly the same and just complemented each other, while others focused on the pressing concerns from their unique space.</p><p>What was most interesting was when they all landed on or near the same answer—considering such different experiences and different problems they are trying to solve. It was really fascinating.</p><p>You can <a href="https://david.wes.st/talks/three-perspectives-on-ai/" target="_blank" rel="noopener">check out the slides</a> in the <a href="https://david.wes.st/talks/" target="_blank" rel="noopener">talks</a> section of the website. One of my panelists did manage to record the session, but it is going to take some audio cleanup, so I'll see what I can do and hopefully share that if I can make it usable.</p><h2>Takeaway 1: Agents aren't the future, they are the standard.</h2><p>I have been working with LLM-flavoured AI for quite some time. Even though I was very sure agentic workloads were coming, what PrDC made me realize is that not only are they here—but they are standard when it comes to software development.</p><p>A large majority of the sessions this year were flavoured with AI, including (but definitely not limited to):</p><ul><li>Generation Is Cheap. Judgment Isn't. (This was the keynote)</li><li>How product engineers at Microsoft are using AI</li><li>Agent Skills, Plugins &amp; Marketplaces</li><li>Building AI-Powered Business Intelligence: Transform Your Data Warehouse into an Intelligent Decision</li><li>Agentic AI Raises the Stakes for API Security</li><li>Build an MCP Data Source</li><li>AI Enablement in the SDLC: A Strategy Sampler for 2026</li><li>The Tokens are Coming From Inside the House</li><li>Securing the Software your Agent Wrote</li><li>Getting the Most Out of AI Coding Agents: Lessons From a Year in the Trenches</li></ul><p>The list continues but it is clear that AI and agents are the future based on these developers, one way or another. But it wasn't their words that really caught my interest, but the demonstrations and stories of "how" they are using agents today.</p><h3>Agents are the New Keyboard for Code</h3><p>I don't really know how else to put it, but from the demonstrations I saw, senior engineers were using coding agents as a replacement for their keyboards. So, rather than typing the code in themselves, they were getting the agents to write the code and then reviewing it.</p><p>This has made the new bottleneck the review process, which we see in <a href="https://godotengine.org/article/contribution-policy-2026/" target="_blank" rel="noopener">open source projects</a> ultimately reflecting what I saw at the conference.</p><h3>But isn't that a bad thing?</h3><p>I don't think so, no.</p><p>Although the software developers and senior folks were using agents as their primary way to change code, they were still actively using their skills to review and assess those changes. They were just doing multiple changes in parallel and reviewing them when they were ready.</p><p>It is still software development, but just in an accelerated form, not bound by hands at a keyboard.</p><h2>Takeaway 2: It is Still Changing</h2><p>Although it seems clear to me that agentic work is inevitable in software development, the future isn't written in stone. In fact, many developers dropped a line akin to "it will probably be different within the next 6–12 months."</p><p>That is <em>wild</em>.</p><p>The pace at which the <em>way we code</em> is changing, only to be accepted by thought leaders working (not owning) the space, is incredible.</p><p>When some new tech or standard would come along, it would take a year or two before people would really start adopting it en masse. But with agents? We literally don't use our code editors the same way anymore, and we know it is going to change more.</p><h2>Conclusion</h2><p>I love Prairie Dev Con, and this was no different.</p><p>I am grateful to have been selected, and also grateful to have been able to learn so much from so many experienced people.</p><p>In the end, I learned that LLMs and AI aren't just an evolution—but a revolution in how software engineering will work. The question is, will I (and you) be able to keep up?</p>]]></content>
+    
+    <summary type="html">
+    
+      With Prairie Dev Con (PrDC) 2026 complete, there was a clear theme in everything I managed to see and share—the future of software development is agentic. This doesn&#39;t…
+    
+    </summary>
+    
+      <category term="prdc-2026" scheme="https://westerndevs.com/categories/prdc-2026/"/>
+    
+    
+      <category term="prairie-dev-con" scheme="https://westerndevs.com/tags/prairie-dev-con/"/>
+    
+      <category term="prdc-2026" scheme="https://westerndevs.com/tags/prdc-2026/"/>
+    
+      <category term="ai" scheme="https://westerndevs.com/tags/ai/"/>
+    
+      <category term="llm" scheme="https://westerndevs.com/tags/llm/"/>
+    
+      <category term="code-agent" scheme="https://westerndevs.com/tags/code-agent/"/>
+    
+  </entry>
+  
+  <entry>
     <title type="html">Expensive Hosting for Small to Medium Projects</title>
     <link href="https://westerndevs.com/_/hosting-costs/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/hosting-costs/</id>
     <published>2026-01-15T05:00:00.000Z</published>
-    <updated>2026-10-14T16:21:19.632Z</updated>
+    <updated>2026-10-14T16:32:44.005Z</updated>
 	<author>
 	
 	  
@@ -87,7 +125,7 @@
     <link href="https://westerndevs.com/_/jujutsu-cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/jujutsu-cheat-sheet/</id>
     <published>2025-11-05T05:00:00.000Z</published>
-    <updated>2026-10-14T16:21:19.636Z</updated>
+    <updated>2026-10-14T16:32:44.008Z</updated>
 	<author>
 	
 	  
@@ -113,7 +151,7 @@
     <link href="https://westerndevs.com/_/open-api-generator/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/open-api-generator/</id>
     <published>2025-03-30T04:00:00.000Z</published>
-    <updated>2026-10-14T16:21:19.637Z</updated>
+    <updated>2026-10-14T16:32:44.009Z</updated>
 	<author>
 	
 	  
@@ -139,7 +177,7 @@
     <link href="https://westerndevs.com/_/dependabot-ignore-dotnet-9/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/dependabot-ignore-dotnet-9/</id>
     <published>2024-11-20T05:00:00.000Z</published>
-    <updated>2026-10-14T16:21:19.634Z</updated>
+    <updated>2026-10-14T16:32:44.007Z</updated>
 	<author>
 	
 	  
@@ -165,7 +203,7 @@
     <link href="https://westerndevs.com/_/ravendb-on-k8s/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ravendb-on-k8s/</id>
     <published>2024-11-14T05:00:00.000Z</published>
-    <updated>2026-10-14T16:21:19.638Z</updated>
+    <updated>2026-10-14T16:32:44.010Z</updated>
 	<author>
 	
 	  
@@ -191,7 +229,7 @@
     <link href="https://westerndevs.com/_/where-is-the-space/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/where-is-the-space/</id>
     <published>2024-11-10T05:00:00.000Z</published>
-    <updated>2026-10-14T16:21:19.641Z</updated>
+    <updated>2026-10-14T16:32:44.013Z</updated>
 	<author>
 	
 	  
@@ -217,7 +255,7 @@
     <link href="https://westerndevs.com/_/consuming-github-packges-in-yarn/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/consuming-github-packges-in-yarn/</id>
     <published>2024-11-05T05:00:00.000Z</published>
-    <updated>2026-10-14T16:21:19.634Z</updated>
+    <updated>2026-10-14T16:32:44.007Z</updated>
 	<author>
 	
 	  
@@ -243,7 +281,7 @@
     <link href="https://westerndevs.com/_/fast-endpoints-port/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/fast-endpoints-port/</id>
     <published>2024-10-12T04:00:00.000Z</published>
-    <updated>2026-10-14T16:21:19.635Z</updated>
+    <updated>2026-10-14T16:32:44.008Z</updated>
 	<author>
 	
 	  
@@ -269,7 +307,7 @@
     <link href="https://westerndevs.com/_/update-outdated-packages/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/update-outdated-packages/</id>
     <published>2024-09-15T04:00:00.000Z</published>
-    <updated>2026-10-14T16:21:19.640Z</updated>
+    <updated>2026-10-14T16:32:44.012Z</updated>
 	<author>
 	
 	  
@@ -295,7 +333,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-6/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-6/</id>
     <published>2024-09-14T04:00:00.000Z</published>
-    <updated>2026-10-14T16:21:19.637Z</updated>
+    <updated>2026-10-14T16:32:44.009Z</updated>
 	<author>
 	
 	  
@@ -321,7 +359,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-5/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-5/</id>
     <published>2024-09-09T04:00:00.000Z</published>
-    <updated>2026-10-14T16:21:19.637Z</updated>
+    <updated>2026-10-14T16:32:44.009Z</updated>
 	<author>
 	
 	  
@@ -347,7 +385,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-4/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-4/</id>
     <published>2024-09-02T04:00:00.000Z</published>
-    <updated>2026-10-14T16:21:19.637Z</updated>
+    <updated>2026-10-14T16:32:44.009Z</updated>
 	<author>
 	
 	  
@@ -373,7 +411,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-3/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-3/</id>
     <published>2024-09-01T04:00:00.000Z</published>
-    <updated>2026-10-14T16:21:19.637Z</updated>
+    <updated>2026-10-14T16:32:44.009Z</updated>
 	<author>
 	
 	  
@@ -399,7 +437,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-2/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-2/</id>
     <published>2024-08-31T04:00:00.000Z</published>
-    <updated>2026-10-14T16:21:19.637Z</updated>
+    <updated>2026-10-14T16:32:44.009Z</updated>
 	<author>
 	
 	  
@@ -425,7 +463,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-1/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-1/</id>
     <published>2024-08-30T04:00:00.000Z</published>
-    <updated>2026-10-14T16:21:19.637Z</updated>
+    <updated>2026-10-14T16:32:44.009Z</updated>
 	<author>
 	
 	  
@@ -451,7 +489,7 @@
     <link href="https://westerndevs.com/_/plinko-diagram/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/plinko-diagram/</id>
     <published>2024-07-31T04:00:00.000Z</published>
-    <updated>2026-10-14T16:21:19.637Z</updated>
+    <updated>2026-10-14T16:32:44.010Z</updated>
 	<author>
 	
 	  
@@ -477,7 +515,7 @@
     <link href="https://westerndevs.com/_/azure-functions-for-side-projects/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-functions-for-side-projects/</id>
     <published>2024-06-23T04:00:00.000Z</published>
-    <updated>2026-10-14T16:21:19.633Z</updated>
+    <updated>2026-10-14T16:32:44.006Z</updated>
 	<author>
 	
 	  
@@ -508,7 +546,7 @@
     <link href="https://westerndevs.com/_/syncing-multiple-calendars/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/syncing-multiple-calendars/</id>
     <published>2024-06-17T04:00:00.000Z</published>
-    <updated>2026-10-14T16:21:19.640Z</updated>
+    <updated>2026-10-14T16:32:44.012Z</updated>
 	<author>
 	
 	  
@@ -523,32 +561,6 @@
     <summary type="html">
     
       &lt;p&gt;For reasons that I really need to investigate, I&#39;m apparently a busy fellow. Such that I now maintain a rather ungainly number of calendars. Three to be exact. That&#39;s one personal calendar and one for each of two clients.&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Setting Container Cors Rules in Azure</title>
-    <link href="https://westerndevs.com/_/set-blob-container-cors/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/set-blob-container-cors/</id>
-    <published>2024-05-24T04:00:00.000Z</published>
-    <updated>2026-10-14T16:21:19.639Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>This week I'm busy upgrading some legacy code to the latest version of the Azure SDKs. This code is so old it was using packages like <code>WindowsAzure.Storage</code>. Over the years this library has evolved significantly and is now part of the <code>Azure.Storage.Blobs</code> package. What this code I was updating was doing was setting the CORS rules on a blob container. These days I think I would solve this problem using Terraform and set the <a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account" target="_blank" rel="noopener">blob properties</a> directly on the container. But since I was already in the code I figured I would just update it there.</p><p>So what we want is to allow anybody to link into these and download them with a GET</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> Azure.Storage.Blobs;</span><br><span class="line"><span class="keyword">using</span> Azure.Storage.Blobs.Models;</span><br><span class="line">...</span><br><span class="line"><span class="keyword">var</span> bsp = <span class="keyword">new</span> BlobServiceProperties &#123; HourMetrics = <span class="literal">null</span>, MinuteMetrics = <span class="literal">null</span>, Logging = <span class="literal">null</span> &#125;;</span><br><span class="line">bsp.Cors.Add(<span class="keyword">new</span> BlobCorsRule</span><br><span class="line">&#123;</span><br><span class="line">    AllowedHeaders =  <span class="string">"*"</span>,</span><br><span class="line">    AllowedMethods = <span class="string">"GET"</span>,</span><br><span class="line">    AllowedOrigins = <span class="string">"*"</span>,</span><br><span class="line">    ExposedHeaders = <span class="string">"*"</span>,</span><br><span class="line">    MaxAgeInSeconds = <span class="number">60</span> * <span class="number">30</span> <span class="comment">// 30 minutes</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// from a nifty little T4 template</span></span><br><span class="line"><span class="keyword">var</span> connectionString = <span class="keyword">new</span> ConnectionStrings().StorageConnectionString;</span><br><span class="line">BlobServiceClient blobServiceClient = <span class="keyword">new</span> BlobServiceClient(connectionString);</span><br><span class="line">blobServiceClient.SetProperties(bsp);</span><br></pre></td></tr></table></figure><p>Again, in hindsight I feel like these rules are overly permissive and I would probably want to lock them down a bit more.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;This week I&#39;m busy upgrading some legacy code to the latest version of the Azure SDKs. This code is so old it was using packages like &lt;co
     
     </summary>
     
