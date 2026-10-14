@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2026-03-22T17:42:31.818Z</updated>
+  <updated>2026-10-13T16:00:00.000Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,51 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Is Scalable Game Design a Thing?</title>
+    <link href="https://westerndevs.com/game-design/david-wesst-is-scalable-game-design-a-thing/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/game-design/david-wesst-is-scalable-game-design-a-thing/</id>
+    <published>2026-10-13T16:00:00.000Z</published>
+    <updated>2026-10-13T16:00:00.000Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<figure>  <img src="/images/david-wesst/2026-10-13-david-wesst-is-scalable-game-design-a-thing/af90227ca3e52949-0011-devlog-thumbnail.png" alt="A man holds both hands open toward the camera beside bold text reading “Scalable Game Design?”, with “Game” highlighted in yellow." width="1672" height="941">    </figure><p>As familiar as I am with scalable software design for non-game development projects, in this past iteration, I started to assess whether or not scalability is something I need to consider for video game design.</p><p>Video games are software, but they're not like any other software.</p><p>I have been dealing in software development for almost two decades at this point, but the more I tackle creating a commercial video game, the more I see how game development is just not the same.</p><p>My journey in game development continued with another completed iteration where game design was the focus. As the game started taking shape and a project started to form, the idea of <em>scalable game design</em> entered my mind.</p><p>Is scalable game design a thing?</p><p>This is what I reflect on in the devlog for this iteration.</p><iframe width="560" height="315" src="https://www.youtube.com/embed/VKzO3YvJ_Jg?si=dLhFRCt4EMyjtuZJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>]]></content>
+    
+    <summary type="html">
+    
+      As familiar as I am with scalable software design for non game development projects, in this past iteration, I started to assess whether or not scalability is something I need to…
+    
+    </summary>
+    
+      <category term="game-design" scheme="https://westerndevs.com/categories/game-design/"/>
+    
+    
+      <category term="gamedev" scheme="https://westerndevs.com/tags/gamedev/"/>
+    
+      <category term="devlog" scheme="https://westerndevs.com/tags/devlog/"/>
+    
+      <category term="game-design" scheme="https://westerndevs.com/tags/game-design/"/>
+    
+      <category term="game-development" scheme="https://westerndevs.com/tags/game-development/"/>
+    
+      <category term="video" scheme="https://westerndevs.com/tags/video/"/>
+    
+      <category term="project-passenger" scheme="https://westerndevs.com/tags/project-passenger/"/>
+    
+  </entry>
+  
+  <entry>
     <title type="html">Expensive Hosting for Small to Medium Projects</title>
     <link href="https://westerndevs.com/_/hosting-costs/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/hosting-costs/</id>
     <published>2026-01-15T05:00:00.000Z</published>
-    <updated>2026-03-22T17:42:31.818Z</updated>
+    <updated>2026-10-14T15:45:06.782Z</updated>
 	<author>
 	
 	  
@@ -47,7 +87,7 @@
     <link href="https://westerndevs.com/_/jujutsu-cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/jujutsu-cheat-sheet/</id>
     <published>2025-11-05T05:00:00.000Z</published>
-    <updated>2026-03-22T17:42:31.823Z</updated>
+    <updated>2026-10-14T15:45:06.786Z</updated>
 	<author>
 	
 	  
@@ -73,7 +113,7 @@
     <link href="https://westerndevs.com/_/open-api-generator/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/open-api-generator/</id>
     <published>2025-03-30T04:00:00.000Z</published>
-    <updated>2026-03-22T17:42:31.825Z</updated>
+    <updated>2026-10-14T15:45:06.787Z</updated>
 	<author>
 	
 	  
@@ -99,7 +139,7 @@
     <link href="https://westerndevs.com/_/dependabot-ignore-dotnet-9/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/dependabot-ignore-dotnet-9/</id>
     <published>2024-11-20T05:00:00.000Z</published>
-    <updated>2026-03-22T17:42:31.821Z</updated>
+    <updated>2026-10-14T15:45:06.785Z</updated>
 	<author>
 	
 	  
@@ -125,7 +165,7 @@
     <link href="https://westerndevs.com/_/ravendb-on-k8s/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ravendb-on-k8s/</id>
     <published>2024-11-14T05:00:00.000Z</published>
-    <updated>2026-03-22T17:42:31.826Z</updated>
+    <updated>2026-10-14T15:45:06.788Z</updated>
 	<author>
 	
 	  
@@ -151,7 +191,7 @@
     <link href="https://westerndevs.com/_/where-is-the-space/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/where-is-the-space/</id>
     <published>2024-11-10T05:00:00.000Z</published>
-    <updated>2026-03-22T17:42:31.830Z</updated>
+    <updated>2026-10-14T15:45:06.791Z</updated>
 	<author>
 	
 	  
@@ -177,7 +217,7 @@
     <link href="https://westerndevs.com/_/consuming-github-packges-in-yarn/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/consuming-github-packges-in-yarn/</id>
     <published>2024-11-05T05:00:00.000Z</published>
-    <updated>2026-03-22T17:42:31.820Z</updated>
+    <updated>2026-10-14T15:45:06.784Z</updated>
 	<author>
 	
 	  
@@ -203,7 +243,7 @@
     <link href="https://westerndevs.com/_/fast-endpoints-port/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/fast-endpoints-port/</id>
     <published>2024-10-12T04:00:00.000Z</published>
-    <updated>2026-03-22T17:42:31.822Z</updated>
+    <updated>2026-10-14T15:45:06.785Z</updated>
 	<author>
 	
 	  
@@ -229,7 +269,7 @@
     <link href="https://westerndevs.com/_/update-outdated-packages/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/update-outdated-packages/</id>
     <published>2024-09-15T04:00:00.000Z</published>
-    <updated>2026-03-22T17:42:31.829Z</updated>
+    <updated>2026-10-14T15:45:06.790Z</updated>
 	<author>
 	
 	  
@@ -255,7 +295,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-6/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-6/</id>
     <published>2024-09-14T04:00:00.000Z</published>
-    <updated>2026-03-22T17:42:31.824Z</updated>
+    <updated>2026-10-14T15:45:06.787Z</updated>
 	<author>
 	
 	  
@@ -281,7 +321,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-5/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-5/</id>
     <published>2024-09-09T04:00:00.000Z</published>
-    <updated>2026-03-22T17:42:31.824Z</updated>
+    <updated>2026-10-14T15:45:06.787Z</updated>
 	<author>
 	
 	  
@@ -307,7 +347,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-4/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-4/</id>
     <published>2024-09-02T04:00:00.000Z</published>
-    <updated>2026-03-22T17:42:31.824Z</updated>
+    <updated>2026-10-14T15:45:06.787Z</updated>
 	<author>
 	
 	  
@@ -333,7 +373,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-3/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-3/</id>
     <published>2024-09-01T04:00:00.000Z</published>
-    <updated>2026-03-22T17:42:31.824Z</updated>
+    <updated>2026-10-14T15:45:06.787Z</updated>
 	<author>
 	
 	  
@@ -359,7 +399,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-2/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-2/</id>
     <published>2024-08-31T04:00:00.000Z</published>
-    <updated>2026-03-22T17:42:31.824Z</updated>
+    <updated>2026-10-14T15:45:06.787Z</updated>
 	<author>
 	
 	  
@@ -385,7 +425,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-1/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-1/</id>
     <published>2024-08-30T04:00:00.000Z</published>
-    <updated>2026-03-22T17:42:31.824Z</updated>
+    <updated>2026-10-14T15:45:06.787Z</updated>
 	<author>
 	
 	  
@@ -411,7 +451,7 @@
     <link href="https://westerndevs.com/_/plinko-diagram/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/plinko-diagram/</id>
     <published>2024-07-31T04:00:00.000Z</published>
-    <updated>2026-03-22T17:42:31.825Z</updated>
+    <updated>2026-10-14T15:45:06.787Z</updated>
 	<author>
 	
 	  
@@ -437,7 +477,7 @@
     <link href="https://westerndevs.com/_/azure-functions-for-side-projects/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-functions-for-side-projects/</id>
     <published>2024-06-23T04:00:00.000Z</published>
-    <updated>2026-03-22T17:42:31.819Z</updated>
+    <updated>2026-10-14T15:45:06.783Z</updated>
 	<author>
 	
 	  
@@ -468,7 +508,7 @@
     <link href="https://westerndevs.com/_/syncing-multiple-calendars/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/syncing-multiple-calendars/</id>
     <published>2024-06-17T04:00:00.000Z</published>
-    <updated>2026-03-22T17:42:31.828Z</updated>
+    <updated>2026-10-14T15:45:06.790Z</updated>
 	<author>
 	
 	  
@@ -494,7 +534,7 @@
     <link href="https://westerndevs.com/_/set-blob-container-cors/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/set-blob-container-cors/</id>
     <published>2024-05-24T04:00:00.000Z</published>
-    <updated>2026-03-22T17:42:31.827Z</updated>
+    <updated>2026-10-14T15:45:06.789Z</updated>
 	<author>
 	
 	  
@@ -509,32 +549,6 @@
     <summary type="html">
     
       &lt;p&gt;This week I&#39;m busy upgrading some legacy code to the latest version of the Azure SDKs. This code is so old it was using packages like &lt;co
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Docker COPY not Finding Files</title>
-    <link href="https://westerndevs.com/_/cannot-copy/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/cannot-copy/</id>
-    <published>2023-11-23T05:00:00.000Z</published>
-    <updated>2026-03-22T17:42:31.820Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>My dad once told me that there are no such things a problems just solutions waiting to be applied. I don't know what book he'd just read or course he'd just been on to spout such nonsense but I've never forgotten it.</p><p>Today my not problem was running a docker build wasn't copying the files I was expecting it to. In particular I had a <code>themes</code> directory which was not ending up in the image and in fact the build was failing with something like</p><figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ERROR: </span>failed to solve: failed to compute cache key: failed to calculate checksum of ref b1f3faa4-fdeb<span class="string">-41</span>ed-b016-fac3862d370a::pjh3jwhj2huqmcgigjh9udlh2: "/themes": not found</span><br></pre></td></tr></table></figure><p>I was really confused because <code>themes</code> absolutly did exist on disk. It was as if it wasn't being added to the build context. In fact it wasn't being added and, as it turns out, this was because my .dockerignore file contained</p><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">**</span></span><br></pre></td></tr></table></figure><p>Which ignores everything from the local directory. That seemed a bit extreme so I changed it to</p><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">** </span></span><br><span class="line">!themes</span><br></pre></td></tr></table></figure><p>With this in place the build worked as expected.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;My dad once told me that there are no such things a problems just solutions waiting to be applied. I don&#39;t know what book he&#39;d just read 
     
     </summary>
     

@@ -5,7 +5,7 @@
   <link href="/feeds/david_wesst" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2026-03-22T17:42:31.818Z</updated>
+  <updated>2026-10-13T16:00:00.000Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -17,11 +17,51 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title type="html">Is Scalable Game Design a Thing?</title>
+    <link href="https://westerndevs.com/game-design/david-wesst-is-scalable-game-design-a-thing/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/game-design/david-wesst-is-scalable-game-design-a-thing/</id>
+    <published>2026-10-13T16:00:00.000Z</published>
+    <updated>2026-10-13T16:00:00.000Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<figure>  <img src="/images/david-wesst/2026-10-13-david-wesst-is-scalable-game-design-a-thing/af90227ca3e52949-0011-devlog-thumbnail.png" alt="A man holds both hands open toward the camera beside bold text reading “Scalable Game Design?”, with “Game” highlighted in yellow." width="1672" height="941">    </figure><p>As familiar as I am with scalable software design for non-game development projects, in this past iteration, I started to assess whether or not scalability is something I need to consider for video game design.</p><p>Video games are software, but they're not like any other software.</p><p>I have been dealing in software development for almost two decades at this point, but the more I tackle creating a commercial video game, the more I see how game development is just not the same.</p><p>My journey in game development continued with another completed iteration where game design was the focus. As the game started taking shape and a project started to form, the idea of <em>scalable game design</em> entered my mind.</p><p>Is scalable game design a thing?</p><p>This is what I reflect on in the devlog for this iteration.</p><iframe width="560" height="315" src="https://www.youtube.com/embed/VKzO3YvJ_Jg?si=dLhFRCt4EMyjtuZJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>]]></content>
+    
+    <summary type="html">
+    
+      As familiar as I am with scalable software design for non game development projects, in this past iteration, I started to assess whether or not scalability is something I need to…
+    
+    </summary>
+    
+      <category term="game-design" scheme="https://westerndevs.com/categories/game-design/"/>
+    
+    
+      <category term="gamedev" scheme="https://westerndevs.com/tags/gamedev/"/>
+    
+      <category term="devlog" scheme="https://westerndevs.com/tags/devlog/"/>
+    
+      <category term="game-design" scheme="https://westerndevs.com/tags/game-design/"/>
+    
+      <category term="game-development" scheme="https://westerndevs.com/tags/game-development/"/>
+    
+      <category term="video" scheme="https://westerndevs.com/tags/video/"/>
+    
+      <category term="project-passenger" scheme="https://westerndevs.com/tags/project-passenger/"/>
+    
+  </entry>
+  
+  <entry>
     <title type="html">Defining the Problem before the Solution</title>
     <link href="https://westerndevs.com/musings/defining-problem-before-the-soltuion/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/musings/defining-problem-before-the-soltuion/</id>
     <published>2023-01-27T23:24:33.221Z</published>
-    <updated>2026-03-22T17:42:31.818Z</updated>
+    <updated>2026-10-14T15:45:06.782Z</updated>
 	<author>
 	
 	  
@@ -59,7 +99,7 @@
     <link href="https://westerndevs.com/coding/problem-solution/docker-build-hangs-on-apt-key-in-wsl2/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/coding/problem-solution/docker-build-hangs-on-apt-key-in-wsl2/</id>
     <published>2023-01-12T02:43:58.005Z</published>
-    <updated>2026-03-22T17:42:31.818Z</updated>
+    <updated>2026-10-14T15:45:06.782Z</updated>
 	<author>
 	
 	  
@@ -101,7 +141,7 @@
     <link href="https://westerndevs.com/musings/highlight-reel-for-2022/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/musings/highlight-reel-for-2022/</id>
     <published>2023-01-05T21:47:02.098Z</published>
-    <updated>2026-03-22T17:42:31.818Z</updated>
+    <updated>2026-10-14T15:45:06.782Z</updated>
 	<author>
 	
 	  
@@ -143,7 +183,7 @@
     <link href="https://westerndevs.com/_/speaking-at-tech-events-helps-you-grow/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/speaking-at-tech-events-helps-you-grow/</id>
     <published>2022-12-20T21:59:37.185Z</published>
-    <updated>2026-03-22T17:42:31.817Z</updated>
+    <updated>2026-10-14T15:45:06.782Z</updated>
 	<author>
 	
 	  
@@ -181,7 +221,7 @@
     <link href="https://westerndevs.com/_/docker-desktop-is-not-docker-engine/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/docker-desktop-is-not-docker-engine/</id>
     <published>2022-12-14T02:28:36.457Z</published>
-    <updated>2026-03-22T17:42:31.817Z</updated>
+    <updated>2026-10-14T15:45:06.782Z</updated>
 	<author>
 	
 	  
@@ -217,7 +257,7 @@
     <link href="https://westerndevs.com/_/prairie-dev-con-2022-takeaways/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/prairie-dev-con-2022-takeaways/</id>
     <published>2022-12-07T20:37:20.777Z</published>
-    <updated>2026-03-22T17:42:31.817Z</updated>
+    <updated>2026-10-14T15:45:06.782Z</updated>
 	<author>
 	
 	  
@@ -259,7 +299,7 @@
     <link href="https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/</id>
     <published>2022-12-01T09:18:34.509Z</published>
-    <updated>2026-03-22T17:42:31.817Z</updated>
+    <updated>2026-10-14T15:45:06.782Z</updated>
 	<author>
 	
 	  
@@ -297,7 +337,7 @@
     <link href="https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/</id>
     <published>2022-11-19T01:10:07.083Z</published>
-    <updated>2026-03-22T17:42:31.817Z</updated>
+    <updated>2026-10-14T15:45:06.782Z</updated>
 	<author>
 	
 	  
@@ -335,7 +375,7 @@
     <link href="https://westerndevs.com/_/how-much-is-enough-documentation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/how-much-is-enough-documentation/</id>
     <published>2022-11-10T22:00:00.000Z</published>
-    <updated>2026-03-22T17:42:31.817Z</updated>
+    <updated>2026-10-14T15:45:06.782Z</updated>
 	<author>
 	
 	  
@@ -375,7 +415,7 @@
     <link href="https://westerndevs.com/_/how-to-fork-like-a-boss/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/how-to-fork-like-a-boss/</id>
     <published>2022-11-02T21:00:00.000Z</published>
-    <updated>2026-03-22T17:42:31.817Z</updated>
+    <updated>2026-10-14T15:45:06.782Z</updated>
 	<author>
 	
 	  
@@ -409,7 +449,7 @@
     <link href="https://westerndevs.com/finding-inspiration/i-can-teach-your-dog-quantum-physics/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/finding-inspiration/i-can-teach-your-dog-quantum-physics/</id>
     <published>2021-06-28T16:00:00.000Z</published>
-    <updated>2026-03-22T17:42:31.817Z</updated>
+    <updated>2026-10-14T15:45:06.781Z</updated>
 	<author>
 	
 	  
@@ -447,7 +487,7 @@
     <link href="https://westerndevs.com/inner-monologue/what-value-does-making-content-bring-to-me/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/inner-monologue/what-value-does-making-content-bring-to-me/</id>
     <published>2021-06-17T16:00:00.000Z</published>
-    <updated>2026-03-22T17:42:31.817Z</updated>
+    <updated>2026-10-14T15:45:06.781Z</updated>
 	<author>
 	
 	  
@@ -485,7 +525,7 @@
     <link href="https://westerndevs.com/inner-monologue/my-secret-addiction-to-likes/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/inner-monologue/my-secret-addiction-to-likes/</id>
     <published>2021-06-03T16:00:00.000Z</published>
-    <updated>2026-03-22T17:42:31.817Z</updated>
+    <updated>2026-10-14T15:45:06.781Z</updated>
 	<author>
 	
 	  
@@ -523,7 +563,7 @@
     <link href="https://westerndevs.com/technology/inner-monologue/lucky-number-v7/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/technology/inner-monologue/lucky-number-v7/</id>
     <published>2021-05-24T16:00:00.000Z</published>
-    <updated>2026-03-22T17:42:31.817Z</updated>
+    <updated>2026-10-14T15:45:06.781Z</updated>
 	<author>
 	
 	  
@@ -559,7 +599,7 @@
     <link href="https://westerndevs.com/devops/from-travis-ci-to-github-actions/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devops/from-travis-ci-to-github-actions/</id>
     <published>2020-11-10T23:36:00.000Z</published>
-    <updated>2026-03-22T17:42:31.816Z</updated>
+    <updated>2026-10-14T15:45:06.781Z</updated>
 	<author>
 	
 	  
@@ -597,7 +637,7 @@
     <link href="https://westerndevs.com/devlog/out-the-door/out-the-door-post-jam-update/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/out-the-door/out-the-door-post-jam-update/</id>
     <published>2020-11-09T14:00:00.000Z</published>
-    <updated>2026-03-22T17:42:31.816Z</updated>
+    <updated>2026-10-14T15:45:06.781Z</updated>
 	<author>
 	
 	  
@@ -639,7 +679,7 @@
     <link href="https://westerndevs.com/devlog/a-solo-gamejam-experience-ld47/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/a-solo-gamejam-experience-ld47/</id>
     <published>2020-10-23T13:00:00.000Z</published>
-    <updated>2026-03-22T17:42:31.816Z</updated>
+    <updated>2026-10-14T15:45:06.781Z</updated>
 	<author>
 	
 	  
@@ -679,7 +719,7 @@
     <link href="https://westerndevs.com/devlog/game-portfolio-review-2020/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/game-portfolio-review-2020/</id>
     <published>2020-09-18T13:00:00.000Z</published>
-    <updated>2026-03-22T17:42:31.816Z</updated>
+    <updated>2026-10-14T15:45:06.781Z</updated>
 	<author>
 	
 	  
@@ -719,7 +759,7 @@
     <link href="https://westerndevs.com/devlog/little-shop-of-wall-street-01-release-notes/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/little-shop-of-wall-street-01-release-notes/</id>
     <published>2020-07-02T15:13:00.000Z</published>
-    <updated>2026-03-22T17:42:31.816Z</updated>
+    <updated>2026-10-14T15:45:06.781Z</updated>
 	<author>
 	
 	  
@@ -749,42 +789,6 @@
       <category term="little shop of wall street" scheme="https://westerndevs.com/tags/little-shop-of-wall-street/"/>
     
       <category term="godot" scheme="https://westerndevs.com/tags/godot/"/>
-    
-  </entry>
-  
-  <entry>
-    <title type="html">How Github Makes Game Making Easier for Noncoders</title>
-    <link href="https://westerndevs.com/Game-Design/How-GitHub-Makes-Game-Making-Easier-For-NonCoders/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/Game-Design/How-GitHub-Makes-Game-Making-Easier-For-NonCoders/</id>
-    <published>2020-02-19T20:48:36.000Z</published>
-    <updated>2026-03-22T17:42:31.814Z</updated>
-	<author>
-	
-	  
-	  <name>David Wesst</name>
-	  <email>questions@davidwesst.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>DW goes through five things he's been using in Github while designing his latest prototype that require zero coding skills.</p><a id="more"></a><p>GitHub is a social development platform that will make your game development journey easier even if you're not a coder! We'll cover how GitHub can help keep your file history, through to how it can help organize your work, and even where to find cool projects to learn (and possibly contribute to).</p><iframe width="560" height="315" src="https://www.youtube.com/embed/rq0JDWnVt8I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><h2>References and Links</h2><h3>Github Desktop (Desktop Client)</h3><p>https://help.github.com/en/desktop</p><h3>Links to interesting game development &amp; design projects</h3><p>Tiled | https://github.com/bjorn/tiledInky | https://github.com/inkle/inkyOpenTDD | https://github.com/OpenTTD/OpenTTDMicropolisJS | https://github.com/graememcc/micropolisJS</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;DW goes through five things he&#39;s been using in Github while designing his latest prototype that require zero coding skills.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Game Design" scheme="https://westerndevs.com/categories/Game-Design/"/>
-    
-    
-      <category term="GitHub" scheme="https://westerndevs.com/tags/GitHub/"/>
-    
-      <category term="Game Development" scheme="https://westerndevs.com/tags/Game-Development/"/>
-    
-      <category term="Video" scheme="https://westerndevs.com/tags/Video/"/>
-    
-      <category term="Game Design" scheme="https://westerndevs.com/tags/Game-Design/"/>
     
   </entry>
   
