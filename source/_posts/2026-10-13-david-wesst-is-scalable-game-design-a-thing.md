@@ -29,7 +29,7 @@ sourceBuildId: local-80b25e6b-065c-4761-80c3-5a5d5b6e3448
 
 {% raw %}
 <figure>
-  <img src="/images/david-wesst/2026-10-13-david-wesst-is-scalable-game-design-a-thing/af90227ca3e52949-0011-devlog-thumbnail.png" alt="A man holds both hands open toward the camera beside bold text reading “Scalable Game Design?”, with “Game” highlighted in yellow." width="1672" height="941">
+  <img src="/images/david-wesst/2026-10-13-david-wesst-is-scalable-game-design-a-thing/af90227ca3e52949-0011-devlog-thumbnail.png" alt="A man holds both hands open toward the camera beside bold text reading “Scalable Game Design?”, with “Game” highlighted in yellow.">
 
 
   
