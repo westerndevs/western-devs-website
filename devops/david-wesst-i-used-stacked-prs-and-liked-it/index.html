@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+
+  <head>
+  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>I Used Stacked PRs and Liked It | Western Devs</title>
+  <meta name="description" content="Stacked pull requests helped me organize and merge a set of dependent changes to this website—and gave me a little faith in GitHub as a platform again.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="I Used Stacked PRs and Liked It">
+<meta property="og:url" content="https://westerndevs.com/devops/david-wesst-i-used-stacked-prs-and-liked-it/index.html">
+<meta property="og:site_name" content="Western Devs">
+<meta property="og:description" content="Stacked pull requests helped me organize and merge a set of dependent changes to this website—and gave me a little faith in GitHub as a platform again.">
+<meta property="og:image" content="https://westerndevs.com/images/david-wesst/2026-08-12-david-wesst-i-used-stacked-prs-and-liked-it/4365f2207e3a1acb-i-used-stacked-prs-and-liked-it_banner.png">
+<meta property="og:image" content="https://westerndevs.com/images/david-wesst/2026-08-12-david-wesst-i-used-stacked-prs-and-liked-it/22173f6080b92dc6-gh-stack_terminal.png">
+<meta property="og:image" content="https://westerndevs.com/images/david-wesst/2026-08-12-david-wesst-i-used-stacked-prs-and-liked-it/ebfedab31d401783-gh-stack_web.png">
+<meta property="og:image" content="https://westerndevs.com/images/david-wesst/2026-08-12-david-wesst-i-used-stacked-prs-and-liked-it/7bb1014bcc3b38e2-gh-stack_cli_merging.png">
+<meta property="article:published_time" content="2026-08-12T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-08-12T16:00:00.000Z">
+<meta property="article:author" content="Western Devs">
+<meta property="article:tag" content="github">
+<meta property="article:tag" content="devops">
+<meta property="article:tag" content="pull-requests">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://westerndevs.com/images/david-wesst/2026-08-12-david-wesst-i-used-stacked-prs-and-liked-it/4365f2207e3a1acb-i-used-stacked-prs-and-liked-it_banner.png">
+<meta name="twitter:creator" content="@westerndevs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="title" content="WesternDevs">   
+    <meta name="keywords" content="software development,software,asp.net,blog">
+    <meta name="description" content="We're all west of somewhere">
+    <meta name="copyright" content="WesternDevs">
+    <meta name="revisit-after" content="15 days">
+    <meta name="robots" content="all">
+    <meta name="MSSmartTagsPreventParsing" content="true">
+  
+    <link rel="canonical" href="https://david.wes.st/blog/i-used-stacked-prs-and-liked-it/">
+  
+  
+    <link rel="alternate" href="/feed.xml" title="Western Devs" type="application/atom+xml">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+      
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>  
+  <meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+<!-- FIXED HEADER BECAUSE SCROLLING -->
+<!--HEADER STARTS-->
+<div class="WrapperHeader">
+<div style="display:inline-block; text-align: center;">
+<div class="Header">
+
+  <div class="HeaderLogo">
+    <a href="/"><img src="/images/header_logo_transparent.png" alt="WesternDevs" title="WesternDevs" border="0" style="width: 206px; height: 64px;" width="206" height="64"></a>
+  </div>
+
+  <div class="HeaderLinks">
+      <a href="/posts" class="nav">POSTS</a>       
+      <a href="/podcasts" class="nav">PODCASTS</a>       
+      <a href="/whoweare" class="nav">ABOUT</a>  
+      <a href="/whatwevedone" class="nav">WHAT WE'VE DONE</a>  
+      <a href="/speaking" class="nav">SPEAKING</a>
+      <div class="HeaderIcons">
+        <a href="mailto:info@westerndevs.com"><img src="/images/icon_email.png" border="0" alt="Email" title="Email" height="26" width="26"></a>
+        <a href="/feed.xml"><img src="/images/icon_subscribe.png" border="0" alt="Subscribe" title="Subscribe" height="26" width="27"></a>
+        <a href="http://twitter.com/westerndevs" target="_blank"><img src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter" height="26" width="27"></a>
+        <a href="http://github.com/westerndevs" target="_blank"><img src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub" height="26" width="27"></a>     
+      </div>
+  </div>
+  
+</div>
+</div>
+</div>
+<!--HEADER ENDS-->    
+
+
+
+<!--WRAPPER STARTS-->
+<div class="Wrapper" style="">
+
+<!--SUBHEAD STARTS-->
+<div class="WrapperSubHeaderSubpage">
+<center>
+	<div class="SubHeader">
+		<H1 class="title"><img class="icon" src="/images/icon_posts.png" alt="POST" title="POST" border="0"> POST</H1>
+	</div>
+</center>
+</div>
+<!--SUBHEAD ENDS-->
+
+<!--PAGE CONTENT STARTS-->
+<center>
+<div class="WrapperContent">
+
+<!--MAIN CONTENT STARTS-->
+	<div class="SubpageBoxSubLrg">
+		<div class="SubpageBoxSubLrgContent">
+		    <div class='postTitle'>
+  <div class="ListLrgDateBG">
+    <div class="ListLrgDateMonth">AUG</div>
+    <div class="ListLrgDateDay">12</div>
+    <div class="ListLrgDateYear">2026</div>
+  </div>
+  <h2>I Used Stacked PRs and Liked It</h2>
+</div>
+
+		    
+
+<p class="TXTsm">ORIGINALLY POSTED TO: <a href="https://david.wes.st/blog/i-used-stacked-prs-and-liked-it/" target="_blank" rel="noopener" class='originalurl'>https://david.wes.st/blog/i-used-stacked-prs-and-liked-it/</a></p>
+
+
+
+			<div id="mainPostContent">
+	        
+<img src="/images/david-wesst/2026-08-12-david-wesst-i-used-stacked-prs-and-liked-it/4365f2207e3a1acb-i-used-stacked-prs-and-liked-it_banner.png" alt="GitHub's Octocat logo beside terminal output listing five branches in a stacked pull request">
+<p>Stacked pull requests helped me organize and merge a set of dependent changes to this website—and gave me a little faith in GitHub as a platform again.</p>
+<p>GitHub introduced a non-AI-focused feature called <a href="https://docs.github.com/en/pull-requests/how-tos/stacked-pull-requests" target="_blank" rel="noopener">Stacked Pull Requests</a> that helps you merge multiple PRs at once. This is the first feature since the introduction of <a href="https://docs.github.com/en/issues/planning-and-tracking-with-projects" target="_blank" rel="noopener">Projects</a> that has interested me in years, and it has given me a bit of faith in GitHub as a platform again.</p>
+<h2>Why Did I Use Stacked PRs?</h2>
+<p>I heard about Stacked PRs through the <a href="https://www.westerndevs.com/" target="_blank" rel="noopener">Western Devs</a> (yes, we still talk, we just don't blog as much) and thought I would use them to "stack" a bunch of changes I wanted to apply to my website. My website has been something of a forever hobby project that I use to experiment with various technologies and keep my hands a little dirty when it comes to web tooling.</p>
+<p>In any case, there were a number of features I wanted to apply to relaunch the site, but I knew it would be a massive change to the project. Between data migrations, new styling, and a new site structure, the change logs were going to be massive.</p>
+<p>So, instead of one gigantic PR or having a bunch of PRs that I have to keep track of myself, I decided to try stacked PRs to keep track of the merge order for me.</p>
+<p>Here are a couple of images of the CLI and Web UIs for stacked PRs from GitHub that I used:</p>
+<p><img src="/images/david-wesst/2026-08-12-david-wesst-i-used-stacked-prs-and-liked-it/22173f6080b92dc6-gh-stack_terminal.png" alt="A black terminal window showing the CLI output for the gh stack view command, with five PRs ready to be merged">
+<img src="/images/david-wesst/2026-08-12-david-wesst-i-used-stacked-prs-and-liked-it/ebfedab31d401783-gh-stack_web.png" alt="The GitHub web interface for a PR showing the stacked PR section, with five green checkboxes lined up for five separate branches. A green &quot;Merge stack&quot; button is at the bottom of the widget, with a green &quot;Preview&quot; tag in the bottom-right corner."></p>
+<h2>Were Stacked PRs Useful?</h2>
+<p>Put simply: yes.</p>
+<p>It sounds like a simple task, but even keeping my side project branches organized is difficult for me. I have tried keeping notes in the PRs themselves and organizing myself around milestones, but nothing really worked because it didn't tie everything together on the workflow side of things.</p>
+<p>With my CI/CD pipelines in place, stacked PRs made it easy for me to order the branches properly, add new ones when necessary, and highlight where things would fail early when merging them altogether.</p>
+<p><img src="/images/david-wesst/2026-08-12-david-wesst-i-used-stacked-prs-and-liked-it/7bb1014bcc3b38e2-gh-stack_cli_merging.png" alt="Terminal output with a black background and a text-based UI showing &quot;Select PRs&quot; highlighted, with green checked boxes for five branches being merged. The message &quot;Will merge 5 PRs into main&quot; appears in grey, with navigation commands at the bottom."></p>
+<h2>This Isn't Groundbreaking Though-- Is It?</h2>
+<p>No, of course not.</p>
+<p>Honestly, I had been considering moving away from GitHub since they only seem to talk about generative AI coding. I'm not against AI coding, but that isn't the ONLY reason I use GitHub. In fact, I don't use GitHub Copilot; I use Codex for AI code assistance.</p>
+<p>My point is that GitHub is a social coding platform with DevOps tooling, and if they aren't in that business anymore, then I should take the time to learn a toolset that does care about DevOps tooling.</p>
+<p>I will save that for another post.</p>
+
+
+
+	        </div>
+
+            
+            <section id="comments">
+            <div id="disqus_thread">
+                <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+            </div>
+            </section>
+            
+		</div>
+	</div>
+<!--MAIN CONTENT ENDS-->
+
+<!--SIDEBAR CONTENT STARTS-->
+	<div class="SubpageBoxSubSm">
+		<div class="SubpageBoxSubSmContent">
+			
+			
+
+			<div class="ProfileImg">
+				
+				<a href="/bios/david_wesst">
+				
+					<img src='/images/avatars/davidwesst_400x400.jpg' />
+				
+				</a>
+				
+			</div>
+
+			<BR clear="all">
+
+			<h2><a href="/bios/david_wesst">David Wesst</a></h2>
+			
+			<a href="mailto:questions@davidwesst.com"><img class="ProfileIcon" src="/images/icon_email.png" border="0" alt="Email" title="Email"> Email</a><BR>
+			
+			
+			<a href="http://www.davidwesst.com" target="_blank"><img class="ProfileIcon" src="/images/icon_web.png" border="0" alt="Web" title="Web"> Web</a><BR>
+			
+			
+			<a href="http://twitter.com/davidwesst" target="_blank"><img class="ProfileIcon" src="/images/icon_twitter.png" border="0" alt="Twitter" title="Twitter"> Twitter</a><BR>
+			
+			
+			<a href="https://github.com/davidwesst" target="_blank"><img class="ProfileIcon" src="/images/icon_github.png" border="0" alt="GitHub" title="GitHub"> GitHub</a><br>
+			
+			
+			<a href="https://www.linkedin.com/in/davidwesst" target="_blank"><img class="ProfileIcon" src="/images/icon_linkedin.png" border="0" alt="LinkedIN" title="LinkedIN"> LinkedIn</a><br>
+			
+			
+ 			<a href="/feeds/david_wesst.xml"><img class="ProfileIcon" src="/images/icon_subscribe.png" /> RSS</a>
+			
+
+			<hr />
+			<h4>Looking for someone else?</h4>
+			<p>You can find the rest of the Western Devs Crew <a href="/whoweare">here</a>.</p>
+		</div>
+	</div>
+<!--SIDEBAR CONTENT ENDS-->
+
+
+</div>
+</center>
+<!--PAGE CONTENT ENDS-->
+
+
+<!--FOOTER STARTS-->
+<center>
+  <div class="FooterBarTxt">&copy; 2015 Western Devs. All Rights Reserved. Design by <a href="http://www.karenchudobiak.ca" target="_blank">Karen Chudobiak, Graphic Designer</a></div>
+</center>
+<!--FOOTER ENDS-->
+
+<!-- NAV FOOTER STARTS -->
+<div class="NavFooter">
+  <a href="/posts" alt="Posts"><i class="fa fa-newspaper-o fa-2x"></i><span>Posts</span></a>
+  <a href="/podcasts" alt="Podcasts"><i class="fa fa-volume-up fa-2x"></i><span>Podcasts</span></a>
+  <a href="/whoweare" alt="About"><i class="fa fa-star fa-2x"></i><span>About</span></a>
+  <a href="/whatwevedone" alt="What We've Done"><i class="fa fa-trophy fa-2x"></i><span>Work</span></a>
+  <a href="/speaking" alt="Speaking"><i class="fa fa-comment-o fa-2x fa-flip-horizontal"></i><span>Speaking</span></a>
+</div>
+<!-- NAV FOOTER ENDS -->
+
+
+
+
+</div>
+<!--WRAPPER ENDS-->
+
+
+<script>
+  var disqus_shortname = 'westerndevs';
+  
+  var disqus_url = 'https://westerndevs.com/devops/david-wesst-i-used-stacked-prs-and-liked-it/'.replace(".com//", ".com/");
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+</script>
+
+
+</body>
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+if (document.location.hostname.search("westerndevs.com") !== -1 || document.location.hostname.search("www.westerndevs.com") !== -1) {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-37617956-2', 'auto');
+
+ga('set', 'contentGroup1', 'david_wesst');
+
+ga('send', 'pageview');
+}
+</script>
+<!-- End Google Analytics -->
+
+
+
+</html>

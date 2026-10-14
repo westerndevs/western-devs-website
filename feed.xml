@@ -95,11 +95,45 @@
   </entry>
   
   <entry>
+    <title type="html">I Used Stacked PRs and Liked It</title>
+    <link href="https://westerndevs.com/devops/david-wesst-i-used-stacked-prs-and-liked-it/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/devops/david-wesst-i-used-stacked-prs-and-liked-it/</id>
+    <published>2026-08-12T16:00:00.000Z</published>
+    <updated>2026-08-12T16:00:00.000Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<img src="/images/david-wesst/2026-08-12-david-wesst-i-used-stacked-prs-and-liked-it/4365f2207e3a1acb-i-used-stacked-prs-and-liked-it_banner.png" alt="GitHub's Octocat logo beside terminal output listing five branches in a stacked pull request"><p>Stacked pull requests helped me organize and merge a set of dependent changes to this website—and gave me a little faith in GitHub as a platform again.</p><p>GitHub introduced a non-AI-focused feature called <a href="https://docs.github.com/en/pull-requests/how-tos/stacked-pull-requests" target="_blank" rel="noopener">Stacked Pull Requests</a> that helps you merge multiple PRs at once. This is the first feature since the introduction of <a href="https://docs.github.com/en/issues/planning-and-tracking-with-projects" target="_blank" rel="noopener">Projects</a> that has interested me in years, and it has given me a bit of faith in GitHub as a platform again.</p><h2>Why Did I Use Stacked PRs?</h2><p>I heard about Stacked PRs through the <a href="https://www.westerndevs.com/" target="_blank" rel="noopener">Western Devs</a> (yes, we still talk, we just don't blog as much) and thought I would use them to "stack" a bunch of changes I wanted to apply to my website. My website has been something of a forever hobby project that I use to experiment with various technologies and keep my hands a little dirty when it comes to web tooling.</p><p>In any case, there were a number of features I wanted to apply to relaunch the site, but I knew it would be a massive change to the project. Between data migrations, new styling, and a new site structure, the change logs were going to be massive.</p><p>So, instead of one gigantic PR or having a bunch of PRs that I have to keep track of myself, I decided to try stacked PRs to keep track of the merge order for me.</p><p>Here are a couple of images of the CLI and Web UIs for stacked PRs from GitHub that I used:</p><p><img src="/images/david-wesst/2026-08-12-david-wesst-i-used-stacked-prs-and-liked-it/22173f6080b92dc6-gh-stack_terminal.png" alt="A black terminal window showing the CLI output for the gh stack view command, with five PRs ready to be merged"><img src="/images/david-wesst/2026-08-12-david-wesst-i-used-stacked-prs-and-liked-it/ebfedab31d401783-gh-stack_web.png" alt="The GitHub web interface for a PR showing the stacked PR section, with five green checkboxes lined up for five separate branches. A green &quot;Merge stack&quot; button is at the bottom of the widget, with a green &quot;Preview&quot; tag in the bottom-right corner."></p><h2>Were Stacked PRs Useful?</h2><p>Put simply: yes.</p><p>It sounds like a simple task, but even keeping my side project branches organized is difficult for me. I have tried keeping notes in the PRs themselves and organizing myself around milestones, but nothing really worked because it didn't tie everything together on the workflow side of things.</p><p>With my CI/CD pipelines in place, stacked PRs made it easy for me to order the branches properly, add new ones when necessary, and highlight where things would fail early when merging them altogether.</p><p><img src="/images/david-wesst/2026-08-12-david-wesst-i-used-stacked-prs-and-liked-it/7bb1014bcc3b38e2-gh-stack_cli_merging.png" alt="Terminal output with a black background and a text-based UI showing &quot;Select PRs&quot; highlighted, with green checked boxes for five branches being merged. The message &quot;Will merge 5 PRs into main&quot; appears in grey, with navigation commands at the bottom."></p><h2>This Isn't Groundbreaking Though-- Is It?</h2><p>No, of course not.</p><p>Honestly, I had been considering moving away from GitHub since they only seem to talk about generative AI coding. I'm not against AI coding, but that isn't the ONLY reason I use GitHub. In fact, I don't use GitHub Copilot; I use Codex for AI code assistance.</p><p>My point is that GitHub is a social coding platform with DevOps tooling, and if they aren't in that business anymore, then I should take the time to learn a toolset that does care about DevOps tooling.</p><p>I will save that for another post.</p>]]></content>
+    
+    <summary type="html">
+    
+      Stacked pull requests helped me organize and merge a set of dependent changes to this website—and gave me a little faith in GitHub as a platform again.
+    
+    </summary>
+    
+      <category term="devops" scheme="https://westerndevs.com/categories/devops/"/>
+    
+    
+      <category term="github" scheme="https://westerndevs.com/tags/github/"/>
+    
+      <category term="devops" scheme="https://westerndevs.com/tags/devops/"/>
+    
+      <category term="pull-requests" scheme="https://westerndevs.com/tags/pull-requests/"/>
+    
+  </entry>
+  
+  <entry>
     <title type="html">Expensive Hosting for Small to Medium Projects</title>
     <link href="https://westerndevs.com/_/hosting-costs/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/hosting-costs/</id>
     <published>2026-01-15T05:00:00.000Z</published>
-    <updated>2026-10-14T16:32:44.005Z</updated>
+    <updated>2026-10-14T16:35:41.084Z</updated>
 	<author>
 	
 	  
@@ -125,7 +159,7 @@
     <link href="https://westerndevs.com/_/jujutsu-cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/jujutsu-cheat-sheet/</id>
     <published>2025-11-05T05:00:00.000Z</published>
-    <updated>2026-10-14T16:32:44.008Z</updated>
+    <updated>2026-10-14T16:35:41.090Z</updated>
 	<author>
 	
 	  
@@ -151,7 +185,7 @@
     <link href="https://westerndevs.com/_/open-api-generator/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/open-api-generator/</id>
     <published>2025-03-30T04:00:00.000Z</published>
-    <updated>2026-10-14T16:32:44.009Z</updated>
+    <updated>2026-10-14T16:35:41.092Z</updated>
 	<author>
 	
 	  
@@ -177,7 +211,7 @@
     <link href="https://westerndevs.com/_/dependabot-ignore-dotnet-9/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/dependabot-ignore-dotnet-9/</id>
     <published>2024-11-20T05:00:00.000Z</published>
-    <updated>2026-10-14T16:32:44.007Z</updated>
+    <updated>2026-10-14T16:35:41.088Z</updated>
 	<author>
 	
 	  
@@ -203,7 +237,7 @@
     <link href="https://westerndevs.com/_/ravendb-on-k8s/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ravendb-on-k8s/</id>
     <published>2024-11-14T05:00:00.000Z</published>
-    <updated>2026-10-14T16:32:44.010Z</updated>
+    <updated>2026-10-14T16:35:41.093Z</updated>
 	<author>
 	
 	  
@@ -229,7 +263,7 @@
     <link href="https://westerndevs.com/_/where-is-the-space/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/where-is-the-space/</id>
     <published>2024-11-10T05:00:00.000Z</published>
-    <updated>2026-10-14T16:32:44.013Z</updated>
+    <updated>2026-10-14T16:35:41.097Z</updated>
 	<author>
 	
 	  
@@ -255,7 +289,7 @@
     <link href="https://westerndevs.com/_/consuming-github-packges-in-yarn/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/consuming-github-packges-in-yarn/</id>
     <published>2024-11-05T05:00:00.000Z</published>
-    <updated>2026-10-14T16:32:44.007Z</updated>
+    <updated>2026-10-14T16:35:41.087Z</updated>
 	<author>
 	
 	  
@@ -281,7 +315,7 @@
     <link href="https://westerndevs.com/_/fast-endpoints-port/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/fast-endpoints-port/</id>
     <published>2024-10-12T04:00:00.000Z</published>
-    <updated>2026-10-14T16:32:44.008Z</updated>
+    <updated>2026-10-14T16:35:41.089Z</updated>
 	<author>
 	
 	  
@@ -307,7 +341,7 @@
     <link href="https://westerndevs.com/_/update-outdated-packages/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/update-outdated-packages/</id>
     <published>2024-09-15T04:00:00.000Z</published>
-    <updated>2026-10-14T16:32:44.012Z</updated>
+    <updated>2026-10-14T16:35:41.096Z</updated>
 	<author>
 	
 	  
@@ -333,7 +367,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-6/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-6/</id>
     <published>2024-09-14T04:00:00.000Z</published>
-    <updated>2026-10-14T16:32:44.009Z</updated>
+    <updated>2026-10-14T16:35:41.092Z</updated>
 	<author>
 	
 	  
@@ -359,7 +393,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-5/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-5/</id>
     <published>2024-09-09T04:00:00.000Z</published>
-    <updated>2026-10-14T16:32:44.009Z</updated>
+    <updated>2026-10-14T16:35:41.092Z</updated>
 	<author>
 	
 	  
@@ -385,7 +419,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-4/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-4/</id>
     <published>2024-09-02T04:00:00.000Z</published>
-    <updated>2026-10-14T16:32:44.009Z</updated>
+    <updated>2026-10-14T16:35:41.092Z</updated>
 	<author>
 	
 	  
@@ -411,7 +445,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-3/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-3/</id>
     <published>2024-09-01T04:00:00.000Z</published>
-    <updated>2026-10-14T16:32:44.009Z</updated>
+    <updated>2026-10-14T16:35:41.092Z</updated>
 	<author>
 	
 	  
@@ -437,7 +471,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-2/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-2/</id>
     <published>2024-08-31T04:00:00.000Z</published>
-    <updated>2026-10-14T16:32:44.009Z</updated>
+    <updated>2026-10-14T16:35:41.092Z</updated>
 	<author>
 	
 	  
@@ -463,7 +497,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-1/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-1/</id>
     <published>2024-08-30T04:00:00.000Z</published>
-    <updated>2026-10-14T16:32:44.009Z</updated>
+    <updated>2026-10-14T16:35:41.092Z</updated>
 	<author>
 	
 	  
@@ -489,7 +523,7 @@
     <link href="https://westerndevs.com/_/plinko-diagram/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/plinko-diagram/</id>
     <published>2024-07-31T04:00:00.000Z</published>
-    <updated>2026-10-14T16:32:44.010Z</updated>
+    <updated>2026-10-14T16:35:41.092Z</updated>
 	<author>
 	
 	  
@@ -515,7 +549,7 @@
     <link href="https://westerndevs.com/_/azure-functions-for-side-projects/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/azure-functions-for-side-projects/</id>
     <published>2024-06-23T04:00:00.000Z</published>
-    <updated>2026-10-14T16:32:44.006Z</updated>
+    <updated>2026-10-14T16:35:41.086Z</updated>
 	<author>
 	
 	  
@@ -535,32 +569,6 @@
 &lt;li&gt;How do I configure an Azure Function app to save a PDF to a Google Drive folder&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;This is from the perspective of someone who doesn&#39;t need their app to be highly available/scalable/reliable/tenable/affable/inscrutable/explicable, which the documentation for all cloud products seems to assume (and, it must be said, rightfully so).&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Truly syncing multiple calendars</title>
-    <link href="https://westerndevs.com/_/syncing-multiple-calendars/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/syncing-multiple-calendars/</id>
-    <published>2024-06-17T04:00:00.000Z</published>
-    <updated>2026-10-14T16:32:44.012Z</updated>
-	<author>
-	
-	  
-	  <name>Kyle Baley</name>
-	  <email>kyle@baley.org</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>For reasons that I really need to investigate, I'm apparently a busy fellow. Such that I now maintain a rather ungainly number of calendars. Three to be exact. That's one personal calendar and one for each of two clients.</p><a id="more"></a><p>It's a fairly simple process to <em>view</em> all of these calendars in a single place. All the major calendar providers generously provide iCal links at the very least to let you combine everything in a single view and you can even turn individual calendars on and off.</p><p>I have two problems with this.</p><p>First, I often don't want to have all of these calendars visible in a single view on my screen. Screen-sharing is common and on more than one occasion, I've said, &quot;let's schedule a meeting&quot; and switched to the shared calendar view where all my personal <a href="https://en.wikipedia.org/wiki/Dudeism" target="_blank" rel="noopener">Dudeism meetings</a> are there for all to see.</p><p>Second (and more important than risking an argument with a nihilist), people booking meetings with me don't see the unavailable slots on the other calendars, leading to double-bookings. I didn't know how good I had it in high school when this was...let's just say, &quot;not a problem&quot;.</p><p>So I went on the hunt for a solution that met these criteria:</p><ol><li>The ability to book an event on one calendar and have the time blocked on the other two.</li><li>Have the time on other calendar show as a generic &quot;busy&quot; or &quot;unavailable&quot;. I.e. don't broadcast the details of the events from other calendars.</li><li>Have a centralized view <em>somewhere</em> of all the events <em>without</em> duplicates. I.e. without a bunch of &quot;busy&quot; or &quot;unavailable&quot; events.</li><li>Ideally, works with both Google and Microsoft calendars</li></ol><p><img src="/images/flintstones-camera.jpg" alt="The early days of online meetings">)</p><p>The easiest way to achieve this, of course, is to do it yourself. When you book an event on one calendar, you go through the motions of creating a generic event on the other two. This meets all the criteria but depending on how heavily your client leans into the &quot;all meetings/all the time&quot; project management style, this gets old real fast. But to be fair, it's served me reasonably well for many years.</p><p>This led naturally to a search for a technical solution, which yielded the following options:</p><ul><li><a href="https://www.onecal.io/" target="_blank" rel="noopener">OneCal</a></li><li><a href="https://calendarbridge.com/" target="_blank" rel="noopener">CalendarBridge</a></li><li><a href="https://flexibits.com/fantastical" target="_blank" rel="noopener">Fantastical</a></li><li><a href="https://calendly.com" target="_blank" rel="noopener">Calendly</a></li><li><a href="https://reclaim.ai/" target="_blank" rel="noopener">Reclaim.ai</a></li><li><a href="https://www.spikenow.com/" target="_blank" rel="noopener">Spike</a></li><li><a href="https://www.calendar.com/blog/how-to-sync-your-calendar-across-all-devices/" target="_blank" rel="noopener">Syncing calendars</a></li></ul><p>I have OneCal at the top because it's (currently) my favorite option. But I'll skim through the rest and provide reasons why I didn't go with them. I'll use my tried-and-true practice of claiming that my choice is the One True Way™ and everyone else is wrong as a means of encouraging people to comment with their own options, if only to prove me wrong. Which I'm quite happy to be. But still, that's not the case here. I'm right and you're wrong. Comment below if you disagree.</p><p>Back to the evaluations. I'll start with some of the quicker ones.</p><h3>Syncing calendars</h3><p>I'll be honest, I just kind of skimmed this article. I have kind of a vague idea of what they're going for but this seems geared more toward people that are managing someone else's calendar. Plus I don't <em>think</em> it meets the criteria of actually booking the time off on the other calendar. Either way, it looks kind of cumbersome to set up and to manage.</p><h3>Spike</h3><p>I didn't give this much more than a glance. It does <em>way</em> more than I want it to and calendar sync doesn't appear to be among their more popular features. In any case, the banner says &quot;email and chat app&quot; and the byline talks about teams and partners. I don't think I'm their target audience.</p><h3>Reclaim.ai</h3><p>Also has many features I don't need nor want though at least it's focused on calendars. Google Calendar specifically. Outlook is coming soon. So while calendar sync is one of the highlighted features, the lack of Outlook, as well as the focus on collaboration and AI and &quot;smart&quot; also suggests it's overkill.</p><h3>Calendly</h3><p>I've used Calendly before to send people links to schedule calls with me. It's a lovely app and the free version is quite powerful. I'd recommend it even over Google Calendar's built-in &quot;scheduling slots&quot; or &quot;appointment schedules&quot; or whatever they're calling the feature now.</p><p>That said, based on what I read, I don't think they offer what I need. It looks like the paid plans will let you connect to multiple calendars so that you can give someone a link with a more comprehensive view of your availability. But I need something for internal people who have direct access to my calendar.</p><h3>Fantastical</h3><p>This is just plain a gorgeous app, if you'll forgive an awkwardly-worded almost-oxymoron. I keep threatening to use it every couple of years but can't really justify it. The major selling points are syncing across multiple devices, the natural language parsing, the UX, and integration with a lot of other productivity tools I don't use. Seriously, you should check this app out...</p><p>...except if all you need is to sync events across multiple calendars. I'm still in the midst of testing the app but the process to ensure an event appears as a block of unavailable time on multiple calendars seems to be to duplicate it. Which, to be fair, they make <em>really</em> easy. And if you keep the details the same in all the clones, the unified calendar view removes the duplicates. But that doesn't meet criteria #2 for me above. And if you change the name, it shows as a separate event which is a bit clumsy. For this feature specifically, it's not much better than what I can achieve in Google Calendar natively. But still, give it a whirl.</p><h3>Final verdict: OneCal (CalendarBridge runner up)</h3><p>That leaves two options: OneCal and CalendarBridge. Both do the same thing though their respective marketing teams might squabble over technicalities. Their primary purpose is to sync multiple calendars and avoid double-bookings. Perfect.</p><p>Both services sync one calendar to another by cloning events between them and monitoring the source calendar for new events. Both give you control over what information you want to copy over and have similar options like excluding events of a given colour or excluding events where you're marked free (useful if you track birthdays in your calendar). Once syncing was set up, my calendars looked pretty much exactly how they did when I was doing it manually.</p><p>Neither service has a mobile app from what I can tell which is a shame, especially in the case of OneCal because unlike CalendarBridge, they offer a unified calendar view of all your calendars with the option to hide the cloned events. This is a nice touch and while the view is mobile friendly, it's missing some features, like a three-day view or the ability to put a widget on your phone.</p><p>Pricing is virtually identical on both services in that the one I would need runs about $100/year to sync three calendars. OneCal has the ability to do two-way syncs between calendars or to broadcast a one-way sync from one calendar to multiple other calendars, something that I don't <em>think</em> CalendarBridge does. In CalendarBridge, a two-way sync is done with two one-way syncs and their pricing reflects that. The basic plan for both essentially covers two calendars so I'd be looking at premium for both.</p><p>Setting up the syncs seemed nicer in OneCal to me though I can't 100% say why. Both essentially walk you through a three-ish-step wizard to do it. Maybe OneCal worded things better or laid things out more intuitively for me. I found myself wondering if I was doing it right a couple of times in CalendarBridge. OneCal also felt zippier in general.</p><p>Both apps give you booking links (a la Calendly) which is nice if you need that. OneCal apparently integrates with Zoom to automatically add a meeting link to appointments booked online but I didn't test that out since I don't need it. Neither requires a credit card to sign up which is an underrated feature these days.</p><p>A couple of little UX things. First, OneCal has another underrated feature: a big ol' Delete My Account button at the bottom of the settings page. This is great for someone who wants to test things out, decide it's not for them, and move on. I'm not planning to use CalendarBridge and I've cancelled my free trial but the account remains. There's no obvious way to delete it so I guess I'm a CalendarBridge user indefinitely now. I suppose that's good for them to pump up their user numbers in case someone wants to buy them out but doesn't do me any good.</p><p>Second thing is CalendarBridge's login mechanism. To log in, I enter my email address, they email me a code, I enter the code. It's basically the standard 2FA mechanism from fifteen years ago. There's no password, no Google/Apple/Facebook/etc option. It's kinda weird. Like the developers have a personal agenda against traditional authentication and this is their manifesto.</p><p>So both apps do what I want and cost roughly the same but I give the edge to OneCal for their usability and their unified Calendar view. The price point is high enough that I'll give it a few days before pulling the trigger so I can decide if I want this more than I want to watch seasons 2 of Silo and Severance.</p><p>The alternative is to set up an auto-decline automation for all meetings which I haven't fully taken off the table yet.</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;For reasons that I really need to investigate, I&#39;m apparently a busy fellow. Such that I now maintain a rather ungainly number of calendars. Three to be exact. That&#39;s one personal calendar and one for each of two clients.&lt;/p&gt;
     
     </summary>
     

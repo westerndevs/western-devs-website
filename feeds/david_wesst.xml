@@ -95,11 +95,45 @@
   </entry>
   
   <entry>
+    <title type="html">I Used Stacked PRs and Liked It</title>
+    <link href="https://westerndevs.com/devops/david-wesst-i-used-stacked-prs-and-liked-it/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/devops/david-wesst-i-used-stacked-prs-and-liked-it/</id>
+    <published>2026-08-12T16:00:00.000Z</published>
+    <updated>2026-08-12T16:00:00.000Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<img src="/images/david-wesst/2026-08-12-david-wesst-i-used-stacked-prs-and-liked-it/4365f2207e3a1acb-i-used-stacked-prs-and-liked-it_banner.png" alt="GitHub's Octocat logo beside terminal output listing five branches in a stacked pull request"><p>Stacked pull requests helped me organize and merge a set of dependent changes to this website—and gave me a little faith in GitHub as a platform again.</p><p>GitHub introduced a non-AI-focused feature called <a href="https://docs.github.com/en/pull-requests/how-tos/stacked-pull-requests" target="_blank" rel="noopener">Stacked Pull Requests</a> that helps you merge multiple PRs at once. This is the first feature since the introduction of <a href="https://docs.github.com/en/issues/planning-and-tracking-with-projects" target="_blank" rel="noopener">Projects</a> that has interested me in years, and it has given me a bit of faith in GitHub as a platform again.</p><h2>Why Did I Use Stacked PRs?</h2><p>I heard about Stacked PRs through the <a href="https://www.westerndevs.com/" target="_blank" rel="noopener">Western Devs</a> (yes, we still talk, we just don't blog as much) and thought I would use them to "stack" a bunch of changes I wanted to apply to my website. My website has been something of a forever hobby project that I use to experiment with various technologies and keep my hands a little dirty when it comes to web tooling.</p><p>In any case, there were a number of features I wanted to apply to relaunch the site, but I knew it would be a massive change to the project. Between data migrations, new styling, and a new site structure, the change logs were going to be massive.</p><p>So, instead of one gigantic PR or having a bunch of PRs that I have to keep track of myself, I decided to try stacked PRs to keep track of the merge order for me.</p><p>Here are a couple of images of the CLI and Web UIs for stacked PRs from GitHub that I used:</p><p><img src="/images/david-wesst/2026-08-12-david-wesst-i-used-stacked-prs-and-liked-it/22173f6080b92dc6-gh-stack_terminal.png" alt="A black terminal window showing the CLI output for the gh stack view command, with five PRs ready to be merged"><img src="/images/david-wesst/2026-08-12-david-wesst-i-used-stacked-prs-and-liked-it/ebfedab31d401783-gh-stack_web.png" alt="The GitHub web interface for a PR showing the stacked PR section, with five green checkboxes lined up for five separate branches. A green &quot;Merge stack&quot; button is at the bottom of the widget, with a green &quot;Preview&quot; tag in the bottom-right corner."></p><h2>Were Stacked PRs Useful?</h2><p>Put simply: yes.</p><p>It sounds like a simple task, but even keeping my side project branches organized is difficult for me. I have tried keeping notes in the PRs themselves and organizing myself around milestones, but nothing really worked because it didn't tie everything together on the workflow side of things.</p><p>With my CI/CD pipelines in place, stacked PRs made it easy for me to order the branches properly, add new ones when necessary, and highlight where things would fail early when merging them altogether.</p><p><img src="/images/david-wesst/2026-08-12-david-wesst-i-used-stacked-prs-and-liked-it/7bb1014bcc3b38e2-gh-stack_cli_merging.png" alt="Terminal output with a black background and a text-based UI showing &quot;Select PRs&quot; highlighted, with green checked boxes for five branches being merged. The message &quot;Will merge 5 PRs into main&quot; appears in grey, with navigation commands at the bottom."></p><h2>This Isn't Groundbreaking Though-- Is It?</h2><p>No, of course not.</p><p>Honestly, I had been considering moving away from GitHub since they only seem to talk about generative AI coding. I'm not against AI coding, but that isn't the ONLY reason I use GitHub. In fact, I don't use GitHub Copilot; I use Codex for AI code assistance.</p><p>My point is that GitHub is a social coding platform with DevOps tooling, and if they aren't in that business anymore, then I should take the time to learn a toolset that does care about DevOps tooling.</p><p>I will save that for another post.</p>]]></content>
+    
+    <summary type="html">
+    
+      Stacked pull requests helped me organize and merge a set of dependent changes to this website—and gave me a little faith in GitHub as a platform again.
+    
+    </summary>
+    
+      <category term="devops" scheme="https://westerndevs.com/categories/devops/"/>
+    
+    
+      <category term="github" scheme="https://westerndevs.com/tags/github/"/>
+    
+      <category term="devops" scheme="https://westerndevs.com/tags/devops/"/>
+    
+      <category term="pull-requests" scheme="https://westerndevs.com/tags/pull-requests/"/>
+    
+  </entry>
+  
+  <entry>
     <title type="html">Defining the Problem before the Solution</title>
     <link href="https://westerndevs.com/musings/defining-problem-before-the-soltuion/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/musings/defining-problem-before-the-soltuion/</id>
     <published>2023-01-27T23:24:33.221Z</published>
-    <updated>2026-10-14T16:32:44.005Z</updated>
+    <updated>2026-10-14T16:35:41.084Z</updated>
 	<author>
 	
 	  
@@ -137,7 +171,7 @@
     <link href="https://westerndevs.com/coding/problem-solution/docker-build-hangs-on-apt-key-in-wsl2/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/coding/problem-solution/docker-build-hangs-on-apt-key-in-wsl2/</id>
     <published>2023-01-12T02:43:58.005Z</published>
-    <updated>2026-10-14T16:32:44.005Z</updated>
+    <updated>2026-10-14T16:35:41.083Z</updated>
 	<author>
 	
 	  
@@ -179,7 +213,7 @@
     <link href="https://westerndevs.com/musings/highlight-reel-for-2022/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/musings/highlight-reel-for-2022/</id>
     <published>2023-01-05T21:47:02.098Z</published>
-    <updated>2026-10-14T16:32:44.004Z</updated>
+    <updated>2026-10-14T16:35:41.083Z</updated>
 	<author>
 	
 	  
@@ -221,7 +255,7 @@
     <link href="https://westerndevs.com/_/speaking-at-tech-events-helps-you-grow/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/speaking-at-tech-events-helps-you-grow/</id>
     <published>2022-12-20T21:59:37.185Z</published>
-    <updated>2026-10-14T16:32:44.004Z</updated>
+    <updated>2026-10-14T16:35:41.083Z</updated>
 	<author>
 	
 	  
@@ -259,7 +293,7 @@
     <link href="https://westerndevs.com/_/docker-desktop-is-not-docker-engine/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/docker-desktop-is-not-docker-engine/</id>
     <published>2022-12-14T02:28:36.457Z</published>
-    <updated>2026-10-14T16:32:44.004Z</updated>
+    <updated>2026-10-14T16:35:41.083Z</updated>
 	<author>
 	
 	  
@@ -295,7 +329,7 @@
     <link href="https://westerndevs.com/_/prairie-dev-con-2022-takeaways/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/prairie-dev-con-2022-takeaways/</id>
     <published>2022-12-07T20:37:20.777Z</published>
-    <updated>2026-10-14T16:32:44.004Z</updated>
+    <updated>2026-10-14T16:35:41.083Z</updated>
 	<author>
 	
 	  
@@ -337,7 +371,7 @@
     <link href="https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/</id>
     <published>2022-12-01T09:18:34.509Z</published>
-    <updated>2026-10-14T16:32:44.004Z</updated>
+    <updated>2026-10-14T16:35:41.083Z</updated>
 	<author>
 	
 	  
@@ -375,7 +409,7 @@
     <link href="https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/</id>
     <published>2022-11-19T01:10:07.083Z</published>
-    <updated>2026-10-14T16:32:44.004Z</updated>
+    <updated>2026-10-14T16:35:41.083Z</updated>
 	<author>
 	
 	  
@@ -413,7 +447,7 @@
     <link href="https://westerndevs.com/_/how-much-is-enough-documentation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/how-much-is-enough-documentation/</id>
     <published>2022-11-10T22:00:00.000Z</published>
-    <updated>2026-10-14T16:32:44.004Z</updated>
+    <updated>2026-10-14T16:35:41.083Z</updated>
 	<author>
 	
 	  
@@ -453,7 +487,7 @@
     <link href="https://westerndevs.com/_/how-to-fork-like-a-boss/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/how-to-fork-like-a-boss/</id>
     <published>2022-11-02T21:00:00.000Z</published>
-    <updated>2026-10-14T16:32:44.004Z</updated>
+    <updated>2026-10-14T16:35:41.083Z</updated>
 	<author>
 	
 	  
@@ -487,7 +521,7 @@
     <link href="https://westerndevs.com/finding-inspiration/i-can-teach-your-dog-quantum-physics/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/finding-inspiration/i-can-teach-your-dog-quantum-physics/</id>
     <published>2021-06-28T16:00:00.000Z</published>
-    <updated>2026-10-14T16:32:44.004Z</updated>
+    <updated>2026-10-14T16:35:41.083Z</updated>
 	<author>
 	
 	  
@@ -525,7 +559,7 @@
     <link href="https://westerndevs.com/inner-monologue/what-value-does-making-content-bring-to-me/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/inner-monologue/what-value-does-making-content-bring-to-me/</id>
     <published>2021-06-17T16:00:00.000Z</published>
-    <updated>2026-10-14T16:32:44.004Z</updated>
+    <updated>2026-10-14T16:35:41.083Z</updated>
 	<author>
 	
 	  
@@ -563,7 +597,7 @@
     <link href="https://westerndevs.com/inner-monologue/my-secret-addiction-to-likes/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/inner-monologue/my-secret-addiction-to-likes/</id>
     <published>2021-06-03T16:00:00.000Z</published>
-    <updated>2026-10-14T16:32:44.004Z</updated>
+    <updated>2026-10-14T16:35:41.082Z</updated>
 	<author>
 	
 	  
@@ -601,7 +635,7 @@
     <link href="https://westerndevs.com/technology/inner-monologue/lucky-number-v7/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/technology/inner-monologue/lucky-number-v7/</id>
     <published>2021-05-24T16:00:00.000Z</published>
-    <updated>2026-10-14T16:32:44.004Z</updated>
+    <updated>2026-10-14T16:35:41.082Z</updated>
 	<author>
 	
 	  
@@ -637,7 +671,7 @@
     <link href="https://westerndevs.com/devops/from-travis-ci-to-github-actions/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devops/from-travis-ci-to-github-actions/</id>
     <published>2020-11-10T23:36:00.000Z</published>
-    <updated>2026-10-14T16:32:44.004Z</updated>
+    <updated>2026-10-14T16:35:41.082Z</updated>
 	<author>
 	
 	  
@@ -675,7 +709,7 @@
     <link href="https://westerndevs.com/devlog/out-the-door/out-the-door-post-jam-update/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/out-the-door/out-the-door-post-jam-update/</id>
     <published>2020-11-09T14:00:00.000Z</published>
-    <updated>2026-10-14T16:32:44.004Z</updated>
+    <updated>2026-10-14T16:35:41.082Z</updated>
 	<author>
 	
 	  
@@ -717,7 +751,7 @@
     <link href="https://westerndevs.com/devlog/a-solo-gamejam-experience-ld47/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/devlog/a-solo-gamejam-experience-ld47/</id>
     <published>2020-10-23T13:00:00.000Z</published>
-    <updated>2026-10-14T16:32:44.004Z</updated>
+    <updated>2026-10-14T16:35:41.082Z</updated>
 	<author>
 	
 	  
@@ -732,46 +766,6 @@
     <summary type="html">
     
       Wonder what it takes to be a solo amateur game developer in a global gamejam? DW summarizes his Ludum Dare 47 experience in this video.
-    
-    </summary>
-    
-      <category term="devlog" scheme="https://westerndevs.com/categories/devlog/"/>
-    
-    
-      <category term="gamedev" scheme="https://westerndevs.com/tags/gamedev/"/>
-    
-      <category term="game development" scheme="https://westerndevs.com/tags/game-development/"/>
-    
-      <category term="devlog" scheme="https://westerndevs.com/tags/devlog/"/>
-    
-      <category term="gamejam" scheme="https://westerndevs.com/tags/gamejam/"/>
-    
-      <category term="ludum dare" scheme="https://westerndevs.com/tags/ludum-dare/"/>
-    
-      <category term="github gameoff" scheme="https://westerndevs.com/tags/github-gameoff/"/>
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Game Portfolio Self Evaluation (in prep for Ludum Dare 47)</title>
-    <link href="https://westerndevs.com/devlog/game-portfolio-review-2020/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/devlog/game-portfolio-review-2020/</id>
-    <published>2020-09-18T13:00:00.000Z</published>
-    <updated>2026-10-14T16:32:44.003Z</updated>
-	<author>
-	
-	  
-	  <name>David Wesst</name>
-	  <email>questions@davidwesst.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>Ludum Dare 47, a weekend long global gamejam, is coming up in a few weeks. In order to prep for the event, I decided to take the time for review and reflect on my game portfolio to see what I learning objective and goals I can set for myself.</p><iframe width="560" height="315" src="https://www.youtube.com/embed/V_zCHtZIsYw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><h2>My Portfolio</h2><p>What was that? You wanted to know where to find and play my games?! Well then, if you're inclined to try some of my games (and hopefully leave some feedback), here they are:</p><ul><li><a href="https://davidwesst.itch.io/vagabondgame" target="_blank" rel="noopener">Vagabond Game</a> -&gt; A top-down Unity based prototype where I learned the technical ropes of putting together a small, game experience, with narrative, graphics, and animation.</li><li><a href="https://davidwesst.itch.io/leaps-and-bounds" target="_blank" rel="noopener">Car Scientist</a> -&gt; My first gamejam submission and evolution of the Vagabond Game prototype, except this time built in Godot.</li><li><a href="https://davidwesst.itch.io/little-shop-of-wall-street" target="_blank" rel="noopener">Little Shop of Wall Street</a> -&gt; My Ludum Dare 46 submission, co-authored by <a href="https://westerndevs.com/bios/darcy_lussier/">D'Arcy Lussier</a> where you trade stocks online in order to feed an interesting plant, before it feeds on YOU!</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      Ludum Dare 47, a weekend long global gamejam, is coming up in a few weeks. In order to prep for the event, I decided to take the time for review and reflect on my game portfolio to see what I learning objective and goals I can set for myself.
     
     </summary>
     
