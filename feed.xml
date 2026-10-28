@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2026-10-21T16:00:00.000Z</updated>
+  <updated>2026-10-27T16:00:00.000Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -15,6 +15,44 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title type="html">Video Games are Built with Spreadsheets</title>
+    <link href="https://westerndevs.com/game-design/david-wesst-video-games-are-built-with-spreadsheets/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/game-design/david-wesst-video-games-are-built-with-spreadsheets/</id>
+    <published>2026-10-27T16:00:00.000Z</published>
+    <updated>2026-10-27T16:00:00.000Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<img src="/images/david-wesst/2026-10-27-david-wesst-video-games-are-built-with-spreadsheets/974bbb04087cb0be-spreadsheets-banner.png" alt="A player-stats and energy-balance spreadsheet with an arrow pointing to the Passenger game prototype."><p>I knew that spreadsheets were the glue that kept software projects together, but never realized how they would be so much more critical in video game development projects.</p><p>The more time I spend making a video game, the more I have come to realize that video games start with spreadsheets. Not code. Not pictures. But spreadsheets.</p><p>Spreadsheets for funding. Spreadsheets for balancing. Spreadsheets for localization. Spreadsheets, spreadsheets, and more spreadsheets.</p><p>Working in enterprise software, I am all too familiar with spreadsheets for managing projects, organizing teams, and all sorts of business activities.</p><p>They are the glue or duct tape that hold the project together, in a lot of cases.</p><p>For video games, I keep finding myself and the various experts I learn from using spreadsheets <em>to build</em> the video game itself, not just organize the business activities around it.</p><p>I'm sure there are more examples than I know about, but in this post I want to share where spreadsheets seem to make sense as the default tool to use.</p><blockquote><p>If you have other examples, reach out to me on <a href="https://bsky.app/profile/david.wes.st" target="_blank" rel="noopener">Bluesky</a>, <a href="https://ca.linkedin.com/in/davidwesst" target="_blank" rel="noopener">LinkedIn</a>, or <a href="https://youtube.com/davidwesst" target="_blank" rel="noopener">YouTube</a> and tell me how you use spreadsheets to make your video game. I am genuinely interested in learning where else they fit into the development process.</p></blockquote><h2>Text Localization</h2><p>I have only dabbled in this one so far, but as I experimented with various dialogue systems, I saw how any dialogue or text needs to fit into a spreadsheet at some point to be localized.</p><p>A spreadsheet is a table, plain and simple. Using it to store data and then mapping that data to other data just makes logical sense.</p><p>This is why when I look at tools to help me with dialogue or text in my game, I make sure that they support export to a spreadsheet-friendly format like CSV.</p><h2>Gameplay Models and Balancing</h2><p>This one is a little more involved. I heard <a href="https://jesseschell.com/" target="_blank" rel="noopener">Jesse Schell</a> on a podcast talking about how he had used a spreadsheet to determine the balance of a trivia game he was making.</p><p>I figure if you can create a model to simulate trivia gameplay, you must be able to do it for other systems.</p><p>And so, with my current project <a href="https://cocobokostudios.com/#games" target="_blank" rel="noopener">Passenger</a>, I have spent time modelling out how to crunch the numbers in a new part of the game I am trying to prototype.</p><p>After a few evenings of fiddling, I managed to get a spreadsheet that showed me how the formulas balanced out and what variables I had to adjust to make things easier or harder for the player.</p><p><img src="/images/david-wesst/2026-10-27-david-wesst-video-games-are-built-with-spreadsheets/243c2ea4620142b4-gameplay-model-screenshot.png" alt="Gameplay-model spreadsheet showing player stats and adjustable energy-balance constants, including base energy cost, task multipliers, and optional task chance."></p><p>Let me emphasize what this has done for my project-- before adding more content to my game, I <em>know</em> how the gameplay system will be balanced. I don't think I know; I <em>actually know</em> how it will be balanced.</p><p>That doesn't mean the work is actually done. I mean, I still have to make it fun and all that. But I have a formula that I can adjust to make things easier (or harder) depending on player feedback and the feeling I am going for in the scene.</p><h2>Understanding Your Audience</h2><p>In <a href="https://david.wes.st/blog/defining-video-game-scope-with-documentation/" target="_blank" rel="noopener">my last devlog</a>, I talked about documentation helping me define scope for Passenger by doing a competitive analysis on games I thought seemed comparable to the vision I have for Passenger.</p><p>This is all done in spreadsheets.</p><p>With the competitive analysis, I pulled all the tags for the comparable games and started crunching the data to figure out what tags aligned with my vision and what tags appeared more frequently with the comparable games. The overlap between these two sets of tags gives me the features I should include in my game.</p><h3>Example</h3><p><img src="/images/david-wesst/2026-10-27-david-wesst-video-games-are-built-with-spreadsheets/57f245f9789402e8-tag-analysis-screenshot.png" alt="Competitive analysis spreadsheet comparing game tags, including Story Rich, Life Sim, and Dating Sim, by applicability to Passenger, reference count, and appearances."></p><p>For example, you can see that Dating Sim is one of the tags I was considering for the game-- however, after doing some analysis on the comparables, I can see that it doesn't show up nearly as much as I thought it would.</p><p>This means that in terms of prototyping priority, the dating sim mechanics have dropped pretty low on my development schedule.</p><p>This saves me the effort of trying to figure out if that even works, as the audience I am trying to reach with Passenger doesn't really care about dating sim mechanics as compared to other features.</p><h2>Conclusion</h2><p>Spreadsheets are the duct tape of software development in general-- but they appear to be more than that for video game development.</p><p>They provide more than just the glue for video games. They provide the interface for working with non-game developer types and allow you to prove out your game idea before you even start drawing it out.</p>]]></content>
+    
+    <summary type="html">
+    
+      I knew that spreadsheets were the glue that kept software projects together, but never realized how they would be so much more critical in video game development projects.
+    
+    </summary>
+    
+      <category term="game-design" scheme="https://westerndevs.com/categories/game-design/"/>
+    
+    
+      <category term="gamedev" scheme="https://westerndevs.com/tags/gamedev/"/>
+    
+      <category term="game-design" scheme="https://westerndevs.com/tags/game-design/"/>
+    
+      <category term="game-development" scheme="https://westerndevs.com/tags/game-development/"/>
+    
+      <category term="project-passenger" scheme="https://westerndevs.com/tags/project-passenger/"/>
+    
+      <category term="spreadsheets" scheme="https://westerndevs.com/tags/spreadsheets/"/>
+    
+  </entry>
   
   <entry>
     <title type="html">Defining Video Game Scope With Documentation</title>
@@ -169,7 +207,7 @@
     <link href="https://westerndevs.com/_/hosting-costs/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/hosting-costs/</id>
     <published>2026-01-15T05:00:00.000Z</published>
-    <updated>2026-10-23T19:13:34.155Z</updated>
+    <updated>2026-10-28T13:53:45.436Z</updated>
 	<author>
 	
 	  
@@ -195,7 +233,7 @@
     <link href="https://westerndevs.com/_/jujutsu-cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/jujutsu-cheat-sheet/</id>
     <published>2025-11-05T05:00:00.000Z</published>
-    <updated>2026-10-23T19:13:34.159Z</updated>
+    <updated>2026-10-28T13:53:45.441Z</updated>
 	<author>
 	
 	  
@@ -221,7 +259,7 @@
     <link href="https://westerndevs.com/_/open-api-generator/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/open-api-generator/</id>
     <published>2025-03-30T04:00:00.000Z</published>
-    <updated>2026-10-23T19:13:34.160Z</updated>
+    <updated>2026-10-28T13:53:45.443Z</updated>
 	<author>
 	
 	  
@@ -247,7 +285,7 @@
     <link href="https://westerndevs.com/_/dependabot-ignore-dotnet-9/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/dependabot-ignore-dotnet-9/</id>
     <published>2024-11-20T05:00:00.000Z</published>
-    <updated>2026-10-23T19:13:34.158Z</updated>
+    <updated>2026-10-28T13:53:45.439Z</updated>
 	<author>
 	
 	  
@@ -273,7 +311,7 @@
     <link href="https://westerndevs.com/_/ravendb-on-k8s/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ravendb-on-k8s/</id>
     <published>2024-11-14T05:00:00.000Z</published>
-    <updated>2026-10-23T19:13:34.161Z</updated>
+    <updated>2026-10-28T13:53:45.445Z</updated>
 	<author>
 	
 	  
@@ -299,7 +337,7 @@
     <link href="https://westerndevs.com/_/where-is-the-space/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/where-is-the-space/</id>
     <published>2024-11-10T05:00:00.000Z</published>
-    <updated>2026-10-23T19:13:34.163Z</updated>
+    <updated>2026-10-28T13:53:45.447Z</updated>
 	<author>
 	
 	  
@@ -325,7 +363,7 @@
     <link href="https://westerndevs.com/_/consuming-github-packges-in-yarn/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/consuming-github-packges-in-yarn/</id>
     <published>2024-11-05T05:00:00.000Z</published>
-    <updated>2026-10-23T19:13:34.157Z</updated>
+    <updated>2026-10-28T13:53:45.439Z</updated>
 	<author>
 	
 	  
@@ -351,7 +389,7 @@
     <link href="https://westerndevs.com/_/fast-endpoints-port/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/fast-endpoints-port/</id>
     <published>2024-10-12T04:00:00.000Z</published>
-    <updated>2026-10-23T19:13:34.158Z</updated>
+    <updated>2026-10-28T13:53:45.440Z</updated>
 	<author>
 	
 	  
@@ -377,7 +415,7 @@
     <link href="https://westerndevs.com/_/update-outdated-packages/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/update-outdated-packages/</id>
     <published>2024-09-15T04:00:00.000Z</published>
-    <updated>2026-10-23T19:13:34.162Z</updated>
+    <updated>2026-10-28T13:53:45.446Z</updated>
 	<author>
 	
 	  
@@ -403,7 +441,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-6/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-6/</id>
     <published>2024-09-14T04:00:00.000Z</published>
-    <updated>2026-10-23T19:13:34.160Z</updated>
+    <updated>2026-10-28T13:53:45.443Z</updated>
 	<author>
 	
 	  
@@ -429,7 +467,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-5/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-5/</id>
     <published>2024-09-09T04:00:00.000Z</published>
-    <updated>2026-10-23T19:13:34.160Z</updated>
+    <updated>2026-10-28T13:53:45.443Z</updated>
 	<author>
 	
 	  
@@ -455,7 +493,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-4/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-4/</id>
     <published>2024-09-02T04:00:00.000Z</published>
-    <updated>2026-10-23T19:13:34.160Z</updated>
+    <updated>2026-10-28T13:53:45.443Z</updated>
 	<author>
 	
 	  
@@ -481,7 +519,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-3/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-3/</id>
     <published>2024-09-01T04:00:00.000Z</published>
-    <updated>2026-10-23T19:13:34.159Z</updated>
+    <updated>2026-10-28T13:53:45.443Z</updated>
 	<author>
 	
 	  
@@ -507,7 +545,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-2/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-2/</id>
     <published>2024-08-31T04:00:00.000Z</published>
-    <updated>2026-10-23T19:13:34.159Z</updated>
+    <updated>2026-10-28T13:53:45.443Z</updated>
 	<author>
 	
 	  
@@ -533,7 +571,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-1/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-1/</id>
     <published>2024-08-30T04:00:00.000Z</published>
-    <updated>2026-10-23T19:13:34.159Z</updated>
+    <updated>2026-10-28T13:53:45.443Z</updated>
 	<author>
 	
 	  
@@ -548,32 +586,6 @@
     <summary type="html">
     
       &lt;p&gt;Exciting times for me, I get to help out on an NServiceBus project! It&#39;s been way too long since I did anything with NServiceBus but I&#39;m back, baby! Most of the team has never used NServiceBus before so I thought it would be a good idea to do a little kata to get them up to speed. I&#39;ll probably do 2 or 3 of these and if they help my team they might as well help you, too.&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Plinko Diagram</title>
-    <link href="https://westerndevs.com/_/plinko-diagram/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/plinko-diagram/</id>
-    <published>2024-07-31T04:00:00.000Z</published>
-    <updated>2026-10-23T19:13:34.160Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>One of my team members mentioned that they envision the process flow of our code as a Plinko board. If you've never watched The Price is Right, a Plinko board is a vertical board with pegs that a contestant drops a disc down. The disc bounces off the pegs and lands in a slot at the bottom. The slots have different values and the contestant wins the value of the slot the disc lands in.</p><p><img src="/images/2024-07-31-plinko-diagram.md/2024-07-31-09-53-16.png" alt="">)</p><p>I just loved this mental model.  Each peg in the board is an fork in the code and a different path can be taken from that point on. It's basically an execution tree but with a fun visual that's easy to explain to people.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">flowchart TB</span><br><span class="line">    A --&gt; B &amp; C</span><br><span class="line">    B --&gt; D &amp; E</span><br><span class="line">    C --&gt; F &amp; G</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;One of my team members mentioned that they envision the process flow of our code as a Plinko board. If you&#39;ve never watched The Price is 
     
     </summary>
     
