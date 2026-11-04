@@ -5,7 +5,7 @@
   <link href="/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2026-10-27T16:00:00.000Z</updated>
+  <updated>2026-11-04T17:00:00.000Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -15,6 +15,48 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title type="html">Can You Validate Game Logic WITHOUT Code?</title>
+    <link href="https://westerndevs.com/game-design/david-wesst-can-you-validate-game-logic-without-code/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/game-design/david-wesst-can-you-validate-game-logic-without-code/</id>
+    <published>2026-11-04T17:00:00.000Z</published>
+    <updated>2026-11-04T17:00:00.000Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<iframe src="https://www.youtube.com/embed/KkKHnrUmEE4" title="Watch Can You Validate Game Logic WITHOUT Code? on YouTube" allow="encrypted-media; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" style="display:block;width:100%;aspect-ratio:16/9;border:0"></iframe><p><a href="https://www.youtube.com/watch?v=KkKHnrUmEE4" target="_blank" rel="noopener">Watch on YouTube</a></p><p>Spreadsheets are magical tools that can not only help you organize your finances, but they can also help you prototype video game logic. No really-- they can. That is what I spent a good chunk of my time this past iteration doing: modelling the new part of the base game and balancing it. All done without a line of code or even opening a code editor.</p><!-- Optional: add context or notes about the video here. -->]]></content>
+    
+    <summary type="html">
+    
+      Spreadsheets are magical tools that can not only help you organize your finances, but they can also help you prototype video game logic. No really they can. That is what I spent…
+    
+    </summary>
+    
+      <category term="game-design" scheme="https://westerndevs.com/categories/game-design/"/>
+    
+    
+      <category term="gamedev" scheme="https://westerndevs.com/tags/gamedev/"/>
+    
+      <category term="devlog" scheme="https://westerndevs.com/tags/devlog/"/>
+    
+      <category term="game-design" scheme="https://westerndevs.com/tags/game-design/"/>
+    
+      <category term="game-development" scheme="https://westerndevs.com/tags/game-development/"/>
+    
+      <category term="video" scheme="https://westerndevs.com/tags/video/"/>
+    
+      <category term="project-passenger" scheme="https://westerndevs.com/tags/project-passenger/"/>
+    
+      <category term="spreadsheets" scheme="https://westerndevs.com/tags/spreadsheets/"/>
+    
+  </entry>
   
   <entry>
     <title type="html">Video Games are Built with Spreadsheets</title>
@@ -207,7 +249,7 @@
     <link href="https://westerndevs.com/_/hosting-costs/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/hosting-costs/</id>
     <published>2026-01-15T05:00:00.000Z</published>
-    <updated>2026-10-28T13:53:45.436Z</updated>
+    <updated>2026-11-04T22:25:01.900Z</updated>
 	<author>
 	
 	  
@@ -233,7 +275,7 @@
     <link href="https://westerndevs.com/_/jujutsu-cheat-sheet/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/jujutsu-cheat-sheet/</id>
     <published>2025-11-05T05:00:00.000Z</published>
-    <updated>2026-10-28T13:53:45.441Z</updated>
+    <updated>2026-11-04T22:25:01.905Z</updated>
 	<author>
 	
 	  
@@ -259,7 +301,7 @@
     <link href="https://westerndevs.com/_/open-api-generator/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/open-api-generator/</id>
     <published>2025-03-30T04:00:00.000Z</published>
-    <updated>2026-10-28T13:53:45.443Z</updated>
+    <updated>2026-11-04T22:25:01.907Z</updated>
 	<author>
 	
 	  
@@ -285,7 +327,7 @@
     <link href="https://westerndevs.com/_/dependabot-ignore-dotnet-9/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/dependabot-ignore-dotnet-9/</id>
     <published>2024-11-20T05:00:00.000Z</published>
-    <updated>2026-10-28T13:53:45.439Z</updated>
+    <updated>2026-11-04T22:25:01.904Z</updated>
 	<author>
 	
 	  
@@ -311,7 +353,7 @@
     <link href="https://westerndevs.com/_/ravendb-on-k8s/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/ravendb-on-k8s/</id>
     <published>2024-11-14T05:00:00.000Z</published>
-    <updated>2026-10-28T13:53:45.445Z</updated>
+    <updated>2026-11-04T22:25:01.908Z</updated>
 	<author>
 	
 	  
@@ -337,7 +379,7 @@
     <link href="https://westerndevs.com/_/where-is-the-space/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/where-is-the-space/</id>
     <published>2024-11-10T05:00:00.000Z</published>
-    <updated>2026-10-28T13:53:45.447Z</updated>
+    <updated>2026-11-04T22:25:01.912Z</updated>
 	<author>
 	
 	  
@@ -363,7 +405,7 @@
     <link href="https://westerndevs.com/_/consuming-github-packges-in-yarn/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/consuming-github-packges-in-yarn/</id>
     <published>2024-11-05T05:00:00.000Z</published>
-    <updated>2026-10-28T13:53:45.439Z</updated>
+    <updated>2026-11-04T22:25:01.903Z</updated>
 	<author>
 	
 	  
@@ -389,7 +431,7 @@
     <link href="https://westerndevs.com/_/fast-endpoints-port/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/fast-endpoints-port/</id>
     <published>2024-10-12T04:00:00.000Z</published>
-    <updated>2026-10-28T13:53:45.440Z</updated>
+    <updated>2026-11-04T22:25:01.905Z</updated>
 	<author>
 	
 	  
@@ -415,7 +457,7 @@
     <link href="https://westerndevs.com/_/update-outdated-packages/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/update-outdated-packages/</id>
     <published>2024-09-15T04:00:00.000Z</published>
-    <updated>2026-10-28T13:53:45.446Z</updated>
+    <updated>2026-11-04T22:25:01.911Z</updated>
 	<author>
 	
 	  
@@ -441,7 +483,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-6/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-6/</id>
     <published>2024-09-14T04:00:00.000Z</published>
-    <updated>2026-10-28T13:53:45.443Z</updated>
+    <updated>2026-11-04T22:25:01.907Z</updated>
 	<author>
 	
 	  
@@ -467,7 +509,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-5/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-5/</id>
     <published>2024-09-09T04:00:00.000Z</published>
-    <updated>2026-10-28T13:53:45.443Z</updated>
+    <updated>2026-11-04T22:25:01.907Z</updated>
 	<author>
 	
 	  
@@ -493,7 +535,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-4/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-4/</id>
     <published>2024-09-02T04:00:00.000Z</published>
-    <updated>2026-10-28T13:53:45.443Z</updated>
+    <updated>2026-11-04T22:25:01.907Z</updated>
 	<author>
 	
 	  
@@ -519,7 +561,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-3/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-3/</id>
     <published>2024-09-01T04:00:00.000Z</published>
-    <updated>2026-10-28T13:53:45.443Z</updated>
+    <updated>2026-11-04T22:25:01.907Z</updated>
 	<author>
 	
 	  
@@ -545,7 +587,7 @@
     <link href="https://westerndevs.com/_/nservicebus-kata-2/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/nservicebus-kata-2/</id>
     <published>2024-08-31T04:00:00.000Z</published>
-    <updated>2026-10-28T13:53:45.443Z</updated>
+    <updated>2026-11-04T22:25:01.907Z</updated>
 	<author>
 	
 	  
@@ -560,32 +602,6 @@
     <summary type="html">
     
       &lt;p&gt;In the previous kata we sent a message from one application to another. This is a common pattern in messaging systems. In this kata we&#39;re going to look at a different pattern: publishing a message.&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title type="html">NServiceBus Kata 1</title>
-    <link href="https://westerndevs.com/_/nservicebus-kata-1/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/_/nservicebus-kata-1/</id>
-    <published>2024-08-30T04:00:00.000Z</published>
-    <updated>2026-10-28T13:53:45.443Z</updated>
-	<author>
-	
-	  
-	  <name>Simon Timms</name>
-	  <email>stimms@gmail.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>Exciting times for me, I get to help out on an NServiceBus project! It's been way too long since I did anything with NServiceBus but I'm back, baby! Most of the team has never used NServiceBus before so I thought it would be a good idea to do a little kata to get them up to speed. I'll probably do 2 or 3 of these and if they help my team they might as well help you, too.</p><a id="more"></a><ul><li>Kata 1 - Sending a message</li><li>Kata 2 - <a href="https://www.westerndevs.com/_/nservicebus-kata-2/" target="_blank" rel="noopener">Publishing a message</a></li><li>Kata 3 - <a href="https://www.westerndevs.com/_/nservicebus-kata-3/" target="_blank" rel="noopener">Switching transports</a></li><li>Kata 4 - <a href="https://www.westerndevs.com/_/nservicebus-kata-4/" target="_blank" rel="noopener">Long running processes</a></li><li>Kata 5 - <a href="https://www.westerndevs.com/_/nservicebus-kata-5" target="_blank" rel="noopener">Timeouts</a></li><li>Kata 6 - <a href="https://www.westerndevs.com/_/nservicebus-kata-6" target="_blank" rel="noopener">When things go wrong</a></li></ul><h2>The Problem</h2><p>Our goal is to very simply demonstrate reliable messaging. If you're communicating between two processes on different machines a usual approach is to send a message using HTTP. Problem is that sometimes the other end isn't reachable. Could be that the service is down, could be that the network is down or it could be that the remote location was hit by a meteor. HTTP won't help us in this case - what we want is a reliable protocol which will save the message somewhere safe and deliver it when the endpoint does show up.</p><p>For this we use a message queue. There are approximately 9 billion different messaging technologies out there but we're going to use NServiceBus. NServiceBus is a .NET library which wraps up a lot of the complexity of messaging. It is built to be able to use a variety of transport such as  RabbitMQ and Azure Service Bus.</p><p>We want to make use of NServiceBus and a few C# applications to demonstrate reliable messaging.</p><h1>The Kata</h1><p>I like cake but I feel bad about eating it because it's not good for me. So in this kata you need to command me to eat cake. I can't refuse a command to eat cake so I can't possibly feel bad about it.</p><p>Create a sender application which sends a message to a receiver application. The receiver application should be able to receive the message and write it to the console. The sender application should be able to send the message and then exit. The receiver application should be able to start up and receive the message even if the sender application isn't running.</p><p>Now go do it!</p><p>Useful resources:</p><ul><li><a href="https://docs.particular.net/tutorials/nservicebus-step-by-step/1-getting-started/" target="_blank" rel="noopener">NServiceBus getting started</a></li></ul><h1>My Solution</h1><ol><li>Create a new directory for the project</li></ol><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> kata1</span><br><span class="line"><span class="built_in">cd</span> kata1</span><br></pre></td></tr></table></figure><ol start="2"><li>Create a new console project for the sender</li></ol><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dotnet new<span class="built_in"> console </span>-o sender</span><br></pre></td></tr></table></figure><ol start="3"><li>Create a new console project for the receiver</li></ol><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dotnet new<span class="built_in"> console </span>-o receiver</span><br></pre></td></tr></table></figure><ol start="4"><li>Create a new class library for the messages</li></ol><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dotnet <span class="keyword">new</span> <span class="type">classlib</span> -o messages</span><br></pre></td></tr></table></figure><ol start="5"><li>Add a reference to the messages project in the sender and receiver projects</li></ol><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dotnet <span class="builtin-name">add</span> sender reference <span class="built_in">..</span>/messages</span><br><span class="line">dotnet <span class="builtin-name">add</span> receiver reference <span class="built_in">..</span>/messages</span><br></pre></td></tr></table></figure><ol start="6"><li>Add a reference to NServiceBus in all the projects</li></ol><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dotnet add sender <span class="keyword">package</span> <span class="title">NServiceBus</span></span><br><span class="line">dotnet add receiver <span class="keyword">package</span> <span class="title">NServiceBus</span></span><br><span class="line">dotnet add messages <span class="keyword">package</span> <span class="title">NServiceBus</span></span><br></pre></td></tr></table></figure><ol start="7"><li>Create a new class in the messages project (and remove Class1.cs)</li></ol><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">messages</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> NServiceBus;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">EatCake</span>: <span class="title">ICommand</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> NumberOfCakes &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> Flavour &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125; = <span class="string">"Chocolate"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ol start="8"><li>Update Program.cs in the sender project to send a message</li></ol><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> messages;</span><br><span class="line"><span class="keyword">using</span> NServiceBus;</span><br><span class="line"></span><br><span class="line">Console.Title = <span class="string">"NServiceBusKata - Sender"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> endpointConfiguration = <span class="keyword">new</span> EndpointConfiguration(<span class="string">"NServiceBusKataSender"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Choose JSON to serialize and deserialize messages</span></span><br><span class="line">endpointConfiguration.UseSerialization&lt;SystemJsonSerializer&gt;();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> transport = endpointConfiguration.UseTransport&lt;LearningTransport&gt;();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> endpointInstance = <span class="keyword">await</span> Endpoint.Start(endpointConfiguration);</span><br><span class="line"></span><br><span class="line"><span class="keyword">await</span> endpointInstance.Send(<span class="string">"NServiceBusKataReceiver"</span>, <span class="keyword">new</span> EatCake&#123;</span><br><span class="line">    Flavour = <span class="string">"Coconut"</span>,</span><br><span class="line">    NumberOfCakes = <span class="number">2</span> <span class="comment">//don't be greedy</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">await</span> endpointInstance.Stop();</span><br></pre></td></tr></table></figure><ol start="9"><li>Update Program.cs in the receiver project to be an endpoint</li></ol><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> NServiceBus;</span><br><span class="line"></span><br><span class="line">Console.Title = <span class="string">"NServiceBusKata - Reciever"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> endpointConfiguration = <span class="keyword">new</span> EndpointConfiguration(<span class="string">"NServiceBusKataReceiver"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Choose JSON to serialize and deserialize messages</span></span><br><span class="line">endpointConfiguration.UseSerialization&lt;SystemJsonSerializer&gt;();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> transport = endpointConfiguration.UseTransport&lt;LearningTransport&gt;();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> endpointInstance = <span class="keyword">await</span> Endpoint.Start(endpointConfiguration);</span><br><span class="line"></span><br><span class="line">Console.WriteLine(<span class="string">"Press Enter to exit..."</span>);</span><br><span class="line">Console.ReadLine();</span><br><span class="line"></span><br><span class="line"><span class="keyword">await</span> endpointInstance.Stop();</span><br></pre></td></tr></table></figure><ol start="10"><li>Add a message handler to the receiver project</li></ol><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> messages;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">EatCakeHandler</span> :</span><br><span class="line">    IHandleMessages&lt;EatCake&gt;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Task <span class="title">Handle</span>(<span class="params">EatCake message, IMessageHandlerContext context</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">$"Cake eaten, NumberOfCakes = <span class="subst">&#123;message.NumberOfCakes&#125;</span>; Flavour = <span class="subst">&#123;message.Flavour&#125;</span>"</span>);</span><br><span class="line">        <span class="keyword">return</span> Task.CompletedTask;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>Things to try now:</p><ol><li>Run the sender project - it will send a message but the receiver won't be running so nothing will happen</li><li>Run the receiver project - it will start listening for messages and find the message which was left for it</li><li>Run the sender project again - it will send a message and the receiver will pick it up and write to the console</li></ol><p>This demonstrates reliable messaging with NServiceBus</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Exciting times for me, I get to help out on an NServiceBus project! It&#39;s been way too long since I did anything with NServiceBus but I&#39;m back, baby! Most of the team has never used NServiceBus before so I thought it would be a good idea to do a little kata to get them up to speed. I&#39;ll probably do 2 or 3 of these and if they help my team they might as well help you, too.&lt;/p&gt;
     
     </summary>
     
