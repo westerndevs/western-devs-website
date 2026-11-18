@@ -5,7 +5,7 @@
   <link href="/feeds/david_wesst" rel="self" type="application/atom+xml"/>
   <link href="https://westerndevs.com" rel="alternate" type="application/atom+xml"/>
   
-  <updated>2026-11-04T17:00:00.000Z</updated>
+  <updated>2026-11-18T17:00:00.000Z</updated>
   <id>https://westerndevs.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title type="html">Constraints breed Creativity...Right?</title>
+    <link href="https://westerndevs.com/_/david-wesst-constraints-breed-creativity-right/" rel="alternate" type="text/html"/>
+    <id>https://westerndevs.com/_/david-wesst-constraints-breed-creativity-right/</id>
+    <published>2026-11-18T17:00:00.000Z</published>
+    <updated>2026-11-18T17:00:00.000Z</updated>
+	<author>
+	
+	  
+	  <name>David Wesst</name>
+	  <email>questions@davidwesst.com</email>
+	
+	  <uri>https://westerndevs.com</uri>
+	</author>
+    
+    <content type="html"><![CDATA[<iframe src="https://www.youtube.com/embed/ZEku20b-zAQ" title="Watch Constraints breed Creativity...Right? on YouTube" allow="encrypted-media; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" style="display:block;width:100%;aspect-ratio:16/9;border:0"></iframe><p><a href="https://www.youtube.com/watch?v=ZEku20b-zAQ" target="_blank" rel="noopener">Watch on YouTube</a></p><p>In my experience, doing a budget usually means getting bad news about how I "don't have enough." During my budgeting task this iteration, I discovered something interesting. The information didn't necessarily make me any richer, but it forced my brain to get creative with what I already had, rather than worrying about how I could make more.</p><!-- Optional: add context or notes about the video here. -->]]></content>
+    
+    <summary type="html">
+    
+      In my experience, doing a budget usually means getting bad news about how I &quot;don&#39;t have enough.&quot; During my budgeting task this iteration, I discovered something interesting. The…
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title type="html">Can You Validate Game Logic WITHOUT Code?</title>
@@ -249,7 +275,7 @@
     <link href="https://westerndevs.com/musings/defining-problem-before-the-soltuion/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/musings/defining-problem-before-the-soltuion/</id>
     <published>2023-01-27T23:24:33.221Z</published>
-    <updated>2026-11-04T22:25:01.900Z</updated>
+    <updated>2026-11-18T20:49:13.697Z</updated>
 	<author>
 	
 	  
@@ -287,7 +313,7 @@
     <link href="https://westerndevs.com/coding/problem-solution/docker-build-hangs-on-apt-key-in-wsl2/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/coding/problem-solution/docker-build-hangs-on-apt-key-in-wsl2/</id>
     <published>2023-01-12T02:43:58.005Z</published>
-    <updated>2026-11-04T22:25:01.900Z</updated>
+    <updated>2026-11-18T20:49:13.697Z</updated>
 	<author>
 	
 	  
@@ -329,7 +355,7 @@
     <link href="https://westerndevs.com/musings/highlight-reel-for-2022/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/musings/highlight-reel-for-2022/</id>
     <published>2023-01-05T21:47:02.098Z</published>
-    <updated>2026-11-04T22:25:01.900Z</updated>
+    <updated>2026-11-18T20:49:13.697Z</updated>
 	<author>
 	
 	  
@@ -350,9 +376,9 @@
       <category term="musings" scheme="https://westerndevs.com/categories/musings/"/>
     
     
-      <category term="typescript" scheme="https://westerndevs.com/tags/typescript/"/>
-    
       <category term="javascript" scheme="https://westerndevs.com/tags/javascript/"/>
+    
+      <category term="typescript" scheme="https://westerndevs.com/tags/typescript/"/>
     
       <category term="github" scheme="https://westerndevs.com/tags/github/"/>
     
@@ -371,7 +397,7 @@
     <link href="https://westerndevs.com/_/speaking-at-tech-events-helps-you-grow/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/speaking-at-tech-events-helps-you-grow/</id>
     <published>2022-12-20T21:59:37.185Z</published>
-    <updated>2026-11-04T22:25:01.900Z</updated>
+    <updated>2026-11-18T20:49:13.696Z</updated>
 	<author>
 	
 	  
@@ -409,7 +435,7 @@
     <link href="https://westerndevs.com/_/docker-desktop-is-not-docker-engine/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/docker-desktop-is-not-docker-engine/</id>
     <published>2022-12-14T02:28:36.457Z</published>
-    <updated>2026-11-04T22:25:01.900Z</updated>
+    <updated>2026-11-18T20:49:13.696Z</updated>
 	<author>
 	
 	  
@@ -445,7 +471,7 @@
     <link href="https://westerndevs.com/_/prairie-dev-con-2022-takeaways/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/prairie-dev-con-2022-takeaways/</id>
     <published>2022-12-07T20:37:20.777Z</published>
-    <updated>2026-11-04T22:25:01.900Z</updated>
+    <updated>2026-11-18T20:49:13.696Z</updated>
 	<author>
 	
 	  
@@ -487,7 +513,7 @@
     <link href="https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/open-graph-tools-and-resources-for-web-nerds/</id>
     <published>2022-12-01T09:18:34.509Z</published>
-    <updated>2026-11-04T22:25:01.899Z</updated>
+    <updated>2026-11-18T20:49:13.696Z</updated>
 	<author>
 	
 	  
@@ -525,7 +551,7 @@
     <link href="https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/does-gdpr-apply-to-personal-websites/</id>
     <published>2022-11-19T01:10:07.083Z</published>
-    <updated>2026-11-04T22:25:01.899Z</updated>
+    <updated>2026-11-18T20:49:13.696Z</updated>
 	<author>
 	
 	  
@@ -563,7 +589,7 @@
     <link href="https://westerndevs.com/_/how-much-is-enough-documentation/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/how-much-is-enough-documentation/</id>
     <published>2022-11-10T22:00:00.000Z</published>
-    <updated>2026-11-04T22:25:01.899Z</updated>
+    <updated>2026-11-18T20:49:13.696Z</updated>
 	<author>
 	
 	  
@@ -603,7 +629,7 @@
     <link href="https://westerndevs.com/_/how-to-fork-like-a-boss/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/_/how-to-fork-like-a-boss/</id>
     <published>2022-11-02T21:00:00.000Z</published>
-    <updated>2026-11-04T22:25:01.899Z</updated>
+    <updated>2026-11-18T20:49:13.696Z</updated>
 	<author>
 	
 	  
@@ -637,7 +663,7 @@
     <link href="https://westerndevs.com/finding-inspiration/i-can-teach-your-dog-quantum-physics/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/finding-inspiration/i-can-teach-your-dog-quantum-physics/</id>
     <published>2021-06-28T16:00:00.000Z</published>
-    <updated>2026-11-04T22:25:01.899Z</updated>
+    <updated>2026-11-18T20:49:13.696Z</updated>
 	<author>
 	
 	  
@@ -675,7 +701,7 @@
     <link href="https://westerndevs.com/inner-monologue/what-value-does-making-content-bring-to-me/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/inner-monologue/what-value-does-making-content-bring-to-me/</id>
     <published>2021-06-17T16:00:00.000Z</published>
-    <updated>2026-11-04T22:25:01.899Z</updated>
+    <updated>2026-11-18T20:49:13.696Z</updated>
 	<author>
 	
 	  
@@ -713,7 +739,7 @@
     <link href="https://westerndevs.com/inner-monologue/my-secret-addiction-to-likes/" rel="alternate" type="text/html"/>
     <id>https://westerndevs.com/inner-monologue/my-secret-addiction-to-likes/</id>
     <published>2021-06-03T16:00:00.000Z</published>
-    <updated>2026-11-04T22:25:01.899Z</updated>
+    <updated>2026-11-18T20:49:13.696Z</updated>
 	<author>
 	
 	  
@@ -743,42 +769,6 @@
       <category term="analytics" scheme="https://westerndevs.com/tags/analytics/"/>
     
       <category term="acceptance" scheme="https://westerndevs.com/tags/acceptance/"/>
-    
-  </entry>
-  
-  <entry>
-    <title type="html">Lucky Number v7</title>
-    <link href="https://westerndevs.com/technology/inner-monologue/lucky-number-v7/" rel="alternate" type="text/html"/>
-    <id>https://westerndevs.com/technology/inner-monologue/lucky-number-v7/</id>
-    <published>2021-05-24T16:00:00.000Z</published>
-    <updated>2026-11-04T22:25:01.899Z</updated>
-	<author>
-	
-	  
-	  <name>David Wesst</name>
-	  <email>questions@davidwesst.com</email>
-	
-	  <uri>https://westerndevs.com</uri>
-	</author>
-    
-    <content type="html"><![CDATA[<p>I fixed up my blog-website-thingy again. I'm calling this v7, although I'm pretty sure there are a few incarnations of the site that were lost early on in my years, but v7 seems about right for the content I'm sharing here. In any case-- I thought I'd share the &quot;why&quot; around the new website revamp and how I think a project like this is just what I need.</p><h1>Why did you stop blogging, anyway?</h1><p>I've been thinking a lot about that lately, and the reason I stopped was that I didn't have a reason to do it anymore.</p><p>I started blogging because I was told that it was one of the things I <em>should be doing</em> and had to <em>keep doing</em> to get (and stay) in the Microsoft MVP program as a Front End Web Development MVP (formerly known as the Internet Explorer MVP program). Once I decided to leave the Front End Web Dev stuff behind to make way for my passion for video games and stuff, why should I bother blogging?</p><p>And so that was that. I stopped blogging and made way for all the video game development effort I could muster! Sure, there was the occassional link to a YouTube video or a little tech problem that I've solved on the side, but for the most part, it was dead.</p><p>0 commercial games later, and a few false restarts I'm back on the blog and the website...again.</p><h1>So why bother starting it up again?</h1><p>Well, I stopped because I gave up my reason to do so. I am starting because I found a reason: I want to share and learn.</p><p>Let's break that down a little:</p><h2>&quot;I want to&quot;</h2><p>That is probably the most important part of the whole reason. I want to make content. I'm feeling the need to do it. Maybe its habit or nostalgia for the days where creating content was part of keeping my professional status, either way it's something I like to do and the blog is a lightweight and easy way to do that.</p><h2>&quot;share&quot;</h2><p>Thinking back to when I blogged regularly as part of my MVP contribution, I didn't realize how much of a platform I had to share stories, advice, how-tos and whatever else. It really was quite the reach, and quite a privilege. My experience and work has changed a lot, but there is a still a lot to share for others.</p><p>The big difference this time around is that I'm not worried about whether or not it fits &quot;my career goals&quot; or my &quot;professional focus&quot;.  It's really about me putting my thoughts together in a cohesive way that might help someone reflect and make a decision. In getting v7 of the website ready <em>I was that &quot;someone&quot;</em> and looking over all my old posts confirmed that this is a good idea.</p><p>But, even if you (or me) don't find my posts helpful in the long or short term, that's okay. It feels good to get a post out there. There's a gratifying feeling that comes with putting a post together that helps me, and that makes it worth it too.</p><h2>&quot;learn&quot;</h2><p>As cliché as it sounds, I'm a life long learner. Content creation and management is something that keeps coming up in my side projects, and yet I've never taken the time to properly learn and understand how to do it. It's not about the marketing side, but rather what it means to contribute, learn, and engage with your audience as a solo content creator.</p><p>Plus, there are these weird &quot;little problems&quot; I've always had in my years of creating content with with MVP program. I'm hoping that with fresh eyes and new experiences with me, I can tackle these problems with a different perspective that I have in the past.</p><p>Ultimately, there is a lot to unpack here-- but assuming I keep this going, I'll continue to share what I learn, which will lead to more sharing and then more learning and...you see how this is good thing? :)</p><h2>The Point</h2><p>Scott Hanselman shared this idea <a href="https://www.hanselman.com/blog/do-they-deserve-the-gift-of-your-keystrokes" target="_blank" rel="noopener">(reference)</a> of valuing your effort in helping through your keystrokes (I'm greatly paraphrasing the idea). I spend time helping others one-on-one, but it's usually the same stories, ideas, thought patterns, and so on that people find helpful. This website and blog is my chance to share new things and old with a fresh perspective, one that is owned and driven by my values and ideas and not those of my employer or community.</p><p>Maybe its selfish to think this is a good idea, but that's fine because it's my website, my blog, and my idea that I think is good.</p><p>And if I think it's good, then that's a start.</p><p>Thanks for playing. ~ DW</p>]]></content>
-    
-    <summary type="html">
-    
-      I fixed up my blog-website-thingy again. I&#39;m calling this v7, although I&#39;m pretty sure there are a few incarnations of the site that were lost early on in my years, but v7 seems about right for the content I&#39;m sharing here. In any case-- I thought I&#39;d share the &quot;why&quot; around the new website revamp and how I think a project like this is just what I need.
-    
-    </summary>
-    
-      <category term="technology" scheme="https://westerndevs.com/categories/technology/"/>
-    
-      <category term="inner monologue" scheme="https://westerndevs.com/categories/technology/inner-monologue/"/>
-    
-    
-      <category term="blog" scheme="https://westerndevs.com/tags/blog/"/>
-    
-      <category term="website" scheme="https://westerndevs.com/tags/website/"/>
-    
-      <category term="graphql" scheme="https://westerndevs.com/tags/graphql/"/>
     
   </entry>
   
